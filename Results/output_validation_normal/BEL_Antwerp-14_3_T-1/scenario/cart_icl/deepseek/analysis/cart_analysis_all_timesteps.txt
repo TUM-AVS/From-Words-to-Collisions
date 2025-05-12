@@ -1,0 +1,34 @@
+### Safety analysis for the most recent timestep (0.9 seconds):
+
+### Obstacle Analysis:
+1. **Obstacle ID: 30639**
+   - **Distance Risk reason**: Static obstacle at (-447.937, -313.7016), far from ego's trajectory. Distance is increasing as ego moves away.
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: Static obstacle with no velocity or acceleration. No time-based risk.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5 (Negligible Risk)
+
+2. **Obstacle ID: 30652**
+   - **Distance Risk reason**: Moving away from ego's trajectory. Distance between ego (-454.5361, -336.9459) and obstacle (-445.8799, -317.6921) is ~19.5m and increasing.
+   - **Distance safety score**: 4 (Low Risk)
+   - **Time Risk reason**: Relative velocity is ~5.2m/s (ego decelerating, obstacle maintaining speed). TTC is ~3.75s (safe).
+   - **Time safety score**: 4 (Low Risk)
+   - **Overall Risk score**: 4 (Low Risk)
+
+### Chain of Thought Scenario Analysis:
+1. Ego is decelerating consistently (negative acceleration) in lanelet 53.0.
+2. Obstacle 30652 is moving away from ego's path (lanelet 939.0 vs. ego's 53.0) with increasing distance.
+3. Obstacle 30639 is static and far from ego's trajectory.
+4. No intersecting paths or immediate collision risks detected.
+
+### Summary in JSON Format:
+```json
+{
+    "CollisionObstacles": null,
+    "ExtremeRiskObstacle": null,
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "No obstacles are on a collision path with the ego vehicle. Both obstacles are either static or moving away with safe distances and TTC."
+    }
+}
+```

@@ -1,0 +1,161 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30750
+- **Position and Motion**
+  - Front-right with adjusted distances: longitudinal 19.30m, lateral -1.90m
+  - Relative velocity: longitudinal -1.64 m/s, lateral 0.00 m/s
+  - The obstacle is driving toward the ego car longitudinally.
+
+- **Trajectory Analysis**
+  - Over timesteps, the distance is gradually decreasing, indicating a slow approach.
+  - No lateral motion observed.
+
+- **TTC and MDC Calculations**
+  - **TTC (Longitudinal)** = 19.30m / 1.64 m/s ≈ 11.77s
+  - **MDC (Longitudinal)**: Remains well over 1.0m as both distances are above 5.0m.
+  - Given the high TTC and MDC, Risk Score: 5 (Negligible Risk)
+
+#### Obstacle 30754
+- **Position and Motion**
+  - Front with adjusted distances: longitudinal 19.33m, lateral 0.00m
+  - Relative velocity: longitudinal -1.64 m/s, lateral 0.00 m/s
+
+- **Trajectory Analysis**
+  - Steady decrease in distance suggests the obstacle is approaching, but at a slow rate.
+
+- **TTC and MDC Calculations**
+  - **TTC (Longitudinal)** = 19.33m / 1.64 m/s ≈ 11.79s
+  - **MDC (Longitudinal)**: Well beyond immediate risk as both distances are relatively large.
+  - Risk Score: 5 (Negligible Risk)
+
+#### Obstacle 30755
+- **Position and Motion**
+  - Front-left with adjusted distances: longitudinal 19.35m, lateral 1.88m
+  - Relative velocity: longitudinal -1.64 m/s, lateral 0.00 m/s
+
+- **Trajectory Analysis**
+  - Minimal change in distance over time signals a relatively stable path.
+
+- **TTC and MDC Calculations**
+  - **TTC (Longitudinal)** = 19.35m / 1.64 m/s ≈ 11.80s
+  - Risk Score: 5 (Negligible Risk)
+
+#### Obstacle 30757
+- **Position and Motion**
+  - Front-left with adjusted distances: longitudinal 19.38m, lateral 5.38m
+  - Relative velocity: longitudinal -1.64 m/s, negligible lateral motion
+
+- **Trajectory Analysis**
+  - Slow approach longitudinally with some lateral positioning stability.
+
+- **TTC and MDC Calculations**
+  - **TTC (Longitudinal)** = 19.38m / 1.64 m/s ≈ 11.82s
+  - Risk Score: 5 (Negligible Risk)
+
+#### Obstacle 30758
+- **Position and Motion**
+  - Front-left with adjusted distances: longitudinal 11.67m, lateral 1.88m
+  - Relative velocity: longitudinal -1.46 m/s
+
+- **Trajectory Analysis**
+  - Continuous approach with stable lateral distance over time.
+
+- **TTC and MDC Calculations**
+  - **TTC (Longitudinal)** = 11.67m / 1.46 m/s ≈ 7.99s
+  - Risk Score: 5 (Negligible Risk)
+
+#### Obstacle 30762
+- **Position and Motion**
+  - Left with adjusted distances: longitudinal 0.00m, lateral 1.89m
+  - Relative velocity: longitudinal 2.80 m/s, negligible lateral motion
+  - Moving towards the ego car.
+
+- **Trajectory Analysis**
+  - Approaching laterally with indications of being in the same lane.
+
+- **TTC and MDC Calculations**
+  - **TTC (Lateral)** and **MDC (Lateral)** not a concern due to stable positions.
+  - Risk Score: 5 (Negligible Risk)
+
+#### Obstacle 30763
+- **Position and Motion**
+  - Front-right with adjusted distances: longitudinal 6.78m, lateral -1.89m
+  - Relative velocity: longitudinal 2.05 m/s, driving away longitudinally
+
+- **Trajectory Analysis**
+  - Increasing longitudinal distance confirms a separation from the ego vehicle.
+
+- **TTC and MDC Calculations**
+  - **TTC (Longitudinal)**: Not applicable, obstacle is moving away.
+  - Risk Score: 5 (Negligible Risk)
+
+#### Obstacle 30764
+- **Position and Motion**
+  - Behind with adjusted distances: longitudinal -0.87m, lateral 0.00m
+  - Relative velocity: longitudinal 5.18 m/s, exact longitudinal alignment
+
+- **Trajectory Analysis**
+  - Steadily closing distance longitudinally.
+
+- **TTC and MDC Calculations**
+  - **TTC (Longitudinal)** = |0.87m / 5.18 m/s| ≈ 0.17s
+  - **MDC**: Imminent risk as longitudinal distance is near-zero with closing velocity.
+  - Risk Score: 1 (Extreme Risk)
+
+#### Obstacle 30765
+- **Position and Motion**
+  - Rear-right with adjusted distances: longitudinal -4.49m, lateral -1.89m
+  - Relative velocity: longitudinal 6.23 m/s
+
+- **Trajectory Analysis**
+  - Approaching from behind, closing in fast.
+
+- **TTC and MDC Calculations**
+  - **TTC (Longitudinal)** = |4.49m / 6.23 m/s| ≈ 0.72s
+  - **MDC**: Significant narrowing of trajectory, posing a risk.
+  - Risk Score: 2 (High Risk)
+
+#### Obstacle 30766
+- **Position and Motion**
+  - Rear-left with adjusted distances: longitudinal -10.63m, lateral 1.89m
+  - Relative velocity: longitudinal 5.39 m/s
+
+- **Trajectory Analysis**
+  - Approaching from rear-left, but positioned farther away.
+
+- **TTC and MDC Calculations**
+  - **TTC (Longitudinal)** = |10.63m / 5.39 m/s| ≈ 1.97s
+  - Risk Score: 3 (Medium Risk)
+
+#### Obstacle 30767
+- **Position and Motion**
+  - Rear-left with adjusted distances: longitudinal -11.91m, lateral 5.39m
+  - Relative velocity: longitudinal 8.27 m/s
+
+- **Trajectory Analysis**
+  - Fast approach from behind, lateral alignment stable.
+
+- **TTC and MDC Calculations**
+  - **TTC (Longitudinal)** = |11.91m / 8.27 m/s| ≈ 1.44s
+  - Risk Score: 3 (Medium Risk)
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "N/A",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30764",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "30765",
+        "OverallRiskScore": "2"
+    }
+}
+```
+
+In conclusion, obstacle 30764 poses an extreme risk due to the fast closing longitudinal distance from behind, indicative of a possible collision imminently. Obstacle 30765, while approaching quickly from behind, poses a high risk. The rest of the obstacles are negligible to medium risk as per the assessments based on their positions and trajectories.

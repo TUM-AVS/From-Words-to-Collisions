@@ -1,0 +1,45 @@
+At t=0.9s, the ego vehicle is at (83.3575, 216.0872) with a velocity of 7.4517 m/s and an orientation of -0.914 radians.  Let's analyze the risk posed by each obstacle:
+
+* **Obstacle 30259:** This obstacle appears suddenly at 0.9s, located at (96.4987, 189.5383), and lanelet is 261. Therefore, there is no risk of collision since it is far from the ego vehicle and not located in the same lanelet as ego. Risk: **Negligible (5)**
+
+* **Obstacle 30261:** Located at (91.6325, 206.4185) in the same lanelet 304.  Its velocity is decreasing rapidly (2.9388 m/s), suggesting heavy braking.  While it's ahead of the ego vehicle, the closing velocity is still significant. Needs further monitoring.  Risk: **Medium (3)**
+
+* **Obstacle 30268:** At (73.5247, 231.3319) in the same lanelet 304, it is further from the ego vehicle than 30261 and with velocity is 5.8789 m/s. Risk: **Low (4)**
+
+* **Obstacle 30271:**  This obstacle is located in lanelet 942, and far from the ego. Therefore, Risk: **Negligible (5)**
+
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacles": [],
+    "HighRiskObstacles": [],
+    "MediumRiskObstacles":[
+        {
+            "ObstacleID": "30261",
+            "OverallRiskScore": 3
+        }
+    ],
+  "LowRiskObstacles":[
+        {
+            "ObstacleID": "30268",
+            "OverallRiskScore": 4
+        }
+    ],
+
+    "NegligibleRiskObstacles":[
+{
+            "ObstacleID": "30259",
+            "OverallRiskScore": 5
+        },
+{
+            "ObstacleID": "30271",
+            "OverallRiskScore": 5
+        }
+
+    ]
+
+
+
+}
+```

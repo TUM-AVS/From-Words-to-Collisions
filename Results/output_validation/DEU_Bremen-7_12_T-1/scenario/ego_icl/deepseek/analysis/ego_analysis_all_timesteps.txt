@@ -1,0 +1,96 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 6.8s)
+
+---
+
+#### **Obstacle 30294 (Front-left)**
+- **Adjusted Distance**: Longitudinal 19.38m, Lateral 14.86m  
+- **Relative Velocity**: Longitudinal -0.44 m/s (approaching), Lateral 0.00 m/s (stable)  
+- **Motion**: Approaching longitudinally, no lateral motion.  
+- **TTC (Longitudinal)**: 19.38 / 0.44 ≈ 44.05s (No Risk - 5)  
+- **MDC (Lateral)**: 14.86m (No Risk - 5)  
+- **Overall Risk**: 5 (No Risk)  
+- **Justification**: Large distances in both dimensions with slow approach speed. No collision risk.
+
+---
+
+#### **Obstacle 30295 (Front-left)**
+- **Adjusted Distance**: Longitudinal 15.94m, Lateral 13.08m  
+- **Relative Velocity**: Longitudinal -0.32 m/s (approaching), Lateral -2.59 m/s (approaching rapidly)  
+- **Motion**: Approaching both longitudinally and laterally (from left).  
+- **TTC (Lateral)**: 13.08 / 2.59 ≈ 5.05s (Low Risk - 4)  
+- **MDC (Lateral)**: 13.08m (No Risk - 5)  
+- **Overall Risk**: 4 (Low Risk)  
+- **Justification**: Rapid lateral approach, but distance remains large. No immediate collision risk.
+
+---
+
+#### **Obstacle 30298 (Front)**
+- **Adjusted Distance**: Longitudinal 7.74m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -0.44 m/s (approaching), Lateral 0.00 m/s (stable)  
+- **Motion**: Approaching longitudinally, exact lateral alignment.  
+- **TTC (Longitudinal)**: 7.74 / 0.44 ≈ 17.59s (No Risk - 5)  
+- **MDC (Longitudinal)**: 7.74m (No Risk - 5)  
+- **Overall Risk**: 5 (No Risk)  
+- **Justification**: Stable lateral alignment and slow longitudinal approach. No collision risk.
+
+---
+
+#### **Obstacle 30299 (Front)**
+- **Adjusted Distance**: Longitudinal 0.21m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -0.40 m/s (approaching), Lateral 0.00 m/s (stable)  
+- **Motion**: Approaching longitudinally, exact lateral alignment.  
+- **TTC (Longitudinal)**: 0.21 / 0.40 ≈ 0.53s (Extreme Risk - 1)  
+- **MDC (Longitudinal)**: 0.21m (Extreme Risk - 1)  
+- **Overall Risk**: 1 (Extreme Risk)  
+- **Justification**: Extremely close longitudinally (0.21m) with approaching velocity. Collision imminent if no intervention.
+
+---
+
+#### **Obstacle 30305 (Behind)**
+- **Adjusted Distance**: Longitudinal -8.12m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 1.29 m/s (approaching from behind), Lateral 0.08 m/s (negligible)  
+- **Motion**: Approaching from behind, exact lateral alignment.  
+- **TTC (Longitudinal)**: 8.12 / 1.29 ≈ 6.29s (Low Risk - 4)  
+- **MDC (Longitudinal)**: 8.12m (No Risk - 5)  
+- **Overall Risk**: 4 (Low Risk)  
+- **Justification**: Approaching from behind but at a safe distance. No immediate risk.
+
+---
+
+#### **Obstacle 30306 (Behind)**
+- **Adjusted Distance**: Longitudinal -19.96m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 3.06 m/s (approaching from behind), Lateral 0.27 m/s (negligible)  
+- **Motion**: Approaching from behind, exact lateral alignment.  
+- **TTC (Longitudinal)**: 19.96 / 3.06 ≈ 6.52s (Low Risk - 4)  
+- **MDC (Longitudinal)**: 19.96m (No Risk - 5)  
+- **Overall Risk**: 4 (Low Risk)  
+- **Justification**: High speed but large distance. No immediate risk.
+
+---
+
+### **Trajectory Analysis**
+- **Obstacle 30299**: Longitudinal distance decreased from 1.02m (6.5s) to 0.21m (6.8s) with consistent approach velocity. Collision is imminent if trajectory continues.
+- Other obstacles either maintain safe distances or are diverging.
+
+---
+
+### **Collision Scenario Determination**
+- **Obstacle 30299** is at **Extreme Risk (Score 1)** with TTC ≈ 0.53s and MDC = 0.21m. This meets the criteria for a collision scenario.
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30299",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30299 has extreme risk (TTC ≈ 0.53s, MDC = 0.21m) with imminent collision if no intervention."
+}
+```

@@ -1,0 +1,49 @@
+### Safety analysis for the most recent timestep:
+
+### Obstacle Analysis:
+1. **Obstacle ID: 30295.0**
+   - **Distance Risk reason**: The obstacle is in the same lanelet (509.0) as the ego vehicle and has been consistently moving towards the ego vehicle over the past timesteps. The distance has decreased from ~13.6m to ~12.9m.
+   - **Distance safety score**: 2 (High Risk)
+   - **Time Risk reason**: The relative velocity is decreasing (ego decelerating faster than the obstacle), but the obstacle is still approaching. TTC is ~3.5s based on current relative velocity.
+   - **Time safety score**: 3 (Medium Risk)
+   - **Overall Risk score**: 2 (High Risk)
+
+2. **Obstacle ID: 30298.0**
+   - **Distance Risk reason**: The obstacle is in a different lanelet (33.0) and moving away from the ego vehicle. Distance has increased from ~19.4m to ~21.6m.
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: The obstacle is moving away with stable velocity. No collision risk.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5 (Negligible Risk)
+
+3. **Obstacle ID: 30301.0**
+   - **Distance Risk reason**: The obstacle is in a different lanelet (792.0) and moving away from the ego vehicle. Distance has increased from ~19.5m to ~20.8m.
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: The obstacle is moving away with stable velocity. No collision risk.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5 (Negligible Risk)
+
+4. **Obstacle ID: 30304.0**
+   - **Distance Risk reason**: The obstacle is in a different lanelet (41.0) and moving away from the ego vehicle. Distance has increased from ~30.1m to ~30.5m.
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: The obstacle is moving away with stable velocity. No collision risk.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5 (Negligible Risk)
+
+### Chain of Thought Scenario Analysis:
+1. Only Obstacle 30295.0 is in the same lanelet as the ego vehicle.
+2. The distance between ego and 30295.0 is decreasing but still >10m.
+3. The ego is decelerating faster than the obstacle, reducing collision risk.
+4. No immediate collision risk, but high risk due to proximity and same lanelet.
+5. Other obstacles are moving away or in different lanelets.
+
+### Summary in JSON Format:
+```json
+{
+    "CollisionObstacles": null,
+    "ExtremeRiskObstacle": null,
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "No immediate collision risk. Only Obstacle 30295.0 is in the same lanelet with decreasing distance but still >10m away. Ego is decelerating faster than the obstacle."
+    }
+}
+```

@@ -1,0 +1,34 @@
+Obstacle 30215 Analysis:
+
+Trajectory Analysis:
+- Initially, the obstacle was directly in front of the ego vehicle (lateral distance 0.00m) and moving away longitudinally.
+- Over the timesteps, the obstacle started moving to the left and further away longitudinally.
+- In the most recent timestep (0.9s), the obstacle is Front-Left and moving away in both directions.
+
+TTC Calculation (0.9s):
+- Longitudinal TTC: 15.53m / 0.31 m/s ≈ 50.1s (Not applicable as the relative velocity is almost zero and moving away)
+- Lateral TTC: 3.83m / 11.97 m/s ≈ 0.32s
+
+MDC Calculation (0.9s):
+- Given the trajectories and the fact that the obstacle is moving away in both directions, the MDC is increasing and not a primary concern.  We can estimate it as approximately 3.83m (the lateral distance).
+
+Risk Assessment (0.9s):
+- Longitudinal Risk: Negligible (5) - Obstacle moving away.
+- Lateral Risk: Medium (3) due to the somewhat low lateral distance and fast-increasing lateral distance over the past time steps, it does not represent immediate risk, because is moving away.
+
+Overall Risk:
+- Although the lateral TTC is low (0.32s), the obstacle is moving *away* laterally. The small MDC is not a concern as it's increasing. Therefore, the overall risk is Medium (3).
+
+
+JSON Summary:
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": null,
+  "MediumRiskObstacle": {
+    "ObstacleID": "30215",
+    "OverallRiskScore": "3"
+  }
+}
+```

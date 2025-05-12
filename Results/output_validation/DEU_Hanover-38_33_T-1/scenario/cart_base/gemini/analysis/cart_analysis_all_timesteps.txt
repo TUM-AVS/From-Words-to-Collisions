@@ -1,0 +1,23 @@
+At t=7.0s, Ego is in lanelet 65.  Several obstacles are nearby and require analysis:
+
+* **Obstacle 30688:** In the same lanelet (65) as Ego and relatively close. Its velocity is much higher than Ego's (5.44 vs 1.67), and though it shows a recent deceleration trend, the closing rate is still high.  This poses an extreme risk.
+
+* **Obstacle 30689:** Also in lanelet 65 and approaching Ego. While farther away than 30688, it has even higher velocity (5.76) with a recent, slight deceleration.  Still, its trajectory and proximity warrant classifying it as a high risk.
+
+* **Obstacle 30696:** Now in lanelet 65 (moved from 1984). Its position and velocity (5.13) along with its recent acceleration trend suggest a medium risk.
+
+Other obstacles are in different lanelets and/or sufficiently far away to pose lower risk.
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30688",
+        "OverallRiskScore": 1
+    },
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "Obstacle 30688 poses an extreme risk due to its high closing velocity in the same lanelet as Ego. Other obstacles are high/medium risk, but not imminent collision."
+    }
+}
+```

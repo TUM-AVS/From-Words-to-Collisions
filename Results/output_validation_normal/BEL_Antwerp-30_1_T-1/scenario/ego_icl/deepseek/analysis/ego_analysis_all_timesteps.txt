@@ -1,0 +1,82 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 30638 (Front-left)**
+- **Adjusted Distances**: Longitudinal 2.80 m, Lateral 13.73 m  
+- **Relative Velocity**: Longitudinal -6.19 m/s (approaching), Lateral 8.34 m/s (moving away left)  
+- **Motion**:  
+  - Longitudinally: Approaching ego at **6.19 m/s** (closing distance).  
+  - Laterally: Moving away at **8.34 m/s** (increasing lateral separation).  
+
+##### **Risk Assessment**:
+1. **Time-to-Collision (TTC)**:  
+   - Longitudinal TTC = 2.80 m / 6.19 m/s = **0.45 seconds** (Extreme Risk, TTC ≤ 0.5s).  
+   - Lateral TTC: Not applicable (moving away).  
+
+2. **Minimum Distance to Collision (MDC)**:  
+   - Lateral distance is increasing (13.73 m), so MDC is dominated by longitudinal proximity.  
+   - **MDC = 2.80 m** (Medium Risk, 1.0 < MDC ≤ 3.0 m).  
+
+3. **Overall Risk**:  
+   - **TTC (0.45s)** indicates Extreme Risk (1).  
+   - **MDC (2.80m)** indicates Medium Risk (3).  
+   - **Priority**: Extreme Risk (1) due to imminent collision threat from TTC.  
+
+---
+
+#### **Obstacle 30640 (Front-left)**
+- **Adjusted Distances**: Longitudinal 6.38 m, Lateral 2.15 m  
+- **Relative Velocity**: Longitudinal -14.45 m/s (approaching), Lateral -0.03 m/s (negligible lateral motion).  
+- **Motion**:  
+  - Longitudinally: Rapidly approaching at **14.45 m/s** (high closing speed).  
+  - Laterally: Nearly static (minimal lateral movement toward ego).  
+
+##### **Risk Assessment**:
+1. **Time-to-Collision (TTC)**:  
+   - Longitudinal TTC = 6.38 m / 14.45 m/s = **0.44 seconds** (Extreme Risk, TTC ≤ 0.5s).  
+   - Lateral TTC: Not applicable (no significant lateral motion).  
+
+2. **Minimum Distance to Collision (MDC)**:  
+   - Lateral distance is stable (2.15 m), so MDC is **2.15 m** (Medium Risk, 1.0 < MDC ≤ 3.0 m).  
+
+3. **Overall Risk**:  
+   - **TTC (0.44s)** indicates Extreme Risk (1).  
+   - **MDC (2.15m)** indicates Medium Risk (3).  
+   - **Priority**: Extreme Risk (1) due to imminent collision threat from TTC.  
+
+---
+
+### **Trajectory Analysis**
+- **Obstacle 30638**:  
+  - Longitudinal distance decreases from 8.67 m (0.1s) to 2.80 m (0.9s) at ~6.19 m/s.  
+  - Lateral distance increases (7.53 m to 13.73 m), confirming divergence.  
+  - **Collision unlikely laterally but imminent longitudinally**.  
+
+- **Obstacle 30640**:  
+  - Longitudinal distance drops from 18.14 m (0.1s) to 6.38 m (0.9s) at ~14.45 m/s.  
+  - Lateral motion is negligible (~2.1 m to 2.15 m).  
+  - **High-speed frontal collision imminent**.  
+
+---
+
+### **Collision Scenario Determination**
+- **Obstacle 30638**: Extreme Risk (TTC = 0.45s).  
+- **Obstacle 30640**: Extreme Risk (TTC = 0.44s).  
+- **Both obstacles** meet Extreme Risk criteria (TTC ≤ 0.5s).  
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30638, 30640",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Both obstacles have TTC ≤ 0.5s (Extreme Risk), indicating imminent collision if trajectories are maintained. Obstacle 30640 poses the highest threat due to rapid longitudinal closure (14.45 m/s)."
+}
+```

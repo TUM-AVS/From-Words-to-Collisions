@@ -1,0 +1,61 @@
+### Obstacle-by-Obstacle Analysis:
+
+#### **Obstacle 30730 (Front)**
+- **Position**: Front of ego car (longitudinal 0.99 m, lateral 0.00 m). Exact lateral alignment.
+- **Relative Velocity**: Longitudinal -3.92 m/s (approaching), lateral 0.00 m/s (no lateral motion).
+- **Trajectory Analysis**: 
+  - Longitudinal distance decreasing rapidly (from 4.54m at 4.6s to 0.99m at 5.5s).
+  - Lateral distance remains 0.00m (same lane).
+  - Closing speed is nearly constant (~3.95 m/s).
+- **TTC Calculation**:
+  - TTC = Longitudinal Distance / |Relative Velocity| = 0.99 / 3.92 ≈ 0.25 seconds (Extreme Risk, TTC ≤ 0.5s).
+- **MDC Calculation**:
+  - MDC = 0.99m (High Risk, 0.5 < MDC ≤ 1.0m).
+- **Risk Assessment**:
+  - TTC indicates Extreme Risk (1), MDC indicates High Risk (2).
+  - **Overall Risk**: Extreme Risk (1) (prioritize lower score).
+
+#### **Obstacle 30733 (Front-Right)**
+- **Position**: Front-right of ego car (longitudinal 0.95 m, lateral -5.39 m).
+- **Relative Velocity**: Longitudinal -3.92 m/s (approaching), lateral 0.00 m/s (no lateral motion).
+- **Trajectory Analysis**:
+  - Longitudinal distance decreasing (from 4.49m at 4.6s to 0.95m at 5.5s).
+  - Lateral distance stable (~5.4m, no lateral motion).
+  - No risk of lateral collision (large lateral distance).
+- **TTC Calculation**:
+  - TTC = Longitudinal Distance / |Relative Velocity| = 0.95 / 3.92 ≈ 0.24 seconds (Extreme Risk, TTC ≤ 0.5s).
+- **MDC Calculation**:
+  - MDC = Lateral Distance = 5.39m (Low Risk, MDC > 5.0m).
+- **Risk Assessment**:
+  - TTC indicates Extreme Risk (1), MDC indicates Low Risk (4).
+  - **Overall Risk**: Extreme Risk (1) (prioritize lower score).
+
+---
+
+### **Collision Prediction**
+- **Obstacle 30730** is at Extreme Risk (TTC = 0.25s, MDC = 0.99m) and will collide if no action is taken.
+- **Obstacle 30733** is also at Extreme Risk (TTC = 0.24s) but has a large lateral buffer (5.39m), so collision is unlikely unless the ego vehicle swerves.
+
+---
+
+### **Final JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30730",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30733",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "30730",
+        "OverallRiskScore": "0"
+    }
+}
+``` 
+
+### **Reasoning**:
+- **Obstacle 30730** is the primary collision risk due to its longitudinal proximity (0.99m) and high closing speed (TTC = 0.25s). It is aligned laterally (0.00m), so a collision is imminent if no evasive action is taken.
+- **Obstacle 30733** has a similar TTC (0.24s) but is offset laterally (5.39m), so it poses Extreme Risk but not an immediate collision threat.

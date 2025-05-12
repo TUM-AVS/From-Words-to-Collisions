@@ -1,0 +1,23 @@
+At t=0.9s, Ego is at (-404.85, -124.76) in lanelet 23411. Let's analyze the obstacles:
+
+* **Obstacle 35:** Located at (-398.85, -136.65) in lanelet 23242. While the y-coordinates are somewhat close, the x-coordinate difference suggests a safe lateral distance.  The trajectories also show Obstacle 35 moving further away in the y-direction.  Risk level: 4 (Low)
+
+* **Obstacle 313:** Located at (-397.30, -144.46) in lanelet 23316. Similar to Obstacle 35, the lateral distance appears safe given the x-coordinate difference. Risk level: 4 (Low)
+
+* **Obstacle 317:** Located at (-393.88, -150.94) in lanelet 23243. This obstacle poses even less risk than 35 and 313 due to the greater distance. Risk level: 5 (Negligible)
+
+* **Obstacle 335:** Located at (-400.50, -128.41) in lanelet 23392.  The y-coordinates are relatively close, and the x-coordinates suggest potential for a collision if the current trajectories continue. However, analyzing the trajectory, obstacle 335 had an abrupt change in orientation between 0.3s and 0.4s (1.77 radians to 1.77 radians), and then another between 0.8s and 0.9s (1.77 radians to -4.50 radians). This erratic behaviour makes it difficult to accurately predict its future trajectory. More information is needed, but based on the current data, the risk is high. Risk level: 2 (High)
+
+Since no obstacle poses an immediate collision risk (Risk score 0 or 1), IsCollisionScenario is false.
+
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": null,
+  "ScenarioAnalysis": {
+    "IsCollisionScenario": false,
+    "Reasoning": "No obstacles pose an immediate collision risk at t=0.9s. Obstacle 335 presents a high risk due to proximity and erratic trajectory, requiring further monitoring. All other obstacles maintain a safe distance from Ego."
+  }
+}
+```

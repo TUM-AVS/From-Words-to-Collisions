@@ -1,0 +1,77 @@
+### Safety Analysis for the Most Recent Timestep (4.7 seconds):
+
+#### Obstacle Analysis:
+1. **Obstacle ID: 20038.0**
+   - **Distance Risk Reason**: Located far away (80.5694, 102.9555) from ego (-14.7124, -40.4646). Moving away with increasing distance over time.
+   - **Distance Safety Score**: 5 (Negligible Risk)
+   - **Time Risk Reason**: High velocity (11.0038) but moving in opposite direction.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 5
+
+2. **Obstacle ID: 20039.0**
+   - **Distance Risk Reason**: Static at (9.1279, -8.7611). Moderate distance from ego.
+   - **Distance Safety Score**: 4 (Low Risk)
+   - **Time Risk Reason**: Zero velocity and acceleration.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 4
+
+3. **Obstacle ID: 20043.0**
+   - **Distance Risk Reason**: Static at (-4.5913, -12.6843), close to ego's path in same lanelet (1208.0).
+   - **Distance Safety Score**: 2 (High Risk)
+   - **Time Risk Reason**: Zero velocity and acceleration.
+   - **Time Safety Score**: 3 (Medium Risk)
+   - **Overall Risk Score**: 2
+
+4. **Obstacle ID: 20045.0**
+   - **Distance Risk Reason**: Static at (-6.4865, -19.396), very close to ego's path in same lanelet (1208.0).
+   - **Distance Safety Score**: 1 (Extreme Risk)
+   - **Time Risk Reason**: Zero velocity and acceleration.
+   - **Time Safety Score**: 2 (High Risk)
+   - **Overall Risk Score**: 1
+
+5. **Obstacle ID: 20048.0**
+   - **Distance Risk Reason**: Very close at (-8.6778, -26.0235) in same lanelet (1208.0). Stopped after decelerating.
+   - **Distance Safety Score**: 1 (Extreme Risk)
+   - **Time Risk Reason**: Zero velocity after deceleration.
+   - **Time Safety Score**: 1 (Extreme Risk)
+   - **Overall Risk Score**: 1
+
+6. **Obstacle ID: 20051.0**
+   - **Distance Risk Reason**: Moving towards ego at (-16.4258, -44.3199) in same lanelet (1208.0). Decelerating but still approaching.
+   - **Distance Safety Score**: 2 (High Risk)
+   - **Time Risk Reason**: Velocity (4.5037) and deceleration (-2.1903) indicate controlled approach.
+   - **Time Safety Score**: 2 (High Risk)
+   - **Overall Risk Score**: 2
+
+7. **Obstacle ID: 20052.0**
+   - **Distance Risk Reason**: Moving towards ego at (-21.9967, -57.6722) in same lanelet (1208.0). Decelerating but still approaching.
+   - **Distance Safety Score**: 3 (Medium Risk)
+   - **Time Risk Reason**: Velocity (7.1165) and deceleration (-2.334) indicate controlled approach.
+   - **Time Safety Score**: 3 (Medium Risk)
+   - **Overall Risk Score**: 3
+
+#### Chain of Thought Scenario Analysis:
+1. **Collision Check**: No direct collision at current timestep, but obstacles 20045.0 and 20048.0 are extremely close to ego's path in the same lanelet.
+2. **Trajectory Analysis**: Ego is decelerating (-0.0405) towards static obstacles 20045.0 and 20048.0.
+3. **Risk Assessment**: Immediate action required to avoid collision with 20045.0 and 20048.0.
+
+### Summary in JSON Format:
+```json
+{
+    "CollisionObstacles": null,
+    "ExtremeRiskObstacle": [
+        {
+            "ObstacleID": "20045.0",
+            "OverallRiskScore": 1
+        },
+        {
+            "ObstacleID": "20048.0",
+            "OverallRiskScore": 1
+        }
+    ],
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "No direct collision at current timestep, but extreme risk due to very close static obstacles in ego's lanelet. Immediate action required to avoid potential collision."
+    }
+}
+```

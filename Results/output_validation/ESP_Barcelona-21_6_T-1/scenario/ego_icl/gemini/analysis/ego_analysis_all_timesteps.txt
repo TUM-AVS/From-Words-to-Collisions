@@ -1,0 +1,46 @@
+Obstacle 30681:
+
+* Trajectory Analysis: This obstacle has been consistently in front of the ego vehicle and approaching closer over each timestep. The lateral distance remains at 0.00m, indicating perfect longitudinal alignment.  The longitudinal distance has decreased from 1.64m to 0.22m in the last reported timestep.
+
+* TTC Calculation:  At the last timestep, the longitudinal distance is 0.22m and the relative longitudinal velocity is -0.52 m/s. TTC = 0.22 / 0.52 ≈ 0.42 seconds.
+
+* MDC Calculation:  Given the consistent lateral alignment (0.00m) and rapidly decreasing longitudinal distance, the MDC is effectively the longitudinal distance, which is 0.22m at the last timestep.
+
+* Risk Assessment:
+    * Longitudinal:  Extremely high risk due to very short distance (0.22m) and very low TTC (0.42s), indicating an imminent collision.
+    * Lateral: No lateral risk as the obstacle maintains perfect longitudinal alignment.
+
+* Overall Risk Score: 1 (Extreme Risk) due to the imminent longitudinal collision.
+
+Obstacle 30685:
+
+* Trajectory Analysis: This obstacle has been consistently behind and to the right of the ego vehicle. The data shows it is moving away longitudinally but slightly towards the ego vehicle laterally.  However, it remains a significant distance away.
+
+* TTC Calculation:  Longitudinal TTC is not relevant as the obstacle is moving away longitudinally.  Lateral distance is decreasing, but very slowly.  The lateral distance is -1.86m (at the second to last timestep when it is last reported) and the lateral velocity is 1.03 m/s (also second to last timestep).  TTC ≈ 1.86/1.03 ≈ 1.8 seconds.
+
+* MDC Calculation: Given the large longitudinal separation and the small lateral velocity, the MDC will likely remain large.  Using the second to last timestep values, MDC is approximately 1.86 m.
+
+* Risk Assessment:
+    * Longitudinal: No risk, the obstacle is moving away from the ego vehicle longitudinally.
+    * Lateral: Low risk due to the relatively slow lateral closing speed and ample separation.
+
+* Overall Risk Score: 4 (Low Risk) as the obstacle poses no immediate threat.
+
+Collision Scenario Determination:
+
+Yes, this is a collision scenario. Obstacle 30681 has an overall risk score of 1 (Extreme Risk) with a very low TTC (0.42 seconds) and very close proximity (0.22 meters) while approaching the ego vehicle.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "None"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30681",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30681 poses an Extreme Risk (score 1) with a TTC of 0.42 seconds and an MDC of 0.22 meters, indicating an imminent collision in the front."
+}
+```

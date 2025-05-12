@@ -1,0 +1,37 @@
+Obstacle 30095 Analysis:
+
+Trajectory Analysis: Obstacle 30095 is consistently in front of the ego vehicle and approaching longitudinally.  The lateral distance remains at 0.00 m throughout all timesteps, indicating perfect lateral alignment. The longitudinal distance decreases from 11.33m to 10.17m over 0.9 seconds.
+
+TTC Calculation (at t=0.9s):
+Longitudinal TTC = 10.17m / 1.10 m/s ≈ 9.25 seconds
+Lateral TTC is not applicable as the lateral relative velocity is relatively small and fluctuating and distance is zero.
+
+MDC Calculation (at t=0.9s):
+Given the obstacle is directly in front and the lateral distance is 0.00m, the MDC is primarily determined by the longitudinal distance and closing velocity.  While laterally aligned, the MDC is considered to be the longitudinal distance of 10.17m at the latest timestep.
+
+Risk Assessment:
+
+Longitudinal Risk:  Based on the longitudinal TTC of 9.25 seconds and MDC of 10.17 meters, the longitudinal risk is 5 (No Risk).
+Lateral Risk: Since the lateral distance is consistently 0.00m, but with a relatively small and variable lateral velocity and a safe longitudinal distance, we do not classify this as Extreme risk. However, maintaining a lateral distance of zero needs further consideration. For now, based on the observed small lateral velocity and acceleration, the risk can be categorized as 4 (Low Risk) for its potential to change.
+Overall Risk: The overall risk is the higher of the two (lower numerical score), which is 4 (Low Risk).
+
+Collision Scenario Determination:
+
+Since no obstacle has a risk score of 0 (Collision) or 1 (Extreme Risk), this is NOT a collision scenario.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 (Collision) or 1 (Extreme Risk)."
+}
+```

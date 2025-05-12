@@ -1,0 +1,65 @@
+Obstacle-by-Obstacle Analysis at t=0.9s:
+
+* **Obstacle 30238:** Front-left, longitudinal 20.19m, lateral 3.38m, relative velocity (-9.37, 0.03) m/s.  This obstacle is approaching longitudinally but moving slightly away laterally.
+
+    * Longitudinal TTC = 20.19m / 9.37m/s ≈ 2.15s (Medium Risk)
+    * Lateral TTC is not meaningful as the lateral velocity is near zero and positive (moving away).
+    * MDC is primarily determined by the smaller of the two distances, which is the lateral distance of 3.38m (Medium Risk)
+
+    * Overall Risk: Medium (3) -  Dominated by MDC and longitudinal TTC. The trajectory suggests decreasing longitudinal distance and stable lateral distance.
+
+* **Obstacle 30241:** Left, longitudinal 0.00m, lateral 1.92m, relative velocity (-4.56, 0.02) m/s.  This obstacle is longitudinally aligned but moving away laterally. The negative longitudinal velocity indicates it is moving away from the ego vehicle.
+
+    * Longitudinal TTC is not applicable as the relative velocity is away from ego.
+    * Lateral TTC is not meaningful due to near-zero positive velocity (moving away).
+    * MDC: 1.92m (Medium Risk)
+
+    * Overall Risk: Medium (3) - Although longitudinally aligned, the obstacle is moving away in both directions.
+
+* **Obstacle 30242:** Front, longitudinal 16.75m, lateral 0.00m, relative velocity (-6.88, 0.26) m/s.  Laterally aligned, approaching longitudinally.
+
+    * Longitudinal TTC = 16.75m / 6.88m/s ≈ 2.43s (Medium Risk)
+    * Lateral TTC is not meaningful due to near-zero positive velocity (moving away).
+    * MDC:  Since it is almost perfectly laterally aligned (0.00m indicates alignment, not overlap), MDC is based on the longitudinal approach, so consider it very low, let's say around 0.5 m as a conservative estimate. (High Risk)
+
+    * Overall Risk: Medium - While MDC is near the high-risk threshold due to lateral alignment, the consistent longitudinal TTC of ~2.4s dominates.  No immediate collision is indicated.
+
+* **Obstacle 30243:** Rear-left, longitudinal -23.68m, lateral 2.24m, relative velocity (-2.30, -1.12) m/s. This obstacle is moving away longitudinally but approaching laterally.
+
+    * Longitudinal TTC is not applicable as the relative velocity is away from ego.
+    * Lateral TTC = 2.24m / 1.12m/s = 2.00s (Medium Risk)
+    * MDC is primarily determined by the lateral distance: 2.24m (Medium Risk)
+
+    * Overall Risk: Medium (3) -  The obstacle is moving closer laterally, but the longitudinal distance is increasing.
+
+* **Obstacle 30249:** Front-left, longitudinal 8.55m, lateral 2.39m, relative velocity (-6.33, 0.21) m/s.  This obstacle is approaching longitudinally and slightly moving away laterally.
+
+    * Longitudinal TTC = 8.55m / 6.33m/s ≈ 1.35s (Medium Risk)
+    * Lateral TTC is not meaningful due to near-zero velocity and moving slightly away.
+    * MDC is based on the smaller distance which is lateral, 2.39m (Medium Risk)
+
+    * Overall Risk: Medium (3)  -  The trajectory suggests a decreasing longitudinal distance, but the lateral distance offers a safety margin.
+
+
+
+Collision Scenario Determination:
+
+No obstacle has a risk score of 0 (collision) or 1 (extreme risk). Therefore, this is NOT a collision scenario.
+
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 or 1 at the most recent timestep (0.9 seconds)."
+}
+```

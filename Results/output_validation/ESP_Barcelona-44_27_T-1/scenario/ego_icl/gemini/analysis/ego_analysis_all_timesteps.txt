@@ -1,0 +1,43 @@
+Obstacle 30743:
+- Trajectory: This obstacle has been consistently approaching the ego vehicle both longitudinally and laterally over the past several timesteps.  The longitudinal distance has decreased from 6.37m to 1.02m, and the lateral distance has slightly decreased, indicating a converging trajectory.
+- TTC: Longitudinal TTC = 1.02m / 3.97m/s ≈ 0.26 seconds. Lateral TTC = 24.29m / 2.21m/s ≈ 11.0 seconds. The extremely low longitudinal TTC indicates extreme risk.
+- MDC: Given the rapid longitudinal approach and slow lateral approach, the MDC is primarily determined by the longitudinal distance of 1.02m, classifying it as High Risk (2).
+- Risk: The dominant factor is the very low longitudinal TTC (0.26s), resulting in an Extreme Risk (1) classification.
+
+Obstacle 30751:
+- Trajectory: This obstacle appears in the last two timesteps, approaching longitudinally while moving away laterally. It's too early to definitively establish a stable trajectory, but the current data suggests a potential risk if the lateral movement changes.
+- TTC: Longitudinal TTC = 20.57m / 4.65m/s ≈ 4.42 seconds. Lateral TTC = 13.11m / -9.51m/s (diverging, not applicable for collision risk).
+- MDC: Given the large lateral distance and diverging lateral trajectory, the MDC is primarily determined by the longitudinal distance of 20.57m, indicating No Risk (5).
+- Risk:  Based on the current trajectory, the risk is Low (4) due to the longitudinal approach. However, continued monitoring is crucial.
+
+Obstacle 30757:
+- Trajectory: This obstacle has been consistently moving away from the ego vehicle in both directions over the past timesteps. The increasing longitudinal and lateral distances indicate a diverging trajectory.
+- TTC: Longitudinal TTC (not applicable as obstacle is moving away)
+- MDC: 9.28m longitudinally, 2.84m laterally, hence MDC ≈ 2.84m, implying Medium Risk (3).
+- Risk: No risk (5) as the obstacle is moving away from the ego vehicle.
+
+Obstacle 30760:
+- Trajectory: This obstacle has been consistently approaching the ego vehicle from behind, remaining in perfect lateral alignment throughout the observed timesteps.  The longitudinal distance has decreased from -4.11m to -0.11m.
+- TTC: Longitudinal TTC = 0.11m / 6.07m/s ≈ 0.02 seconds.
+- MDC:  With a near-zero longitudinal distance of 0.11m, this classifies as Extreme Risk (1).
+- Risk: The extremely low TTC (0.02s) and minimal longitudinal distance (-0.11m) clearly indicate an Extreme Risk (1), bordering on Collision Risk (0).
+
+Collision Scenario Determination:
+Yes, this is a collision scenario. Obstacle 30760 poses an Extreme Risk (1) with an exceptionally low TTC of 0.02 seconds and a near-zero longitudinal distance of -0.11m. Obstacle 30743 also poses an Extreme Risk (1) with a TTC of 0.26 seconds.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "30760",
+    "OverallRiskScore": "1"
+  },
+    "ExtremeRiskObstacle": {
+    "ObstacleID": "30743",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30760 has an extremely low TTC (0.02s) and near-zero distance (-0.11m), indicating a likely collision. Obstacle 30743 also poses an Extreme Risk with a TTC of 0.26s"
+}
+```

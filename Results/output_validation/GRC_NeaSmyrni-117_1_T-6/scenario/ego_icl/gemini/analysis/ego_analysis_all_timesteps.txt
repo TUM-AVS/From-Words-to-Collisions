@@ -1,0 +1,29 @@
+* **Obstacle 20036 Analysis:**
+
+This obstacle is in front of the ego vehicle and maintains a safe longitudinal distance throughout the provided timesteps.  Lateral distance remains at 0.00m, indicating longitudinal alignment in the same lane.  The relative longitudinal velocity is negative, meaning the obstacle is moving away from the ego vehicle.
+
+* **Obstacle 20037 Analysis:**
+
+Similar to Obstacle 20036, this obstacle is also in front of the ego vehicle at a safe distance. The longitudinal distance is decreasing slightly, but the relative velocity remains negative and fairly slow.  Lateral distance is consistently 0.00m (same lane). No immediate risk is observed.
+
+* **Obstacle 20039 Analysis:**
+
+This obstacle is behind the ego vehicle and poses the most significant risk.  Across the timesteps, we see a consistent decrease in the longitudinal distance, with the obstacle rapidly approaching the ego vehicle.  At the final timestep (3.6 seconds), both the longitudinal and lateral distances are reported as 0.00 m, with the motion description indicating "Collision." This clearly signifies an actual collision occurring at this moment.
+
+**Collision Scenario Determination:**
+
+Yes, this is a collision scenario. Obstacle 20039 has collided with the ego vehicle.
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "20039",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 20039 has collided with the ego vehicle at t=3.6s, indicated by 0.00m distance in both dimensions and the 'Collision' motion description."
+}
+```

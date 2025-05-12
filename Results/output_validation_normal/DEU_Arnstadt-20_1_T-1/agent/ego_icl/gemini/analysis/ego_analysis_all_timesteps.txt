@@ -1,0 +1,35 @@
+Obstacle 20017 Analysis:
+
+Trajectory Analysis:
+Over the observed timesteps, Obstacle 20017 is located front-right of the ego vehicle.  It is approaching the ego vehicle longitudinally while simultaneously moving away laterally to the right. The longitudinal distance decreases from 23.86m to 23.52m, while the lateral distance increases from -0.93m to -3.46m (becomes more negative, meaning further to the right). This indicates a diverging trajectory despite the longitudinal approach.
+
+TTC Calculation (at t=0.9s):
+The longitudinal relative velocity is -1.09 m/s (approaching). The longitudinal distance is 23.52m.
+Longitudinal TTC = 23.52m / 1.09 m/s ≈ 21.6 seconds.
+
+The lateral relative velocity is -4.51 m/s (moving away).  Lateral TTC isn't meaningful here as the obstacle is moving away laterally.
+
+MDC Calculation (at t=0.9s):
+Given the diverging lateral movement, the minimum distance to collision will likely occur if the lateral velocity becomes zero while the longitudinal distance continues to decrease. However, based on current trends, a collision is unlikely.  We can approximate MDC using the current longitudinal distance as a safe lower bound, given the lateral divergence: MDC ≈ 23.52m.
+
+Risk Assessment:
+Based on the diverging trajectory, large MDC (23.52 m) and high longitudinal TTC (21.6 s), the risk level is negligible.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  }
+}
+```

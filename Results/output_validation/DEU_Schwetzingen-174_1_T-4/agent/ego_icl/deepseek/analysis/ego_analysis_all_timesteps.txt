@@ -1,0 +1,75 @@
+### Obstacle Analysis
+
+#### Obstacle 20111 (Behind ego car)
+- **Most Recent Timestep (3.4 seconds):**
+  - **Adjusted Longitudinal Distance:** -1.07 m (behind)
+  - **Adjusted Lateral Distance:** 0.00 m (exact alignment)
+  - **Relative Velocity (Longitudinal):** 6.89 m/s (approaching)
+  - **Relative Velocity (Lateral):** 0.50 m/s (small lateral movement)
+  - **Motion Description:** "Obstacle is driving toward the ego car from behind. Exact lateral alignment or unknown case."
+
+- **Trajectory Analysis:**
+  - The obstacle is rapidly closing the longitudinal gap (from -6.97 m at 2.5s to -1.07 m at 3.4s).
+  - Lateral distance remains 0.00 m, indicating exact alignment (same lane).
+  - The relative longitudinal velocity is high (6.89 m/s) and increasing slightly over time.
+
+- **Time-to-Collision (TTC):**
+  - TTC (Longitudinal) = Distance / Relative Velocity = 1.07 / 6.89 ≈ 0.155 seconds (Extreme Risk, TTC ≤ 0.5s)
+  - TTC (Lateral) = Not applicable (distance is 0.00 m, but lateral velocity is small and not closing).
+
+- **Minimum Distance to Collision (MDC):**
+  - Since the obstacle is exactly aligned laterally (0.00 m), the MDC is effectively the longitudinal distance: 1.07 m.
+  - However, with such a small TTC, the MDC will rapidly decrease to 0.00 m.
+
+- **Risk Assessment:**
+  - TTC indicates Extreme Risk (1).
+  - MDC is currently 1.07 m (High Risk, 2), but will soon be 0.00 m (Collision, 0).
+  - **Overall Risk Score:** 1 (Extreme Risk), but collision is imminent.
+
+#### Obstacle 20112 (Rear-right of ego car)
+- **Most Recent Timestep (3.4 seconds):**
+  - **Adjusted Longitudinal Distance:** -22.04 m (behind)
+  - **Adjusted Lateral Distance:** -1.36 m (right)
+  - **Relative Velocity (Longitudinal):** 5.52 m/s (approaching)
+  - **Relative Velocity (Lateral):** 2.01 m/s (approaching from right)
+  - **Motion Description:** "Obstacle is driving toward the ego car from behind. Obstacle is driving toward the ego car laterally from the right."
+
+- **Trajectory Analysis:**
+  - The obstacle is closing both longitudinally and laterally, but the distances are large (22.04 m longitudinally, 1.36 m laterally).
+  - The lateral closing velocity (2.01 m/s) is significant, but the distance is still > 1.0 m.
+
+- **Time-to-Collision (TTC):**
+  - TTC (Longitudinal) = 22.04 / 5.52 ≈ 3.99 seconds (Low Risk, 4)
+  - TTC (Lateral) = 1.36 / 2.01 ≈ 0.68 seconds (High Risk, 2)
+
+- **Minimum Distance to Collision (MDC):**
+  - The smaller distance is lateral (1.36 m), which is High Risk (2).
+
+- **Risk Assessment:**
+  - TTC indicates High Risk (2) due to lateral closing.
+  - MDC indicates High Risk (2).
+  - **Overall Risk Score:** 2 (High Risk).
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20111",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "20111",
+        "OverallRiskScore": "0"
+    }
+}
+```
+
+### Explanation:
+- **Obstacle 20111** is at Extreme Risk (1) and will imminently collide (PredictedCollisionObstacle) due to its high closing speed and exact lateral alignment.
+- **Obstacle 20112** is at High Risk (2) but is not an immediate collision threat due to larger distances.
+- No collision has occurred yet, but Obstacle 20111 is predicted to collide very soon.

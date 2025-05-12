@@ -1,0 +1,65 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 30680 (Front-right)**
+- **Adjusted Distance**: Longitudinal 18.14m, Lateral -15.21m  
+- **Relative Velocity**: Longitudinal -2.64 m/s (approaching), Lateral -1.45 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally but moving away laterally to the right.  
+
+**TTC Calculation**:  
+- **Longitudinal TTC**: 18.14m / 2.64 m/s = **6.87s** (No Risk, TTC > 5s)  
+- **Lateral TTC**: Not applicable (moving away)  
+
+**MDC Calculation**:  
+- Primary risk is longitudinal (same lane behavior). MDC ≈ lateral distance = **15.21m** (No Risk, MDC > 5m).  
+
+**Risk Assessment**:  
+- **Overall Risk**: 5 (No Risk). Trajectory shows divergence.  
+
+---
+
+#### **Obstacle 30686 (Front, Exact Lateral Alignment)**
+- **Adjusted Distance**: Longitudinal 2.80m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -2.95 m/s (approaching), Lateral -1.13 m/s (new lateral movement).  
+- **Motion**: Driving toward ego longitudinally with exact lateral alignment.  
+
+**TTC Calculation**:  
+- **Longitudinal TTC**: 2.80m / 2.95 m/s = **0.95s** (High Risk, TTC < 1.0s).  
+- **Lateral TTC**: Not applicable (initially aligned, now slight divergence).  
+
+**MDC Calculation**:  
+- MDC ≈ longitudinal distance = **2.80m** (Medium Risk, 1.0m < MDC ≤ 3.0m).  
+
+**Trajectory Analysis**:  
+- Longitudinal distance decreases consistently (6.80m → 2.80m in 0.9s).  
+- Lateral velocity newly introduced but small (-1.13 m/s).  
+
+**Risk Assessment**:  
+- **TTC (0.95s) dictates High Risk (2)**.  
+- **MDC (2.80m) suggests Medium Risk (3)**.  
+- **Overall Risk**: **2 (High Risk)** due to TTC < 1.0s and closing rapidly.  
+
+---
+
+### **Collision Scenario Determination**  
+- **Obstacle 30686** has **High Risk (2)**, but no collision (score 0) or Extreme Risk (score 1).  
+- **Obstacle 30680** poses no risk.  
+
+**Conclusion**: Not a collision scenario (no score 0 or 1).  
+
+---
+
+### **JSON Summary**  
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle meets collision (0) or extreme risk (1) criteria. Highest risk is Obstacle 30686 with High Risk (2) due to TTC = 0.95s, but trajectories show potential divergence."
+}
+```

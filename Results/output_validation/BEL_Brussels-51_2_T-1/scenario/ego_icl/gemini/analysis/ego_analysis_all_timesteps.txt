@@ -1,0 +1,32 @@
+* **Obstacle 30193 (Front-Left):**  This obstacle has been consistently moving away from the ego vehicle both longitudinally and laterally across all timesteps. At the last timestep (3.9s), it is 0.99m longitudinally and 17.40m laterally away.  Even though the longitudinal distance has decreased significantly from the initial 6.55m, the latest relative velocity indicates it is still moving away longitudinally. The lateral distance is very large and increasing. Thus, there is no risk of collision.
+    * _MDC:_  ~17.42m (using the larger lateral distance since the lateral velocity is positive, it might approach laterally later)
+    * _TTC (Longitudinal):_  0.99m / 1.13 m/s ≈ 0.88s (Low Risk - 4)
+    * _TTC (Lateral):_ Not applicable as obstacle moving away laterally.
+    * _Overall Risk:_ 4 (Low Risk) - based on longitudinal TTC.
+
+* **Obstacle 30196 (Right):** This obstacle is the most concerning. It has been approaching the ego vehicle from the rear-right across all timesteps, with both longitudinal and lateral distances decreasing.  At the final timestep, the longitudinal distance is 0.00m (exact alignment), and the lateral distance is -0.88m, meaning it is very close to the ego vehicle's right side. Critically, the lateral relative velocity is 5.57 m/s, indicating continued rapid approach. Although longitudinally aligned, the immediate lateral movement poses an extreme risk. 
+    * _MDC:_ 0.88m (High Risk - 2)
+    * _TTC (Longitudinal):_  Not applicable (exact alignment).
+    * _TTC (Lateral):_ 0.88m / 5.57 m/s ≈ 0.16s (Extreme Risk - 1)
+    * _Overall Risk:_ 1 (Extreme Risk) – due to extremely low TTC and close proximity.
+
+* **Obstacle 30197 (Rear-Right):** This obstacle is also approaching from the rear-right but is further away than Obstacle 30196.  The distances are decreasing, but at a slower rate than Obstacle 30196. At the final timestep, the longitudinal distance is -6.21m and the lateral distance is -12.75m. The relative velocities indicate continued approach. Although the distances are not immediately alarming, the continued approach requires monitoring.
+    * _MDC:_ ~14.20m 
+    * _TTC (Longitudinal):_ 6.21m / 3.52 m/s ≈ 1.76s (Medium Risk - 3)
+    * _TTC (Lateral):_ 12.75m / 4.30 m/s ≈ 2.97s (Medium Risk - 3)
+    * _Overall Risk:_ 3 (Medium Risk)
+
+**Collision Scenario Determination:** Yes, this is a collision scenario. Obstacle 30196 poses an Extreme Risk (1) with a very low TTC (0.16s) and close proximity (0.88m laterally), indicating a likely imminent collision if trajectories are maintained.
+
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30196",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30196 has an Extreme Risk (1) with a very low TTC of 0.16 seconds and close lateral proximity of -0.88 meters, indicating a likely collision if current trajectories persist."
+}
+```

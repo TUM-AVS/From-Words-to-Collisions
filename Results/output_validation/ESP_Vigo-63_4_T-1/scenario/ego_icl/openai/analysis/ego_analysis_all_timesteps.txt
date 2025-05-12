@@ -1,0 +1,62 @@
+### Obstacle Analysis
+
+#### Obstacle 3044
+
+- **Most Recent Timestep (8.3 seconds):**
+  - Adjusted Longitudinal Distance: -0.24 meters (Obstacle behind the ego vehicle)
+  - Adjusted Lateral Distance: 0.00 meters (Exact lateral alignment)
+  - Relative Longitudinal Velocity: 0.96 m/s (approaching)
+  - Relative Lateral Velocity: 0.00 m/s
+  - Motion: Obstacle is driving toward the ego car from behind.
+
+- **Trajectory Analysis:**
+  - Obstacle 3044 has been consistently closing the distance with the ego vehicle over the observed timesteps, moving from -1.04 meters at 7.4 seconds to -0.24 meters at 8.3 seconds.
+  - Relative velocity shows consistent minor variability but remains around 0.94 to 0.96 m/s toward the ego vehicle.
+
+- **Calculations:**
+  - **TTC (Longitudinal):** Distance / |Relative Velocity| = 0.24 m / 0.96 m/s = 0.25 seconds (Extreme Risk)
+  - **MDC (Longitudinal):** Adjusted distance is already near zero; projected trajectory is convergent.
+
+- **Risk Assessment:**
+  - **TTC and MDC indicate an Extreme Risk (1):** With the trajectory converging, an immediate collision is highly likely without intervention.
+
+#### Obstacle 3045
+
+- **Most Recent Timestep (8.3 seconds):**
+  - Adjusted Longitudinal Distance: -15.71 meters
+  - Adjusted Lateral Distance: 0.00 meters
+  - Relative Longitudinal Velocity: 0.93 m/s (approaching)
+  - Relative Lateral Velocity: -0.04 m/s
+  - Motion: Obstacle is driving toward the ego car from behind.
+
+- **Trajectory Analysis:**
+  - Obstacle 3045 shows a slow but consistent approach toward the ego vehicle, with both distance and velocity mainly constant across timesteps.
+
+- **Calculations:**
+  - **TTC (Longitudinal):** Distance / |Relative Velocity| = 15.71 m / 0.93 m/s ≈ 16.9 seconds
+  - **MDC (Longitudinal):** 15.71 meters
+
+- **Risk Assessment:**
+  - **Low Risk (4):** Current high distance and TTC significantly reduce immediate collision concerns.
+
+### Collision Scenario Determination
+
+- **Obstacle 3044** is in an **Extreme Risk** situation with a longitudinal TTC much less than 0.5 seconds and a minimal distance rapidly converging.
+  
+- **Conclusion:** This is determined to be a collision scenario due to Obstacle 3044's extreme proximity and rapid approach, necessitating immediate intervention to prevent collision.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "3044",
+        "OverallRiskScore": "1"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3044",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 3044 is at extreme risk of collision due to very short TTC (0.25 seconds) and converging trajectories from behind, indicating imminent impact."
+}
+```

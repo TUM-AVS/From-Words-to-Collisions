@@ -1,0 +1,54 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30699 (Most Recent Timestep: 0.9 seconds)
+- **Direction**: Front-left of ego car
+- **Adjusted Distances**: 
+  - Longitudinal: 9.66 m (closing at -6.86 m/s)
+  - Lateral: 2.67 m (increasing at 1.39 m/s)
+- **Motion Description**: 
+  - Obstacle is driving toward the ego car longitudinally.
+  - Obstacle is moving away laterally to the left.
+
+#### Trajectory Analysis (Across Timesteps)
+1. **Longitudinal Distance**: 
+   - Decreasing from 15.85 m to 9.66 m over 0.9 seconds.
+   - Closing velocity is high (~7 m/s) but decreasing slightly due to positive relative acceleration (0.30 m/s² at 0.9s).
+2. **Lateral Distance**: 
+   - Increasing from 1.28 m to 2.67 m over 0.9 seconds.
+   - Obstacle is moving away laterally at ~1.35 m/s consistently.
+
+#### TTC Calculation
+- **Longitudinal TTC**: 
+  - Distance = 9.66 m, Relative Velocity = 6.86 m/s (absolute value since closing).
+  - TTC = 9.66 / 6.86 ≈ 1.41 seconds (Medium Risk, TTC between 1.0-3.0s).
+- **Lateral TTC**: 
+  - Not applicable (lateral distance is increasing, so no collision risk in this dimension).
+
+#### MDC Calculation
+- The obstacle is diagonally positioned (front-left), so MDC is the smaller of the two distances when projected paths intersect.
+- Since the lateral distance is increasing, the paths are diverging laterally. Thus, MDC is effectively the current lateral distance (2.67 m), which is Low Risk (MDC between 3.0-5.0m).
+
+#### Risk Assessment
+- **Longitudinal Risk**: Medium (TTC = 1.41s).
+- **Lateral Risk**: No Risk (diverging paths).
+- **Overall Risk**: Medium Risk (3) – Prioritize the higher risk (longitudinal).
+
+### Collision Scenario Determination
+- No obstacle has a risk score of 0 (collision) or 1 (extreme risk).
+- The closest risk is Medium (3) for Obstacle 30699 due to longitudinal closing, but the lateral divergence ensures no imminent collision.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30699 shows Medium Risk (TTC = 1.41s) longitudinally but is moving away laterally, ensuring no imminent collision. No other obstacles present extreme risk or collision."
+}
+```

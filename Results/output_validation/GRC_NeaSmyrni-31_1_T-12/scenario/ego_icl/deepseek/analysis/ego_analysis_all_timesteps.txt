@@ -1,0 +1,73 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 3.6s)
+
+#### **Obstacle 20082 (Front)**
+- **Adjusted Distance**: Longitudinal 17.75m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 0.11 m/s (moving away), Lateral -0.10 m/s (minor drift)  
+- **Motion**: Moving away longitudinally, exact lateral alignment (same lane).  
+- **TTC**:  
+  - Longitudinal: Not applicable (moving away).  
+  - Lateral: Not applicable (minor drift, no convergence).  
+- **MDC**:  
+  - Longitudinal: 17.75m (No Risk).  
+  - Lateral: 0.00m (alignment, but no collision risk).  
+- **Risk**: **5 (No Risk)** – No convergence in either dimension.
+
+---
+
+#### **Obstacle 20084 (Behind → Collision at 3.6s)**
+- **Adjusted Distance**: Longitudinal 0.00m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 4.89 m/s (closing), Lateral 0.22 m/s (minor drift).  
+- **Motion**: Exact longitudinal and lateral alignment (collision occurring).  
+- **TTC**:  
+  - Longitudinal: 0.00s (collision).  
+  - Lateral: 0.00s (collision).  
+- **MDC**: 0.00m (collision).  
+- **Risk**: **0 (Collision)** – Zero distance in both dimensions with closing velocity.
+
+---
+
+#### **Obstacle 20086 (Rear-Right)**
+- **Adjusted Distance**: Longitudinal -16.89m, Lateral -0.96m  
+- **Relative Velocity**: Longitudinal 6.97 m/s (closing), Lateral 2.05 m/s (closing).  
+- **Motion**: Approaching from rear-right diagonally.  
+- **TTC**:  
+  - Longitudinal: 16.89/6.97 ≈ 2.42s (Medium Risk).  
+  - Lateral: 0.96/2.05 ≈ 0.47s (Extreme Risk).  
+- **MDC**:  
+  - Lateral distance is closing rapidly (0.96m → Extreme Risk if < 0.5m soon).  
+- **Risk**: **1 (Extreme Risk)** – Lateral TTC < 0.5s and MDC < 1.0m.
+
+---
+
+### Trajectory Analysis
+- **Obstacle 20084**:  
+  - From 3.5s to 3.6s, longitudinal distance decreased from -0.33m to 0.00m (collision confirmed).  
+  - Lateral drift minimal (0.00m alignment).  
+- **Obstacle 20086**:  
+  - Lateral distance decreased from -1.16m to -0.96m in 0.1s (~0.2m/0.1s → 2.0 m/s closing speed).  
+  - Projected to breach 0.5m lateral distance in ~0.23s (imminent extreme risk).
+
+---
+
+### Final Determination  
+This is a **collision scenario** due to:  
+1. **Obstacle 20084** with **risk score 0** (actual collision at 3.6s).  
+2. **Obstacle 20086** with **risk score 1** (extreme lateral risk, TTC < 0.5s).  
+
+---
+
+### JSON Summary  
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20084",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20086",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 20084 has collided (0m distance in both dimensions), and Obstacle 20086 has extreme lateral risk (TTC < 0.5s)."
+}
+```

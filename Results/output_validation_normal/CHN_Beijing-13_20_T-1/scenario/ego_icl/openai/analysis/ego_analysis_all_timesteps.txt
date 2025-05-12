@@ -1,0 +1,50 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 3052
+- **Direction**: Front of the ego vehicle
+- **Previous Timestep Analysis (From 0.0 to 0.8 seconds)**:
+  - The obstacle consistently moves away from the ego vehicle with increasing longitudinal distance.
+  - Lateral alignment is maintained throughout since lateral distance remains 0.00 meters.
+  - Longitudinal Relative Velocity increases over time, indicating the obstacle is moving away faster.
+  - Motion is consistently described as moving away longitudinally.
+
+- **Most Recent Timestep Analysis (0.9 seconds)**:
+  - **Adjusted Longitudinal Distance**: 14.41 meters
+  - **Adjusted Lateral Distance**: 0.00 meters (exact lateral alignment)
+  - **Relative Velocities**: Longitudinal 4.69 m/s (moving away), Lateral -0.02 m/s (minor lateral separation)
+  - **Relative Accelerations**: Longitudinal -3.12 m/s², Lateral -0.13 m/s²
+
+- **Trajectory & Motion Analysis**:
+  - The trajectory indicates increasing separation in the longitudinal direction.
+  - The obstacle has gained more distance, becoming further removed in the longitudinal plane.
+  - There is no significant lateral component, as the obstacle remains laterally stable.
+
+- **TTC Calculation**:
+  TTC is not directly relevant here as the relative velocity is pointing away (not approaching), hence no potential collision in the longitudinal component.
+
+- **MDC Calculation**:
+  - The MDC focuses on the minimum possible lateral separation, but since the path remains aligned laterally at 0 m, this indicates alignment without immediate risk.
+  - With increasing longitudinal separation, MDC is functionally greater than any threshold for risk since all motion suggests divergence.
+
+- **Risk Assessment**:
+  - **Longitudinal Risk Score**: No Risk (5), as the obstacle is moving away, increasing the distance.
+  - **Lateral Risk Score**: No Risk (5), given stable lateral alignment without convergence.
+  - **Overall Risk Score**: 5 - Recognizing no significant risk of collision due to the current moving away trajectories in both dimensions.
+
+### Conclusion
+- **Collision Scenario Evaluation**: Given that the obstacle is moving away and maintaining or increasing separation without any converging risk, there is no collision scenario present.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "5"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "5"
+  },
+  "IsCollisionScenario": false,
+  "Justification": "Obstacle 3052 is moving away from the ego vehicle, ensuring increasing longitudinal separation. With stable lateral alignment and moving away trajectories, there is no risk of collision."
+}
+```

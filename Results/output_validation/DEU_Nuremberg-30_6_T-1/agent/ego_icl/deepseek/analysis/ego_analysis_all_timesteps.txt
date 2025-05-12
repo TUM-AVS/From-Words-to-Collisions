@@ -1,0 +1,52 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30603 (Left of ego car at 5.2s)
+- **Position**: Longitudinal 0.00m (exact alignment), Lateral 10.83m (left side)
+- **Relative Velocity**: Longitudinal -0.00m/s (static), Lateral -0.21m/s (approaching from left)
+- **Motion**: Exact longitudinal alignment. Obstacle is driving toward ego laterally from left.
+- **Trajectory Analysis**: 
+  - Lateral distance is large (10.83m) but decreasing slowly (-0.21m/s). 
+  - Longitudinal alignment is stable (no relative motion).
+- **TTC Calculation**: 
+  - Lateral TTC = 10.83m / 0.21m/s ≈ 51.57s (No Risk, TTC > 5s)
+  - Longitudinal TTC: Not applicable (no relative motion).
+- **MDC Calculation**: 
+  - Primary risk is lateral (smallest distance dimension). MDC = 10.83m (No Risk, MDC > 5m).
+- **Overall Risk**: 5 (Negligible Risk). The obstacle is far away and moving very slowly toward the ego.
+
+#### Obstacle 30604 (Right of ego car at 5.2s)
+- **Position**: Longitudinal 0.00m (exact alignment), Lateral -3.30m (right side)
+- **Relative Velocity**: Longitudinal 7.39m/s (moving away), Lateral 3.52m/s (approaching from right)
+- **Motion**: Exact longitudinal alignment. Obstacle is driving toward ego laterally from right.
+- **Trajectory Analysis**: 
+  - Lateral distance is decreasing rapidly (3.52m/s closing speed). 
+  - Longitudinal alignment is stable but obstacle is moving away longitudinally (7.39m/s).
+- **TTC Calculation**: 
+  - Lateral TTC = 3.30m / 3.52m/s ≈ 0.94s (High Risk, 0.5s < TTC ≤ 1.0s)
+  - Longitudinal TTC: Not applicable (moving away).
+- **MDC Calculation**: 
+  - Primary risk is lateral. MDC = 3.30m (Low Risk, 3.0m < MDC ≤ 5.0m).
+- **Overall Risk**: 2 (High Risk). The lateral TTC indicates a high-risk scenario due to rapid lateral closure.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30604",
+        "OverallRiskScore": "2"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    }
+}
+```
+
+### Key Findings:
+1. **Obstacle 30603**: No significant risk (Risk 5). Large lateral distance and slow approach.
+2. **Obstacle 30604**: High Risk (Risk 2) due to rapid lateral closure (TTC ≈ 0.94s). While the MDC is still in the Low Risk range, the TTC takes precedence as it indicates a more immediate threat.
+3. **No Collision or Extreme Risk (Risk 0 or 1)**: Neither obstacle is currently in collision or at extreme risk, but Obstacle 30604 requires monitoring due to its high-risk lateral approach.

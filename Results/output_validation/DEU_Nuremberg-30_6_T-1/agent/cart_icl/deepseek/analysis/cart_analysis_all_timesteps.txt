@@ -1,0 +1,30 @@
+### Analysis of the Scenario:
+
+1. **Obstacle 30603.0**:
+   - **Position**: (356.644, -49.9067) at 5.2s, moving towards the ego vehicle.
+   - **Relative Motion**: The obstacle is ahead of the ego vehicle in the longitudinal direction (y-coordinate difference: ~12.44m) and moving towards it with a decreasing velocity (0.2123 m/s at 5.2s).
+   - **TTC**: The relative velocity is low, and the distance is significant. The TTC is high, indicating no immediate collision risk.
+   - **Risk Assessment**: **Low Risk (4)**.
+
+2. **Obstacle 30604.0**:
+   - **Position**: (355.4832, -67.2542) at 5.2s, moving towards the ego vehicle.
+   - **Relative Motion**: The obstacle is behind the ego vehicle in the longitudinal direction (y-coordinate difference: ~-4.91m) and moving towards it with a high velocity (8.1875 m/s at 5.2s).
+   - **TTC**: The relative velocity is high, and the distance is closing rapidly. The TTC is low, indicating a potential collision risk.
+   - **Risk Assessment**: **High Risk (2)**.
+
+3. **Ego Vehicle**:
+   - **Position**: (356.6766, -62.3442) at 5.2s, stationary (velocity and acceleration are 0).
+   - **Behavior**: The ego vehicle has come to a complete stop, which reduces the risk of collision but does not eliminate it if other obstacles are moving towards it.
+
+### JSON Output:
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {},
+    "HighRiskObstacle": {
+        "ObstacleID": "30604.0",
+        "OverallRiskScore": 2
+    }
+}
+```

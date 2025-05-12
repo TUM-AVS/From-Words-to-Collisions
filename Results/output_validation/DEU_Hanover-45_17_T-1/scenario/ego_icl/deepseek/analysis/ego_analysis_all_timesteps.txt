@@ -1,0 +1,50 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 7.7s)
+
+#### **Obstacle 30700**  
+- **Position**: Behind ego (longitudinal = -0.07m, lateral = 0.00m)  
+- **Relative Velocity**: Longitudinal = 2.58 m/s (approaching), Lateral = 0.00 m/s (no lateral movement)  
+- **Motion**: Exact lateral alignment, approaching from behind.  
+
+#### **Trajectory Analysis (6.8s → 7.7s)**  
+- Longitudinal distance decreases from -2.37m to -0.07m at ~2.58 m/s relative velocity (consistent closing speed).  
+- Lateral distance remains 0.00m (perfect alignment in same lane).  
+- **Projection**: At current speed, obstacle will reach ego's rear bumper in **TTC = 0.07m / 2.58 m/s ≈ 0.027s** (imminent collision).  
+
+#### **Risk Assessment**  
+1. **Minimum Distance to Collision (MDC)**:  
+   - Lateral MDC = 0.00m (same lane)  
+   - Longitudinal MDC = 0.07m → **Extreme Risk (Score 1)** per MDC ≤ 0.5m.  
+
+2. **Time-to-Collision (TTC)**:  
+   - TTC = 0.027s → **Extreme Risk (Score 1)** per TTC ≤ 0.5s.  
+
+3. **Overall Risk**: **Score 1 (Extreme Risk)**. Collision is imminent unless immediate evasive action is taken.  
+
+---
+
+### **Collision Scenario Determination**  
+- Obstacle 30700 has **TTC = 0.027s** and **MDC = 0.07m**, both indicating **Extreme Risk (Score 1)**.  
+- The obstacle is **actively colliding with the ego vehicle** (longitudinal distance ≈ 0m with closing velocity).  
+
+---
+
+### **JSON Summary**  
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30700",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30700",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30700 has longitudinal distance = -0.07m (effectively colliding) and TTC = 0.027s, indicating an active collision with the ego vehicle."
+}
+```  
+
+### **Key Notes**  
+- The negative longitudinal distance (-0.07m) implies the obstacle has already contacted the ego’s rear bumper.  
+- Even if the raw distance were slightly positive (e.g., 0.07m ahead), the **TTC < 0.5s** would still classify this as Extreme Risk (Score 1) and thus a collision scenario.  
+- **No other obstacles** are present in this scenario.

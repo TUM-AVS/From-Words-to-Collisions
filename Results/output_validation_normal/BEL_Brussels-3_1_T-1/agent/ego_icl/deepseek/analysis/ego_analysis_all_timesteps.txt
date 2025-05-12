@@ -1,0 +1,53 @@
+### Obstacle Analysis
+
+#### Obstacle 30243 (Front of ego car)
+- **Position**: Front (longitudinal 24.93 m, lateral 0.00 m)
+- **Relative Velocity**: Longitudinal 5.94 m/s (moving away), Lateral -0.22 m/s (very slight movement to the side)
+- **Trajectory Analysis**: 
+  - The obstacle is consistently moving away longitudinally (distance increases from 22.17 m to 24.93 m over 0.9 seconds).
+  - Lateral distance remains near zero but shows a very slight drift (0.00 m to -0.22 m over 0.9 seconds).
+- **TTC Calculation**: 
+  - Longitudinal: Not applicable (moving away, relative velocity is positive).
+  - Lateral: Not applicable (very slight drift, not a collision risk).
+- **MDC Calculation**: 
+  - Longitudinal: 24.93 m (Low Risk, MDC > 5.0 m).
+  - Lateral: 0.00 m (but no closing velocity, so negligible risk).
+- **Overall Risk**: Negligible (5). The obstacle is moving away and poses no collision risk.
+
+#### Obstacle 30245 (Front-left of ego car)
+- **Position**: Front-left (longitudinal 9.76 m, lateral 13.78 m)
+- **Relative Velocity**: Longitudinal -5.36 m/s (approaching), Lateral -6.06 m/s (approaching from the left)
+- **Trajectory Analysis**: 
+  - The obstacle is closing in both longitudinal and lateral directions (longitudinal distance decreases from 16.07 m to 9.76 m, lateral distance decreases from 18.74 m to 13.78 m over 0.9 seconds).
+  - The closing velocities are significant in both dimensions.
+- **TTC Calculation**: 
+  - Longitudinal: 9.76 m / 5.36 m/s = 1.82 seconds (Medium Risk).
+  - Lateral: 13.78 m / 6.06 m/s = 2.27 seconds (Medium Risk).
+- **MDC Calculation**: 
+  - The obstacle is diagonally approaching, so we consider the smaller distance (longitudinal 9.76 m, lateral 13.78 m). The longitudinal distance is more critical here.
+  - Longitudinal: 9.76 m (Low Risk, MDC > 5.0 m).
+  - Lateral: 13.78 m (No Risk, MDC > 5.0 m).
+- **Overall Risk**: Medium (3). The obstacle is approaching but still at a manageable distance with sufficient time to react.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```
+
+### Explanation:
+- **Obstacle 30243**: No collision or extreme risk. The obstacle is moving away and poses negligible risk.
+- **Obstacle 30245**: Medium risk due to approaching trajectory, but no immediate collision or extreme risk. The distances and TTC indicate sufficient time for reaction.
+- No obstacles qualify for Collision (0), Extreme Risk (1), or High Risk (2) in this scenario.

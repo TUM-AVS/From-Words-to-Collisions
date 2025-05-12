@@ -1,0 +1,61 @@
+**Analysis of Each Obstacle:**
+
+### Obstacle 30659
+#### Trajectory Analysis:
+- **Initial Position and Movement**: Positioned in front of the ego vehicle. Over consecutive timesteps, the longitudinal distance has increased from 7.68m to 11.10m, indicating it is moving away.
+- **Relative Velocity and Acceleration**: The relative longitudinal velocity is positive (initially 4.54 m/s, reducing to 2.78 m/s, with minor positive acceleration changes) indicating the obstacle is moving away from the ego vehicle, reducing the collision risk.
+
+#### At the Most Recent Timestep (0.9 seconds):
+- **Adjusted Longitudinal Distance**: 11.10 m (distance is increasing)
+- **Relative Velocity (Longitudinal)**: 2.78 m/s (moving away velocity)
+  
+#### Calculations:
+- **Time-to-Collision (TTC)**:
+  - Since the obstacle is moving away, TTC is not applicable for collision risk.
+  
+- **Minimum Distance to Collision (MDC)**:
+  - MDC calculated using ongoing separation, currently > 11.10m.
+  
+#### Risk Assessment:
+- **Risk Score**: 5 (No Risk), because the obstacle is consistently moving away and increasing the separation, ensuring no collision path evident.
+
+### Obstacle 30661
+#### Trajectory Analysis:
+- **Initial Position and Movement**: Positioned behind the ego vehicle. Longitudinal distance becomes more negative from -4.63m to -8.02m.
+- **Relative Velocity and Acceleration**: The relative longitudinal velocity is negative but decreasing in magnitude (from -5.23 m/s to -3.49 m/s), indicating it is also moving away but closing trajectory is observed.
+
+#### At the Most Recent Timestep (0.9 seconds):
+- **Adjusted Longitudinal Distance**: -8.02 m
+- **Relative Velocity (Longitudinal)**: -3.49 m/s (moving away)
+  
+#### Calculations:
+- **Time-to-Collision (TTC)**:
+  - TTC is not applicable as the distance is increasing and separation is ongoing.
+
+- **Minimum Distance to Collision (MDC)**:
+  - MDC is based on trajectory paths; currently, > 8.02m and increasing.
+  
+#### Risk Assessment:
+- **Risk Score**: 5 (No Risk), because even though it is moving behind, it is clearly continuing to move away from the ego vehicle.
+
+### Conclusion:
+- Both obstacles are moving away from the ego vehicle, and neither presents a trajectory causing an imminent collision risk.
+- There is no intersection or collision trajectory in the projected path given the motion profiles.
+
+**Final Conclusion**: This is not a collision scenario as both Obstacles 30659 and 30661 demonstrate consistent and increasing separation from the ego vehicle.
+
+### JSON Summary Output:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Both obstacles 30659 and 30661 are moving away from the ego vehicle with increasing distances, indicating no collision path. Risk levels remain at 5 for both."
+}
+```

@@ -1,0 +1,27 @@
+The ego vehicle and obstacle 30674 are in the same lanelet (453).  While the obstacle's x-coordinate is greater than the ego's, meaning it's ahead, the difference in their x-coordinates is decreasing over time. This indicates the ego vehicle is approaching the obstacle from behind. Additionally, both are decelerating. The obstacle's deceleration is stronger than the ego's, increasing the risk of a collision.
+
+Calculating the distance between the ego and obstacle at each timestep:
+
+* **0.1s:** sqrt((90.7269 - 72.168)^2 + (-2385.1157 - -2402.506)^2) ≈ 21.69 meters
+* **0.2s:** sqrt((90.9412 - 73.2404)^2 + (-2384.3243 - -2401.9044)^2) ≈ 20.94 meters
+* **0.3s:** sqrt((91.094 - 74.2768)^2 + (-2383.554 - -2401.2945)^2) ≈ 20.18 meters
+* **0.4s:** sqrt((91.2045 - 75.2766)^2 + (-2382.7997 - -2400.6719)^2) ≈ 19.46 meters
+* **0.5s:** sqrt((91.2839 - 76.2512)^2 + (-2382.0671 - -2400.0322)^2) ≈ 18.78 meters
+* **0.6s:** sqrt((91.3306 - 77.2038)^2 + (-2381.3629 - -2399.3718)^2) ≈ 18.14 meters
+* **0.7s:** sqrt((91.3506 - 78.1396)^2 + (-2380.6867 - -2398.6926)^2) ≈ 17.54 meters
+* **0.8s:** sqrt((91.3516 - 79.0583)^2 + (-2380.0371 - -2397.9951)^2) ≈ 16.96 meters
+* **0.9s:** sqrt((91.3393 - 79.9583)^2 + (-2379.413 - -2397.281)^2) ≈ 16.42 meters
+
+
+The distance is consistently decreasing, suggesting a high risk of collision if the trends continue. The rate of decrease is also significant.  This situation qualifies as an *extreme risk*.
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30674.0",
+    "OverallRiskScore": 1
+  },
+  "HighRiskObstacle": null
+}
+```

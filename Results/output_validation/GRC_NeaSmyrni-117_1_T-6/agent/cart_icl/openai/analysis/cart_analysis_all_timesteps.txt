@@ -1,0 +1,45 @@
+To evaluate the risk levels for each obstacle in this scenario, we'll consider their velocity, relative position to the Ego, and any change in their trajectory across the last few timesteps. We'll specifically focus on the most recent timestep at 3.4 seconds and use trends from previous steps to understand their motion. We are particularly looking for minimum distance and time-to-collision indicators. 
+
+### Analysis:
+
+1. **Ego Position at 3.4 seconds:**
+   - Position: (-37.0545, -36.513)
+   - Velocity: 1.6358 m/s
+   
+2. **Obstacle 20036 at 3.4 seconds:**
+   - Position: (-18.3043, -18.0321)
+   - Velocity: 0.0 m/s (stationary)
+   - Relative position to Ego: 26.02 meters away.
+   - Risk: **Low Risk (4)** as it is stationary and far from Ego.
+
+3. **Obstacle 20037 at 3.4 seconds:**
+   - Position: (-23.5152, -23.1681)
+   - Velocity: 0.6663 m/s
+   - Relative position to Ego: Approximately 19.19 meters away.
+   - Trend shows it is decelerating.
+   - Risk: **Medium Risk (3)** due to the distance and slower speed. 
+
+4. **Obstacle 20039 at 3.4 seconds:**
+   - Position: (-40.5073, -39.9164)
+   - Velocity: 5.9359 m/s
+   - Relative position to Ego: Around 3.48 meters away, closing rapidly.
+   - Significant factor: Continuous high speed and negative acceleration.
+   - Risk: **Extreme Risk (1)** due to fast approach with lesser control.
+
+### JSON Output:
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20039",
+        "OverallRiskScore": 1
+    },
+    "HighRiskObstacle": {}
+}
+```
+
+**Explanation:**
+
+- **Obstacle 20039** poses an **Extreme Risk** due to its high speed and close proximity. With an approaching velocity and moderate distance, it's closing on the Ego fast and risk mitigation is necessary.
+- No other obstacles qualify near-collision (0 risk level) or high risk (2 risk level). Obstacle 20036 is static and far, while obstacle 20037, though relatively closer, poses less immediate risk.

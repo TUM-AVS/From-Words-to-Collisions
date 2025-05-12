@@ -1,0 +1,60 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30636 (Most Recent Timestep: 0.9s)
+- **Position**: Front of ego car
+- **Adjusted Distances**: 
+  - Longitudinal: 16.35 m (raw: 16.35 m)
+  - Lateral: 0.00 m (raw: 0.00 m)
+- **Relative Velocity**: 
+  - Longitudinal: -1.43 m/s (approaching ego)
+  - Lateral: -0.01 m/s (negligible lateral movement)
+- **Relative Acceleration**: 
+  - Longitudinal: -2.72 m/s² (decelerating toward ego)
+  - Lateral: -5.97 m/s² (negligible lateral acceleration)
+- **Motion Description**: Obstacle is driving toward the ego car longitudinally. Exact lateral alignment.
+
+#### Trajectory Analysis (0.1s to 0.9s)
+- The obstacle initially moves away from the ego car (longitudinal distance increases from 15.80 m to 16.53 m at 0.7s).
+- At 0.7s, the relative velocity becomes negative (-0.10 m/s), indicating the obstacle starts approaching the ego car.
+- The approach accelerates (relative velocity becomes more negative: -0.77 m/s at 0.8s, -1.43 m/s at 0.9s).
+- Lateral distance remains 0.00 m throughout, indicating perfect alignment.
+
+#### Time-to-Collision (TTC)
+- **Longitudinal TTC**: 
+  - Distance: 16.35 m
+  - Relative Velocity: 1.43 m/s (absolute value, since obstacle is approaching)
+  - TTC = 16.35 / 1.43 ≈ 11.43 seconds
+  - Risk Score: 5 (No Risk, TTC > 5.0s)
+- **Lateral TTC**: 
+  - Distance: 0.00 m (but no lateral movement)
+  - Relative Velocity: 0.01 m/s (negligible)
+  - TTC is not applicable (no lateral collision risk).
+
+#### Minimum Distance to Collision (MDC)
+- **Longitudinal MDC**: 16.35 m (no lateral movement, so MDC is longitudinal distance)
+- Risk Score: 5 (No Risk, MDC > 5.0m)
+
+#### Overall Risk Assessment
+- The obstacle is longitudinally aligned and approaching the ego car, but the distance is large (16.35 m) and the TTC is high (11.43 s). 
+- Lateral alignment is exact (0.00 m), but there is no lateral movement or risk.
+- **Overall Risk Score**: 5 (No Risk)
+
+### Conclusion
+- No collision or extreme risk is observed. The obstacle is approaching but is still far away with a high TTC.
+- This is **not** a collision scenario.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30636 is longitudinally aligned and approaching the ego car, but the distance (16.35 m) and TTC (11.43 s) indicate no immediate collision risk. No other obstacles are present."
+}
+```

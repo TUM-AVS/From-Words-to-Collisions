@@ -1,0 +1,31 @@
+Obstacle 30660:
+- Trajectory: This obstacle has been consistently located to the rear-left of the ego vehicle, moving away longitudinally but approaching laterally.  Across the timesteps, the longitudinal distance increases (from -8.78m to -14.42m), while the lateral distance decreases (from 8.20m to 4.24m).
+- Analysis at t=0.9s: The obstacle is at -14.42m longitudinally and 4.24m laterally.  The negative longitudinal velocity (-6.52 m/s) confirms it is moving away longitudinally. The lateral velocity (-5.53 m/s) indicates it is approaching the ego vehicle. The approaching lateral motion is a concern, however, at a lateral distance of 4.24 meters, there isn't immediate danger.
+- TTC (Lateral): 4.24m / 5.53m/s ≈ 0.77s. This represents a High Risk (2).
+- MDC:  Given the trajectory and the lateral movement being the primary concern, we use the lateral distance of 4.24m as the MDC. This corresponds to a Low Risk (4).
+- Overall Risk: High (2) - based on the more concerning TTC value.
+
+Obstacle 30661:
+- Trajectory: This obstacle has been consistently located in front of the ego vehicle and has maintained almost exact lateral alignment (0.00m). Although the raw longitudinal data suggest the obstacle is slightly moving away from the ego car at most time steps, it is close to the ego car at 10 meters.
+- Analysis at t=0.9s: The obstacle is at 10.38m longitudinally and 0.00m laterally. The longitudinal velocity of 0.37 m/s indicates it is moving slightly away from the ego vehicle longitudinally, while perfect lateral alignment is maintained. 
+- TTC (Longitudinal): 10.38m / 0.37m/s ≈ 28.05s. It is not moving toward the ego car. It means TTC does not correctly represent the risk here since the obstacle is actually moving away. We have to treat it as No Risk(5).
+- MDC: Given the trajectory and the longitudinal movement being the primary concern, we use the longitudinal distance of 10.38m as the MDC. This corresponds to a No Risk (5).
+- Overall Risk: No Risk (5)
+
+Obstacle 30662:
+- Trajectory:  Similar to Obstacle 30660, this obstacle is located to the rear-left, moving further away longitudinally while slightly closing in laterally. The longitudinal distance increases (from -8.32m to -14.06m), and the lateral distance decreases (from 18.36m to 15.46m).
+- Analysis at t=0.9s: This obstacle is at -14.06m longitudinally and 15.46m laterally. The negative longitudinal velocity (-7.01 m/s) and relatively large longitudinal distance confirm it is moving away in that direction. The lateral velocity of -3.02 m/s indicates it is approaching laterally, but the significant distance suggests no immediate risk.
+- TTC (Lateral): 15.46m / 3.02m/s ≈ 5.12s. This represents a Low Risk (4).
+- MDC:  Given the trajectory and the lateral movement being the primary concern, we use the lateral distance of 15.46m as the MDC. This corresponds to a No Risk (5).
+- Overall Risk: Low Risk (4) - based on the more concerning TTC value.
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "HighRiskObstacle": {
+    "ObstacleID": "30660",
+    "OverallRiskScore": "2"
+  }
+}
+```

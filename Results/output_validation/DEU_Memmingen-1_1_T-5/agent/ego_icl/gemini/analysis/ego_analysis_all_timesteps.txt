@@ -1,0 +1,34 @@
+At t=3.9s:
+
+Obstacle 20044 (Front-right):
+
+- Trajectory: This obstacle appears at t=3.7s and is moving towards the ego vehicle both longitudinally and laterally from the right.  The longitudinal distance is decreasing while the lateral distance is also decreasing.
+- Longitudinal analysis: distance = 21.69m, relative velocity = -9.56 m/s (approaching). TTC_longitudinal = 21.69 / 9.56 = 2.27s. Risk: Medium (3).
+- Lateral analysis: distance = -5.86m, relative velocity = 11.47 m/s (approaching from right). TTC_lateral = 5.86 / 11.47 = 0.51s. Risk: High/Extreme (2).
+- MDC:  Given the diagonal approach, we need to consider the more imminent risk which is lateral. Also considering both longitudinal and lateral distances decreasing.  MDC assessment is approximately around 5.86 meters, thus low risk (4).
+- Overall Risk: Due to the faster closing time from the side at just 0.51 seconds, we assign High risk (2) to obstacle 20044 even though the MDC is greater than 1.0.
+
+Obstacle 20052 (Behind):
+
+- Trajectory: This obstacle has been consistently approaching the ego vehicle from behind, with the longitudinal distance rapidly decreasing over each time step.  Lateral distance remains at 0.00m throughout, indicating alignment in the same lane.
+- Longitudinal analysis: distance = -0.57m, relative velocity = 7.23 m/s (approaching). TTC_longitudinal = 0.57 / 7.23 = 0.08s. Risk: Extreme (1).
+- Lateral analysis: distance = 0.00 m, relative velocity = 0.11 m/s. Lateral movement is minimal but confirms the obstacle is almost directly behind.  Given the longitudinal alignment and minimal lateral movement, the risk is dominated by longitudinal TTC.
+- MDC: With a longitudinal distance of only 0.57m and a closing velocity, MDC is less than 0.5m. Risk: Extreme (1).
+- Overall Risk: Extremely high risk of collision (1) due to the very low TTC and MDC.
+
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "20052",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "20052",
+    "OverallRiskScore": "1"
+  }
+}
+```

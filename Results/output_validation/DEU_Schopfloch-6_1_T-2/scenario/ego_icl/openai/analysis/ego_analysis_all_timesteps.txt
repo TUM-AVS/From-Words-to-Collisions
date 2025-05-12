@@ -1,0 +1,68 @@
+### Obstacle-by-Obstacle Analysis
+
+**Obstacle 20057**  
+- **Trajectory Analysis**:  
+  At 4.9 seconds, obstacle 20057 is explicitly mentioned as being in a "Collision" state with the ego vehicle.  
+  - Longitudinal Distance (adjusted): 0.00 m  
+  - Lateral Distance (adjusted): 0.00 m  
+  - Relative Velocity: Longitudinal 3.57 m/s, Lateral 0.08 m/s  
+  - Acceleration: Longitudinal 0.94 m/s², Lateral 2.20 m/s²  
+- **TTC and MDC Calculations**:
+  - Since both longitudinal and lateral distances are zero, the obstacle is at collision with the ego vehicle.
+  - The latency in changes across timesteps showed a consistent closing at the rear, confirming an imminent collision.
+- **Risk Assessment**:
+  - Risk Score: 0 (Collision)
+
+**Obstacle 20061**  
+- **Trajectory Analysis**:  
+  Positioned behind the ego vehicle with longitudinal closing velocities.  
+  - Longitudinal Distance (adjusted): -20.35 m  
+  - Relative Velocity: Longitudinal 2.29 m/s  
+- **TTC and MDC Calculations**:
+  - TTC (longitudinal) = 20.35 m / 2.29 m/s ≈ 8.88 seconds
+  - As the TTC is greater than 5.0 seconds and lateral alignment is not critical here, no immediate collision risk is expected.
+- **Risk Assessment**:
+  - Risk Score: 4 (Low Risk)
+
+**Obstacle 20020**  
+- **Trajectory Analysis**:  
+  Located front-right of the ego vehicle, steadily decreasing longitudinal distance and is headed toward the ego vehicle.  
+  - Longitudinal Distance (adjusted): 11.39 m  
+  - Lateral Distance (adjusted): -2.01 m  
+  - Relative Velocity: Longitudinal -3.35 m/s  
+- **TTC and MDC Calculations**:
+  - TTC (longitudinal): 11.39 m / 3.35 m/s ≈ 3.40 seconds
+  - Stable lateral path maintaining distance around 2 meters.
+- **Risk Assessment**:
+  - Risk Score: 3 (Medium Risk)
+
+**Obstacle 20060**  
+- **Trajectory Analysis**:  
+  Position behind (rear-left) and moving away longitudinally, approaching laterally.  
+  - Longitudinal Distance (adjusted): -13.18 m  
+  - Lateral Distance (approach unnoted and minor)
+- **TTC and MDC Calculations**:
+  - No immediate TTC due to opposite longitudinal motion.
+  - Maintains significant distancing with inconsequential lateral change.
+- **Risk Assessment**:
+  - Risk Score: 5 (No Risk)
+
+**Conclusion:**
+
+This is a collision scenario because obstacle 20057 is in a state of collision with the ego vehicle. The overlapping states that place obstacle 20057 in both longitudinal and lateral alignment at 0.00 m confirms the collision status.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20057",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 20057 is in an actual collision with the ego vehicle due to 0.00 meters distance both longitudinally and laterally, confirming a collision scenario."
+}
+```

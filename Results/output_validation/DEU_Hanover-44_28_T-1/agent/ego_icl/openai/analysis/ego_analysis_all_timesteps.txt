@@ -1,0 +1,59 @@
+### Obstacle-by-Obstacle Analysis
+
+**Obstacle 30730:**
+- **Trajectory Analysis:**
+  - Over the 10 timesteps, the obstacle is consistently reducing both its longitudinal distance from 4.54 m to 0.99 m while maintaining an exact lateral alignment of 0.00 m. The obstacle is moving toward the ego vehicle longitudinally.
+  - Relative longitudinal velocity is consistently negative and around -3.92 m/s to -3.97 m/s, indicating the obstacle is approaching the ego vehicle at a high speed.
+
+- **Calculations for 5.5 seconds:**
+  - **Adjusted Distances:** Longitudinal: 0.99m, Lateral: 0.00m
+  - **Relative Velocity:** Longitudinal: -3.92 m/s, Lateral: 0.00 m/s
+  - **TTC Calculation:** 
+    - Longitudinal TTC = 0.99 m / 3.92 m/s = 0.252 s
+    - Since the lateral distance is 0 and not changing (exact alignment), we emphasize the longitudinal aspect.
+  - **MDC:** Since longitudinal distance is near zero and decreasing rapidly, MDC < 1.0m, indicating a high risk of collision.
+  
+- **Risk Assessment:**
+  - **TTC:** 0.252 seconds, indicates Extreme Risk (1)
+  - **MDC:** Less than 0.5 meters, confirms an Extreme Risk (1)
+  - **Overall Risk Score:** 1 (Extreme Risk)
+
+**Obstacle 30733:**
+- **Trajectory Analysis:**
+  - The obstacle approaches longitudinally from 4.49 m to 0.95 m and maintains a consistent lateral offset of approximately -5.39 m.
+  - Relative longitudinal velocity is consistently negative at approximately -3.92 m/s to -3.97 m/s.
+
+- **Calculations for 5.5 seconds:**
+  - **Adjusted Distances:** Longitudinal: 0.95 m, Lateral: -5.39 m
+  - **Relative Velocity:** Longitudinal: -3.92 m/s, Lateral: 0.00 m/s
+  - **TTC Calculation:** 
+    - Longitudinal TTC = 0.95 m / 3.92 m/s = 0.242 s
+  - **MDC Calculation:** The obstacle remains off the ego vehicle's course laterally, reducing direct collision risk.
+  
+- **Risk Assessment:**
+  - **TTC:** 0.242 seconds, indicates Extreme Risk (1)
+  - **MDC:** Longitudinal distance < 1.0 m, indicates High Risk (2)
+  - **Overall Risk Score:** 1 (Extreme Risk due to very short longitudinal TTC)
+
+### JSON Summary
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "30730",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30733",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": "NA",
+    "OverallRiskScore": "NA"
+  }
+}
+```
+
+**Analysis Conclusion:**
+- **Obstacle 30730** is at **Extreme Risk** of collision due to minimal longitudinal distance and minimal TTC, categorized as the Collision Obstacle because it's the highest risk posed to the ego vehicle. 
+- **Obstacle 30733** poses an **Extreme Risk** primarily due to its short TTC, but its lateral distance keeps it from becoming a direct collision obstacle at this time.
+- There are no additional high-risk obstacles needing identification based on current data.

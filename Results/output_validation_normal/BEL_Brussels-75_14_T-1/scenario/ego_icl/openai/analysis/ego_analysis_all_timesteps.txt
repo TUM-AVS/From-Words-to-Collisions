@@ -1,0 +1,100 @@
+## Obstacle-by-Obstacle Analysis
+
+### Obstacle 30207 (Front-left)
+- **Trajectory Analysis:** 
+  - From previous timesteps, the longitudinal distance is decreasing steadily as the obstacle moves towards the ego vehicle. Simultaneously, the lateral distance is increasing as the obstacle moves away laterally. This suggests a diagonal crossing trajectory.
+  
+- **Current Assessment (Most Recent Timestep):**
+  - **Adjusted Longitudinal Distance:** 13.49 m
+  - **Adjusted Lateral Distance:** 11.54 m
+  - **Relative Velocity:** Longitudinal -6.25 m/s, Lateral 4.90 m/s
+  - **Motion Description:** Obstacle is moving away laterally to the left but approaching longitudinally.
+  
+- **TTC & MDC Calculations:**
+  - **TTC (Longitudinal):** |13.49 / 6.25| = ~2.16 seconds
+  - **TTC (Lateral):** Not applicable since the lateral distance is increasing and the obstacle is moving away to the left.
+  - **MDC:** For front-left configuration, the focus is on lateral movement for collision. Since the vehicle is moving away, MDC is adequate.
+
+- **Risk Assessment:**
+  - **TTC indicates a Medium Risk (3):** TTC ~2.16 seconds for longitudinal closing.
+  - **MDC suggests no imminent collision** as lateral distance increases.
+
+**Overall Risk for 30207: Medium Risk (3)**
+
+### Obstacle 30209 (Front-right)
+- **Trajectory Analysis:** 
+  - Longitudinal and lateral distances are both decreasing. The obstacle is moving toward the ego vehicle from the front-right position.
+
+- **Current Assessment (Most Recent Timestep):**
+  - **Adjusted Longitudinal Distance:** 8.21 m
+  - **Adjusted Lateral Distance:** -20.91 m
+  - **Relative Velocity:** Longitudinal -6.14 m/s, Lateral 4.23 m/s
+  - **Motion Description:** Obstacle driving towards the ego vehicle from the right.
+
+- **TTC & MDC Calculations:**
+  - **TTC (Longitudinal):** |8.21 / 6.14| = ~1.34 seconds
+  - **TTC (Lateral):** |~20.91 / 4.23| = ~4.94 seconds, but trajectory is closing laterally.
+  - **MDC regards converging trajectory, primarily the lateral movement.**
+
+- **Risk Assessment:**
+  - **TTC indicates High Risk (2):** Longitudinal TTC relatively short.
+  - **Medium convergence risk:** Lateral trajectory moving towards.
+  
+**Overall Risk for 30209: Medium Risk (3) due to convergence and distance**
+
+### Obstacle 30210 (Behind)
+- **Trajectory Analysis:** 
+  - The obstacle is slowly moving towards the ego vehicle. Exact lateral alignment noted, which means potential for rear impact.
+
+- **Current Assessment (Most Recent Timestep):**
+  - **Adjusted Longitudinal Distance:** -11.58 m
+  - **Adjusted Lateral Distance:** 0.00 m
+  - **Relative Velocity:** Longitudinal 1.66 m/s, Lateral 0.15 m/s
+  - **Motion Description:** Approaching the ego vehicle directly from behind.
+
+- **TTC & MDC Calculations:**
+  - **TTC (Longitudinal):** Not calculated as longitudinal distance is negative and moving towards with a slow closure.
+  - **Lateral distance exact alignment; focus on closing speed behind.**
+
+- **Risk Assessment:**
+  - **Low Risk due to slow approach:** Longitudinal relative velocity slow; weak acceleration potential interaction but manageable.
+
+**Overall Risk for 30210: Low Risk (4)**
+
+### Obstacle 30211 (Behind)
+- **Trajectory Analysis:** 
+  - The obstacle is moving away longitudinally from the ego vehicle. Lateral alignment remains constant.
+  
+- **Current Assessment (Most Recent Timestep):**
+  - **Adjusted Longitudinal Distance:** -25.05 m
+  - **Adjusted Lateral Distance:** 0.00 m
+  - **Relative Velocity:** Longitudinal 0.63 m/s, Lateral 0.14 m/s
+  - **Motion Description:** Moving away longitudinally despite being behind.
+
+- **TTC & MDC Calculations:**
+  - **No immediate collision risk: moving away longitudinally.**
+  - **MDC considers lateral distance for side trajectory but stance is stable.**
+
+- **Risk Assessment:**
+  - **No Risk due to moving away:** Longitudinal risk negligible, lateral constant.
+
+**Overall Risk for 30211: No Risk (5)**
+
+## Conclusion
+There's no obstacle with an extreme immediate collision path. Monitoring the interaction among obstacles in the trajectory is necessary, especially with obstacles changing paths. However, currently, there are no immediate high-risk scenarios.
+
+## JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacles presented collision or extreme risk as their TTC and MDC assessments did not indicate very severe convergence."
+}
+```

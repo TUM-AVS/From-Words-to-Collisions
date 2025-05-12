@@ -1,0 +1,64 @@
+### Analysis
+
+#### Obstacle 30680: Front-right Analysis
+
+- **Trajectory Overview:**
+  - Position:
+    - Longitudinal distance decreasing: from 19.13m at 0.1s to 18.14m at 0.9s
+    - Lateral distance decreasing: from -16.65m at 0.1s to -15.21m at 0.9s
+  - Velocity:
+    - Longitudinal velocity changes from -5.06 m/s to -2.64 m/s
+    - Lateral velocity changes from -2.28 m/s to -1.45 m/s
+  - Continuous trajectory toward the ego vehicle longitudinally, moving away laterally
+
+- **Current Assessment (0.9s):**
+  - **Adjusted Distances**: Not explicitly provided, assume these are similar to raw due to critical evaluation directive.
+  - **MDC**: Since lateral motion is moving away, focus on longitudinal.
+  - **TTC Calculation**:
+    - Longitudinal: 18.14m / 2.64 m/s ≈ 6.87s
+    - Lateral TTC is not a concern as it's moving away.
+  - **MDC Calculation**: Longitudinal MDC is continuously decreasing but remains over 15m.
+
+- **Risk Level:**
+  - With a TTC of 6.87 seconds and MDC > 15m, this obstacle is of **negligible risk**.
+
+#### Obstacle 30686: Front Analysis
+
+- **Trajectory Overview:**
+  - Position:
+    - Longitudinal distance decreasing: from 6.80m at 0.1s to 2.80m at 0.9s
+    - Lateral distance consistently 0.00m
+  - Velocity:
+    - Longitudinal velocity changes from -6.75 m/s to -2.95 m/s
+    - Lateral velocity modestly changing, not consequential for longitudinal front
+
+- **Current Assessment (0.9s):**
+  - **Adjusted Distances**: Assume approximately equal to raw due to critical evaluation directive
+  - **Exact Lateral Alignment** - Critical focus on longitudinal
+  - **TTC Calculation**:
+    - Longitudinal: 2.80m / 2.95 m/s ≈ 0.95s
+  - **MDC Calculation**: Lateral 0.00m and rapidly declining longitudinal
+
+- **Risk Level:**
+  - With a TTC of 0.95 seconds and rapidly decreasing MDC, this obstacle presents a **high risk**.
+
+### Summary in JSON Format
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "30686",
+        "OverallRiskScore": "2"
+    }
+}
+```
+
+The evaluation indicates Obstacle 30686 with a high risk due to a consistently reducing longitudinal distance and short time-to-collision, whereas Obstacle 30680 poses negligible risk due to diverging lateral paths and sufficient TTC.

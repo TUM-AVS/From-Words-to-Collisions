@@ -1,0 +1,31 @@
+Obstacle 3071 (Rear-Left):
+- Trajectory: This obstacle was initially to the left of the ego vehicle and has now moved slightly behind.  The lateral distance remains fairly constant around 1.9m, while the longitudinal distance has become negative, increasing in magnitude over the timesteps (indicating moving further behind the ego vehicle).
+- Analysis at t=2.9s: Lateral distance is 1.88m, longitudinal distance is -6.85m. The obstacle is moving away longitudinally (-11.37 m/s) and slightly towards the ego laterally (-0.01 m/s), but the lateral velocity is very small. Given the current distances and velocities, there is no immediate risk.
+- TTC: Not applicable laterally (velocity near zero).  Longitudinally, the negative velocity indicates divergence, so TTC isn't relevant for collision risk.
+- MDC: Approximately 1.88m (lateral distance is the primary concern here since longitudinal distance increasing)
+- Risk: 3 (Medium) due to proximity
+
+Obstacle 3074 (Behind):
+- Trajectory: This obstacle has been consistently behind the ego vehicle and is approaching. The lateral distance remains at 0.00m throughout, indicating it stays in the same lane.  The longitudinal distance is steadily decreasing, indicating a closing speed.
+- Analysis at t=2.9s:  Longitudinal distance is -0.70m indicating it is very close behind. The positive longitudinal velocity (3.54 m/s) confirms it is rapidly approaching.
+- TTC:  -0.70m / 3.54 m/s ≈ -0.20s (The negative TTC suggests the obstacle might have very recently passed the ego vehicle or that the calculation is slightly off due to changing velocities/accelerations.  However, combined with the very small MDC, we should treat this as high risk.)
+- MDC: Approximately 0.7m.
+- Risk: 2 (High) - very close proximity and rapidly approaching.
+
+Obstacle 3075 (Front-Left):
+- Trajectory:  This obstacle is diagonally ahead and to the left, with both longitudinal and lateral distances decreasing over the timesteps, implying it's approaching the ego vehicle.
+- Analysis at t=2.9s: Longitudinal distance is 6.61m and lateral distance is 3.26m. Both relative velocities are negative, indicating the obstacle moving towards the ego vehicle.
+- TTC: Longitudinal TTC = 6.61m / 5.87 m/s ≈ 1.13s. Lateral TTC = 3.26m / 3.35 m/s ≈ 0.97s.
+- MDC: Considering the closing trajectory in both directions, the MDC will be smaller than either individual distance. Since both longitudinal and lateral TTCs are similar, the MDC will likely be around 3m or slightly less when the projected paths are closest.
+- Risk: 3 (Medium) –  Approaching, but still has some time to react
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3074",
+    "OverallRiskScore": "2"
+  },
+  "PredictedCollisionObstacle": {}
+}
+```

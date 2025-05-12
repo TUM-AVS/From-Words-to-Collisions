@@ -1,0 +1,61 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 30194** (Front of ego car)
+- **Adjusted Distances**: 
+  - Longitudinal: 15.93 m (raw: 15.93 m)
+  - Lateral: 0.00 m (raw: 0.00 m)
+- **Relative Velocity**: 
+  - Longitudinal: -4.04 m/s (approaching ego)
+  - Lateral: 0.04 m/s (minimal lateral movement)
+- **Relative Acceleration**: 
+  - Longitudinal: -0.23 m/s² (slight deceleration)
+  - Lateral: -2.93 m/s² (lateral movement stabilizing)
+- **Motion Description**: "Obstacle is driving toward the ego car longitudinally. Exact lateral alignment."
+
+---
+
+### **Trajectory Analysis (0.1s to 0.9s)**
+- The obstacle is consistently aligned laterally (0.00m) and closing longitudinally at ~4 m/s.
+- Longitudinal distance decreases from 19.50m to 15.93m over 0.8s (~3.57 m/s average closing speed).
+- Lateral velocity is negligible (~0.05 m/s), and lateral acceleration is negative (correcting drift).
+
+---
+
+### **Risk Metrics Calculation**
+1. **Time-to-Collision (TTC)**:
+   - Longitudinal TTC = Distance / |Relative Velocity| = 15.93 / 4.04 ≈ **3.94 seconds**.
+   - Lateral TTC = N/A (lateral distance stable/increasing due to negative acceleration).
+
+2. **Minimum Distance to Collision (MDC)**:
+   - Since the obstacle is directly ahead (lateral = 0.00m), MDC is the longitudinal distance: **15.93m**.
+
+---
+
+### **Risk Assessment**
+- **TTC (3.94s)**: Falls in **Low Risk (4)** (3.0 < TTC ≤ 5.0).
+- **MDC (15.93m)**: Falls in **No Risk (5)** (MDC > 5.0m).
+- **Overall Risk**: Prioritize the higher risk (lower score) → **Low Risk (4)**.
+
+---
+
+### **Collision Scenario Determination**
+- No obstacle has a risk score of 0 (collision) or 1 (extreme risk).
+- The closest obstacle (30194) is 15.93m away with a TTC of 3.94s, which is **Low Risk**.
+
+---
+
+### **Final JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30194 is 15.93m ahead with a TTC of 3.94s (Low Risk). No collision or extreme risk detected."
+}
+```

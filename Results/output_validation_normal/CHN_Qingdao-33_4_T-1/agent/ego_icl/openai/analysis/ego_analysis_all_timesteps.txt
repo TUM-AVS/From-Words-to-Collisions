@@ -1,0 +1,96 @@
+### Obstacle Analysis at 0.9 seconds
+
+#### Obstacle 30676 - Front-left
+- **Adjusted Distances**: Longitudinal 20.23 m, Lateral 9.17 m
+- **Relative Velocity**: Longitudinal -3.34 m/s, Lateral 0.00 m/s
+- **Trajectory & Motion**: Obstacle moving towards the ego vehicle.
+- **TTC (Longitudinal)**: \( \frac{20.23}{3.34} \approx 6.06 \) seconds
+  - With a TTC > 5 seconds, this is a low-risk scenario. 
+- **MDC**: Both the longitudinal and lateral distances are greater than 3 meters, indicating low risk.
+- **Risk Level**: **5 (Negligible Risk)**
+
+#### Obstacle 30683 - Rear-left
+- **Adjusted Distances**: Longitudinal -10.66 m, Lateral 3.11 m
+- **Relative Velocity**: Longitudinal -15.68 m/s, Lateral 2.32 m/s
+- **Trajectory & Motion**: Moving away longitudinally.
+- **TTC (Longitudinal)**: N/A (moving apart)
+- **TTC (Lateral)**: \( \frac{3.11}{2.32} \approx 1.34 \) seconds
+  - Medium risk as lateral TTC is < 3 seconds. However, since it's moving away overall, the risk downgrades.
+- **MDC**: The distance is not critical in either direction.
+- **Risk Level**: **4 (Low Risk)**
+
+#### Obstacle 30686 - Front-right
+- **Adjusted Distances**: Longitudinal 18.19 m, Lateral -7.91 m
+- **Relative Velocity**: Longitudinal -3.34 m/s
+- **Trajectory & Motion**: Obstacle moving towards the ego vehicle.
+- **TTC (Longitudinal)**: \( \frac{18.19}{3.34} \approx 5.44 \) seconds
+  - TTC above 5 seconds suggests low risk.
+- **MDC**: Safe given both distances.
+- **Risk Level**: **5 (Negligible Risk)**
+
+#### Obstacle 30687 - Front-right
+- **Adjusted Distances**: Longitudinal 14.17 m, Lateral -14.42 m
+- **Relative Velocity**: Longitudinal -3.26 m/s, Lateral 0.13 m/s
+- **Trajectory & Motion**: Moving towards ego in both dimensions but slowly.
+- **TTC (Longitudinal)**: \( \frac{14.17}{3.26} \approx 4.35 \) seconds
+  - With a TTC < 5 seconds, this presents low-medium risk.
+- **MDC**: Adequate in both longitudinal and lateral.
+- **Risk Level**: **4 (Low Risk)**
+
+#### Obstacle 30688 - Front-right
+- **Adjusted Distances**: Longitudinal 9.90 m, Lateral -21.30 m
+- **Relative Velocity**: Longitudinal -3.02 m/s
+- **Trajectory & Motion**: Slowly moving towards the ego.
+- **TTC (Longitudinal)**: \( \frac{9.90}{3.02} \approx 3.28 \) seconds
+  - This places it in the medium risk category.
+- **MDC**: Adequate longitudinally; safe lateral distance for now.
+- **Risk Level**: **3 (Medium Risk)**
+
+#### Obstacle 30690 - Front-right
+- **Adjusted Distances**: Longitudinal 9.55 m, Lateral -0.69 m
+- **Relative Velocity**: Longitudinal -1.17 m/s
+- **Trajectory & Motion**: Moving towards ego longitudinally.
+- **TTC (Longitudinal)**: \( \frac{9.55}{1.17} \approx 8.16 \) seconds
+  - Low risk because TTC is high.
+- **MDC**: Safe in both dimensions.
+- **Risk Level**: **4 (Low Risk)**
+
+#### Obstacle 30693 - Behind
+- **Adjusted Distances**: Longitudinal -8.38 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 2.89 m/s, Lateral -0.99 m/s
+- **Trajectory & Motion**: Moving towards ego from behind.
+- **TTC (Longitudinal)**: Not converging, moving from behind with negative position, generally safe.
+- **Risk Level**: **4 (Low Risk)**
+
+#### Obstacle 30695 - Rear-left
+- **Adjusted Distances**: Longitudinal -21.00 m, Lateral 2.85 m
+- **Relative Velocity**: Longitudinal 2.07 m/s, Lateral -2.71 m/s
+- **Trajectory & Motion**: Moving towards the ego.
+- **TTC (Lateral)**: \( \frac{2.85}{2.71} \approx 1.05 \) seconds
+  - Medium risk.
+- **MDC**: Safe enough longitudinally, but lateral motion requires attention.
+- **Risk Level**: **3 (Medium Risk)**
+
+### JSON Summary:
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "MediumRiskObstacle": {
+        "ObstacleID": "30688",
+        "OverallRiskScore": "3"
+    }
+}
+```
+This analysis highlights obstacle 30688 with a medium risk due to a TTC of ~3.28s in the longitudinal direction. Other obstacles either present low or negligible risk at this present moment.

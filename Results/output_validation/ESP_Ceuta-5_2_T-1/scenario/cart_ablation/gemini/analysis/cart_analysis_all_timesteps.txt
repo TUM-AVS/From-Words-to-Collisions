@@ -1,0 +1,24 @@
+At t=1.2s, Ego is in lanelet 66824.0, moving with a velocity of 2.41 m/s and accelerating at 0.51 m/s².
+
+Obstacle 31.0 is in lanelet 66985.0, far from Ego and poses no immediate risk.
+
+Obstacle 325.0 is in lanelet 66725.0.  While it's in a different lanelet than Ego at this specific timestep, its position (623.19, 712.26) is very close to Ego's (619.98, 713.18). Given the proximity and the trajectories observed in previous timesteps, there is a high risk of collision.  Although they are momentarily in different lanelets, the lanelets are likely adjacent, and a lane change by either vehicle or a slight drift by obstacle 325.0 could lead to a collision. This merits a risk score of 1 (Extreme Risk).
+
+Obstacle 344.0 is in lanelet 66725.0. Its position (640.98, 707.52) suggests it's further away from Ego than 325.0 and poses less of a risk.
+
+Obstacle 350.0 is in lanelet 66823.0, and poses no immediate risk due to its distance from Ego.
+
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "325.0",
+    "OverallRiskScore": 1
+  },
+  "ScenarioAnalysis": {
+    "IsCollisionScenario": false,
+    "Reasoning": "Obstacle 325.0 poses an extreme risk of collision due to its proximity to Ego despite being in a different (likely adjacent) lanelet at t=1.2s. No other obstacles present immediate collision risk."
+  }
+}
+```

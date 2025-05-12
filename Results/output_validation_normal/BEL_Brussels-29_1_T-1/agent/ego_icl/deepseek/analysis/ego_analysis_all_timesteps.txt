@@ -1,0 +1,58 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30082
+- **Direction**: Front of the ego car
+- **Adjusted Distances**: 
+  - Longitudinal: 15.47 m (increasing over time)
+  - Lateral: 0.00 m (exact alignment, but stable)
+- **Relative Velocity**: 
+  - Longitudinal: 5.03 m/s (positive, but obstacle is moving away)
+  - Lateral: 0.00 m/s (no lateral movement)
+- **Motion Description**: Obstacle is moving away longitudinally. Exact lateral alignment or unknown case.
+- **Trajectory Analysis**: 
+  - Longitudinal distance is increasing (from 11.25 m at 0.1s to 15.47 m at 0.9s).
+  - Lateral distance remains exactly 0.00 m, but no lateral movement or closing velocity.
+  - The obstacle is moving away from the ego vehicle, so no collision risk.
+
+#### TTC and MDC Calculations
+- **TTC Longitudinal**: 
+  - Distance: 15.47 m
+  - Relative Velocity: 5.03 m/s (moving away, so TTC is not applicable for collision risk)
+  - TTC: N/A (diverging paths)
+- **TTC Lateral**: 
+  - Distance: 0.00 m
+  - Relative Velocity: 0.00 m/s
+  - TTC: N/A (no movement)
+- **MDC**: 
+  - Longitudinal: 15.47 m (Low Risk, MDC > 5.0 m)
+  - Lateral: 0.00 m (but no closing velocity, so no collision risk)
+  - Overall MDC: 15.47 m (Low Risk)
+
+#### Risk Assessment
+- **Longitudinal Risk**: Low Risk (MDC > 5.0 m, TTC N/A)
+- **Lateral Risk**: Negligible Risk (no closing velocity, exact alignment but no collision risk)
+- **Overall Risk**: Low Risk (4)
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```
+
+### Explanation
+- There is no collision or extreme/high risk obstacle in this scenario.
+- Obstacle 30082 is moving away from the ego vehicle longitudinally, and there is no lateral movement or closing velocity.
+- The longitudinal distance is increasing, and the lateral distance is stable at 0.00 m but poses no risk due to no closing velocity.
+- The overall risk is Low (4) for Obstacle 30082, but since the thresholds for collision, extreme, or high risk are not met, the JSON summary reflects no such obstacles.

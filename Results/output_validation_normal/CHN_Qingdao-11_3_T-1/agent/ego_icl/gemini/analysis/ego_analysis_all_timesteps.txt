@@ -1,0 +1,32 @@
+Obstacle 30702 Analysis:
+
+Trajectory Analysis: Obstacle 30702 starts front-left of the ego vehicle and moves further away both longitudinally and laterally over the timesteps.  It transitions to directly in front of the ego vehicle while still moving away longitudinally.
+
+At the most recent timestep (0.9 seconds):
+
+- Longitudinal distance: 18.10 m
+- Lateral distance: 0.00 m
+- Longitudinal relative velocity: 0.01 m/s (almost stationary relative to ego)
+- Lateral relative velocity: 0.56 m/s (moving left relative to ego)
+
+TTC Calculation:
+- Longitudinal TTC = 18.10 m / 0.01 m/s = 1810 s (practically infinite, as the relative speed is near zero)
+- Lateral TTC is not relevant for collision risk here as the lateral distance is near zero with the obstacle moving away and not closing.
+
+MDC Calculation:
+Given the obstacle's position directly in front of the ego vehicle and its trajectory of moving away, the MDC is primarily determined by the longitudinal distance, which is substantial.  MDC ≈ 18.10 m.
+
+Risk Assessment:
+- Longitudinal Risk: Negligible (5) due to large distance and slow, separating velocity.
+- Lateral Risk:  Negligible (5) even though lateral distance is zero since the obstacle is moving away and not closing.
+- Overall Risk: Negligible (5)
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "HighRiskObstacle": {}
+}
+```

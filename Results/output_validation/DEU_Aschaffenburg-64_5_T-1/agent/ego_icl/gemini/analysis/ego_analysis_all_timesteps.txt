@@ -1,0 +1,47 @@
+At t=2.1s:
+
+**Obstacle 30187 (Front-Left):**
+
+* **Trajectory Analysis:**  This obstacle has been approaching the ego vehicle both longitudinally and laterally from t=1.2s to t=2.0s. However, at t=2.1s, the lateral relative velocity becomes positive, indicating that it started moving away laterally. The longitudinal distance is rapidly decreasing.
+
+* **Calculations:**
+    * Longitudinal TTC = 6.39m / 15.92m/s ≈ 0.40s
+    * Lateral TTC =  Not applicable (since the obstacle is driving away from the ego car)
+    * MDC ≈  6.39m (using longitudinal as the more critical dimension)
+
+* **Risk Assessment:**
+    * Longitudinal TTC suggests Extreme Risk (1) due to being <0.5s.
+    * MDC suggests Low Risk (4) due to the distance being between 3.0 and 5.0m.
+    * Overall Risk: Extreme Risk (1) - prioritizing the higher risk from TTC.
+
+**Obstacle 30195 (Behind):**
+
+* **Trajectory Analysis:**  This obstacle has been consistently approaching the ego vehicle from behind, with the longitudinal distance decreasing across all timesteps. The lateral distance remains at 0.0m, indicating it is directly behind the ego vehicle in the same lane.
+
+* **Calculations:**
+    * Longitudinal TTC = 0.76m / 4.61m/s ≈ 0.16s
+    * Lateral TTC = Not applicable
+    * MDC ≈ 0.76m
+
+* **Risk Assessment:**
+    * Longitudinal TTC suggests Extreme Risk (1) as it's <0.5s.
+    * MDC suggests High Risk (2) as it's between 0.5 and 1.0m.
+    * Overall Risk: Extreme Risk (1) - prioritizing the lower TTC.
+
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30195", 
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "30195",
+    "OverallRiskScore": "1"
+  }
+}
+```

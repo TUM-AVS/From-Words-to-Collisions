@@ -1,0 +1,33 @@
+Obstacle 30753:
+- Trajectory: This obstacle was initially in front-right of the ego vehicle, then moved to be directly to the right, and in the most recent timestep is now rear-right.  The longitudinal distance has transitioned from positive to negative, indicating it has passed the ego vehicle longitudinally. The lateral distance has remained relatively constant around -25m, meaning it is to the right of the ego and moving away slightly.
+- Most Recent Timestep (9.6s): Located rear-right, longitudinal distance -4.86m, lateral distance -24.41m.  Relative longitudinal velocity is -17.89 m/s (moving away), and lateral velocity is 2.71 m/s (moving towards ego laterally, but still far).
+- TTC: Not applicable for longitudinal as vehicles are moving apart.  Lateral TTC = 24.41m / 2.71m/s ≈ 9.0s.
+- MDC:  Given the trajectories and the most recent positions, the MDC would be the lateral distance at the point where the longitudinal distance was smallest (near 0 at timestep 8.8s, 8.9s, 9.0s, 9.1s, 9.2s and 9.3s), giving us a MDC close to 25m for this obstacle.
+- Risk Score:  5 (Negligible Risk) - Obstacle is moving away longitudinally and lateral distance is large.
+
+
+Obstacle 30762:
+- Trajectory: This obstacle has been consistently rear-right of the ego vehicle, gradually moving further away in both directions.
+- Most Recent Timestep (Not present in last provided timestep): Its last recorded position (9.2s) was longitudinal -8.77m and lateral -25.14m. Relative longitudinal velocity -3.37m/s and lateral velocity -2.55 m/s, both indicating separation.
+- TTC: Not applicable as the obstacle is moving away.
+- MDC: Considering the trajectory, MDC would be the distances observed at the initial timestep, and it will only increase with time. The obstacle is already far and moving away further from the ego.
+- Risk Score: 5 (Negligible Risk) - Obstacle already far behind and to the right, and is moving further away.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  }
+}
+```

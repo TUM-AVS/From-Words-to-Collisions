@@ -1,0 +1,37 @@
+### Analysis:
+
+1. **Ego Vehicle (ID: 30740.0)**:
+   - Position: (-77.9527, -145.6978)
+   - Orientation: -1.4766983217832614 radians (~ -84.6 degrees)
+   - Velocity: 4.7438 m/s (~17.08 km/h)
+   - Acceleration: -1.0808 m/s² (decelerating)
+   - Lanelet: 393.0
+
+2. **Obstacle (ID: 30738.0)**:
+   - Position: (-76.4769, -160.8176)
+   - Orientation: -1.4726 radians (~ -84.4 degrees)
+   - Velocity: 0.0 m/s (stationary)
+   - Acceleration: 0.0 m/s²
+   - Lanelet: 393.0 (same as ego)
+
+#### Relative Motion:
+- **Longitudinal Distance**: The obstacle is behind the ego vehicle. The distance between them is calculated as the Euclidean distance:
+  - Ego: (-77.9527, -145.6978)
+  - Obstacle: (-76.4769, -160.8176)
+  - Distance = sqrt[(-76.4769 - (-77.9527))² + (-160.8176 - (-145.6978))²] = sqrt[(1.4758)² + (-15.1198)²] = sqrt[2.178 + 228.608] = sqrt(230.786) ≈ 15.19 m
+- **Relative Velocity**: Ego is moving at 4.7438 m/s, obstacle is stationary. Thus, the relative velocity is 4.7438 m/s (ego is moving away from the obstacle).
+- **TTC (Time to Collision)**: Since the ego is moving away from the obstacle, TTC is not applicable (no collision risk).
+- **MDC (Minimum Distance to Collision)**: The distance is increasing as the ego moves away, so no collision is possible.
+
+#### Risk Assessment:
+- The obstacle is stationary and behind the ego vehicle. The ego is decelerating but moving away from the obstacle. There is no risk of collision.
+- **Overall Risk Score**: 5 (Negligible Risk).
+
+### JSON Output:
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": null
+}
+```

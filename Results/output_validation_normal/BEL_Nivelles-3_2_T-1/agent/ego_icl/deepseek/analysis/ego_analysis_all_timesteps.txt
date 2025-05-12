@@ -1,0 +1,59 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 312 (Front-left)**
+- **Adjusted Distance**: Longitudinal 20.51m, Lateral 3.43m  
+- **Relative Velocity**: Longitudinal -7.27 m/s (approaching), Lateral -0.09 m/s (approaching from left)  
+- **Motion**: Driving toward ego longitudinally and laterally from the left.  
+- **Trajectory**: Over the last few timesteps, the lateral distance has increased (from 0.00m to 3.43m), while the longitudinal distance is decreasing rapidly.  
+- **TTC (Longitudinal)**: 20.51 / 7.27 ≈ **2.82s** (Medium Risk)  
+- **TTC (Lateral)**: 3.43 / 0.09 ≈ **38.11s** (No Risk)  
+- **MDC**: Lateral distance is increasing, so MDC is not concerning (Low Risk).  
+- **Overall Risk**: **Medium (3)** – Primarily due to longitudinal closing speed.
+
+#### **Obstacle 329 (Front-left)**
+- **Adjusted Distance**: Longitudinal 14.15m, Lateral 1.05m  
+- **Relative Velocity**: Longitudinal -6.36 m/s (approaching), Lateral 0.30 m/s (moving away left)  
+- **Motion**: Driving toward ego longitudinally but moving away laterally.  
+- **Trajectory**: Longitudinal distance decreasing, lateral distance increasing.  
+- **TTC (Longitudinal)**: 14.15 / 6.36 ≈ **2.23s** (Medium Risk)  
+- **TTC (Lateral)**: N/A (moving away)  
+- **MDC**: Lateral distance is increasing, so MDC is not concerning (Low Risk).  
+- **Overall Risk**: **Medium (3)** – Due to longitudinal closing speed.
+
+#### **Obstacle 335 (Rear-right)**
+- **Adjusted Distance**: Longitudinal -4.89m (behind), Lateral -2.41m (right)  
+- **Relative Velocity**: Longitudinal -0.15 m/s (moving away), Lateral 1.08 m/s (approaching from right)  
+- **Motion**: Moving away longitudinally but approaching laterally from the right.  
+- **Trajectory**: Longitudinal distance increasing, lateral distance decreasing (from -1.00m to -2.41m).  
+- **TTC (Longitudinal)**: N/A (moving away)  
+- **TTC (Lateral)**: 2.41 / 1.08 ≈ **2.23s** (Medium Risk)  
+- **MDC**: Lateral distance is decreasing but still > 1.0m (Medium Risk).  
+- **Overall Risk**: **Medium (3)** – Due to lateral closing speed.
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```
+
+### **Key Findings**
+- **No Collision (0) or Extreme Risk (1) detected.**  
+- **All obstacles are at Medium Risk (3)** due to either longitudinal or lateral closing speeds, but distances remain manageable.  
+- **Obstacle 312** is the most concerning due to high longitudinal closing speed (~7.27 m/s).  
+- **Obstacle 335** requires monitoring due to lateral approach from the right.  
+
+**Recommendation:** Maintain current trajectory with slight adjustments if necessary to avoid future risk escalation.

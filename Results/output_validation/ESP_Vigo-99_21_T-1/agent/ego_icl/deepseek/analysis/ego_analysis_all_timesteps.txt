@@ -1,0 +1,54 @@
+Let me analyze each obstacle at the most recent timestep (14.3 seconds) with trajectory context:
+
+1. Obstacle 3511 (Front):
+   - Longitudinal: 7.67m (stable, decreasing very slowly at 0.04m/s)
+   - Lateral: 0.00m (exact alignment)
+   - Relative velocity: -0.04m/s (slow approach)
+   - TTC: 7.67/0.04 = 191.75s (negligible)
+   - MDC: 7.67m (low risk)
+   - Risk: 5 (Negligible) - No significant closing speed
+
+2. Obstacle 3515 (Behind):
+   - Longitudinal: -0.39m (rapidly closing from 1.76m at 13.4s)
+   - Lateral: 0.00m (exact alignment)
+   - Relative velocity: 1.28m/s (closing)
+   - TTC: 0.39/1.28 = 0.30s (extreme risk)
+   - MDC: 0.39m (extreme risk)
+   - Risk: 0 (Collision imminent) - Will impact within 0.3s
+
+3. Obstacle 3519 (Behind):
+   - Longitudinal: -9.45m (closing at 1.47m/s)
+   - Lateral: 0.00m (exact alignment)
+   - Relative velocity: 1.47m/s
+   - TTC: 9.45/1.47 = 6.43s (no risk)
+   - MDC: 9.45m (no risk)
+   - Risk: 5 (Negligible) - Distant and slow approach
+
+4. Obstacle 3516 (Front-right):
+   - Longitudinal: 22.90m at 14.0s (moving away at 1.24m/s)
+   - Lateral: -9.63m at 14.0s (moving right at 8.18m/s)
+   - Diverging in both dimensions
+   - Risk: 5 (Negligible) - Rapidly moving away
+
+Trajectory Analysis:
+- 3515 shows consistent rapid closure from behind (1.76m → 0.39m in 0.9s)
+- Acceleration trends show decreasing relative velocity but still critical
+- At current rate, will reach 0m in 0.3s (collision unavoidable)
+
+JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "3515",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3515",
+        "OverallRiskScore": "0"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "3515",
+        "OverallRiskScore": "0"
+    }
+}
+```

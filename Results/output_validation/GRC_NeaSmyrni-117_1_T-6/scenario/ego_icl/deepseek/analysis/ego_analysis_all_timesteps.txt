@@ -1,0 +1,63 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 3.6 seconds)
+
+#### **Obstacle 20036 (Front)**
+- **Adjusted Distance**: Longitudinal = 21.49m, Lateral = 0.00m  
+- **Relative Velocity**: Longitudinal = -1.60 m/s (approaching), Lateral = 0.00 m/s (no lateral movement)  
+- **Trajectory Analysis**:  
+  - Longitudinal distance is decreasing steadily (~1.6 m/s closing speed).  
+  - Lateral alignment is exact (0.00m), but no lateral movement.  
+- **TTC (Longitudinal)**:  
+  - TTC = 21.49 / 1.60 ≈ **13.43 seconds** (No Risk, TTC > 5.0s)  
+- **MDC (Longitudinal)**:  
+  - Current distance = 21.49m (No Risk, MDC > 5.0m)  
+- **Risk Assessment**:  
+  - **Overall Risk = 5 (No Risk)**  
+
+---
+
+#### **Obstacle 20037 (Front)**
+- **Adjusted Distance**: Longitudinal = 14.29m, Lateral = 0.00m  
+- **Relative Velocity**: Longitudinal = -1.09 m/s (approaching), Lateral = 0.00 m/s  
+- **Trajectory Analysis**:  
+  - Closing speed increasing slightly (acceleration ~ -0.42 m/s²).  
+  - No lateral movement.  
+- **TTC (Longitudinal)**:  
+  - TTC = 14.29 / 1.09 ≈ **13.11 seconds** (No Risk, TTC > 5.0s)  
+- **MDC (Longitudinal)**:  
+  - Current distance = 14.29m (No Risk, MDC > 5.0m)  
+- **Risk Assessment**:  
+  - **Overall Risk = 5 (No Risk)**  
+
+---
+
+#### **Obstacle 20039 (Collision)**
+- **Adjusted Distance**: Longitudinal = 0.00m, Lateral = 0.00m  
+- **Relative Velocity**: Longitudinal = 3.92 m/s (still moving forward after collision), Lateral = 0.00 m/s  
+- **Trajectory Analysis**:  
+  - **Collision occurred at 3.5s** (distance = 0.00m in both dimensions).  
+  - At 3.6s, obstacle is still overlapping with ego (longitudinal = 0.00m).  
+- **TTC (Longitudinal)**:  
+  - TTC = 0.00 / 3.92 = **0.00 seconds** (Collision Risk)  
+- **MDC (Longitudinal)**:  
+  - Current distance = 0.00m (Collision Risk)  
+- **Risk Assessment**:  
+  - **Overall Risk = 0 (Collision)**  
+
+---
+
+### **Collision Scenario Determination**
+- **Obstacle 20039** has a **risk score of 0** (collision occurring at 3.5s and still overlapping at 3.6s).  
+- The other obstacles pose no immediate risk (scores of 5).  
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20039",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": null,
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 20039 has collided with the ego vehicle (distance = 0.00m in both dimensions at 3.5s and remains overlapping at 3.6s)."
+}
+```

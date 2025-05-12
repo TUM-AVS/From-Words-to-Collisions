@@ -1,0 +1,46 @@
+At t=0.9s, the ego vehicle (ID 30245) is located in lanelet 116 and moving with a decreasing velocity. Let's analyze the risk posed by each obstacle:
+
+* **Obstacle 30221:** Located in the same lanelet (116) as the ego vehicle.  The distance between the ego and obstacle 30221 is decreasing over time.  Roughly, the x difference is around 10m and the y difference is around 11m. The obstacle's velocity is also decreasing, suggesting that a collision is not imminent in the very near future, but the situation requires monitoring. Medium risk.
+
+* **Obstacle 30225:**  Located in lanelet 115.  Static and far from the ego vehicle. Negligible risk.
+
+* **Obstacle 30228:**  Located in lanelet 116. Static and far from the ego vehicle.  Negligible risk.
+
+* **Obstacle 30229:** Located in lanelet 115.  Relatively far from the ego vehicle and moving slowly. Negligible risk.
+
+* **Obstacle 30241:** Located in lanelet 115. Although this obstacle is in a different lanelet, it's important to consider its motion relative to the ego vehicle.  The x values are close, and while the y values are different there isn't a lane change predicted for the ego vehicle.  Low risk.
+
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacles": [],
+    "HighRiskObstacles": [],
+    "MediumRiskObstacles":[
+        {
+            "ObstacleID": 30221,
+            "OverallRiskScore": 3
+        }
+    ],
+  "LowRiskObstacles": [
+      {
+        "ObstacleID": 30241,
+        "OverallRiskScore": 4
+      }
+  ],
+  "NegligibleRiskObstacles": [
+      {
+        "ObstacleID": 30225,
+        "OverallRiskScore": 5
+      },
+      {
+          "ObstacleID": 30228,
+          "OverallRiskScore": 5
+      },
+      {
+          "ObstacleID": 30229,
+          "OverallRiskScore": 5
+      }
+  ]
+}
+```

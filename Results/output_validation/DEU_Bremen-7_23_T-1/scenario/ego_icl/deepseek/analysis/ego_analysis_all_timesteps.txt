@@ -1,0 +1,65 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 4.9 seconds)
+
+#### **Obstacle 30304 (Front)**
+- **Adjusted Distance**: Longitudinal 18.99m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -1.50 m/s (approaching), Lateral -0.19 m/s (minor lateral movement)  
+- **Motion**: Driving toward ego longitudinally, exact lateral alignment.  
+
+**Risk Assessment**:  
+- **MDC (Longitudinal)**: 18.99m → **No Risk (5)**  
+- **TTC (Longitudinal)**: 18.99 / 1.50 ≈ 12.66s → **No Risk (5)**  
+- **Lateral Alignment**: 0.00m, but no significant lateral velocity (0.19 m/s away).  
+- **Overall Risk**: **No Risk (5)**  
+
+---
+
+#### **Obstacle 30306 (Behind)**
+- **Adjusted Distance**: Longitudinal -0.12m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 2.63 m/s (approaching rapidly), Lateral 0.18 m/s (minor lateral movement).  
+- **Motion**: Driving toward ego from behind, exact lateral alignment.  
+
+**Risk Assessment**:  
+- **MDC (Longitudinal)**: 0.12m → **Extreme Risk (1)** (MDC ≤ 0.5m threshold nearly met, and closing fast).  
+- **TTC (Longitudinal)**: 0.12 / 2.63 ≈ 0.046s → **Collision Risk (0)** (TTC ≈ 0).  
+- **Lateral Alignment**: 0.00m, but lateral velocity is negligible.  
+- **Overall Risk**: **Collision Risk (0)**  
+
+**Trajectory Analysis**:  
+- Over the last 0.5s, the longitudinal distance decreased from -2.90m to -0.12m, indicating rapid closure.  
+- At current relative velocity (2.63 m/s), the obstacle will reach the ego vehicle in **~0.05s**, effectively colliding.  
+
+---
+
+#### **Obstacle 30307 (Behind)**
+- **Adjusted Distance**: Longitudinal -16.39m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 3.73 m/s (approaching), Lateral 0.31 m/s (minor lateral movement).  
+- **Motion**: Driving toward ego from behind, exact lateral alignment.  
+
+**Risk Assessment**:  
+- **MDC (Longitudinal)**: 16.39m → **No Risk (5)**  
+- **TTC (Longitudinal)**: 16.39 / 3.73 ≈ 4.39s → **Low Risk (4)**  
+- **Lateral Alignment**: 0.00m, but no significant lateral convergence.  
+- **Overall Risk**: **Low Risk (4)**  
+
+---
+
+### Collision Scenario Determination  
+- **Obstacle 30306** has an **Overall Risk Score of 0 (Collision)** due to:  
+  - Longitudinal distance ≈ 0.12m (effectively touching).  
+  - TTC ≈ 0.05s (collision imminent).  
+  - Rapid closure trajectory (2.63 m/s relative velocity).  
+
+- **Obstacle 30304 and 30307** pose no immediate collision threat.  
+
+### Final JSON Summary  
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30306",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": null,
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30306 is at ~0.12m longitudinal distance with TTC ≈ 0.05s, indicating an active collision. No other obstacles pose extreme risk."
+}
+```

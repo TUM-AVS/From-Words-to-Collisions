@@ -1,0 +1,64 @@
+### Obstacle Analysis
+
+#### Obstacle 30660:
+- **Position and Trajectory**: Rear-left, moving away longitudinally while driving toward laterally.
+- **Adjusted Distance**: Longitudinal -14.42 m, Lateral 4.24 m.
+- **Relative Velocity**: Longitudinal -6.52 m/s, Lateral -5.53 m/s.
+- **Trajectory Analysis**:
+  - **Longitudinal**: Distance increasing, indicating it's moving further away.
+  - **Lateral**: Distance decreasing at a high rate (-5.53 m/s), suggesting a lateral closing.
+- **TTC Calculation**:
+  - Longitudinal TTC = Not applicable (moving away).
+  - Lateral TTC = 4.24 m / 5.53 m/s ≈ 0.77 seconds.
+- **MDC Analysis**:
+  - Primarily lateral component considered due to lateral movement toward the ego vehicle.
+  - MDC in lateral ≈ 4.24 m.
+- **Risk Assessment**: High Risk due to significant lateral closing velocity resulting in a low lateral TTC and decreasing lateral distance.
+
+#### Obstacle 30661:
+- **Position and Trajectory**: Front of ego vehicle, exact lateral alignment.
+- **Adjusted Distance**: Longitudinal 10.38 m, Lateral 0.00 m.
+- **Relative Velocity**: Longitudinal 0.37 m/s, Lateral 0.05 m/s.
+- **Trajectory Analysis**:
+  - **Longitudinal**: Distance stable/increasing at a very low rate.
+  - **Lateral**: Exact lateral alignment, not closing laterally.
+- **TTC Calculation**:
+  - Longitudinal TTC = 10.38 m / 0.37 m/s ≈ 28.05 seconds.
+  - Lateral component irrelevant due to alignment.
+- **MDC Analysis**:
+  - MDC > 5.0 m as the obstacle is moving away longitudinally.
+- **Risk Assessment**: Negligible Risk due to very high longitudinal TTC and no imminent collision possibility.
+
+#### Obstacle 30662:
+- **Position and Trajectory**: Rear-left, moving away longitudinally while driving toward laterally.
+- **Adjusted Distance**: Longitudinal -14.06 m, Lateral 15.46 m.
+- **Relative Velocity**: Longitudinal -7.01 m/s, Lateral -3.02 m/s.
+- **Trajectory Analysis**:
+  - **Longitudinal**: Distance increasing as it moves further away.
+  - **Lateral**: Distance decreasing at -3.02 m/s, but far from the ego vehicle initially.
+- **TTC Calculation**:
+  - Longitudinal TTC = Not applicable (moving away).
+  - Lateral TTC = 15.46 m / 3.02 m/s ≈ 5.12 seconds.
+- **MDC Analysis**:
+  - Primarily lateral distance, MDC would be around 15.46 m.
+- **Risk Assessment**: Low Risk based on ample lateral TTC, although scenario needs monitoring due to trajectory toward the ego vehicle.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "30660",
+        "OverallRiskScore": "2"
+    }
+}
+``` 
+
+**Overall Summary**: Obstacle 30660 presents the highest risk level (2 - High Risk) mainly due to its lateral trajectory toward the ego vehicle with a decreasing lateral distance and a low TTC. Obstacle 30661 has a negligible risk due to its stable trajectory and large longitudinal distance. Obstacle 30662 has a low risk due to sufficient distance and TTC, although it requires observation.

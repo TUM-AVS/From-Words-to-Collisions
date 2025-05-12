@@ -1,0 +1,30 @@
+Obstacle 3044 Analysis:
+- Trajectory: Obstacle 3044 has been consistently approaching the ego vehicle from behind, with the longitudinal distance decreasing from -1.04m to -0.24m over the observed time steps. Lateral distance remains at 0.00m, indicating it is directly behind and in the same lane.
+- TTC (Longitudinal):  -0.24m / 0.96m/s = -0.25s (Note: negative TTC typically means obstacle has passed, but since the distance is small and approaching 0, it suggests imminent collision).
+- MDC:  Approximately 0.24m (based on longitudinal distance).
+- Risk Assessment:
+    - MDC indicates Extreme Risk (1) due to proximity (< 0.5m).
+    - Negative TTC with a small MDC indicates Extreme Risk (1).
+
+Obstacle 3045 Analysis:
+- Trajectory: Obstacle 3045 is also approaching the ego vehicle from behind, but from a much greater distance. Longitudinal distance is decreasing slightly (from -16.51m to -15.71m).  The lateral distance is consistently at 0.00m suggesting same lane alignment, but not yet a critical factor.
+- TTC (Longitudinal): -15.71m / 0.93m/s = -16.89s. Again, the negative value is due to the negative longitudinal distance (behind ego) - but because the distance is substantial, this doesn't denote risk currently.
+- MDC: Approximately 15.71m (based on longitudinal distance).
+- Risk Assessment:  No Risk (5)
+
+Collision Scenario Determination:
+Yes, this is a collision scenario. Obstacle 3044 poses an Extreme Risk (1) with a very low MDC (0.24m) and a negative TTC, indicative of an imminent rear-end collision.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3044",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 3044 is extremely close (0.24m) and approaching from behind with a negative TTC (-0.25s), indicating an imminent rear-end collision."
+}
+```

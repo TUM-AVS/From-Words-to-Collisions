@@ -1,0 +1,65 @@
+### Obstacle-by-Obstacle Analysis
+
+**Obstacle 30118**
+
+**Trajectory Analysis:**
+- The obstacle has been observed over several timesteps (0.0 to 0.9 seconds).
+- Initially, it was slowly moving away from the ego vehicle (increasing longitudinal distance) but has started moving towards the ego vehicle after 0.5 seconds (decreasing longitudinal distance).
+
+**At 0.9 seconds (most recent timestamp):**
+- **Adjusted Longitudinal Distance:** Approximately 15.33 m (decreasing)
+- **Adjusted Lateral Distance:** 0.00 m (same-lane alignment)
+- **Relative Velocity (Longitudinal):** -1.10 m/s (obstacle is closing in)
+- **Relative Velocity (Lateral):** 0.18 m/s (slightly moving sideways)
+- **Relative Acceleration (Longitudinal):** -3.28 m/s² (continuing to accelerate towards the ego)
+- **Motion:** The obstacle is driving toward the ego vehicle longitudinally, indicating a converging trajectory.
+
+**Calculations:**
+- **Time-to-Collision (TTC) - Longitudinal:**
+  - \[
+  \text{TTC}_{\text{longitudinal}} = \frac{15.33}{1.10} \approx 13.94 \text{ seconds}
+  \]
+  Despite the closing velocity, the TTC is well over 5 seconds, which suggests no imminent collision risk.
+  
+- **Minimum Distance to Collision (MDC):**
+  - Since lateral alignment is exact (0.00 m), the main component in focus is the longitudinal distance.
+  - MDC can be considered as the current long distance of 15.33 m, indicating no immediate collision.
+
+**Risk Level Assessment:**
+- **MDC > 5.0 m** and **TTC > 5.0 s**, which falls under negligible risk.
+- Longitudinal velocity shows convergence, however, the current distance and TTC do not indicate a high collision risk within the immediate timeframe.
+  
+**Conclusion:**
+- No immediate or extreme risk present. Overall risk score reflects negligible risk level.
+
+### JSON Summary:
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "",
+    "OverallRiskScore": ""
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "",
+    "OverallRiskScore": ""
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": "",
+    "OverallRiskScore": ""
+  },
+  "MediumRiskObstacle": {
+    "ObstacleID": "",
+    "OverallRiskScore": ""
+  },
+  "LowRiskObstacle": {
+    "ObstacleID": "",
+    "OverallRiskScore": ""
+  },
+  "NegligibleRiskObstacle": {
+    "ObstacleID": "30118",
+    "OverallRiskScore": "5"
+  }
+}
+```
+
+The evaluation shows that although the obstacle is moving towards the ego with alignment, the current risk level is negligible due to the significant distance and extended TTC.

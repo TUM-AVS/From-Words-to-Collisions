@@ -1,0 +1,60 @@
+Obstacle-by-Obstacle Analysis at t=3.0s:
+
+* **Obstacle 30604 (Front-Left):**  This obstacle is relatively far from the ego vehicle. Longitudinal distance is 15.25m and lateral distance is 5.48m.  The relative longitudinal velocity is -10.75 m/s (moving away) and lateral velocity is -0.01 m/s (almost stationary laterally). Given the distances and receding longitudinal velocity, there is no immediate risk.
+    * TTC (longitudinal): Not applicable due to negative relative velocity.
+    * TTC (lateral):  Not applicable due to near-zero velocity, though slight lateral closing movement is possible.
+    * MDC: ~16.21m (using the distance formula)
+    * Risk Score: 5 (No Risk)
+
+* **Obstacle 30606 (Front-Left):** This obstacle is at 5.09m longitudinally and 1.97m laterally. Longitudinal velocity is -14.11 m/s (approaching quickly), and lateral velocity is minimal (-0.01 m/s). The decreasing longitudinal distance and the high closing velocity suggest a potential risk if the ego vehicle doesn't react.
+    * TTC (longitudinal): 5.09m / 14.11 m/s ≈ 0.36s
+    * TTC (lateral): Not applicable due to near zero velocity.
+    * MDC: ~5.46m
+    * Risk Score: 1 (Extreme Risk - due to very low TTC)
+
+* **Obstacle 30610 (Front):** Located 15.15m in front and laterally aligned (0.00m). Relative longitudinal velocity is -1.62 m/s (approaching). The trajectory history shows it consistently moving closer longitudinally but maintaining lateral alignment.
+    * TTC (longitudinal): 15.15m / 1.62 m/s ≈ 9.35s
+    * TTC (lateral): Not applicable due to zero velocity, and motion analysis confirms sustained lateral alignment.
+    * MDC: 15.15m
+    * Risk Score: 5 (No Risk)
+
+* **Obstacle 30613 (Front):**  At 7.64m longitudinally and 0.00m laterally, this obstacle is also approaching longitudinally with -1.61 m/s. The consistent lateral alignment suggests it's in the same lane.
+    * TTC (longitudinal): 7.64m / 1.61 m/s ≈ 4.75s
+    * TTC (lateral): Not applicable
+    * MDC: 7.64m
+    * Risk Score: 4 (Low Risk)
+
+* **Obstacle 30614 (Front):** This obstacle is extremely close longitudinally at 0.09m and laterally aligned (0.00m).  It's approaching at -1.56 m/s longitudinally.  This is extremely dangerous.
+    * TTC (longitudinal): 0.09m / 1.56 m/s ≈ 0.06s
+    * TTC (lateral): Not applicable
+    * MDC: 0.09m
+    * Risk Score: 0 (Collision - imminent)
+
+
+* **Obstacle 30626 (Front-Right):**  Located at 14.88m longitudinally and -1.80m laterally. Moving away longitudinally (0.06 m/s) and very slight lateral movement towards ego (0.00 m/s).  No immediate risk.
+    * TTC (longitudinal): Not applicable due to near zero velocity.
+    * TTC (lateral): Not applicable due to zero velocity.
+    * MDC: ~14.98m
+    * Risk Score: 5 (No Risk)
+
+Collision Scenario Determination:
+
+Yes, this is a collision scenario. Obstacle 30614 has a risk score of 0 (Collision) with an extremely low TTC (0.06s) and MDC (0.09m). While obstacle 30606 also poses an extreme risk, the immediate collision with 30614 takes precedence.
+
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "30614",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30606",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30614 has an extremely low TTC (0.06s) and MDC (0.09m) at t=3.0s indicating an unavoidable collision. Obstacle 30606 also presents an Extreme Risk with a TTC of 0.36s."
+}
+```

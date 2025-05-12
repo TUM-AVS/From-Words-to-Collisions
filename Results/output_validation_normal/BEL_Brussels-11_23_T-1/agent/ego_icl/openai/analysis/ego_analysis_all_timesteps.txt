@@ -1,0 +1,99 @@
+### Obstacle 30257 Analysis:
+
+- **Position and Motion (Most Recent Timestep):**
+  - Location: Front-left
+  - Adjusted Distance: Longitudinal 14.17 m, Lateral 10.99 m
+  - Relative Velocity: Longitudinal -5.14 m/s, Lateral 6.31 m/s
+  - The obstacle is moving toward the ego vehicle longitudinally but continues to move away laterally.
+
+- **Trajectory Across Timesteps:**
+  - Longitudinal distance is consistently decreasing.
+  - The lateral distance is increasing steadily, showing the obstacle is moving away to the left.
+
+- **TTC and MDC Calculations:**
+  - Longitudinal TTC = \( \frac{14.17}{5.14} \approx 2.76 \) seconds (for longitudinal approach)
+  - Lateral approach is not decreasing; hence TTC in lateral is not applicable.
+  - Minimum Distance to Collision largely safe due to significantly increasing lateral distance.
+
+- **Risk Assessment:**
+  - Longitudinal trajectory shows medium risk due to decreasing distance.
+  - Lateral safe space implies low risk.
+  - **Overall Risk Score: Medium Risk (3)**
+
+### Obstacle 30258 Analysis:
+
+- **Position and Motion (Most Recent Timestep):**
+  - Location: Front
+  - Adjusted Distance: Longitudinal 10.69 m, Lateral 0.00 m
+  - Relative Velocity: Longitudinal 1.23 m/s, Lateral 1.71 m/s
+  - Motion indicates it's moving away longitudinally, and some movement laterally.
+
+- **Trajectory Across Timesteps:**
+  - Longitudinal distance slightly increasing.
+  - Zero lateral alignment maintains same-lane trajectory.
+
+- **TTC and MDC Calculations:**
+  - Longitudinal TTC does not approach due to increasing distance.
+  - Lateral distance is exactly aligned but non-critical given the scenario.
+
+- **Risk Assessment:**
+  - Trajectories indicate increasing distance.
+  - **Overall Risk Score: Negligible Risk (5)**
+
+### Obstacle 30260 Analysis:
+
+- **Position and Motion (Most Recent Timestep):**
+  - Location: Front-right
+  - Adjusted Distance: Longitudinal 0.48 m, Lateral -1.89 m
+  - Relative Velocity: Longitudinal -3.82 m/s
+  - The obstacle is driving toward the ego vehicle with negative lateral placement meaning it's almost aligned with ego vehicle's right edge.
+
+- **Trajectory Across Timesteps:**
+  - Consistent reduction in longitudinal distance.
+  - Lateral aligns very closely, indicating possible crossing path.
+
+- **TTC and MDC Calculations:**
+  - Longitudinal TTC = \( \frac{0.48}{3.82} \approx 0.13 \) seconds
+  - Proximity indicates imminent collision due to decreasing distance and overlapping trajectories.
+
+- **Risk Assessment:**
+  - Very close to colliding based on projections.
+  - **Overall Risk Score: Extreme Risk (1)**
+
+### Obstacle 30265 Analysis:
+
+- **Position and Motion (Most Recent Timestep):**
+  - Location: Rear-right
+  - Adjusted Distance: Longitudinal -4.16 m, Lateral -1.90 m
+  - Relative Velocity: Longitudinal -0.26 m/s
+  - The obstacle is slightly decelerating and thus moving away longitudinally.
+
+- **Trajectory Across Timesteps:**
+  - Minimal changes in trajectory reflect stability.
+  - Lateral and longitudinal distances do not shrink significantly.
+
+- **TTC and MDC Calculations:**
+  - Longitudinal movement not imminent for collision.
+  - Lateral movement is stable, no closing velocities.
+
+- **Risk Assessment:**
+  - Paths do not indicate any closing risk.
+  - **Overall Risk Score: Negligible Risk (5)**
+
+### JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "30260",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30260",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {}
+}
+```
+
+In this scenario, Obstacle 30260 poses the most critical risk, with an extreme risk of collision, while the other obstacles present negligible or medium risks based on their positions and trajectories.

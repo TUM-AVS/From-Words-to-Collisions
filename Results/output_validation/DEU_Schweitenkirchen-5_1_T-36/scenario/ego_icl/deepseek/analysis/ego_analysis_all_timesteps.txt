@@ -1,0 +1,73 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 5.8s)
+
+#### **Obstacle 542 (Left of ego car)**
+- **Adjusted Distances**: Longitudinal = 0.00m (exact alignment), Lateral = 5.40m  
+- **Relative Velocity**: Longitudinal = 5.59 m/s (approaching), Lateral = -0.39 m/s (approaching from left)  
+- **Trajectory**:  
+  - Longitudinal: Exact alignment (0.00m) but moving forward (positive velocity). No collision risk longitudinally.  
+  - Lateral: Slowly closing (5.40m → 5.40m over 0.1s). Minimal lateral convergence.  
+- **TTC**:  
+  - Lateral TTC = 5.40 / 0.39 ≈ 13.85s (No Risk, TTC > 5s)  
+- **MDC**: Lateral distance = 5.40m (No Risk, MDC > 5m)  
+- **Risk**: **5 (No Risk)**  
+
+---
+
+#### **Obstacle 594 (Front-left of ego car)**
+- **Adjusted Distances**: Longitudinal = 12.72m (front), Lateral = 1.75m (left)  
+- **Relative Velocity**: Longitudinal = 8.21 m/s (moving away), Lateral = -0.07 m/s (negligible lateral motion)  
+- **Trajectory**:  
+  - Rapidly moving away longitudinally (12.72m at 5.8s vs. 11.91m at 5.7s).  
+  - Lateral motion is negligible.  
+- **TTC**: Not applicable (diverging paths).  
+- **MDC**: Lateral distance = 1.75m (Medium Risk, 1.0 < MDC ≤ 3.0m)  
+- **Risk**: **3 (Medium Risk)**  
+
+---
+
+#### **Obstacle 625 (Collision of ego car)**
+- **Adjusted Distances**: Longitudinal = 0.00m, Lateral = 0.00m  
+- **Relative Velocity**: Longitudinal = 7.51 m/s (collision occurred), Lateral = -0.43 m/s (minor post-collision motion)  
+- **Trajectory**:  
+  - At 5.7s: Longitudinal = -0.29m (approaching from behind).  
+  - At 5.8s: Exact alignment (0.00m, 0.00m) with high closing velocity.  
+- **Collision Confirmation**:  
+  - Zero distance in both dimensions + high closing velocity → **Collision occurring**.  
+- **Risk**: **0 (Collision)**  
+
+---
+
+#### **Obstacle 634 (Rear-left of ego car)**
+- **Adjusted Distances**: Longitudinal = -11.56m (rear), Lateral = 2.19m (left)  
+- **Relative Velocity**: Longitudinal = 5.89 m/s (approaching from behind), Lateral = -0.40 m/s (approaching from left)  
+- **Trajectory**:  
+  - Slowly closing longitudinally (-11.56m at 5.8s vs. -12.14m at 5.7s).  
+  - Lateral convergence is minimal (2.19m → 2.26m over 0.1s).  
+- **TTC**:  
+  - Longitudinal TTC = 11.56 / 5.89 ≈ 1.96s (Medium Risk, 1.0 < TTC ≤ 3.0s).  
+- **MDC**: Lateral distance = 2.19m (Medium Risk, 1.0 < MDC ≤ 3.0m).  
+- **Risk**: **3 (Medium Risk)**  
+
+---
+
+### **Collision Scenario Determination**
+- **Obstacle 625** has a risk score of **0 (Collision)** due to zero distance in both dimensions and high closing velocity.  
+- No other obstacles meet Extreme Risk (score 1) criteria.  
+
+---
+
+### **Final JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "625",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 625 has collided with the ego vehicle (0.00m longitudinal/lateral distance at 5.8s with high closing velocity)."
+}
+```

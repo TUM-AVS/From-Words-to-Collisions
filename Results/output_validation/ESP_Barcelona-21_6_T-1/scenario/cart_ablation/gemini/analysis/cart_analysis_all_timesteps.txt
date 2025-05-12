@@ -1,0 +1,17 @@
+At t=9.8s, Ego's position is (-232.0244, 337.3271) and obstacle 30681.0's position is (-228.572, 334.104).  Obstacle 30685.0 is not considered due to being in a different lanelet.
+
+Analyzing the trajectories, both Ego and obstacle 30681.0 are in the same lanelet (196.0). While the distance between them is currently several meters, Ego's velocity is significantly higher than obstacle 30681.0 and is decreasing rapidly (large negative acceleration). This suggests Ego is braking hard. However, obstacle 30681.0's velocity is nearly constant.  This creates a high risk of rear-ending if these trends continue. Although not a guaranteed collision in the very next timestep, the current state and trajectory make it an *extreme risk*.
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30681.0",
+    "OverallRiskScore": 1
+  },
+  "ScenarioAnalysis": {
+    "IsCollisionScenario": false,
+    "Reasoning": "Ego is approaching obstacle 30681.0 rapidly from behind in the same lanelet while braking hard.  Obstacle 30681.0 maintains near constant velocity. High probability of collision in near future if this trend continues."
+  }
+}
+```

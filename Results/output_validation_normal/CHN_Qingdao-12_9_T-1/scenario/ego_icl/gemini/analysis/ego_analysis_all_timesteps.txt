@@ -1,0 +1,41 @@
+Obstacle 30739 Analysis:
+
+Trajectory Analysis: This obstacle has been consistently in the front-right of the ego vehicle across all observed timesteps.  Initially, both longitudinal and lateral distances were decreasing, but in more recent timesteps, the lateral distance has started to increase while the longitudinal distance continues to decrease slowly.
+
+At t=0.9s:
+- Longitudinal distance: 4.91m
+- Lateral distance: -2.79m
+- Longitudinal relative velocity: -0.41 m/s (approaching)
+- Lateral relative velocity: -3.81 m/s (moving away to the right)
+
+TTC Calculation:
+- Longitudinal TTC = 4.91m / 0.41m/s = 12.0 seconds
+- Lateral TTC is not applicable as obstacle moving away laterally.
+
+MDC Calculation: Since this obstacle is primarily in front of the ego vehicle, MDC is the smaller of the two distances, which is the lateral distance of 2.79m
+
+Risk Assessment:
+- Longitudinal Risk: No Risk (5) due to large TTC value
+- Lateral Risk: Low risk (4) due to the MDC.
+- Overall Risk: Low Risk (4) based on MDC
+
+Overall Conclusion:
+
+This is NOT a collision scenario. While obstacle 30739 is approaching the ego vehicle longitudinally, the lateral distance suggests it is likely passing by. There are no obstacles with a risk score of 0 or 1.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 or 1. Obstacle 30739 presents the highest risk, but its trajectory suggests it is moving past the ego vehicle rather than colliding with it."
+}
+```

@@ -1,0 +1,37 @@
+Obstacle 20111:
+
+* Trajectory Analysis: This obstacle has been consistently behind the ego vehicle and approaching rapidly along the longitudinal axis.  The lateral distance remains at 0.00m indicating it's directly behind the ego vehicle in the same lane.  The longitudinal distance has decreased from -6.97m to -1.07m in the observed time frame.
+
+* TTC Calculation (Longitudinal):  TTC = distance / relative_velocity = 1.07 / 6.89 ≈ 0.16 seconds.
+
+* MDC Calculation: Given the alignment and trajectory, MDC ≈ 1.07m (longitudinal distance).
+
+* Risk Assessment: Both TTC (0.16s) and MDC (1.07m) indicate extremely high risk.  The obstacle is very close and rapidly approaching.  This corresponds with an Extreme Risk (1).
+
+Obstacle 20112:
+
+* Trajectory Analysis: This obstacle is behind and to the right of the ego vehicle, moving towards the ego vehicle both longitudinally and laterally. The longitudinal distance is decreasing but remains relatively large. The lateral distance is small and decreasing, suggesting a potential lane change or merging scenario.
+
+* TTC Calculation (Longitudinal): TTC = 22.04 / 5.52 ≈ 4.0 seconds.
+* TTC Calculation (Lateral): TTC = 1.36 / 2.01 ≈ 0.68 seconds.
+
+* MDC Calculation:  Since the obstacle is approaching diagonally from behind, we should consider the lateral movement as the more immediate concern.  MDC ≈ 1.36m (lateral distance).
+
+* Risk Assessment: The longitudinal TTC (4.0s) suggests low risk, but the lateral TTC (0.68s) and MDC (1.36m) put this in the High Risk (2) category due to the closer proximity and faster lateral approach. We prioritize the higher risk indicated by the lateral movement.
+
+
+Final Risk Assessment JSON:
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "20111",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "20111",
+    "OverallRiskScore": "1"
+  }
+
+}
+```

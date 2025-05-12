@@ -1,0 +1,56 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30737
+- **Trajectory Analysis**:
+  - Relative to the ego vehicle, primarily near the Front-Right.
+  - Longitudinal distance decreased over time and is closing in at each timestep.
+  - Lateral distance steadily increasing, indicating motion further away to the right.
+
+- **TTC and MDC Calculations**:
+  - **Longitudinal TTC**: Last seen real longitudinal velocity of -1.71 m/s with distance of 3.41m.
+    - \( \text{TTC}_{\text{long}} = \frac{3.41 \, \text{m}}{|-1.71 \, \text{m/s}|} = 1.99 \, \text{s} \)
+  - **MDC**: With lateral distance increasing well beyond the critical range, and the longitudinal still several meters, the minimum distance does not reach high risk levels at this projection.
+  - Obstacle trajectory diverging laterally, low risk.
+
+- **Risk Assessment**:
+  - **Risk Score**: Medium Risk (3) due to closing longitudinally but diverging laterally.
+
+#### Obstacle 30739
+- **Trajectory Analysis**:
+  - Positioned at the Front-Right.
+  - Longitudinal distance varies slight increases and decreases but overall stable.
+  - Lateral distance also fluctuating slightly, but overall tending away from the ego.
+
+- **TTC and MDC Calculations**:
+  - **Longitudinal TTC**: At 0.9 seconds, longitudinal velocity is -0.41 m/s with distance of 4.91m.
+    - \( \text{TTC}_{\text{long}} = \frac{4.91 \, \text{m}}{|-0.41 \, \text{m/s}|} = 11.98 \, \text{s} \)
+  - **Lateral TTC**: Velocity -3.81 m/s and distance of 2.79m.
+    - \( \text{TTC}_{\text{lat}} = \frac{2.79 \, \text{m}}{|-3.81 \, \text{m/s}|} = 0.73 \, \text{s} \)
+  - **MDC**: Lateral closing is more pressing, though not critically so due to velocities that see it move beside the ego vehicle with little forward convergence.
+  
+- **Risk Assessment**:
+  - **Risk Score**: High Risk (2) as lateral movement is more prominent and should be monitored closely.
+
+### JSON Summary
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": "30739",
+    "OverallRiskScore": "2"
+  }
+}
+```
+
+### Summary:
+- No immediate collision detected; thus, no obstacle is categorized as Collision level (0).
+- Obstacle 30739 presents a High Risk (2) due to its relatively low lateral TTC, warranting close monitoring. 
+- Obstacle 30737 trajectory indicates a Medium Risk (3), primarily due to its increased lateral divergence, lowering overall risk profile.

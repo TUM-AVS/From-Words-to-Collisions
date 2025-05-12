@@ -1,0 +1,30 @@
+At the most recent timestep (5.5 seconds):
+
+* **Obstacle 30730:** This obstacle is directly in front of the ego vehicle and is only 0.99 meters away longitudinally. The relative longitudinal velocity indicates it is moving towards the ego car at -3.92 m/s.  Given the short distance and closing speed, a collision is imminent.  This is a **Collision** risk (score 0).
+
+* **Obstacle 30733:** This obstacle is located 0.95 meters in front and 5.39 meters to the right of the ego vehicle. While it's also very close longitudinally, the lateral offset suggests it's not on a direct collision course in this specific timestep although it's moving towards the ego car. Considering the closing speed and the short distance, an immediate action might be needed to avoid collision, so classifying as **Extreme Risk** (score 1).
+
+
+Risk Levels:
+0: Collision - Physical contact occurred or unavoidable
+1: Extreme Risk - Immediate collision likely
+2: High Risk - Close to collision, needs quick action
+3: Medium Risk - Manageable with proper reaction
+4: Low Risk - Minimal risk, sufficient time to react
+5: Negligible Risk - No significant risk
+
+```json
+{
+    "CollisionObstacles": [
+        {
+            "ObstacleID": "30730",
+            "OverallRiskScore": 0
+        }
+    ],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30733",
+        "OverallRiskScore": 1
+    },
+    "HighRiskObstacle": null
+}
+```

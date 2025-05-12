@@ -1,0 +1,62 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30504 (Left of ego car)
+- **Most Recent Timestep (10.7s):**
+  - **Adjusted Distance:** Longitudinal 0.00 m, Lateral 0.61 m
+  - **Relative Velocity:** Longitudinal -0.53 m/s (moving away), Lateral 0.00 m/s (no motion)
+  - **Motion Description:** Exact longitudinal alignment, no lateral relative motion.
+  - **Trajectory Analysis:**
+    - Lateral distance has remained stable (~0.60-0.63 m) over the last 10 timesteps.
+    - Longitudinal distance is consistently 0.00 m (exact alignment), but the obstacle is moving away longitudinally (negative relative velocity).
+  - **TTC Calculation:**
+    - Longitudinal: Not applicable (moving away).
+    - Lateral: Not applicable (no relative motion).
+  - **MDC Calculation:**
+    - Current lateral distance is 0.61 m (stable, no closing motion).
+    - Longitudinal alignment is exact but not closing.
+    - MDC = 0.61 m (lateral distance).
+  - **Risk Assessment:**
+    - MDC = 0.61 m → **High Risk (2)** (0.5 < MDC ≤ 1.0 m).
+    - TTC is not applicable (no closing motion).
+    - **Overall Risk:** High Risk (2).
+
+#### Obstacle 30509 (Front-right of ego car)
+- **Most Recent Timestep (10.7s):**
+  - **Adjusted Distance:** Longitudinal 8.42 m, Lateral -15.02 m
+  - **Relative Velocity:** Longitudinal -0.53 m/s (approaching), Lateral 0.00 m/s (no motion)
+  - **Motion Description:** Driving toward ego car longitudinally, no lateral relative motion.
+  - **Trajectory Analysis:**
+    - Longitudinal distance is decreasing (from 9.51 m at 9.8s to 8.42 m at 10.7s).
+    - Lateral distance is stable (~-15.0 m, no closing motion).
+  - **TTC Calculation:**
+    - Longitudinal: TTC = 8.42 m / 0.53 m/s ≈ 15.89 s (no risk).
+    - Lateral: Not applicable (no relative motion).
+  - **MDC Calculation:**
+    - Lateral distance is large (15.02 m) and stable.
+    - Longitudinal distance is decreasing but still large (8.42 m).
+    - MDC = min(8.42, 15.02) = 8.42 m.
+  - **Risk Assessment:**
+    - MDC = 8.42 m → **No Risk (5)** (MDC > 5.0 m).
+    - TTC = 15.89 s → **No Risk (5)** (TTC > 5.0 s).
+    - **Overall Risk:** No Risk (5).
+
+### Collision Scenario Determination
+- Neither obstacle has a risk score of 0 (collision) or 1 (extreme risk).
+- Obstacle 30504 is at High Risk (2), but this does not meet the threshold for a collision scenario.
+- Obstacle 30509 is at No Risk (5).
+
+### Final JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle has a risk score of 0 (collision) or 1 (extreme risk). Obstacle 30504 is at High Risk (2), but this does not meet the threshold for a collision scenario."
+}
+```

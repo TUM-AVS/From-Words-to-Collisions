@@ -1,0 +1,49 @@
+* **Obstacle 30240 (Front-Right):**
+
+    * Trajectory: This obstacle has been consistently in the front-right of the ego vehicle, with both longitudinal and lateral distances decreasing over the observed time steps, although the rate of lateral approach is slowing.
+    * At t=0.9s:
+        * Longitudinal distance: 11.74m
+        * Lateral distance: -1.94m
+        * Longitudinal relative velocity: -1.90 m/s (approaching)
+        * Lateral relative velocity: -0.03 m/s (slightly diverging)
+
+    * TTC (longitudinal): 11.74m / 1.90m/s ≈ 6.2s
+    * MDC: Since this obstacle is approaching diagonally, we prioritize the smaller distance, which is the lateral distance of 1.94m. This is converging.
+
+    * Risk Assessment: Based on MDC and TTC values alone, the risk level would be Low (4). However, the trend is for this gap between the vehicles to close, which could become a concern in the future.
+
+* **Obstacle 30241 (Right):**
+
+    * Trajectory: This obstacle has moved from the front-right to be directly to the right of the ego vehicle. Its longitudinal velocity has been decreasing as it has come alongside.
+    * At t=0.9s:
+        * Longitudinal distance: 0.00m 
+        * Lateral distance: -1.89m
+        * Longitudinal relative velocity: -2.52 m/s (moving away)
+        * Lateral relative velocity: -0.01 m/s (slightly diverging)
+
+    * TTC (lateral): 1.89m / 0.01m/s ≈ 189s (not a meaningful metric given the near-zero velocity and the lateral distance that will continue to remain steady or increase).
+    * MDC: Given the obstacle is directly to the right, we prioritize the lateral distance of 1.89m
+
+    * Risk Assessment: With the obstacle maintaining or increasing its lateral distance, the primary risk metric is MDC, which indicates a Medium Risk (3) due to the close proximity. However, the consistent negative longitudinal velocity and the slight lateral divergence shows this obstacle poses less risk.
+
+* **Obstacle 30242 (Rear-Right):**
+
+    * Trajectory: This obstacle is behind and to the right of the ego vehicle, and consistently moving further away in both dimensions.
+    * At t=0.9s:
+        * Longitudinal distance: -5.17m
+        * Lateral distance: -1.75m
+        * Longitudinal relative velocity: -3.89 m/s (moving away)
+        * Lateral relative velocity: -0.28 m/s (moving away)
+
+    * TTC: Not applicable as the obstacle is moving away.
+    * MDC: Not applicable as the obstacle is moving away.
+
+    * Risk Assessment: Negligible Risk (5). The obstacle is moving away from the ego vehicle.
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "HighRiskObstacle": {}
+}
+```

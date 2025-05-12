@@ -1,0 +1,88 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 6.4s)
+
+---
+
+#### **Obstacle 30277 (Front-left)**
+- **Adjusted Distances**: Longitudinal 9.89m, Lateral 12.66m  
+- **Relative Velocity**: Longitudinal -0.23 m/s (approaching), Lateral -7.46 m/s (approaching)  
+- **Motion**: Approaching both longitudinally and laterally from the left.  
+- **TTC**:  
+  - Longitudinal: 9.89 / 0.23 ≈ 43.0s (No Risk)  
+  - Lateral: 12.66 / 7.46 ≈ 1.7s (Medium Risk)  
+- **MDC**: Lateral distance is closing rapidly (12.66m → decreasing). Minimum projected distance is lateral (12.66m > 5.0m).  
+- **Risk**: **Medium (3)** due to lateral TTC (1.7s).  
+
+---
+
+#### **Obstacle 30280 (Front-left)**
+- **Adjusted Distances**: Longitudinal 13.41m, Lateral 14.03m  
+- **Relative Velocity**: Longitudinal -0.04 m/s (approaching), Lateral 5.09 m/s (moving away)  
+- **Motion**: Slowly approaching longitudinally but moving away laterally.  
+- **TTC**:  
+  - Longitudinal: 13.41 / 0.04 ≈ 335.3s (No Risk)  
+  - Lateral: Diverging (No Risk).  
+- **MDC**: No convergence (lateral distance increasing).  
+- **Risk**: **No Risk (5)**.  
+
+---
+
+#### **Obstacle 30281 (Left)**
+- **Adjusted Distances**: Longitudinal 0.00m (aligned), Lateral 1.91m  
+- **Relative Velocity**: Longitudinal -8.51 m/s (approaching), Lateral -0.10 m/s (approaching)  
+- **Motion**: Exact longitudinal alignment (passing or side collision risk). Laterally closing very slowly.  
+- **TTC**:  
+  - Longitudinal: Already aligned (0.00m). Focus on lateral: 1.91 / 0.10 ≈ 19.1s (No Risk).  
+- **MDC**: Lateral distance (1.91m) is stable/slowly closing.  
+- **Risk**: **Low (4)** due to small lateral distance but slow closing.  
+
+---
+
+#### **Obstacle 30285 (Front)**
+- **Adjusted Distances**: Longitudinal 0.24m, Lateral 0.00m (aligned)  
+- **Relative Velocity**: Longitudinal -0.12 m/s (approaching), Lateral 0.00 m/s  
+- **Motion**: Directly ahead, slowly approaching.  
+- **TTC**:  
+  - Longitudinal: 0.24 / 0.12 = 2.0s (Medium Risk).  
+- **MDC**: 0.24m (Extreme Risk if closing, but velocity is very low).  
+- **Risk**: **Extreme Risk (1)** due to MDC < 0.5m (0.24m) and closing.  
+
+---
+
+#### **Obstacle 30288 (Behind)**
+- **Adjusted Distances**: Longitudinal -8.17m, Lateral 0.00m (aligned)  
+- **Relative Velocity**: Longitudinal 1.66 m/s (approaching from rear), Lateral 0.00 m/s  
+- **Motion**: Approaching from behind in same lane.  
+- **TTC**:  
+  - Longitudinal: 8.17 / 1.66 ≈ 4.9s (Low Risk).  
+- **MDC**: 8.17m (No Risk).  
+- **Risk**: **Low (4)** due to TTC near 5s threshold.  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 30285**: Longitudinal distance decreases from 0.47m (5.5s) to 0.24m (6.4s). Velocity is low but consistent. **Collision imminent** if not mitigated.  
+- **Obstacle 30281**: Laterally aligned but slow closing (1.96m → 1.91m). Low immediate risk.  
+- Other obstacles pose no immediate threat.  
+
+---
+
+### Final Determination  
+**Collision Scenario**: Yes. Obstacle 30285 is in **Extreme Risk (1)** with MDC = 0.24m (< 0.5m) and closing.  
+
+---
+
+### JSON Summary  
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "N/A",
+        "OverallRiskScore": "N/A"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30285",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30285 has MDC = 0.24m (< 0.5m) and is closing longitudinally at 0.12 m/s, meeting Extreme Risk criteria."
+}
+```

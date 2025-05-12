@@ -1,0 +1,52 @@
+* **Obstacle 30660 (Rear-Left):**
+
+    * **Trajectory:** This obstacle is moving away longitudinally but towards the ego vehicle laterally across all timesteps. The longitudinal distance increases from -8.78m to -14.42m, while the lateral distance decreases from 8.20m to 4.24m. This indicates a diagonal trajectory where the obstacle is passing behind the ego vehicle but getting closer laterally.
+
+    * **TTC:**  Since the obstacle is moving away longitudinally, a longitudinal TTC is not meaningful.  Laterally, TTC = 4.24m / 5.53 m/s ≈ 0.77 seconds.
+
+    * **MDC:** Given the diagonal trajectory, MDC will be the shortest distance between the ego vehicle and the obstacle's path.  Since it's rear-left, we expect MDC to occur close to when the lateral distance is minimized. At t=0.9 seconds, the combined distance (using hypotenuse for this scenario) is about sqrt(-14.42^2 + 4.24^2) ≈ 15.0 meters.  As it keeps moving away from the ego car longitudinally, the MDC will continue increasing beyond this point. This estimate of MDC is an overestimate, and the true value will be lower but would require additional information on the ego car and obstacle's dimensions and motion to determine precisely.  
+
+    * **Risk:** Based on the lateral TTC of 0.77 seconds, the risk level is currently Medium (3), tending to High (2) at the current trend if the trajectory doesn't shift more longitudinally over the next few timesteps.
+
+
+* **Obstacle 30661 (Front):**
+
+    * **Trajectory:** This obstacle maintains exact lateral alignment (0.00m) with the ego vehicle but is moving away longitudinally, increasing from 10.19m to 10.38m. This indicates no lateral movement and a diverging longitudinal path.
+
+    * **TTC:**  Since the obstacle is moving away longitudinally, TTC is not applicable in the longitudinal direction.  Laterally, there is no relative movement, so TTC is also not applicable.
+
+    * **MDC:** Due to the exact lateral alignment and diverging longitudinal path, the MDC is simply the longitudinal distance, which is 10.38m.
+
+    * **Risk:** Based on the MDC > 5m and the diverging trajectory, the risk is No Risk (5).
+
+
+* **Obstacle 30662 (Rear-Left):**
+
+    * **Trajectory:** Similar to Obstacle 30660, this obstacle is also moving away longitudinally and towards the ego vehicle laterally. The longitudinal distance increases from -8.32m to -14.06m, and the lateral distance decreases from 18.36m to 15.46m.  This indicates a diagonal path where the obstacle passes farther behind the ego car and closer to the car laterally.
+
+    * **TTC:**  Longitudinally, TTC is not meaningful due to diverging paths. Laterally, TTC = 15.46m / 3.02 m/s ≈ 5.12 seconds.
+
+    * **MDC:** As with obstacle 30660, MDC will vary as the obstacle passes and require trajectory calculations. However, the overall distance at the most recent timestamp (0.9 sec) is sqrt((-14.06)^2 + (15.46)^2) ≈ 20.9 meters, and the overall MDC will likely be greater than this, as the lateral distance decreases slowly as the obstacle moves away from the ego vehicle. 
+
+    * **Risk:** Based on the lateral TTC of 5.12 seconds and large distance, the risk is currently No Risk (5). However, continued lateral movement towards ego should be monitored over the next few timesteps.
+
+
+* **Collision Scenario Determination:** No obstacle has a risk score of 0 or 1.  Therefore, this is **not** a collision scenario.
+
+
+* **JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle presents an immediate collision risk. All obstacles have risk scores greater than 1. Obstacle 30660 has a medium risk (3) due to its lateral TTC of under 1 second, but its longitudinal trajectory is diverging."
+}
+```

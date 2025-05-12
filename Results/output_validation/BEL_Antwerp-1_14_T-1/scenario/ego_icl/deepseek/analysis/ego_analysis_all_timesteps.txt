@@ -1,0 +1,55 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 9.8s)
+
+#### **Obstacle 30753 (Rear-Right)**
+- **Adjusted Position**: Longitudinal -8.45m (behind), Lateral -23.87m (right)
+- **Relative Velocity**: Longitudinal -17.99 m/s (moving away behind), Lateral 2.70 m/s (approaching laterally from right)
+- **Motion Description**: "Obstacle is moving away in behind longitudinally. Obstacle is driving toward the ego car laterally from the right."
+
+**Trajectory Analysis (9.3s → 9.8s)**:
+- Lateral distance decreases from -25.23m to -23.87m (approaching at ~2.7 m/s).
+- Longitudinal distance increases negatively (moving further behind at ~17.99 m/s).
+
+**Risk Assessment**:
+1. **Lateral (Primary Focus for Right-Side Obstacle)**:
+   - **Current Lateral Distance**: 23.87m (far beyond 5.0m threshold → No Risk for MDC).
+   - **Lateral TTC**: 23.87m / 2.70 m/s ≈ 8.84s (> 5.0s → No Risk).
+   - **Trend**: Despite approaching laterally, the large distance and slow closing speed make collision unlikely.
+
+2. **Longitudinal (Secondary Focus)**:
+   - Moving away longitudinally (negative relative velocity) → No Risk.
+
+**Overall Risk for 30753**: **5 (No Risk)**. No imminent collision threat.
+
+---
+
+#### **Obstacle 30762 (Rear-Right)**
+- **Last Observed at 9.2s** (not present in 9.3s–9.8s). Likely out of sensor range or no longer relevant.
+- **Final Data (9.2s)**: Longitudinal -8.77m, Lateral -25.14m.
+- **Relative Velocity**: Longitudinal -3.37 m/s (moving away), Lateral -2.55 m/s (moving away right).
+- **Motion Description**: "Obstacle is moving away in behind longitudinally. Obstacle is moving away laterally to the right."
+
+**Risk Assessment**:
+- Both distances increasing (no convergence) → **5 (No Risk)**.
+
+---
+
+### **Collision Scenario Determination**
+- **Obstacle 30753**: No Risk (Score 5). Large lateral distance and slow approach speed.
+- **Obstacle 30762**: No Risk (Score 5). Moving away in both dimensions.
+- **No obstacles** meet criteria for Collision (0) or Extreme Risk (1).
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacles have risk scores ≤1. Obstacle 30753 is laterally approaching but remains at a safe distance (>23m) with low closing speed. Obstacle 30762 is moving away."
+}
+```

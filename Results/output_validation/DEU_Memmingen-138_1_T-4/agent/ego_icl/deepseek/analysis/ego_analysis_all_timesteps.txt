@@ -1,0 +1,83 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 6.8s)
+
+---
+
+#### **Obstacle 20033 (Front-right)**
+- **Position**: Front-right (longitudinal 24.07m, lateral -0.05m)
+- **Relative Velocity**: longitudinal -4.90 m/s (approaching), lateral -0.26 m/s (moving away)
+- **Motion**: Approaching longitudinally, moving away laterally.
+- **TTC Longitudinal**: 24.07 / 4.90 ≈ 4.91s (Low Risk, TTC > 5.0s is No Risk, but close)
+- **TTC Lateral**: Not applicable (moving away)
+- **MDC**: Lateral distance is negligible (0.05m), but trajectories are diverging.
+- **Risk**: 5 (Negligible Risk). No collision risk due to diverging paths.
+
+---
+
+#### **Obstacle 20036 (Collision)**
+- **Position**: Collision (longitudinal 0.00m, lateral 0.00m)
+- **Relative Velocity**: longitudinal 0.77 m/s (approaching), lateral 0.08 m/s (approaching)
+- **Motion**: Exact alignment in both dimensions with closing velocity.
+- **TTC Longitudinal**: 0.00 / 0.77 = 0s (Collision)
+- **TTC Lateral**: 0.00 / 0.08 = 0s (Collision)
+- **MDC**: 0m in both dimensions.
+- **Risk**: 0 (Collision). Physical contact is occurring.
+
+---
+
+#### **Obstacle 20037 (Rear-left)**
+- **Position**: Rear-left (longitudinal -7.27m, lateral 1.38m)
+- **Relative Velocity**: longitudinal -19.73 m/s (moving away), lateral -4.86 m/s (approaching)
+- **Motion**: Moving away longitudinally, approaching laterally.
+- **TTC Longitudinal**: Not applicable (moving away)
+- **TTC Lateral**: 1.38 / 4.86 ≈ 0.28s (Extreme Risk)
+- **MDC**: Lateral distance is 1.38m, but closing rapidly.
+- **Risk**: 1 (Extreme Risk). High lateral closing velocity.
+
+---
+
+#### **Obstacle 20038 (Rear-right)**
+- **Position**: Rear-right (longitudinal -17.88m, lateral -6.58m)
+- **Relative Velocity**: longitudinal -1.97 m/s (moving away), lateral 4.85 m/s (approaching)
+- **Motion**: Moving away longitudinally, approaching laterally.
+- **TTC Longitudinal**: Not applicable (moving away)
+- **TTC Lateral**: 6.58 / 4.85 ≈ 1.36s (Medium Risk)
+- **MDC**: Lateral distance is 6.58m, but closing.
+- **Risk**: 3 (Medium Risk). Manageable with proper reaction.
+
+---
+
+#### **Obstacle 20039 (Front-left)**
+- **Position**: Front-left (longitudinal 9.62m, lateral 1.69m)
+- **Relative Velocity**: longitudinal -20.42 m/s (approaching), lateral 1.24 m/s (moving away)
+- **Motion**: Approaching longitudinally, moving away laterally.
+- **TTC Longitudinal**: 9.62 / 20.42 ≈ 0.47s (Extreme Risk)
+- **TTC Lateral**: Not applicable (moving away)
+- **MDC**: Longitudinal distance is closing rapidly.
+- **Risk**: 1 (Extreme Risk). High longitudinal closing velocity.
+
+---
+
+### Trajectory Analysis
+- **Obstacle 20036**: Collision confirmed at 6.8s. Prior timesteps show consistent approach from behind with lateral alignment.
+- **Obstacle 20037**: Rapid lateral approach from the left, but longitudinal distance is increasing.
+- **Obstacle 20039**: Rapid longitudinal approach from the front, but lateral distance is increasing.
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20036",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20037",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "20036",
+        "OverallRiskScore": "0"
+    }
+}
+```

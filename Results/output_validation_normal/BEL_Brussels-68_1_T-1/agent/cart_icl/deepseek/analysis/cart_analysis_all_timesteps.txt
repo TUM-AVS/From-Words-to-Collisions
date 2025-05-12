@@ -1,0 +1,35 @@
+### Analysis:
+
+1. **Ego Vehicle (30104.0)**:  
+   - Position: (-98.5533, -411.8567)  
+   - Orientation: 2.7899 rad (~160°)  
+   - Velocity: 5.4836 m/s  
+   - Acceleration: -0.0388 m/s² (decelerating slightly)  
+
+2. **Obstacle (30101.0)**:  
+   - Position: (-111.8194, -407.1625)  
+   - Orientation: 2.8044 rad (~160.7°)  
+   - Velocity: 5.705 m/s  
+   - Acceleration: -0.1352 m/s² (decelerating slightly)  
+
+#### Relative Motion Analysis:
+- **Longitudinal Distance**:  
+  - The obstacle is ~13.2661 m ahead of the ego vehicle (calculated as Euclidean distance between positions).  
+  - Relative longitudinal velocity: 5.705 - 5.4836 = 0.2214 m/s (obstacle is moving slightly faster).  
+  - **TTC**: 13.2661 / 0.2214 ≈ 59.9 seconds (very large, no immediate risk).  
+
+- **Lateral Distance**:  
+  - The obstacle is in lanelet 80.0, while the ego is in lanelet 1469.0 (different lanes, no overlap).  
+
+#### Risk Assessment:
+- The obstacle is far ahead and moving at a similar speed, with a large TTC.  
+- No significant risk of collision in the near future.  
+
+### JSON Output:
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": null
+}
+```

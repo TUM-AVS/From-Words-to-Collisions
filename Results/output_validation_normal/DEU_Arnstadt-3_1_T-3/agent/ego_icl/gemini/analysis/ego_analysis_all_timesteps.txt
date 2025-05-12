@@ -1,0 +1,37 @@
+Obstacle 20055:
+- Trajectory: This obstacle starts in front of the ego vehicle with exact lateral alignment (0.00m) and progressively moves to the front-left. The longitudinal distance decreases slightly over time, while the lateral distance increases.
+- At 0.9 seconds:
+    - Longitudinal distance: 17.69m
+    - Lateral distance: 3.08m
+    - Longitudinal relative velocity: -0.98 m/s (approaching)
+    - Lateral relative velocity: 4.81 m/s (moving away)
+    - Longitudinal TTC: 17.69m / 0.98m/s ≈ 18.05s
+    - Lateral TTC: Not applicable, as the obstacle is moving away laterally.
+    - MDC: Considering the trajectory and the increasing lateral distance, the MDC is estimated to be >5m.
+    - Risk Assessment: Based on the large MDC and TTC values, the risk level is Negligible (5).
+
+Obstacle 20057:
+- Trajectory: This obstacle remains behind the ego vehicle throughout the scenario. It starts with exact lateral alignment and then slightly moves to the right. The longitudinal distance remains relatively stable (around -18m), indicating it's not significantly closing in.
+- At 0.9 seconds:
+    - Longitudinal distance: -18.21m
+    - Lateral distance: -0.16m
+    - Longitudinal relative velocity: -0.26 m/s (moving away)
+    - Lateral relative velocity: 1.49 m/s (approaching)
+    - Longitudinal TTC: Not applicable as obstacle is moving away longitudinally.
+    - Lateral TTC: 0.16m / 1.49m/s ≈ 0.11s. Note: The negative sign of the distance is neglected when computing TTC as the sign only indicates relative direction.
+    - MDC: Due to the close lateral distance and positive lateral velocity (approaching ego), MDC is <0.5m.
+    - Risk Assessment: Although longitudinal motion suggests no risk, the lateral motion indicates an Extreme Risk (1) due to the very low lateral TTC and MDC. This obstacle may be attempting to overtake the ego vehicle very closely.
+
+Overall Assessment:
+While obstacle 20055 poses no immediate risk, obstacle 20057 presents an Extreme Risk due to its very close lateral proximity and rapid lateral approach from behind.
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "20057",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {}
+}
+```

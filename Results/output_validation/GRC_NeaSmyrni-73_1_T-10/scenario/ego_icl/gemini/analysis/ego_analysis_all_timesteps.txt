@@ -1,0 +1,29 @@
+Obstacle 20056: Located front-left, consistently approaching the ego vehicle both longitudinally and laterally over the observed timesteps. At the last timestep, it's at 5.15m longitudinally and 8.72m laterally.  Given the closing velocities, a collision is possible but not immediately imminent. Calculating TTC: Longitudinal TTC = 5.15m / 3.91 m/s ≈ 1.32s. Lateral TTC = 8.72m / 0.20 m/s ≈ 43.6s. The lower TTC (longitudinal) suggests a medium risk.  MDC is difficult to determine precisely without projected paths, but given the distances and moderate closing speed, it likely falls within the medium risk range. Overall risk: Medium (3).
+
+Obstacle 20089: Located front-left and steadily approaching.  At the last timestep, it is at 2.88m longitudinally and 15.33m laterally.  Longitudinal TTC = 2.88m / 3.98 m/s ≈ 0.72s. Lateral TTC =  15.33m / 0.00 m/s (undefined, effectively no lateral movement). The longitudinal TTC indicates a high risk (2). MDC is primarily determined by longitudinal distance here, and at 2.88m, also suggests a medium to high risk. Overall risk: High (2).
+
+Obstacle 20090: Front-left and closest longitudinally. At the latest timestep, it is at 0.49m longitudinally and 22.26m laterally. Longitudinal TTC = 0.49m / 3.60 m/s ≈ 0.14s.  Lateral TTC = 22.26m / 1.08 m/s ≈ 20.6s. Extremely low longitudinal TTC indicates extreme risk (1). MDC is primarily determined by the very short longitudinal distance, clearly indicating extreme risk (< 0.5m). Overall Risk: Extreme (1).
+
+Obstacle 20096: Located front-right, moving further away laterally but slightly closer longitudinally. At the last timestep, it is at 15.88m longitudinally and -20.27m laterally. Longitudinal TTC = 15.88m / 0.85 m/s ≈ 18.7s. Lateral TTC is not applicable as the obstacle is moving away laterally.  The large lateral distance and diverging lateral trajectory indicate no lateral risk. Longitudinally, the distance is significant, so no risk. Overall risk: No Risk (5).
+
+Obstacle 20100: Located behind and laterally aligned with the ego vehicle. It has been consistently approaching from behind over the timesteps, with the longitudinal distance decreasing rapidly. At the last timestep, the distance is 0.00m longitudinally and 0.00m laterally, indicating a collision. The relative longitudinal velocity is positive (7.37 m/s), meaning the obstacle is moving faster than the ego vehicle. This confirms a collision. Overall risk: Collision (0).
+
+Obstacle 20104: Located behind the ego vehicle and approaching rapidly. Although newly appearing in the dataset, its high longitudinal velocity (8.91 m/s) and exact lateral alignment require close monitoring. At the last timestep, it is at -24.16m longitudinally. Longitudinal TTC = 24.16m / 8.91 m/s ≈ 2.71s. While the current distance suggests medium risk (3), the high closing speed warrants attention. Overall risk: Medium (3).
+
+
+This IS a collision scenario because Obstacle 20100 shows a longitudinal and lateral distance of 0.00m at the final timestep, confirming a collision.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "20100",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "20090",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 20100 collided with the ego vehicle (distance 0.00m in both directions). Obstacle 20090 poses an extreme risk with a very low TTC (0.14s)."
+}
+```

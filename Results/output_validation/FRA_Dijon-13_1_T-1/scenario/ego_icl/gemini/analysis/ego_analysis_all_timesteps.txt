@@ -1,0 +1,35 @@
+Obstacle 30374:
+
+* Trajectory Analysis: This obstacle has been directly in front of the ego vehicle (lateral distance 0.00m) and approaching throughout all timesteps.  The longitudinal distance has decreased from 2.13m to 0.20m in the last 0.9 seconds. This indicates a high probability of collision if the trend continues.
+* TTC Calculation: TTC = Distance / Relative Velocity = 0.20m / 1.00 m/s = 0.2 seconds.
+* MDC Calculation:  Given the persistent lateral alignment and rapidly decreasing longitudinal distance, MDC is approximately equal to the current longitudinal distance of 0.20m.
+* Risk Assessment:  Both TTC (0.2s) and MDC (0.20m) indicate Extreme Risk (1).
+
+Obstacle 30378:
+
+* Trajectory Analysis: This obstacle is approaching the ego vehicle from the front-left. While both longitudinal and lateral distances are decreasing, the rate of closure is less dramatic than for Obstacle 30374.
+* TTC Calculation:
+    * Longitudinal TTC = 8.59m / 1.00 m/s = 8.59 seconds
+    * Lateral TTC = 11.84m / 2.17 m/s = 5.45 seconds
+* MDC Calculation: Given the diagonal approach, the MDC is difficult to estimate precisely without more sophisticated trajectory projection. However, since both longitudinal and lateral distances are greater than 5m and decreasing relatively slowly, a conservative estimate of MDC would still be above 5m.
+* Risk Assessment: TTC and MDC calculations both suggest No Risk (5) at this moment. However, continued approach should be monitored.
+
+Collision Scenario Determination:
+
+Yes, this is a collision scenario. Obstacle 30374 presents an Extreme Risk (1) with a very low TTC (0.2 seconds) and a close proximity (0.20m) and converging trajectory.  The criteria for a collision scenario are met.
+
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30374",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30374 poses an Extreme Risk (score 1) with a TTC of 0.2 seconds and MDC of 0.20 meters, indicating an imminent collision."
+}
+```

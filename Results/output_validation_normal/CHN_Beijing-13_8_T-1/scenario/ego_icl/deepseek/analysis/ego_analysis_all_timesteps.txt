@@ -1,0 +1,56 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 3070** (Front of ego car)
+- **Adjusted Distances**: Longitudinal = 19.19m, Lateral = 0.00m  
+- **Relative Velocity**: Longitudinal = -4.71 m/s (approaching), Lateral = -0.01 m/s (negligible)  
+- **Relative Acceleration**: Longitudinal = 0.28 m/s² (slight deceleration), Lateral = 0.00 m/s²  
+- **Motion**: Obstacle is driving toward the ego car longitudinally with exact lateral alignment.  
+
+---
+
+### **Trajectory Analysis (0.0s → 0.9s)**
+1. **Longitudinal Distance**: Decreasing from 24.15m to 19.19m over 0.9s (~5m reduction).  
+   - Closing speed fluctuates between -4.71 m/s and -6.50 m/s (average ~5.5 m/s).  
+   - Acceleration trends show minor oscillations but no sustained braking.  
+
+2. **Lateral Distance**: Consistently 0.00m (exact alignment).  
+   - Lateral velocity is negligible (-0.01 m/s), indicating no lateral divergence.  
+
+---
+
+### **Risk Metrics Calculation**
+#### **Time-to-Collision (TTC)**  
+- Longitudinal TTC = Distance / |Relative Velocity| = 19.19 / 4.71 ≈ **4.07 seconds**.  
+  - **Risk Score**: 4 (Low Risk, since 3.0 < TTC ≤ 5.0).  
+
+#### **Minimum Distance to Collision (MDC)**  
+- Since the obstacle is longitudinally aligned (lateral = 0.00m), MDC is the longitudinal distance: **19.19m**.  
+  - **Risk Score**: 5 (No Risk, MDC > 5.0m).  
+
+#### **Overall Risk**  
+- Prioritize the higher risk (lower score): **4 (Low Risk)**.  
+
+---
+
+### **Collision Scenario Determination**
+- **No collision (score 0)** or **extreme risk (score 1)** detected.  
+- Obstacle 3070 is closing longitudinally but remains at Low Risk (TTC = 4.07s, MDC = 19.19m).  
+- No immediate threat of collision within the next 0.5 seconds.  
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 3070 is longitudinally aligned and closing at a TTC of 4.07s (Low Risk) with no lateral divergence. No collision or extreme risk detected."
+}
+```

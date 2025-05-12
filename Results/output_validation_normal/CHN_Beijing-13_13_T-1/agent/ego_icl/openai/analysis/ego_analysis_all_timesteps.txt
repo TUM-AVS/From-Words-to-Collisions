@@ -1,0 +1,107 @@
+### Obstacle-by-Obstacle Analysis
+
+#### **Obstacle 3052**
+- **Position:** Front-right
+- **Adjusted Distance:** Longitudinal 0.79 m, Lateral -7.77 m
+- **Relative Velocity:** Longitudinal -11.14 m/s, Lateral 0.00 m/s
+- **Motion Description:** Moving toward the ego car longitudinally, no lateral motion.
+
+**Trajectory Analysis:**
+- The longitudinal distance decreased from earlier timesteps, indicating a closing trajectory.
+- The obstacle is on a collision course given the very close longitudinal distance and significant closing velocity.
+
+**Risk Assessment:**
+  - **TTC Calculation:** Approximate TTC = 0.79 m / 11.14 m/s ≈ 0.071 s
+  - **MDC Calculation:** MDC is effectively the longitudinal distance as lateral motion is zero in this dimension: 0.79 m
+
+**Conclusion:** Immediate collision possible due to extreme proximity and rapid closing velocity.
+
+---
+
+#### **Obstacle 3053**
+- **Position:** Front
+- **Adjusted Distance:** Longitudinal 20.67 m, Lateral 0.00 m
+- **Relative Velocity:** Longitudinal -0.34 m/s, Lateral 0.05 m/s
+- **Motion Description:** Moving towards ego longitudinally with exact lateral alignment.
+
+**Trajectory Analysis:**
+- The longitudinal distance remains significantly greater than the danger threshold.
+- Slow closing velocity reduces immediate risk.
+
+**Risk Assessment:**
+  - **TTC Calculation:** TTC = 20.67 m / 0.34 m/s ≈ 60.8 s (negligible risk timeframe)
+  - **MDC Calculation:** Greater than danger thresholds in both dimensions.
+
+**Conclusion:** No significant risk due to substantial separation and low relative velocity.
+
+---
+
+#### **Obstacle 3054**
+- **Position:** Front-right
+- **Adjusted Distance:** Longitudinal 0.84 m, Lateral -15.68 m
+- **Relative Velocity:** Longitudinal -11.15 m/s, Lateral 0.42 m/s
+- **Motion Description:** Closing both longitudinally and laterally.
+
+**Trajectory Analysis:**
+- The decreasing longitudinal distance combined with lateral closing motion suggests a crossing path.
+
+**Risk Assessment:**
+  - **TTC Calculation:** Approximate TTC = 0.84 m / 11.15 m/s ≈ 0.075 s
+  - **MDC Calculation:** The longitudinal component is critical here: 0.84 m
+
+**Conclusion:** Object at immediate collision risk based on calculated TTC and MDC values.
+
+---
+
+#### **Obstacle 3055**
+- **Position:** Front-left
+- **Adjusted Distance:** Longitudinal 9.57 m, Lateral 1.90 m
+- **Relative Velocity:** Longitudinal -11.14 m/s, Lateral -0.00 m/s
+- **Motion Description:** Primarily longitudinal closing trajectory.
+
+**Trajectory Analysis:**
+- Longitudinal approach is narrowing the gap.
+- Significant movement contrasting slightly increasing lateral separation.
+
+**Risk Assessment:**
+  - **TTC Calculation:** Approximate TTC = 9.57 m / 11.14 m/s ≈ 0.86 s
+  - **MDC Calculation:** 9.57 m (dominated by longitudinal approach)
+
+**Conclusion:** High risk due to the closer gap and the sustained closing velocity.
+
+---
+
+#### **Obstacle 3058**
+- **Position:** Behind
+- **Adjusted Distance:** Longitudinal -17.38 m, Lateral 0.00 m
+- **Relative Velocity:** Longitudinal 0.62 m/s, Lateral -0.05 m/s
+- **Motion Description:** Approaching from behind with exact lateral alignment.
+
+**Trajectory Analysis:**
+- Moving forward from a distance.
+- Very slow approach implies low collision likelihood over short term.
+
+**Risk Assessment:**
+  - **TTC Calculation:** Not applicable for collision with diverging motion from initial negative distance.
+  - **MDC Calculation:** No immediate reduction in lateral or longitudinal separation which poses collision soon.
+
+**Conclusion:** Negligible risk due to low velocity and negative initial position relative to ego.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "3052",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3054",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "3055",
+        "OverallRiskScore": "2"
+    }
+}
+```

@@ -1,0 +1,86 @@
+### Safety analysis for timestep 4.5: Here's the evaluation of each obstacle according to the provided metrics and calculations.
+### Obstacle Analysis:
+- Obstacle ID: 221
+- Distance Risk reason: Obstacle is very close behind and to the right of the ego vehicle (-1.2m longitudinal, -1.2m lateral).
+- Distance safety score: 2
+- Time Risk reason:  The relative velocity indicates the obstacle is approaching the ego vehicle rapidly.
+- Time safety score: 2
+- Overall Risk score: 2
+
+- Obstacle ID: 386
+- Distance Risk reason: Obstacle is far ahead and to the left of the ego vehicle (12.98m longitudinal, 12.98m lateral) and moving away.
+- Distance safety score: 5
+- Time Risk reason: The relative velocity and motion indicate the obstacle is moving further away from the ego vehicle.
+- Time safety score: 5
+- Overall Risk score: 5
+
+- Obstacle ID: 426
+- Distance Risk reason: Obstacle is moderately far behind the ego vehicle (-8.11m longitudinal, -8.11m lateral).
+- Distance safety score: 3
+- Time Risk reason: Relative velocity suggests the obstacle is approaching, but there is still some time.
+- Time safety score: 3
+- Overall Risk score: 3
+
+- Obstacle ID: 431
+- Distance Risk reason: Obstacle is moderately far behind and to the left of the ego vehicle (-9.43m longitudinal, -9.43m lateral).
+- Distance safety score: 3
+- Time Risk reason: Relative velocity suggests the obstacle is approaching, but there is some time and lateral movement away.
+- Time safety score: 3
+- Overall Risk score: 3
+
+
+### Safety analysis for timestep 4.6 - 5.3: Similar analysis as timestep 4.5, with progressively increasing risk for obstacles 221, 426, and 431 as they get closer to the ego vehicle. Obstacle 386 remains at no risk throughout.  It is critical to calculate TTC values based on relative velocity and distances at each timestep to determine the time safety score.
+
+### Safety analysis for timestep 5.4:
+### Obstacle Analysis:
+- Obstacle ID: 221
+- Distance Risk reason: Located right next to the ego vehicle (0.0m longitudinal, 0.0m lateral) though relative velocity suggests a near miss.
+- Distance safety score: 1
+- Time Risk reason: Very high risk.
+- Time safety score: 1
+- Overall Risk score: 1
+
+- Obstacle ID: 386
+- Distance Risk reason: Far away and moving further away.
+- Distance safety score: 5
+- Time Risk reason: No risk
+- Time safety score: 5
+- Overall Risk score: 5
+
+- Obstacle ID: 426
+- Distance Risk reason: Collision has occurred with the ego vehicle (0.0m longitudinal, 0.0m lateral).
+- Distance safety score: 0
+- Time Risk reason: Collision.
+- Time safety score: 0
+- Overall Risk score: 0
+
+- Obstacle ID: 431
+- Distance Risk reason: Very close to the ego vehicle and high risk of collision (-1.18m longitudinal, -1.18m lateral).
+- Distance safety score: 1
+- Time Risk reason: Very high risk due to proximity and velocity.
+- Time safety score: 1
+- Overall Risk score: 1
+
+- Obstacle ID: 434
+- Distance Risk reason: Moderately far behind (-23.75m longitudinal, -23.75m lateral).
+- Distance safety score: 3
+- Time Risk reason: The obstacle is approaching but there is still some time.
+- Time safety score: 3
+- Overall Risk score: 3
+
+
+### Summary in JSON Format:
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "426",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "221",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 426 has collided with the ego vehicle at timestep 5.4. Obstacle 221 shows an extremely high risk of collision at the same timestamp."
+}
+```

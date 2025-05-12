@@ -1,0 +1,32 @@
+Obstacle 30193: Located front-left and moving away from the ego vehicle both longitudinally and laterally. The longitudinal distance is increasing, and the lateral distance is also increasing significantly.  There is no risk of collision. Risk level: 5 (Negligible Risk).
+
+Obstacle 30196: Located rear-right, this obstacle is the most concerning. It is approaching the ego vehicle from behind and from the right. The longitudinal distance is -0.31m, and the lateral distance is -1.23m. The relative velocity indicates the obstacle is closing in on the ego vehicle. Given the negative distances and positive relative velocities, a collision is highly likely if the trajectories continue. The small distances and closing velocities suggest an *extreme* risk.
+
+Calculating TTC for Obstacle 30196 at 3.7s:
+* Longitudinal TTC: abs(-0.31m / 2.18 m/s) = 0.14s
+* Lateral TTC: abs(-1.23m / 5.11 m/s) = 0.24s
+
+Both TTC values are extremely low, indicating an *extreme risk*. MDC is less than 0.5m, further confirming the extreme risk.  Risk level: 1 (Extreme Risk)
+
+Obstacle 30197: Located rear-right, this obstacle is also approaching the ego vehicle, but from a greater distance than Obstacle 30196. The longitudinal distance is -9.18 m, and the lateral distance is -11.56 m. Although the obstacle is moving closer, the greater distance provides more time to react.
+
+Calculating TTC for Obstacle 30197 at 3.7s:
+* Longitudinal TTC: abs(-9.18m / 3.91 m/s) = 2.35s
+* Lateral TTC: abs(-11.56m / 3.61 m/s) = 3.20s
+
+Both TTC values are greater than one second, so they fall within the medium to low risk level. The MDC is above 5m. Thus this obstacle has a medium risk, primarily due to the closing longitudinal distance. Risk level: 3 (Medium Risk).
+
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30196",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "30196",
+    "OverallRiskScore": "1"
+  }
+}
+```

@@ -1,0 +1,73 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 5.0 seconds)
+
+#### **Obstacle 30921**  
+- **Position**: Left of ego (longitudinal alignment)  
+- **Adjusted Distances**:  
+  - Longitudinal: 0.00 m (aligned)  
+  - Lateral: 1.10 m (closing rapidly)  
+- **Relative Velocity**:  
+  - Longitudinal: -0.04 m/s (negligible, moving slightly away)  
+  - Lateral: -7.53 m/s (approaching ego at high speed)  
+- **Motion**: Exact longitudinal alignment. Obstacle is driving toward ego laterally from the left.  
+
+**Risk Assessment**:  
+1. **Lateral Focus**:  
+   - **MDC**: 1.10 m (High Risk, as it is closing rapidly).  
+   - **TTC**: 1.10 / 7.53 ≈ **0.146 seconds** (Extreme Risk, TTC < 0.5s).  
+2. **Longitudinal Focus**:  
+   - No significant risk (distance stable, slight divergence).  
+3. **Overall Risk**: **Extreme Risk (1)** due to extremely low TTC and rapidly decreasing lateral distance.  
+
+#### **Obstacle 30922**  
+- **Position**: Left of ego (longitudinal alignment)  
+- **Adjusted Distances**:  
+  - Longitudinal: 0.00 m (aligned)  
+  - Lateral: 14.61 m (closing but still far)  
+- **Relative Velocity**:  
+  - Longitudinal: -7.90 m/s (moving away)  
+  - Lateral: -6.89 m/s (approaching but slowly)  
+- **Motion**: Exact longitudinal alignment. Obstacle is driving toward ego laterally from the left.  
+
+**Risk Assessment**:  
+1. **Lateral Focus**:  
+   - **MDC**: 14.61 m (No Risk, > 5.0m).  
+   - **TTC**: 14.61 / 6.89 ≈ **2.12 seconds** (Medium Risk).  
+2. **Longitudinal Focus**:  
+   - No risk (moving away).  
+3. **Overall Risk**: **Medium Risk (3)** due to moderate TTC but large remaining distance.  
+
+---
+
+### **Trajectory Analysis (Across Timesteps)**  
+- **Obstacle 30921**:  
+  - Lateral distance decreased from **2.74m (4.1s) → 1.10m (5.0s)** at ~7.5 m/s closing speed.  
+  - **Projection**: Will reach **0m lateral distance in ~0.15s**, indicating imminent collision.  
+- **Obstacle 30922**:  
+  - No immediate threat (lateral distance still large, moving away longitudinally).  
+
+---
+
+### **Final Determination**  
+- **Obstacle 30921** is in **Extreme Risk (1)** with **TTC ≈ 0.15s** and **MDC = 1.10m (decreasing rapidly)**.  
+- **Obstacle 30922** poses no immediate threat.  
+
+### **JSON Summary**  
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30921",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30921 has Extreme Risk (TTC ≈ 0.15s, MDC = 1.10m closing rapidly). A collision is imminent unless evasive action is taken."
+}
+```  
+
+### **Key Notes**  
+- This is a **collision scenario** because **Obstacle 30921** meets the criteria for **Extreme Risk (1)** with **TTC < 0.5s** and **MDC < 1.0m**.  
+- Immediate intervention (e.g., braking or steering) is required to avoid collision.  
+- Obstacle 30922 is not a concern at this timestep.

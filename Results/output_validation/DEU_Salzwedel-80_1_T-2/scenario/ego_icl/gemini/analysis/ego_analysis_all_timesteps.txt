@@ -1,0 +1,22 @@
+* **Obstacle 20016 (Rear-Left):**  This obstacle is consistently moving away from the ego vehicle both longitudinally and laterally across all timesteps. At the last timestep (13.1s), it's 17.53m behind and 2.02m to the left.  TTC and MDC are not relevant here due to diverging trajectories. Risk score: 5 (No Risk)
+
+* **Obstacle 20025 (Rear-Left):** Similar to 20016, this obstacle is also moving away from the ego vehicle in the longitudinal direction and maintains a safe lateral distance across all timesteps. At 13.1s, it's 8.60m behind and 1.90m to the left. TTC and MDC are not relevant due to diverging trajectories. Risk score: 5 (No Risk)
+
+* **Obstacle 20029 (Behind/Collision):** This obstacle started behind the ego vehicle and has been approaching rapidly across all timesteps.  The longitudinal distance decreases significantly from -4.82m at 12.2s to 0.00m at 13.0s and remaining at 0.00 at 13.1s. While the motion description indicates "Exact longitudinal alignment" at 13.0 and 13.1 seconds, the sustained 0.00m in both longitudinal and lateral distances, combined with the positive relative longitudinal velocity (4.41 m/s), confirms a collision at 13.0 seconds.  TTC is 0s. MDC is 0m.  Risk score: 0 (Collision)
+
+* **Obstacle 20031 (Left/Rear-Left):** This obstacle maintains a safe lateral distance from the ego vehicle while its longitudinal position transitions from perfect alignment to slightly behind the ego vehicle over the timesteps. It is moving away laterally to the left and longitudinally away from the ego vehicle. At 13.1s, it's 1.61m behind and 1.89m to the left. TTC and MDC are not relevant here as trajectories are diverging in both dimensions. Risk score: 5 (No Risk)
+
+
+**Collision Scenario Determination:** Yes, this is a collision scenario. Obstacle 20029 has collided with the ego vehicle at 13.0 seconds or slightly before and persist at 13.1 seconds.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "20029",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 20029 collided with the ego vehicle as indicated by 0.00m distances in both longitudinal and lateral directions at timestep 13.0s and 13.1 seconds with closing velocity."
+}
+```

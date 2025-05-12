@@ -1,0 +1,38 @@
+Obstacle 30:
+- Trajectory: This obstacle has been consistently in front of the ego vehicle and approaching along the longitudinal axis. Lateral distance remains at 0.00, indicating perfect longitudinal alignment.  The longitudinal distance has decreased from 5.94m to 3.29m over the observed period.
+- TTC (Longitudinal): 3.29m / 3.48 m/s = 0.95s
+- MDC: Approximately 0.05m (lateral) but effectively 3.29 longitudinally since the obstacle and the ego car are in the same lane.
+- Risk: High (2) due to the combination of near-zero lateral distance and short TTC. While the lateral distance suggests alignment not collision, the decreasing longitudinal distance with less than 1 second TTC creates a high risk of rear-ending.
+
+Obstacle 37:
+- Trajectory: Consistently to the front-right of the ego vehicle, with both longitudinal and lateral distances decreasing, albeit at a slower pace.
+- TTC (Longitudinal): 6.45m / 2.24 m/s = 2.88s
+- TTC (Lateral): 6.53m / 0.81 m/s = 8.06s
+- MDC: Lateral distance is currently the shortest at 6.53m. Longitudinal is at 6.45.  
+- Risk: Medium (3) since the MDC is above 3m, but TTC is below 3 seconds.
+
+Obstacle 317:
+- Trajectory: Initially behind and to the left, this obstacle's longitudinal distance initially increased (moving away) but later decreased (approaching). The lateral distance has been consistently decreasing.
+- TTC (Longitudinal): -8.67m / 0.49m/s (not applicable for forward collision risk assessment as it's moving away longitudinally, but we consider the absolute distance)
+- TTC (Lateral): 2.57m / 2.47 m/s = 1.04s
+- MDC:  2.57m
+- Risk:  High (2) due to short lateral distance and corresponding TTC slightly over 1 second, indicating lateral collision potential.
+
+Obstacle 320:
+- Trajectory: Consistently behind and to the left, with longitudinal distance generally increasing (moving away) while lateral distance decreases (moving closer laterally).
+- TTC (Longitudinal): -15.87 / -1.43 m/s = 11.1s (not applicable for forward collision risk assessment)
+- TTC (Lateral): 11.80m / 0.99 m/s = 11.92s
+- MDC: 11.80m
+- Risk: Low (4), as lateral distance is decreasing but still above 5m, TTC is high.
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "HighRiskObstacle": {
+    "ObstacleID": "30",
+    "OverallRiskScore": "2"
+  }
+}
+```

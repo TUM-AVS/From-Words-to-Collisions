@@ -1,0 +1,69 @@
+* **Obstacle 3655 (Front-right):**  Moving away from the ego vehicle both longitudinally and laterally. Trajectory analysis confirms this divergence. No risk of collision.
+    * Risk Score: 5 (No Risk)
+
+* **Obstacle 3656 (Front-left):**  Laterally far away and moving slightly further away. Longitudinally approaching but at a distance of 6.82m, the closing velocity is relatively low.  No immediate collision risk.
+    * Risk Score: 4 (Low Risk)
+
+* **Obstacle 3657 (Right):** Laterally separated and moving slightly further away. Longitudinally aligned but not moving relatively in that dimension. No collision risk.
+    * Risk Score: 5 (No Risk)
+
+* **Obstacle 3658 (Front-right):** Moving away longitudinally and slightly laterally from the ego vehicle. Trajectory confirms divergence. No collision risk.
+    * Risk Score: 5 (No Risk)
+
+* **Obstacle 3659 (Front-left):**  Moving away longitudinally. Laterally approaching but still at a safe distance. No immediate risk.
+    * Risk Score: 4 (Low Risk)
+
+* **Obstacle 3660 (Front-left):** Laterally far and moving further away.  Longitudinally approaching but at a safe distance with low closing velocity. No immediate collision risk.
+    * Risk Score: 4 (Low Risk)
+
+* **Obstacle 3661 (Front-left):**  Similar to 3660, far away and moving slightly further away. Longitudinally approaching but poses no immediate threat.
+    * Risk Score: 4 (Low Risk)
+
+* **Obstacle 3662 (Front-right):** Moving away longitudinally, and laterally distanced. At 1.37m longitudinal distance, even though moving away, it's still close. The lateral distance and diverging trajectories mitigate the risk. 
+    * Risk Score: 3 (Medium Risk)
+
+* **Obstacle 3663 (Front-left):** Far away and moving slightly further away. No immediate risk.
+    * Risk Score: 5 (No Risk)
+
+* **Obstacle 3664 (Front-left):** Far away and moving slightly further away. No immediate risk.
+    * Risk Score: 5 (No Risk)
+
+* **Obstacle 3666 (Left):**  Longitudinally aligned. Lateral distance is small (1.78 m) and is slightly reducing based on approaching direction.
+    * TTC: 1.78m / 0.17m/s ≈ 10.47s
+    * MDC: Approximately 1.78m
+    * Risk Score: 3 (Medium Risk)
+
+* **Obstacle 3667 (Behind):** Longitudinally very close and approaching rapidly from behind (-0.26m).  Laterally aligned. This represents an **extreme risk**.
+    * TTC: 0.26m / 3.03m/s ≈ 0.09s
+    * MDC: Approximately 0.26m
+    * Risk Score: 1 (Extreme Risk)
+
+* **Obstacle 3668 (Rear-right):**  Approaching from behind and slightly to the right. Longitudinal distance is small (-0.86m) and closing. Lateral distance is small but increasing. The longitudinal movement poses the primary risk.
+    * TTC: 0.86m/3.25m/s ≈ 0.26s
+    * MDC: < 0.86m (due to the rightward movement)
+    * Risk Score: 1 (Extreme Risk)
+
+* **Obstacle 3669 (Rear-right):**  Moving away longitudinally, though currently very close (-0.01m), thus no longitudinal collision risk at this point. Lateral separation also increasing.
+    * Risk Score: 5 (No Risk)
+
+
+**Conclusion:**
+
+This IS a collision scenario because obstacles 3667 and 3668 both pose extreme risks (Risk Score 1) with very low TTCs and close proximity, indicating near-certain collision within the next timestep unless immediate evasive action is taken.
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3667",
+    "OverallRiskScore": "1"
+  },
+   "ExtremeRiskObstacle": {
+    "ObstacleID": "3668",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacles 3667 and 3668 have extremely low TTCs (< 0.5s) and are very close to the ego vehicle, approaching rapidly from behind. This indicates a near-certain collision within the next time step."
+}
+```

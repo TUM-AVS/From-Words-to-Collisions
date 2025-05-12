@@ -1,0 +1,33 @@
+### Safety analysis for the most recent timestep:
+
+### Obstacle Analysis:
+- **Obstacle ID: 20063.0**
+  - **Distance Risk reason**: The obstacle is in the same lanelet (1455.0) as the ego vehicle. Over the past timesteps, the distance between ego and obstacle has been decreasing (from ~22m to ~14m). The obstacle is ahead of the ego vehicle but moving away at a faster speed.
+  - **Distance safety score**: 3 (Medium Risk)
+  - **Time Risk reason**: The relative velocity (obstacle speed - ego speed) is ~4.5 m/s (11.7065 - 7.1703). The TTC is ~14m / 4.5 m/s ≈ 3.1s. The obstacle is accelerating away (0.7035 m/s² vs ego decelerating at -0.0955 m/s²).
+  - **Time safety score**: 4 (Low Risk)
+  - **Overall Risk score**: 3 (Medium Risk)
+
+- **Obstacle ID: 20042.0**
+  - **Distance Risk reason**: The obstacle is in a different lanelet (1456.0) and is moving in the opposite direction (orientation ~1.8276 vs ego ~-0.9873). The lateral distance is significant (~17m) and increasing.
+  - **Distance safety score**: 5 (Negligible Risk)
+  - **Time Risk reason**: The obstacle is moving away at a high speed (14.6335 m/s) with minimal acceleration (0.0884 m/s²). No convergence in trajectories.
+  - **Time safety score**: 5 (Negligible Risk)
+  - **Overall Risk score**: 5 (Negligible Risk)
+
+### Chain of Thought Scenario Analysis:
+1. **Obstacle 20063.0**: Same lanelet but moving away faster than ego. Decreasing distance but TTC is >3s. Medium risk due to proximity but low collision likelihood.
+2. **Obstacle 20042.0**: Different lanelet, opposite direction, no trajectory overlap. Negligible risk.
+3. No obstacles are on an immediate collision course or extreme risk path.
+
+### Summary in JSON Format:
+```json
+{
+    "CollisionObstacles": null,
+    "ExtremeRiskObstacle": null,
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "No obstacles are on a collision course. Obstacle 20063.0 is in the same lane but moving away with a safe TTC (>3s). Obstacle 20042.0 is in a different lane with no trajectory overlap."
+    }
+}
+```

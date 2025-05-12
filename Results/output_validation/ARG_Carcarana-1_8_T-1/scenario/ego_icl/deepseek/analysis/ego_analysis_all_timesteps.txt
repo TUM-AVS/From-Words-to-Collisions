@@ -1,0 +1,53 @@
+Let me analyze the most recent timestep (3.1 seconds) with trajectory context from previous timesteps:
+
+**Obstacle 341 (Behind):**
+- Longitudinal: -0.21m (directly behind ego)
+- Lateral: 0.00m (perfect alignment)
+- Relative velocity: 7.10 m/s (rapidly approaching)
+- TTC: 0.21/7.10 = 0.03 seconds (Extreme Risk)
+- MDC: 0.21m (Extreme Risk)
+- Trajectory: Consistently closing distance at increasing speed
+- Risk: 0 (Collision occurring - distance < 0.5m with TTC < 0.5s)
+
+**Obstacle 357 (Left):**
+- Longitudinal: 0.00m (side-by-side)
+- Lateral: 2.52m
+- Relative velocity: -5.04 m/s (longitudinal), 0.06 m/s (lateral)
+- TTC: N/A (moving away longitudinally)
+- MDC: 2.52m (Low Risk)
+- Risk: 4 (Low Risk)
+
+**Obstacle 360 (Rear-Right):**
+- Longitudinal: -12.50m
+- Lateral: -0.27m
+- Relative velocity: 4.88 m/s, 1.23 m/s
+- TTC: 0.27/1.23 = 0.22s (lateral), 12.50/4.88 = 2.56s (longitudinal)
+- MDC: 0.27m (Extreme Risk)
+- Risk: 1 (Extreme Risk due to imminent lateral collision)
+
+**Obstacle 3111 (Front-Left):**
+- Longitudinal: 13.44m
+- Lateral: 6.16m
+- Relative velocity: -11.54 m/s, -1.63 m/s
+- TTC: 13.44/11.54 = 1.16s (longitudinal)
+- MDC: 6.16m (No Risk)
+- Risk: 3 (Medium Risk)
+
+**Collision Scenario Determination:**
+- Obstacle 341 is actively colliding (distance < 0.5m with TTC ≈ 0)
+- Obstacle 360 shows extreme lateral risk (MDC < 0.5m with TTC < 0.5s)
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "341",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "360",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 341 is actively colliding with the ego vehicle from behind (distance < 0.5m, TTC ≈ 0s), while Obstacle 360 shows extreme lateral collision risk (MDC < 0.5m with TTC < 0.5s)"
+}
+```

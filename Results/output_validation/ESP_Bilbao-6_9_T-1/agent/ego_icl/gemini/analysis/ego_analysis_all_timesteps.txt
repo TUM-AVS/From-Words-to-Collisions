@@ -1,0 +1,37 @@
+Obstacle 30689 (Front-Left):
+
+* Trajectory Analysis: This obstacle is approaching the ego vehicle longitudinally while moving away laterally.  Over the past several timesteps, the longitudinal distance has decreased from 19.52m to 14.88m, while the lateral distance has increased from 2.62m to 10.35m. This diverging lateral movement significantly reduces collision risk.
+
+* TTC Calculation (Longitudinal): TTC = 14.88m / 4.43m/s ≈ 3.36s
+* TTC Calculation (Lateral): Not applicable due to diverging lateral movement.
+
+* MDC: Given the diverging lateral trajectory, MDC is not a primary concern here. The longitudinal distance is the more relevant metric.
+
+* Risk Assessment: Based on the longitudinal TTC of 3.36s and increasing lateral distance, the risk level is Medium (3).
+
+
+Obstacle 30693 (Front):
+
+* Trajectory Analysis: This obstacle is directly in front of the ego vehicle and is rapidly approaching.  The longitudinal distance has decreased from 3.52m to 0.54m in the observed time steps. The lateral distance remains at 0.00m, indicating continued alignment in the same lane.  This is a high-risk situation.
+
+* TTC Calculation (Longitudinal): TTC = 0.54m / 2.62m/s ≈ 0.21s
+
+* MDC: With persistent lateral alignment (0.00m) and a rapidly decreasing longitudinal distance, the MDC is essentially the longitudinal distance, which is 0.54m.
+
+* Risk Assessment:  Both TTC (0.21s) and MDC (0.54m) indicate Extreme Risk (1).
+
+
+Final JSON Summary:
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30693",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "30693",
+    "OverallRiskScore": "1"
+  }
+}
+```

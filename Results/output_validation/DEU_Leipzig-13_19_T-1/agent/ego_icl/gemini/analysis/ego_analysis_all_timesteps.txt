@@ -1,0 +1,34 @@
+* At 4.0 seconds:
+    * **Obstacle 3243**: Located to the right. Longitudinal distance is 0.00 m and lateral distance is -22.38 m. It is moving away laterally.  No longitudinal relative motion. Risk level: 5 (Negligible Risk).
+
+    * **Obstacle 3247:** Located to the front-right. Longitudinal distance is 9.65 m and lateral distance is -10.41 m. It is moving towards the ego car longitudinally at -4.15 m/s and moving away laterally at -5.70 m/s.
+        * Longitudinal TTC = 9.65m / 4.15m/s ≈ 2.32s. Risk level: 3 (Medium risk)
+        * Lateral TTC = 10.41m / 5.70m/s ≈ 1.82s. Risk level: 3 (Medium risk)
+        * MDC ≈ 9.65m. Risk level: 4 (Low risk)
+        * Overall Risk: 3 (Medium Risk)
+
+    * **Obstacle 3249**: Located to the front-left. Longitudinal distance is 1.69 m and lateral distance is 2.05 m. Although showing a positive longitudinal relative velocity (6.95 m/s initially decreasing to 5.30 m/s), the longitudinal distance has been slightly increasing across the timesteps (from 0.00 m to 1.69 m), meaning the obstacle is moving away longitudinally.  It's also moving away laterally.
+        * Since the obstacle is moving away both longitudinally and laterally, we should consider this a negligible risk. Risk level: 5 (Negligible Risk)
+
+    * **Obstacle 3253**: Located to the rear-right. Longitudinal distance is -8.80 m and lateral distance is -23.00 m. Moving away from the ego vehicle both longitudinally and laterally. Risk level: 5 (Negligible Risk).
+
+    * **Obstacle 3254**: Located behind the ego vehicle. Longitudinal distance is -1.13 m, and the lateral distance is 0.00 m. Approaching from behind at 4.80 m/s longitudinally. This is a critical situation due to the decreasing longitudinal distances across the timesteps and high closing speed.
+        * Longitudinal TTC = 1.13 m / 4.80 m/s ≈ 0.23s. Risk level: 1 (Extreme Risk)
+        * MDC = 1.13m. Risk level: 2 (High Risk)
+        * Overall Risk: 1 (Extreme Risk)
+
+    * **Obstacle 3255**: Located behind the ego vehicle. Longitudinal distance is -17.45 m and lateral distance is 0.00 m. It is driving toward the ego car from behind with a velocity of 5.67 m/s.
+        * Longitudinal TTC = 17.45 m / 5.67 m/s ≈ 3.07 s. Risk level: 3 (Medium Risk)
+        * MDC = 17.45 m. Risk level: 4 (Low Risk)
+        * Overall Risk: 3 (Medium Risk)
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3254",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {}
+}
+```

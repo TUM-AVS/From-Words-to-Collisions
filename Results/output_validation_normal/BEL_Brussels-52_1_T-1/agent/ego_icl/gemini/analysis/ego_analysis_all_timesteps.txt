@@ -1,0 +1,32 @@
+At t=0.9s:
+
+**Obstacle 30230:** Located in front of the ego vehicle.
+
+* Trajectory Analysis:  Longitudinal distance has been increasing across all timesteps, indicating the obstacle is moving away from the ego vehicle. Lateral distance remains at 0.00m, meaning it's in the same lane but not necessarily colliding.
+* TTC: Since the relative longitudinal velocity is positive (moving away), TTC is not meaningful in the longitudinal direction.  Lateral velocity is small and not a primary concern given the longitudinal movement.
+* MDC: With increasing longitudinal separation, MDC is not a concern.
+* Risk Assessment: Negligible risk (5).
+
+**Obstacle 30235:** Located behind the ego vehicle.
+
+* Trajectory Analysis: Longitudinal distance is negative and getting smaller in magnitude (closer to zero) across timesteps. Lateral distance remains 0.0m. The obstacle is approaching from behind in the same lane.
+* TTC: TTC = |-11.39m| / 2.05 m/s ≈ 5.56s longitudinally. Lateral movement is minimal and not a primary factor.
+* MDC: With the obstacle approaching from behind, MDC is primarily determined by the longitudinal distance, which is -11.39m. This equates to roughly a 4-5 risk.
+* Risk Assessment: Low risk (4), primarily due to the longitudinal distance. Although the relative speed could be a concern depending on the ego vehicle's braking. If it starts breaking heavily, the risk will increase.
+
+
+**Obstacle 30237:** Located behind the ego vehicle.
+
+* Trajectory Analysis: Similar to Obstacle 30235, the longitudinal distance is negative and increasing towards zero over time, and lateral distance remains minimal.  This obstacle is also approaching from behind.
+* TTC: TTC = |-24.60m| / 1.35 m/s ≈ 18.22s longitudinally. Lateral movement is minimal.
+* MDC: Primarily longitudinal, MDC is -24.60m indicating negligible risk.
+* Risk Assessment: Negligible risk (5).
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "HighRiskObstacle": {}
+}
+```

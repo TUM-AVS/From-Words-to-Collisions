@@ -1,0 +1,53 @@
+### Obstacle Analysis (Most Recent Timestep: 2.9 seconds)
+
+#### Obstacle 30231 (Rear-right of ego car)
+- **Adjusted Distance**: Longitudinal -11.45 m, Lateral -1.51 m  
+- **Relative Velocity**: Longitudinal 2.48 m/s (approaching), Lateral 1.01 m/s (approaching from right)  
+- **Trajectory Analysis**:  
+  - Longitudinal: Closing distance from behind at increasing speed (acceleration trend observed in prior timesteps).  
+  - Lateral: Moving toward ego from the right (lateral distance decreasing).  
+- **TTC Calculation**:  
+  - Longitudinal TTC = 11.45 / 2.48 ≈ 4.62 seconds (Low Risk)  
+  - Lateral TTC = 1.51 / 1.01 ≈ 1.50 seconds (Medium Risk)  
+- **MDC**:  
+  - Lateral distance (1.51m) is the primary concern (smaller than longitudinal).  
+  - MDC = 1.51m (Medium Risk).  
+- **Overall Risk**: **Medium Risk (3)**. No imminent collision, but monitoring required due to lateral convergence.  
+
+#### Obstacle 30233 (Behind ego car)
+- **Adjusted Distance**: Longitudinal -0.14 m, Lateral 0.00 m  
+- **Relative Velocity**: Longitudinal 3.46 m/s (rapidly approaching), Lateral 1.22 m/s (minor drift).  
+- **Trajectory Analysis**:  
+  - Longitudinal: Extremely close (0.14m) and closing rapidly (high acceleration in prior timesteps).  
+  - Lateral: Exact alignment (0.00m) but minor lateral movement (not diverging).  
+- **TTC Calculation**:  
+  - Longitudinal TTC = 0.14 / 3.46 ≈ 0.04 seconds (**Extreme Risk**).  
+  - Lateral TTC: Not applicable (lateral velocity is minimal and aligned).  
+- **MDC**:  
+  - Current longitudinal distance (0.14m) is below 0.5m (**Extreme Risk**).  
+- **Overall Risk**: **Extreme Risk (1)**. Collision is imminent unless evasive action is taken.  
+
+---
+
+### Collision Scenario Determination
+- **Obstacle 30233** is at **Extreme Risk (1)** with TTC ≈ 0.04s and MDC = 0.14m.  
+- **Obstacle 30231** poses no immediate collision threat.  
+- **Justification**: A collision scenario is identified when any obstacle has Extreme Risk (TTC ≤ 0.5s and MDC < 0.5m). Here, Obstacle 30233 meets both criteria.  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30233",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30233 has Extreme Risk (TTC ≈ 0.04s, MDC = 0.14m) due to rapid longitudinal closure with near-zero distance."
+}
+```

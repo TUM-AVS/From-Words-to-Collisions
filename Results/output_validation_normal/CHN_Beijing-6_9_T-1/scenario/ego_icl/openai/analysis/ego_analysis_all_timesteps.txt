@@ -1,0 +1,79 @@
+**Obstacle-by-Obstacle Analysis:**
+
+### Obstacle 3095:
+- **Position & Motion:** Front-right of ego. Adjusted distances decrease from longitudinal 6.26 m to 4.11 m; lateral -7.34 m is nearly constant.
+- **Motion Description:** No lateral relative motion; longitudinally approaching at 7.49 m/s.
+- **TTC (Longitudinal):**  
+    - Initial: 3.52 m / 7.49 m/s = ~0.47 seconds
+- **MDC (Longitudinal & Lateral):**  
+    - Combining both dimensions, MDC is primarily influenced by longitudinal distance and trajectory, which indicates convergence.
+- **Risk Assessment:**  
+    - High risk due to TTC < 0.5 seconds indicating potential collision on converging longitudinal path.
+    - **Overall Risk Score:** 1 (Extreme Risk)
+
+### Obstacle 3097:
+- **Position & Motion:** Front-right of ego. Adjusted distances from longitudinal 5.01 m, lateral decreasing from -15.34 m to -14.95 m.
+- **Motion Description:** Driving toward ego both longitudinally and laterally.
+- **TTC (Longitudinal):**  
+    - Initial: 3.43 m / 7.49 m/s = ~0.46 seconds
+    - Lateral TTC (assuming closing): 14.95 m / 0.35 m/s = ~42.7 seconds (not immediate concern).
+- **MDC (Longitudinal & Lateral):** 
+    - Main concern with decreasing longitudinal distance; considering motion, likely to converge.
+- **Risk Assessment:**
+    - Extreme risk due to TTC < 0.5 seconds longitudinally.
+    - **Overall Risk Score:** 1 (Extreme Risk)
+
+### Obstacle 3098:
+- **Position & Motion:** Front-right into Right of ego. Adjusted distance is longitudinal 0 m, lateral -15.87 m.
+- **Motion Description:** Exact longitudinal alignment, moving away laterally.
+- **TTC (Longitudinal & Lateral):**  
+    - Longitudinal alignment but no closing velocity; lateral movement away suggests paths won't intersect immediately.
+    - Lateral expansion: increasing separation, no immediate risk.
+- **MDC (Same as current state):** Beyond safe range longitudinally.
+- **Risk Assessment:** 
+    - No immediate collision risk due to lateral divergence.
+    - **Overall Risk Score:** 5 (No Risk)
+
+### Obstacle 3102:
+- **Position & Motion:** Front-right of ego. Adjusted distances from longitudinal 5.35 m to 3.34 m, lateral -24.06 m to -23.52 m.
+- **Motion Description:** Approaching both laterally and longitudinally.
+- **TTC (Longitudinal):**  
+    - Initial: 3.34 m / 7.48 m/s = ~0.45 seconds
+- **MDC (Longitudinal & Lateral):**  
+    - Mostly concerned with longitudinal changes as it impacts convergence sooner.
+- **Risk Assessment:** 
+    - Extreme risk for longitudinal collision with TTC < 0.5 seconds.
+    - **Overall Risk Score:** 1 (Extreme Risk)
+
+### Obstacle 3106:
+- **Position & Motion:** Behind the ego. Adjusted longitudinal distance -22.20 m, lateral 0.00 m.
+- **Motion Description:** Approaching from behind but not in lateral alignment.
+- **TTC (Longitudinal):**  
+    - -22.20 m / 6.86 m/s = ~3.24 seconds (approaching).
+- **MDC (Longitudinal & Lateral):**  
+    - Within safe range and not an immediate collision path.
+- **Risk Assessment:**
+    - Medium risk with potential convergence in future steps.
+    - **Overall Risk Score:** 3 (Medium Risk)
+
+**Conclusion and Collision Scenario Determination:**
+- Multiple obstacles are converging with low TTC affecting the immediate safety envelope.
+- Obstacle 3095 and 3097 pose an imminent collision risk with very low longitudinal TTC.
+- Obstacle 3102 also adds warning with low longitudinal TTC supporting the extreme risk classification.
+- Due to obstacles tracked in extreme risk (3095, 3097, 3102), this scenario is classified as a potential collision scenario.
+
+**JSON Summary:**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "N/A",
+        "OverallRiskScore": "N/A"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3095, 3097, 3102",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Multiple obstacles, specifically 3095, 3097, and 3102, present extreme risk due to minimum longitudinal TTC, indicating potential for imminent collision."
+}
+```

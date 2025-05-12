@@ -1,0 +1,85 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 2.0 seconds)
+
+#### **Obstacle 33**  
+- **Position**: Collision (longitudinal = 0.00m, lateral = 0.00m)  
+- **Relative Velocity**: Longitudinal = 5.37 m/s (approaching), Lateral = -0.04 m/s (negligible)  
+- **Motion**: Exact longitudinal and lateral alignment (collision occurring).  
+- **TTC**: 0.00s (collision already happening).  
+- **MDC**: 0.00m (collision).  
+- **Risk Score**: **0 (Collision)**  
+
+**Justification**: The obstacle has reached zero distance in both dimensions with a closing velocity, confirming an active collision.
+
+---
+
+#### **Obstacle 345**  
+- **Position**: Behind (longitudinal = -14.67m, lateral = 0.00m)  
+- **Relative Velocity**: Longitudinal = 2.59 m/s (approaching), Lateral = 0.00 m/s (stable).  
+- **Motion**: Driving toward ego from behind in the same lane.  
+- **TTC**: 14.67m / 2.59 m/s ≈ 5.66s (> 5.0s).  
+- **MDC**: Lateral = 0.00m (same lane), but longitudinal distance is large (14.67m).  
+- **Risk Score**: **5 (No Risk)**  
+
+**Justification**: Despite same-lane alignment, the large longitudinal distance and high TTC indicate no immediate risk.
+
+---
+
+#### **Obstacle 378**  
+- **Position**: Front-right (longitudinal = 8.30m, lateral = -1.07m)  
+- **Relative Velocity**: Longitudinal = 1.41 m/s (moving away), Lateral = -1.54 m/s (moving right, away).  
+- **Motion**: Moving away both longitudinally and laterally.  
+- **TTC**: Not applicable (diverging paths).  
+- **MDC**: Minimum distance increasing (no convergence).  
+- **Risk Score**: **5 (No Risk)**  
+
+**Justification**: Both velocity components indicate the obstacle is moving away from the ego vehicle.
+
+---
+
+#### **Obstacle 380**  
+- **Position**: Front-right (longitudinal = 13.51m, lateral = -7.90m)  
+- **Relative Velocity**: Longitudinal = -1.74 m/s (approaching), Lateral = -6.41 m/s (moving right, away).  
+- **Motion**: Approaching longitudinally but moving away laterally.  
+- **TTC**: Not meaningful (lateral divergence dominates).  
+- **MDC**: Lateral distance is large (7.90m) and increasing.  
+- **Risk Score**: **5 (No Risk)**  
+
+**Justification**: The obstacle is rapidly moving laterally away, eliminating collision risk.
+
+---
+
+#### **Obstacle 383**  
+- **Position**: Front-left (longitudinal = 16.94m, lateral = 12.08m)  
+- **Relative Velocity**: Longitudinal = -1.28 m/s (approaching), Lateral = -2.91 m/s (approaching from left).  
+- **Motion**: Approaching diagonally but at very large distances.  
+- **TTC**: Longitudinal = 16.94m / 1.28 m/s ≈ 13.23s; Lateral = 12.08m / 2.91 m/s ≈ 4.15s.  
+- **MDC**: Both distances are large (>5m).  
+- **Risk Score**: **4 (Low Risk)**  
+
+**Justification**: Although approaching, the large distances and high TTCs make collision unlikely.
+
+---
+
+### Trajectory Analysis  
+- **Obstacle 33**: Shows consistent longitudinal closing velocity (~5 m/s) with lateral alignment. The collision at 2.0s was predictable from the trend.  
+- Other obstacles either maintain safe distances or diverge.  
+
+---
+
+### Final Determination  
+This is a **collision scenario** due to Obstacle 33's active collision (risk score 0). No other obstacles pose extreme risk.
+
+---
+
+### JSON Summary  
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "33",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": null,
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 33 has reached zero distance in both longitudinal and lateral dimensions with closing velocity, confirming an active collision."
+}
+```

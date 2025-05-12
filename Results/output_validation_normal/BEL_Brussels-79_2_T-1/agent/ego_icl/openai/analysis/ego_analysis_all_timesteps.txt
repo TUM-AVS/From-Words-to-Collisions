@@ -1,0 +1,74 @@
+To evaluate the scenario with obstacles 30182, 30183, and 30186:
+
+### Obstacle 30182:  
+- **Position:** Front-left  
+- **Adjusted Distances:** Longitudinal 17.25 m, Lateral 5.99 m  
+- **Relative Velocity:** Longitudinal -3.50 m/s, No lateral velocity  
+- **Motion:** Approaching longitudinally, no lateral change  
+
+**Trajectory Analysis:**  
+- Observed a steady decrease in both longitudinal and lateral positions over time indicating a stable approach in the same trajectory without a change in lateral alignment.  
+- Longitudinal distance decreased consistently between each timestep about 0.5 m with a consistent closing speed.
+
+**Calculations:**  
+- **TTC (Longitudinal):** \( \frac{17.25}{3.50} \approx 4.93 \) seconds  
+- **MDC:** Due primarily to decreased longitudinal distance: 17.25 m (since lateral changes are negligible with no significant motion)
+
+**Risk Assessment:**  
+- **TTC (4.93 seconds) and MDC (17.25 meters)** suggest Low Risk.  
+- **Risk Score:** 4 (Low Risk)
+
+### Obstacle 30183:
+- **Position:** Front  
+- **Adjusted Distances:** Longitudinal 10.28 m, Lateral 0.00 m  
+- **Relative Velocity:** Longitudinal -3.50 m/s, No lateral velocity  
+- **Motion:** Approaching longitudinally in the same lane (exact lateral alignment)
+
+**Trajectory Analysis:**  
+- The obstacle shows a consistent reduction in longitudinal distance while maintaining lateral alignment in successive timesteps, showing progression within the same lane.
+
+**Calculations:**  
+- **TTC (Longitudinal):** \( \frac{10.28}{3.50} \approx 2.94 \) seconds  
+- **MDC:** 10.28 m (as it travels directly in same lane towards ego)
+
+**Risk Assessment:**  
+- **TTC (2.94 seconds) and MDC (10.28 meters)** suggest Medium Risk.  
+- **Risk Score:** 3 (Medium Risk)
+
+### Obstacle 30186:
+- **Position:** Front-left  
+- **Adjusted Distances:** Longitudinal 15.86 m, Lateral 16.91 m  
+- **Relative Velocity:** Longitudinal -3.13 m/s, Lateral -2.89 m/s  
+- **Motion:** Approaching both longitudinally and laterally towards the ego car
+
+**Trajectory Analysis:**  
+- This obstacle demonstrates converging movements in both lateral and longitudinal directions, indicating a significant trajectory overlap risk over time.
+
+**Calculations:**  
+- **TTC (Longitudinal):** \( \frac{15.86}{3.13} \approx 5.06 \) seconds  
+- **TTC (Lateral):** \( \frac{16.91}{2.89} \approx 5.85 \) seconds  
+- **MDC:** Expected interaction point based on both paths indicates diagonal approach; given more significant overlap: approx 3.5 m
+
+**Risk Assessment:**  
+- Longitudinal TTC is slightly above 5 seconds, but the convergence and lateral interaction suggest Medium Risk due to combined trajectory.  
+- **Risk Score:** 3 (Medium Risk)
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "N/A",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "N/A",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "N/A",
+        "OverallRiskScore": "2"
+    }
+}
+```
+
+**Note:** No immediate collision or extreme risk obstacles detected at this time. Feedback focused on high attention areas with the medium risk of obstacle 30183 and 30186 due to their reduced timings of interaction and trajectory overlap.

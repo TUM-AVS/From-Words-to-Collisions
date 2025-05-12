@@ -1,0 +1,72 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30259 (Front-right)
+- **Position**: Front-right, adjusted longitudinal distance = 10.98 m, adjusted lateral distance = -21.75 m
+- **Relative Velocity**: longitudinal = -9.23 m/s (approaching), lateral = -8.76 m/s (moving away to the right)
+- **Trajectory Analysis**: The obstacle is moving towards the ego vehicle longitudinally but moving away laterally. The longitudinal distance is decreasing, but the lateral distance is increasing, indicating the obstacle is passing the ego vehicle on the right side.
+- **TTC Calculation**: 
+  - Longitudinal TTC = 10.98 / 9.23 ≈ 1.19 seconds
+  - Lateral TTC is not applicable since the obstacle is moving away.
+- **MDC Calculation**: 
+  - The paths are diverging laterally, so MDC is effectively the current lateral distance (21.75 m), which is very safe.
+- **Risk Assessment**: 
+  - Longitudinal TTC indicates Medium Risk (3), but since the lateral distance is increasing, the overall risk is Low (4).
+
+#### Obstacle 30261 (Front)
+- **Position**: Front, adjusted longitudinal distance = 11.10 m, adjusted lateral distance = 0.00 m
+- **Relative Velocity**: longitudinal = -0.30 m/s (approaching), lateral = -1.23 m/s (moving away to the left)
+- **Trajectory Analysis**: The obstacle is aligned longitudinally (same lane) and is slowly approaching the ego vehicle. The lateral distance is zero but increasing (moving away), so no lateral collision risk.
+- **TTC Calculation**: 
+  - Longitudinal TTC = 11.10 / 0.30 ≈ 37.0 seconds (very large, no risk)
+  - Lateral TTC is not applicable since the obstacle is moving away.
+- **MDC Calculation**: 
+  - The lateral distance is zero but increasing, so no collision risk.
+- **Risk Assessment**: 
+  - Longitudinal TTC indicates No Risk (5). Overall risk is Negligible (5).
+
+#### Obstacle 30262 (Front-left)
+- **Position**: Front-left, adjusted longitudinal distance = 21.62 m, adjusted lateral distance = 12.77 m
+- **Relative Velocity**: longitudinal = -7.51 m/s (approaching), lateral = 9.27 m/s (moving away to the left)
+- **Trajectory Analysis**: The obstacle is approaching longitudinally but moving away laterally. The longitudinal distance is large, and the lateral distance is increasing.
+- **TTC Calculation**: 
+  - Longitudinal TTC = 21.62 / 7.51 ≈ 2.88 seconds
+  - Lateral TTC is not applicable since the obstacle is moving away.
+- **MDC Calculation**: 
+  - The paths are diverging laterally, so MDC is effectively the current lateral distance (12.77 m), which is very safe.
+- **Risk Assessment**: 
+  - Longitudinal TTC indicates Medium Risk (3), but since the lateral distance is increasing, the overall risk is Low (4).
+
+#### Obstacle 30269 (Behind)
+- **Position**: Behind, adjusted longitudinal distance = -11.07 m, adjusted lateral distance = 0.00 m
+- **Relative Velocity**: longitudinal = -0.10 m/s (very slowly approaching), lateral = -0.76 m/s (moving away to the left)
+- **Trajectory Analysis**: The obstacle is aligned longitudinally (same lane) and is very slowly approaching the ego vehicle from behind. The lateral distance is zero but increasing (moving away), so no lateral collision risk.
+- **TTC Calculation**: 
+  - Longitudinal TTC = 11.07 / 0.10 ≈ 110.7 seconds (very large, no risk)
+  - Lateral TTC is not applicable since the obstacle is moving away.
+- **MDC Calculation**: 
+  - The lateral distance is zero but increasing, so no collision risk.
+- **Risk Assessment**: 
+  - Longitudinal TTC indicates No Risk (5). Overall risk is Negligible (5).
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```
+
+### Final Notes:
+- No obstacles pose a collision (0), extreme (1), or high (2) risk. The highest risk is Medium (3) for Obstacle 30259 and 30262, but their lateral divergence reduces the overall risk to Low (4).
+- The ego vehicle is in a safe state with sufficient time to react to all obstacles.

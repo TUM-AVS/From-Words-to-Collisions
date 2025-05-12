@@ -1,0 +1,53 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30758
+- **Location & Movement**: Front-left, moving toward the ego vehicle. 
+- **Adjusted Distances at 0.9s**: Longitudinal = 19.41 m, Lateral = 9.49 m
+- **Relative Velocity**: Longitudinal = -5.90 m/s (approaching), Lateral = 0.14 m/s (moving away to the left)
+- **Trajectory Analysis**: The obstacle is approaching longitudinally but moving laterally away.
+- **TTC Calculation**: Longitudinal TTC = 19.41 / 5.90 ≈ 3.29 seconds
+- **MDC Calculation**: Since the lateral distance is increasing and the longitudinal TTC indicates enough reaction time, the MDC is mainly influenced by longitudinal distance.
+- **Risk Assessment**: Longitudinal distance and increasing lateral movement indicate a Low risk based on both TTC and MDC. Risk Score: 4
+
+#### Obstacle 30762
+- **Location & Movement**: Front-left, moving toward the ego vehicle.
+- **Adjusted Distances at 0.9s**: Longitudinal = 13.60 m, Lateral = 2.66 m
+- **Relative Velocity**: Longitudinal = -6.03 m/s (approaching), Lateral = 0.00 m/s (no movement)
+- **Trajectory Analysis**: The obstacle is consistently closing in on the ego vehicle.
+- **TTC Calculation**: Longitudinal TTC = 13.60 / 6.03 ≈ 2.26 seconds
+- **MDC Calculation**: The obstacle maintains a narrow lateral offset, focusing on the longitudinal distance is key for MDC.
+- **Risk Assessment**: Both TTC and MDC suggest a Medium risk due to the converging trajectory with TTC < 3 seconds. Risk Score: 3
+
+#### Obstacle 30763
+- **Location & Movement**: Behind, moving toward the ego vehicle from exact lateral alignment.
+- **Adjusted Distances at 0.9s**: Longitudinal = -11.15 m (indicating behind the ego), Lateral = 0.00 m
+- **Relative Velocity**: Longitudinal = 1.66 m/s (approaching), Lateral = 0.04 m/s
+- **Trajectory Analysis**: Driving from behind with increasing speed.
+- **TTC Calculation**: Longitudinal TTC = 11.15 / 1.66 ≈ 6.72 seconds
+- **MDC Calculation**: Given the ego vehicle is ahead and the relative velocity is steady, no imminent collision is indicated.
+- **Risk Assessment**: With a high longitudinal distance and a TTC > 5 seconds, the risk is Negligible. Risk Score: 5
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "MediumRiskObstacle": {
+        "ObstacleID": "30762",
+        "OverallRiskScore": "3"
+    }
+}
+```
+
+In this analysis, Obstacle 30762 represents the highest risk with a Medium category assessment. No extreme or collision-level risks were found.

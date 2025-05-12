@@ -1,0 +1,30 @@
+### Analysis:
+
+1. **Obstacle 30374 (Stationary Obstacle in Same Lanelet 379.0)**:
+   - **Position**: (-355.619, -331.7315) - Static position.
+   - **Ego Position**: (-350.8596, -330.3005) - Moving towards the obstacle.
+   - **Relative Distance**: ~5.0m (longitudinal), ~1.43m (lateral).
+   - **Ego Velocity**: 1.2618 m/s (decelerating at -1.1129 m/s²).
+   - **TTC**: If ego continues at current speed, TTC ≈ 5.0 / 1.2618 ≈ 3.96s. However, ego is decelerating, so TTC will increase.
+   - **Risk**: Medium (3) - Ego is slowing down, and the obstacle is stationary. No immediate collision risk.
+
+2. **Obstacle 30378 (Moving Obstacle in Lanelet 104.0)**:
+   - **Position**: (-359.6636, -347.498) - Moving away from ego.
+   - **Ego Position**: (-350.8596, -330.3005) - Lateral separation is significant (~17.2m).
+   - **Relative Motion**: Obstacle is moving away from ego (velocity 3.2364 m/s, decelerating).
+   - **TTC**: Not applicable (lateral separation is large, and trajectories are diverging).
+   - **Risk**: Negligible (5) - No meaningful risk due to large lateral distance and diverging paths.
+
+### Conclusion:
+- No collision or extreme risk obstacles detected.
+- Obstacle 30374 poses a medium risk due to being in the same lanelet, but the ego is decelerating and maintaining a safe distance.
+- Obstacle 30378 poses negligible risk due to large lateral separation and diverging motion.
+
+### JSON Output:
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": null
+}
+```

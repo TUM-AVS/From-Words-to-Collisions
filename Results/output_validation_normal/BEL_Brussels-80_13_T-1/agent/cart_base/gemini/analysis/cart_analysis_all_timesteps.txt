@@ -1,0 +1,19 @@
+The ego vehicle is braking heavily, as evidenced by the negative acceleration values.  Let's analyze the obstacles:
+
+* **Obstacle 30217.0:** This obstacle is moving at a relatively constant velocity and its x-position is getting closer to the ego vehicle's x-position over time. While the y-positions indicate some lateral separation, the closing rate in the x-direction suggests a potential risk if the ego vehicle continues to decelerate rapidly. This warrants closer monitoring and could escalate quickly. Initially, it appears to be a medium risk, but by 0.8 seconds, it becomes higher.
+
+* **Obstacle 30218.0:** This obstacle appears to be moving slowly and not directly towards the ego vehicle. The y-position is significantly different from the ego vehicle. While in the same lanelet (471.0), it does not pose an immediate threat given the current trajectories.  This obstacle is low risk.
+
+Considering the rapid deceleration of the ego vehicle and the closing x-position of Obstacle 30217.0, it's important to assess if the braking maneuver is intentional (e.g., stopping at a light) or indicative of an emergency. If emergency braking, the risk level of Obstacle 30217.0 increases substantially.  Over the time period, neither obstacle presents a collision or extreme risk situation, but 30217 is approaching a high-risk state.
+
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": {
+        "ObstacleID": "30217.0",
+        "OverallRiskScore": 2
+    }
+}
+```

@@ -1,0 +1,20 @@
+Here's the collision risk analysis:
+
+**Obstacle 30689:** This obstacle starts relatively far from the ego vehicle and remains in a different lane (1093 and later 140) for the duration of the provided trajectory.  While its position changes, it doesn't pose an immediate collision risk and maintains a safe distance. It's classified as Negligible risk (5).
+
+**Obstacle 30693:** This static obstacle is in the same lane (134) as the ego vehicle.  Crucially, the y-coordinates (lateral position) of both the ego vehicle and this obstacle remain quite close, with the obstacle slightly ahead.  Also, while the ego vehicle's x-coordinate (longitudinal position) increases, the obstacle's remains static, hence the distance in x-coordinates between vehicles reduces over time. This sustained proximity over multiple timestamps, combined with the ego vehicle's movement towards the obstacle, suggests a high risk of collision. Therefore, this obstacle receives a risk score of 2 (High Risk), becoming an Extreme risk if ego does not react properly.
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": {
+    "ObstacleID": "30693",
+    "OverallRiskScore": 2
+  },
+  "PredictedExtremeRiskObstacle": {
+      "ObstacleID": "30693",
+      "OverallRiskScore": 1
+  }
+}
+```

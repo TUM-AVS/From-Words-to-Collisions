@@ -1,0 +1,38 @@
+Obstacle Analysis:
+
+Obstacle 30656:
+
+Trajectory Analysis: This obstacle is consistently behind the ego vehicle and moving away.  Across the timesteps, the longitudinal distance increases from -7.51m to -10.86m, indicating divergence. Lateral distance remains at 0.00m, meaning the obstacle is directly behind the ego vehicle.
+
+TTC Calculation: Since the relative longitudinal velocity is negative (obstacle moving away), TTC is not applicable in the longitudinal direction.  The lateral relative velocity is also low and fluctuating around zero.  Even assuming a worst-case small positive lateral velocity, the lateral distance is zero, which means a high TTC.
+
+MDC Calculation: Given the obstacle's position directly behind the ego vehicle, MDC is essentially the longitudinal distance, which at the last timestep is -10.86m.
+
+Risk Assessment:
+* Longitudinal: No risk due to increasing distance and negative relative velocity.
+* Lateral:  No risk due to continued zero lateral distance while moving away longitudinally.
+
+Overall Risk Score: 5 (No Risk)
+
+
+Collision Scenario Determination:
+
+This is NOT a collision scenario. No obstacle has a risk score of 0 or 1.
+
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle presents an immediate collision risk. Obstacle 30656 is moving away from the ego vehicle."
+}
+```

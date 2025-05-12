@@ -1,0 +1,75 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 30519 (Front-right)**
+- **Adjusted Position**: Longitudinal 7.45m, Lateral -9.45m  
+- **Relative Velocity**: Longitudinal -3.78 m/s (approaching), Lateral -6.07 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally but moving away laterally to the right.  
+
+**TTC Calculation**:
+- Longitudinal TTC = 7.45 / 3.78 ≈ 1.97s (Medium Risk)  
+- Lateral TTC = N/A (moving away, no collision risk)  
+
+**MDC Calculation**:
+- Since the obstacle is moving away laterally, MDC is effectively the current lateral distance (9.45m, No Risk).  
+- Longitudinal MDC is 7.45m (Low Risk).  
+
+**Overall Risk**: Medium Risk (3) due to longitudinal approach.  
+
+---
+
+#### **Obstacle 30521 (Front-left)**
+- **Adjusted Position**: Longitudinal 7.82m, Lateral 15.68m  
+- **Relative Velocity**: Longitudinal -4.43 m/s (approaching), Lateral -5.73 m/s (approaching from left).  
+- **Motion**: Driving toward ego both longitudinally and laterally.  
+
+**TTC Calculation**:
+- Longitudinal TTC = 7.82 / 4.43 ≈ 1.77s (Medium Risk)  
+- Lateral TTC = 15.68 / 5.73 ≈ 2.74s (Medium Risk)  
+
+**MDC Calculation**:
+- Projected paths show both distances decreasing. MDC is the smaller distance (longitudinal 7.82m, Low Risk).  
+
+**Overall Risk**: Medium Risk (3) due to converging trajectories.  
+
+---
+
+#### **Obstacle 30524 (Behind)**
+- **Adjusted Position**: Longitudinal -13.76m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 3.13 m/s (approaching from behind), Lateral -0.51 m/s (minor lateral drift).  
+- **Motion**: Driving toward ego from behind with exact lateral alignment.  
+
+**TTC Calculation**:
+- Longitudinal TTC = 13.76 / 3.13 ≈ 4.40s (Low Risk)  
+- Lateral TTC = N/A (no lateral convergence).  
+
+**MDC Calculation**:
+- Lateral distance is 0.00m, but trajectories are not converging laterally (ego and obstacle are aligned). Longitudinal MDC is 13.76m (No Risk).  
+
+**Overall Risk**: Low Risk (4) due to slow approach from behind.  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 30519**: Moving away laterally but closing longitudinally. No imminent collision.  
+- **Obstacle 30521**: Converging diagonally but distances remain large (>7m).  
+- **Obstacle 30524**: Slowly approaching from behind with no lateral risk.  
+
+### Final Determination
+- **No obstacles** meet the criteria for Collision (0) or Extreme Risk (1).  
+- Highest risk is Medium (Obstacles 30519 and 30521).  
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle has a risk score of 0 or 1. The highest risk is Medium (3) for Obstacles 30519 and 30521 due to converging trajectories, but distances remain safe."
+}
+```

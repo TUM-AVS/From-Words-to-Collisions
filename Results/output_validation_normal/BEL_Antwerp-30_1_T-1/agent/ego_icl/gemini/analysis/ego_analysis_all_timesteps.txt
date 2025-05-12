@@ -1,0 +1,67 @@
+Obstacle 30638:
+
+* Trajectory Analysis: This obstacle has been consistently in the front-left of the ego vehicle.  The longitudinal distance has been decreasing across all timesteps, while the lateral distance has been increasing. This indicates the obstacle is moving closer to the ego vehicle longitudinally but further away laterally.
+
+* At t=0.9s:
+    * Longitudinal distance: 2.80 m
+    * Lateral distance: 13.73 m
+    * Longitudinal relative velocity: -6.19 m/s (approaching)
+    * Lateral relative velocity: 8.34 m/s (moving away)
+
+* TTC Calculation:
+    * Longitudinal TTC = 2.80 m / 6.19 m/s = 0.45 s
+    * Lateral TTC is not applicable as the obstacle is moving away laterally.
+
+* MDC Calculation: Given the trajectory and the fact that the lateral distance is much larger than the longitudinal distance, the MDC is primarily determined by the longitudinal distance which is 2.80m.
+
+* Risk Assessment:
+    * Longitudinal TTC indicates Extreme Risk (1).
+    * MDC also indicates a Medium Risk (3).
+
+* Overall Risk: Extreme Risk (1) - Prioritizing the higher risk based on the lower TTC value.
+
+
+Obstacle 30640:
+
+* Trajectory Analysis: This obstacle is also in the front-left, with both longitudinal and lateral distances decreasing over time, meaning it's getting closer to the ego vehicle in both directions.
+
+* At t=0.9s:
+    * Longitudinal distance: 6.38 m
+    * Lateral distance: 2.15 m
+    * Longitudinal relative velocity: -14.45 m/s (approaching)
+    * Lateral relative velocity: -0.03 m/s (almost no relative lateral movement at this instant but has been approaching)
+
+* TTC Calculation:
+    * Longitudinal TTC = 6.38 m / 14.45 m/s = 0.44 s
+    * Lateral TTC = 2.15 m / 0.03 m/s = 71.67s (practically not relevant due to the very low lateral velocity at this timestep)
+
+
+* MDC Calculation:  While the longitudinal distance is larger, the consistent decreasing lateral distance combined with the persistent negative lateral velocity in previous timestamps signifies a closing lateral trajectory. Therefore MDC can be approximated as 2.15m.
+
+* Risk Assessment:
+    * Longitudinal TTC signifies Extreme Risk (1)
+    * MDC indicates High Risk (2)
+    * Lateral distance is small and closing which poses a greater threat.
+
+
+
+* Overall Risk: Extreme Risk (1) - Prioritizing the higher risk from the very low TTC.
+
+
+
+Final JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30638",
+    "OverallRiskScore": "1"
+  },
+    "ExtremeRiskObstacle": {
+    "ObstacleID": "30640",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {}
+}
+```

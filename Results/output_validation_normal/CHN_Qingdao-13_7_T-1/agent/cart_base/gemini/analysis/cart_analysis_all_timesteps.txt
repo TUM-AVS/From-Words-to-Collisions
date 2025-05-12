@@ -1,0 +1,21 @@
+Obstacles 30618 and 30619 are in lanelet 381, while the ego vehicle is in lanelet 382.  These lanelets are likely adjacent. Both obstacles are moving faster than the ego vehicle and are approaching closer along the y-axis (note the decreasing difference in y-coordinates). This represents a high risk of collision, particularly with obstacle 30618, which is exhibiting erratic acceleration behavior. Obstacle 30619's acceleration is also somewhat erratic.
+
+Obstacle 30620 is in lanelets 1110 and 1111. Initially, its y-coordinate was far from the ego vehicle's, but it's gradually approaching the ego vehicle's y-coordinate.  However, the x-coordinate difference is significant, and its velocity is lower than the ego vehicle and obstacle 30618's velocity.
+
+Obstacle 30621, initially in lanelet 385 and later in lanelet 1112, maintains a relatively large distance from the ego vehicle in both x and y coordinates. Additionally, its velocity and acceleration don't suggest an imminent collision.
+
+Considering the lateral movement and closing distance, obstacles 30618 and 30619 present the highest risk. Obstacle 30618, given its erratic acceleration and proximity, is the most concerning. While a collision isn't guaranteed in the next immediate timestep, the trends suggest a very high likelihood within a short timeframe if the trajectories continue.  Obstacle 30619 also presents a high risk because its x position places it ahead of the ego vehicle with a smaller y separation. While the lanelets are different, this relative trajectory makes it a serious concern. No collision is imminent yet.
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30618",
+        "OverallRiskScore": 1
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "30619",
+        "OverallRiskScore": 2
+    }
+}
+```

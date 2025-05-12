@@ -1,0 +1,104 @@
+**Obstacle Analysis:**
+
+### Obstacle 30277 (Front-left)
+- **Position and Motion:**
+  - Adjusted longitudinal distance: 9.98 meters
+  - Adjusted lateral distance: 14.12 meters
+  - Relative velocity longitudinal: -0.28 m/s
+  - Relative velocity lateral: -7.47 m/s
+  - The obstacle is converging diagonally towards the ego vehicle.
+- **Trajectory Analysis:**
+  - Longitudinal distance is decreasing slightly but not critical.
+  - Lateral distance is significantly decreasing, indicating lateral convergence.
+- **Calculations:**
+  - TTC longitudinal (ignoring relative velocity, very high time): Not critical.
+  - TTC lateral = 14.12 m / 7.47 m/s ≈ 1.89 seconds
+  - MDC longitudinal = 9.98 meters
+  - MDC lateral = 14.12 meters
+- **Risk Assessment:**
+  - TTC lateral indicates a medium risk due to convergence at 1.89 seconds.
+  - Overall Risk: Medium Risk (3).
+
+### Obstacle 30280 (Front-left)
+- **Position and Motion:**
+  - Adjusted longitudinal distance: 13.45 meters
+  - Adjusted lateral distance: 12.93 meters
+  - Relative velocity longitudinal: -0.05 m/s
+  - Relative velocity lateral: 5.58 m/s (diverging)
+- **Trajectory Analysis:**
+  - The obstacle is converging slightly longitudinally but diverging laterally.
+- **Calculations:**
+  - TTC longitudinal: High due to low relative velocity, not critical.
+  - TTC lateral: Diverging, not a concern.
+  - Both MDC values are above critical thresholds.
+- **Risk Assessment:**
+  - Diverging lateral trajectory implies negligible lateral risk.
+  - Overall Risk: Negligible Risk (5).
+
+### Obstacle 30281 (Left)
+- **Position and Motion:**
+  - Adjusted longitudinal distance: 0.00 meters
+  - Adjusted lateral distance: 1.93 meters
+  - Relative velocity longitudinal: -8.55 m/s (moving away)
+  - Relative velocity lateral: -0.14 m/s
+- **Trajectory Analysis:**
+  - Exact longitudinal alignment; primarily focus on lateral closing.
+- **Calculations:**
+  - TTC lateral = 1.93 m / 0.14 m/s ≈ 13.79 seconds
+  - MDC longitudinal: 0 meters (aligned)
+  - MDC lateral = 1.93 meters
+- **Risk Assessment:**
+  - Long lateral TTC indicates low converging risk.
+  - Overall Risk: Low Risk (4).
+
+### Obstacle 30285 (Front)
+- **Position and Motion:**
+  - Adjusted longitudinal distance: 0.27 meters
+  - Adjusted lateral distance: 0.00 meters
+  - Relative velocity longitudinal: -0.15 m/s
+- **Trajectory Analysis:**
+  - Exact lateral alignment with very close longitudinal distance.
+- **Calculations:**
+  - TTC longitudinal = 0.27 m / 0.15 m/s ≈ 1.8 seconds
+  - MDC longitudinal = 0.27 meters
+  - Extremely close proximity indicates high risk.
+- **Risk Assessment:**
+  - Close distance and low TTC indicates a high risk of collision.
+  - Overall Risk: Extreme Risk (1).
+
+### Obstacle 30288 (Behind)
+- **Position and Motion:**
+  - Adjusted longitudinal distance: -8.51 meters
+  - Adjusted lateral distance: 0.00 meters
+  - Relative velocity longitudinal: 1.84 m/s (approaching)
+- **Trajectory Analysis:**
+  - Approaching from behind with same-lane alignment.
+- **Calculations:**
+  - TTC longitudinal = 8.51 m / 1.84 m/s ≈ 4.62 seconds
+  - MDC longitudinal = 8.51 meters
+- **Risk Assessment:**
+  - Approaching but with sufficient time, low risk.
+  - Overall Risk: Low Risk (4).
+
+**Summary:**
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30285",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  }
+}
+```
+**Conclusion:**
+- Obstacle 30285 presents an extreme risk due to very close longitudinal distance under exact lateral alignment.
+- None of the obstacles are currently in a collision state.
+- There are no high-risk obstacles, given the current trajectory dynamics.

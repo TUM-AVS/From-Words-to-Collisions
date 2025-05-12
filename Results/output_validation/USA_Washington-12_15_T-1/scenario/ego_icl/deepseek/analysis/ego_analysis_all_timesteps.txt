@@ -1,0 +1,94 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 3.0s)
+
+---
+
+#### **Obstacle 30604 (Front-left)**
+- **Adjusted Distance**: Longitudinal 15.25m, Lateral 5.48m  
+- **Relative Velocity**: Longitudinal -10.75 m/s (approaching), Lateral -0.01 m/s (approaching slightly)  
+- **Motion**: Approaching longitudinally and laterally (left).  
+- **TTC Longitudinal**: 15.25 / 10.75 ≈ 1.42s (Medium Risk)  
+- **TTC Lateral**: 5.48 / 0.01 ≈ 548s (No Risk)  
+- **MDC**: Lateral distance is large (5.48m), but longitudinal closing is rapid. Focus on longitudinal risk.  
+- **Overall Risk**: **Medium (3)** (Primary risk from longitudinal approach).
+
+---
+
+#### **Obstacle 30606 (Front-left)**
+- **Adjusted Distance**: Longitudinal 5.09m, Lateral 1.97m  
+- **Relative Velocity**: Longitudinal -14.11 m/s (rapidly approaching), Lateral -0.01 m/s (approaching slightly).  
+- **Motion**: Rapidly closing longitudinally and laterally.  
+- **TTC Longitudinal**: 5.09 / 14.11 ≈ 0.36s (Extreme Risk)  
+- **TTC Lateral**: 1.97 / 0.01 ≈ 197s (No Risk)  
+- **MDC**: Longitudinal distance is critical (5.09m closing very fast).  
+- **Overall Risk**: **Extreme (1)** (Imminent collision risk longitudinally).
+
+---
+
+#### **Obstacle 30610 (Front)**
+- **Adjusted Distance**: Longitudinal 15.15m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -1.62 m/s (approaching slowly), Lateral 0.00 m/s.  
+- **Motion**: Approaching longitudinally, exact lateral alignment.  
+- **TTC Longitudinal**: 15.15 / 1.62 ≈ 9.35s (No Risk)  
+- **MDC**: Lateral alignment but no closing velocity.  
+- **Overall Risk**: **No Risk (5)**.
+
+---
+
+#### **Obstacle 30613 (Front)**
+- **Adjusted Distance**: Longitudinal 7.64m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -1.61 m/s (approaching slowly), Lateral 0.00 m/s.  
+- **Motion**: Approaching longitudinally, exact lateral alignment.  
+- **TTC Longitudinal**: 7.64 / 1.61 ≈ 4.75s (Low Risk)  
+- **MDC**: Lateral alignment but no closing velocity.  
+- **Overall Risk**: **Low (4)**.
+
+---
+
+#### **Obstacle 30614 (Front)**
+- **Adjusted Distance**: Longitudinal 0.09m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -1.56 m/s (approaching), Lateral 0.00 m/s.  
+- **Motion**: Nearly colliding longitudinally, exact lateral alignment.  
+- **TTC Longitudinal**: 0.09 / 1.56 ≈ 0.06s (Collision Risk)  
+- **MDC**: Effectively 0m (collision occurring).  
+- **Overall Risk**: **Collision (0)**.
+
+---
+
+#### **Obstacle 30626 (Front-right)**
+- **Adjusted Distance**: Longitudinal 14.88m, Lateral -1.80m  
+- **Relative Velocity**: Longitudinal 0.06 m/s (moving away), Lateral 0.00 m/s.  
+- **Motion**: Moving away longitudinally, slight lateral drift.  
+- **TTC Longitudinal**: Not applicable (moving apart).  
+- **Overall Risk**: **No Risk (5)**.
+
+---
+
+### Trajectory Analysis
+- **Obstacle 30614**: Shows consistent longitudinal closing from 2.39m (2.1s) to 0.09m (3.0s). Collision is occurring.  
+- **Obstacle 30606**: Rapid longitudinal closing (18.06m to 5.09m in 0.9s). Extreme risk of imminent collision.  
+- Other obstacles either stable or diverging.
+
+---
+
+### Final Determination
+This is a **collision scenario** due to:
+1. **Obstacle 30614** (Collision Risk = 0): Already colliding (0.09m longitudinal distance).  
+2. **Obstacle 30606** (Extreme Risk = 1): Imminent collision (TTC = 0.36s).
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30614",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30606",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30614 is in active collision (0.09m longitudinal distance), and Obstacle 30606 has extreme risk (TTC = 0.36s)."
+}
+```

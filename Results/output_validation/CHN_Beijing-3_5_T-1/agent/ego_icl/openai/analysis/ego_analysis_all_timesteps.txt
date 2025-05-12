@@ -1,0 +1,86 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 3096 (Rear-left)
+- **Adjusted Distances**: Longitudinal -9.11 m, Lateral 1.94 m
+- **Relative Velocity**: Longitudinal -6.12 m/s (moving away), Lateral 0.02 m/s
+- **Trajectory**: Moving away longitudinally; no significant lateral approach.
+- **TTC Calculation**: Not applicable since the obstacle is moving away longitudinally.
+- **MDC Calculation**: Large enough due to overall distance.
+- **Risk Assessment**: Low risk as the obstacle is moving away.
+
+#### Obstacle 3099 (Front-right)
+- **Adjusted Distances**: Longitudinal 8.71 m, Lateral -11.68 m
+- **Relative Velocity**: Longitudinal -0.74 m/s, Lateral -8.44 m/s (moving away laterally)
+- **Trajectory**: Approaching slightly longitudinally but moving away laterally.
+- **TTC Calculation**: Longitudinal direction: 8.71m / 0.74m/s = ~11.77s
+- **MDC Calculation**: Lateral direction is the limiting factor with increasing distance.
+- **Risk Assessment**: No significant risk as lateral movement is away from ego.
+
+#### Obstacle 3100 (Front)
+- **Adjusted Distances**: Longitudinal 9.32 m, Lateral 0.00 m (same-line alignment)
+- **Relative Velocity**: Longitudinal -3.61 m/s (closing), Lateral 2.81 m/s
+- **Trajectory**: Driving towards ego longitudinally on the same line.
+- **TTC Calculation**: Longitudinal: 9.32m / 3.61m/s = ~2.58s
+- **MDC Calculation**: Longitudinal direction, same lane, closing in.
+- **Risk Assessment**: Medium risk due to closure and velocity.
+
+#### Obstacle 3101 (Rear-right)
+- **Adjusted Distances**: Longitudinal -22.67 m, Lateral -7.73 m
+- **Relative Velocity**: Longitudinal -0.84 m/s, Lateral 0.00 m/s
+- **Trajectory**: Moving away, no lateral approach.
+- **TTC Calculation**: Not applicable.
+- **MDC Calculation**: Large enough.
+- **Risk Assessment**: No risk as it is moving away.
+
+#### Obstacle 3102 (Rear-left)
+- **Adjusted Distances**: Longitudinal -20.82 m, Lateral 0.84 m
+- **Relative Velocity**: Longitudinal -6.39 m/s, Lateral -2.52 m/s
+- **Trajectory**: Moving away longitudinally and laterally.
+- **TTC Calculation**: Not applicable as mainly moving away.
+- **MDC Calculation**: Not significant enough for collision risk.
+- **Risk Assessment**: No risk due to moving away.
+
+#### Obstacle 3103 (Front-right)
+- **Adjusted Distances**: Longitudinal 12.26 m, Lateral -7.83 m
+- **Relative Velocity**: Longitudinal -0.84 m/s, Lateral 0.00 m/s
+- **Trajectory**: Slight approach longitudinally but no lateral movement.
+- **TTC Calculation**: Longitudinal: 12.26m / 0.84m/s = ~14.60s
+- **MDC Calculation**: Sufficiently large due to no lateral movement.
+- **Risk Assessment**: No risk as longitudinal closure is very slow.
+
+#### Obstacle 3104 (Front-right)
+- **Adjusted Distances**: Longitudinal 12.23 m, Lateral -16.43 m
+- **Relative Velocity**: Longitudinal -0.84 m/s, Lateral 1.07 m/s
+- **Trajectory**: Approaching very slowly longitudinally, lateral moving towards ego.
+- **TTC Calculation**: Longitudinal: 12.23m / 0.84m/s = ~14.55s
+- **MDC Calculation**: Lateral direction increasing distance.
+- **Risk Assessment**: No significant risk as lateral distance is increasing.
+
+#### Obstacle 3107 (Behind)
+- **Adjusted Distances**: Longitudinal -0.56 m, Lateral 0.00 m (same-line alignment)
+- **Relative Velocity**: Longitudinal 2.34 m/s (closing), Lateral -0.01 m/s
+- **Trajectory**: Approaching quickly from behind.
+- **TTC Calculation**: Longitudinal: 0.56m / 2.34m/s = ~0.24s
+- **MDC Calculation**: Very small with rapid closing from behind.
+- **Risk Assessment**: Extreme risk due to short TTC and closing velocity.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3107",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "3100",
+        "OverallRiskScore": "2"
+    }
+}
+```
+
+### Analysis Conclusion
+Obstacle 3107 poses an extreme risk due to its rapid closure from the rear with minimal current distance. Obstacle 3100 presents a medium risk due to exit trajectory and closing velocity, but not as immediate as Obstacle 3107. Other obstacles show negligible to no risk due to either moving away or minimal interaction speed and trajectory.

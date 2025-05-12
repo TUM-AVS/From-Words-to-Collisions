@@ -1,0 +1,31 @@
+Obstacle 30374:
+
+* Trajectory Analysis: This obstacle has been consistently in front of the ego vehicle and laterally aligned (0.00 m lateral distance) across all timesteps. The longitudinal distance has been steadily decreasing, indicating a closing trajectory.  At the latest timestep, the longitudinal distance is 0.46m.
+* TTC Calculation (Longitudinal): TTC = 0.46m / 1.26 m/s = 0.37 seconds.
+* MDC: Given the persistent lateral alignment and rapidly decreasing longitudinal distance, the MDC is effectively the longitudinal distance, 0.46m.
+* Risk Assessment: Both TTC (0.37s) and MDC (0.46m) indicate an *Extreme Risk (1)* of collision.
+
+Obstacle 30378:
+
+* Trajectory Analysis: This obstacle has been consistently in the front-left of the ego vehicle across all timesteps. Both the longitudinal and lateral distances are decreasing but they are relatively large.
+* TTC Calculation (Longitudinal): TTC = 8.90m / 1.27m/s =  7.01 seconds.
+* TTC Calculation (Lateral): TTC = 12.30m / 3.24m/s = 3.80 seconds.
+* MDC: Given the diagonal position and decreasing distances in both directions, we need to estimate where the paths might intersect.  However, the current distances and moderate relative velocities suggest this is not imminent. Estimating using the longitudinal distance and lateral distance at the end of next timestep, the MDC is approximately sqrt(8.90^2 + 12.30^2) which is roughly 15 meters. 
+* Risk Assessment: TTC values for both longitudinal (7.01s) and lateral (3.80s) indicate no immediate risk, while MDC value also suggest minimal risk. The *Low Risk (4)* based on lateral distance is the most conservative.
+
+
+Final JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30374",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "30374",
+    "OverallRiskScore": "1"
+  }
+}
+```

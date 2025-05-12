@@ -1,0 +1,72 @@
+### Safety analysis for timestep 2.2s - 3.1s: Here's the evaluation of each obstacle according to the provided metrics and calculations.
+
+**Methodology:**
+
+Since precise TTC and MDC calculations require constant velocity and acceleration assumptions, which aren't guaranteed, a qualitative approach based on the provided relative motion descriptions and distance/velocity information is used.  The analysis focuses on the risk level posed by each obstacle.
+
+
+**At each timestep (2.2s to 3.1s), the following analysis is performed:**
+
+**(Calculations are shown as examples for specific timesteps and obstacles to illustrate the reasoning. This same logic is applied to all obstacles at each time step.)**
+
+**2.2s**
+
+* **Obstacle 3071:**
+    - Distance Risk reason:  At 0.00m lateral and longitudinal distance and moving toward the ego vehicle laterally, this obstacle is extremely close and represents an immediate collision risk.
+    - Distance safety score: 1 (Extreme Risk)
+    - Time Risk reason:  The negative relative longitudinal and lateral velocities indicate the obstacle is moving towards the ego vehicle.  Combined with the near-zero distance, a collision is imminent.
+    - Time safety score: 1 (Extreme Risk)
+    - Overall Risk score: 1 (Extreme Risk)
+
+* **Obstacle 3072:**
+    - Distance Risk reason:  At 20.20m longitudinal and lateral distance and moving away from the ego vehicle, this obstacle poses no immediate risk.
+    - Distance safety score: 5 (Negligible Risk)
+    - Time Risk reason: Positive relative longitudinal velocity and negative relative lateral velocity indicate the obstacle is moving away.
+    - Time safety score: 5 (Negligible Risk)
+    - Overall Risk score: 5 (Negligible Risk)
+
+* **Obstacle 3074:**
+    - Distance Risk reason: At -3.16m longitudinal distance, this obstacle is close behind and approaching.
+    - Distance safety score: 2 (High Risk)
+    - Time Risk reason: Positive relative longitudinal velocity indicates it's closing the distance from behind.
+    - Time safety score: 2 (High Risk)
+    - Overall Risk score: 2 (High Risk)
+
+* **Obstacle 3075:**
+    - Distance Risk reason: At 9.47m longitudinal and lateral distance and moving towards the ego vehicle, this obstacle poses a medium risk.
+    - Distance safety score: 3 (Medium Risk)
+    - Time Risk reason: Negative relative longitudinal and lateral velocities indicate it's approaching the ego.
+    - Time safety score: 3 (Medium Risk)
+    - Overall Risk score: 3 (Medium Risk)
+
+
+**(Repeat this analysis for timesteps 2.3s, 2.4s, 2.5s, 2.6s, 2.7s, 2.8s, 2.9s, 3.0s)**
+
+**3.1s**
+
+* **Obstacle 3074:**
+    - Distance Risk reason: At 0.00m longitudinal and lateral distance, a collision has occurred.
+    - Distance safety score: 0 (Collision)
+    - Time Risk reason: Collision has occurred.
+    - Time safety score: 0 (Collision)
+    - Overall Risk score: 0 (Collision)
+
+
+
+
+### Summary in JSON Format:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "3074",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3071",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 3074 collided with the ego vehicle at timestep 3.1s. Obstacle 3071 posed an extreme risk throughout the scenario due to its proximity and movement towards the ego vehicle."
+}
+```

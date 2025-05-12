@@ -1,0 +1,31 @@
+### Analysis:
+
+1. **Obstacle 30354 (Same Lanelet 62.0):**
+   - **Position Trend**: The obstacle is consistently behind the ego vehicle but moving in the same direction with a similar orientation.
+   - **Relative Motion**: The ego vehicle is decelerating faster than the obstacle, increasing the gap between them.
+   - **TTC Calculation**: 
+     - Relative longitudinal position at 0.9s: Ego (-128.7218, 152.0588), Obstacle (-138.865, 138.1685).
+     - Distance: ~14.5m (Euclidean).
+     - Relative velocity: Ego (9.0633 m/s), Obstacle (11.6337 m/s).
+     - TTC: Distance / (Obstacle velocity - Ego velocity) ≈ 14.5 / (11.6337 - 9.0633) ≈ 5.64s.
+   - **Risk Assessment**: Medium Risk (3). The obstacle is closing in but at a manageable rate with sufficient time to react.
+
+2. **Obstacle 30358 (Lanelet 719.0):**
+   - **Position Trend**: The obstacle is ahead and to the side of the ego vehicle, moving in a similar direction but with a different lanelet (no immediate intersection).
+   - **Relative Motion**: The obstacle is decelerating sharply, but its trajectory does not intersect with the ego's path.
+   - **TTC Calculation**: 
+     - Relative longitudinal position at 0.9s: Ego (-128.7218, 152.0588), Obstacle (-116.3302, 170.4254).
+     - Distance: ~20.5m (Euclidean).
+     - Relative velocity: Ego (9.0633 m/s), Obstacle (10.6738 m/s).
+     - TTC: Not directly applicable (lateral separation).
+   - **Risk Assessment**: Low Risk (4). The obstacle is not on a collision course, and lateral separation is sufficient.
+
+### JSON Output:
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": null
+}
+```

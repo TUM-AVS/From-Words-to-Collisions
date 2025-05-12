@@ -1,0 +1,38 @@
+### Analysis:
+
+1. **Obstacle 344**: 
+   - **Lanelet**: Same as ego (46679.0) until 1.9s, then ego moves to 48010.0.
+   - **Position Trend**: Moving towards ego longitudinally (x-coordinate increasing faster than ego).
+   - **Velocity**: High (7.75 m/s) and accelerating (1.70 m/s²).
+   - **TTC**: Relative velocity ~5.18 m/s (7.75 - 2.57), distance ~(65.87 - 70.40) = -4.53m (behind ego). TTC = -4.53 / 5.18 ≈ -0.87s (overtaking from behind).
+   - **Lateral Distance**: ~( -891.86 - (-895.03)) ≈ 3.17m (safe).
+   - **Risk**: **Medium (3)** due to overtaking but safe lateral distance.
+
+2. **Obstacle 355**: 
+   - **Lanelet**: Different (47946.0), not directly conflicting.
+   - **Position Trend**: Moving away from ego longitudinally and laterally.
+   - **Risk**: **Negligible (5)**.
+
+3. **Obstacle 359**: 
+   - **Lanelet**: Same as ego at 1.9s onwards (48010.0).
+   - **Position Trend**: Ahead of ego, moving away longitudinally (x: 75.70 vs 70.40, y: -905.24 vs -895.03).
+   - **Velocity**: Higher than ego (7.20 m/s vs 2.57 m/s).
+   - **TTC**: Positive (moving away).
+   - **Risk**: **Negligible (5)**.
+
+4. **Obstacle 312**: 
+   - **Lanelet**: Different (46724.0), stationary.
+   - **Position Trend**: Far away (~28m longitudinally, ~5m laterally).
+   - **Risk**: **Negligible (5)**.
+
+### Highest Risks:
+- No collision or extreme risk obstacles identified. The closest is Obstacle 344 with **Medium Risk (3)** due to overtaking but safe lateral distance.
+
+### JSON Output:
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": null
+}
+```

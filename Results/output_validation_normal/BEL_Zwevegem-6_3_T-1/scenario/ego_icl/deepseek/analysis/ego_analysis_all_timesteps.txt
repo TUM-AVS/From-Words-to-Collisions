@@ -1,0 +1,58 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 35 (Front-left)**
+- **Adjusted Distance**: Longitudinal 8.33m, Lateral 22.92m  
+- **Relative Velocity**: Longitudinal -7.29 m/s (approaching), Lateral 0.00 m/s (no lateral motion)  
+- **Motion**: Driving toward ego longitudinally, no lateral relative motion  
+- **TTC (Longitudinal)**: 8.33 / 7.29 ≈ 1.14s (Medium Risk)  
+- **MDC**: Lateral distance is large (22.92m) and stable → No Risk  
+- **Overall Risk**: Medium Risk (3)  
+
+#### **Obstacle 375 (Front-right)**
+- **Adjusted Distance**: Longitudinal 0.76m, Lateral -15.73m  
+- **Relative Velocity**: Longitudinal -7.29 m/s (approaching rapidly), Lateral 0.00 m/s (moving away slightly)  
+- **Motion**: Driving toward ego longitudinally, moving away laterally  
+- **TTC (Longitudinal)**: 0.76 / 7.29 ≈ 0.104s (Extreme Risk)  
+- **MDC**: Lateral distance is large (15.73m), but longitudinal distance is critical (0.76m) → Extreme Risk  
+- **Trajectory**: Longitudinal distance decreased from 6.84m to 0.76m in 0.9s, indicating imminent collision.  
+- **Overall Risk**: Extreme Risk (1)  
+
+#### **Obstacle 383 (Front)**
+- **Adjusted Distance**: Longitudinal 5.08m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 2.75 m/s (moving away), Lateral -0.02 m/s (negligible)  
+- **Motion**: Moving away longitudinally, exact lateral alignment  
+- **TTC**: Not applicable (relative velocity is positive, moving away)  
+- **MDC**: Lateral alignment but diverging longitudinally → Low Risk (4)  
+- **Overall Risk**: Low Risk (4)  
+
+#### **Obstacle 391 (Behind)**
+- **Adjusted Distance**: Longitudinal -12.35m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 1.63 m/s (approaching from behind), Lateral 0.31 m/s (slight lateral drift)  
+- **Motion**: Driving toward ego from behind, exact lateral alignment  
+- **TTC (Longitudinal)**: 12.35 / 1.63 ≈ 7.58s (No Risk)  
+- **MDC**: Lateral alignment but large distance → No Risk (5)  
+- **Overall Risk**: No Risk (5)  
+
+---
+
+### **Collision Scenario Determination**
+- **Obstacle 375** is at **Extreme Risk (1)** with TTC ≈ 0.104s and longitudinal distance 0.76m (approaching rapidly).  
+- This meets the criteria for a collision scenario (Extreme Risk with TTC ≤ 0.5s and converging trajectory).  
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "375",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 375 has Extreme Risk (TTC ≈ 0.1s, longitudinal distance 0.76m, and rapidly converging trajectory)."
+}
+```

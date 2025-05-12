@@ -1,0 +1,20 @@
+Obstacle 341 shows concerning behavior. It's in a different lanelet initially, but its trajectory and high acceleration (2.578 m/s^2) suggest it might be cutting into the ego vehicle's lane.  At the last timestep (3.1 seconds), Obstacle 341 is at (-152.844, -62.689) while the ego vehicle is at (-157.129, -60.689). The y-coordinates are close, and the x-coordinates are converging rapidly given the obstacle's speed and acceleration. This indicates a high probability of collision in the next few moments.
+
+Obstacle 357 is in the same lane as the ego vehicle.  At the last timestep, positions are (-159.380, -64.236) for the obstacle and (-157.129, -60.689) for the ego vehicle.  While the x-coordinates are relatively close, the difference in the y-coordinates coupled with the obstacle's low acceleration suggests there's presently a medium risk. However, the lane-following nature of Obstacle 357 with little lateral separation should be noted.
+
+The other obstacles are far enough away and do not pose an immediate threat.
+
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "341",
+    "OverallRiskScore": 1
+  },
+  "ScenarioAnalysis": {
+    "IsCollisionScenario": false,
+    "Reasoning": "Obstacle 341 poses an extreme risk due to its high acceleration and trajectory indicating a potential lane cut into the ego vehicle's path. Obstacle 357, while in the same lane, maintains enough lateral separation for now but requires monitoring."
+  }
+}
+```

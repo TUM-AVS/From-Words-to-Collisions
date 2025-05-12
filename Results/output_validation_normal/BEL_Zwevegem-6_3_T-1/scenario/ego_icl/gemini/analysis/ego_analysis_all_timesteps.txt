@@ -1,0 +1,40 @@
+* **Obstacle 35:** Located front-left, with longitudinal distance 8.33m and lateral distance 22.92m.  The longitudinal distance is consistently decreasing across timesteps, indicating it is approaching the ego vehicle. However, the lateral distance is slightly increasing showing that it is moving away from the ego vehicle laterally.
+    * **TTC (Longitudinal):** 8.33m / 7.29m/s = 1.14s (Low Risk)
+    * **TTC (Lateral):** N/A (diverging)
+    * **MDC:**  ~22.92m (No Risk). The obstacle path won't cross with the ego vehicle's path.
+    * **Overall Risk:** Low Risk (4) due to the longitudinal approach, even though there is sufficient lateral spacing.
+
+* **Obstacle 375:** Located front-right, with longitudinal distance 0.76m and lateral distance -15.73m. The longitudinal distance is consistently decreasing across timesteps, while the lateral distance is increasing.  
+    * **TTC (Longitudinal):** 0.76m / 7.29m/s = 0.10s (Extreme Risk)
+    * **TTC (Lateral):** N/A (diverging)
+    * **MDC:** ~0.76m, converging trajectory and decreasing longitudinal distance indicate likely collision.
+    * **Overall Risk:** Extreme Risk (1) due to the very low TTC and low MDC.
+
+* **Obstacle 383:** Located in front, longitudinal distance 5.08m and lateral distance 0.00m. Despite the 0.00 lateral distance, the motion description shows there is no lateral motion for the obstacle in most timesteps. The longitudinal distance first decreases and then increases. In the last timestep, the obstacle is moving away from the ego car longitudinally.
+    * **TTC (Longitudinal):** N/A, since obstacle is moving away from ego.
+    * **TTC (Lateral):** N/A
+    * **MDC:** 5.08m
+    * **Overall Risk:** No Risk (5)
+
+* **Obstacle 391:** Located behind, longitudinal distance -12.35m and lateral distance 0.00m. The longitudinal distance is consistently decreasing across timesteps in magnitude, indicating the obstacle is approaching the ego vehicle from behind.  Lateral distance is consistently 0.00. The object is driving toward the ego car from behind.
+    * **TTC (Longitudinal):** 12.35m / 1.63m/s = 7.58s (No Risk)
+    * **TTC (Lateral):** N/A
+    * **MDC:** >5m (No Risk)
+    * **Overall Risk:** No Risk (5)
+
+**Collision Scenario Determination:** Yes, this is a collision scenario. Obstacle 375 presents an Extreme Risk (1) with a TTC of only 0.10 seconds and an MDC of 0.76 meters.  This indicates an imminent collision.
+
+```json
+{
+  "CollisionObstacle": {
+      "ObstacleID": "375",
+      "OverallRiskScore": "1"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "375",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 375 has an Extreme Risk assessment due to a very short TTC (0.10s) and a small MDC (0.76m) while approaching the ego vehicle. This strongly indicates an imminent collision."
+}
+```

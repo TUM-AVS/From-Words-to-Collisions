@@ -1,0 +1,113 @@
+**Obstacle-by-Obstacle Analysis at 4.9 seconds:**
+
+1. **Obstacle 30718 (Front of ego vehicle):**
+   - Adjusted longitudinal distance: 18.75 m
+   - Relative velocity: -1.04 m/s (approaching)
+   - Time-to-Collision (TTC) = 18.75 / 1.04 ≈ 18.03 seconds
+   - Motion: Driving towards the ego car
+   - Risk Score: 5 (No Risk due to high TTC)
+
+2. **Obstacle 30722 (Front-left of ego vehicle):**
+   - Adjusted longitudinal distance: 18.75 m, lateral distance: 1.86 m
+   - Relative velocity: -1.04 m/s longitudinally
+   - Time-to-Collision (TTC): Longitudinally = 18.75 / 1.04 ≈ 18.03 seconds
+   - Motion: No lateral relative motion, driving towards
+   - Risk Score: 5 (No Risk due to high TTC)
+
+3. **Obstacle 30723 (Front-left of ego vehicle):**
+   - Adjusted longitudinal distance: 18.75 m, lateral distance: 5.36 m
+   - Relative velocity: -1.04 m/s longitudinally
+   - Time-to-Collision (TTC): 18.75 / 1.04 ≈ 18.03 seconds
+   - Motion: No lateral relative motion, driving towards
+   - Risk Score: 5 (No Risk due to high TTC)
+
+4. **Obstacle 30726 (Front-left of ego vehicle):**
+   - Adjusted longitudinal distance: 21.99 m, lateral distance: 9.41 m
+   - Relative velocity longitudinally: 4.28 m/s (moving away)
+   - Motion: Moving away from the ego vehicle
+   - Risk Score: 5 (No Risk as obstacle is moving away)
+
+5. **Obstacle 30732 (Front-left of ego vehicle):**
+   - Adjusted longitudinal distance: 10.20 m, lateral distance: 8.88 m
+   - Relative velocity longitudinally: 3.88 m/s (moving away)
+   - Motion: Moving away from the ego vehicle
+   - Risk Score: 5 (No Risk as obstacle is moving away)
+
+6. **Obstacle 30733 (Front of ego vehicle):**
+   - Adjusted longitudinal distance: 11.12 m
+   - Relative velocity: -0.92 m/s (approaching)
+   - Time-to-Collision (TTC) = 11.12 / 0.92 ≈ 12.09 seconds
+   - Motion: Driving towards the ego car
+   - Risk Score: 5 (No Risk due to high TTC)
+
+7. **Obstacle 30734 (Front-left of ego vehicle):**
+   - Adjusted longitudinal distance: 10.97 m, lateral distance: 1.88 m
+   - Relative velocity: -0.75 m/s (approaching)
+   - Motion: Driving toward the ego car
+   - Risk Score: 5 (No Risk due to safe distances)
+
+8. **Obstacle 30735 (Front-left of ego vehicle):**
+   - Adjusted longitudinal distance: 11.20 m, lateral distance: 5.38 m
+   - Relative velocity: -0.99 m/s (approaching)
+   - Motion: Driving toward the ego car
+   - Risk Score: 5 (No Risk due to safe distances)
+
+9. **Obstacle 30736 (Left of ego vehicle):**
+   - Adjusted longitudinal distance: 0.00 m, lateral distance: 8.89 m
+   - Relative velocity: Driving toward laterally
+   - Motion: Exact longitudinal alignment
+   - Risk Score: 5 (No immediate collision risk as side alignment doesn't imply collision)
+
+10. **Obstacle 30737 (Rear-left of ego vehicle):**
+    - Adjusted distances: longitudinal -4.06 m, lateral 8.88 m
+    - Relative velocity: 3.17 m/s (approaching)
+    - Motion: Driving toward the ego car from behind
+    - Risk Score: 5 (No Risk as safe distances maintained)
+
+11. **Obstacle 30739 (Front-left of ego vehicle):**
+    - Adjusted longitudinal distance: 3.37 m, lateral distance: 5.38 m
+    - Relative velocity: -0.71 m/s (approaching)
+    - Motion: Driving toward the ego car
+    - Risk Score: 3 (Medium Risk due to proximity, requires monitoring)
+
+12. **Obstacle 30740 (Front-left of ego vehicle):**
+    - Adjusted longitudinal distance: 2.07 m, lateral distance: 1.89 m
+    - Relative velocity: 0.28 m/s (moving away)
+    - Motion: Moving away longitudinally
+    - Risk Score: 4 (Low Risk as it's moving away)
+
+13. **Obstacle 30742 (Rear-left of ego vehicle):**
+    - Adjusted distances: longitudinal -16.05 m, lateral 8.85 m
+    - Relative velocity: 3.30 m/s (approaching)
+    - Motion: Driving toward the ego car from behind
+    - Risk Score: 5 (No Risk as safe distances maintained)
+
+14. **Obstacle 30744 (Left of ego vehicle):**
+    - Adjusted distances: longitudinal 0.00 m, lateral 5.39 m
+    - Relative velocity: Moving away laterally
+    - Motion: Exact longitudinal alignment
+    - Risk Score: 5 (No immediate collision risk)
+
+15. **Obstacle 30746 (Behind the ego vehicle):**
+    - Adjusted longitudinal distance: -0.12 m
+    - Relative velocity: 2.30 m/s (approaching)
+    - Motion: Driving towards the ego car from behind
+    - Risk Score: 1 (Extreme Risk due to very close proximity and closing velocity)
+
+**Determination and Justification:**  
+Given that Obstacle 30746 carries an extreme risk score, this is identified as a collision scenario.
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": "N/A"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30746",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30746 has an extreme risk due to very close proximity and closing velocity."
+}
+```

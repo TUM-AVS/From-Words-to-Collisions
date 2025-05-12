@@ -1,0 +1,30 @@
+* **Obstacle 30737:**
+
+This obstacle is in the front-right of the ego vehicle.  Across the timesteps, both its longitudinal and lateral distances from the ego vehicle have been increasing, indicating a diverging trajectory. At the last timestep (0.9s), it is 7.09m longitudinally and -1.96m laterally away from the ego vehicle.  Given the increasing distances and diverging motion, TTC calculation is not relevant. The MDC is also above 5m. Therefore, the risk level for this obstacle is negligible.
+
+* **Obstacle 30739:**
+
+This obstacle is also in the front-right and shows a similar pattern to Obstacle 30737. Its longitudinal and lateral distances from the ego vehicle are increasing over time. At the last timestep, it is 21.72m longitudinally and -3.14m laterally away. With increasing distance, TTC isn't applicable. The MDC is far greater than 5m, posing negligible risk.
+
+* **Obstacle 30740:**
+
+This obstacle appears at t=0.7s in the front-left of the ego vehicle. Its longitudinal distance is decreasing rapidly, while its lateral distance is increasing.  At t=0.9s, it is 12.14m longitudinally and 20.39m laterally away from the ego vehicle. Given the high closing longitudinal velocity (-22.73 m/s), the TTC in the longitudinal direction is approximately 12.14m / 22.73m/s = 0.53s, which signifies Extreme Risk. Though the lateral distance is large and increasing, the rapid longitudinal approach overrides it. MDC is complex to calculate here due to the diagonal motion but given the rapid longitudinal approach, and short TTC it can be approximated to be under 3m (Medium Risk).  Because the TTC indicates extreme risk, that score will be prioritized.
+
+* **Obstacle 30743:**
+
+This obstacle is in the rear-right. Its longitudinal distance is negative and slightly increasing in magnitude (moving further behind), while its lateral distance is negative and decreasing in magnitude (moving closer from the right). At the last timestep, it is -2.72m longitudinally and -2.59m laterally. Although the lateral distance is decreasing, it's important to note that the lateral relative velocity is positive (1.31m/s at 0.3s changing to 2.26m/s at 0.9s), which means the obstacle might cross behind the ego vehicle. TTC along lateral direction would therefore be 2.59m/2.26m/s ≈ 1.15s (High Risk). Because longitudinal distance is negative and increasing (moving away), TTC calculation in this direction isn't applicable. The MDC is greater than 2.59m but smaller than 3m.  In this case, due to the diagonal movement and the obstacle's movement towards the ego vehicle along the lateral dimension, combined with a low MDC and a high-risk TTC, a High-Risk assessment (2) seems appropriate.
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30740",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": "30743",
+    "OverallRiskScore": "2"
+  }
+}
+```

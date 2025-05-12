@@ -1,0 +1,56 @@
+Obstacle 30921:
+
+- Trajectory Analysis: This obstacle has been consistently to the rear-left of the ego vehicle, but its longitudinal distance has been decreasing while the lateral distance fluctuates, indicating a potential lane change maneuver towards the ego vehicle's lane. It shows an alignment trend with the ego vehicle longitudinally.
+
+- At 4.8 seconds:
+    - Longitudinal distance: 0.00 m  
+    - Lateral distance: 2.00 m
+    - Longitudinal relative velocity: -0.95 m/s (moving away)
+    - Lateral relative velocity: -7.28 m/s (moving towards ego)
+
+- TTC Calculation: Since longitudinal velocity is negative (moving away), TTC is not meaningful in the longitudinal direction.  Laterally, TTC = 2.00 m / 7.28 m/s = 0.27 seconds.
+
+- MDC: Given the near-zero longitudinal distance and rapidly decreasing lateral distance with negative longitudinal velocity, the MDC is approximately 2.00 m.
+
+- Risk Assessment: Although the longitudinal distance is zero (exact alignment) and the negative relative velocity shows it is moving away longitudinally, the very small lateral distance of 2m and rapidly decreasing lateral distance suggests an Extremely High Risk of collision due to the obstacle's lateral movement towards the ego vehicle. The calculated TTC of 0.27 seconds confirms this. This obstacle poses an Extreme Risk (1).
+
+
+
+Obstacle 30922:
+
+- Trajectory Analysis: This obstacle has been consistently to the rear-left of the ego vehicle, initially at a greater distance than Obstacle 30921. Both its longitudinal and lateral distances appear to be decreasing across the timesteps, indicating movement towards the ego vehicle. Longitudinal alignment is observed.
+
+- At 4.8 seconds:
+    - Longitudinal distance: 0.00 m
+    - Lateral distance: 16.22 m
+    - Longitudinal relative velocity: -7.55 m/s (moving away)
+    - Lateral relative velocity: -7.40 m/s (moving towards ego)
+
+- TTC Calculation: Since longitudinal velocity is negative (moving away), TTC is not meaningful in the longitudinal direction. Laterally, TTC = 16.22 m / 7.40 m/s = 2.19 seconds.
+
+- MDC: Given the exact longitudinal alignment, but relatively large lateral distance of 16.22m, the MDC is approximately 16.22 m.
+
+- Risk Assessment: The lateral distance is greater than that of Obstacle 30921, and the TTC is 2.19 seconds. While there is lateral movement towards the ego vehicle, the larger distance provides more time to react. This obstacle presents a Medium Risk (3) due to its lateral motion towards the ego vehicle, although its longitudinal movement suggests it's moving away.
+
+
+
+Overall Assessment:
+
+Obstacle 30921 poses the most immediate threat with an Extreme Risk of collision due to its close proximity laterally and its lateral movement towards the ego vehicle despite moving away from the ego vehicle longitudinally. Obstacle 30922 presents a Medium Risk.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30921",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "30921",
+    "OverallRiskScore": "1"
+  }
+}
+```

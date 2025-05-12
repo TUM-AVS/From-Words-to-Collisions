@@ -1,0 +1,34 @@
+### Analysis:
+
+1. **Ego Vehicle Motion**:
+   - The ego vehicle is decelerating rapidly (acceleration: -2.4056 m/s² at 0.0s to -4.9073 m/s² at 0.2s).
+   - Velocity decreases from 8.6208 m/s to 7.1085 m/s.
+   - Position moves from (-58.0228, 29.5296) to (-59.6645, 30.0197).
+
+2. **Obstacle (ID: 20039.0)**:
+   - The obstacle is stationary (velocity: 0.0 m/s, acceleration: 0.0 m/s²) at position (-64.7112, 31.5258).
+   - The obstacle is in the same lanelet (117.0) as the ego vehicle.
+   - At 0.2s, the distance between ego and obstacle is approximately:
+     - Longitudinal: sqrt[(-64.7112 - (-59.6645))² + (31.5258 - 30.0197)²] ≈ 5.23 m.
+   - Relative velocity: ego is moving toward the obstacle at 7.1085 m/s (decelerating).
+   - TTC: Distance / Relative velocity ≈ 5.23 / 7.1085 ≈ 0.74 s (if deceleration is ignored, actual TTC would be longer due to deceleration).
+   - MDC: The obstacle is directly ahead in the same lane, so MDC is the current distance (5.23 m).
+
+3. **Risk Assessment**:
+   - The ego is decelerating, which reduces the risk of collision, but the TTC is still low (0.74 s if deceleration is ignored).
+   - The obstacle is stationary, and the ego is approaching it in the same lane.
+   - Given the rapid deceleration, the risk is high but not yet extreme or unavoidable.
+
+### Conclusion:
+- The obstacle (20039.0) poses a **High Risk (Score 2)** due to the low TTC and same-lane position, but the ego's deceleration mitigates the risk from extreme to high.
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": {
+        "ObstacleID": "20039.0",
+        "OverallRiskScore": 2
+    }
+}
+```

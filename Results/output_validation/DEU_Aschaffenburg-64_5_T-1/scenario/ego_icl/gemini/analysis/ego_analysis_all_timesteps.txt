@@ -1,0 +1,49 @@
+Obstacle 30187 (Front-Left):
+
+* Trajectory Analysis: This obstacle has been approaching the ego vehicle both longitudinally and laterally from the front-left.  While the longitudinal distance is clearly decreasing, the lateral distance initially decreased but has slightly increased in the last couple of timesteps, indicating a diverging lateral trajectory.
+
+* TTC Calculation:
+    * Longitudinal TTC = 3.17m / 15.96 m/s ≈ 0.20 seconds
+    * Lateral TTC = 1.89m / 0.18m/s ≈ 10.5 seconds (not relevant due to diverging lateral trajectory)
+
+* MDC Calculation:  Given the obstacle's position and trajectory, the MDC will be based on the longitudinal distance as the lateral distance is increasing. The MDC is approximately 3.17 meters.
+
+* Risk Assessment:
+    * Longitudinal risk:  TTC of 0.20s indicates Extreme Risk (1).
+    * Lateral risk: Diverging trajectory implies No Risk (5).
+    * Overall Risk: Extreme Risk (1) - Dominated by the extremely low longitudinal TTC.
+
+
+Obstacle 30195 (Behind):
+
+* Trajectory Analysis: This obstacle is directly behind the ego vehicle (0.00m lateral distance at all timesteps) and is rapidly approaching. The longitudinal distance has been consistently decreasing across all timesteps, ultimately leading to a collision at 2.3 seconds.
+
+* TTC Calculation:
+    * Longitudinal TTC = 0.00m / 4.26 m/s = 0 seconds
+
+* MDC Calculation: The MDC is 0 meters as a collision has occurred.
+
+* Risk Assessment:
+    * Longitudinal risk: Collision (0).
+    * Lateral risk: N/A due to exact longitudinal alignment.
+    * Overall Risk: Collision (0)
+
+
+Collision Scenario Determination: Yes, this is a collision scenario because Obstacle 30195 has a collision risk score of 0 at the latest timestep.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "30195",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30187", 
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30195 collided with the ego vehicle at t=2.3s (distance=0.00m, relative velocity=4.26 m/s). Obstacle 30187 is also at extreme risk with a longitudinal TTC of 0.20 seconds."
+}
+```

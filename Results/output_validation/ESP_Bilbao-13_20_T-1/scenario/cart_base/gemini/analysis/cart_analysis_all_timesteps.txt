@@ -1,0 +1,29 @@
+At t=2.2s, Ego is in lanelet 705.  Let's analyze the closest obstacles:
+
+* **30801:** In the same lanelet (705) as Ego and rapidly accelerating (2.0185 m/s²) towards Ego's position.  Given the relatively small distance between them and 30801's increasing velocity, a collision is highly probable in the next few timesteps.  Extreme Risk (1).
+
+* **30805:** Also in lanelet 705, but further away and at a lower velocity than 30801. While its acceleration is low (0.3775), it bears monitoring. Medium Risk (3).
+
+* **30807:** Although in the same lanelet and approaching, this obstacle is further away than 30805 and has a decelerating velocity (-0.4197 m/s²). Low Risk (4).
+
+* **30806:**  In a neighboring lanelet (706). Given current trajectories and distance, risk of collision is low. Low Risk (4).
+
+* **30804:** In a different lanelet (1513).  No immediate risk. Negligible Risk (5).
+
+* **30800 and 30802:** Located in different lanelets (367) and almost stationary.  No risk. Negligible Risk (5).
+
+* **30798:** No longer present in data, likely no longer a risk.
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30801",
+        "OverallRiskScore": 1
+    },
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "Obstacle 30801 poses an extreme risk of collision with Ego due to its proximity, high velocity, and significant acceleration in the same lanelet. While no collision is imminent at t=2.2s, the current trajectories suggest a high probability of collision in the next few timesteps."
+    }
+}
+```

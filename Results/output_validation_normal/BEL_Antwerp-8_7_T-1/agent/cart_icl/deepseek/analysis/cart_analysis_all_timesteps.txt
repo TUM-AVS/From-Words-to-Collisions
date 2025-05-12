@@ -1,0 +1,26 @@
+### Analysis:
+
+1. **Obstacle 30597 (ID: 30597)**:
+   - **Position**: (360.7739, 533.1008) at 0.9s
+   - **Relative Position to Ego**: Ego is at (352.2857, 549.6251), so obstacle is ahead and to the left.
+   - **Relative Velocity**: Ego velocity is 5.6293 m/s, obstacle velocity is 5.3541 m/s (slower).
+   - **TTC**: Not immediately critical as the obstacle is moving away from the ego's path (lanelet 1046.0 vs. ego's lanelet 195.0).
+   - **MDC**: Lateral distance is significant, and longitudinal distance is increasing.
+   - **Risk**: **Low (4)**.
+
+2. **Obstacle 30598 (ID: 30598)**:
+   - **Position**: (345.4857, 566.1252) at 0.9s
+   - **Relative Position to Ego**: Ego is at (352.2857, 549.6251), so obstacle is behind and to the right.
+   - **Relative Velocity**: Ego velocity is 5.6293 m/s, obstacle velocity is 8.5477 m/s (approaching from behind).
+   - **TTC**: The obstacle is closing the distance but is still behind and in the same lanelet (195.0). The longitudinal distance is ~16.5m, and the relative velocity is ~2.92 m/s, giving a TTC of ~5.65s.
+   - **MDC**: Lateral distance is minimal, but the obstacle is decelerating sharply (-3.7658 m/s²).
+   - **Risk**: **Medium (3)** due to the closing speed but sufficient time to react.
+
+### JSON Output:
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": null
+}
+```

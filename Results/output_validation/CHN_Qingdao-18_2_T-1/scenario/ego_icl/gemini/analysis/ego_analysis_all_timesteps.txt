@@ -1,0 +1,35 @@
+* **Obstacle 30655 Analysis:** This obstacle is directly in front of the ego vehicle and rapidly approaching.  Across the timesteps, the longitudinal distance has decreased from 4.70m to 0.05m, while the lateral distance remains at 0.00m (indicating perfect alignment in the same lane). At the last timestep (4.1 seconds), the longitudinal distance is only 0.05m and the relative velocity is -3.75 m/s (closing).
+
+    * **MDC:** 0.05m (Extremely close)
+    * **TTC (longitudinal):** 0.05m / 3.75m/s = 0.013s (Imminent collision)
+    * **Risk:** Collision Risk (0) - Due to the extremely low MDC and TTC with a converging trajectory, a collision is highly likely.
+
+* **Obstacle 30656 Analysis:** This obstacle is approaching the ego vehicle from the front-right. While initially quite far, at the last timestep its lateral distance has also decreased from 1.35 to 0.00. The longitudinal distance has decreased from 20.04 m to 9.82 m.
+
+    * **MDC:**  The minimum distance is difficult to determine precisely without more data on the obstacle's trajectory, but given the converging trajectories and reducing distances in both dimensions, it is estimated as approximately 9.82m
+    * **TTC (longitudinal):** 9.82m / 11.74m/s = 0.84s
+    * **TTC (Lateral):** 0.00 m / 5.47m/s = 0.00s
+    * **Risk:** High Risk (2) - Based primarily on the converging trajectories and lateral 0.00 value from the last timestep.
+
+* **Obstacle 30658 Analysis:** This obstacle is behind the ego vehicle. Across the timesteps, it shows a trend of approaching the ego vehicle from the rear while maintaining a 0.00 lateral position. At the last timestep, it is approximately 17.64m behind and appears in the last timestep to be at 0.00 lateral.
+
+    * **MDC:** 17.64 m
+    * **TTC (longitudinal):** 17.64m / 1.83m/s = 9.64s 
+    * **TTC (Lateral):** 0.00m / 1.71 m/s = 0.00 s
+    * **Risk:** No Risk (5) - Although it is converging on the ego longitudinally, the distance is still substantial and TTC is high.
+
+**Collision Scenario Determination:** Yes, this is a collision scenario. Obstacle 30655 has a risk score of 0 (Collision Risk), indicating an imminent collision with the ego vehicle.
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "30655",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": null,
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30655 shows a collision risk score of 0 at the last timestep, due to near-zero distance (0.05m) and rapid closing velocity (-3.75m/s) in the longitudinal direction, indicating an unavoidable collision. The lateral distance is also 0, with lateral and longitudinal TTC approaching zero. The trajectory analysis across the given time steps show the distance is consistent with a collision in the next moment"
+}
+```

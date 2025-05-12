@@ -1,0 +1,71 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 4.1 seconds)
+
+#### **Obstacle 3298 (Front)**
+- **Adjusted Distance**: Longitudinal 10.10 m, Lateral 0.00 m  
+- **Relative Velocity**: Longitudinal -3.14 m/s (approaching), Lateral 0.00 m/s  
+- **Motion**: Driving toward ego longitudinally, exact lateral alignment.  
+- **TTC (Longitudinal)**:  
+  - Distance = 10.10 m, Relative Velocity = 3.14 m/s  
+  - TTC = 10.10 / 3.14 ≈ **3.22 seconds** (Medium Risk)  
+- **MDC**:  
+  - Lateral distance = 0.00 m (same lane), but longitudinal distance is large (10.10 m).  
+  - MDC = 10.10 m (Low Risk)  
+- **Risk Assessment**:  
+  - TTC: Medium Risk (3)  
+  - MDC: Low Risk (4)  
+  - **Overall Risk**: **Medium Risk (3)**  
+
+#### **Obstacle 3300 (Front-Right)**
+- **Adjusted Distance**: Longitudinal 9.96 m, Lateral -8.90 m  
+- **Relative Velocity**: Longitudinal -3.14 m/s (approaching), Lateral -0.00 m/s  
+- **Motion**: Driving toward ego longitudinally, no lateral motion.  
+- **TTC (Longitudinal)**:  
+  - Distance = 9.96 m, Relative Velocity = 3.14 m/s  
+  - TTC = 9.96 / 3.14 ≈ **3.17 seconds** (Medium Risk)  
+- **MDC**:  
+  - Lateral distance (-8.90 m) is large, longitudinal distance (9.96 m) is also large.  
+  - MDC ≈ min(9.96, 8.90) = **8.90 m** (No Risk)  
+- **Risk Assessment**:  
+  - TTC: Medium Risk (3)  
+  - MDC: No Risk (5)  
+  - **Overall Risk**: **Medium Risk (3)**  
+
+#### **Obstacle 3301 (Front)**
+- **Adjusted Distance**: Longitudinal 0.14 m, Lateral 0.00 m  
+- **Relative Velocity**: Longitudinal -0.98 m/s (approaching), Lateral -0.00 m/s  
+- **Motion**: Driving toward ego longitudinally, exact lateral alignment.  
+- **TTC (Longitudinal)**:  
+  - Distance = 0.14 m, Relative Velocity = 0.98 m/s  
+  - TTC = 0.14 / 0.98 ≈ **0.14 seconds** (Extreme Risk)  
+- **MDC**:  
+  - Lateral distance = 0.00 m, longitudinal distance = 0.14 m (very close).  
+  - MDC = **0.14 m** (Extreme Risk)  
+- **Risk Assessment**:  
+  - TTC: Extreme Risk (1)  
+  - MDC: Extreme Risk (1)  
+  - **Overall Risk**: **Extreme Risk (1)**  
+
+### **Trajectory Analysis**
+- **Obstacle 3301** is rapidly closing in on the ego vehicle (longitudinal distance decreasing from 3.24 m to 0.14 m in 1 second).  
+- The **TTC (0.14 s)** and **MDC (0.14 m)** indicate an imminent collision risk.  
+- **Obstacles 3298 & 3300** are also approaching but at safer distances (TTC > 3s).  
+
+### **Collision Scenario Determination**
+- **Obstacle 3301** is in **Extreme Risk (1)** with TTC < 0.5s and MDC < 0.5m.  
+- This meets the criteria for a **collision scenario** (Extreme Risk with converging trajectories).  
+
+### **Final JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "3301",
+        "OverallRiskScore": "1"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3301",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 3301 has TTC = 0.14s and MDC = 0.14m, indicating extreme risk of imminent collision."
+}
+```

@@ -1,0 +1,46 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 30095** (Front of ego car)
+- **Adjusted Distances**: 
+  - Longitudinal: 10.17 m (decreasing from 11.33m over 0.9s)
+  - Lateral: 0.00 m (exact alignment)
+- **Relative Velocity**: 
+  - Longitudinal: -1.10 m/s (approaching)
+  - Lateral: 0.11 m/s (slight drift, but minimal)
+- **Trajectory Analysis**: 
+  - The obstacle is consistently moving toward the ego longitudinally with decreasing distance (11.33m → 10.17m). 
+  - Lateral alignment remains exact (0.00m), but lateral velocity is very low (0.11 m/s), indicating minimal sideways movement.
+- **TTC Calculation**:
+  - Longitudinal TTC = Distance / |Relative Velocity| = 10.17 / 1.10 ≈ **9.25 seconds** (No Risk, TTC > 5s)
+  - Lateral TTC: Not applicable (lateral velocity is minimal and not converging).
+- **MDC Calculation**:
+  - Since the obstacle is directly ahead (lateral = 0.00m), MDC is effectively the longitudinal distance: **10.17m** (No Risk, MDC > 5m).
+- **Risk Assessment**:
+  - Longitudinal: No Risk (TTC = 9.25s, MDC = 10.17m)
+  - Lateral: No Risk (no meaningful convergence)
+  - **Overall Risk Score**: 5 (No Risk)
+
+### Trajectory Trends
+- The obstacle is approaching the ego at a nearly constant speed (~1.10 m/s relative velocity). 
+- The longitudinal distance decreases steadily, but the rate is slow enough that collision is not imminent.
+- Lateral movement is negligible (0.00m alignment with minor drift).
+
+### Conclusion
+- No collision (risk score 0) or extreme risk (risk score 1) is detected. 
+- The obstacle is far enough ahead (10.17m) and closing slowly enough (TTC ≈ 9.25s) to pose no immediate danger.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30095 is longitudinally aligned at 10.17m with a slow closing speed (TTC ≈ 9.25s), posing no immediate collision risk. No other obstacles are present."
+}
+```

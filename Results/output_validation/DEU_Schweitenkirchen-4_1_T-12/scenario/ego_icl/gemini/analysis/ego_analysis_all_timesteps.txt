@@ -1,0 +1,46 @@
+Obstacle 221 (Right):
+- Trajectory: This obstacle has been approaching the ego vehicle from the rear-right.  The longitudinal velocity is positive and increasing, while the lateral distance is decreasing.  At the last timestep, it is directly to the right of the ego vehicle (longitudinal distance 0.00m).
+- TTC: Not applicable for longitudinal as vehicles are aligned. Lateral TTC = 0.77m / 4.80 m/s = 0.16s.
+- MDC: Approximately 0.77m (lateral).
+- Risk: Extreme Risk (1) due to very low TTC and close proximity.
+
+Obstacle 386 (Front-Left):
+- Trajectory: Moving away from the ego vehicle both longitudinally and laterally.
+- TTC: Longitudinal TTC = 20.93m / 14.67m/s = 1.43s. Lateral TTC = 7.64m / 5.26m/s = 1.45s
+- MDC:  >5m
+- Risk: No Risk (5) as it's moving away.
+
+Obstacle 426 (Collision):
+- Trajectory: Approaching rapidly from behind and has reached the same position as the ego vehicle at the last timestep (0.00m in both directions), indicating a collision.
+- TTC: 0s (Collision)
+- MDC: 0m (Collision)
+- Risk: Collision (0)
+
+Obstacle 431 (Rear-Left):
+- Trajectory: Approaching from behind and slightly to the left. It is getting closer in both dimensions.
+- TTC: Longitudinal TTC = 1.18m / 14.50m/s = 0.08s. Lateral TTC = 1.39m / 4.88m/s = 0.28s.
+- MDC: Approximately 1.39m.
+- Risk: Extreme Risk (1) due to extremely low TTC.
+
+Obstacle 434 (Rear-Right):
+- Trajectory: Approaching from behind and slightly to the right. The distances are larger compared to other obstacles.
+- TTC: Longitudinal TTC = 23.75m / 13.09m/s = 1.81s. Lateral TTC = 3.21m / 4.24m/s = 0.76s.
+- MDC: Approximately 3.21m.
+- Risk: Medium Risk (3)
+
+Collision Scenario: YES. Obstacle 426 has collided with the ego vehicle (Risk 0). Obstacles 221 and 431 also pose an Extreme Risk (1) with very low TTCs, indicating likely imminent collision.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "426",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "221",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 426 shows a collision (risk score 0) with the ego vehicle at the last timestep with 0 distance in both longitudinal and lateral directions. Obstacles 221 and 431 have extremely low TTCs indicating a very high probability of imminent collision."
+}
+```

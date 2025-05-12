@@ -1,0 +1,65 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 20055 (Front-left of the ego car)
+- **Adjusted Distance (most recent timestep):** Longitudinal 17.69 m, Lateral 3.08 m  
+- **Relative Velocity:** Longitudinal -0.98 m/s (approaching), Lateral 4.81 m/s (moving away)  
+- **Motion Description:** Obstacle is driving toward the ego car longitudinally but moving away laterally to the left.  
+
+**Trajectory Analysis:**
+- The obstacle has been consistently moving toward the ego car longitudinally with a decreasing distance (from 18.32 m to 17.69 m over 0.9 seconds).  
+- Laterally, the obstacle is moving away from the ego car (lateral distance increasing from 0.00 m to 3.08 m).  
+
+**Time-to-Collision (TTC):**
+- Longitudinal TTC = 17.69 / 0.98 ≈ 18.05 seconds (No Risk, TTC > 5.0s)  
+- Lateral TTC = Not applicable (moving away).  
+
+**Minimum Distance to Collision (MDC):**
+- The obstacle is moving away laterally, so the risk is primarily longitudinal.  
+- MDC (longitudinal) = 17.69 m (No Risk, MDC > 5.0m).  
+
+**Overall Risk Assessment:**  
+- The obstacle is moving toward the ego car longitudinally but at a very slow rate and with a large distance. Laterally, it is moving away.  
+- **Overall Risk Score: 5 (Negligible Risk)**  
+
+---
+
+#### Obstacle 20057 (Rear-right of the ego car)
+- **Adjusted Distance (most recent timestep):** Longitudinal -18.21 m, Lateral -0.16 m  
+- **Relative Velocity:** Longitudinal -0.26 m/s (moving away), Lateral 1.49 m/s (approaching)  
+- **Motion Description:** Obstacle is moving away longitudinally but driving toward the ego car laterally from the right.  
+
+**Trajectory Analysis:**
+- The obstacle is moving away longitudinally (distance increasing from -18.22 m to -18.21 m).  
+- Laterally, it is approaching the ego car (lateral distance decreasing from 0.00 m to -0.16 m).  
+
+**Time-to-Collision (TTC):**
+- Longitudinal TTC = Not applicable (moving away).  
+- Lateral TTC = 0.16 / 1.49 ≈ 0.107 seconds (Extreme Risk, TTC < 0.5s).  
+
+**Minimum Distance to Collision (MDC):**
+- The primary risk is lateral.  
+- MDC (lateral) = 0.16 m (Extreme Risk, MDC < 0.5m).  
+
+**Overall Risk Assessment:**  
+- The obstacle is very close laterally and approaching rapidly, posing an extreme risk of collision.  
+- **Overall Risk Score: 1 (Extreme Risk)**  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20057",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```

@@ -1,0 +1,44 @@
+Obstacle 30730 Analysis:
+
+- Trajectory: This obstacle has been directly in front of the ego vehicle (lateral distance 0.00m) for all observed timesteps.  The longitudinal distance has been consistently decreasing, indicating a closing trajectory.
+- At 5.7 seconds:
+    - Longitudinal distance: 0.20m
+    - Lateral distance: 0.00m
+    - Longitudinal relative velocity: -3.78 m/s (approaching)
+    - TTC (longitudinal): 0.20m / 3.78 m/s = 0.05s
+    - MDC: 0.20m
+- Risk Assessment:
+    - TTC < 0.5s and MDC < 0.5m. The obstacle is extremely close and rapidly approaching.  This represents an **Extreme Risk (1)**.
+
+Obstacle 30733 Analysis:
+
+- Trajectory: This obstacle has maintained a front-right position relative to the ego vehicle throughout the observed timesteps.  The longitudinal distance has been consistently decreasing while the lateral distance remains relatively constant at -5.39m, indicating a closing trajectory primarily in the longitudinal direction.
+- At 5.7 seconds:
+    - Longitudinal distance: 0.17m
+    - Lateral distance: -5.39m
+    - Longitudinal relative velocity: -3.78 m/s (approaching)
+    - TTC (longitudinal): 0.17m / 3.78 m/s = 0.045s
+    - MDC: Since the lateral distance is much larger than the longitudinal distance and there's no lateral movement, the MDC is effectively the longitudinal distance: 0.17m.
+- Risk Assessment:
+    - TTC < 0.5s and MDC < 0.5m. Although there is lateral separation, the rapid longitudinal closing rate and very short distance represent an **Extreme Risk (1)** of collision.
+
+Collision Scenario Determination:
+
+Both obstacles, 30730 and 30733, present an Extreme Risk (1) at the last timestep (5.7 seconds). Obstacle 30730 poses a more imminent threat due to its position directly ahead of the ego vehicle and very low TTC and MDC.  Obstacle 30733 is also extremely close longitudinally with a very low TTC despite the lateral offset. Therefore, this is a **Collision Scenario**.
+
+
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "30730",
+    "OverallRiskScore": "1"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30733",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Multiple obstacles (30730 and 30733) have an Extreme Risk (1) assessment at the final timestep, indicating imminent collision with extremely low TTC and MDC values.  Obstacle 30730 is particularly concerning due to its direct front-on approach."
+}
+```

@@ -1,0 +1,57 @@
+### Obstacle-by-Obstacle Analysis
+
+**Obstacle 3243:**
+- **Position and Motion:** Currently aligned to the right of the ego vehicle with a longitudinal distance of 0.00m and a lateral distance of -22.38m. The obstacle is not moving closer laterally (relative velocity of 0.00m/s).
+- **Trajectory Analysis:** Over time, this obstacle has maintained a consistent lateral distance while the longitudinal velocity component is minimal.
+- **TTC & MDC:** Lateral distance is stable; due to a non-zero lateral distance and movement away, both TTC and MDC indicate no immediate risk.
+- **Risk Analysis:** Negligible Risk.
+
+**Obstacle 3247:**
+- **Position and Motion:** In the front-right of the ego vehicle with a longitudinal distance of 9.65m and lateral distance of -10.41m. Driving towards the ego longitudinally and moving away laterally.
+- **Trajectory Analysis:** Although approaching longitudinally, the lateral distance is increasing.
+- **TTC & MDC:** Calculated TTC longitudinally is negative (higher velocity moving away laterally). MDC is well over 5 meters due to the increasing lateral distance.
+- **Risk Analysis:** No Risk, as paths diverge.
+
+**Obstacle 3249:**
+- **Position and Motion:** On the front-left with an adjusted longitudinal distance of 1.69m and lateral distance of 2.05m. Obstacle is moving away on both axes.
+- **Trajectory Analysis:** Paths are diverging with increasing distances in both dimensions.
+- **TTC & MDC:** Resulting in a No Risk configuration as longitudinal and lateral velocities are moving apart.
+- **Risk Analysis:** No Risk.
+
+**Obstacle 3253:**
+- **Position and Motion:** Situated in the rear-right with an adjusted longitudinal distance of -8.80m and lateral distance of -23.00m. Moving away longitudinally, with no lateral approach.
+- **Trajectory Analysis:** Continuous movement away both longitudinally and laterally.
+- **TTC & MDC:** Both values support diverging paths, ruling out collision.
+- **Risk Analysis:** No Risk.
+
+**Obstacle 3254:**
+- **Position and Motion:** Behind the ego vehicle with an adjusted longitudinal distance of -1.13m and lateral distance of 0.00m. Driving towards longitudinally at 4.80m/s.
+- **Trajectory Analysis:** The obstacle is too close and closing longitudinally. Critical alignment in both longitudinal distance and velocity.
+- **TTC & MDC:** TTC is approximately 0.24s (1.13m / 4.80m/s), indicating Extreme Risk with an MDC below 0.5m.
+- **Risk Analysis:** Extreme Risk, high potential for collision due to close distances and high approach speed.
+
+**Obstacle 3255:**
+- **Position and Motion:** Positioned behind with adjusted longitudinal distance of -17.45m and lateral distance of 0.00m. Approaching longitudinally at 5.67m/s.
+- **Trajectory Analysis:** Approaching but at a greater distance.
+- **TTC & MDC:** MDC calculated >5m due to large current distance, though the velocity indicates constant approach.
+- **Risk Analysis:** Low Risk, with sufficient margins unless conditions change drastically.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3254",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "2"
+    }
+}
+```
+
+In this evaluation, Obstacle 3254 presents an Extreme Risk due to its close proximity and fast closing speed toward the ego vehicle. No other obstacles are found to poses immediate collision threats.

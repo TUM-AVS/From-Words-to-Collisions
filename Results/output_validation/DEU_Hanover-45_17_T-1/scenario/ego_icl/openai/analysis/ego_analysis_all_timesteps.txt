@@ -1,0 +1,51 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30700 Analysis
+
+**Trajectory Analysis Across Timesteps:**
+- The obstacle is consistently moving toward the ego vehicle from the rear.
+- The longitudinal distance is consistently decreasing, indicating the obstacle is approaching.
+- Relative velocity is consistently positive, meaning the obstacle is closing in on the ego vehicle.
+
+**At the Most Recent Timestep (7.7 seconds):**
+- **Adjusted Longitudinal Distance:** -0.07 m
+- **Adjusted Lateral Distance:** 0.00 m
+- **Relative Longitudinal Velocity:** 2.58 m/s
+- **Relative Lateral Velocity:** 0.00 m/s
+
+**Time-to-Collision (TTC) Calculation:**
+- **Longitudinal TTC:** |(-0.07 m) / 2.58 m/s| ≈ 0.027 seconds
+
+**Minimum Distance to Collision (MDC) Calculation:**
+- Since the lateral distance is 0.00 m, focus on longitudinal distance.
+- The MDC is effectively -0.07 m since the obstacle is longitudinally aligned and closing.
+
+**Risk Assessment:**
+- **TTC (0.027 seconds):** Extreme Risk (1) as it is less than 0.5 seconds.
+- **MDC (-0.07 m):** Qualifies as Collision Risk (0) due to negative distance.
+  
+**Overall Risk Score:**
+- The lower of the two risk assessments (lower score is higher risk): 0 (Collision occurring).
+
+**Analysis Alignment with Motion Description:**
+- The obstacle is described as "driving toward the ego car from behind" with an exact lateral alignment, corroborating the collision status indicated by both a near-zero and negative longitudinal distance and positive closing velocity.
+
+### Conclusion
+
+This scenario qualifies as a collision scenario because the distance is effectively zero or negative in both adjusted dimensions with a significantly closing longitudinal velocity.
+
+#### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30700",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "N/A",
+        "OverallRiskScore": "N/A"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30700 is at an effectively zero or negative longitudinal distance and aligned laterally with converging trajectory, indicating an active collision."
+}
+```

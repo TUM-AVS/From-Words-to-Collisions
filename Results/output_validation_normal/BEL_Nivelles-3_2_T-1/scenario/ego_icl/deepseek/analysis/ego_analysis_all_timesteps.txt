@@ -1,0 +1,56 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 312 (Front-left)**
+- **Adjusted Position**: Longitudinal 20.51m, Lateral 3.43m  
+- **Relative Velocity**: Longitudinal -7.27 m/s (approaching), Lateral -0.09 m/s (moving left, away from ego)  
+- **Motion**: Driving toward ego longitudinally but moving away laterally.  
+- **TTC (Longitudinal)**: 20.51 / 7.27 ≈ 2.82s → **Medium Risk (3)**  
+- **MDC (Lateral)**: 3.43m → **Low Risk (4)**  
+- **Overall Risk**: Medium (3)  
+
+#### **Obstacle 329 (Front-left)**
+- **Adjusted Position**: Longitudinal 14.15m, Lateral 1.05m  
+- **Relative Velocity**: Longitudinal -6.36 m/s (approaching), Lateral 0.30 m/s (moving left, away from ego)  
+- **Motion**: Driving toward ego longitudinally but moving away laterally.  
+- **TTC (Longitudinal)**: 14.15 / 6.36 ≈ 2.23s → **Medium Risk (3)**  
+- **MDC (Lateral)**: 1.05m → **Medium Risk (3)**  
+- **Overall Risk**: Medium (3)  
+
+#### **Obstacle 335 (Rear-right)**
+- **Adjusted Position**: Longitudinal -4.89m (behind), Lateral -2.41m (right)  
+- **Relative Velocity**: Longitudinal -0.15 m/s (moving away), Lateral 1.08 m/s (approaching from right)  
+- **Motion**: Moving away longitudinally but approaching laterally from right.  
+- **TTC (Lateral)**: 2.41 / 1.08 ≈ 2.23s → **Medium Risk (3)**  
+- **MDC (Longitudinal)**: 4.89m → **Low Risk (4)**  
+- **Overall Risk**: Medium (3)  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 312**: Consistently approaching longitudinally but lateral distance is increasing (low lateral risk).  
+- **Obstacle 329**: Similar to 312 but with smaller longitudinal distance (still medium risk).  
+- **Obstacle 335**: Moving away longitudinally but closing laterally (medium risk due to lateral proximity).  
+
+### Critical Observations
+- **No collisions (risk 0) or extreme risks (risk 1)** detected.  
+- All obstacles have **medium or low risk** based on TTC/MDC.  
+- Lateral movements for 312/329 are diverging, reducing collision likelihood.  
+- Obstacle 335's lateral approach is slow (TTC > 2s).  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacles have risk scores ≤1 (collision/extreme risk). All obstacles are at medium or low risk with no imminent collision paths."
+}
+```

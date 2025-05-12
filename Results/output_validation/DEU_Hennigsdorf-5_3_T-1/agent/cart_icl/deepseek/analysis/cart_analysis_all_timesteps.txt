@@ -1,0 +1,44 @@
+### Analysis:
+
+1. **Obstacle 30**: 
+   - Position: (124.9111, -704.43004) (static)
+   - Ego is approaching this obstacle (distance decreasing).
+   - At 2.6s, ego is at (126.0965, -707.8411), obstacle is at (124.9111, -704.43004).
+   - Lateral distance: ~3.41m (likely in adjacent lane).
+   - TTC: Not directly in path, but close. Risk is **Medium (3)**.
+
+2. **Obstacle 338**: 
+   - Moving towards ego at high speed (14.98 m/s).
+   - At 2.6s, ego is at (126.0965, -707.8411), obstacle is at (153.4603, -711.34755).
+   - Distance: ~27.5m, closing rapidly.
+   - Same lanelet (1697.0), but still far. Risk is **High (2)**.
+
+3. **Obstacle 342**: 
+   - Moving towards ego (11.03 m/s).
+   - At 2.6s, ego is at (126.0965, -707.8411), obstacle is at (120.1515, -707.62461).
+   - Distance: ~5.94m, lateral distance ~0.22m (very close).
+   - TTC: ~5.94 / (11.03 - 2.12) ≈ 0.67s.
+   - Risk is **Extreme (1)** due to imminent collision.
+
+4. **Obstacle 343**: 
+   - Moving away from ego (7.81 m/s).
+   - Distance increasing. Risk is **Low (4)**.
+
+5. Other obstacles (31, 36, 341): 
+   - Static or moving away. Risk is **Negligible (5)**.
+
+### JSON Output:
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "342.0",
+        "OverallRiskScore": 1
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "338.0",
+        "OverallRiskScore": 2
+    }
+}
+```

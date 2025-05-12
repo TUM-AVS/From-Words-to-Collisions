@@ -1,0 +1,37 @@
+Obstacle 30312:
+- Trajectory: This obstacle has been consistently in the front-left of the ego vehicle, with the longitudinal distance decreasing slightly across timesteps and the lateral distance increasing.
+- At t=0.9s:
+  - Longitudinal distance: 20.22m
+  - Lateral distance: 2.42m
+  - Longitudinal relative velocity: -0.46 m/s (approaching)
+  - Lateral relative velocity: 1.84 m/s (moving away)
+  - Longitudinal TTC: 20.22 / 0.46 ≈ 44s
+  - Lateral TTC: Not applicable, as the lateral relative velocity indicates moving away.  
+  - MDC: Since it's a front-left obstacle, and the lateral distance is increasing, MDC is primarily based on the lateral distance of 2.42 m. 
+- Risk Assessment: Based on MDC (2.42 m) and the increasing lateral distance, the risk level for obstacle 30312 is Low (4).
+
+Obstacle 30321:
+- Trajectory: This obstacle starts behind the ego vehicle and moves further away longitudinally while also moving to the left laterally across the timesteps. Initially, it is directly behind the ego car (lateral distance 0.00), but it gradually gains lateral separation.
+- At t=0.9s:
+  - Longitudinal distance: -22.22m (behind)
+  - Lateral distance: 3.12m
+  - Longitudinal relative velocity: -6.98 m/s (moving away)
+  - Lateral relative velocity: 6.15 m/s (moving away)
+  - Longitudinal TTC: Not applicable as relative velocity is negative (moving away)
+  - Lateral TTC: Not applicable, as lateral relative velocity is positive but object starts behind the ego vehicle and moves further away.
+  - MDC: Since the obstacle is moving away in both directions, MDC is not a major concern. We can use the lateral distance 3.12m as a reference.
+- Risk Assessment: Given the increasing distances and separating trajectories, the risk level is Negligible (5).
+
+JSON Summary:
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": null,
+    "MediumRiskObstacle": null,
+    "LowRiskObstacle": {
+        "ObstacleID": "30312",
+        "OverallRiskScore": "4"
+    }
+}
+```

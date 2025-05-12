@@ -1,0 +1,81 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 3.3s)
+
+---
+
+#### **Obstacle 20043 (Front-right)**
+- **Adjusted Position**: Longitudinal 7.44m, Lateral -6.38m  
+- **Relative Velocity**: Longitudinal -0.11 m/s (approaching), Lateral -1.45 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally but moving away laterally to the right.  
+- **TTC**: 
+  - Longitudinal: 7.44 / 0.11 ≈ 67.6s (No Risk)  
+  - Lateral: Diverging (No Risk)  
+- **MDC**: 
+  - Lateral distance increasing (6.38m → Low Risk)  
+  - Longitudinal distance stable with minimal closing speed.  
+- **Risk Assessment**: **Low Risk (4)** - No immediate threat, sufficient lateral separation.
+
+---
+
+#### **Obstacle 20045 (Left)**
+- **Adjusted Position**: Longitudinal 0.00m (aligned), Lateral 1.90m  
+- **Relative Velocity**: Longitudinal -13.26 m/s (approaching fast), Lateral -0.23 m/s (approaching slightly).  
+- **Motion**: Exact longitudinal alignment, moving toward ego laterally from left.  
+- **TTC**: 
+  - Lateral: 1.90 / 0.23 ≈ 8.3s (Low Risk)  
+  - Longitudinal: Already aligned (0.00m), but lateral distance is significant.  
+- **MDC**: 
+  - Lateral distance (1.90m) is above High Risk threshold but closing.  
+- **Risk Assessment**: **Medium Risk (3)** - Rapid longitudinal approach but safe lateral buffer.
+
+---
+
+#### **Obstacle 20046 (Behind)**
+- **Adjusted Position**: Longitudinal -0.26m, Lateral 0.00m (aligned)  
+- **Relative Velocity**: Longitudinal 3.32 m/s (approaching), Lateral 0.08 m/s (stable).  
+- **Motion**: Driving toward ego from behind with exact lateral alignment.  
+- **TTC**: 
+  - Longitudinal: 0.26 / 3.32 ≈ 0.08s (**Extreme Risk**)  
+  - Lateral: Stable alignment.  
+- **MDC**: 
+  - Longitudinal distance (0.26m) is below Extreme Risk threshold (0.5m).  
+- **Risk Assessment**: **Collision (0)** - Minimal longitudinal distance with closing velocity.  
+
+---
+
+#### **Obstacle 20047 (Rear-left)**
+- **Adjusted Position**: Longitudinal -19.87m, Lateral 0.25m  
+- **Relative Velocity**: Longitudinal 5.38 m/s (approaching), Lateral -0.72 m/s (approaching).  
+- **Motion**: Driving toward ego from behind and laterally from left.  
+- **TTC**: 
+  - Longitudinal: 19.87 / 5.38 ≈ 3.7s (Low Risk)  
+  - Lateral: 0.25 / 0.72 ≈ 0.35s (**Extreme Risk**)  
+- **MDC**: 
+  - Lateral distance (0.25m) is below Extreme Risk threshold (0.5m).  
+- **Risk Assessment**: **Extreme Risk (1)** - Critical lateral proximity with closing velocity.  
+
+---
+
+### Trajectory Trends (Key Observations)
+- **Obstacle 20046**: Consistent longitudinal closing (3.3s: -0.26m). Collision imminent unless evasive action.  
+- **Obstacle 20047**: Lateral distance decreasing rapidly (0.25m at 3.3s). Extreme risk of side collision.  
+- **Obstacle 20045**: High longitudinal velocity but safe lateral offset.  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20046",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20047",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "20046",
+        "OverallRiskScore": "0"
+    }
+}
+```

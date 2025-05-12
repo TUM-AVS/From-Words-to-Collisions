@@ -1,0 +1,25 @@
+### Analysis:
+
+1. **Obstacle 30193 (Stationary Obstacle)**:
+   - Position: (-23.3307, -312.4706)
+   - The obstacle is stationary and located in lanelet 126.0, which is different from the ego vehicle's lanelet (1071.0 initially, then 501.0). 
+   - The distance between the ego vehicle and this obstacle is significant (~29.5m at 0.9s) and not decreasing rapidly. 
+   - **Risk Score: 5 (Negligible Risk)** - No immediate or future collision risk due to lane separation and distance.
+
+2. **Obstacle 30194 (Moving Obstacle)**:
+   - Position: (-24.1373, -320.7465) at 0.9s
+   - The obstacle is moving in lanelet 1070.0, which is adjacent to the ego vehicle's lanelet (501.0 at 0.9s).
+   - The relative distance between the ego vehicle and this obstacle is decreasing but remains significant (~15.5m at 0.9s).
+   - The obstacle is decelerating (velocity: 0.8111 m/s, acceleration: -0.5485 m/s²).
+   - The lateral distance is small (~1.8m), but the longitudinal distance is sufficient to avoid collision.
+   - **Risk Score: 4 (Low Risk)** - Minimal risk due to sufficient distance and deceleration.
+
+### JSON Output:
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": null
+}
+```

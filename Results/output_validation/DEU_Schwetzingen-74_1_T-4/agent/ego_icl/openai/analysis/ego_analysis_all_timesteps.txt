@@ -1,0 +1,86 @@
+### Obstacle Analysis
+
+**Obstacle 20058 (Front-right)**
+- **Adjusted Longitudinal Distance:** 17.47 m
+- **Adjusted Lateral Distance:** -11.04 m
+- **Relative Velocity - Longitudinal:** -2.06 m/s
+- **Relative Velocity - Lateral:** 0.00 m/s
+- **Motion Description:** Moving toward the ego vehicle longitudinally, with no lateral relative motion.
+
+**Trajectory Analysis:**
+- Obstacle has been decreasing its longitudinal distance steadily while lateral distance remains grossly unchanged, indicating consistent approach trajectory.
+
+**TTC Calculation (Longitudinal):** 
+- \( \text{TTC} = \frac{17.47 \, \text{m}}{|{-2.06} \, \text{m/s}|} \approx 8.48 \, \text{seconds}\)
+
+**MDC Calculation:**
+- Since obstacles are diagonally positioned, we considered both dimensions.
+- Lateral distance is significantly larger, hence MDC is more than 5 meters.
+
+**Risk Assessment:**
+- TTC is well over 5 seconds, and MDC is greater than 5 meters. This results in a Negligible Risk (5).
+
+---
+
+**Obstacle 20060 (Front-right)**
+- **Adjusted Longitudinal Distance:** 12.07 m
+- **Adjusted Lateral Distance:** -4.93 m
+- **Relative Velocity - Longitudinal:** -0.94 m/s 
+- **Relative Velocity - Lateral:** -0.98 m/s 
+- **Motion Description:** Moving diagonally, both toward longitudinally and moving away laterally.
+
+**Trajectory Analysis:**
+- Obstacle consistently reduces both longitudinal and lateral distance over time, showing slight retreat on lateral path but remains approaching on longitudinal axis.
+
+**TTC Calculation (Longitudinal and Lateral):**
+- **Longitudinal TTC:** \( \text{TTC} = \frac{12.07 \, \text{m}}{|{-0.94} \, \text{m/s}|} \approx 12.84 \, \text{seconds}\)
+- **Lateral distance increases** so no lateral collision is expected.
+
+**MDC Calculation:**
+- Larger of the two distances being analyzed and absence of critical lateral decrease, keeping the MDC over 5 meters.
+
+**Risk Assessment:**
+- Longe-term proximity in longitudinal range is adequately large, and one dimension is increasing in TTC, resulting in a Negligible Risk (5).
+
+---
+
+**Obstacle 20064 (Behind)**
+- **Adjusted Longitudinal Distance:** -0.42 m
+- **Adjusted Lateral Distance:** 0.00 m
+- **Relative Velocity - Longitudinal:** 3.26 m/s 
+- **Relative Velocity - Lateral:** 0.79 m/s 
+- **Motion Description:** Driving towards the ego with direct longitudinal alignment.
+
+**Trajectory Analysis:**
+- Despite closing rapid longitudinal gap, exact alignment raises severe possibility of rear collision.
+
+**TTC Calculation (Longitudinal):**
+- **Longitudinal TTC:** \( \text{TTC} = \frac{0.42 \, \text{m}}{3.26 \, \text{m/s}} \approx 0.13 \, \text{seconds}\)
+
+**MDC Calculation:**
+- Approaching implies hazardous proximity with critical alignment and decreasing distance.
+
+**Risk Assessment:**
+- Immediate trajectory places this obstacle in Critical imminent collision risk with a score of 1 (Extreme Risk).
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20064",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "2"
+    }  
+}
+```
+
+### Conclusion
+- **Obstacle 20064** presents an Extreme Risk due to significantly reduced longitudinal distance alongside closure velocity, indicating a near-immediate collision possibility.
+- Other obstacles remain in the Negligible Risk category due to large distance buffers or diverging paths.

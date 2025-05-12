@@ -1,0 +1,59 @@
+Obstacle 35 (Front-Left):
+
+* Trajectory: This obstacle appears at t=0.4s.  It is approaching the ego vehicle longitudinally while maintaining a large lateral distance.
+* At t=0.9s:
+    * Longitudinal distance: 8.33m
+    * Lateral distance: 22.92m
+    * Longitudinal relative velocity: -7.29 m/s (approaching)
+    * Lateral relative velocity: 0 m/s
+* TTC (longitudinal): 8.33m / 7.29m/s ≈ 1.14s
+* MDC:  Given the large lateral distance and no lateral movement, MDC is primarily determined by the longitudinal distance.  MDC ≈ 8.33m.
+* Risk Assessment: Based on TTC (1.14s < 3.0) and MDC (8.33 > 5.0), Risk Level 3 (Medium).
+
+Obstacle 375 (Front-Right):
+
+* Trajectory: This obstacle has been consistently in the front-right of the ego vehicle and moving closer longitudinally while moving further away laterally.
+* At t=0.9s:
+    * Longitudinal distance: 0.76m
+    * Lateral distance: -15.73m
+    * Longitudinal relative velocity: -7.29 m/s (approaching)
+    * Lateral relative velocity: 0 m/s (no relative lateral movement)
+* TTC (longitudinal): 0.76m / 7.29m/s ≈ 0.10s
+* MDC: The small longitudinal distance (0.76m) and the significant closing velocity raise a serious concern despite the increasing lateral distance. MDC ≈ 0.76m.
+* Risk Assessment: Based on TTC (0.10s < 0.5s) and MDC (0.76m < 1.0m), this is Risk Level 1 (Extreme Risk).
+
+Obstacle 383 (Front):
+
+* Trajectory: Initially approaching longitudinally (t=0.1s) but then starts moving away (t=0.2s onward).
+* At t=0.9s:
+    * Longitudinal distance: 5.08m
+    * Lateral distance: 0.00m
+    * Longitudinal relative velocity: 2.75 m/s (moving away)
+    * Lateral relative velocity: -0.02 m/s
+* TTC (longitudinal): Not applicable due to separating velocity.
+* MDC: While the lateral distance is 0.00m, indicating same-lane alignment, the positive longitudinal velocity shows it's moving away from the ego vehicle. MDC ≈ 5.08m
+* Risk Assessment: Risk Level 4 (Low)
+
+Obstacle 391 (Behind):
+
+* Trajectory: Starts behind and moves farther away, then begins to approach from behind.
+* At t=0.9s:
+    * Longitudinal distance: -12.35m 
+    * Lateral distance: 0.00m
+    * Longitudinal relative velocity: 1.63 m/s (approaching)
+    * Lateral relative velocity: 0.31 m/s
+* TTC (longitudinal): 12.35m / 1.63m/s ≈ 7.58s (Note: We take the absolute value of distance to calculate a positive TTC)
+* MDC: MDC ≈ 12.35m.
+* Risk Assessment: Risk Level 5 (Negligible Risk) due to distance and separating velocity.
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "375",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {}
+}
+```

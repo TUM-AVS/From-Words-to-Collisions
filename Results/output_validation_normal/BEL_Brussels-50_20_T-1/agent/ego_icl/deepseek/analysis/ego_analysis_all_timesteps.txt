@@ -1,0 +1,70 @@
+### Obstacle Analysis (Most Recent Timestep: 0.9 seconds)
+
+#### **Obstacle 30212 (Front-left)**
+- **Adjusted Distance**: Longitudinal 21.09 m, Lateral 2.13 m
+- **Relative Velocity**: Longitudinal 2.90 m/s (moving away), Lateral 0.04 m/s (moving away)
+- **Motion**: Moving away longitudinally and laterally.
+- **TTC**: Not applicable (diverging paths).
+- **MDC**: Current lateral distance is 2.13 m (Low Risk).
+- **Risk**: 4 (Low Risk) – No immediate threat.
+
+#### **Obstacle 30213 (Front-left)**
+- **Adjusted Distance**: Longitudinal 7.12 m, Lateral 9.37 m
+- **Relative Velocity**: Longitudinal -3.53 m/s (approaching), Lateral -7.89 m/s (approaching).
+- **Motion**: Approaching both longitudinally and laterally.
+- **TTC (Longitudinal)**: 7.12 / 3.53 ≈ 2.02 s (Medium Risk).
+- **TTC (Lateral)**: 9.37 / 7.89 ≈ 1.19 s (High Risk).
+- **MDC**: Lateral distance is closing rapidly (9.37 m, but decreasing fast).
+- **Risk**: 2 (High Risk) – Lateral closing speed is concerning.
+
+#### **Obstacle 30215 (Front-left)**
+- **Adjusted Distance**: Longitudinal 5.05 m, Lateral 25.16 m
+- **Relative Velocity**: Longitudinal -3.83 m/s (approaching), Lateral -8.48 m/s (approaching).
+- **Motion**: Approaching both longitudinally and laterally.
+- **TTC (Longitudinal)**: 5.05 / 3.83 ≈ 1.32 s (High Risk).
+- **TTC (Lateral)**: 25.16 / 8.48 ≈ 2.97 s (Medium Risk).
+- **MDC**: Longitudinal distance is more critical (5.05 m).
+- **Risk**: 2 (High Risk) – Longitudinal closing speed is significant.
+
+#### **Obstacle 30217 (Behind)**
+- **Adjusted Distance**: Longitudinal -14.82 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 3.50 m/s (approaching), Lateral 0.00 m/s.
+- **Motion**: Approaching from behind (same lane).
+- **TTC (Longitudinal)**: 14.82 / 3.50 ≈ 4.23 s (Low Risk).
+- **MDC**: Longitudinal distance is 14.82 m (No Risk).
+- **Risk**: 4 (Low Risk) – Approaching but still far.
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "HighRiskObstacle": [
+        {
+            "ObstacleID": "30213",
+            "OverallRiskScore": "2"
+        },
+        {
+            "ObstacleID": "30215",
+            "OverallRiskScore": "2"
+        }
+    ]
+}
+```
+
+### **Key Findings**
+- **No Collision (Risk 0) or Extreme Risk (Risk 1)** detected.
+- **Two High-Risk Obstacles (Risk 2)**:
+  - **30213**: Rapid lateral approach (TTC ≈ 1.19 s).
+  - **30215**: Rapid longitudinal approach (TTC ≈ 1.32 s).
+- **Others (30212, 30217)**: Low or negligible risk.  
+
+**Action Recommended**: Monitor **30213** and **30215** closely due to high closing speeds. Adjust trajectory if necessary.

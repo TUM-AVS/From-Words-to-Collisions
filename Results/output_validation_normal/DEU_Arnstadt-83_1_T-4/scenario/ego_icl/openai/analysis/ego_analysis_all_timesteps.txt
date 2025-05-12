@@ -1,0 +1,57 @@
+### Analysis:
+
+#### Obstacle 20036
+- **Trajectory Analysis**:
+  - Initial Placement: Started at Left of the ego vehicle.
+  - Current Position: Rear-left and moving away.
+  - Motion: Moving away longitudinally and laterally to the left over time.
+
+- **Current Distance**: At the most recent timestep (0.9 seconds), the raw distances are longitudinal -14.66 m and lateral 2.40 m.
+- **Relative Velocity**: Longitudinal -24.33 m/s (moving away), Lateral 0.50 m/s.
+- **Acceleration Trends**: Mostly maintaining negative longitudinal velocity (away), and small lateral positive velocity (moving away laterally)
+
+- **Time-to-Collision (TTC) Calculations**:
+  - Longitudinal TTC: | -14.66 m / -24.33 m/s | ≈ 0.60 seconds (Away; TTC not indicating direct trajectory toward collision)
+  - Lateral TTC: 2.40 m / 0.50 m/s = 4.80 seconds
+
+- **Minimum Distance to Collision (MDC)**: Given current placement and velocity, the trajectories are moving away. MDC is not critical since movement is divergent.
+
+- **Risk Score**: No significant risk of collision; diverging path.
+  - Risk Level: 5 (No Risk)
+
+#### Obstacle 20055
+- **Trajectory Analysis**:
+  - Initial Placement: In Front of the ego vehicle
+  - Current Position: Moving slowly away longitudinally.
+
+- **Current Distance**: At the most recent timestep (0.9 seconds), the raw distance is longitudinal 17.45 m and lateral 0.00 m.
+- **Relative Velocity**: Longitudinal 1.85 m/s (slightly moving away), Lateral 2.01 m/s (also moving laterally away).
+- **Acceleration Trends**: Consistently moving slightly away longitudinally.
+
+- **Time-to-Collision (TTC) Calculations**:
+  - Longitudinal TTC: 17.45 m / 1.85 m/s ≈ 9.43 seconds (moving away)
+  - Lateral: Movement aligned laterally and moving away.
+
+- **Minimum Distance to Collision (MDC)**: The lateral alignment is constant but with moving away trajectory.
+
+- **Risk Score**: No risk apparent as the obstacle is moving away.
+  - Risk Level: 5 (No Risk)
+
+### Conclusion:
+Both obstacles are moving away from the ego vehicle longitudinally and/or laterally. There is no significant risk of collision based on current and predicted future trajectories.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "-",
+        "OverallRiskScore": "-"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "-",
+        "OverallRiskScore": "-"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "All obstacles are moving away from the ego vehicle with no imminent risk of collision."
+}
+```

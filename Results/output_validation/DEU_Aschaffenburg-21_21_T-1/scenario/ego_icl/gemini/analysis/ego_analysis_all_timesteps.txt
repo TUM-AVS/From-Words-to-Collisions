@@ -1,0 +1,82 @@
+Obstacle-by-Obstacle Analysis at timestep 6.4 seconds:
+
+**Obstacle 30277 (Front-Left):**
+
+* Trajectory:  This obstacle has been consistently approaching the ego vehicle both longitudinally and laterally over the observed timesteps.
+* Longitudinal distance: 9.89m 
+* Lateral distance: 12.66m
+* Longitudinal velocity: -0.23 m/s (approaching)
+* Lateral velocity: -7.46 m/s (approaching)
+* TTC Longitudinal: 9.89m / 0.23 m/s = 43.0s
+* TTC Lateral: 12.66m / 7.46 m/s = 1.7s
+* MDC:  Given the distances and angles, the MDC would be greater than the lateral distance.  A precise calculation is not possible without further geometric information but is unnecessary in this case.
+* Risk Assessment: The lowest TTC is 1.7s which falls into Medium Risk (3). The large MDC also supports a Medium Risk assessment. Overall Risk: 3 (Medium Risk)
+
+**Obstacle 30280 (Front-Left):**
+
+* Trajectory: While slightly approaching longitudinally, this obstacle is primarily moving away laterally from the ego vehicle.
+* Longitudinal distance: 13.41m
+* Lateral distance: 14.03m
+* Longitudinal velocity: -0.04 m/s (approaching)
+* Lateral velocity: 5.09 m/s (moving away)
+* TTC Longitudinal: 13.41 / 0.04 = 335.25s (Not applicable for risk assessment since moving away laterally)
+* TTC Lateral: Not applicable since the obstacle is increasing its lateral distance from the ego vehicle.
+* MDC: The trajectory analysis suggests increasing distance, therefore MDC is large.
+* Risk Assessment:  With the obstacle moving away laterally and only minimally approaching longitudinally, the risk is low. Overall Risk: 5 (No Risk).
+
+**Obstacle 30281 (Left):**
+
+* Trajectory: This obstacle has just crossed the ego vehicle's longitudinal path and is almost purely to the left side. It shows minimal lateral movement towards the ego vehicle.
+* Longitudinal distance: 0.00m (Aligned)
+* Lateral distance: 1.91m
+* Longitudinal velocity: -8.51 m/s (Moving away)
+* Lateral velocity: -0.10 m/s (approaching)
+* TTC Longitudinal: Not applicable given alignment and separating trajectory.
+* TTC Lateral: 1.91m / 0.10 m/s = 19.1s
+* MDC: With the obstacle primarily to the side, MDC is close to the lateral distance (1.91m).
+* Risk Assessment: The MDC of 1.91m indicates a Medium Risk (3). Overall Risk: 3 (Medium Risk).
+
+**Obstacle 30285 (Front):**
+
+* Trajectory:  This obstacle is directly in front of the ego vehicle and has been consistently approaching over the timesteps.
+* Longitudinal distance: 0.24m
+* Lateral distance: 0.00m (Aligned - Same Lane)
+* Longitudinal velocity: -0.12 m/s (approaching)
+* Lateral velocity: 0.00 m/s
+* TTC Longitudinal: 0.24m / 0.12 m/s = 2.0s
+* TTC Lateral: Not applicable due to perfect alignment and zero lateral velocity.
+* MDC: MDC effectively equals the longitudinal distance (0.24m) given the alignment.
+* Risk Assessment: Both the extremely low MDC (0.24m) and TTC (2s) indicate a high risk. Overall Risk: 2 (High Risk - prioritizing lower MDC).
+
+**Obstacle 30288 (Behind):**
+
+* Trajectory:  This obstacle is approaching the ego vehicle from behind but remains in the same lane.
+* Longitudinal distance: -8.17m (Behind)
+* Lateral distance: 0.00m (Aligned - Same Lane)
+* Longitudinal velocity: 1.66 m/s (approaching from behind)
+* Lateral velocity: 0.00 m/s
+* TTC Longitudinal: 8.17m / 1.66 m/s = 4.92s
+* TTC Lateral: Not applicable since the obstacle maintains lateral alignment.
+* MDC: Given the rear approach and lane alignment, MDC is effectively the longitudinal distance (8.17m initially).
+* Risk Assessment: The TTC is 4.92 seconds indicating low risk (4). Overall Risk: 4 (Low Risk).
+
+Collision Scenario Determination:
+
+Obstacle 30285 presents a High Risk (2) due to its very close proximity (0.24m) and closing longitudinal velocity.  While no obstacle currently has an Extreme Risk (1) or Collision Risk (0) score, Obstacle 30285 is very near to the Extreme Risk threshold.  Thus, this is considered a high-risk situation requiring immediate action from the autonomous driving system to avoid a potential collision. However, based strictly on the current risk values, it is NOT yet classified as a collision scenario.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 or 1. However, obstacle 30285 poses a high risk (score 2) due to close proximity (0.24m) and approaching velocity, requiring immediate intervention to avoid a potential collision."
+}
+```

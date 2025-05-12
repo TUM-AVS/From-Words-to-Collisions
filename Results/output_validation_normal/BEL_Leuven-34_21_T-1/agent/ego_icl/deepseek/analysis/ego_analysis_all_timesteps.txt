@@ -1,0 +1,81 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+---
+
+#### **Obstacle 30214 (Right of ego car)**
+- **Adjusted Distance**: Longitudinal = 0.00m, Lateral = -10.72m  
+- **Relative Velocity**: Longitudinal = -5.36 m/s (approaching), Lateral = 0.00 m/s  
+- **Motion**: Exact longitudinal alignment (no lateral motion).  
+- **Trajectory**: Consistently closing longitudinally (from 5.16m at 0.1s to 0.00m at 0.9s) with no lateral movement.  
+- **TTC (Longitudinal)**: 0.00m / 5.36 m/s = **0.00s** (collision imminent).  
+- **MDC**: 0.00m (longitudinal alignment).  
+- **Risk**: **0 (Collision)** – Longitudinal distance is 0.00m with closing velocity.  
+
+---
+
+#### **Obstacle 30215 (Front-left of ego car)**
+- **Adjusted Distance**: Longitudinal = 4.04m, Lateral = 10.61m  
+- **Relative Velocity**: Longitudinal = -3.78 m/s (approaching), Lateral = 6.98 m/s (moving away).  
+- **Motion**: Approaching longitudinally but moving away laterally.  
+- **Trajectory**: Longitudinal distance decreases (6.58m → 4.04m), lateral distance increases (6.33m → 10.61m).  
+- **TTC (Longitudinal)**: 4.04m / 3.78 m/s = **1.07s** (High Risk).  
+- **MDC**: Lateral distance is increasing; focus on longitudinal (4.04m).  
+- **Risk**: **2 (High Risk)** – Due to longitudinal TTC < 1.1s.  
+
+---
+
+#### **Obstacle 30217 (Right of ego car)**
+- **Adjusted Distance**: Longitudinal = 0.00m, Lateral = -19.04m  
+- **Relative Velocity**: Longitudinal = -5.10 m/s (approaching), Lateral = 1.01 m/s (approaching).  
+- **Motion**: Exact longitudinal alignment + closing laterally.  
+- **Trajectory**: Longitudinal distance drops to 0.00m (from 4.09m at 0.1s), lateral distance slowly closes (19.52m → 19.04m).  
+- **TTC (Longitudinal)**: 0.00m / 5.10 m/s = **0.00s** (collision).  
+- **MDC**: 0.00m (longitudinal alignment).  
+- **Risk**: **0 (Collision)** – Longitudinal distance is 0.00m with closing velocity.  
+
+---
+
+#### **Obstacle 30218 (Front-right of ego car)**
+- **Adjusted Distance**: Longitudinal = 16.85m, Lateral = -3.65m  
+- **Relative Velocity**: Longitudinal = 7.51 m/s (moving away), Lateral = -2.10 m/s (moving away).  
+- **Motion**: Moving away in both dimensions.  
+- **Trajectory**: Consistently increasing distances (longitudinal: 12.54m → 16.85m; lateral: -0.16m → -3.65m).  
+- **TTC**: Not applicable (diverging paths).  
+- **MDC**: > 5.0m in both dimensions.  
+- **Risk**: **5 (Negligible Risk)**.  
+
+---
+
+#### **Obstacle 30219 (Behind of ego car)**
+- **Adjusted Distance**: Longitudinal = -11.27m, Lateral = 0.00m  
+- **Relative Velocity**: Longitudinal = 4.90 m/s (approaching), Lateral = -2.58 m/s (moving away).  
+- **Motion**: Approaching from behind with exact lateral alignment.  
+- **Trajectory**: Longitudinal distance decreases (-15.66m → -11.27m), lateral stable at 0.00m.  
+- **TTC (Longitudinal)**: 11.27m / 4.90 m/s = **2.30s** (Medium Risk).  
+- **MDC**: Lateral distance is stable (0.00m but no closing velocity).  
+- **Risk**: **3 (Medium Risk)** – Due to longitudinal TTC.  
+
+---
+
+### JSON Summary  
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30214",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30217",
+        "OverallRiskScore": "0"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "30215",
+        "OverallRiskScore": "2"
+    }
+}
+```
+
+### Key Findings:  
+- **Collision (Risk 0)**: Obstacles **30214** and **30217** are longitudinally aligned (0.00m) with closing velocities.  
+- **High Risk (Risk 2)**: Obstacle **30215** has a longitudinal TTC of 1.07s.  
+- Other obstacles pose negligible/medium risk. Immediate action required for collision avoidance.

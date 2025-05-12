@@ -1,0 +1,75 @@
+### Obstacle-by-Obstacle Analysis:
+
+**1. Obstacle 341:**
+- **Location:** Behind the ego car
+- **Adjusted Distance:** Longitudinal = -0.21 m, Lateral = 0.00 m
+- **Relative Velocity:** Longitudinal = 7.10 m/s, Lateral = 1.62 m/s
+- **Analysis:**
+  - **TTC Calculation**: Since the obstacle is behind and approaching with a longitudinal velocity of 7.10 m/s, and the longitudinal distance is -0.21 m (very close), TTC is \[ |-0.21|/7.10\] ≈ 0.03 seconds.
+  - **MDC Estimation**: Adjusted distance is very close to 0, hence MDC ≈ 0.
+  - **Risk Assessment**: Currently, this obstacle is at an imminent collision risk due to a near-zero longitudinal distance and closing velocity. 
+  - **Risk Score:** 0 (Collision occurring if no evasive action is taken).
+
+**2. Obstacle 357:**
+- **Location:** Left of the ego car
+- **Adjusted Distance:** Longitudinal = 0.00 m, Lateral = 2.52 m
+- **Relative Velocity:** Longitudinal = -5.04 m/s, Lateral = 0.06 m/s
+- **Analysis:**
+  - **TTC Calculation**: Negative longitudinal velocity indicates the object is moving away, thus no imminent collision longitudinally.
+  - **MDC Estimation**: Lateral movement away decreases collision risk. 
+  - **Risk Assessment**: Limited risk due to divergent motion.
+  - **Risk Score:** 5 (No risk).
+
+**3. Obstacle 360:**
+- **Location:** Rear-right of the ego car
+- **Adjusted Distance:** Longitudinal = -12.50 m, Lateral = -0.27 m
+- **Relative Velocity:** Longitudinal = 4.88 m/s, Lateral = 1.23 m/s
+- **Analysis:**
+  - **TTC Calculation**: Longitudinal TTC = |-12.5|/4.88 ≈ 2.56 seconds, Lateral TTC remains high due to increasing lateral distance slightly.
+  - **MDC Estimation**: No convergence yet within dangerous proximity.
+  - **Risk Assessment**: Moderate caution advised due to approaching but laterally divergent path.
+  - **Risk Score:** 3 (Medium risk).
+
+**4. Obstacle 3104:**
+- **Location:** Front-right of the ego car
+- **Adjusted Distance:** Longitudinal = 13.66 m, Lateral = -21.85 m
+- **Relative Velocity:** Longitudinal = -0.30 m/s, Lateral = -9.13 m/s
+- **Analysis:**
+  - **TTC Calculation**: Negative longitudinal indicates moving away. Lateral distance increasing.
+  - **MDC Estimation**: Consistently safe.
+  - **Risk Assessment**: No convergence risk.
+  - **Risk Score:** 5 (No risk).
+
+**5. Obstacle 3111:**
+- **Location:** Front-left of the ego car
+- **Adjusted Distance:** Longitudinal = 13.44 m, Lateral = 6.16 m
+- **Relative Velocity:** Longitudinal = -11.54 m/s, Lateral = -1.63 m/s
+- **Analysis:**
+  - **TTC Calculation**: Consistently moving away longitudinally.
+  - **MDC Estimation**: Trajectory poses no collision risk due to divergence.
+  - **Risk Assessment**: Safe.
+  - **Risk Score:** 5 (No risk).
+
+### Trajectory Analysis Across Timesteps
+- **Obstacle 341** has shown consistent closing from behind with high velocity. Closing velocity and close longitudinal distance have incrementally increased risk.
+- **Obstacle 357** maintains a safe diverging trajectory, not presenting a collision threat.
+- Other obstacles exhibit non-threatening spatial orientations, with a combination of diverging velocities and increasing distances.
+
+### Conclusion
+- **Collision Scenario Identified**: Obstacle 341 is at immediate risk of collision due to its close approach and alignment with the ego car.
+
+### JSON Summary
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "341",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "",
+    "OverallRiskScore": ""
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 341 is directly behind with an approaching velocity that brings it into collision proximity in under 0.03 seconds without intervention."
+}
+```

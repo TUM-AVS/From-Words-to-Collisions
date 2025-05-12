@@ -1,0 +1,65 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 4.1s)
+
+#### **Obstacle 20044 (Front-Right)**  
+- **Adjusted Position**: Longitudinal 19.56m, Lateral -3.18m  
+- **Relative Velocity**: Longitudinal -11.32 m/s (approaching), Lateral 10.75 m/s (approaching from right)  
+- **Motion**: Driving toward ego both longitudinally and laterally from the right.  
+
+**Risk Assessment**:  
+1. **Minimum Distance to Collision (MDC)**:  
+   - Lateral distance is 3.18m (Low Risk, 4)  
+   - Longitudinal distance is 19.56m (No Risk, 5)  
+   - **MDC = 3.18m (Low Risk, 4)**  
+
+2. **Time-to-Collision (TTC)**:  
+   - **Longitudinal TTC** = 19.56 / 11.32 ≈ **1.73s (Medium Risk, 3)**  
+   - **Lateral TTC** = 3.18 / 10.75 ≈ **0.30s (Extreme Risk, 1)**  
+   - **Final TTC = 0.30s (Extreme Risk, 1)**  
+
+3. **Overall Risk**:  
+   - **Extreme Risk (1)** due to low lateral TTC (0.30s).  
+
+---
+
+#### **Obstacle 20052 (Collision)**  
+- **Adjusted Position**: Longitudinal 0.00m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 7.14 m/s (still moving forward), Lateral 0.17 m/s (minimal drift).  
+- **Motion**: Already in collision state (both distances = 0.00m).  
+
+**Risk Assessment**:  
+1. **Collision (0)** confirmed by zero distance in both dimensions.  
+
+---
+
+### Trajectory Analysis  
+- **Obstacle 20052**:  
+  - From 3.2s to 4.1s, it rapidly closed the longitudinal gap (from -5.64m to 0.00m) with high relative velocity (~7.2 m/s).  
+  - Collision occurred at **4.0s** and persists at **4.1s**.  
+
+- **Obstacle 20044**:  
+  - Laterally closing fast (TTC = 0.30s), but still 3.18m away.  
+  - Longitudinal distance decreasing but remains large (19.56m).  
+
+---
+
+### Final Determination  
+- **Collision Scenario** due to **Obstacle 20052** (collision confirmed at 4.0s and 4.1s).  
+- **Obstacle 20044** poses **Extreme Risk (1)** but has not yet collided.  
+
+---
+
+### JSON Summary  
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20052",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20044",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 20052 has a confirmed collision (0.00m distance in both dimensions at 4.1s). Obstacle 20044 also presents Extreme Risk (TTC = 0.30s laterally) but has not yet collided."
+}
+```

@@ -1,0 +1,66 @@
+Below is the detailed risk assessment and analysis for each obstacle at the most recent timestamp (0.9 seconds), followed by the JSON summary:
+
+### Obstacle Analysis
+
+#### Obstacle 30221
+- **Direction**: Front
+- **Current Distances**: Adjusted longitudinal: 10.85m, Adjusted lateral: 0.00m
+- **Relative Velocity**: Longitudinal: -5.03 m/s (approaching), Lateral: 0.07 m/s (slight lateral motion)
+- **Trajectory Analysis**: The obstacle is longitudinally aligned with the ego vehicle (lateral distance = 0.00m) and moving toward it with a significant negative relative velocity.
+- **TTC Calculation (Longitudinal)**: |10.85m / 5.03 m/s| = 2.16s
+- **MDC (Longitudinal)**: Given exact lateral alignment, MDC primarily concerns longitudinal distance which is currently decreasing.
+- **Risk Assessment**: Medium risk due to approaching trajectory and TTC between 1.0s and 3.0s.
+
+#### Obstacle 30225
+- **Direction**: Front-left
+- **Current Distances**: Adjusted longitudinal: 19.15m, Adjusted lateral: 2.98m
+- **Relative Velocity**: Longitudinal: -6.11 m/s, no lateral motion.
+- **Trajectory Analysis**: The obstacle is slightly left of the ego and approaches longitudinally.
+- **TTC Calculation (Longitudinal)**: |19.15m / 6.11 m/s| = 3.13s
+- **MDC (Lateral dominant due to front-left position)**: Current lateral distance and trajectory suggest diverging paths.
+- **Risk Assessment**: Low risk due to combined lateral distance and longitudinal TTC indicating minimal immediate threat.
+
+#### Obstacle 30228
+- **Direction**: Front
+- **Current Distances**: Adjusted longitudinal: 19.48m, Adjusted lateral: 0.00m
+- **Relative Velocity**: Longitudinal: -6.11 m/s (approaching), Lateral: 0.00 m/s (aligned)
+- **Trajectory Analysis**: Exact lateral alignment with longitudinal closing velocity.
+- **TTC Calculation (Longitudinal)**: |19.48m / 6.11 m/s| = 3.19s
+- **MDC (Primarily longitudinal)**: Current situation suggests monitoring though not imminent collision.
+- **Risk Assessment**: Medium risk due to decreasing longitudinal distance but sufficient time to collision.
+
+#### Obstacle 30229
+- **Direction**: Front-left
+- **Current Distances**: Adjusted longitudinal: 10.85m, Adjusted lateral: 2.31m
+- **Relative Velocity**: Longitudinal: -5.30 m/s, Lateral: 0.06 m/s
+- **Trajectory Analysis**: The obstacle is moving toward the ego car, but trajectory shows it moving laterally left, indicating a diverging path.
+- **TTC Calculation (Longitudinal)**: |10.85m / 5.30 m/s| = 2.05s
+- **MDC (Consider both distances)**: Shows decreasing longitudinal proximity but lateral increasing, indicating divergence.
+- **Risk Assessment**: Medium risk due to significant longitudinal proximity despite divergence.
+
+#### Obstacle 30241
+- **Direction**: Rear-left
+- **Current Distances**: Adjusted longitudinal: -15.16m, Adjusted lateral: 2.80m
+- **Relative Velocity**: Longitudinal: 0.44 m/s (moving away), Lateral: -0.52 m/s
+- **Trajectory Analysis**: This obstacle is moving away longitudinally but closing laterally.
+- **Lateral TTC**: |2.80m / 0.52 m/s| = 5.38s (low immediate risk)
+- **Risk Assessment**: Low risk as the obstacle is moving away longitudinally and will take time before a lateral threat materializes.
+
+### Conclusion
+In this analysis, no obstacle has an immediate threat level to qualify as a Collision (0) or Extreme Risk (1) scenario.
+
+### JSON Summary
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "None"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "None"
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No single obstacle has a TTC or MDC indicating collision or extreme risk. Current paths allow for monitoring and intervention."
+}
+```

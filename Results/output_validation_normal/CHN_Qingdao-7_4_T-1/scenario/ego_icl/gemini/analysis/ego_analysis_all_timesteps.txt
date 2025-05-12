@@ -1,0 +1,43 @@
+* **Obstacle 30659 (Front):**
+
+    * **Trajectory Analysis:** This obstacle has been consistently in front of the ego vehicle and moving away longitudinally throughout all timesteps. The lateral distance remains at 0.00 m, indicating perfect lateral alignment.  Crucially, although laterally aligned, the longitudinal distance is increasing.
+
+    * **TTC Calculation:** Since the relative longitudinal velocity is positive (2.78 m/s at the last timestep) implying the obstacle is moving away from the ego vehicle, TTC is not relevant for collision assessment.
+
+    * **MDC Calculation:** Given the constant lateral alignment and increasing longitudinal separation, the MDC is effectively the longitudinal distance, which is 11.10 m at the last timestep.
+
+    * **Risk Assessment:** With a large MDC and the obstacle moving away, the risk is minimal.  Risk Score: 5 (No Risk)
+
+
+* **Obstacle 30661 (Behind):**
+
+    * **Trajectory Analysis:** This obstacle has been consistently behind the ego vehicle and moving away throughout all timesteps.  Like Obstacle 30659, it maintains perfect lateral alignment (0.00 m lateral distance). The longitudinal distance, while negative (indicating "behind"), is increasing in magnitude, meaning the obstacle is falling further behind.
+
+    * **TTC Calculation:**  The relative longitudinal velocity is negative (-3.49 m/s), showing that the obstacle is moving away.  TTC is not applicable for collision risk.
+
+    * **MDC Calculation:** With continuous lateral alignment and an increasing longitudinal gap, the MDC is the absolute value of the longitudinal distance which is 8.02 m at the last timestep.
+
+    * **Risk Assessment:**  Given the large MDC and the diverging trajectory, there is no collision risk. Risk Score: 5 (No Risk)
+
+
+* **Collision Scenario Determination:**
+
+    Neither obstacle presents a collision risk. Both are moving away from the ego vehicle, with increasing longitudinal separation. Although there is consistent lateral alignment for both obstacles, this alone does not imply a collision. The increasing longitudinal distances confirm no collision risk. Therefore, this is NOT a collision scenario.
+
+
+* **JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle poses a collision risk. Both obstacles are moving away from the ego vehicle with increasing longitudinal distances, despite lateral alignment."
+}
+```

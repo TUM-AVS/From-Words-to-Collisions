@@ -1,0 +1,48 @@
+### Obstacle Analysis: 30194
+
+#### Trajectory Analysis:
+- **Direction**: Front of ego car (longitudinal alignment)
+- **Longitudinal Distance**: Decreasing from 19.50m to 15.93m over 0.9s (closing at ~3.8 m/s average relative velocity)
+- **Lateral Distance**: Consistently 0.00m (exact alignment, same lane)
+- **Relative Velocity**: Longitudinal ~-3.8 m/s (approaching), lateral ~0.05 m/s (negligible drift)
+- **Acceleration**: Longitudinal ~-0.2 m/s² (slightly increasing closing speed), lateral ~-2.5 m/s² (minor correction)
+
+#### Risk Calculations (Most Recent Timestep: 0.9s):
+1. **Time-to-Collision (TTC)**:
+   - Longitudinal TTC = Distance / |Relative Velocity| = 15.93 / 4.04 ≈ **3.94s**  
+   - Lateral TTC = N/A (lateral velocity negligible)
+   - **TTC Risk**: 4 (Low Risk, 3.0 < TTC ≤ 5.0s)
+
+2. **Minimum Distance to Collision (MDC)**:
+   - Since obstacle is longitudinally aligned (lateral = 0.00m), MDC = longitudinal distance = **15.93m**  
+   - **MDC Risk**: 5 (No Risk, MDC > 5.0m)
+
+3. **Overall Risk**:
+   - Prioritize the higher risk (lower score) between TTC (4) and MDC (5).  
+   - **Final Risk Score**: 4 (Low Risk)  
+
+#### Reasoning:
+- No collision or extreme risk observed. The obstacle is closing longitudinally but at a safe distance (>15m) with moderate TTC (~4s).  
+- Lateral alignment (0.00m) is stable with negligible drift velocity.  
+
+---
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```  
+
+**Conclusion**: Obstacle 30194 poses **Low Risk (Score 4)**. No collision, extreme risk, or high risk scenarios detected.

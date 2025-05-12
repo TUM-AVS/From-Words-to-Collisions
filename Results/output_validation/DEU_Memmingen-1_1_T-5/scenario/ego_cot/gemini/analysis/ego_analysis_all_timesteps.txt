@@ -1,0 +1,54 @@
+### Safety analysis for timestep 3.2s - 4.1s: Here's the evaluation of each obstacle according to the provided metrics and calculations.
+
+The provided scenario describes Obstacle 20052 approaching the ego vehicle from behind and eventually colliding with it.  Obstacle 20044 approaches the ego vehicle from the front-right but does not collide within the given timeframe. The analysis below details the risk assessment for each obstacle at each timestep.
+
+**Methodology:**
+
+Since precise TTC and MDC calculations require constant velocity and acceleration, which isn't the case here, we'll use approximations based on the current relative velocity and distance. We'll focus on the trend of decreasing distance and the magnitude of relative velocity to determine risk. For the overall score, distance risk is weighted more as collision occurs when distance becomes 0 no matter what relative velocity and acceleration will be.
+
+
+### Obstacle Analysis:
+
+**Timesteps 3.2s - 3.9s (Obstacle 20052):**
+
+- **Obstacle ID:** 20052
+- **Distance Risk reason:**  Obstacle 20052 is approaching from behind, with longitudinal distance decreasing from -5.64m to -0.57m.  Lateral distance is also decreasing, indicating a possible rear-end collision.
+- **Distance safety score:** Scores decrease from 3 to 1 as distance decreases over these time steps.
+- **Time Risk reason:** The consistently positive relative longitudinal velocity (around 7.2 m/s) and decreasing distance suggest a high probability of collision if the trend continues. 
+- **Time safety score:** Scores decrease from 2 to 1 as time to collision reduces.
+- **Overall Risk score:** Decreases from 3 to 1.
+
+
+**Timesteps 3.7s - 4.1s (Obstacle 20044):**
+
+- **Obstacle ID:** 20044
+- **Distance Risk reason:** While this obstacle is approaching the ego vehicle from the front-right, the distances are relatively large (23.35m - 19.56m longitudinal and lateral), and it’s moving away longitudinally while approaching laterally.
+- **Distance safety score:** Remains at 4 or 5 due to large DTC
+- **Time Risk reason:**  Lateral closing velocity exists, however large distance makes a collision unlikely in the near future.
+- **Time safety score:** Remain at 4 or 5 due to unlikely collision.
+- **Overall Risk score:** Remain at 4 or 5.
+
+
+**Timesteps 4.0s-4.1s (Obstacle 20052):**
+
+- **Obstacle ID:** 20052
+- **Distance Risk reason:** Collision occurs at 4.0 seconds. 
+- **Distance safety score:** 0
+- **Time Risk reason:**  Collision occurs at 4.0 seconds. 
+- **Time safety score:** 0
+- **Overall Risk score:** 0
+
+
+
+### Summary in JSON Format:
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "20052",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": null, 
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 20052 collides with the ego vehicle at t=4.0s as indicated by zero distance in both longitudinal and lateral directions at this timestep, making it a collision scenario. While obstacle 20044 approach ego vehicle from front right during t=3.7s-4.1s, it does not lead to a collision."
+}
+```

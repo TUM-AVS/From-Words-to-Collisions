@@ -1,0 +1,62 @@
+Obstacle 30294 (Front-Left):
+- Trajectory: Consistently front-left, maintaining lateral distance while slowly approaching longitudinally.
+- At 6.8s: Longitudinal distance 19.38m, lateral 14.86m.  Relative longitudinal velocity -0.44 m/s.
+- TTC (longitudinal): 19.38m / 0.44m/s ≈ 44s. TTC (lateral): N/A as lateral velocity is zero.
+- MDC:  ~19.38m (using longitudinal distance as the primary metric due to the diagonal position and near-zero lateral velocity)
+- Risk: 5 (No Risk)
+
+Obstacle 30295 (Front-Left):
+- Trajectory: Front-left, approaching both longitudinally and laterally. Lateral movement is more pronounced.
+- At 6.8s: Longitudinal distance 15.94m, lateral 13.08m. Relative longitudinal velocity -0.32 m/s, lateral velocity -2.59 m/s.
+- TTC (longitudinal): 15.94m / 0.32m/s ≈ 50s. TTC (lateral): 13.08m / 2.59m/s ≈ 5s.
+- MDC: ~13.08m (using lateral as it represents the more immediate potential for interaction).
+- Risk: 4 (Low Risk)
+
+Obstacle 30298 (Front):
+- Trajectory: Directly in front, gradually approaching longitudinally.
+- At 6.8s: Longitudinal distance 7.74m, lateral 0m. Relative longitudinal velocity -0.44m/s.
+- TTC: 7.74m / 0.44m/s ≈ 17.6s
+- MDC: 7.74m
+- Risk: 4 (Low Risk)
+
+Obstacle 30299 (Front):
+- Trajectory: Directly in front, very close and approaching longitudinally.
+- At 6.8s: Longitudinal distance 0.21m, lateral 0m. Relative longitudinal velocity -0.40m/s.
+- TTC: 0.21m / 0.40m/s ≈ 0.53s
+- MDC: 0.21m
+- Risk: 1 (Extreme Risk) due to very low MDC and TTC.
+
+Obstacle 30305 (Behind):
+- Trajectory: Directly behind, moderately approaching.
+- At 6.8s: Longitudinal distance -8.12m, lateral 0m. Relative longitudinal velocity 1.29m/s.
+- TTC: 8.12m / 1.29m/s ≈ 6.3s
+- MDC: 8.12m
+- Risk: 4 (Low Risk)
+
+
+Obstacle 30306 (Behind):
+- Trajectory: Directly behind, approaching but at a larger distance.
+- At 6.8s: Longitudinal distance -19.96m, lateral 0m. Relative longitudinal velocity 3.06m/s.
+- TTC: 19.96m / 3.06m/s ≈ 6.5s
+- MDC: 19.96m
+- Risk: 5 (No Risk)
+
+
+Collision Scenario Determination:
+Yes, this is a collision scenario. Obstacle 30299 poses an Extreme Risk (Risk score 1) with a very short TTC (0.53s) and an extremely low MDC (0.21m), indicating a very high probability of an imminent collision if the trajectories are maintained.
+
+JSON Summary:
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30299",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30299 has an extremely low MDC (0.21m) and TTC (0.53s), indicating an imminent collision if trajectories are maintained."
+}
+```

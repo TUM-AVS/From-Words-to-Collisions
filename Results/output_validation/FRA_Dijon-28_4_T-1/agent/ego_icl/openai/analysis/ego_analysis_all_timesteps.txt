@@ -1,0 +1,99 @@
+### Obstacle Analysis
+
+#### Obstacle 30530 (Front-left)
+- **Adjusted Distances at 1.9s**: Longitudinal (4.06m), Lateral (5.55m)
+- **Relative Velocities**: Longitudinal (-3.33 m/s), Lateral (-7.10 m/s)
+- **Trajectory**: Approaching from front-left with closing velocities in both dimensions.
+
+**TTC Calculation**:
+- Longitudinal: |TTC| = 4.06 / 3.33 ≈ 1.22 seconds
+- Lateral: |TTC| = 5.55 / 7.10 ≈ 0.78 seconds
+
+**MDC Analysis**:
+- Given both distances are decreasing, the smaller lateral distance is emphasized.
+- Both directions show a high convergence.
+
+**Trajectory and Risk Assessment**:
+- Lateral TTC is particularly concerning which is under 1 second.
+- With closing speed in both components, further decreases in distance pose risk.
+- Risk Score: 2 (High Risk)
+
+#### Obstacle 30532 (Behind)
+- **Adjusted Distances at 1.9s**: Longitudinal (-0.80m), Lateral (0.00m)
+- **Relative Velocities**: Longitudinal (3.89 m/s)
+
+**TTC Calculation**:
+- Longitudinal: |TTC| = 0.80 / 3.89 ≈ 0.21 seconds 
+
+**MDC Analysis**:
+- Alignment with decreasing longitudinal distance at the current velocity suggests high collision risk.
+
+**Trajectory and Risk Assessment**:
+- The longitudinal distance decrease is rapid with potential collision course.
+- Risk Score: 1 (Extreme Risk)
+
+#### Obstacle 30537 (Behind)
+- **Adjusted Distances at 1.9s**: Longitudinal (-12.28m), Lateral (0.00m)
+- **Relative Velocities**: Longitudinal (3.74 m/s)
+
+**TTC Calculation**:
+- Longitudinal: |TTC| = 12.28 / 3.74 ≈ 3.28 seconds 
+
+**MDC Analysis**:
+- Significant distance remains, thus deemed manageable with timely action.
+
+**Trajectory and Risk Assessment**:
+- Given the greater distance, the risk is medium unless rapid changes occur.
+- Risk Score: 3 (Medium Risk)
+
+#### Obstacle 30538 (Front-right)
+- **Adjusted Distances at 1.9s**: Longitudinal (8.74m), Lateral (-15.85m)
+- **Relative Velocities**: Longitudinal (-0.42 m/s), Lateral (6.09 m/s)
+
+**TTC Calculation**:
+- Longitudinal: Unlimited due to negative velocity (increases distance)
+- Lateral remains non-critical
+
+**MDC Analysis**:
+- Path suggests no intersecting course for collision.
+- Distances are diverging rather than converging significantly.
+
+**Trajectory and Risk Assessment**:
+- Negligible risk based on current positions and velocities.
+- Risk Score: 5 (Negligible Risk)
+
+#### Obstacle 30539 (Front-right)
+- **Adjusted Distances at 1.9s**: Longitudinal (8.18m), Lateral (-1.01m)
+- **Relative Velocities**: Longitudinal (-0.36 m/s), Lateral (5.11 m/s)
+
+**TTC Calculation**:
+- Longitudinal: Unlimited due to negative velocity
+- Lateral TTC: |TTC| = 1.01 / 5.11 ≈ 0.20 seconds
+
+**MDC Analysis**:
+- Lateral distance critical and rapidly decreasing formatting collision trajectory.
+
+**Trajectory and Risk Assessment**:
+- Predominantly lateral movement with very short MDC.
+- Risk Score: 1 (Extreme Risk)
+
+### JSON Summary
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "",
+    "OverallRiskScore": ""
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30532, 30539",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": "30530",
+    "OverallRiskScore": "2"
+  }
+}
+```
+
+### Conclusion
+The analysis identified Obstacle 30532 and 30539 as being at extreme risk of collision with the ego vehicle. Obstacle 30530 also presents a significant risk due to its decreasing lateral distance. Immediate corrective action is recommended to mitigate these risks.

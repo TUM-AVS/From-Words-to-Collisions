@@ -1,0 +1,77 @@
+### Obstacle Analysis
+
+#### Obstacle 30650 (Left of Ego)
+- **Relative Velocities**: Longitudinal: -17.83 m/s, Lateral: 0.00 m/s
+- **Motion**: Exact longitudinal alignment, no lateral movement
+- **Risk Assessment**:
+  - **Longitudinal Distance**: 0.00 m
+  - **Lateral Distance**: 11.96 m
+  - **TTC (Longitudinal)**: 0.00 m / 17.83 m/s > 5.0 seconds (No immediate risk longitudinally due to alignment)
+  - **MDC**: As the obstacle is aligned longitudinally but with a sufficient lateral gap, collision is unlikely.
+  - **Conclusion**: Risk mainly driven by lateral distance; no imminent collision risk.
+
+#### Obstacle 30653 (Left of Ego)
+- **Relative Velocities**: Longitudinal: -17.82 m/s, Lateral: -0.41 m/s
+- **Motion**: Exact longitudinal alignment, moving laterally towards the ego vehicle
+- **Risk Assessment**:
+  - **Longitudinal Distance**: 0.00 m
+  - **Lateral Distance**: 19.85 m
+  - **TTC and MDC**: Risk of lateral approach is mitigated by the vast separation in lateral space.
+  - **Conclusion**: Lateral distance is adequate, no risk of collision.
+
+#### Obstacle 30655 (Front of Ego)
+- **Relative Velocities**: Longitudinal: -3.62 m/s, Lateral: 0.01 m/s
+- **Motion**: Driving towards the ego
+- **Risk Assessment**:
+  - **Longitudinal Distance**: 17.94 m
+  - **TTC (Longitudinal)**: TTC = 17.94 m / 3.62 m/s ≈ 4.95 seconds
+  - **MDC**: Longitudinal trajectory indicates a managed approach due to substantial distance.
+  - **Conclusion**: Low risk due to enough time and space to react.
+
+#### Obstacle 30659 (Front-left of Ego)
+- **Relative Velocities**: Longitudinal: -17.83 m/s, Lateral: 0.00 m/s
+- **Motion**: Approaching longitudinally
+- **Risk Assessment**:
+  - **Longitudinal Distance**: 8.07 m
+  - **Lateral Distance**: 1.90 m
+  - **TTC (Longitudinal)**: TTC = 8.07 m / 17.83 m/s ≈ 0.45 seconds
+  - **MDC**: Sufficient separation in both directions.
+  - **Conclusion**: Extreme risk based on the tightening longitudinal gap.
+
+#### Obstacle 30665 (Front-left of Ego)
+- **Relative Velocities**: Longitudinal: -19.39 m/s, Lateral: 0.00 m/s
+- **Motion**: Approaching from the left
+- **Risk Assessment**:
+  - **Longitudinal Distance**: 17.31 m
+  - **Lateral Distance**: 1.90 m
+  - **TTC (Longitudinal)**: TTC = 17.31 m / 19.39 m/s ≈ 0.89 seconds
+  - **MDC**: Adequate lateral space currently, but closing longitudinal gap.
+  - **Conclusion**: High risk based on time to collision.
+
+#### Obstacle 30667 (Behind of Ego)
+- **Relative Velocities**: Longitudinal: -3.34 m/s, Lateral: 0.08 m/s
+- **Motion**: Moving away
+- **Risk Assessment**:
+  - **Longitudinal Distance**: -25.21 m
+  - **TTC**: Obstacle moving away as indicated by negative distance and closing behind.
+  - **MDC**: Not applicable as motion is away.
+  - **Conclusion**: No risk as obstacle is not approaching.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30659",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "30665",
+        "OverallRiskScore": "2"
+    }
+}
+```
+- **Note**: The obstacle 30659 is marked as the extreme risk due to the quickly closing longitudinal distance. Obstacle 30665 is highlighted as high risk due to its trajectory that is approaching the ego vehicle rapidly but with a slightly increased time-to-collision compared to immediate threats.

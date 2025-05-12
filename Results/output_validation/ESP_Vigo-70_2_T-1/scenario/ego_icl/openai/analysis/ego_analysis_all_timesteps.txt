@@ -1,0 +1,68 @@
+### Obstacle-by-Obstacle Analysis at the Most Recent Timestep (8.8 seconds)
+
+#### Obstacle 3393
+- **Position**: Behind the ego car
+- **Real Distances**: Longitudinal -0.20 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 4.61 m/s, Lateral 0.01 m/s
+- **Motion Description**: Obstacle is driving toward the ego car from behind. Exact lateral alignment or unknown case.
+
+**Trajectory Analysis**:
+- The longitudinal distance between the ego vehicle and Obstacle 3393 is decreasing rapidly.
+- From 7.9 seconds to 8.8 seconds, the longitudinal distance decreased from -3.5 m to -0.2 m, while the longitudinal velocity increased, indicating the obstacle is closing in quickly from behind.
+- The lateral distance remains at 0.00 m, meaning both vehicles are aligned laterally, sharing the same lane.
+
+**Calculations**:
+- **TTC Calculation**:
+  - Longitudinal TTC = Adjusted Longitudinal Distance / |Relative Longitudinal Velocity| = 0.20 / 4.61 ≈ 0.043 s
+  - Lateral TTC is not applicable due to no significant lateral movement impacting collision risk.
+- **MDC**:
+  - Closest longitudinal distance is 0.20 m.
+
+**Risk Assessment**:
+- **TTC**: 0.043 s indicates collision is imminent.
+- **MDC**: 0.20 m is well within collision range.
+
+**Risk Score**: 0 (Collision)
+
+#### Obstacle 3394
+- **Position**: Originally Rear-Right, moving Behind the ego vehicle
+- **Current Timestep Adjusted Distances**: Longitudinal approximately -25.05 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal -5.87 m/s, Lateral 10.01 m/s
+- **Motion Description**: Obstacle is moving away longitudinally. Exact lateral alignment or unknown case.
+
+**Trajectory Analysis**:
+- The longitudinal distance is increasing, indicating the obstacle is moving away from behind.
+- Initially moving from Rear-Right, now directly behind, indicating lateral closing motion but not significant enough to indicate imminent collision.
+
+**Calculations**:
+- **TTC Calculation**:
+  - Longitudinal TTC = Adjusted Longitudinal Distance / |Relative Longitudinal Velocity| cannot be calculated as the obstacle is receding (negative velocity).
+  - Lateral velocity indicates increased separation laterally.
+- **MDC**:
+  - Minimum distance far exceeds 5 meters.
+
+**Risk Assessment**:
+- Low risk due to diverging paths and large longitudinal distance.
+
+**Risk Score**: 5 (No Risk)
+
+### Conclusion
+**Is this a Collision Scenario?**: Yes
+
+**Justification**: Obstacle 3393 presents a collision scenario due to a very low longitudinal TTC (0.043 s) and a very small MDC (0.20 m) with converging trajectory.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "3393",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "N/A",
+        "OverallRiskScore": "N/A"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 3393 is rapidly closing in with a TTC of 0.043 s and an MDC of 0.20 m indicating a current collision scenario."
+}
+```

@@ -1,0 +1,55 @@
+* **Obstacle 30618:** This obstacle is moving away longitudinally and poses no longitudinal risk.  Laterally, it is at 1.90m and slightly approaching the ego vehicle.  Given it's moving away longitudinally at -16.91 m/s, a lateral collision is highly unlikely.  We prioritize the longitudinal assessment.
+
+    * **MDC:** 1.90m (Lateral distance is the primary concern)
+    * **TTC (Lateral):**  1.90m / 0.00m/s  (TTC not applicable due to extremely small relative velocity)
+    * **Risk:** 3 (Medium Risk due to proximity)
+
+
+* **Obstacle 30619:**  This obstacle is approaching both longitudinally (2.24m) and laterally (2.13m).  The longitudinal distance is decreasing rapidly across timesteps, indicating a high risk of collision.
+
+    * **MDC:** 2.13m (The smaller of the two distances)
+    * **TTC (Longitudinal):** 2.24m / 12.95m/s = 0.17s
+    * **TTC (Lateral):** 2.13m / 0.84m/s = 2.54s 
+    * **Risk:** 1 (Extreme Risk due to very low longitudinal TTC)
+
+
+* **Obstacle 30620:** This obstacle is approaching both longitudinally (10.65m) and laterally (18.00m). While the distances are larger than Obstacle 30619, they are consistently decreasing across timesteps.
+
+    * **MDC:** 10.65m
+    * **TTC (Longitudinal):** 10.65m / 3.83m/s = 2.78s
+    * **TTC (Lateral):** 18.00m / 3.66m/s = 4.92s
+    * **Risk:** 3 (Medium risk due to decreasing distances and moderate TTC)
+
+
+* **Obstacle 30623:**  This obstacle is in front (10.05m) and slightly to the right (-4.17m) and longitudinally approaching. It's moving away laterally so poses minimal risk.
+
+    * **MDC:**  4.17m
+    * **TTC (Longitudinal):** 10.05m / 2.45m/s = 4.10s
+    * **TTC (Lateral):** Not applicable (moving away laterally)
+    * **Risk:** 4 (Low risk, longitudinally approaching but at a safe distance, laterally moving away)
+
+
+* **Obstacle 30639:** This obstacle is approaching both longitudinally (10.59m) and laterally (6.80m), with distances decreasing across timesteps.
+
+    * **MDC:** 6.80m
+    * **TTC (Longitudinal):** 10.59m / 3.83m/s = 2.77s
+    * **TTC (Lateral):** 6.80m / 3.86m/s = 1.76s
+    * **Risk:** 3 (Medium risk due to converging trajectory and moderate TTC values)
+
+
+
+**Collision Scenario Determination:** Yes, this is a collision scenario. Obstacle 30619 has an Extreme Risk assessment (Risk Score 1) with a very low longitudinal TTC (0.17s), indicating an imminent collision.
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30619",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30619 has a TTC of 0.17 seconds and is rapidly approaching the ego vehicle, indicating an imminent collision."
+}
+```

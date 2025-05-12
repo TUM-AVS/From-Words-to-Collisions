@@ -1,0 +1,56 @@
+At t=0.9s:
+
+Obstacle 30597:
+
+- Trajectory: This obstacle has been consistently in front of the ego vehicle and laterally aligned (lateral distance = 0.00m) throughout the provided timesteps. The longitudinal distance has been decreasing, but the rate of decrease has been slowing down, indicating a decreasing closing velocity.
+- Longitudinal distance: 14.03m
+- Lateral distance: 0.00m
+- Relative longitudinal velocity: -0.30 m/s (moving away)
+- TTC (longitudinal):  14.03 / 0.30 = 46.77 seconds.  Since the closing speed is near zero and decreasing, we need to use the most recent data points to assess TTC. At first the TTC at 0.1s was  TTC = 15.3 / 2.18 = 7 seconds
+- MDC: Since the obstacle is directly in front and laterally aligned, MDC is primarily determined by the longitudinal distance, which is 14.03m.
+
+Risk Assessment (Obstacle 30597):
+- Based on MDC (14.03m) and TTC (46.77s), the risk level is 5 (Negligible Risk).
+
+
+Obstacle 30598:
+
+- Trajectory: This obstacle has been consistently behind the ego vehicle and laterally aligned (lateral distance = 0.00m) throughout the provided timesteps.  Crucially, the longitudinal distance has been decreasing (from -14.47m to -13.34m) indicating the obstacle is gaining on the ego vehicle.
+- Longitudinal distance: -13.34m
+- Lateral distance: 0.00m
+- Relative longitudinal velocity: 2.91 m/s (approaching)
+- TTC (longitudinal): 13.34 / 2.91 = 4.58s.  Since there is clear motion towards ego, TTC is useful.
+- MDC: Since the obstacle is directly behind and laterally aligned, MDC is determined by the longitudinal distance 13.34m
+
+Risk Assessment (Obstacle 30598):
+
+- Based on MDC (13.34m) and TTC (4.58s), the risk level is 4 (Low Risk).
+
+
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+    "MediumRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "LowRiskObstacle": {
+    "ObstacleID": "30598", 
+    "OverallRiskScore": "4"
+  }
+}
+```

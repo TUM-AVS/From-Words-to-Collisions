@@ -1,0 +1,73 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+---
+
+#### **Obstacle 30257 (Front-left)**
+- **Adjusted Distances**: Longitudinal 14.17m, Lateral 10.99m  
+- **Relative Velocity**: Longitudinal -5.14 m/s (approaching), Lateral 6.31 m/s (moving away left)  
+- **Motion**: Driving toward ego longitudinally but moving away laterally.  
+- **TTC Longitudinal**: 14.17 / 5.14 ≈ 2.76s (Medium Risk)  
+- **TTC Lateral**: N/A (diverging paths)  
+- **MDC**: Lateral distance is increasing (9.09m → 10.99m over 0.3s). No collision path.  
+- **Risk**: **5 (No Risk)**  
+
+---
+
+#### **Obstacle 30258 (Front)**
+- **Adjusted Distances**: Longitudinal 10.69m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 1.23 m/s (moving away), Lateral 1.71 m/s (moving away)  
+- **Motion**: Moving away longitudinally and laterally.  
+- **TTC Longitudinal**: N/A (diverging paths)  
+- **TTC Lateral**: N/A (diverging paths)  
+- **MDC**: Lateral alignment but no convergence (distance stable/increasing).  
+- **Risk**: **5 (No Risk)**  
+
+---
+
+#### **Obstacle 30260 (Front-right)**
+- **Adjusted Distances**: Longitudinal 0.48m, Lateral -1.89m  
+- **Relative Velocity**: Longitudinal -3.82 m/s (approaching rapidly), Lateral 0.00 m/s (stable)  
+- **Motion**: Driving toward ego longitudinally and laterally (right side).  
+- **TTC Longitudinal**: 0.48 / 3.82 ≈ **0.126s (Extreme Risk)**  
+- **TTC Lateral**: N/A (stable distance)  
+- **MDC**: 0.48m longitudinal (High Risk) + lateral -1.89m (no convergence).  
+- **Risk**: **1 (Extreme Risk)**  
+  - **Justification**: Longitudinal TTC < 0.5s and distance < 0.5m with closing velocity.  
+
+---
+
+#### **Obstacle 30265 (Rear-right)**
+- **Adjusted Distances**: Longitudinal -4.16m, Lateral -1.90m  
+- **Relative Velocity**: Longitudinal -0.26 m/s (moving away), Lateral 0.01 m/s (negligible)  
+- **Motion**: Moving away longitudinally, negligible lateral motion.  
+- **TTC Longitudinal**: N/A (diverging paths)  
+- **TTC Lateral**: N/A (negligible motion)  
+- **MDC**: No convergence in either dimension.  
+- **Risk**: **5 (No Risk)**  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 30260**: Rapidly closing longitudinal gap (1.94m → 0.48m in 0.9s) with TTC ≈ 0.126s. Extreme risk of frontal collision.  
+- Other obstacles: No concerning trajectories.  
+
+---
+
+### Final Determination  
+- **Collision Scenario**: **YES** (Obstacle 30260 at Extreme Risk with TTC < 0.5s and MDC < 0.5m).  
+
+### JSON Summary  
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30260",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30260 has TTC of 0.126s and longitudinal distance of 0.48m with closing velocity, meeting Extreme Risk criteria (TTC < 0.5s and MDC < 0.5m)."
+}
+```

@@ -1,0 +1,65 @@
+### Analysis of Obstacle 30312:
+
+**Trajectory and Position Analysis:**
+- Over multiple timesteps, Obstacle 30312 is located to the Front-left of the ego vehicle.
+- The longitudinal distance has gradually decreased from 21.85m at 0.1 seconds to 20.22m at 0.9 seconds, indicating a closing distance longitudinally.
+- The lateral distance has increased from 1.49m at 0.1 seconds to 2.42m at 0.9 seconds, suggesting the obstacle is moving further away laterally to the left.
+
+**Motion Description:**
+- The obstacle is consistently reported as moving toward the ego vehicle longitudinally while moving away laterally to the left.
+
+**TTC and MDC Calculations:**
+- **Longitudinal TTC** = 20.22 m / 0.46 m/s = 43.96 seconds (given that the relative longitudinal velocity is negative, which means the obstacle is actually decreasing this closing rate)
+- **Lateral TTC** is not applicable as the obstacle is moving away.
+- **MDC**: Since the longitudinal distance is decreasing but still at 20.22m and with a lateral distance that is growing, the immediate risk is low.
+
+**Risk Assessment:**
+- Given the high TTC and increasing lateral distance, the risk from Obstacle 30312 is negligible. The ego vehicle has sufficient time to change its path if required.
+
+**Assigned Risk Score**: Negligible Risk (5)
+
+---
+
+### Analysis of Obstacle 30321:
+
+**Trajectory and Position Analysis:**
+- Initially behind the ego vehicle as indicated by negative longitudinal distances, Obstacle 30321's position changes to the rear-left.
+- The longitudinal gap increased over time from -16.44m to -22.22m by the 0.9-second mark.
+- Lateral distance increased from an aligned position (0.00m) to 3.12m, indicating movement away to the left.
+
+**Motion Description:**
+- The obstacle has consistently been moving away longitudinally and laterally over time, providing an overall diverging trajectory.
+
+**TTC and MDC Calculations:**
+- **Longitudinal TTC** is not applicable here, as the distances are increasing.
+- **Lateral TTC** is also not a concern as the lateral distance is increasing.
+- **MDC**: Obstacle 30321 poses negligible risk due to the increasing distances and diverging velocities.
+
+**Risk Assessment:**
+- Given the increasing distance and the diverging motion, the calculated collision risk is negligible.
+
+**Assigned Risk Score**: Negligible Risk (5)
+
+---
+
+### Final JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    }
+}
+```
+
+- No obstacles were identified to have a Collision (Score 0), Extreme Risk (Score 1), or High Risk (Score 2) status in the latest timestep of this given scenario.
+- Both obstacles are categorized under Negligible Risk (Score 5) due to increasing distances and divergent paths.

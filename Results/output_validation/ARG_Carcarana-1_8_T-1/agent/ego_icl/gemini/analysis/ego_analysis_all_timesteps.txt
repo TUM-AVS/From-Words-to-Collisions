@@ -1,0 +1,41 @@
+* **Obstacle 341:** This obstacle is approaching from behind and is almost directly behind the ego vehicle (lateral distance ≈ 0).  The longitudinal distance has been rapidly decreasing across all timesteps. At the last timestep, the longitudinal distance is -1.58m (meaning it's behind), and the relative longitudinal velocity is 6.53 m/s.  This closing velocity with such a small distance indicates extremely high risk.
+    * TTC (longitudinal): 1.58 / 6.53 = 0.24s (Extreme Risk)
+    * MDC: ≈ 1.58m (High Risk)
+    * Overall Risk: **Extreme (1)** due to very low TTC.
+
+* **Obstacle 357:** This obstacle is to the left of the ego vehicle, and the longitudinal distance is consistently 0.00m, meaning they are aligned in the longitudinal direction. The lateral distance is 2.53m, and relative lateral velocity is a small positive value of 0.13m/s but the relative acceleration is -0.11 m/s² which means the relative velocity will decrease so  is only a slight risk. 
+    * TTC (lateral): 2.53/0.13 ≈ 19.46s  (Negligible Risk)
+    * MDC: ≈ 2.53m (Low Risk)
+    * Overall Risk: **Low (4)**
+
+* **Obstacle 360:** This obstacle is approaching from the rear-right.  While both longitudinal and lateral distances are decreasing, they are not critically low yet.
+    * TTC (longitudinal): 13.38 / 4.41 ≈ 3.03s (Medium Risk)
+    * TTC (lateral): 0.95 / 1.32 ≈ 0.72s (High Risk)
+    * MDC: Since both distances are decreasing and relatively small, and it's diagonal from behind, we need to prioritize the higher risk - High Risk because the minimum distance after one time step is smaller than 1m.
+    * Overall Risk: **High (2)**
+
+* **Obstacle 3104:** This obstacle is far to the front-right and moving further away laterally. While the longitudinal distance shows it is slowly getting closer longitudinally but with the negative relative velocity so we consider there is no risk longitudinally. In lateral direction, it is moving away from the ego car so there is no risk.
+    * TTC (longitudinal): 13.68 / 0.35 ≈ 39.08s (Negligible Risk)
+    * TTC (lateral): 20.96 / 8.9 ≈ 2.35s (Low Risk)
+    * MDC: ≈ 25.58m  (Negligible Risk).
+    * Overall Risk: **Low (4)** because the lateral distance is relatively small and if the direction change, it could cause risk.
+
+* **Obstacle 3111:** This obstacle is in the front-left and approaching the ego vehicle. The longitudinal distance is decreasing.
+    * TTC (longitudinal): 15.50 / 11.13 ≈ 1.39s (Medium Risk)
+    * TTC (lateral): 6.97 / 1.79 ≈ 3.89s (Low Risk)
+    * MDC: ≈ 17.04m  (Negligible Risk)
+    * Overall Risk: **Medium (3)**
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "341",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "341",
+    "OverallRiskScore": "1"
+  }
+}
+```

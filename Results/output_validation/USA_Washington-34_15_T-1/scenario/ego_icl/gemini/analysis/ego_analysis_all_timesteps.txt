@@ -1,0 +1,54 @@
+* **Obstacle 30573:** This obstacle is in the front-left and approaching longitudinally (-0.56 m/s) while maintaining lateral distance (0.00 m/s).  Over the past few timesteps, its longitudinal velocity has been decreasing (becoming less negative), meaning its approach is slowing.  Given the distances (19.79m longitudinal, 4.47m lateral), the risk is low.
+    * **TTC (longitudinal):** 19.79m / 0.56 m/s = 35.34s
+    * **MDC:** ~4.47m (primarily lateral)
+    * **Risk Score:** 4 (Low)
+
+* **Obstacle 30575:** Located front-right and moving away both longitudinally (3.27 m/s) and laterally (-8.79 m/s). This obstacle is clearly diverging.
+    * **TTC (longitudinal):**  N/A (moving away)
+    * **MDC:**  >5m
+    * **Risk Score:** 5 (No Risk)
+
+* **Obstacle 30576:** This obstacle was initially front-left and has crossed to the front-right, moving away longitudinally (1.86 m/s) and laterally (-7.35 m/s).  There is no risk of collision.
+    * **TTC (longitudinal):**  N/A (moving away)
+    * **MDC:**  >5m
+    * **Risk Score:** 5 (No Risk)
+
+* **Obstacle 30578:** Situated front-left, it is moving away longitudinally (1.28 m/s) but approaching laterally (-4.13 m/s). The lateral movement is concerning, but the lateral distance is still significant (8.21 m), though it is decreasing over the past time stamps. The lateral distance decreases at a rate of around 0.4m/s - 0.6 m/s, while the longitudinal distance increases (becomes less negative) by approximately 0.14 m/s on average.
+
+    * **TTC (lateral):** 8.21m / 4.13 m/s = 1.99s
+    * **MDC:** ~8.21m (primarily lateral).
+    * **Risk Score:** 3 (Medium). The lateral approach requires continued attention and monitoring of the longitudinal behavior. 
+
+* **Obstacle 30579:** This obstacle is directly in front (0.00m lateral) and very close longitudinally (0.24m).  It is approaching longitudinally at -0.56 m/s. This is an extremely high-risk situation.
+    * **TTC (longitudinal):** 0.24m / 0.56m/s = 0.43s
+    * **MDC:** 0.24m
+    * **Risk Score:** 1 (Extreme Risk) - Imminent collision likely.
+
+* **Obstacle 30581:** Front-left and moving away longitudinally (5.56 m/s) while slightly approaching laterally (-4.32 m/s). Given the substantial longitudinal distance (19.23m) and the fact it's increasing rapidly, the minor lateral movement poses no immediate threat.
+    * **TTC (longitudinal):** N/A (moving away)
+    * **MDC:** >5m
+    * **Risk Score:** 5 (No Risk)
+
+
+* **Obstacle 30582:** Front-left, this obstacle is moving away both longitudinally (1.23 m/s) and laterally (-4.02 m/s). There is no risk.
+    * **TTC (longitudinal):** N/A (moving away)
+    * **MDC:** > 5m
+    * **Risk Score:** 5 (No Risk)
+
+
+**Conclusion:**
+
+This IS a collision scenario due to Obstacle 30579 presenting an Extreme Risk (Risk Score 1) with a very low TTC (0.43s) and close proximity (0.24m) while approaching the ego vehicle longitudinally. While the Obstacle 30578 seems to be a concern too, the high risk of the Obstalce 30579 necessitates attention before it's too late.
+
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30579",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30579 poses an Extreme Risk (Score 1) due to very low TTC (0.43s) and close proximity (0.24m) while approaching longitudinally."
+}
+```

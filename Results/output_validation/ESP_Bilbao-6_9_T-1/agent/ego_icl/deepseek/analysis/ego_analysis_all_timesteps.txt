@@ -1,0 +1,74 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30689 (Front-left of ego car)
+- **Most Recent Timestep (13.3s):**
+  - Adjusted longitudinal distance: 14.88 m
+  - Adjusted lateral distance: 10.35 m
+  - Relative velocity: longitudinal -4.43 m/s (approaching), lateral 8.47 m/s (moving away)
+  - Motion: Driving toward ego longitudinally, moving away laterally to the left.
+
+**Trajectory Analysis:**
+- Longitudinal distance is decreasing (from 19.52m to 14.88m over 0.9s), indicating closing velocity.
+- Lateral distance is increasing (from 2.62m to 10.35m over 0.9s), indicating diverging paths.
+
+**TTC Calculation:**
+- Longitudinal TTC = 14.88 / 4.43 ≈ 3.36 seconds (Medium Risk, but lateral distance is increasing).
+- Lateral TTC is not applicable (moving away).
+
+**MDC Calculation:**
+- The obstacle is moving away laterally, so the MDC is effectively the current lateral distance (10.35m), which is No Risk (5).
+
+**Overall Risk:**
+- The obstacle is moving away laterally, and while it is approaching longitudinally, the lateral divergence ensures no collision risk. 
+- **Overall Risk Score: 5 (Negligible Risk)**
+
+---
+
+#### Obstacle 30693 (Front of ego car)
+- **Most Recent Timestep (13.3s):**
+  - Adjusted longitudinal distance: 0.54 m
+  - Adjusted lateral distance: 0.00 m (exact alignment)
+  - Relative velocity: longitudinal -2.62 m/s (approaching), lateral 0.00 m/s (no lateral movement)
+  - Motion: Driving toward ego longitudinally, exact lateral alignment.
+
+**Trajectory Analysis:**
+- Longitudinal distance is decreasing rapidly (from 3.52m to 0.54m over 0.9s).
+- Lateral distance remains 0.00m (same lane alignment).
+
+**TTC Calculation:**
+- Longitudinal TTC = 0.54 / 2.62 ≈ 0.206 seconds (Extreme Risk, TTC < 0.5s).
+- Lateral TTC is not applicable (no lateral movement).
+
+**MDC Calculation:**
+- Since the obstacle is longitudinally aligned (lateral distance = 0.00m), the MDC is the longitudinal distance (0.54m), which falls in the High Risk range (0.5 < MDC ≤ 1.0m).
+
+**Overall Risk:**
+- The TTC indicates Extreme Risk (1), while MDC indicates High Risk (2). We prioritize the higher risk (lower score).
+- **Overall Risk Score: 1 (Extreme Risk)**  
+  This obstacle is on a collision course with the ego vehicle within 0.206 seconds if no evasive action is taken.
+
+---
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30693",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```
+
+### Key Findings:
+- **Obstacle 30693** is at **Extreme Risk (1)** due to very low TTC (0.206s) and small longitudinal distance (0.54m) with closing velocity. Immediate evasive action is required to avoid collision.
+- **Obstacle 30689** poses **Negligible Risk (5)** as it is moving away laterally despite approaching longitudinally.
+- No collision is currently occurring, but Obstacle 30693 is imminent if trajectories remain unchanged.

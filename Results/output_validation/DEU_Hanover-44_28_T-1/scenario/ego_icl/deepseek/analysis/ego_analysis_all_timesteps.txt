@@ -1,0 +1,74 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 5.7s)
+
+#### Obstacle 30730 (Front)
+- **Position**: Front of ego car (longitudinal 0.20m, lateral 0.00m)
+- **Relative Velocity**: Longitudinal -3.78 m/s (approaching), Lateral 0.00 m/s (no lateral motion)
+- **Motion Description**: Exact lateral alignment, driving toward ego longitudinally
+- **Trajectory Analysis**:
+  - Longitudinal distance decreases from 3.75m (4.8s) to 0.20m (5.7s) at ~3.95 m/s closing speed
+  - Lateral distance remains 0.00m (same lane alignment)
+  - Acceleration shows slight deceleration (longitudinal -0.50 m/s²), but closing speed remains high
+
+- **TTC Calculation**:
+  - Longitudinal TTC = 0.20m / 3.78 m/s = 0.053s (Extreme Risk, TTC ≤ 0.5s)
+  - Lateral TTC = N/A (no lateral motion)
+
+- **MDC Calculation**:
+  - Longitudinal MDC = 0.20m (Extreme Risk, MDC < 0.5m)
+  - Lateral MDC = 0.00m (Collision Risk if longitudinal distance also near zero)
+
+- **Risk Assessment**:
+  - Longitudinal: Extreme Risk (TTC = 0.053s, MDC = 0.20m)
+  - Lateral: Collision Risk (0.00m alignment with closing longitudinal distance)
+  - **Overall Risk Score**: 0 (Collision)
+
+#### Obstacle 30733 (Front-Right)
+- **Position**: Front-right of ego car (longitudinal 0.17m, lateral -5.39m)
+- **Relative Velocity**: Longitudinal -3.78 m/s (approaching), Lateral 0.00 m/s (no lateral motion)
+- **Motion Description**: No lateral relative motion, driving toward ego longitudinally
+- **Trajectory Analysis**:
+  - Longitudinal distance decreases from 3.70m (4.8s) to 0.17m (5.7s)
+  - Lateral distance remains ~5.40m (stable)
+  - No lateral convergence (safe lateral separation)
+
+- **TTC Calculation**:
+  - Longitudinal TTC = 0.17m / 3.78 m/s = 0.045s (Extreme Risk, TTC ≤ 0.5s)
+  - Lateral TTC = N/A (no lateral motion)
+
+- **MDC Calculation**:
+  - Longitudinal MDC = 0.17m (Extreme Risk, MDC < 0.5m)
+  - Lateral MDC = 5.39m (No Risk, MDC > 5.0m)
+
+- **Risk Assessment**:
+  - Longitudinal: Extreme Risk (TTC = 0.045s, MDC = 0.17m)
+  - Lateral: No Risk (stable large lateral distance)
+  - **Overall Risk Score**: 1 (Extreme Risk)
+
+---
+
+### Collision Scenario Determination
+- **Obstacle 30730**: 
+  - Collision Risk (Score 0) due to 0.20m longitudinal distance + 0.00m lateral alignment with high closing speed.
+  - Actual collision is imminent (TTC ≈ 0.053s).
+- **Obstacle 30733**: 
+  - Extreme Risk (Score 1) due to 0.17m longitudinal distance with high closing speed, but safe lateral separation prevents collision.
+
+This is a **collision scenario** because Obstacle 30730 is in a collision state (Risk 0), and Obstacle 30733 is at extreme risk (Risk 1).
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30730",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30733",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30730 has 0.20m longitudinal distance and 0.00m lateral alignment with high closing speed (TTC = 0.053s), indicating an actual collision. Obstacle 30733 is at extreme risk (TTC = 0.045s) but maintains safe lateral separation."
+}
+```

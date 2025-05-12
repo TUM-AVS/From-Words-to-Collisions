@@ -1,0 +1,82 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+---
+
+#### **Obstacle 35** (Front-left)
+- **Adjusted Position**: Longitudinal 8.38m, Lateral 1.79m  
+- **Relative Velocity**: Longitudinal -9.90 m/s (approaching), Lateral 0.01 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally, moving away laterally to the left.  
+
+**Risk Assessment**:
+1. **Longitudinal TTC**: 8.38 / 9.90 ≈ 0.85s (High Risk)  
+2. **Lateral TTC**: Not applicable (moving away)  
+3. **MDC**: Lateral distance is stable/increasing (1.79m). Longitudinal distance is closing but still > 3.0m (Medium Risk).  
+   - **Overall Risk**: High Risk (2) due to longitudinal TTC < 1.0s.  
+
+---
+
+#### **Obstacle 313** (Front-left)
+- **Adjusted Position**: Longitudinal 16.34m, Lateral 1.68m  
+- **Relative Velocity**: Longitudinal -9.53 m/s (approaching), Lateral 0.01 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally, moving away laterally to the left.  
+
+**Risk Assessment**:
+1. **Longitudinal TTC**: 16.34 / 9.53 ≈ 1.71s (Medium Risk)  
+2. **Lateral TTC**: Not applicable (moving away)  
+3. **MDC**: Lateral distance stable (1.68m). Longitudinal distance > 5.0m (No Risk).  
+   - **Overall Risk**: Medium Risk (3) due to longitudinal TTC < 3.0s.  
+
+---
+
+#### **Obstacle 317** (Front-left)
+- **Adjusted Position**: Longitudinal 23.38m, Lateral 3.69m  
+- **Relative Velocity**: Longitudinal -8.35 m/s (approaching), Lateral -0.67 m/s (approaching from left)  
+- **Motion**: Driving toward ego longitudinally and laterally.  
+
+**Risk Assessment**:
+1. **Longitudinal TTC**: 23.38 / 8.35 ≈ 2.80s (Medium Risk)  
+2. **Lateral TTC**: 3.69 / 0.67 ≈ 5.51s (No Risk)  
+3. **MDC**: Lateral distance is large (3.69m), but closing. Longitudinal distance > 5.0m.  
+   - **Overall Risk**: Medium Risk (3) due to longitudinal TTC < 3.0s.  
+
+---
+
+#### **Obstacle 335** (Left)
+- **Adjusted Position**: Longitudinal 0.00m (aligned), Lateral 1.89m  
+- **Relative Velocity**: Longitudinal -10.55 m/s (approaching), Lateral -0.00 m/s (minimal lateral motion)  
+- **Motion**: Exact longitudinal alignment, minimal lateral movement.  
+
+**Critical Risk Assessment**:
+1. **Longitudinal TTC**: 0.00m alignment with closing velocity (Extreme Risk).  
+   - If lateral distance were also closing, this would be Collision (0).  
+2. **Lateral TTC**: Not applicable (stable distance).  
+3. **MDC**: Lateral distance is 1.89m (Low Risk), but longitudinal alignment with closing velocity is critical.  
+   - **Overall Risk**: Extreme Risk (1) due to longitudinal alignment and closing velocity.  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "335",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "35",
+        "OverallRiskScore": "2"
+    }
+}
+```
+
+### Key Findings:
+- **Obstacle 335** is at **Extreme Risk (1)** due to exact longitudinal alignment with high closing velocity (-10.55 m/s). While lateral distance is stable (1.89m), the longitudinal trajectory poses imminent danger.  
+- **Obstacle 35** is at **High Risk (2)** due to rapid longitudinal closure (TTC ≈ 0.85s).  
+- No active collision (Risk 0) observed.  
+- Other obstacles (313, 317) are at Medium Risk (3) due to manageable TTCs.  
+
+**Action Required**: Immediate braking or evasive action for Obstacle 335. Monitor Obstacle 35 closely.

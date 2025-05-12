@@ -1,0 +1,41 @@
+* **Obstacle 3243:** To the right, longitudinally aligned (0.00m), lateral distance -22.39m. Moving away laterally. No risk of collision. Risk score: 5.
+
+* **Obstacle 3247:** Front-right, longitudinal distance 8.70m, lateral distance -11.49m.  Moving closer longitudinally (-4.70 m/s), and away laterally (-4.91 m/s).
+    - TTC Longitudinal: 8.70m / 4.70 m/s = 1.85s (Medium Risk)
+    - TTC Lateral: Not applicable, diverging
+    - MDC: Approximately 8.70 based on longitudinal distance and movement (using the smaller dimension and confirming with trajectory), which means a Medium Risk (3).
+    - Overall Risk Score: 3 (Medium).
+
+* **Obstacle 3249:** Front-left, longitudinal distance 2.81m, lateral distance 2.06m. Moving further away longitudinally (5.52 m/s) and laterally (0.24 m/s). No risk of collision. Risk score: 5.
+
+* **Obstacle 3253:** Rear-right, longitudinal distance -9.34m, lateral distance -22.93m. Moving away both longitudinally and laterally. No risk of collision. Risk score: 5.
+
+* **Obstacle 3254:** Behind, longitudinal distance -0.17m, lateral distance 0.00m. Moving rapidly closer longitudinally (4.57 m/s) and in exact lateral alignment. 
+    - TTC Longitudinal: 0.17m / 4.57 m/s = 0.04s (Extreme Risk)
+    - MDC: Approx 0.17m (Extreme Risk)
+    - Overall Risk Score: 1 (Extreme).
+
+* **Obstacle 3255:** Behind, longitudinal distance -16.32m, lateral distance 0.00m. Approaching longitudinally (5.45 m/s), exact lateral alignment.
+    - TTC Longitudinal: 16.32 / 5.45 = 2.99s (Medium Risk)
+    - MDC: Approx 0, but not a collision as motion is only longitudinal with lateral alignment.
+    - Overall Risk Score: 3 (Medium).
+
+
+**Collision Scenario Determination:**
+
+Yes, this is a collision scenario. Obstacle 3254 poses an Extreme Risk (1) with a very low TTC (0.04s) and MDC (0.17m), indicating an imminent rear-end collision.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3254",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 3254 has an extremely low TTC (0.04s) and MDC (0.17m) with near zero distance and high relative velocity longitudinally from behind.  Obstacle is very close and converging, indicating a very likely rear-end collision."
+}
+```

@@ -1,0 +1,70 @@
+## Obstacle-by-Obstacle Analysis
+
+### Obstacle 30212
+- **Trajectory Analysis**:
+  - From the previous timesteps, 30212 is consistently moving away longitudinally but approaching slightly laterally towards the ego.
+  - At the most recent timestep (0.9s): Longitudinal distance = 21.09m, Lateral distance = 2.13m
+  - Relative velocities: Longitudinal = +2.90 m/s, Lateral = ~0.00 m/s (slightly moving away)
+
+- **TTC and MDC Calculations**:
+  - **Longitudinal TTC**: 21.09m / 2.90 m/s = 7.27s (No Risk)
+  - **Lateral TTC**: Not applicable as movement is away.
+  - **MDC**: Since it is moving away longitudinally and minor lateral offset exists, there's no imminent intersection, hence MDC > 5m (No Risk)
+  - **Risk Score**: 5 (No Risk)
+
+### Obstacle 30213
+- **Trajectory Analysis**:
+  - Moving consistently towards the ego vehicle both longitudinally and laterally.
+  - At the most recent timestep (0.9s): Longitudinal distance = 7.12m, Lateral distance = 9.37m
+  - Relative velocities: Longitudinal = -3.53 m/s, Lateral = -7.89 m/s
+
+- **TTC and MDC Calculations**:
+  - **Longitudinal TTC**: 7.12m / 3.53 m/s = 2.02s (Medium Risk)
+  - **Lateral TTC**: 9.37m / 7.89 m/s = 1.19s (Medium Risk)
+  - **MDC**: Utilizing the projected paths, the MDC, considering both narrowing distances, revolves around potential intersection paths. Estimate MDC ≈ 1m (High Risk)
+  - **Risk Score**: 2 (High Risk, due to MDC being limiting factor)
+
+### Obstacle 30215
+- **Trajectory Analysis**:
+  - Steadily closing in longitudinally and laterally.
+  - At the most recent timestep (0.9s): Longitudinal distance = 5.05m, Lateral distance = 25.16m
+  - Relative velocities: Longitudinal = -3.83 m/s, Lateral = -8.48 m/s
+
+- **TTC and MDC Calculations**:
+  - **Longitudinal TTC**: 5.05m / 3.83 m/s = 1.32s (Medium Risk)
+  - **Lateral TTC**: 25.16m / 8.48 m/s = 2.97s (Medium Risk)
+  - **MDC**: Taking into account the rate of closure in both axes, projected MDC convolution suggests ~2m (Medium Risk)
+  - **Risk Score**: 3 (Medium Risk)
+
+### Obstacle 30217
+- **Trajectory Analysis**:
+  - Positioned behind the ego car but on an aligned trajectory.
+  - At the most recent timestep (0.9s): Longitudinal distance = 14.82m behind, Lateral distance = 0.00m
+  - Relative velocities: Longitudinal = 3.50 m/s
+
+- **TTC and MDC Calculations**:
+  - **Longitudinal TTC**: 14.82m / 3.50 m/s = 4.23s (Low Risk)
+  - **Lateral TTC**: Not relevant as lateral distance remains null.
+  - **MDC**: While trajectories converge longitudinally, the ego remains ahead, MDC ≥ 14.82 m if velocities maintained (No Risk)
+  - **Risk Score**: 4 (Low Risk)
+
+## Conclusion
+Despite varying degrees of trajectory convergence, none of the recorded scenarios suggest an immediate collision. The closest obstacle (30213) has a high risk (MDC governed) but does not breach the extreme or collision threshold.
+
+## JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle presents an imminent collision scenario; closest risks are managed with TTC and MDC indicating non-converging paths in immediate timeline."
+}
+```
+
+Please let me know if there are any changes or additional analyses required.

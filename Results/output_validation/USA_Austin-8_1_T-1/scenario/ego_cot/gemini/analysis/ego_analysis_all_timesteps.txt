@@ -1,0 +1,57 @@
+### Safety analysis for timestep 3.2s: Here's the evaluation of each obstacle according to the provided metrics and calculations.
+
+### Obstacle Analysis:
+
+- **Obstacle ID:** 3298
+- **Distance Risk reason:** Obstacle is at a safe distance (15.87m longitudinal and lateral) in the front.
+- **Distance safety score:** 5
+- **Time Risk reason:** Although approaching, the relative velocity and acceleration suggest sufficient time to react.
+- **Time safety score:** 4
+- **Overall Risk score:** 4
+
+- **Obstacle ID:** 3300
+- **Distance Risk reason:** Obstacle is at a safe distance (15.82m longitudinal and lateral) in the front-right.
+- **Distance safety score:** 5
+- **Time Risk reason:** Similar to obstacle 3298, sufficient time to react.
+- **Time safety score:** 4
+- **Overall Risk score:** 4
+
+- **Obstacle ID:** 3301
+- **Distance Risk reason:** Obstacle is very close (3.24m longitudinal and lateral) in the front. High risk of collision.
+- **Distance safety score:** 2
+- **Time Risk reason:**  The closing velocity suggests a high probability of collision if no action is taken.
+- **Time safety score:** 2
+- **Overall Risk score:** 2
+
+### Safety analysis for timestep 3.3s - 4.1s:
+
+(Analysis for each timestep from 3.3s to 4.1s would follow the same structure as above for timestep 3.2s.  The key observation is that Obstacle 3301 continues to approach the ego vehicle, with distances decreasing and TTC values shrinking, escalating the risk. Below is a summarized analysis focusing on the critical obstacle.)
+
+**Obstacle 3301 Risk Progression:**
+
+| Time (s) | Distance (m) | Relative Velocity (m/s) | Risk Score |
+|---|---|---|---|
+| 3.3 | 2.71 | -4.49 | 2 |
+| 3.4 | 2.22 | -3.95 | 1 |
+| 3.5 | 1.77 | -3.25 | 1 |
+| 3.6 | 1.38 | -2.91 | 1 |
+| 3.7 | 1.05 | -2.45 | 1 |
+| 3.8 | 0.75 | -1.91 | 1 |
+| 3.9 | 0.51 | -1.65 | 1 |
+| 4.0 | 0.31 | -1.35 | 1 |
+| 4.1 | 0.14 | -0.98 | 1 |
+
+
+### Summary in JSON Format:
+
+```json
+{
+  "CollisionObstacle": null, 
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3301",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": false,
+  "Justification": "While no collision is registered yet, Obstacle 3301 poses an extreme risk, consistently approaching the ego vehicle with a very low TTC and MDC over multiple timesteps.  Intervention is critical to avoid a collision."
+}
+```

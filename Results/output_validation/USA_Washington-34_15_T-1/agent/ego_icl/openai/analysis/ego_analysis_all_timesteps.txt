@@ -1,0 +1,100 @@
+**Obstacle Analysis**
+
+### Obstacle 30573
+- **Position:** Front-left
+- **Latest Adjusted Distances:** Longitudinal 19.93 m, Lateral 4.48 m
+- **Relative Velocity:** Longitudinal -0.73 m/s, Lateral 0.00 m/s
+- **Motion:** Driving toward the ego vehicle longitudinally, no lateral movement
+- **Trajectory Analysis:** The obstacle is approaching the ego car longitudinally, but doing so slowly due to a small change in velocity (-0.73 m/s).
+- **MDC and TTC:** 
+  - Longitudinal MDC = 19.93 m / 0.73 ≈ 27.30 seconds
+  - Lateral MDC = 4.48 m
+
+- **Risk Level:** Low Risk (4) due to sufficient distance and slow relative approach. 
+
+### Obstacle 30575
+- **Position:** Front-right
+- **Latest Adjusted Distances:** Longitudinal 18.27 m, Lateral -13.00 m
+- **Relative Velocity:** Longitudinal 2.90 m/s, Lateral -8.47 m/s
+- **Motion:** Moving away longitudinally and laterally to the right
+- **Trajectory Analysis:** Consistently moving further in both dimensions, reducing collision risk.
+- **MDC and TTC:** 
+  - Longitudinal MDC = N/A since the obstacle is moving away
+  - Lateral MDC = N/A since the obstacle is moving away
+- **Risk Level:** Negligible Risk (5)
+
+### Obstacle 30576
+- **Position:** Front
+- **Latest Adjusted Distances:** Longitudinal 13.17 m, Lateral 0.00 m
+- **Relative Velocity:** Longitudinal 1.61 m/s, Lateral -7.04 m/s
+- **Motion:** Moving away longitudinally
+- **Trajectory Analysis:** Increasing longitudinal distance, removing risk of frontal collision.
+- **MDC and TTC:** 
+  - Longitudinal MDC = N/A since the obstacle is moving away
+  - Note: Lateral velocity is irrelevant due to zero lateral distance.
+- **Risk Level:** Negligible Risk (5)
+
+### Obstacle 30578
+- **Position:** Front-left
+- **Latest Adjusted Distances:** Longitudinal 8.75 m, Lateral 9.11 m
+- **Relative Velocity:** Longitudinal 1.54 m/s, Lateral -5.08 m/s
+- **Motion:** Moving away longitudinally, but coming toward ego laterally from the left
+- **Trajectory Analysis:** Lateral movement is closing towards the ego although at a slow pace.
+- **MDC and TTC:** 
+  - Longitudinal MDC = N/A
+  - Lateral MDC = 9.11 m / 5.08 m/s ≈ 1.79 seconds (Medium Risk)
+- **Risk Level:** Medium Risk (3)
+
+### Obstacle 30579
+- **Position:** Front
+- **Latest Adjusted Distances:** Longitudinal 0.39 m, Lateral 0.00 m
+- **Relative Velocity:** Longitudinal -0.73 m/s, Lateral 0.00 m/s
+- **Motion:** Driving toward the ego longitudinally
+- **Trajectory Analysis:** Minimal longitudinal distance and closing in with significant velocity.
+- **MDC and TTC:** 
+  - Longitudinal MDC = 0.39 m
+  - Longitudinal TTC = 0.39 m / 0.73 m/s ≈ 0.53 seconds (High Risk)
+- **Risk Level:** Collision Risk (0) as it is extremely close, with very short reaction time.
+
+### Obstacle 30581
+- **Position:** Front-left
+- **Latest Adjusted Distances:** Longitudinal 18.20 m, Lateral 1.31 m
+- **Relative Velocity:** Longitudinal 4.80 m/s, Lateral -4.64 m/s
+- **Motion:** Moving away longitudinally, inbound laterally from the left
+- **Trajectory Analysis:** Reducing lateral distance increases risk, despite moving away longitudinally.
+- **MDC and TTC:** 
+  - Longitudinal MDC = N/A
+  - Lateral MDC = 1.31 m / 4.64 m/s ≈ 0.28 seconds (Extreme Risk)
+- **Risk Level:** Extreme Risk (1) due to very short lateral TTC.
+
+### Obstacle 30582
+- **Position:** Front-left
+- **Latest Adjusted Distances:** Longitudinal 4.04 m, Lateral 19.68 m
+- **Relative Velocity:** Longitudinal 1.23 m/s, Lateral -4.38 m/s
+- **Motion:** Moving away longitudinally, coming laterally from the left
+- **Trajectory Analysis:** Sufficient lateral distance maintained, decreasing risk.
+- **MDC and TTC:** 
+  - Longitudinal MDC = N/A
+  - Lateral MDC = N/A
+- **Risk Level:** Low Risk (4)
+
+**Summary JSON Output:**
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30579",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30581",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```
+
+This output identifies Obstacle 30579 as the collision risk due to immediate proximity and a closing trajectory. Obstacle 30581 is identified as Extreme Risk due to a rapid lateral approach.

@@ -1,0 +1,49 @@
+## Obstacle Analysis
+
+### Obstacle 30220 Analysis
+- **Relative Direction**: Front-left of the ego car
+- **Adjusted Distances at 0.9 seconds**: Longitudinal 14.00 m, Lateral 0.81 m
+- **Relative Velocities at 0.9 seconds**: Longitudinal 0.04 m/s (moving away), Lateral 0.79 m/s (moving away)
+- **Relative Accelerations at 0.9 seconds**: Longitudinal 0.21 m/s², Lateral 1.59 m/s²
+- **Motion**: Obstacle is moving away longitudinally and laterally to the left.
+
+#### Trajectory Analysis
+- Over the observed timesteps, the obstacle continually decreased its longitudinal velocity from approaching to starting to move away from the ego vehicle. It is also consistently moving laterally away to the left, increasing in lateral distance.
+- Adjusted longitudinal distance initially decreases slightly then stabilizes and slightly increases, indicating the obstacle is no longer closing in longitudinally.
+- Adjusted lateral distance consistently increases, affirming the obstacle's movement away to the left.
+
+#### Calculations
+- **Minimum Distance to Collision (MDC)**
+  - Longitudinal stability and lateral increasing trend set MDC primarily by lateral distance.
+  - Lateral MDC = 0.81 meters (increasing).
+  - Risk based on lateral MDC: High Risk (Score 2), but as distance is increasing, effective risk is reduced.
+
+- **Time-to-Collision (TTC) Calculation**
+  - Longitudinal direction: TTC = adjusted distance/relative velocity = 14.00 / 0.04 = 350 seconds (moving away, not applicable for risk).
+  - Lateral direction: TTC = 0.81 / 0.79 = 1.025 seconds (indicating initial risk period but moving away leads to increasing future distance).
+  - Overall: No immediate collision threat as paths are diverging, reducing risk to no actual collision path despite timeframe.
+
+#### Risk Scoring
+- Lateral TTC of 1.025 s initially indicates potential risk, but diverging paths and increasing distances mitigate real collision likelihood.
+- Considering trajectory divergence and increasing distances in both components, an adjusted score of Medium Risk (Score 3) is appropriate due to overall trends.
+
+### Conclusion
+Given that the obstacle is both laterally and longitudinally moving away, with increasing distances, there is no imminent collision risk in the current scenario.
+
+## Final Determination
+- There is no collision scenario as all scenarios depicted share at least a Medium Risk (Score 3) threshold and are diverging.
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "The paths are diverging with increasing distances, indicating no collision threat."
+}
+```

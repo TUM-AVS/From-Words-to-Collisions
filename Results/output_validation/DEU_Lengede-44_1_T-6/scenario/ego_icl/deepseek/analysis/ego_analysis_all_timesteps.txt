@@ -1,0 +1,88 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 6.9 seconds)
+
+#### **Obstacle 41 (Rear-left of ego car)**
+- **Adjusted Distance**: Longitudinal -16.77 m, Lateral 0.99 m  
+- **Relative Velocity**: Longitudinal -41.84 m/s (moving away), Lateral -10.68 m/s (approaching laterally)  
+- **Motion Description**: Moving away longitudinally but approaching laterally from the left.  
+
+**Trajectory Analysis**:
+- Longitudinal distance is increasing (negative velocity), so no collision risk in this dimension.  
+- Lateral distance is decreasing rapidly (from 2.50 m at 6.6s to 0.99 m at 6.9s).  
+
+**TTC (Lateral)**:
+- TTC = 0.99 m / 10.68 m/s ≈ **0.093 seconds** (Extreme Risk, TTC ≤ 0.5s)  
+
+**MDC (Lateral)**:
+- Current lateral distance is **0.99 m** (High Risk, 0.5 < MDC ≤ 1.0 m).  
+
+**Risk Assessment**:
+- **TTC indicates Extreme Risk (1)**  
+- **MDC indicates High Risk (2)**  
+- **Overall Risk: Extreme Risk (1)** (Prioritize lower score)  
+
+---
+
+#### **Obstacle 45 (Front-left of ego car)**
+- **Adjusted Distance**: Longitudinal 10.53 m, Lateral 2.85 m  
+- **Relative Velocity**: Longitudinal -42.31 m/s (approaching), Lateral -0.67 m/s (approaching laterally)  
+- **Motion Description**: Driving toward ego longitudinally and laterally from the left.  
+
+**Trajectory Analysis**:
+- Longitudinal distance decreasing rapidly (~42 m/s closing speed).  
+- Lateral distance decreasing slowly (~0.67 m/s).  
+
+**TTC (Longitudinal)**:
+- TTC = 10.53 m / 42.31 m/s ≈ **0.25 seconds** (Extreme Risk, TTC ≤ 0.5s)  
+
+**MDC (Longitudinal & Lateral)**:
+- Primary risk is longitudinal (smaller TTC).  
+- Current longitudinal distance **10.53 m** (No Risk, MDC > 5.0 m), but closing fast.  
+
+**Risk Assessment**:
+- **TTC indicates Extreme Risk (1)**  
+- **MDC indicates No Risk (5)** (but closing fast)  
+- **Overall Risk: Extreme Risk (1)** (Prioritize lower score)  
+
+---
+
+#### **Obstacle 109 (Behind of ego car)**
+- **Adjusted Distance**: Longitudinal -0.20 m, Lateral 0.00 m  
+- **Relative Velocity**: Longitudinal 1.47 m/s (approaching), Lateral 0.28 m/s (minimal lateral movement)  
+- **Motion Description**: Driving toward ego from behind, exact lateral alignment.  
+
+**Trajectory Analysis**:
+- Longitudinal distance is **-0.20 m** (already overlapping slightly).  
+- Lateral alignment is exact (0.00 m), but no lateral closing velocity.  
+
+**TTC (Longitudinal)**:
+- TTC = 0.20 m / 1.47 m/s ≈ **0.14 seconds** (Extreme Risk, TTC ≤ 0.5s)  
+
+**MDC (Longitudinal)**:
+- Current longitudinal distance **-0.20 m** (Collision Risk, MDC ≤ 0.0 m)  
+
+**Risk Assessment**:
+- **TTC indicates Extreme Risk (1)**  
+- **MDC indicates Collision (0)**  
+- **Overall Risk: Collision (0)**  
+
+---
+
+### **Final Determination**
+- **Obstacle 109** is in a **collision state** (longitudinal overlap, TTC extremely low).  
+- **Obstacle 41** and **Obstacle 45** are at **Extreme Risk** (TTC ≤ 0.5s).  
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "109",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "41, 45",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 109 has already collided (longitudinal overlap -0.20m), and Obstacles 41 & 45 have TTC ≤ 0.5s, indicating imminent collision risk."
+}
+```

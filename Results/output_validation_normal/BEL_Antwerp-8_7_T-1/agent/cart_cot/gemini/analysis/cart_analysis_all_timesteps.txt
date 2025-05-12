@@ -1,0 +1,20 @@
+At t=0.9s, the ego vehicle is at (352.2857, 549.6251) with a velocity of 5.6293 and acceleration of -1.4191.  We will analyze the two obstacles present at this timestep.
+
+**Obstacle 30597.0:** Position (360.7739, 533.1008), Velocity 5.3541, Acceleration -1.4985. This obstacle is located in a different lanelet (1046) than the ego vehicle (195). Although the Y coordinates indicate some lateral separation, the X coordinates show that obstacle 30597 is ahead of the ego vehicle.  Given the current velocities and accelerations, and the different lanelets, the risk of collision appears low.  We assign this obstacle a risk score of 4 (Low Risk).
+
+**Obstacle 30598.0:** Position (345.4857, 566.1252), Velocity 8.5477, Acceleration -3.7658. This obstacle is in the same lanelet (195) as the ego vehicle. Examining the positions, we see that obstacle 30598.0 is behind and to the left of the ego vehicle.  The velocities indicate that obstacle 30598.0 is moving faster than the ego vehicle, but also decelerating significantly more.
+
+Considering positions, velocities, and accelerations in combination with the fact they are in the same lane, this obstacle *could* pose a risk if the ego vehicle were to also decelerate sharply or if obstacle 30598 were to not decelerate as much as predicted. However, based on current data, there appears to be enough lateral and longitudinal separation to avoid a collision.  We assign this obstacle a risk score of 3 (Medium Risk).
+
+Based on this most recent data, we assign a risk score of 3 (Medium Risk) for obstacle 30598 and a risk score of 4 (Low Risk) for obstacle 30597.
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": {
+      "ObstacleID": "30598.0",
+      "OverallRiskScore": 3
+    }
+}
+```

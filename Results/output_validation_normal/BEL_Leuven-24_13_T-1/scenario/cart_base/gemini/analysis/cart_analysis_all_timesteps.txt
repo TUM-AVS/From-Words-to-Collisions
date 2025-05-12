@@ -1,0 +1,20 @@
+At t=0.9s, Ego is in lanelet 420. Obstacle 30223 is also in lanelet 420 and obstacle 30224 is in lanelet 419.
+
+Obstacle 30223: This obstacle is in the same lane as the Ego vehicle and is closing in.  The x-positions are converging (Ego at 164.4127, Obstacle at 174.9574) and the y-positions also converging (Ego at 348.0248, Obstacle at 338.1794). Given the velocities and relatively small difference in y-position (indicating potential lane change by the obstacle or Ego), this presents a high risk. Although not an immediate collision at this exact timestep, the trajectories suggest a very high probability of collision in the very near future.  Therefore, we classify this as Extreme Risk (1).
+
+Obstacle 30224:  This obstacle is in the adjacent lane (419).  While the x-positions are converging, the y-position difference suggests that a collision is less imminent than with obstacle 30223. This is a lower risk situation but should be monitored due to the closing speed. We classify this as Medium Risk (3), and therefore do not include in the JSON output.
+
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30223",
+    "OverallRiskScore": 1
+  },
+  "ScenarioAnalysis": {
+    "IsCollisionScenario": false,
+    "Reasoning": "Obstacle 30223 poses an extreme risk due to converging trajectories in the same lanelet and closing velocities.  While not an immediate collision at t=0.9s, a near-term collision is highly likely."
+  }
+}
+```

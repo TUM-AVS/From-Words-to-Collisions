@@ -1,0 +1,90 @@
+### Safety Analysis for the Most Recent Timestep (2.2 seconds):
+
+#### Obstacle Analysis:
+1. **Obstacle ID: 31.0**
+   - **Distance Risk Reason**: Moving away from ego in Y-direction (higher Y-coordinate than ego). Distance increasing over time.
+   - **Distance Safety Score**: 5 (Negligible Risk)
+   - **Time Risk Reason**: Low relative velocity (~0.05 m/s towards ego) and increasing distance.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 5
+
+2. **Obstacle ID: 35.0**
+   - **Distance Risk Reason**: Moving parallel to ego in X-direction but with significant Y-distance (~8.7m). Stable trajectory.
+   - **Distance Safety Score**: 4 (Low Risk)
+   - **Time Risk Reason**: Similar velocity to ego (~1.65 m/s vs 1.8 m/s), no convergence.
+   - **Time Safety Score**: 4 (Low Risk)
+   - **Overall Risk Score**: 4
+
+3. **Obstacle ID: 36.0**
+   - **Distance Risk Reason**: Closer than 35.0 (~8.9m Y-distance) but moving parallel.
+   - **Distance Safety Score**: 4 (Low Risk)
+   - **Time Risk Reason**: Higher velocity (2.7 m/s) but diverging paths.
+   - **Time Safety Score**: 4 (Low Risk)
+   - **Overall Risk Score**: 4
+
+4. **Obstacle ID: 310.0**
+   - **Distance Risk Reason**: Moving away in Y-direction (~4.2m below ego).
+   - **Distance Safety Score**: 5 (Negligible Risk)
+   - **Time Risk Reason**: Low relative velocity (~0.44 m/s towards ego).
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 5
+
+5. **Obstacle ID: 315.0**
+   - **Distance Risk Reason**: Moving away in Y-direction (~5.7m below ego).
+   - **Distance Safety Score**: 5 (Negligible Risk)
+   - **Time Risk Reason**: Similar velocity to ego (~1.72 m/s vs 1.8 m/s).
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 5
+
+6. **Obstacle ID: 317.0**
+   - **Distance Risk Reason**: Approaching from front-left (X-distance decreasing rapidly, Y-distance ~1.1m).
+   - **Distance Safety Score**: 2 (High Risk)
+   - **Time Risk Reason**: High velocity (6.89 m/s) and closing distance (~4.7m X-distance).
+   - **Time Safety Score**: 2 (High Risk)
+   - **Overall Risk Score**: 2
+
+7. **Obstacle ID: 320.0**
+   - **Distance Risk Reason**: Approaching from front-left but further away than 317.0 (~23.7m X-distance).
+   - **Distance Safety Score**: 3 (Medium Risk)
+   - **Time Risk Reason**: High velocity (4.54 m/s) but sufficient distance.
+   - **Time Safety Score**: 3 (Medium Risk)
+   - **Overall Risk Score**: 3
+
+8. **Obstacle ID: 324.0**
+   - **Distance Risk Reason**: Far ahead (~42.3m X-distance).
+   - **Distance Safety Score**: 5 (Negligible Risk)
+   - **Time Risk Reason**: Moderate velocity (2.93 m/s) and increasing distance.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 5
+
+9. **Obstacle ID: 355.0**
+   - **Distance Risk Reason**: Moving away in Y-direction (~24.8m below ego).
+   - **Distance Safety Score**: 5 (Negligible Risk)
+   - **Time Risk Reason**: High velocity (9.24 m/s) but diverging paths.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 5
+
+10. **Obstacle ID: 357.0**
+    - **Distance Risk Reason**: Moving away in X-direction (~28.5m behind ego).
+    - **Distance Safety Score**: 5 (Negligible Risk)
+    - **Time Risk Reason**: High velocity (10.42 m/s) but diverging paths.
+    - **Time Safety Score**: 5 (Negligible Risk)
+    - **Overall Risk Score**: 5
+
+### Chain of Thought Scenario Analysis:
+1. **Obstacle 317.0** is the most critical with high risk (score 2) due to rapid approach from front-left.
+2. No obstacles are in immediate collision path (score 0) or extreme risk (score 1).
+3. All other obstacles are either moving away or have sufficient distance/time buffers.
+4. Ego maintains steady velocity and orientation, with no sudden maneuvers needed.
+
+### Summary in JSON Format:
+```json
+{
+    "CollisionObstacles": null,
+    "ExtremeRiskObstacle": null,
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "No obstacles in immediate collision path. Highest risk is Obstacle 317.0 (score 2) approaching from front-left, but still manageable with current trajectory."
+    }
+}
+```

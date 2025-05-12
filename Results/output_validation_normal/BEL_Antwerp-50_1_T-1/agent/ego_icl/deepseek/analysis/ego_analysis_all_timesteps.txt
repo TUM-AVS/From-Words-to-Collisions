@@ -1,0 +1,49 @@
+### Obstacle-by-Obstacle Analysis:
+
+#### Obstacle 30633 (Front of ego car)
+- **Adjusted Distance**: Longitudinal 14.00 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal -0.33 m/s (approaching), Lateral 2.32 m/s (moving away)
+- **Motion**: Driving toward ego longitudinally but moving away laterally.
+- **TTC (Longitudinal)**: 14.00 / 0.33 ≈ 42.42 seconds (Negligible Risk, 5)
+- **MDC (Lateral)**: 0.00 m but moving away (Negligible Risk, 5)
+- **Overall Risk**: Negligible (5)
+
+#### Obstacle 30634 (Behind of ego car)
+- **Adjusted Distance**: Longitudinal -17.76 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 3.56 m/s (approaching), Lateral 0.00 m/s
+- **Motion**: Driving toward ego from behind.
+- **TTC (Longitudinal)**: 17.76 / 3.56 ≈ 4.99 seconds (Low Risk, 4)
+- **MDC (Lateral)**: 0.00 m but stable (Negligible Risk, 5)
+- **Overall Risk**: Low (4)
+
+#### Obstacle 30638 (Front-left of ego car)
+- **Adjusted Distance**: Longitudinal 18.12 m, Lateral 12.90 m
+- **Relative Velocity**: Longitudinal -10.41 m/s (approaching), Lateral -7.64 m/s (approaching)
+- **Motion**: Driving toward ego both longitudinally and laterally from the left.
+- **TTC (Longitudinal)**: 18.12 / 10.41 ≈ 1.74 seconds (Medium Risk, 3)
+- **TTC (Lateral)**: 12.90 / 7.64 ≈ 1.69 seconds (Medium Risk, 3)
+- **MDC**: Both distances are closing, but still significant (Medium Risk, 3)
+- **Overall Risk**: Medium (3)
+
+### Trajectory Analysis:
+- **Obstacle 30633**: Initially approaching longitudinally but slowing down (relative velocity decreasing). Lateral distance increasing, so no collision risk.
+- **Obstacle 30634**: Consistently approaching from behind with increasing speed. Still at a safe distance.
+- **Obstacle 30638**: Rapidly approaching both longitudinally and laterally. Needs monitoring but currently at a manageable distance.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```

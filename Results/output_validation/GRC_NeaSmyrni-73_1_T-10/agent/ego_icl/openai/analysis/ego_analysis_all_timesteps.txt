@@ -1,0 +1,101 @@
+**Obstacle Analysis at 3.5 seconds:**
+
+1. **Obstacle 20056**:
+   - **Position**: Front-left of ego vehicle
+   - **Adjusted Distances**: Longitudinal = 5.98 m, Lateral = 8.74 m
+   - **Relative Velocity**: Longitudinal = -4.15 m/s, Lateral = -0.24 m/s 
+
+   **Trajectory Analysis**:
+   - The longitudinal distance has been consistently reducing over time, indicating the obstacle is moving toward the ego.
+   - Lateral movement towards the ego is minimal and reducing slower.
+
+   **TTC and MDC Calculations**:
+   - Longitudinal TTC = 5.98 / 4.15 = 1.44 seconds
+   - Lateral distance is significant; not a concern given movement patterns
+   - MDC based mostly on longitudinal trajectory: approximately 5.98 m
+
+   **Risk Assessment**: Medium Risk (3)
+   - Justifiable by a decreasing longitudinal gap and trajectory alignments.
+
+2. **Obstacle 20089**:
+   - **Position**: Front-left of ego vehicle
+   - **Adjusted Distances**: Longitudinal = 3.69 m, Lateral = 15.35 m
+   - **Relative Velocity**: Longitudinal = -4.22 m/s, Lateral = -0.05 m/s 
+
+   **Trajectory Analysis**:
+   - The longitudinal distance shows rapid reduction.
+   - The obstacle's lateral distance is stable with only minor adjustments over the analyzed period.
+
+   **TTC and MDC Calculations**:
+   - Longitudinal TTC = 3.69 / 4.22 = 0.87 seconds
+   - MDC primarily impacted by longitudinal motion: approximately 3.69 m
+
+   **Risk Assessment**: High Risk (2)
+   - The critical factor is the reducing longitudinal distance and converging trajectory, placing it in a high-risk category.
+
+3. **Obstacle 20090**:
+   - **Position**: Front-left of ego vehicle
+   - **Adjusted Distances**: Longitudinal = 1.29 m, Lateral = 22.27 m
+   - **Relative Velocity**: Longitudinal = -3.80 m/s, Lateral = -1.26 m/s 
+
+   **Trajectory Analysis**:
+   - Significant reduction in longitudinal distance; however, the rate is slower than preceding cases. 
+   - Lateral position remains non-impactful due to the considerable distance.
+
+   **TTC and MDC Calculations**:
+   - Longitudinal TTC = 1.29 / 3.80 = 0.34 seconds
+   - MDC seemingly less than 0.5 m imminently unless action taken.
+
+   **Risk Assessment**: Extreme Risk (1)
+   - Rapidly closing longitudinal distance with a high chance of immediate collision justifies extreme caution.
+
+4. **Obstacle 20096**:
+   - **Position**: Front-right of the ego vehicle
+   - **Adjusted Distances**: Longitudinal = 16.22 m, Lateral = -18.52 m
+   - **Relative Velocity**: Longitudinal = -1.02 m/s, Lateral = -9.69 m/s 
+
+   **Trajectory Analysis**:
+   - Position changes suggest movement further away laterally.
+   - Negligible approach on the longitudinal axis.
+
+   **TTC and MDC Calculations**:
+   - Obstacle moving away laterally and longitudinally ensures no immediate concern.
+
+   **Risk Assessment**: Negligible Risk (5)
+   - Unlikely to interfere with ego trajectory given current and projected paths.
+
+5. **Obstacle 20100**:
+   - **Position**: Behind the ego vehicle
+   - **Adjusted Distances**: Longitudinal = -1.14 m, Lateral = 0.00 m
+   - **Relative Velocity**: Longitudinal = 7.25 m/s, Lateral = -0.01 m/s 
+
+   **Trajectory Analysis**:
+   - Shortening gap with increasing velocity most concerning among listed details.
+
+   **TTC and MDC Calculations**:
+   - Approaching rapidly from behind with very short TTC.
+   - Longitudinal TTC = 1.14 / 7.25 = 0.16 seconds
+
+   **Risk Assessment**: Collision (0)
+   - Imminent and unavoidable without immediate intervention.
+
+**Final JSON Summary**:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "20100",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "20090",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": "20089",
+    "OverallRiskScore": "2"
+  }
+}
+``` 
+
+This JSON succinctly identifies the most urgent obstacles necessitating action or further monitoring based on critical analysis of trajectory and velocity metrics.

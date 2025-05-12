@@ -1,0 +1,38 @@
+Obstacle-by-Obstacle Analysis at t=3.6s:
+
+* **Obstacle 30227:** Front-right, longitudinal 9.10m, lateral -9.98m.  Relative velocity: longitudinal -4.24 m/s, lateral 0.00 m/s. Trajectory analysis shows this obstacle consistently approaching in the longitudinal direction while maintaining a relatively safe lateral distance.  TTC (longitudinal) = 9.10m / 4.24m/s = 2.15s (Medium Risk). MDC is primarily governed by the lateral distance of -9.98, classifying it as No Risk. Overall Risk: Medium (3).
+
+* **Obstacle 30228:** Front-right, longitudinal 0.09m, lateral -1.92m. Relative velocity: longitudinal -4.24 m/s, lateral -0.00 m/s.  This obstacle is very close longitudinally and rapidly approaching.  TTC (longitudinal) = 0.09m / 4.24 m/s = 0.02s (Extreme Risk).  MDC is primarily based on the lateral distance of -1.92m, which would be Medium Risk. However, the extremely low longitudinal distance and high closing velocity override this. Overall Risk: Extreme (1).
+
+* **Obstacle 30229:** Front-right, longitudinal 7.58m, lateral -17.36m. Relative velocity: longitudinal -4.23 m/s, lateral 0.04 m/s.  This obstacle is approaching longitudinally but has a safe lateral distance. TTC (longitudinal) = 7.58m / 4.23 m/s = 1.79s (Medium Risk). MDC is largely determined by the lateral distance, indicating No Risk. Overall Risk: Medium (3).
+
+* **Obstacle 30230:** Front-right, longitudinal 6.11m, lateral -25.00m. Relative velocity: longitudinal -4.19 m/s, lateral 0.28 m/s.  Similar to 30229, this obstacle poses a medium longitudinal risk but a safe lateral distance. TTC (longitudinal) = 6.11m / 4.19m/s = 1.46s (Medium Risk). The large lateral distance results in No Risk based on MDC. Overall Risk: Medium (3).
+
+* **Obstacle 30232:** Rear-right, longitudinal -0.56m, lateral -2.12m. Relative velocity: longitudinal -2.26 m/s, lateral 0.00 m/s. This obstacle is slightly behind and to the right, moving away longitudinally.  While the longitudinal distance is small, the negative velocity suggests the risk is decreasing. TTC isn't meaningful here due to the separating longitudinal movement. The lateral distance indicates a Medium Risk (MDC). Overall Risk: Medium (3).
+
+* **Obstacle 30233:** Front, longitudinal 0.16m, lateral 0.00m. Relative velocity: longitudinal -4.24 m/s, lateral -0.00 m/s.  This obstacle is EXTREMELY close longitudinally and directly in front, approaching rapidly. TTC (longitudinal) = 0.16m / 4.24 m/s = 0.04s (Extreme Risk). The lateral distance is essentially zero, confirming same-lane alignment.  The extremely low longitudinal distance and converging trajectory pose an extreme risk. Overall Risk: Extreme (1).
+
+* **Obstacle 30235:** Rear-right, longitudinal -17.30m, lateral -2.15m. Relative velocity: longitudinal 1.84 m/s, lateral 0.32 m/s. This obstacle is behind and to the right, moving closer longitudinally but relatively slowly. TTC (longitudinal) = 17.30m / 1.84m/s = 9.4s (No Risk). The lateral distance indicates a Medium Risk. Overall Risk: Medium (3).
+
+
+Collision Scenario Determination:
+
+YES, this is a collision scenario. Obstacles 30228 and 30233 both present Extreme Risk (1) with extremely low TTC values and converging trajectories.
+
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null 
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30228", 
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacles 30228 and 30233 have extremely low TTCs (<0.1s) with closing velocities, indicating imminent collision. While Obstacle 30233 has a marginally lower longitudinal distance, both pose extreme risk."
+}
+```

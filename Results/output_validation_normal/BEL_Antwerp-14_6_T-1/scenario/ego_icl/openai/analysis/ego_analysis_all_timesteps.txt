@@ -1,0 +1,42 @@
+### Obstacle-by-Obstacle Analysis
+
+**Obstacle 30636 Analysis:**
+
+**Trajectory Analysis:**
+- **At 0.9 seconds:** The obstacle is observed at a longitudinal distance of 16.35 meters and a lateral distance of 0.00 meters directly in front of the ego vehicle.
+- The relative velocity at this point is -1.43 m/s longitudinally, indicating the obstacle is closing the gap and moving toward the ego vehicle.
+- The obstacle has a negative relative acceleration, further contributing to a closing trajectory.
+- From the trajectory analysis over the timesteps, the obstacle initially moved away but began converging on the ego vehicle starting around 0.7 seconds, becoming more pronounced by 0.9 seconds.
+
+**TTC and MDC Calculations:**
+- **Time-to-Collision (TTC):**
+  \( \text{TTC}_{longitudinal} = \frac{\text{Distance}}{|\text{Relative Velocity}|} = \frac{16.35\,m}{1.43\,m/s} \approx 11.43\,s \)
+  - Note: The actual TTC is much larger than the 5-second threshold for collision risk due to increasing distance at initial timesteps.
+  
+- **Minimum Distance to Collision (MDC):** Considering the relative motion and alignment:
+  - Given its course, exact alignment in lateral direction (0.00m) would not automatically result in collision without further reductions in longitudinal distance or increased relative velocity.
+  - Since the adjusted distances take into account vehicle sizes, let's assume they maintain a minimum clearance typically under 5.0 meters.
+
+**Risk Assessment:**
+- **TTC Evaluation:** TTC is calculated to be greater than 5 seconds; however, note that it is a simplified static calculation since real dynamics can alter.
+- **MDC Evaluation:** Continuously increasing longitudinal distance initially, then closing and aligning laterally suggest a comparative urgency.
+- **Risk Score:** Given the long TTC in a present context but a converging trajectory influenced by the negative velocity and acceleration, a **Medium Risk (3)** is reasonable. However, still above collision likelihood (scores 1 or 0).
+
+### Conclusion
+- **Determination:** From the combined longitudinal movement and near-zero lateral deviation, although it aligns perfectly over time in one incidence, it strictly doesn't present an immediate threat based on dynamic results in less intense scores (>2). Scenarios knock chances as a critical failure with our risk rating methods.
+  
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "IsCollisionScenario": false,
+    "Justification": "The obstacle 30636 does not score extreme or collision risk (1 or 0) based on current trajectory and calculated TTC/MDC."
+}
+```

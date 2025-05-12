@@ -1,0 +1,67 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30753
+- **Position and Motion Description**: 
+  - Primarily positioned to the **right**, transitioning to **rear-right** later.
+  - At 9.8 seconds: Longitudinal 0.00 m, lateral -23.87 m (adjusted distances).
+  - Motion indicates driving toward the ego car laterally from the right.
+  
+- **Trajectory Analysis**:
+  - Consistent decrease in lateral distance over time indicates the obstacle is moving laterally toward the ego vehicle.
+  - The obstacle's longitudinal velocity remains very high and negative, indicating it is also moving backward relative to the ego (moving away longitudinally), although always at the same alignment longitudinally initially.
+
+- **TTC Calculation**:
+  - Given primarily lateral approach and no immediate longitudinal risk (same-alignment and moving apart):
+  - TTC (lateral) = Lateral distance / |Relative lateral velocity| = 23.87 m / 2.70 m/s = 8.84 seconds (no risk).
+
+- **MDC Calculation**:
+  - The MDC is first determined by the lateral distance since the obstacle is to the side:
+  - MDC (lateral) = 23.87 m (based on reduced lateral proximity not nearing collision criteria).
+
+- **Risk Assessment**:
+  - Lateral risk is low due to high trajectory divergence. No direct longitudinal threat detected.
+  - **Risk Score**: 5 (No risk, as lateral approach significant before potential collision).
+
+#### Obstacle 30762
+- **Position and Motion Description**: 
+  - Positioned at the rear-right at 9.4 seconds and further.
+  - At 9.4 seconds: Longitudinal -8.77 m, lateral -25.14 m (adjusted distances).
+  - Motion description indicates the obstacle is moving away both longitudinally and laterally.
+
+- **Trajectory Analysis**:
+  - Continual increase in both longitudinal and lateral distance, indicating consistent movement away from the ego car over time.
+  - Relative velocities confirm moving away, not just directionally but also in absolute terms.
+
+- **TTC Calculation**:
+  - As both components are increasing (distancing), TTC is not applicable here for collision consideration due to divergent paths.
+
+- **MDC Calculation**:
+  - Given increasing distances in both dimensions, no imminent collision path.
+  - MDC for both longitudinal and lateral shows divergence beyond any critical range.
+
+- **Risk Assessment**:
+  - With both dimensions moving away, there is a clear non-risk of immediate collision.
+  - **Risk Score**: 5 (No risk due to divergence in both directions).
+
+### Conclusion
+
+Both obstacles display non-collision courses at the current time-step with significant divergence between their trajectories and the ego vehicle. As such, the scenario does not indicate any collision or extreme collision threats.
+
+**IsCollisionScenario**: False
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacles are on an immediate collision path or at extreme risk based on trajectory and distance analysis."
+}
+```

@@ -1,0 +1,35 @@
+### Obstacle Analysis for Obstacle ID: 30095
+
+**Trajectory and Position Analysis:**
+- Over the timesteps from 0.0 to 0.9 seconds, Obstacle 30095 moved from the front-left to directly in front of the ego car.
+- The lateral distance decreased from 0.78m to 0.00m, reaching exact lateral alignment.
+- Longitudinal distances decreased initially, suggesting the obstacle was approaching the ego car up to 0.7 seconds, after which it started moving away.
+- The obstacle moved laterally leftward and longitudinally closer initially then began moving away longitudinally.
+
+**Most Recent Timestep Analysis (0.9 seconds):**
+- **Adjusted Longitudinal Distance:** 13.90 meters
+- **Adjusted Lateral Distance:** 0.00 meters
+- **Relative Longitudinal Velocity:** 0.20 m/s (moving away)
+- **Relative Lateral Velocity:** 0.29 m/s (moving away)
+
+**TTC Calculations:**
+- **Longitudinal TTC = Longitudinal Distance / |Longitudinal Velocity| = 13.90 m / 0.20 m/s = 69.5 seconds**
+  - Given the positive velocity, indicating the obstacle is moving away longitudinally, there's no immediate threat.
+- **Lateral TTC = Not directly applicable** due to a lateral velocity indicating movement away from alignment.
+  
+**MDC Calculations:**
+- The adjusted longitudinal separation (13.90m) means the MDC remains sufficiently large, reducing any immediate collision threat as no closing trajectory toward the ego is indicated.
+
+**Risk Assessment:**
+- Since the obstacle is moving away from the ego longitudinally, with a long-time calculated due to its movement trajectory, and the lateral alignment is not indicating closing risk, the scenario presents a negligible risk.
+
+Based on these calculations, the risk level is determined by the more imminent measure, which is the prolonged TTC due to its away trajectory. Therefore, this presents a Negligible Risk with a scoring of 5.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": null,
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": null
+}
+```

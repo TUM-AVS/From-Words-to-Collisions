@@ -1,0 +1,24 @@
+At t=0.9s, Ego (3048.0) is in lanelet 84.0. Let's analyze the obstacles:
+
+* **Obstacle 3049.0:** Also in lanelet 84.0, moving in the same direction as Ego but slightly faster (8.1732 m/s at t=0.8s vs Ego's 2.8346 m/s).  The x-positions are converging (Ego at 618.6331, Obstacle at 605.5803). While not an immediate collision, the speed differential and closing distance suggest this could become extremely risky in the next timestep if Ego continues decelerating and the obstacle continues on its current path.
+
+* **Obstacle 3046.0:**  In lanelet 314.0.  The trajectory suggests this obstacle is changing lanelets frequently.  While currently not a risk, this unpredictable behavior warrants monitoring.
+
+* **Obstacle 3047.0:** In lanelet 312.0. No immediate risk.
+
+* **Obstacle 3051.0:**  In lanelet 18.0, far from Ego and poses no risk.
+
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3049.0",
+    "OverallRiskScore": 1
+  },
+  "ScenarioAnalysis": {
+    "IsCollisionScenario": false,
+    "Reasoning": "Obstacle 3049.0 poses an extreme risk due to its proximity to Ego in the same lanelet, coupled with a closing velocity.  While not an immediate collision, the risk is high that a collision will occur in the very near future if current trajectories continue."
+  }
+}
+```

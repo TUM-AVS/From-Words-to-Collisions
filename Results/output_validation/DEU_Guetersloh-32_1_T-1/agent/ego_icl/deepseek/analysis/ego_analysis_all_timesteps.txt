@@ -1,0 +1,66 @@
+Let me analyze each obstacle at the most recent timestep (1.5 seconds) with trajectory context from previous timesteps:
+
+1. Obstacle 33 (Behind):
+- Longitudinal: -0.60m (closing at 1.92 m/s)
+- Lateral: 0.00m (aligned)
+- TTC: 0.60/1.92 = 0.31s (Extreme Risk)
+- MDC: 0.60m (High Risk)
+- Risk: Extreme (1) - rapidly approaching from behind in same lane
+
+2. Obstacle 35 (Behind):
+- Longitudinal: -8.50m (closing at 1.23 m/s)
+- Lateral: 0.00m (aligned)
+- TTC: 8.50/1.23 = 6.91s (No Risk)
+- MDC: 8.50m (No Risk)
+- Risk: Negligible (5)
+
+3. Obstacle 310 (Behind):
+- Longitudinal: -16.43m (moving away at -0.51 m/s)
+- Lateral: 0.00m (aligned)
+- TTC: N/A (diverging)
+- MDC: 16.43m (No Risk)
+- Risk: Negligible (5)
+
+4. Obstacle 331 (Rear-left):
+- Longitudinal: -18.49m (moving away at -10.02 m/s)
+- Lateral: 2.33m (moving away at 0.29 m/s)
+- TTC: N/A (diverging in both dimensions)
+- MDC: sqrt(18.49² + 2.33²) = 18.64m (No Risk)
+- Risk: Negligible (5)
+
+5. Obstacle 338 (Front):
+- Longitudinal: 10.22m (closing at -10.71 m/s)
+- Lateral: 0.00m (aligned)
+- TTC: 10.22/10.71 = 0.95s (High Risk)
+- MDC: 10.22m (Low Risk)
+- Risk: High (2) - rapidly approaching head-on in same lane
+
+6. Obstacle 348 (Front-left):
+- Longitudinal: 7.16m (closing at -2.29 m/s)
+- Lateral: 25.88m (no lateral motion)
+- TTC: 7.16/2.29 = 3.13s (Medium Risk)
+- MDC: 25.88m (No Risk)
+- Risk: Medium (3)
+
+Trajectory Analysis:
+- Obstacle 33 shows consistent closing from -2.81m to -0.60m in 0.9s (2.46 m/s avg)
+- Obstacle 338 shows rapid closing from 18.05m to 10.22m in 1.1s (7.12 m/s avg)
+- No current collision (risk 0) but Obstacle 33 is imminent extreme risk
+
+JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "33",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "33",
+        "OverallRiskScore": "1"
+    }
+}
+```

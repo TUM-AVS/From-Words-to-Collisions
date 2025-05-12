@@ -1,0 +1,30 @@
+Obstacle Analysis:
+
+Obstacle 30118:
+
+Trajectory Analysis: This obstacle is consistently in front of the ego vehicle and laterally aligned (lateral distance = 0.00m) across all timesteps.  Crucially, the longitudinal distance is *increasing* over time, indicating the obstacle is moving *away* from the ego vehicle. This aligns with the motion description provided.
+
+TTC Calculation: Since the obstacle is moving away from the ego vehicle longitudinally, a true TTC calculation (indicating time to collision) isn't applicable in the longitudinal direction.  Laterally, the relative velocity is very small and not consistently converging or diverging.  Given the stable lateral alignment and the primary motion being longitudinal, we don't rely on a lateral TTC calculation in this scenario.
+
+MDC Calculation:  With the consistent lateral alignment, the MDC would be calculated primarily based on the lateral distance, which is 0.00m. However, this doesn't mean a collision as the vehicles are moving apart longitudinally. Thus, the MDC in a practical sense is represented by the increasing longitudinal distance. At the last timestep, the longitudinal distance is 13.17m.
+
+Risk Assessment:
+- Longitudinal Risk: No risk (5) given increasing distance.
+- Lateral Risk: No risk (5), given stable lateral alignment and longitudinal divergence.
+- Overall Risk: No Risk (5)
+
+Collision Scenario Determination:
+
+This is NOT a collision scenario.  While the obstacle is laterally aligned with the ego vehicle, it is moving *away* longitudinally, eliminating any immediate collision risk.
+
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle presents an immediate collision risk. Obstacle 30118 is moving away from the ego vehicle despite lateral alignment."
+}
+```

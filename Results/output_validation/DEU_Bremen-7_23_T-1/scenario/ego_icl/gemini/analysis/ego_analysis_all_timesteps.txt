@@ -1,0 +1,22 @@
+* **Obstacle 30304 (Front):**  This obstacle remains directly in front of the ego vehicle (lateral distance 0.00m) throughout all timesteps. The longitudinal distance is decreasing slightly across timesteps, indicating the obstacle is getting closer, although very slowly. At the last timestep (4.9s), the longitudinal distance is 18.99m. Since the relative longitudinal velocity is negative (-1.50 m/s), the obstacle is actually moving away from the ego vehicle. TTC is not applicable in this case due to separating movement.  MDC is 18.99m. This classifies as No Risk (5).
+
+* **Obstacle 30306 (Behind):** This obstacle is approaching the ego vehicle rapidly from behind, maintaining a lateral distance of 0.00m (same lane). The longitudinal distance shrinks significantly across timesteps. At 4.9 seconds, the longitudinal distance is -0.12m, extremely close. The relative longitudinal velocity is positive (2.63 m/s), indicating continued approach. TTC = 0.12/2.63 ≈ 0.05 seconds. MDC is 0.12m. Both TTC and MDC indicate an *Extreme Risk (1)* of collision.
+
+* **Obstacle 30307 (Behind):**  Similar to Obstacle 30306, this obstacle is approaching from behind in the same lane (lateral distance 0.00m).  However, it is further away. At 4.9s, the longitudinal distance is -16.39m. The relative longitudinal velocity is 3.73 m/s. TTC = 16.39 / 3.73 ≈ 4.39 seconds, which initially suggests a Low Risk (4). However, the continuous approach from behind and the trajectory suggest this obstacle is catching up and needs continuous monitoring.  MDC is 16.39m, also suggesting a low risk. While not an immediate threat, this situation should be downgraded to *Medium risk (3)* to ensure vigilance for possible future higher risks.
+
+**Collision Scenario Determination:**
+
+Yes, this is a collision scenario. Obstacle 30306 presents an Extreme Risk (1) with a very low TTC (0.05s) and a very small MDC (0.12m), indicating a near-certain collision in the next instant if trajectories are maintained.
+
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30306",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30306 poses an Extreme Risk (1) with TTC = 0.05s and MDC = 0.12m, indicating near-certain collision in the immediate future."
+}
+```

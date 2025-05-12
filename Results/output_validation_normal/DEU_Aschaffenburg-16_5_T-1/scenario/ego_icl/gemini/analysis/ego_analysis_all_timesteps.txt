@@ -1,0 +1,39 @@
+* **Obstacle 30370 (Front-Left):** This obstacle is the most concerning.  Over the past 0.9 seconds, it has rapidly approached the ego vehicle longitudinally, from 4.55m to 0.82m.  Laterally, it has also slightly converged from 24.39m to 22.83m. The motion description confirms it is driving toward the ego car in both directions. With a longitudinal relative velocity of -3.24 m/s at the last timestep, a collision is imminent.
+
+    * **MDC:**  Given the trajectory, the MDC will be very small within the next timestep (< 0.5m).
+    * **TTC (Longitudinal):** 0.82m / 3.24 m/s ≈ 0.25 seconds.
+    * **Risk:** Extreme Risk (1) - Imminent collision
+
+* **Obstacle 30376 (Front-Right):** This obstacle is relatively far and maintains a roughly consistent lateral distance of about 7.46m, posing a moderate risk, but significantly less severe than Obstacle 30370.
+    * **MDC:** Approximately 7.46m.
+    * **TTC:**  20.23m / 4.16 m/s ≈ 4.86 seconds.
+    * **Risk:** Low Risk (4)
+
+* **Obstacle 30377 (Front):** This obstacle is far away longitudinally at 24.73m and poses no immediate threat.
+    * **MDC:** Not applicable as the trajectory is not immediately concerning
+    * **TTC:** 24.73m / 2.63 m/s ≈ 9.4 seconds.
+    * **Risk:** No Risk (5)
+
+* **Obstacle 30380 (Front-Right):**  While initially closer than Obstacle 30376, it's moving further away laterally with increasing distance and poses less risk.
+    * **MDC:** Approximately 7.75m.
+    * **TTC:** 16.40m / 3.24 m/s ≈ 5.06 seconds.
+    * **Risk:** No Risk (5)
+
+* **Obstacle 30381 (Front):** While laterally aligned (0.00m), this obstacle is moving away from the ego vehicle longitudinally at the latest timestamp and does not pose a risk.
+    * **MDC:** Not applicable given the diverging trajectory
+    * **TTC:**  Not applicable as moving apart.
+    * **Risk:** No Risk (5)
+
+**Collision Scenario Determination:** Yes, this is a collision scenario. Obstacle 30370 has an Extreme Risk (1) assessment with a very low TTC (0.25 seconds) and a rapidly decreasing longitudinal distance, indicating an imminent collision.
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30370",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30370 poses an Extreme Risk with a TTC of approximately 0.25 seconds and a rapidly closing longitudinal distance, indicating an imminent collision."
+}
+```

@@ -1,0 +1,41 @@
+* **Obstacle 30257 (Front-Left):**  This obstacle has been consistently moving away laterally from the ego vehicle while approaching longitudinally over the observed timesteps. At 0.9 seconds, the longitudinal distance is 14.17m and the lateral distance is 10.99m. The lateral velocity is positive (6.31 m/s), so it is still moving away from the ego vehicle laterally. Given the large distances and the diverging lateral trajectory, there is no immediate risk of collision.
+    * **MDC:**  ~14.17m (using longitudinal distance as the primary concern).
+    * **TTC (Longitudinal):** 14.17m / 5.14m/s = 2.76s (Medium Risk)
+    * **TTC (Lateral):** Not applicable since diverging.
+    * **Overall Risk:** Medium (3)
+
+* **Obstacle 30258 (Front):** This obstacle is directly in front of the ego vehicle (lateral distance 0.00m) and moving away, but needs close monitoring. At 0.9 seconds, longitudinal distance is 10.69m with a relative velocity of 1.23 m/s (moving away from the ego vehicle) and lateral velocity of 1.71 m/s. Even though the lateral position is aligned (or unknown), the lateral relative velocity is positive, moving away from the ego car to the left. Given that the longitudinal distance is stable/increasing and the lateral distance is stable, we conclude this obstacle is not a collision risk.
+    * **MDC:** ~10.69m (using longitudinal distance).
+    * **TTC (Longitudinal):** Not applicable since diverging.
+    * **TTC (Lateral):** Not applicable since diverging.
+    * **Overall Risk:** No Risk (5)
+
+* **Obstacle 30260 (Front-Right):** This obstacle is the most concerning. While it has a lateral separation of -1.89m (to the right of the ego vehicle), its longitudinal distance has decreased significantly to 0.48m at 0.9 seconds, with a rapidly increasing negative longitudinal velocity (-3.82 m/s) towards the ego vehicle. This obstacle poses a very high risk of imminent collision if the trajectory continues.
+    * **MDC:** 0.48m (using longitudinal distance).
+    * **TTC (Longitudinal):** 0.48m / 3.82 m/s = 0.13s (Extreme Risk)
+    * **TTC (Lateral):** Not applicable since diverging.
+    * **Overall Risk:** Extreme (1)
+
+* **Obstacle 30265 (Rear-Right):** This obstacle is behind and slightly to the right of the ego vehicle. At 0.9 seconds, longitudinal distance is -4.16m, lateral distance -1.90m. Relative velocity is 0.01 m/s laterally and -0.26 m/s longitudinally. The obstacle is not on a direct collision path with the ego.
+    * **MDC:** ~4.16m (using longitudinal distance as the primary concern)
+    * **TTC (Longitudinal):** Not applicable since diverging.
+    * **TTC (Lateral):** Not applicable, lateral distance is diverging.
+    * **Overall Risk:** Low (4)
+
+
+**Conclusion:**
+
+This IS a collision scenario due to Obstacle 30260 (Extreme Risk - imminent collision).
+
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30260",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30260 poses an extreme risk with a very low TTC (0.13s) and rapidly decreasing longitudinal distance (0.48m) indicating an imminent collision."
+}
+```

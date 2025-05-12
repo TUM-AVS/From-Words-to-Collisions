@@ -1,0 +1,64 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30187 (Front-left of ego car)
+- **Latest Timestep (2.3s)**:
+  - Adjusted longitudinal distance: 3.17 m (closing at -15.96 m/s)
+  - Adjusted lateral distance: 1.89 m (moving away at 0.18 m/s)
+  - Motion: Driving toward ego longitudinally, moving away laterally to the left.
+  
+- **Trajectory Analysis**:
+  - Longitudinal distance decreases rapidly (from 17.40m to 3.17m in 0.9s).
+  - Lateral distance fluctuates but is now increasing (from 2.52m to 1.89m).
+  
+- **TTC Calculation**:
+  - Longitudinal TTC = 3.17 / 15.96 ≈ 0.20 seconds (Extreme Risk, TTC ≤ 0.5s).
+  - Lateral TTC: Not applicable (moving away).
+  
+- **MDC Calculation**:
+  - Lateral distance is increasing, so MDC is the current lateral distance (1.89m).
+  - Longitudinal MDC is effectively 0m if trajectories continue (collision imminent).
+  
+- **Risk Assessment**:
+  - Longitudinal: Extreme Risk (TTC ≤ 0.5s).
+  - Lateral: No Risk (increasing distance).
+  - **Overall Risk Score: 1 (Extreme Risk)**.
+
+#### Obstacle 30195 (Behind of ego car)
+- **Latest Timestep (2.3s)**:
+  - Adjusted longitudinal distance: 0.00 m (collision occurring).
+  - Adjusted lateral distance: 0.00 m (collision occurring).
+  - Motion: Exact longitudinal and lateral alignment.
+  
+- **Trajectory Analysis**:
+  - Longitudinal distance closes from -4.34m to 0.00m (collision).
+  - Lateral distance remains 0.00m (same lane).
+  
+- **TTC Calculation**:
+  - TTC = 0 seconds (collision occurring).
+  
+- **MDC Calculation**:
+  - MDC = 0 meters (collision occurring).
+  
+- **Risk Assessment**:
+  - **Overall Risk Score: 0 (Collision)**.
+
+### Final Determination
+- **Obstacle 30195** is in a collision state (distance = 0.00m in both dimensions).
+- **Obstacle 30187** is at extreme risk (TTC ≈ 0.20s) but has not yet collided.
+- This is a **collision scenario** because at least one obstacle (30195) has a risk score of 0.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30195",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30187",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30195 has collided with the ego vehicle (distance = 0.00m in both dimensions), and Obstacle 30187 is at extreme risk (TTC ≈ 0.20s)."
+}
+```

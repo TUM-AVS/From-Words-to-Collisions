@@ -1,0 +1,69 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 20043 (Front-left)
+- **Adjusted Distances:** 25.10m longitudinal, 0.40m lateral
+- **Relative Velocity:** -1.15 m/s longitudinal, 0.00 m/s lateral
+- **TTC Longitudinal:** 25.10 / 1.15 = 21.83 seconds
+- **MDC:** Given the stable lateral distance and zero lateral velocity, MDC primarily depends on the longitudinal direction, which remains high. 
+
+**Assessment:** No immediate collision risk.  
+**Risk Level:** 5 (No Risk)
+
+#### Obstacle 20045 (Front)
+- **Adjusted Distances:** 18.20m longitudinal, 0.00m lateral
+- **Relative Velocity:** -1.15 m/s longitudinal, 0.00 m/s lateral
+- **TTC Longitudinal:** 18.20 / 1.15 = 15.83 seconds
+- **MDC:** The lateral alignment indicates same-lane position, but longitudinal distance and velocity do not suggest a collision.
+
+**Assessment:** While aligned, the large longitudinal distance and low relative velocity result in no immediate collision risk.
+**Risk Level:** 5 (No Risk)
+
+#### Obstacle 20048 (Front)
+- **Adjusted Distances:** 11.25m longitudinal, 0.00m lateral
+- **Relative Velocity:** -1.15 m/s longitudinal, 0.00 m/s lateral
+- **TTC Longitudinal:** 11.25 / 1.15 = 9.78 seconds
+- **MDC:** Same scenario as Obstacle 20045 with slightly reduced distance but still well above collision risk thresholds.
+
+**Assessment:** Acknowledging alignment but sufficient distance to avoid collision risk.
+**Risk Level:** 4 (Low Risk)
+
+#### Obstacle 20051 (Collision)
+- **Adjusted Distances:** 0.00m longitudinal, 0.00m lateral
+- **Relative Velocity:** 3.37 m/s longitudinal, -0.01 m/s lateral
+- **TTC:** Immediate, position indicates ongoing collision
+- **MDC:** 0.00m in both dimensions
+
+**Assessment:** A collision is already occurring as evidenced by zero distances and closing trajectories.
+**Risk Level:** 0 (Collision)
+
+#### Obstacle 20052 (Behind)
+- **Adjusted Distances:** -14.18m longitudinal, 0.00m lateral
+- **Relative Velocity:** 5.97 m/s longitudinal, 0.35 m/s lateral
+- **TTC Longitudinal:** |\(-14.18 / 5.97\)| = 2.38 seconds
+- **MDC:** The obstacle is rapidly closing the longitudinal gap, but the current delay and stable lateral trajectory reduce immediate collision risk.
+
+**Assessment:** Fast-moving towards the ego vehicle, but distance keeps it in medium risk currently.
+**Risk Level:** 3 (Medium Risk)
+
+### Trajectory Analysis
+Tracking the trajectory of each obstacle over time from 3.8 seconds shows:
+
+- Obstacle 20051 is progressively closing the gap until reaching 0.00m at both dimensions, signifying a collision occurrence.
+- Obstacle 20052, although quickly closing from behind, remains beyond immediate collision but poses a monitored risk.
+
+### Conclusion: Collision Scenario
+Given that Obstacle 20051 reached a collision state with a distance of 0 in both dimensions, this confirms an ongoing collision scenario for the ego vehicle.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20051",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {},
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 20051 is in collision with the ego vehicle, evidenced by 0m distance in both longitudinal and lateral dimensions."
+}
+```

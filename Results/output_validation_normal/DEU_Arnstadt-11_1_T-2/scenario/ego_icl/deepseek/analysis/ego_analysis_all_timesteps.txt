@@ -1,0 +1,52 @@
+### Obstacle-by-Obstacle Analysis
+
+**Obstacle 20036 (Front-left of ego car)**
+- **Most Recent Timestep (0.9s):**
+  - **Adjusted Distances:** 
+    - Longitudinal: 17.51 m (increasing)
+    - Lateral: 2.45 m (increasing)
+  - **Relative Velocities:**
+    - Longitudinal: 3.22 m/s (moving away)
+    - Lateral: 3.64 m/s (moving away to the left)
+  - **Motion Description:** 
+    - Obstacle is moving away longitudinally.
+    - Obstacle is moving away laterally to the left.
+
+**Trajectory Analysis:**
+- The obstacle is consistently moving away from the ego vehicle in both longitudinal and lateral directions across all timesteps.
+- Longitudinal distance increases from 16.34 m to 17.51 m.
+- Lateral distance increases from 0.43 m to 2.45 m.
+- Relative velocities in both directions are positive (moving away), and acceleration trends show the obstacle is accelerating away.
+
+**TTC Calculation:**
+- **Longitudinal TTC:** Not applicable (relative velocity is positive, moving away).
+- **Lateral TTC:** Not applicable (relative velocity is positive, moving away).
+
+**MDC Calculation:**
+- The obstacle is moving away in both directions, so the MDC is the current distance (minimum of longitudinal and lateral).
+- **MDC:** 2.45 m (lateral distance, the smaller of the two).
+
+**Risk Assessment:**
+- **MDC Risk:** 2.45 m falls into "Medium Risk" (1.0 < MDC ≤ 3.0 meters).
+- **TTC Risk:** Not applicable (moving away).
+- **Overall Risk:** Medium Risk (3).
+
+### Conclusion
+- The obstacle is moving away from the ego vehicle in both directions, with no convergence in trajectories.
+- There is no collision or extreme risk scenario.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 20036 is moving away from the ego vehicle in both longitudinal and lateral directions, with no convergence in trajectories. The minimum distance to collision (MDC) is 2.45 m, indicating medium risk, but no imminent collision or extreme risk."
+}
+```

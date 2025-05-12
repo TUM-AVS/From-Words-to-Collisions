@@ -1,0 +1,40 @@
+* **Obstacle 30230:** This obstacle is in the front-right of the ego vehicle.  Across the timesteps, it initially moves away longitudinally but begins approaching in the last two timesteps.  Laterally, it consistently moves away to the right. At the last timestep (0.9s), the longitudinal distance is 7.14m and the lateral distance is -1.79m. The relative longitudinal velocity is negative (-0.49 m/s) while the lateral velocity is negative (-5.87 m/s), suggesting diverging trajectories. Given the distances and diverging motion, even though the longitudinal velocity is slightly towards the ego vehicle, the risk of collision is low.
+
+    * **MDC:** Approximately 1.79m (primarily lateral).
+    * **TTC:**  Longitudinal TTC is not applicable due to diverging trajectories. Lateral TTC is approximately 1.2s.
+    * **Risk Score:** 4 (Low Risk)
+
+* **Obstacle 30231:** This obstacle is in the front-right and maintains this relative position throughout the scenario. The longitudinal distance decreases across the timesteps while the lateral distance increases (moves further right).  At the last timestep (0.9s), longitudinal distance is 13.06m and lateral distance is -14.27m. Longitudinal velocity is negative (-0.98m/s) meaning moving away from ego, while lateral velocity is also negative (-7.97 m/s) meaning moving to the right of ego. The obstacle's trajectory is clearly diverging from the ego vehicle.
+
+    * **MDC:** Approximately 13.06m (primarily longitudinal).
+    * **TTC:** Longitudinal TTC is not applicable due to diverging trajectories. Lateral TTC is approximately 1.8s.
+    * **Risk Score:** 4 (Low Risk)
+
+* **Obstacle 30235:** This obstacle is behind the ego vehicle and remains there throughout the scenario. It is longitudinally aligned with the ego vehicle (lateral distance = 0.00m).  Its longitudinal distance increases (becomes more negative), indicating increasing separation.  The negative longitudinal velocities also confirm this divergence. At the last timestep (0.9s), the longitudinal distance is -6.97m.  The lateral distance is 0m, but this is not a concern given that the obstacle is moving *away* longitudinally from the ego vehicle.
+
+    * **MDC:** Approximately 6.97m 
+    * **TTC:** Not applicable due to diverging trajectory.
+    * **Risk Score:** 5 (No Risk)
+
+* **Obstacle 30237:** This obstacle, like Obstacle 30235, is behind the ego vehicle and stays behind. It is also longitudinally aligned and its distance from the ego vehicle consistently increases (more negative). Negative longitudinal velocities confirm this diverging behavior.
+
+    * **MDC:** Approximately 18.97m
+    * **TTC:** Not applicable due to diverging trajectory.
+    * **Risk Score:** 5 (No Risk)
+
+**Collision Scenario Determination:**  No obstacle has a risk score of 0 or 1. Therefore, this is NOT a collision scenario.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a collision risk score of 0 or an extreme risk score of 1."
+}
+```

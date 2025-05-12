@@ -1,0 +1,104 @@
+### Obstacle Analysis
+
+#### Obstacle 30
+
+- **Position:** Front-left of the ego vehicle.
+- **Raw Longitudinal Distance:** 3.29 m
+- **Raw Lateral Distance:** 0.05 m
+- **Relative Velocity:** Longitudinal -3.48 m/s, Lateral 2.27 m/s
+- **Motion:** Driving toward the ego longitudinally and moving away to the left laterally.
+
+**Trajectory Analysis:**
+- **Longitudinal Trajectory:** Consistently decreasing indicating rapid approach.
+- **Lateral Trajectory:** Initially stable, slightly increasing due to movement away.
+
+**Calculations:**
+- **MDC Longitudinal (3.29) & Lateral (0.05):** Lateral distance is critical but increasing slightly, longitudinal dimension is of primary concern.
+- **TTC Longitudinal:** 3.29 m / |-3.48 m/s| ≈ 0.95 seconds
+
+**Risk Assessment:**
+- Due to short TTC (<1s) and aligned position, there's a risk of collision if no maneuvers are made.
+- **Risk Score:** High Risk
+
+#### Obstacle 37
+
+- **Position:** Front-right of the ego vehicle.
+- **Raw Longitudinal Distance:** 6.45 m
+- **Raw Lateral Distance:** -6.53 m
+- **Relative Velocity:** Longitudinal -2.24 m/s, Lateral 0.81 m/s
+- **Motion:** Driving toward the ego longitudinally and laterally from the right.
+
+**Trajectory Analysis:**
+- **Longitudinal Trajectory:** Decreasing, but at a slower rate than Obstacle 30.
+- **Lateral Trajectory:** Closing in but lateral velocity is slower.
+
+**Calculations:**
+- **MDC Longitudinal (6.45) & Lateral (6.53):** Neither distance is critically small.
+- **TTC Longitudinal:** 6.45 m / |-2.24 m/s| ≈ 2.88 seconds
+
+**Risk Assessment:**
+- Given longer TTC and both trajectory components not closing critically, manageable with appropriate actions.
+- **Risk Score:** Medium Risk
+
+#### Obstacle 317
+
+- **Position:** Rear-left of the ego vehicle.
+- **Raw Longitudinal Distance:** -8.67 m
+- **Raw Lateral Distance:** 2.57 m
+- **Relative Velocity:** Longitudinal 0.49 m/s, Lateral -2.47 m/s
+- **Motion:** Driving toward the ego vehicle laterally from behind.
+
+**Trajectory Analysis:**
+- **Longitudinal Trajectory:** Increasing, moving away.
+- **Lateral Trajectory:** Decreasing, though lateral impact possible if unchecked.
+
+**Calculations:**
+- **MDC Longitudinal (-8.67) & Lateral (2.57):** Longitudinal safe, lateral decrease requires response.
+- **TTC Lateral:** Not applicable as longitudinal increases.
+
+**Risk Assessment:**
+- Lateral approach is noteworthy but overall trajectory not threatening imminent collision.
+- **Risk Score:** Medium Risk
+
+#### Obstacle 320
+
+- **Position:** Rear-left of the ego vehicle.
+- **Raw Longitudinal Distance:** -15.87 m
+- **Raw Lateral Distance:** 11.80 m
+- **Relative Velocity:** Longitudinal -1.43 m/s, Lateral -0.99 m/s
+- **Motion:** Moving away longitudinally but closing laterally.
+
+**Trajectory Analysis:**
+- **Longitudinal Trajectory:** Increasing. No immediate concern.
+- **Lateral Trajectory:** Slow closure rate.
+
+**Calculations:**
+- **MDC Longitudinal (-15.87) & Lateral (11.80):** Safe distances in both dimensions.
+- **TTC Lateral:** Irrelevant due to longitudinal retreat.
+
+**Risk Assessment:**
+- Both trajectory components are not critically reducing. No imminent risk.
+- **Risk Score:** Negligible Risk
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "30",
+        "OverallRiskScore": "2"
+    }
+}
+``` 
+
+### Conclusion:
+- **Obstacle 30** possesses a significant risk due to its rapid closing speed and short TTC of 0.95 seconds.
+- **Obstacle 37** has a manageable trajectory with a TTC of 2.88 seconds.
+- **Obstacles 317 and 320** are not pressing immediate concerns due to safe distances or outward trajectories.

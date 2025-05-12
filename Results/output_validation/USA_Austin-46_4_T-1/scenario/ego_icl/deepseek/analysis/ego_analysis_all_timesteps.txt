@@ -1,0 +1,80 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 6.4 seconds)
+
+#### **Obstacle 3277 (Front of ego car)**
+- **Adjusted Distance**: Longitudinal = 0.27 m, Lateral = 0.00 m  
+- **Relative Velocity**: Longitudinal = -0.09 m/s (approaching), Lateral = -0.00 m/s (no lateral motion)  
+- **Motion**: Exact lateral alignment, approaching longitudinally.  
+
+**Trajectory Analysis**:  
+- Over the last 1 second (5.5s to 6.4s), the longitudinal distance has decreased from 0.44 m to 0.27 m at a nearly constant rate (~0.02 m per 0.1s).  
+- The relative velocity is decreasing slightly (from -0.28 m/s to -0.09 m/s), but the obstacle is still closing in.  
+
+**Risk Assessment**:  
+1. **Minimum Distance to Collision (MDC)**:  
+   - Current longitudinal distance = 0.27 m (falls in **Extreme Risk** category: 0 < MDC ≤ 0.5 m).  
+   - Lateral distance = 0.00 m (aligned).  
+   - **MDC Risk Score: 1 (Extreme Risk)**  
+
+2. **Time-to-Collision (TTC)**:  
+   - TTC = Distance / |Relative Velocity| = 0.27 / 0.09 ≈ **3.0 seconds**  
+   - Falls in **Medium Risk** category (1.0 < TTC ≤ 3.0 s).  
+   - **TTC Risk Score: 3 (Medium Risk)**  
+
+3. **Overall Risk**:  
+   - Prioritize the higher risk (lower score).  
+   - **Overall Risk Score: 1 (Extreme Risk)**  
+
+**Conclusion for Obstacle 3277**:  
+- Extreme Risk (1) due to very small longitudinal distance (0.27 m) and closing velocity.  
+- No collision yet (distance > 0), but imminent if no intervention.  
+
+---
+
+#### **Obstacle 3278 (Front-left of ego car)**
+- **Adjusted Distance**: Longitudinal = 10.15 m, Lateral = 12.19 m  
+- **Relative Velocity**: Longitudinal = -0.09 m/s (approaching), Lateral = -0.00 m/s (no lateral motion)  
+- **Motion**: No lateral relative motion, slowly approaching longitudinally.  
+
+**Trajectory Analysis**:  
+- Longitudinal distance has decreased slightly (from 10.29 m to 10.15 m over 1 second).  
+- Lateral distance is stable (~12.2 m).  
+
+**Risk Assessment**:  
+1. **Minimum Distance to Collision (MDC)**:  
+   - Both distances are large (> 10 m).  
+   - **MDC Risk Score: 5 (No Risk)**  
+
+2. **Time-to-Collision (TTC)**:  
+   - TTC is not meaningfully calculable (relative velocity is negligible).  
+   - **TTC Risk Score: 5 (No Risk)**  
+
+3. **Overall Risk**:  
+   - **Overall Risk Score: 5 (No Risk)**  
+
+**Conclusion for Obstacle 3278**:  
+- No risk (5) due to large distances and negligible relative motion.  
+
+---
+
+### Final Determination  
+- **Obstacle 3277** is at **Extreme Risk (1)** due to very close proximity (0.27 m longitudinally) and closing velocity.  
+- **Obstacle 3278** poses **No Risk (5)**.  
+- This is **not yet a collision scenario** (distance > 0), but it is **extremely close to collision** and requires immediate intervention.  
+
+---
+
+### JSON Summary  
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3277",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 3277 is at Extreme Risk (score 1) due to very close longitudinal distance (0.27 m) and closing velocity, but no actual collision (distance > 0) has occurred yet. Obstacle 3278 poses no risk."
+}
+```

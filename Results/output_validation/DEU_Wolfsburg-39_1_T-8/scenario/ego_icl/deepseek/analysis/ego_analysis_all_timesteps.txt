@@ -1,0 +1,78 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.7s)
+
+#### **Obstacle 20128 (Front)**
+- **Adjusted Distance**: Longitudinal 25.01m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -6.03 m/s (approaching), Lateral 0.00 m/s  
+- **TTC**: 25.01 / 6.03 ≈ 4.15s (Low Risk)  
+- **MDC**: 25.01m (No Risk)  
+- **Trajectory**: Consistently approaching longitudinally but at a safe distance.  
+- **Risk**: **4 (Low Risk)**  
+
+#### **Obstacle 20135 (Front)**
+- **Adjusted Distance**: Longitudinal 19.85m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -6.03 m/s (approaching), Lateral 0.00 m/s  
+- **TTC**: 19.85 / 6.03 ≈ 3.29s (Medium Risk)  
+- **MDC**: 19.85m (No Risk)  
+- **Trajectory**: Similar to 20128, stable approach but not imminent.  
+- **Risk**: **3 (Medium Risk)**  
+
+#### **Obstacle 20137 (Front)**
+- **Adjusted Distance**: Longitudinal 13.69m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -6.03 m/s (approaching), Lateral 0.00 m/s  
+- **TTC**: 13.69 / 6.03 ≈ 2.27s (Medium Risk)  
+- **MDC**: 13.69m (No Risk)  
+- **Trajectory**: Closing faster than others but still manageable.  
+- **Risk**: **3 (Medium Risk)**  
+
+#### **Obstacle 20141 (Front)**
+- **Adjusted Distance**: Longitudinal 6.86m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -4.57 m/s (approaching), Lateral 0.00 m/s  
+- **TTC**: 6.86 / 4.57 ≈ 1.50s (High Risk)  
+- **MDC**: 6.86m (Low Risk)  
+- **Trajectory**: Rapidly closing; requires monitoring.  
+- **Risk**: **2 (High Risk)**  
+
+#### **Obstacle 20148 (Front → Collision)**
+- **Adjusted Distance**: Longitudinal 0.00m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 1.76 m/s (moving away), Lateral 0.00 m/s  
+- **TTC**: 0.00s (Collision)  
+- **MDC**: 0.00m (Collision)  
+- **Trajectory**: **Collision confirmed** at this timestep (distance = 0m in both dimensions).  
+- **Risk**: **0 (Collision)**  
+
+#### **Obstacle 20155 (Behind)**
+- **Adjusted Distance**: Longitudinal -16.97m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 6.52 m/s (approaching from behind), Lateral 0.00 m/s  
+- **TTC**: Not applicable (negative distance with positive velocity = moving away from collision point).  
+- **MDC**: 16.97m (No Risk)  
+- **Trajectory**: Moving toward ego but still far behind.  
+- **Risk**: **5 (No Risk)**  
+
+---
+
+### **Trajectory Analysis**
+- **Obstacle 20148**: Collision occurred at 0.7s (distance = 0m).  
+- Other obstacles are either stable (20128, 20135, 20137) or require monitoring (20141).  
+
+---
+
+### **Final Determination**
+- **Collision Scenario**: **YES** (Obstacle 20148 has risk score 0).  
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20148",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20141",
+        "OverallRiskScore": "2"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 20148 has a collision risk score of 0 (actual collision occurring at 0.7s with 0.00m distance in both dimensions)."
+}
+```

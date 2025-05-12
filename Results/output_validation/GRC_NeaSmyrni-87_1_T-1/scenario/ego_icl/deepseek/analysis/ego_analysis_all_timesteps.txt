@@ -1,0 +1,35 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 20039 (Most Recent Timestep: 0.4s)
+- **Position**: Collision with ego car (longitudinal = 0.00m, lateral = 0.00m)
+- **Relative Velocity**: Longitudinal = -5.83 m/s (approaching), Lateral = -0.00 m/s (aligned)
+- **Relative Acceleration**: Longitudinal = -3.64 m/s² (decelerating), Lateral = 1.09 m/s² (minor lateral drift)
+- **Motion Description**: Exact longitudinal and lateral alignment (collision occurring).
+
+#### Trajectory Analysis (Across Timesteps)
+- **0.1s**: Longitudinal distance = 1.59m, closing at -7.99 m/s
+- **0.2s**: Longitudinal distance = 0.76m, closing at -7.11 m/s
+- **0.3s**: Longitudinal distance = 0.00m, closing at -6.54 m/s (collision point)
+- **0.4s**: Collision confirmed (distance = 0.00m in both dimensions, still closing at -5.83 m/s)
+
+#### TTC and MDC Calculations
+- **TTC**: At 0.3s, distance = 0.00m → TTC = 0s (collision occurring).
+- **MDC**: At 0.3s, distance = 0.00m → MDC = 0m (collision occurring).
+- **Risk Score**: 0 (Collision).
+
+### Conclusion
+- The obstacle is in direct collision with the ego vehicle at the most recent timestep (0.4s), confirmed by zero distance in both dimensions and ongoing closing velocity.
+- This is a **collision scenario**.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20039",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": null,
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 20039 is in direct collision with the ego vehicle (distance = 0.00m in both dimensions with closing velocity)."
+}
+```

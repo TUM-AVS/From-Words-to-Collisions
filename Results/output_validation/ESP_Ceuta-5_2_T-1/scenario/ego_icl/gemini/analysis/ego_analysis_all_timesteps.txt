@@ -1,0 +1,57 @@
+* **Obstacle 31 (Front-Left):**
+
+    * Trajectory Analysis: This obstacle has been consistently approaching the ego vehicle both longitudinally and laterally across all timesteps. The longitudinal distance has decreased from 9.98m to 0.00m, and the lateral distance from 6.77m to 2.74m.  The decreasing distances coupled with the negative relative velocities confirm a closing trajectory.
+
+    * TTC Calculation:  At the last timestep (1.2s), the longitudinal distance is 0.00m. With the relative longitudinal velocity of -13.67 m/s, the longitudinal TTC is not applicable (division by zero error would occur if distance were not 0.00m). The lateral distance is 2.74m, and the lateral relative velocity is -2.82 m/s, making the lateral TTC approximately 0.97 seconds.
+
+    * MDC Calculation: Given the final position being to the left of the ego, we prioritize lateral distance. MDC is therefore approximately 2.74m.
+
+    * Risk Assessment: Based on the last timestep, MDC is 2.74m, suggesting a Medium Risk (3). However, the TTC is 0.97s (High Risk 2). Since both are calculated based on the most recent timestep with no error, we prioritize the higher risk, resulting in an **Overall Risk Score of 2 (High Risk)**.
+
+
+* **Obstacle 325 (Behind):**
+
+    * Trajectory Analysis: This obstacle has been approaching the ego vehicle from behind, with longitudinal distance shrinking from -4.94m to 0.00m. Lateral distance remains 0.00m throughout, indicating the obstacle is in the same lane.
+
+    * TTC Calculation: Since the latest timestamp has a longitudinal distance of 0.00m, the TTC is 0 seconds, although relative velocity is positive (6.11m/s). This suggests the obstacle has collided with the ego vehicle from behind.
+
+    * MDC Calculation: MDC is 0.00m.
+
+    * Risk Assessment: With both MDC and TTC at 0.00, this signifies a **Collision Risk (0)**.
+
+* **Obstacle 344 (Behind):**
+
+    * Trajectory Analysis: This obstacle appears at t=0.6 seconds and continues approaching from behind. It's always in the same lane as the ego (lateral distance 0.00m).
+
+    * TTC Calculation: At t=1.2s, the distance is -17.23m and relative velocity is 10.79m/s. This indicates the TTC is not applicable.
+
+    * MDC Calculation: MDC is greater than 5.0m
+
+    * Risk Assessment:  Given the constant 0.00m lateral distance and the closing longitudinal distance, we classify this as a **Low Risk (4)** due to the potential for future collision if the ego vehicle were to brake suddenly.  A more precise assessment might require information on how quickly the relative velocity is changing.
+
+
+
+* **Obstacle 350 (Front-Left):**
+
+    * Trajectory Analysis: While initially approaching longitudinally, this obstacle's lateral movement takes it further away from the ego vehicle.
+
+    * TTC Calculation: At t=1.2s, longitudinal distance is 14.22m, relative velocity is -2.86 m/s, so the TTC is not applicable.  Lateral distance is 20.91m, and relative velocity is 5.14m/s, resulting in a lateral TTC not applicable.
+
+    * MDC Calculation:  With the increasing lateral distance, the MDC is considerably larger than 5m.
+
+    * Risk Assessment:  Based on the diverging lateral movement, this is assessed as **No Risk (5)**.
+
+* **Collision Scenario Determination:** Yes, this is a collision scenario. Obstacle 325 registers a collision score (0), indicating an impact has occurred.
+
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "325",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 325 has collided with the ego vehicle at t=1.2s, indicated by a longitudinal distance of 0.00m and a relative velocity of 6.11 m/s (meaning the collision is from the behind)."
+}
+```

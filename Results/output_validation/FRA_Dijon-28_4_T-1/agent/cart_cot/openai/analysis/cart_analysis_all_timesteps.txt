@@ -1,0 +1,34 @@
+### Brief Analysis for Risky Obstacles
+
+1. **Obstacle 30532.0**
+   - **Position and Velocity Trend**: This obstacle is accelerating and moving towards Ego in lanelet 84.0, which is the same lanelet as Ego. Over the course of the timesteps, it's increasing its velocity from 2.3729 to 4.0717 and moving closer to Ego.
+   - **Distance and Trajectory**: The obstacle's position moved from (21.4027, -381.1596) to (22.0969, -382.4673) as it approached Ego's position (24.5962, -387.1472). This close approach in both position and velocity increases collision risk.
+   - **Risk Level**: With the current trajectory and speed, this obstacle has a high risk of potential collision due to its proximity and increasing speed trends in the direction of the Ego vehicle.
+
+2. **Obstacle 30537.0**
+   - **Position and Velocity Trend**: This obstacle is also in lanelet 84.0 with Ego, maintaining a relatively steady but slightly increasing velocity, showing tendencies to move towards Ego. Over the course of the timesteps, it is closing the gap on Ego with steady acceleration.
+   - **Distance and Trajectory**: From the position (15.8223, -370.6485), it moved to (16.7102, -372.321), which shows the obstacle is on a convergent path with Ego. The negative acceleration towards the end could be mitigating but requires regular monitoring.
+   - **Risk Level**: There is a medium risk due to its consistent approach direction and maintaining speed towards Ego.
+
+3. **Obstacle 30539.0**
+   - **Position and Velocity Trend**: The obstacle is increasing its velocity rapidly while it is located in a different lanelet than Ego. The position (28.1126, -399.6193) is further laterally and longitudinally from Ego's path.
+   - **Risk Assessment**: Since it is not in the direct path or lane of Ego, it does not present an immediate high risk. The notable acceleration, however, should be observed for unexpected lane transitions.
+
+```json
+{
+    "CollisionObstacles": [
+        {
+            "ObstacleID": "30532.0",
+            "OverallRiskScore": 0
+        }
+    ],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30532.0",
+        "OverallRiskScore": 1
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "30537.0",
+        "OverallRiskScore": 2
+    }
+}
+```

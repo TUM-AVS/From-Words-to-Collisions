@@ -1,0 +1,72 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30253
+
+**Trajectory analysis:**
+- The obstacle is directly in front of the ego vehicle and observed to be constantly increasing its longitudinal distance with the ego, indicating a movement away scenario longitudinally.
+- Longitudinal relative velocity is positive, which means it is indeed moving away.
+
+**Most recent timestep data:**
+- Adjusted longitudinal distance: 17.10 m
+- Lateral distance: 0.00 m (exactly aligned laterally)
+- Longitudinal relative velocity: 1.08 m/s (positive, moving away)
+- Motion Description: Obstacle is moving away longitudinally.
+
+**TTC calculation:**
+- Since the obstacle is moving away longitudinally, the TTC in the longitudinal direction is not applicable as a collision is not foreseeable in this dimension.
+
+**MDC calculation:**
+- MDC = Lateral distance = 0.00 m
+
+**Risk Assessment:**
+- Longitudinally, given the increasing distance and positive relative velocity, no collision is possible at the current trajectory.
+- Laterally, although the MDC calculation results in 0.00 m due to exact alignment in this dimension, the overall movement of Obstacle 30253 (moving away) suggests that lateral collision risk is not imminent.
+- Overall: No Risk (5)
+
+#### Obstacle 30254
+
+**Trajectory analysis:**
+- Positioned in the front-left position, this obstacle shows converging approach both longitudinally negative and lateral marginally moving away over the trajectory until the last moment where it moves toward the ego.
+- Longitudinal relative velocity has switched to negative, indicating it is now moving toward the ego vehicle.
+
+**Most recent timestep data:**
+- Adjusted longitudinal distance: 14.94 m
+- Lateral distance: 1.89 m
+- Longitudinal relative velocity: -1.27 m/s (negative, moving toward)
+- Lateral relative velocity: -0.00 m/s (holding steady to marginally moving away)
+- Motion Description: Obstacle is driving toward the ego car longitudinally; moving laterally toward the left.
+
+**TTC calculation (longitudinal):**
+- TTC_longitudinal = 14.94 / 1.27 = 11.76 seconds
+
+**MDC calculation:**
+- As both proximity metrics suggest no immediate path intersection, MDC is mainly guided by lateral distance which keeps relatively steady or moving away:
+- MDC = Lateral distance = 1.89 m
+
+**Risk Assessment:**
+- Longitudinally, the TTC remains high, and movements are not immediate or impending to create critical concern.
+- Laterally, no sudden changes in pace reveal a potential for quick intersection.
+- Medium Risk (3), given potential longitudinal convergence but mitigated by considerable distance and slow approach laterally.
+
+### Conclusion
+- **Obstacle 30253:** No Risk (5)
+- **Obstacle 30254:** Medium Risk (3)
+
+Since neither obstacle displays criteria indicating collision (0 score) or extreme risk (1 score), this scenario is not classed as a collision scenario.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle exhibits a risk score of 0 or 1; among all examined dimensions, relative distancing grows. Hence, no immediate collision threat is discerned."
+}
+```

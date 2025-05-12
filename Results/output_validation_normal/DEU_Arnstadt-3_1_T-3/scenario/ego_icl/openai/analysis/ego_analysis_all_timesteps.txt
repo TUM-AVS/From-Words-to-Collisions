@@ -1,0 +1,64 @@
+### Obstacle Risk Assessment
+
+#### Obstacle 20055
+**Trajectory Analysis:**
+- Position: Front-left of the ego vehicle
+- Adjusted longitudinal distance changes from 18.32m to 17.69m (approaching)
+- Adjusted lateral distance increases from 0.00m to 3.08m (moving leftward away laterally)
+- Relative velocity: Longitudinally -0.98 m/s (approaching), Lateral 4.81 m/s (moving leftward away)
+
+**Risk Calculation:**
+- **Longitudinal TTC:** 
+  - Distance = 17.69m, Velocity = 0.98 m/s
+  - TTC = 17.69 / 0.98 ≈ 18.06 seconds
+- **Lateral TTC:** 
+  - Distance = 3.08m, Velocity = 4.81 m/s (moving away laterally)
+  - With ego clearance normally increasing, no collision
+- **MDC:** 
+  - Lateral distance is increasing, hence less critical
+  - Longitudinal minimum distance at closest point remains >5m if trajectory maintained
+
+**Risk Score:**
+- Longitudinal motion close, but significantly mitigated by growing lateral spacing
+- **Overall Risk Score:** 5 (No Risk)
+
+#### Obstacle 20057
+**Trajectory Analysis:**
+- Position: Rear-right of the ego vehicle
+- Adjusted longitudinal distance remains relatively stable with slight decrease due to vehicle divergence
+- Adjusted lateral distance changes from approximately 0.00m to -0.16m (approaching from the right)
+- Relative velocity: Longitudinal -0.26 m/s (slowly moving away), Lateral 1.49 m/s (moving leftward toward the ego)
+
+**Risk Calculation:**
+- **Longitudinal TTC:**
+  - Distance ≈ 18.21m, Velocity ≈ 0.26 m/s (increasing gap)
+  - Current relative movement away longitudinally
+  - Longitudinal alignment, but increasing distance, so TTC is not applicable
+- **Lateral TTC:**
+  - Distance = 0.16m, Velocity = 1.49 m/s
+  - TTC = 0.16 / 1.49 ≈ 0.11 seconds (lateral convergence ongoing)
+- **MDC:**
+  - As lateral spacing decreases rapidly, MDC is critical
+  - Negative lateral change, indicated for possible impact along path projection
+
+**Risk Score:**
+- Closest approach in the lateral is critical; nearly aligns with ego clearance
+- **Overall Risk Score:** 1 (Extreme Risk)
+
+### Conclusion
+- **Obstacle 20055:** Shows no immediate risk despite approaching
+- **Obstacle 20057:** Extreme risk due to rear-right lateral approach aligning critically close approaching crossing path
+- **Scenario Evaluation:** Presence of extreme-risk obstacle indicates potential collision scenario
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": null,
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20057",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 20057 has an extreme risk score due to a rapidly closing lateral distance with convergence trajectory towards the ego vehicle."
+}
+```

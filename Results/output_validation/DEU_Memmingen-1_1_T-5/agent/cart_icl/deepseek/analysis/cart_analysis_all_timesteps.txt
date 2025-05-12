@@ -1,0 +1,24 @@
+### Analysis:
+
+1. **Obstacle 20052.0**:
+   - **Position**: At 3.9s, the obstacle is at (54.2405, -85.1689), while the ego is at (49.4198, -86.7612).
+   - **Relative Motion**: The obstacle is ahead of the ego in the same lanelet (3428.0). The ego is decelerating (velocity decreasing), while the obstacle is also decelerating but at a higher speed (11.9257 m/s vs. ego's 4.6959 m/s).
+   - **TTC**: The longitudinal distance is ~4.82m, and the relative velocity is ~7.23 m/s (obstacle is moving faster but decelerating). TTC ≈ 4.82 / 7.23 ≈ 0.67s. This is very short, indicating **Extreme Risk (1)**.
+   - **Lateral Distance**: The lateral distance is small (same lanelet), so the risk is high.
+
+2. **Obstacle 20044.0**:
+   - **Position**: At 3.9s, the obstacle is at (22.1925, -87.7072), while the ego is at (49.4198, -86.7612).
+   - **Relative Motion**: The obstacle is in a different lanelet (3429.0) and is moving away from the ego's path. The lateral distance is large, and the trajectories are diverging.
+   - **Risk**: **Negligible (5)**.
+
+### JSON Output:
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20052.0",
+        "OverallRiskScore": 1
+    },
+    "HighRiskObstacle": {}
+}
+```

@@ -1,0 +1,127 @@
+### Obstacle-by-Obstacle Analysis at 2.6 seconds
+
+#### Obstacle 30 (Left of Ego)
+- Adjusted longitudinal distance: 0.00 m
+- Adjusted lateral distance: 1.63 m
+- Longitudinal relative velocity: -2.12 m/s (approaching)
+- Lateral relative velocity: 0.00 m/s (no relative lateral motion)
+- Motion: Exact longitudinal alignment, no lateral relative motion.
+  
+**Trajectory Analysis**: The obstacle remains side-by-side without lateral approach but is aligned longitudinally. This reduces collision risk as lateral motion is non-existent.
+
+**TTC Calculation (Lateral)**: Not applicable as relative velocity is 0 m/s.
+
+**MDC (Lateral)**: 1.63 m
+
+**Risk Assessment**: With no lateral closing, the risk level is low.  
+**Final Risk Score**: 3 (Medium Risk)
+
+---
+
+#### Obstacle 31 (Front-left of Ego)
+- Adjusted longitudinal distance: 1.97 m
+- Adjusted lateral distance: 1.65 m
+- Longitudinal relative velocity: -2.12 m/s (approaching)
+- Lateral relative velocity: 0.00 m/s
+- Motion: Obstacle is driving toward the ego car longitudinally.
+
+**Trajectory Analysis**: Obstacle is approaching but still maintains sufficient longitudinal clearance.
+
+**TTC Calculation (Longitudinal)**: \( \frac{1.97 \text{ m}}{2.12 \text{ m/s}} \approx 0.93 \text{ s} \)
+
+**MDC (Longitudinal)**: 1.97 m
+
+**Risk Assessment**: Given the trajectory and approach rate, the risk is assessed as high due to very close approach.  
+**Final Risk Score**: 2 (High Risk)
+
+---
+
+#### Obstacle 36 (Front-left of Ego)
+- Adjusted longitudinal distance: 8.82 m
+- Adjusted lateral distance: 1.66 m
+- Longitudinal relative velocity: -2.12 m/s (approaching)
+- Lateral relative velocity: 0.00 m/s
+- Motion: Obstacle is driving toward the ego car longitudinally.
+
+**Trajectory Analysis**: While the approach is pertinent, the obstacle maintains over 5 m clearance.
+
+**TTC Calculation (Longitudinal)**: \( \frac{8.82 \text{ m}}{2.12 \text{ m/s}} \approx 4.16 \text{ s} \)
+
+**MDC (Longitudinal)**: 8.82 m
+
+**Risk Assessment**: The extended TTC and clearance suggest a low risk.  
+**Final Risk Score**: 4 (Low Risk)
+
+---
+
+#### Obstacle 338 (Front of Ego)
+- Adjusted longitudinal distance: 23.08 m
+- Adjusted lateral distance: 0.00 m
+- Longitudinal relative velocity: 12.86 m/s (moving away)
+- Lateral relative velocity: 0.03 m/s
+- Motion: Obstacle is moving away longitudinally.
+
+**Trajectory Analysis**: Obstacle is diverging from the ego vehicle.
+
+**Risk Assessment**: Due to diverging motion, there is negligible risk.  
+**Final Risk Score**: 5 (Negligible Risk)
+
+---
+
+#### Obstacle 342 (Behind Ego)
+- Adjusted longitudinal distance: -1.42 m
+- Adjusted lateral distance: 0.00 m
+- Longitudinal relative velocity: 8.90 m/s (approaching)
+- Lateral relative velocity: 0.49 m/s
+- Motion: Obstacle is driving toward the ego car from behind.
+
+**Trajectory Analysis**: Closing from behind in both lateral and longitudinal dimensions.
+
+**TTC Calculation (Longitudinal)**: \( \frac{1.42 \text{ m}}{8.90 \text{ m/s}} \approx 0.16 \text{ s} \)
+
+**MDC (Longitudinal)**: 1.42 m
+
+**Risk Assessment**: Eulerian metrics place this at an extreme risk level due to extremely short TTC and closing velocity.  
+**Final Risk Score**: 1 (Extreme Risk)
+
+---
+
+#### Obstacle 343 (Rear-left of Ego)
+- Adjusted longitudinal distance: -24.21 m
+- Adjusted lateral distance: 0.08 m
+- Longitudinal relative velocity: -1.84 m/s
+- Lateral relative velocity: -7.81 m/s (approaching)
+- Motion: Obstacle is moving away longitudinally but approaches laterally.
+
+**Trajectory Analysis**: While moving laterally towards the ego vehicle, it is too far to pose an immediate risk in the moment.
+
+**TTC Calculation (Lateral)**: \( \frac{0.08 \text{ m}}{7.81 \text{ m/s}} \approx 0.01 \text{ s} \) - immediate risk.
+
+**MDC (Lateral)**: 0.08 m
+
+**Risk Assessment**: Extremely short lateral distance to collision with closing speed indicates this obstacle is a severe risk.  
+**Final Risk Score**: 1 (Extreme Risk)
+
+---
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "342",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "31",
+        "OverallRiskScore": "2"
+    }  
+}
+```
+### Analysis Conclusion:
+- **Extreme Risk Identified**: Obstacle 342 poses an immediate collision risk from behind with a critical TTC due to its longitudinal aggressive approach.
+- **High Risk Concerns**: Obstacle 31, while approaching, remains just shy of collision but requires actions soon.
+- **No collision** is currently occurring, but vigilance is needed for evasive maneuvers.

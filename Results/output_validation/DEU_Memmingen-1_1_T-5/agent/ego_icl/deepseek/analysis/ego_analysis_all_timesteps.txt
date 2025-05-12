@@ -1,0 +1,62 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 20052 (Behind Ego)
+- **Latest Timestep (3.9s)**:
+  - **Adjusted Distance**: Longitudinal -0.57m, Lateral 0.00m
+  - **Relative Velocity**: Longitudinal 7.23 m/s (approaching), Lateral 0.11 m/s (minimal)
+  - **Motion**: Driving toward ego from behind with exact lateral alignment.
+  - **Trajectory Analysis**:
+    - Longitudinal distance decreases rapidly from -7.07m to -0.57m in 0.9s (~7.2 m/s closing speed).
+    - Lateral distance remains 0.00m (same lane).
+    - Acceleration trends show slight increase in longitudinal speed (7.12 m/s → 7.23 m/s).
+  - **TTC Calculation**:
+    - Longitudinal TTC = 0.57m / 7.23 m/s ≈ 0.079s (Extreme Risk, TTC < 0.5s).
+    - Lateral TTC = Not applicable (lateral velocity negligible).
+  - **MDC Calculation**:
+    - MDC = 0.57m (longitudinal), 0.00m (lateral). Focus on longitudinal.
+    - MDC = 0.57m (Extreme Risk, 0.5 < MDC ≤ 1.0m).
+  - **Risk Assessment**:
+    - TTC indicates Extreme Risk (1).
+    - MDC indicates Extreme Risk (1).
+    - **Overall Risk Score**: 1 (Extreme Risk). Collision imminent if no action taken.
+
+#### Obstacle 20044 (Front-Right of Ego)
+- **Latest Timestep (3.9s)**:
+  - **Adjusted Distance**: Longitudinal 21.69m, Lateral -5.86m
+  - **Relative Velocity**: Longitudinal -9.56 m/s (approaching), Lateral 11.47 m/s (approaching from right).
+  - **Motion**: Driving toward ego both longitudinally and laterally.
+  - **Trajectory Analysis**:
+    - Longitudinal distance decreases from 23.35m to 21.69m in 0.2s (~8.3 m/s closing speed).
+    - Lateral distance decreases from -8.67m to -5.86m in 0.2s (~14.05 m/s closing speed).
+    - Acceleration trends show increasing closing speeds in both dimensions.
+  - **TTC Calculation**:
+    - Longitudinal TTC = 21.69m / 9.56 m/s ≈ 2.27s (Medium Risk, 1.0 < TTC ≤ 3.0s).
+    - Lateral TTC = 5.86m / 11.47 m/s ≈ 0.51s (High Risk, 0.5 < TTC ≤ 1.0s).
+  - **MDC Calculation**:
+    - MDC is the smaller of the two distances when projected paths intersect.
+    - Lateral distance is closing faster; MDC ≈ 5.86m (Low Risk, 3.0 < MDC ≤ 5.0m).
+  - **Risk Assessment**:
+    - TTC indicates High Risk (2) from lateral approach.
+    - MDC indicates Low Risk (4).
+    - **Overall Risk Score**: 2 (High Risk). Priority lower than Obstacle 20052.
+
+### Predicted Collision Obstacle
+- Obstacle 20052 is on a direct collision course from behind with TTC ≈ 0.079s and MDC ≈ 0.57m. If no evasive action is taken, a collision will occur imminently.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20052",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20052",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "20052",
+        "OverallRiskScore": "0"
+    }
+}
+```

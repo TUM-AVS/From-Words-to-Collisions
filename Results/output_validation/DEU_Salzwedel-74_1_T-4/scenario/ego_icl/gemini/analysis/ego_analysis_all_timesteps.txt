@@ -1,0 +1,37 @@
+Obstacle 20071 Analysis:
+
+Trajectory Analysis: Obstacle 20071 is approaching the ego vehicle from behind.  The longitudinal distance has been steadily decreasing across all timesteps, while lateral distance remains at 0.00m, indicating the obstacle is in the same lane and directly behind the ego vehicle.
+
+At t=7.4s:
+
+* Longitudinal distance: 0.00m
+* Lateral distance: 0.00m
+* Longitudinal relative velocity: 4.17 m/s (approaching)
+* Lateral relative velocity: -0.02 m/s
+
+TTC Calculation: Since the longitudinal distance is 0 and relative velocity is positive, TTC is 0 seconds. Note: lateral relative velocity here is meaningless since lateral distance is zero at all previous timesteps.
+
+MDC Calculation: MDC is 0 meters.
+
+Risk Assessment:
+* Longitudinal Risk: Collision Risk (0) due to 0m distance and positive closing velocity.
+* Lateral Risk: Although laterally aligned, the consistent 0 lateral distance across timesteps, along with a near-zero lateral relative velocity indicate this itself does not contribute additional risk given the confirmed longitudinal collision risk.
+* Overall Risk: Collision Risk (0)
+
+Collision Scenario Determination:
+
+Yes, this is a collision scenario. Obstacle 20071 has collided with the ego vehicle at t=7.4s.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "20071",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 20071 has collided with the ego vehicle. Longitudinal distance is 0.00m with a positive relative velocity at t=7.4s. Lateral distance is also 0.00m, however this does not cause further risk."
+}
+```

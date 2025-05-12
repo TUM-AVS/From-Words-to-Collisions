@@ -1,0 +1,51 @@
+### Obstacle 30221 Analysis
+
+**Trajectory Analysis Across Timesteps**
+- The obstacle is consistently behind the ego vehicle, with a longitudinal distance initially decreasing, then slightly increasing, and maintaining a consistently zero lateral distance.
+- The relative velocity changes from moving away (-2.5 m/s longitudinal) to approaching the ego vehicle (0.51 m/s longitudinal) by the most recent timestep.
+
+**Most Recent Timestep Evaluation (0.9 seconds)**
+- **Adjusted Longitudinal Distance**: -7.62 meters (note: adjusted values are not explicitly provided, assumed from "real distance" due to no specific adjusted value here)
+- **Adjusted Lateral Distance**: 0.00 meters
+- **Relative Velocity Longitudinal**: 0.51 m/s (approaching)
+- **Relative Velocity Lateral**: 0.15 m/s
+- **Motion Description**: The obstacle is driving toward the ego car from behind, exact lateral alignment.
+
+**Calculation of Time-to-Collision (TTC)**
+- **Longitudinal TTC**: 
+  - Distance = 7.62 meters (absolute value used for TTC)
+  - Absolute relative velocity = 0.51 m/s
+  - TTC = 7.62 / 0.51 ≈ 14.94 seconds (Longitudinally, no imminent collision)
+  
+Since the lateral relative velocity and lateral alignment are such that a lateral collision is not imminent, lateral TTC is not critical in the risk assessment here.
+
+**Calculation of Minimum Distance to Collision (MDC)**
+- Since exact lateral alignment is mentioned with longitudinal distancing and moving toward the ego, effectively the lateral MDC is a critical factor to keep under surveillance. However, given the vehicle is not rapidly decreasing this alignment distance, we assume MDC reflective of safe trajectory (7.62 m).
+  
+**Risk Assessment**
+- **Current Distances and Velocities**: The obstacle is behind the ego with an increasing longitudinal distance over time. Despite the vehicle moving toward the ego, the change is gradual, and the distances imply there is ample time to react should the vehicle continue this trajectory.
+  
+- **Comparison against Risk Levels**:
+  - TTC for longitudinal movement indicates No Risk (TTC > 5.0s).
+  - MDC > 5.0 meters indicates No Risk.
+
+- **Overall Risk Score**: 5 (No Risk)
+
+### Conclusion
+According to the most recent data, the obstacle 30221 does not present an imminent collision threat under current movement vectors and velocities. The trajectory shows the obstacle is behind and slowly changing its longitudinal proximity while remaining laterally aligned, but not threateningly so.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30221's trajectory and speed imply no immediate or imminent collision risk; the relative velocity and distance are safe."
+}
+```

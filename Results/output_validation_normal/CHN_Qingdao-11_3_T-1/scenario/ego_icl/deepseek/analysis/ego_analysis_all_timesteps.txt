@@ -1,0 +1,58 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9 seconds)
+
+#### Obstacle 30702:
+- **Direction**: Front of the ego car
+- **Adjusted Distances**: 
+  - Longitudinal: 18.10 m (raw distance, adjusted distance not provided, assuming similar)
+  - Lateral: 0.00 m (exact alignment)
+- **Relative Velocity**: 
+  - Longitudinal: 0.01 m/s (moving away very slowly)
+  - Lateral: 0.56 m/s (moving away laterally to the left)
+- **Relative Acceleration**: 
+  - Longitudinal: 0.74 m/s² (positive, increasing longitudinal separation)
+  - Lateral: -3.90 m/s² (negative, decelerating lateral movement)
+- **Motion Description**: 
+  - Obstacle is moving away longitudinally.
+  - Exact lateral alignment or unknown case.
+
+#### Trajectory Analysis:
+- Over the timesteps (0.1s to 0.9s), the obstacle is consistently moving away longitudinally (distance increasing from 17.95m to 18.10m).
+- Laterally, the obstacle moves from 0.49m (left) to 0.00m (aligned) but is moving away to the left (lateral velocity is positive, indicating leftward movement away from ego).
+- The lateral distance is decreasing but the obstacle is moving away, so no immediate collision risk.
+
+#### TTC Calculation:
+- **Longitudinal TTC**: 
+  - Distance: 18.10 m
+  - Relative Velocity: 0.01 m/s (moving away, so TTC is not applicable for collision risk).
+- **Lateral TTC**: 
+  - Distance: 0.00 m (but moving away at 0.56 m/s, so no collision risk).
+  - TTC is not applicable since the obstacle is moving away.
+
+#### MDC Calculation:
+- The obstacle is longitudinally aligned (lateral distance = 0.00m) but moving away both longitudinally and laterally.
+- The closest distance (MDC) is the lateral distance: 0.00m, but since the obstacle is moving away, this does not indicate a collision risk.
+
+#### Risk Assessment:
+- **Longitudinal Risk**: No Risk (5) - Moving away.
+- **Lateral Risk**: No Risk (5) - Moving away.
+- **Overall Risk**: No Risk (5) - No converging trajectories.
+
+### Conclusion:
+- No collision or extreme risk is observed for Obstacle 30702.
+- The obstacle is moving away from the ego vehicle in both longitudinal and lateral directions, with no indication of converging paths.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30702 is moving away from the ego vehicle in both longitudinal and lateral directions, with no converging trajectories or immediate collision risk."
+}
+```

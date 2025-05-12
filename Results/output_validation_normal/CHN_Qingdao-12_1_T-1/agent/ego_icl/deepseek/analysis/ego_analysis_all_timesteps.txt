@@ -1,0 +1,71 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30745
+- **Position**: Front-right of the ego car
+- **Adjusted Distances**: Longitudinal 16.05 m, Lateral -18.38 m
+- **Relative Velocity**: Longitudinal -0.26 m/s (approaching), Lateral -0.56 m/s (moving away)
+- **Motion**: Driving toward the ego car longitudinally, moving away laterally to the right
+- **Trajectory Analysis**: 
+  - Longitudinal distance is decreasing slowly (-0.26 m/s), but the distance is large (16.05 m).
+  - Lateral distance is increasing (-0.56 m/s), meaning the obstacle is moving further to the right.
+- **TTC Calculation**: 
+  - Longitudinal TTC = 16.05 / 0.26 ≈ 61.73 seconds (No Risk, TTC > 5.0s)
+  - Lateral TTC: Not applicable (moving away)
+- **MDC Calculation**: 
+  - The obstacle is moving away laterally, so MDC is effectively infinite (No Risk, MDC > 5.0m)
+- **Overall Risk**: 5 (Negligible Risk)
+
+#### Obstacle 30746
+- **Position**: Front-right of the ego car
+- **Adjusted Distances**: Longitudinal 2.90 m, Lateral -4.53 m
+- **Relative Velocity**: Longitudinal -0.69 m/s (approaching), Lateral -1.92 m/s (moving away)
+- **Motion**: Driving toward the ego car longitudinally, moving away laterally to the right
+- **Trajectory Analysis**: 
+  - Longitudinal distance is decreasing (-0.69 m/s), but the distance is moderate (2.90 m).
+  - Lateral distance is increasing (-1.92 m/s), meaning the obstacle is moving further to the right.
+- **TTC Calculation**: 
+  - Longitudinal TTC = 2.90 / 0.69 ≈ 4.20 seconds (Low Risk, 3.0 < TTC ≤ 5.0)
+  - Lateral TTC: Not applicable (moving away)
+- **MDC Calculation**: 
+  - The obstacle is moving away laterally, so MDC is effectively infinite (No Risk, MDC > 5.0m)
+- **Overall Risk**: 4 (Low Risk)
+
+#### Obstacle 30750
+- **Position**: Front-right of the ego car
+- **Adjusted Distances**: Longitudinal 8.74 m, Lateral -5.82 m
+- **Relative Velocity**: Longitudinal 0.69 m/s (moving away), Lateral -3.51 m/s (moving away)
+- **Motion**: Moving away longitudinally, moving away laterally to the right
+- **Trajectory Analysis**: 
+  - Longitudinal distance is increasing (0.69 m/s), meaning the obstacle is moving away.
+  - Lateral distance is increasing (-3.51 m/s), meaning the obstacle is moving further to the right.
+- **TTC Calculation**: 
+  - Longitudinal TTC: Not applicable (moving away)
+  - Lateral TTC: Not applicable (moving away)
+- **MDC Calculation**: 
+  - The obstacle is moving away in both dimensions, so MDC is effectively infinite (No Risk, MDC > 5.0m)
+- **Overall Risk**: 5 (Negligible Risk)
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```
+
+### Explanation:
+- **Obstacle 30745**: No significant risk due to large longitudinal distance and increasing lateral distance.
+- **Obstacle 30746**: Low risk due to moderate longitudinal distance and increasing lateral distance.
+- **Obstacle 30750**: No risk as it is moving away in both dimensions.
+- No obstacles pose a collision, extreme, or high risk at the most recent timestep.

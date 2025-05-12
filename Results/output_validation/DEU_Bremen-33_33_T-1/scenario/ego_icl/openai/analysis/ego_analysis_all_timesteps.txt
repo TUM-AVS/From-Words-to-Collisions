@@ -1,0 +1,99 @@
+### Obstacle-by-Obstacle Analysis
+
+**Obstacle 30267:**
+- **Relative Position:** Front
+- **Adjusted Longitudinal Distance:** 0.80 m
+- **Adjusted Lateral Distance:** 0.00 m
+- **Relative Longitudinal Velocity:** -0.02 m/s (approaching)
+- **Trajectory Analysis:** Over the last 10 timesteps, the longitudinal distance has stabilized and decreased slightly, with a consistent very low negative velocity.
+- **MDC:** 0.80 m (because lateral distance is 0 m, focus on longitudinal distance)
+- **TTC Calculation for Longitudinal:** Approximately 40 seconds (0.80m / 0.02 m/s); typically not calculated when relative velocity is negative as TTC suggests increasing distance or stabilization.
+- **Risk Assessment:** There's longitudinal alignment and closing distance, risk levels are:
+  - MDC: 0.8m → High Risk (2)
+  - TTC: 40s → No Risk (5)
+  - Overall: High Risk (2) focusing on the higher proximity risk.
+
+**Obstacle 30270:**
+- **Relative Position:** Front-left
+- **Adjusted Longitudinal Distance:** 20.75 m
+- **Adjusted Lateral Distance:** 13.36 m
+- **Relative Longitudinal Velocity:** -1.76 m/s (approaching)
+- **Relative Lateral Velocity:** -0.28 m/s (approaching)
+- **Trajectory Analysis:** Similar velocities suggest a diagonal approach.
+- **MDC Calculation:** Higher dimension focus on lateral due to approach.
+- **TTC Calculation:** Lateral: 13.36m / 0.28m/s ≈ 47.71s; Longitudinal: 20.75m / 1.76m/s ≈ 11.79s
+- **Risk Assessment:** No immediate collision risk due to long TTC:
+  - MDC and TTC both provide No Risk (5)
+  - Overall Risk: No Risk (5)
+
+**Obstacle 30272:**
+- **Relative Position:** Front-right
+- **Adjusted Longitudinal Distance:** 12.57 m
+- **Adjusted Lateral Distance:** 11.42 m
+- **Relative Longitudinal Velocity:** -0.02 m/s (approaching)
+- **Trajectory Analysis:** Minimal change in position, indicating stable distances.
+- **MDC Calculation:** Consider stable dimensions.
+- **TTC Calculation:** Approximately infinite due to minimal velocity.
+- **Risk Assessment:** No immediate risk:
+  - Overall: No Risk (5)
+
+**Obstacle 30274:**
+- **Relative Position:** Behind
+- **Adjusted Longitudinal Distance:** -0.19 m
+- **Adjusted Lateral Distance:** 0.00 m (aligns but comes from behind)
+- **Relative Longitudinal Velocity:** 2.15 m/s (approaching)
+- **Trajectory Analysis:** Progressively moving closer from behind.
+- **MDC Calculation:** Immediate proximity indicates high risk:
+  - Longitudinal distance approaching 0 with increasing velocity.
+- **TTC Calculation:** Negative suggesting convergence.
+- **Risk Assessment:**
+  - MDC and Velocity convergence indicate Extreme Risk:
+  - Overall: Extreme Risk (1)
+
+**Obstacle 30275:**
+- **Relative Position:** Front-right
+- **Adjusted Longitudinal Distance:** 15.99 m
+- **Adjusted Lateral Distance:** 11.80 m
+- **Relative Longitudinal Velocity:** -0.02 m/s (approaching)
+- **Trajectory Analysis:** Stable approach indicates no imminent collision risk.
+- **MDC Calculation:** Focus on maintaining steady paths further reducing risk.
+- **Risk Assessment:** No Risk:
+  - Overall: No Risk (5)
+
+**Obstacle 30276:**
+- **Relative Position:** Front-right
+- **Adjusted Longitudinal Distance:** 13.89 m
+- **Adjusted Lateral Distance:** 19.06 m
+- **Relative Longitudinal Velocity:** 0.00 m/s (moving away)
+- **Trajectory Analysis:** The obstacle's position and velocity clarify movement away in both dimensions.
+- **Risk Assessment:** Lateral movement provides:
+  - Overall: No Risk (5)
+
+**Obstacle 30277:**
+- **Relative Position:** Front-right
+- **Adjusted Longitudinal Distance:** 10.24 m
+- **Adjusted Lateral Distance:** 19.05 m
+- **Relative Longitudinal Velocity:** 0.15 m/s (moving away)
+- **Trajectory Analysis:** Converging laterally but far in distance, risk is minimal.
+- **Risk Assessment:** Mostly moving away:
+  - Overall: No Risk (5)
+
+### Scenario Conclusion
+The overall analysis confirms that **Obstacles 30267** has a high risk but mainly under control given stability, while **Obstacle 30274** is at an **Extreme Risk (1)** indicating the greatest potential tor collision given its trajectory from behind.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30274",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30274 presents an extreme risk scenario due to its close proximity and increasing relative velocity from behind the ego vehicle, asserting a potential collision path."
+}
+```

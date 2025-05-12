@@ -1,0 +1,21 @@
+* **Obstacle 31 (Front-Left):**  This obstacle consistently maintains a safe lateral distance from the ego vehicle, exceeding 20 meters throughout the provided timeframe.  Longitudinally, it is approaching the ego vehicle at a slow relative velocity of -2.5 m/s, with the longitudinal distance decreasing gradually. At the last timestep, the longitudinal distance is 11.44m. TTC is 11.44 / 2.5 = 4.576 seconds, signifying a Low Risk (4). Given the large lateral distance, MDC is not a concern. There is no immediate risk of collision with this obstacle.
+
+* **Obstacle 34 (Front):** This obstacle is directly in front of the ego vehicle (lateral distance ≈ 0m) and approaching longitudinally at -2.52 m/s. At the last timestep, the longitudinal distance is 15.10m. TTC is 15.10 / 2.52 = 5.99s,  which would suggest Negligible Risk (5). However, the lateral distance is consistently 0, indicating a potential collision course if the obstacle's lateral velocity becomes negative. The lateral velocity is currently positive (1.86 m/s), so it is moving away from the ego vehicle laterally. Due to the critical nature of being directly in front and the potential of lane change, the overall risk level is lowered to Low Risk (4). The MDC is dependent on the lateral trajectory of the obstacle. Currently, it is not at risk due to the positive relative lateral velocity.
+
+* **Obstacle 330 (Behind):** This obstacle is directly behind the ego vehicle and approaching rapidly. The longitudinal distance at the last timestep is -0.55m (meaning it is 0.55m behind the ego vehicle). The relative velocity is 3.44 m/s. TTC is -0.55 / 3.44 = -0.16s.  The negative TTC combined with the small MDC of 0.55m and closing velocity suggests that a near collision has occurred, or is imminent. This indicates an Extreme Risk (1).
+
+* **Obstacle 341 (Behind):** This obstacle is behind the ego vehicle but shows diverging behavior. It starts moving away from the ego vehicle, but across the provided timesteps, it slowly starts to approach the ego vehicle from behind.  The relative longitudinal velocity is positive (0.74m/s) and the longitudinal distance is -12.18m.  TTC is -12.18 / 0.74 = -16.46s. While approaching, this obstacle is far and moving slowly, indicating Negligible risk (5). The lateral distance remains consistently at 0, but this is expected given it is approaching from behind, and does not elevate the risk level given the longitudinal dynamics.
+
+* **Obstacle 365 (Front-Left):** This obstacle is approaching longitudinally (-5.72 m/s) but moving away laterally (3.60 m/s). The distances at the last timestep are 19.32m longitudinally and 5.96m laterally. The longitudinal TTC is 19.32 / 5.72 ≈ 3.38 seconds (Medium Risk).  Given the increasing lateral distance, MDC is not a primary concern. The overall risk level is Medium Risk (3).
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "330",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {}
+}
+```

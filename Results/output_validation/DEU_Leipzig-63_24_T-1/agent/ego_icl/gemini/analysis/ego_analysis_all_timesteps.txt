@@ -1,0 +1,54 @@
+* At the most recent timestamp (5.1 seconds):
+
+**Obstacle 3253 (Front-Left):**
+
+* **Trajectory:**  Longitudinal distance has slightly decreased over the past few timesteps, lateral distance has slightly increased but the relative lateral velocity is consistently at or near zero. The obstacle is approaching slowly in the longitudinal direction.
+* **MDC:** ~2.93m (using longitudinal distance as the primary metric).
+* **TTC:**  Longitudinal TTC = 2.93m / 0.03 m/s = 97.6s (not applicable due to slow closing speed).
+* **Risk:** 3 (Medium) due to proximity.
+
+**Obstacle 3255 (Front-Left):**
+
+* **Trajectory:**  Longitudinal distance decreasing very slowly over time, large lateral distance from ego car.
+* **MDC:** ~4.18m (using longitudinal distance).
+* **TTC:**  Longitudinal TTC = 4.18m / 0.03 m/s = 139.3s (not applicable due to slow closing speed)
+* **Risk:** 4 (Low)
+
+**Obstacle 3256 (Front-Left):**
+
+* **Trajectory:** Longitudinal distance decreasing slowly and lateral distance slightly decreasing, but still a safe distance.
+* **MDC:** ~8.42m (using lateral distance as it's slightly smaller).
+* **TTC:** Longitudinal TTC = 15.31m / 0.23 m/s = 66.5 s. Lateral TTC is not meaningful due to near-zero velocity.
+* **Risk:** 5 (Negligible)
+
+**Obstacle 3261 (Behind):**
+
+* **Trajectory:**  Longitudinal distance is negative and rapidly decreasing (getting closer). Lateral distance is 0.0m (same lane), indicating a potential rear-end collision.
+* **MDC:** ~0.82m
+* **TTC:** Longitudinal TTC = 0.82m / 3.96m/s = 0.21s.
+* **Risk:** 1 (Extreme) due to high closing speed and short TTC.
+
+**Obstacle 3263 (Front-Right):**
+
+* **Trajectory:** Longitudinal distance slowly decreasing, substantial negative lateral distance. The obstacle is approaching slowly longitudinally.
+* **MDC:** ~3.53m (using longitudinal distance)
+* **TTC:** Longitudinal TTC = 3.53m / 0.03 m/s = 117.6s  (not applicable)
+* **Risk:** 3 (Medium) based on proximity
+
+**Obstacle 3265 (Right):**
+
+* **Trajectory:** Exact longitudinal alignment and a significant negative lateral distance which is increasing (obstacle is moving away from the ego car).
+* **MDC:** ~18.69m (using lateral distance)
+* **TTC:** Not applicable due to separating motion.
+* **Risk:** 5 (Negligible)
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3261",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {}
+}
+```

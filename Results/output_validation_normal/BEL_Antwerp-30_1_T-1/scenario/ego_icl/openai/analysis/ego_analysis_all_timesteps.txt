@@ -1,0 +1,72 @@
+### Obstacle-By-Obstacle Analysis
+
+#### Obstacle 30638
+
+- **Position Analysis (Most Recent Timestep - 0.9s):**
+  - Adjusted Longitudinal Distance: 2.80 m
+  - Adjusted Lateral Distance: 13.73 m
+  - Relative Velocity: Longitudinal -6.19 m/s, Lateral 8.34 m/s
+  - Motion: Moving towards ego car longitudinally and moving away laterally
+
+- **Trajectory Analysis:**
+  - Longitudinal distance is decreasing over time, which indicates the obstacle is getting closer to the ego vehicle.
+  - The obstacle is moving away laterally, increasing from 7.53 m to 13.73 m in the lateral direction over time.
+
+- **TTC Calculation (Longitudinal):**
+  - TTC = 2.80 m / |(-6.19) m/s| ≈ 0.45 seconds
+
+- **MDC Calculation:**
+  - Since the lateral distance is increasing and won't pose a collision course, the longitudinal distance (minimum of the two proximity values) is used for MDC
+  - MDC ≈ 2.80 m
+
+- **Risk Assessment:**
+  - Based on TTC (0.45s), this is an Extreme Risk (1) scenario.
+  - With an MDC of 2.80 m, the risk reduces, but due to TTC calculation, the final risk score remains at Extreme Risk (1).
+
+#### Obstacle 30640
+
+- **Position Analysis (Most Recent Timestep - 0.9s):**
+  - Adjusted Longitudinal Distance: 6.38 m
+  - Adjusted Lateral Distance: 2.15 m
+  - Relative Velocity: Longitudinal -14.45 m/s, Lateral -0.03 m/s
+  - Motion: Driving towards the ego vehicle in both dimensions.
+
+- **Trajectory Analysis:**
+  - Longitudinal distance is consistently decreasing, showing it's converging towards the ego vehicle.
+  - Lateral distance has minimal change, indicating a stable perpendicular trajectory between ego vehicle and the obstacle.
+
+- **TTC Calculation (Longitudinal):**
+  - TTC = 6.38 m / |(-14.45) m/s| ≈ 0.44 seconds
+
+- **MDC Calculation:**
+  - Due to consistent longitudinal convergence and small lateral distance, the MDC = 6.38 m
+
+- **Risk Assessment:**
+  - With a TTC of 0.44s, this falls into the category of Extreme Risk (1).
+
+### Conclusion
+
+Both obstacles presented an Extreme Risk due to their rapid closing speeds relative to the ego vehicle. Despite neither scenario posing a direct collision at this very moment, their projected paths and velocities suggest imminent potential issues without intervention.
+
+### Collision Scenario Determination
+
+Yes, this is a collision scenario. Both obstacles have a risk score of 1 (Extreme Risk), primarily due to very low TTC values indicating imminent proximity breaches.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30638",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30638 possesses an Extreme Risk due to a low TTC of 0.45 seconds indicating imminent threat of collision."
+}
+```
+
+This scenario highlights the requirement for proactive measures to prevent potential collisions.

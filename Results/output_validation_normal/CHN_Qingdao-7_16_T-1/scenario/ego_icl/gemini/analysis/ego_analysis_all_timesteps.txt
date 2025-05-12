@@ -1,0 +1,52 @@
+Obstacle Analysis:
+
+Obstacle 30654:
+
+Trajectory Analysis: The obstacle starts front-right of the ego vehicle and moves closer longitudinally while initially moving slightly to the right and then slightly towards the ego vehicle laterally.  Over the timesteps, the lateral distance becomes zero indicating perfect lateral alignment with the ego vehicle.  Crucially, the longitudinal distance initially increases slightly but then begins to decrease steadily, meaning the obstacle is now approaching the ego vehicle from the front in the same lane.
+
+At t=0.9s:
+
+* Longitudinal distance: 12.55 m
+* Lateral distance: 0.00 m
+* Longitudinal relative velocity: -1.26 m/s (approaching)
+* Lateral relative velocity: 0.35 m/s (moving slightly left, but essentially aligned)
+
+TTC Calculation:
+* Longitudinal TTC = 12.55 m / 1.26 m/s ≈ 9.96 s 
+* Lateral TTC is not meaningful as the lateral distance is extremely small. Any slight left/right movement by either vehicle will close the gap and would cause issues based on the fact there's no real lateral separation and longitudinal speeds are convering. 
+
+
+MDC Calculation:
+* Given the lateral alignment, the MDC is effectively the longitudinal distance, which is currently 12.55m. This indicates no immediate danger of collision as the vehicles are still far apart.
+    
+Risk Assessment:
+
+* Longitudinal Risk: Based on the TTC of 9.96 s and closing speed, a Medium Risk assessment is appropriate. While the vehicles are not imminently close, the closing speed is high.
+* Lateral Risk: High risk (2). As the lateral distance decreases, the car gets closer to the left side of the car.
+
+
+Overall Risk: Medium (3). Although the lateral distance is 0, the consistent longitudinal separation suggests there is no collision.
+
+
+Collision Scenario Determination:
+
+This is NOT a collision scenario.  No obstacle has a risk score of 0 or 1.
+
+
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 (collision) or 1 (extreme risk). The most critical obstacle (30654) has a risk score of 3 (Medium Risk) due to its longitudinal closing velocity despite lateral alignment."
+}
+```

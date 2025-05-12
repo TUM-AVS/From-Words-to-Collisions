@@ -1,0 +1,65 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 30194 (Front-left)**
+- **Adjusted Distances**: Longitudinal 21.92m, Lateral 11.97m  
+- **Relative Velocity**: Longitudinal -6.27 m/s (approaching), Lateral 7.77 m/s (moving away)  
+- **Trajectory**: Moving toward ego longitudinally but diverging laterally.  
+- **TTC**: Longitudinal TTC = 21.92 / 6.27 ≈ 3.50s (Medium Risk). Lateral TTC is negative (no collision risk).  
+- **MDC**: Lateral distance is increasing (11.97m → No Risk).  
+- **Overall Risk**: **4 (Low Risk)**. No immediate threat due to lateral divergence.
+
+#### **Obstacle 30198 (Front-left)**
+- **Adjusted Distances**: Longitudinal 5.72m, Lateral 4.37m  
+- **Relative Velocity**: Longitudinal -5.34 m/s (approaching), Lateral 0.00 m/s (no motion).  
+- **Trajectory**: Directly approaching ego longitudinally with stable lateral distance.  
+- **TTC**: Longitudinal TTC = 5.72 / 5.34 ≈ 1.07s (High Risk).  
+- **MDC**: Lateral distance is stable (4.37m → Low Risk).  
+- **Overall Risk**: **2 (High Risk)**. Rapid longitudinal closure but no lateral convergence.
+
+#### **Obstacle 30199 (Front-left)**
+- **Adjusted Distances**: Longitudinal 4.84m, Lateral 15.56m  
+- **Relative Velocity**: Longitudinal -5.14 m/s (approaching), Lateral -2.87 m/s (approaching).  
+- **Trajectory**: Converging diagonally (both dimensions closing).  
+- **TTC**: Longitudinal TTC = 4.84 / 5.14 ≈ 0.94s (High Risk). Lateral TTC = 15.56 / 2.87 ≈ 5.42s (No Risk).  
+- **MDC**: Lateral distance is large (15.56m → No Risk).  
+- **Overall Risk**: **2 (High Risk)**. Primary risk from longitudinal approach.
+
+#### **Obstacle 30201 (Front)**
+- **Adjusted Distances**: Longitudinal 13.85m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -0.59 m/s (approaching), Lateral -0.79 m/s (approaching).  
+- **Trajectory**: Slowly closing both longitudinally and laterally (exact lateral alignment).  
+- **TTC**: Longitudinal TTC = 13.85 / 0.59 ≈ 23.47s (No Risk). Lateral TTC = 0.00 / 0.79 ≈ 0.00s (Collision Risk).  
+- **MDC**: Lateral distance is 0.00m (Collision Risk).  
+- **Overall Risk**: **0 (Collision)**. Exact lateral alignment with closing motion.
+
+#### **Obstacle 30202 (Behind)**
+- **Adjusted Distances**: Longitudinal -13.35m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 2.58 m/s (approaching), Lateral -0.01 m/s (negligible).  
+- **Trajectory**: Approaching from behind with minimal lateral motion.  
+- **TTC**: Longitudinal TTC = 13.35 / 2.58 ≈ 5.17s (No Risk).  
+- **MDC**: Lateral distance is 0.00m but diverging (No Risk).  
+- **Overall Risk**: **5 (No Risk)**. No convergence threat.
+
+---
+
+### **Collision Scenario Determination**
+- **Obstacle 30201** has a **risk score of 0 (Collision)** due to exact lateral alignment (0.00m) with closing motion.  
+- No other obstacles meet the threshold for Extreme Risk (score 1).  
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30201",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30201 is in exact lateral alignment (0.00m) with closing velocity, indicating an active collision."
+}
+```

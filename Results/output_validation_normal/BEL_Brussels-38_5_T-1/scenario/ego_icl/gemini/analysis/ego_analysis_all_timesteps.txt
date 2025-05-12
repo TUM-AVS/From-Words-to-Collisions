@@ -1,0 +1,38 @@
+Obstacle 30221 Analysis:
+
+Trajectory Analysis:
+- Obstacle 30221 is consistently behind the ego vehicle and initially moving away.
+- In the earlier timesteps (0.0s to 0.5s), the longitudinal distance increases, indicating separation.
+- However, from 0.6s onwards, the obstacle starts approaching the ego vehicle from behind, with the longitudinal distance decreasing slightly and the relative longitudinal velocity becoming positive.
+- The lateral distance remains consistently at 0.00m indicating perfect lateral alignment throughout the observed period.  While this alignment requires attention, it doesn't necessarily indicate a collision unless the longitudinal distance also closes to a dangerous level.
+
+Calculations at t=0.9s:
+- Longitudinal Distance: -7.62m (obstacle is behind)
+- Lateral Distance: 0.00m (perfect lateral alignment)
+- Relative Longitudinal Velocity: 0.51 m/s (approaching)
+- Relative Lateral Velocity: 0.15 m/s
+
+- Longitudinal TTC: 7.62m / 0.51 m/s ≈ 14.94 seconds 
+- Lateral TTC: Not applicable (exact alignment)
+- MDC: Approximately 7.62m (using longitudinal distance as lateral distance is 0). While the lateral distance is zero, the MDC calculation should consider the larger distance in this context, where the alignment is primarily due to the obstacle being positioned directly behind the ego vehicle, which is confirmed in the relative direction "Behind" given. 
+
+Risk Assessment:
+
+- Longitudinal Risk: No Risk (5) -  TTC > 5.0s
+- Lateral Risk: No Risk (5) - No lateral movement expected based on current trajectories, and substantial longitudinal separation exists.
+- Overall Risk: No Risk (5)
+
+Collision Scenario Assessment:
+
+No obstacle has a risk score of 0 or 1. Therefore, this is NOT a collision scenario.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle presents an immediate collision risk. Obstacle 30221 is approaching from behind, but is still at a safe distance and has a low closing velocity."
+}
+```

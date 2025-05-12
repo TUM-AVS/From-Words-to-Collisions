@@ -1,0 +1,62 @@
+### Analysis per Obstacle
+
+Let's analyze each obstacle based on the scenario context and the final timestamp at 10.2 seconds. We have used adjusted distance values for the analysis here.
+
+#### Obstacle 30717
+- **Position:** Front-left
+- **Adjusted Distances:** Longitudinal 19.62 m, Lateral 5.13 m
+- **Relative Velocity:** Longitudinal -2.73 m/s
+- **MDC Calculation:** 19.62 m
+- **TTC Calculation:** TTC along longitudinal direction = 19.62 / 2.73 ≈ 7.19 seconds
+- **Risk Assessment:** No Risk (5), as both the longitudinal MDC and TTC indicate a relatively safe distance, and the lateral component is stable.
+
+#### Obstacle 30735
+- **Position:** Front-right
+- **Adjusted Distances:** Longitudinal 0.11 m, Lateral 16.14 m
+- **Relative Velocity:** Longitudinal -1.73 m/s
+- **MDC Calculation:** 0.11 m (critical)
+- **TTC Calculation:** Longitudinal direction = 0.11 / 1.73 ≈ 0.06 seconds (critical)
+- **Risk Assessment:** Extreme Risk (1), due to extremely low MDC and very short TTC.
+
+#### Obstacle 30736
+- **Position:** Front-right
+- **Adjusted Distances:** Longitudinal 3.20 m, Lateral 12.72 m
+- **Relative Velocity:** Longitudinal -0.47 m/s
+- **MDC Calculation:** 3.20 m
+- **TTC Calculation:** Longitudinal direction = 3.20 / 0.47 ≈ 6.81 seconds
+- **Risk Assessment:** No Risk (5), sufficient distance and safe trajectory.
+
+#### Obstacle 30749
+- **Position:** Behind
+- **Adjusted Distance:** Longitudinal -0.11 m
+- **Relative Velocity:** Longitudinal 3.12 m/s
+- **MDC Calculation:** Critical alignment
+- **TTC Calculation:** Not applicable as the obstacle is behind, but negative longitudinal distance suggests it is dangerously close.
+- **Risk Assessment:** Collision (0), as the obstacle is exactly aligned longitudinally and very close to the ego vehicle from behind, indicating a possible impact.
+
+#### Obstacle 30750
+- **Position:** Front-left
+- **Adjusted Distances:** Longitudinal 5.59 m, Lateral 4.84 m
+- **Relative Velocity:** Longitudinal -2.73 m/s
+- **MDC Calculation:** 5.59 m
+- **TTC Calculation:** Longitudinal direction = 5.59 / 2.73 ≈ 2.05 seconds
+- **Risk Assessment:** Medium Risk (3), close-range conflict potential.
+
+### Conclusion of Collision Scenario
+From the analysis, Obstacle 30749 poses a direct collision threat as it is aligned at a very close negative distance behind the ego vehicle. Additionally, Obstacle 30735 presents extreme risk, given the very low MDC and short TTC in the front-right diagonal positioning.
+
+### JSON Summary Output
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30749",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30735",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Collision is imminent due to Obstacle 30749 having zero/negative alignment at close proximity and Obstacle 30735 showing extremely low MDC and TTC."
+}
+```

@@ -1,0 +1,45 @@
+**Obstacle 30221 Analysis:**
+
+### Trajectory Analysis:
+- **Initial Observations:** At each timestep, the obstacle is behind the ego vehicle, meaning it is following or has recently passed. The obstacle's longitudinal distances remain negative throughout, indicating it is behind.
+- **Trend Analysis:** From 0.1 to 0.5 seconds, the obstacle moves away (longitudinal velocities are negative, becoming lesser in magnitude), then starting from 0.6 seconds, the obstacle shows positive longitudinal velocities indicating it is beginning to move closer.
+
+### Most Recent Timestep Analysis (0.9 seconds):
+- **Position:** Longitudinal adjusted distance is -7.62 meters (behind). Lateral alignment at 0.00 meters indicates same-lane positioning without lateral diversion.
+- **Velocity:** The obstacle is moving towards the ego vehicle with a longitudinal velocity of 0.51 m/s and slight lateral movement of 0.15 m/s, indicating a closing approach.
+- **Acceleration:** Longitudinally accelerating at 0.83 m/s², implying increasing velocity towards the ego.
+
+### TTC and MDC Calculations:
+- **Longitudinal Analysis:**
+  - **TTC Calculation:** Since the relative velocity longitudinally is positive (obstacle approaching), TTC could be computed as the absolute value of the distance divided by the velocity. Here, TTC = 7.62 meters / 0.51 m/s = approximately 14.94 seconds. Since this time exceeds 5 seconds, it introduces negligible immediate risk longitudinally.
+  - **MDC Analysis:** The distance remains much greater than the immediate risk thresholds (> 5.0 meters), confirming minimal risk.
+  
+- **Lateral Analysis:**
+  - **MDC and TTC are less relevant** due to the same-lane positioning (0.00 meters), indicating rough alignment but without ongoing lateral impact risk.
+
+### Motion Description Confirmation:
+- Based on motion descriptions across timesteps, the adjustment in velocities supports that the obstacle's trajectory does not suggest an imminent collision, as it approaches the ego vehicle sluggishly with ample distance remaining.
+
+### Risk Scoring:
+- Given the TTC > 5 seconds and MDC > 5 meters, the risk score for obstacle 30221 remains low, despite it moving closer to the ego vehicle within the designated trajectory.
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    }
+}
+```
+
+Based on this analysis, obstacle 30221 neither presents a collision nor an extreme risk nor a high risk at this point.
+
+This analysis reflects accurate observations that ensure the continued safe trajectory of the ego vehicle under current conditions.

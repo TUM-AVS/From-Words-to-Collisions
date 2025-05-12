@@ -1,0 +1,76 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 30758 (Front-left)**
+- **Adjusted Distances**: Longitudinal 19.41m, Lateral 9.49m  
+- **Relative Velocity**: Longitudinal -5.90 m/s (approaching), Lateral 0.14 m/s (moving away left)  
+- **Motion**: Driving toward ego longitudinally but moving away laterally.  
+
+**Calculations**:  
+1. **Time-to-Collision (TTC)**:  
+   - Longitudinal: TTC = 19.41 / 5.90 ≈ 3.29s (Medium Risk, 3)  
+   - Lateral: Diverging (No Risk, 5)  
+2. **Minimum Distance to Collision (MDC)**:  
+   - Lateral distance is large (9.49m) and increasing. Longitudinal distance is closing but still significant.  
+   - MDC ≈ 9.49m (No Risk, 5)  
+
+**Overall Risk**: Medium Risk (3) due to longitudinal approach.  
+
+---
+
+#### **Obstacle 30762 (Front-left)**
+- **Adjusted Distances**: Longitudinal 13.60m, Lateral 2.66m  
+- **Relative Velocity**: Longitudinal -6.03 m/s (approaching), Lateral 0.00 m/s (no motion)  
+- **Motion**: Driving toward ego longitudinally with no lateral motion.  
+
+**Calculations**:  
+1. **Time-to-Collision (TTC)**:  
+   - Longitudinal: TTC = 13.60 / 6.03 ≈ 2.25s (Medium Risk, 3)  
+   - Lateral: Stable (No Risk, 5)  
+2. **Minimum Distance to Collision (MDC)**:  
+   - Lateral distance is 2.66m (Low Risk, 4). Longitudinal distance is closing but not critical.  
+
+**Overall Risk**: Medium Risk (3) due to longitudinal approach.  
+
+---
+
+#### **Obstacle 30763 (Behind)**
+- **Adjusted Distances**: Longitudinal -11.15m (behind), Lateral 0.00m (aligned)  
+- **Relative Velocity**: Longitudinal 1.66 m/s (approaching), Lateral 0.04 m/s (minimal drift)  
+- **Motion**: Driving toward ego from behind with exact lateral alignment.  
+
+**Calculations**:  
+1. **Time-to-Collision (TTC)**:  
+   - Longitudinal: TTC = 11.15 / 1.66 ≈ 6.72s (No Risk, 5)  
+   - Lateral: Minimal drift (No Risk, 5)  
+2. **Minimum Distance to Collision (MDC)**:  
+   - Lateral alignment but no convergence (No Risk, 5). Longitudinal distance is large and closing slowly.  
+
+**Overall Risk**: No Risk (5).  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 30762** is the most critical due to its consistent longitudinal approach (13.60m at 6.03 m/s). However, TTC and MDC remain in Medium Risk.  
+- **Obstacle 30763** poses minimal risk despite approaching from behind (low relative velocity).  
+- No obstacles meet Extreme Risk (TTC < 0.5s or MDC < 0.5m) or Collision criteria.  
+
+---
+
+### Final Determination  
+This is **not** a collision scenario. No obstacles have a risk score of 0 or 1.  
+
+### JSON Summary  
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacles have a risk score of 0 (collision) or 1 (extreme risk). The highest risk is Medium (Obstacle 30762 with TTC 2.25s)."
+}
+```

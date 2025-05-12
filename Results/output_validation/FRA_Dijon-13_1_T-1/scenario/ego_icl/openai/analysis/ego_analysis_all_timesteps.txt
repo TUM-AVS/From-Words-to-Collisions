@@ -1,0 +1,57 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30374 - FRONT
+
+- **Trajectory Analysis Across Timesteps:**
+  - Longitudinal distances decreased from 2.13 m to 0.20 m over the 10 timesteps, indicating a consistent closing-in trajectory.
+  - Relative velocities have varied but remained negative, suggesting the obstacle is moving toward the ego vehicle.
+  - The relative acceleration values vary but indicate consistent closing toward the ego vehicle at a decreasing but closing rate.
+
+- **Most Recent Timestep (3.7 seconds) Analysis:**
+  - Adjusted Longitudinal Distance: 0.20 m
+  - Adjusted Lateral Distance: 0.00 m
+  - Longitudinal Relative Velocity: -1.00 m/s (approaching)
+  - Lateral Relative Velocity: 0.00 m/s (no lateral motion)
+  - **TTC Calculation (longitudinal):** 
+    - TTC = 0.20 m / |-1.00 m/s| = 0.2 seconds
+  - **MDC Analysis:**
+    - Longitudinal MDC: 0.20 m, Lateral alignment indicates a high collision risk if longitudinal is near zero.
+  - **Risk Assessment:**
+    - Given the TTC = 0.2s and MDC = 0.20m, this is an "Extreme Risk" scenario.
+  
+#### Obstacle 30378 - FRONT-LEFT
+
+- **Trajectory Analysis Across Timesteps:**
+  - Longitudinal distances gradually decrease from 10.52 m to 8.59 m, and lateral distances decrease from 15.82 m to 11.84 m over the timesteps, indicating diagonal approach.
+  - Relative velocities are negative in both dimensions, indicating the obstacle is moving toward the ego vehicle.
+  - Lateral motion is significant, strongly suggesting crossing into the ego’s path, but is less critical than longitudinal distances in immediate collision risk.
+
+- **Most Recent Timestep (3.7 seconds) Analysis:**
+  - Adjusted Longitudinal Distance: 8.59 m
+  - Adjusted Lateral Distance: 11.84 m
+  - Longitudinal Relative Velocity: -1.00 m/s
+  - Lateral Relative Velocity: -2.17 m/s
+  - **TTC Calculation (longitudinal):**
+    - TTC (longitudinal) = 8.59 m / |-1.00 m/s| = 8.59 seconds
+    - TTC (lateral): Since lateral velocity is smaller and space is larger, not a primary collision direction.
+  - **MDC Analysis:**
+    - This remains larger than immediate collision thresholds.
+  - **Risk Assessment:**
+    - With both TTCs significantly greater than 5 seconds in the lateral and longitudinal, this obstacle poses "No Risk."
+
+### Conclusion
+- Obstacle 30374 is in an extreme risk state due to immediate collision potential with both dimensions and TTC/MDC within dangerous thresholds.
+
+### Final JSON Summary
+
+```json
+{
+    "CollisionObstacle": null,
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30374",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30374 has a very low TTC of 0.2 seconds and an MDC of 0.20 meters, both indicating imminent collision risk."
+}
+```

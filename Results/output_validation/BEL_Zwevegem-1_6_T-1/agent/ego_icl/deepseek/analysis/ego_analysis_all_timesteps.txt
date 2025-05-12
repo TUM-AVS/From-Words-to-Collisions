@@ -1,0 +1,72 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 2.6 seconds)
+
+#### **Obstacle 315 (Front-left)**
+- **Adjusted Distance**: Longitudinal 20.89 m, Lateral 2.83 m  
+- **Relative Velocity**: Longitudinal -4.43 m/s (approaching), Lateral 0.10 m/s (moving away)  
+- **Motion**: Approaching longitudinally, moving away laterally  
+- **TTC (Longitudinal)**: 20.89 / 4.43 ≈ 4.72 seconds  
+- **MDC (Lateral)**: 2.83 m (increasing)  
+- **Risk Assessment**:  
+  - Longitudinal: Low Risk (TTC ≈ 4.72s, MDC > 5m)  
+  - Lateral: Negligible Risk (distance increasing)  
+  - **Overall Risk**: 4 (Low Risk)  
+
+#### **Obstacle 317 (Front-left)**
+- **Adjusted Distance**: Longitudinal 24.35 m, Lateral 1.04 m  
+- **Relative Velocity**: Longitudinal -5.51 m/s (approaching), Lateral 0.20 m/s (moving away)  
+- **Motion**: Approaching longitudinally, moving away laterally  
+- **TTC (Longitudinal)**: 24.35 / 5.51 ≈ 4.42 seconds  
+- **MDC (Lateral)**: 1.04 m (increasing)  
+- **Risk Assessment**:  
+  - Longitudinal: Low Risk (TTC ≈ 4.42s, MDC > 5m)  
+  - Lateral: Negligible Risk (distance increasing)  
+  - **Overall Risk**: 4 (Low Risk)  
+
+#### **Obstacle 333 (Behind)**
+- **Adjusted Distance**: Longitudinal -2.05 m (behind), Lateral 0.00 m (aligned)  
+- **Relative Velocity**: Longitudinal 9.78 m/s (approaching rapidly), Lateral 0.30 m/s (minimal drift)  
+- **Motion**: Rapidly closing from behind with exact lateral alignment  
+- **TTC (Longitudinal)**: 2.05 / 9.78 ≈ 0.21 seconds  
+- **MDC (Lateral)**: 0.00 m (aligned but not yet colliding)  
+- **Risk Assessment**:  
+  - Longitudinal: Extreme Risk (TTC ≈ 0.21s)  
+  - Lateral: Negligible Risk (no lateral convergence)  
+  - **Overall Risk**: 1 (Extreme Risk)  
+- **Collision Prediction**: At current velocity, collision is imminent (~0.21s).  
+
+#### **Obstacle 338 (Behind)**
+- **Adjusted Distance**: Longitudinal -22.39 m, Lateral 0.00 m  
+- **Relative Velocity**: Longitudinal 6.73 m/s (approaching), Lateral 0.15 m/s (minimal drift)  
+- **Motion**: Approaching from behind but distant  
+- **TTC (Longitudinal)**: 22.39 / 6.73 ≈ 3.33 seconds  
+- **MDC (Lateral)**: 0.00 m (aligned but no convergence)  
+- **Risk Assessment**:  
+  - Longitudinal: Medium Risk (TTC ≈ 3.33s)  
+  - Lateral: Negligible Risk  
+  - **Overall Risk**: 3 (Medium Risk)  
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "333",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "333",
+        "OverallRiskScore": "0"
+    }
+}
+```
+
+### **Key Findings**
+1. **Obstacle 333** is at **Extreme Risk (Score 1)** with a TTC of **0.21s** and is predicted to collide imminently.  
+2. No current collision is occurring (Score 5).  
+3. Other obstacles (315, 317, 338) pose Low/Medium risks with no immediate danger.  
+4. **Priority Action**: Emergency braking or evasive maneuver required to avoid collision with Obstacle 333.

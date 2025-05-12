@@ -1,0 +1,38 @@
+In analyzing the given scenario, we have the Ego vehicle and one stationary obstacle. Using the information available:
+
+1. **Current Dynamics**:
+   - **Ego Vehicle**:
+     - At 0.0 seconds: Position = (-58.0228, 29.5296), Speed = 8.6208 m/s, Acceleration = -2.4056 m/s².
+     - At 0.2 seconds: Position = (-59.6645, 30.0197), Speed = 7.1085 m/s, Acceleration = -4.9073 m/s².
+     - The Ego is slowing down, as indicated by the negative acceleration and decreasing velocity values.
+   - **Obstacle**:
+     - At 0.2 seconds: Position = (-64.7112, 31.5258), Speed = 0 m/s.
+     - Stationary, no change in position.
+
+2. **Relative Position and Motion**:
+   - The changes in the Ego's position indicate it is moving along a path similar to the lanelet orientation.
+   - The obstacle is stationary in the same lanelet as the Ego.
+
+3. **TTC and MDC Calculation**:
+   - **TTC** (Time to Collision): Cannot be determined as the obstacle is stationary; potential collision depends on Ego's deceleration.
+   - **MDC** (Minimum Distance to Collision): Needs consideration since the Ego is in a deceleration phase and slightly deviating, but proximity can still potentially lead to a collision.
+
+4. **Risk Evaluation**:
+   - At time 0.2 seconds, the Ego approaches a stationary obstacle in the same lanelet.
+   - Due to Ego's sharp deceleration and proximity to a stationary object in its path, urgent attention is needed.
+
+5. **Overall Risk Score**:
+   - The stationary nature of the obstacle and the Ego's location in the same lanelet suggest a high risk due to potential close distance and need for urgent braking. Given these dynamics, a Higher Risk score seems fitting.
+
+Here's the output structured in the requested JSON format:
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {},
+    "HighRiskObstacle": {
+        "ObstacleID": "20039",
+        "OverallRiskScore": 2
+    }
+}
+```

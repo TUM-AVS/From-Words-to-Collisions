@@ -1,0 +1,26 @@
+* **Obstacle 3095:** This obstacle is approaching the ego vehicle from the front-right.  Over the past 0.9 seconds, its longitudinal distance has decreased significantly from 10.05m to 3.52m, while the lateral distance has slightly decreased.  The relative longitudinal velocity is -7.49 m/s indicating closing. Assuming constant velocity, TTC longitudinally is 3.52m / 7.49m/s ≈ 0.47 seconds. Lateral distance is nearly constant, meaning there is a possibility of a collision. This obstacle presents an **Extreme Risk (1)** due to the low TTC. MDC is considered primarily longitudinal in this case due to the direction of motion and is 3.52m.
+
+* **Obstacle 3097:** This obstacle is approaching the ego vehicle from the front-right.  Its longitudinal distance has decreased from 9.61m to 3.43m, and its lateral distance has also decreased slightly. The relative longitudinal velocity is -7.49 m/s.  TTC longitudinally is 3.43m / 7.49m/s ≈ 0.46 seconds. While it is moving slightly towards the ego laterally, the lateral motion is less prominent than the longitudinal motion, and the primary risk is longitudinal. This obstacle presents an **Extreme Risk (1)** due to the low TTC. MDC is considered primarily longitudinal and is 3.43m.
+
+* **Obstacle 3098:** This obstacle is now to the immediate right of the ego vehicle, with a reported longitudinal distance of 0.00m at the most recent timestamp. Critically, it has crossed in front of the ego, as indicated by the previous timesteps. The relative lateral velocity is significantly high (-9.51 m/s), indicating it is quickly moving away laterally, therefore the significant concern now is no longer present. Given the latest distance and velocity, this obstacle now presents a **Medium Risk (3)** despite previously posing an extreme risk. MDC is primarily lateral now and is quite small (but increasing quickly, as indicated by the large negative lateral velocity).
+
+* **Obstacle 3102:** This obstacle is also approaching from the front-right.  Longitudinal distance has decreased from 9.10m to 3.34m.  Longitudinal velocity is -7.48 m/s.  TTC longitudinally is 3.34m / 7.48m/s ≈ 0.45 seconds. Similar to the previous two, the main component of risk is longitudinal. This obstacle presents an **Extreme Risk (1)** due to the low TTC.  MDC is considered primarily longitudinal and is 3.34m.
+
+* **Obstacle 3106:** This obstacle is approaching from behind.  Longitudinal distance has decreased from -25.37m to -22.20m (where negative values indicate behind).  The relative longitudinal velocity is positive (6.86 m/s), indicating that the obstacle is closing in from behind. The lateral distance remains 0.00. Given this and the approaching trajectory, this warrants monitoring and classifies the obstacle as a **Low risk (4)**. MDC is primarily longitudinal (-22.20m), but the closing velocity is what determines the risk.
+
+
+**Conclusion:**
+
+This IS a collision scenario because Obstacles 3095, 3097, and 3102 all pose an Extreme Risk (1) with TTC values below 0.5 seconds and closing distances. Although Obstacle 3098 also presented an extreme risk in previous timestamps, its trajectory shifted to move away from the ego vehicle at the last timestamp.
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3095", 
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacles 3095, 3097, and 3102 all have TTC < 0.5 seconds and rapidly decreasing longitudinal distances, indicating extreme risk of collision in the immediate future."
+}
+```

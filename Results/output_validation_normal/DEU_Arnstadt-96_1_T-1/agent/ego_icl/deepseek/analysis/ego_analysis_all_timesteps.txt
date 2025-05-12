@@ -1,0 +1,71 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 20042 (Front of ego car)
+- **Adjusted Distance**: Longitudinal 23.39 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal -21.03 m/s (approaching), Lateral 4.70 m/s (moving away)
+- **Motion Description**: Obstacle is driving toward the ego car longitudinally. Exact lateral alignment.
+  
+**Trajectory Analysis**:
+- The obstacle is directly in front of the ego car (lateral distance = 0.00 m) and is approaching rapidly (longitudinal relative velocity = -21.03 m/s).
+- The longitudinal distance is decreasing over time (from 25.48 m at 0.8s to 23.39 m at 0.9s).
+- The lateral distance remains 0.00 m, indicating exact alignment in the same lane.
+
+**Time-to-Collision (TTC)**:
+- TTC (longitudinal) = 23.39 m / 21.03 m/s ≈ 1.11 seconds
+- TTC (lateral) = Not applicable (moving away)
+- **TTC Risk**: Medium (1.11 seconds falls in the 1.0 < TTC ≤ 3.0 seconds range)
+
+**Minimum Distance to Collision (MDC)**:
+- MDC is primarily the longitudinal distance since the obstacle is directly in front.
+- MDC = 23.39 m (far above 5.0 m)
+- **MDC Risk**: Negligible (MDC > 5.0 m)
+
+**Overall Risk**:
+- The obstacle is approaching rapidly but is still at a safe distance longitudinally. The primary risk is due to TTC (Medium Risk). No collision or extreme risk.
+
+#### Obstacle 20063 (Front-right of ego car)
+- **Adjusted Distance**: Longitudinal 23.55 m, Lateral -1.80 m
+- **Relative Velocity**: Longitudinal 3.58 m/s (moving away), Lateral -4.63 m/s (moving away)
+- **Motion Description**: Obstacle is moving away longitudinally and laterally to the right.
+
+**Trajectory Analysis**:
+- The obstacle is moving away from the ego car in both longitudinal and lateral directions.
+- The longitudinal distance is increasing (from 22.30 m at 0.6s to 23.55 m at 0.9s).
+- The lateral distance is also increasing (from -2.02 m at 0.6s to -1.80 m at 0.9s).
+
+**Time-to-Collision (TTC)**:
+- TTC (longitudinal) = Not applicable (moving away)
+- TTC (lateral) = Not applicable (moving away)
+- **TTC Risk**: Negligible (no convergence)
+
+**Minimum Distance to Collision (MDC)**:
+- MDC is the smallest of the longitudinal and lateral distances, both of which are increasing.
+- MDC = min(23.55 m, 1.80 m) = 1.80 m
+- **MDC Risk**: Medium (1.0 < MDC ≤ 3.0 m)
+
+**Overall Risk**:
+- The obstacle is moving away in both dimensions, posing no immediate risk. The MDC is at a Medium Risk level due to the lateral distance, but the trend shows increasing distance.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```
+
+### Final Notes:
+- **Obstacle 20042**: Medium Risk due to TTC (1.11 seconds), but no collision or extreme risk.
+- **Obstacle 20063**: Medium Risk due to MDC (1.80 m), but moving away. No immediate risk.
+- No obstacles pose a collision, extreme, or high risk at the most recent timestep.

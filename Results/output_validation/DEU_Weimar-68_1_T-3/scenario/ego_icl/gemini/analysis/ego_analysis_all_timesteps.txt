@@ -1,0 +1,32 @@
+* **Obstacle 6:** Front-left, longitudinal 15.86m, lateral 0.00m.  Laterally aligned with the ego vehicle but at a safe longitudinal distance. The longitudinal velocity is slightly negative, indicating it might be slightly moving away or essentially stationary relative to the ego vehicle. No immediate risk. Trajectory analysis shows lateral movement towards alignment with the ego vehicle. Risk score: 5 (No Risk)
+
+* **Obstacle 9:** Front, longitudinal 23.24m, lateral 0.00m.  Laterally and longitudinally at a safe distance.  The negative longitudinal velocity indicates it's moving away or stationary relative to the ego vehicle.  No immediate risk. Trajectory analysis shows lateral movement towards alignment with the ego vehicle. Risk score: 5 (No Risk)
+
+* **Obstacle 60:** Behind, longitudinal -0.06m, lateral 0.00m. Extremely close behind and approaching rapidly (2.88 m/s).  The lateral alignment and the high closing longitudinal velocity indicate an extremely high risk of collision.  Trajectory analysis shows consistent approach from behind. MDC is < 0.5m and TTC is approximately 0.02s. Risk score: 1 (Extreme Risk - imminent rear-end collision).
+
+* **Obstacle 62:** Behind, longitudinal -9.04m, lateral 0.00m.  Following the ego vehicle, but at a moderately safe distance. The closing velocity is relatively high (1.72 m/s). Trajectory shows consistent approach. Risk score: 3 (Medium Risk).
+
+* **Obstacle 64:** Behind, longitudinal -17.41m, lateral 0.00m.  Following the ego vehicle at a safe distance. Risk score: 5 (No Risk).
+
+* **Obstacle 71:** Front-right, longitudinal 2.09m, lateral -16.09m. While longitudinally quite close, the lateral distance is significant and increasing (moving away laterally). The negative lateral velocity confirms this.  Longitudinal velocity is negative but small (-2.47m/s), needs monitoring but no immediate risk. Trajectory analysis shows lateral movement away from the ego vehicle. Risk score: 4 (Low Risk).
+
+* **Obstacle 74:** Front-left, longitudinal 5.43m, lateral 7.63m.  Laterally separated and at a safe longitudinal distance, with both values stable/slightly decreasing. Trajectory analysis shows approach but no immediate concern. Risk score: 4 (Low Risk)
+
+* **Obstacle 92:** Front-left, longitudinal 7.63m, lateral 19.87m.  At a safe distance, with both values decreasing. Trajectory analysis shows lateral movement toward and longitudinal movement towards the ego vehicle. Risk score: 4 (Low risk).
+
+**Collision Scenario Determination:** Yes, this is a collision scenario. Obstacle 60 poses an Extreme Risk with a near-zero longitudinal distance and a high positive closing velocity, indicating an imminent rear-end collision.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "60",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 60 is extremely close behind the ego vehicle (-0.06m) and approaching rapidly (2.88m/s), indicating an imminent rear-end collision."
+}
+```

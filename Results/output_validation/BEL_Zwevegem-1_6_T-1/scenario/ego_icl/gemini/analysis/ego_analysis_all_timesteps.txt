@@ -1,0 +1,48 @@
+Obstacle 315 (Front-Left):
+- Trajectory: Consistently front-left, moving slightly away laterally and closer longitudinally over time.
+- At 2.8s: Longitudinal distance = 20.00m, Lateral distance = 2.85m, Longitudinal velocity = -4.20 m/s, Lateral velocity = 0.10 m/s.
+- TTC (longitudinal): 20.00m / 4.20 m/s = 4.76s (Low Risk)
+- TTC (lateral): Not applicable, moving away laterally.
+- MDC: Approximately 20.00m (No Risk) 
+- Overall Risk: Low (4)
+
+Obstacle 317 (Front-Left):
+- Trajectory: Appears at 2.5s, front-left, moving slightly away laterally and closer longitudinally.
+- At 2.8s: Longitudinal distance = 23.24m, Lateral distance = 1.08m, Longitudinal velocity = -5.33 m/s, Lateral velocity = 0.19 m/s.
+- TTC (longitudinal): 23.24m / 5.33 m/s = 4.36s (Low Risk)
+- TTC (lateral): Not applicable, moving away laterally.
+- MDC: Approximately 23.24m (No Risk)
+- Overall Risk: Low (4)
+
+Obstacle 333 (Behind):
+- Trajectory: Directly behind, rapidly approaching the ego vehicle. Lateral distance consistently 0.00m (same lane).
+- At 2.8s: Longitudinal distance = -0.06m, Longitudinal velocity = 10.43 m/s.
+- TTC (longitudinal): 0.06m / 10.43 m/s = 0.0057s (Extreme Risk - bordering Collision)
+- MDC: 0.06m (Extreme Risk - bordering Collision)
+- Overall Risk: Extreme (1) - High probability of imminent rear-end collision.
+
+Obstacle 338 (Behind):
+- Trajectory: Behind, approaching but slower than Obstacle 333. Lateral distance consistently 0.00m.
+- At 2.8s: Longitudinal distance = -21.02m, Longitudinal velocity = 7.42 m/s.
+- TTC (longitudinal): 21.02m / 7.42 m/s = 2.83s (Medium Risk)
+- MDC: 21.02m (No Risk)
+- Overall Risk: Medium (3)
+
+Collision Scenario: Yes
+
+Due to Obstacle 333's extremely low TTC (0.0057s) and MDC (0.06m) with a high closing velocity, a rear-end collision is highly likely in the next instant. While not technically a Collision (Risk 0) yet, the situation qualifies as Extreme Risk (1) making it a collision scenario.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null 
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "333",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 333 poses an Extreme Risk (1) with a very low TTC (0.0057s) and MDC (0.06m) indicating a near-certain rear-end collision in the next instant."
+}
+```

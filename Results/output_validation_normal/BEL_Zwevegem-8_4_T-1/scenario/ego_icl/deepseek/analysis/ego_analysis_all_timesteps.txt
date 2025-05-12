@@ -1,0 +1,65 @@
+### Obstacle-by-Obstacle Analysis:
+
+#### **Obstacle 312 (Behind Ego Car)**
+- **Latest Timestep (0.9s):**
+  - **Adjusted Distance:** Longitudinal -19.57 m, Lateral 0.00 m
+  - **Relative Velocity:** Longitudinal 0.96 m/s, Lateral 0.14 m/s
+  - **Motion:** Approaching from behind with slight lateral drift (0.14 m/s).
+  - **Trajectory Analysis:**
+    - Longitudinal distance decreasing (from -20.08 m to -19.57 m over 0.9s).
+    - Lateral alignment remains exact (0.00 m), but slight lateral velocity (0.14 m/s) suggests potential drift.
+  - **TTC Calculation:**
+    - Longitudinal TTC = 19.57 / 0.96 ≈ 20.39 s (No Risk, TTC > 5.0s).
+    - Lateral TTC = 0.00 / 0.14 = 0.00 s (Collision Risk if lateral drift continues, but current lateral distance is 0.00m).
+  - **MDC Calculation:**
+    - Lateral MDC = 0.00 m (Collision Risk if trajectories converge).
+    - Longitudinal MDC = 19.57 m (No Risk).
+  - **Risk Assessment:**
+    - Lateral alignment (0.00 m) with slight drift suggests potential collision risk if lateral drift persists.
+    - Longitudinal distance is large (19.57 m), so no immediate risk.
+    - **Overall Risk Score:** 0 (Collision Risk due to lateral alignment and drift).
+
+#### **Obstacle 319 (Front Ego Car)**
+- **Latest Timestep (0.9s):**
+  - **Adjusted Distance:** Longitudinal 1.97 m, Lateral 0.00 m
+  - **Relative Velocity:** Longitudinal -0.07 m/s (approaching), Lateral -0.66 m/s (drifting left).
+  - **Motion:** Approaching longitudinally but decelerating (relative velocity decreasing from -1.53 m/s to -0.07 m/s).
+  - **Trajectory Analysis:**
+    - Longitudinal distance decreasing but slowing (from 2.57 m to 1.97 m over 0.9s).
+    - Lateral alignment exact (0.00 m) but drifting left (-0.66 m/s).
+  - **TTC Calculation:**
+    - Longitudinal TTC = 1.97 / 0.07 ≈ 28.14 s (No Risk, TTC > 5.0s).
+    - Lateral TTC = 0.00 / 0.66 = 0.00 s (Collision Risk if lateral drift continues).
+  - **MDC Calculation:**
+    - Lateral MDC = 0.00 m (Collision Risk if trajectories converge).
+    - Longitudinal MDC = 1.97 m (Low Risk, MDC > 1.0m).
+  - **Risk Assessment:**
+    - Lateral alignment (0.00 m) with significant drift (-0.66 m/s) suggests imminent collision risk.
+    - Longitudinal distance is stable (low relative velocity).
+    - **Overall Risk Score:** 0 (Collision Risk due to lateral alignment and drift).
+
+---
+
+### **Collision Scenario Determination**
+- **Obstacle 312:** Collision Risk (0) due to lateral alignment (0.00 m) and drift (0.14 m/s).
+- **Obstacle 319:** Collision Risk (0) due to lateral alignment (0.00 m) and significant drift (-0.66 m/s).
+
+Both obstacles are laterally aligned with the ego vehicle and show lateral drift, indicating a high likelihood of collision if trajectories are maintained.
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "312",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "319",
+        "OverallRiskScore": "0"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Both obstacles are laterally aligned (0.00m) with the ego vehicle and exhibit lateral drift, indicating imminent collision risk if trajectories are maintained."
+}
+```

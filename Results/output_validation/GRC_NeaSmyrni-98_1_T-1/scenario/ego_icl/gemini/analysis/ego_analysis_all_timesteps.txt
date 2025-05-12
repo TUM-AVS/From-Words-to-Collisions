@@ -1,0 +1,23 @@
+* **Obstacle 20043 (Front-Left):** This obstacle is relatively far from the ego vehicle, with a longitudinal distance of 24.99m and a small lateral distance of 0.38m. The relative longitudinal velocity is -1.14 m/s (moving away or stable).  Given the distances and the negative longitudinal velocity, the TTC is high and MDC is large, indicating no immediate risk. Risk score: 5 (No Risk).
+
+* **Obstacle 20045 (Front):** This obstacle is in front of the ego vehicle at a longitudinal distance of 18.09m and lateral distance of 0.00m (same lane).  It's moving towards the ego vehicle longitudinally with a relative velocity of -1.14 m/s. While the lateral distance is zero, the consistent longitudinal distance over multiple timesteps suggests this is a same-lane driving scenario, not a collision course.  TTC is high and MDC is large. Risk score: 5 (No Risk).
+
+* **Obstacle 20048 (Front):**  Similar to 20045, this obstacle is in front of the ego vehicle in the same lane (longitudinal 11.14m, lateral 0.00m), moving towards the ego with -1.14 m/s longitudinal relative velocity. Again, the lateral alignment and consistent longitudinal distance over time point towards same-lane driving. TTC is high and MDC is large. Risk score: 5 (No Risk)
+
+* **Obstacle 20051 (Collision):** The data explicitly states "Collision" for this obstacle, with both longitudinal and lateral distances at 0.00m at the latest timestep.  This, combined with the obstacle's trajectory across previous timesteps of rapidly decreasing longitudinal distance from behind the ego vehicle, confirms a collision has occurred. Risk score: 0 (Collision).
+
+* **Obstacle 20052 (Behind):** This obstacle is behind the ego vehicle (longitudinal -14.18m, lateral 0.00m) and approaching with a positive relative velocity of 5.97 m/s. However, it is still relatively far and decelerating (negative relative acceleration).  While the closing speed warrants monitoring, there is no immediate risk. Risk score: 5 (No Risk)
+
+**Collision Scenario Determination:** Yes, this is a collision scenario because Obstacle 20051 shows a clear collision (Risk Score 0).
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "20051",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 20051 has collided with the ego vehicle (distance 0.00m in both directions at the last timestep, confirmed by trajectory)."
+}
+```

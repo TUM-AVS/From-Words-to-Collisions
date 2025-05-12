@@ -1,0 +1,83 @@
+### Obstacle Analysis
+
+### Obstacle 30193 - Front-left
+1. **Trajectory Analysis:**
+   - At 3.7 seconds, the adjusted longitudinal distance is 3.65 m, and adjusted lateral distance is 15.42 m.
+   - The obstacle is moving away from the ego vehicle both longitudinally and laterally.
+
+2. **Risk Assessment:**
+   - **Longitudinal:**
+     - Distance: 3.65 m
+     - Relative velocity: 1.66 m/s (moving away)
+     - **TTC (Longitudinal):** Not applicable due to moving away.
+   - **Lateral:**
+     - Distance: 15.42 m
+     - Relative velocity: 4.13 m/s (increasing distance)
+     - **TTC (Lateral):** Not applicable due to moving away.
+   - **MDC (Minimum Distance to Collision):** Approximately 3.65 m (mainly governed by the smallest distance, longitudinal).
+
+3. **Conclusion:** Low Risk (score: 4)
+   - **Rationale:** The obstacle is moving away in both dimensions, and the minimum aspect (longitudinal) is a comfortable distance.
+
+### Obstacle 30196 - Rear-right
+1. **Trajectory Analysis:**
+   - At 3.7 seconds, the adjusted longitudinal distance is -0.31 m, and adjusted lateral distance is -1.23 m.
+   - The obstacle is moving towards the ego vehicle with positive relative velocities.
+
+2. **Risk Assessment:**
+   - **Longitudinal:**
+     - Distance: -0.31 m
+     - Relative velocity: 2.18 m/s (approaching)
+     - **TTC (Longitudinal):** \(|\frac{-0.31}{2.18}| = 0.14 \, \text{s}\) (Extremely low due to immediate approach)
+   - **Lateral:**
+     - Distance: -1.23 m
+     - Relative velocity: 5.11 m/s (approaching rapidly)
+     - **TTC (Lateral):** \(|\frac{-1.23}{5.11}| = 0.24 \, \text{s}\)
+   - **MDC:** Effective alignment and combination of both dimensions leads to less than 0.5 m proximities.
+
+3. **Conclusion:** Extreme Risk (score: 1)
+   - **Rationale:** The obstacle poses an immediate threat with extremely low TTC and very small MDC due to closing distances in both dimensions.
+
+### Obstacle 30197 - Rear-right
+1. **Trajectory Analysis:**
+   - At 3.7 seconds, the adjusted longitudinal distance is -9.18 m, and adjusted lateral distance is -11.56 m.
+   - The obstacle is approaching with moderate relative velocity in both dimensions.
+
+2. **Risk Assessment:**
+   - **Longitudinal:**
+     - Distance: -9.18 m
+     - Relative velocity: 3.91 m/s (approaching)
+     - **TTC (Longitudinal):** \(|\frac{-9.18}{3.91}| = 2.35 \, \text{s}\)
+   - **Lateral:**
+     - Distance: -11.56 m
+     - Relative velocity: 3.61 m/s (approaching)
+     - **TTC (Lateral):** \(|\frac{-11.56}{3.61}| = 3.20 \, \text{s}\)
+   - **MDC:** Minimum distances remain beyond immediate collision range, with both trajectories closing but beyond immediate threat.
+
+3. **Conclusion:** Medium Risk (score: 3)
+   - **Rationale:** While approaching, both TTC and MDC indicate an opportunity to manage the risk effectively.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30196",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "2"
+    }  
+}
+```
+
+### Final Thoughts:
+
+- **Obstacle 30196** is the most pressing concern with rapid approach and extremely short TTC. Immediate intervention is recommended.
+- **Obstacle 30193** poses no immediate risk as it retreats comfortably in both dimensions.
+- **Obstacle 30197** should be monitored for managed intervention if trends indicate increasing risk.

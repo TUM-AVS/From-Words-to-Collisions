@@ -1,0 +1,28 @@
+* **Obstacle 20016 (Rear-Left):**  This obstacle consistently moves away from the ego vehicle both longitudinally and laterally across all timesteps. At the last timestep, it is -16.68m longitudinally and 2.02m laterally away, with a negative longitudinal relative velocity.  TTC and MDC calculations are not relevant here due to diverging trajectories. Risk level: 5 (Negligible Risk).
+
+* **Obstacle 20025 (Rear-Left):** Similar to Obstacle 20016, this obstacle is also moving away from the ego vehicle across all timesteps. At the latest timestep, it's -7.75m longitudinally and 1.89m laterally away, with a negative longitudinal relative velocity. TTC and MDC are not relevant due to the diverging trajectory. Risk level: 5 (Negligible Risk)
+
+* **Obstacle 20029 (Behind):** This obstacle poses the most significant risk. It's approaching the ego vehicle from behind, with its longitudinal distance decreasing across all timesteps.  At the last timestep, the longitudinal distance is -0.58m, and the relative longitudinal velocity is 4.20 m/s.  Even with slight lateral movement, given the near-zero longitudinal distance and high closing velocity, a collision is highly likely.
+    - TTC = 0.58m / 4.20m/s ≈ 0.14s (Extreme Risk)
+    - MDC ≈ 0.58m (Extreme Risk)
+    Risk level: 1 (Extreme Risk).
+
+* **Obstacle 20031 (Rear-Left):**  While initially to the left of the ego, this obstacle moves further behind the ego in later timesteps. At the last timestep, it's at -0.74m longitudinally and 1.89m laterally.  Although the longitudinal distance is small, the negative relative longitudinal velocity (-4.40 m/s) indicates the obstacle is moving away.
+    - MDC ≈ 1.89m (Medium Risk).
+    Since the obstacle is moving away longitudinally, TTC is not applicable for collision risk assessment in the longitudinal direction. The lateral distance is significant and doesn't pose a collision risk.
+    Risk level: 3 (Medium Risk) - primarily due to the close longitudinal proximity, even though it's moving away.
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "20029",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "20029",
+    "OverallRiskScore": "1"
+  }
+}
+```

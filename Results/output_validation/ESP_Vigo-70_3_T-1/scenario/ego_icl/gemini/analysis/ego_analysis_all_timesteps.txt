@@ -1,0 +1,38 @@
+* **Obstacle 3391 Analysis:**
+
+This obstacle remains consistently to the left of the ego vehicle, with a significant lateral distance of approximately 14.76m throughout the provided timeframe.  The longitudinal distance is consistently 0.00m, indicating perfect longitudinal alignment.  However, the *relative longitudinal velocity* is negative, meaning obstacle 3391 is moving *away* from the ego vehicle longitudinally.  Given the large lateral separation and the diverging longitudinal movement, there is no collision risk.
+
+* **Obstacle 3393 Analysis:**
+
+Obstacle 3393 is approaching the ego vehicle from the rear-right.  While both longitudinal and lateral distances are decreasing, the rates are moderate, and the distances remain relatively large in the most recent timestep (longitudinal -8.99m, lateral -11.73m). This obstacle needs continued monitoring, but does not present an immediate collision risk.
+
+* **Obstacle 3395 Analysis:**
+
+This obstacle poses the most significant risk. It is approaching the ego vehicle from directly behind and is rapidly closing the distance. In the last timestep, the longitudinal distance is -0.01m, practically zero, and the lateral distance is also 0.00m, indicating a direct rear-end collision is imminent. The relative longitudinal velocity is positive and high (5.20 m/s), confirming the rapid approach. This indicates an extremely high risk of collision.
+
+**TTC Calculation (Obstacle 3395):**
+TTC = distance / relative_velocity = -0.01m / 5.20m/s ≈ -0.002 seconds.
+The negative TTC, combined with the nearly zero distance, suggests a potential collision. The MDC being near zero makes the risk very high.
+
+**MDC Calculation (Obstacle 3395):**
+Given the direct rear-end approach, the MDC is effectively the longitudinal distance, which is approximately 0.01m. This is extremely close and reinforces the extreme risk assessment.
+
+**Conclusion:**
+
+Obstacle 3395 presents an extreme risk of collision with the ego vehicle. While other obstacles are in relative proximity, their trajectories and velocities do not pose an immediate threat. This is therefore classified as a **collision scenario** due to the imminent collision with Obstacle 3395.
+
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "3395",
+    "OverallRiskScore": "1"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3395", 
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 3395 has an extremely low longitudinal distance (-0.01m) and zero lateral distance with a high positive closing velocity (5.2 m/s), indicating an imminent rear-end collision in the very next timestep."
+}
+```

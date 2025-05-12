@@ -1,0 +1,62 @@
+Let me analyze each obstacle at the most recent timestep (0.9 seconds) with trajectory context:
+
+1. Obstacle 30494 (Left):
+   - Longitudinal: 0.00m (aligned), moving away at -6.85m/s
+   - Lateral: 16.06m, moving away at 6.91m/s
+   - Analysis: No collision risk as both distances are increasing. MDC > 5m in both dimensions.
+   - Risk: 5 (Negligible)
+
+2. Obstacle 30498 (Rear-right):
+   - Longitudinal: -3.31m (behind), moving away at 0.00m/s
+   - Lateral: -2.80m, approaching at 1.99m/s
+   - TTC (lateral): 2.80/1.99 = 1.41s
+   - MDC (lateral): 2.80m
+   - Analysis: Medium risk from lateral approach, but longitudinal distance stable.
+   - Risk: 3 (Medium)
+
+3. Obstacle 30499 (Front-right):
+   - Longitudinal: 9.99m, approaching at -9.71m/s
+   - Lateral: -11.18m, approaching at 12.38m/s
+   - TTC (longitudinal): 9.99/9.71 = 1.03s
+   - TTC (lateral): 11.18/12.38 = 0.90s
+   - MDC: min(9.99,11.18) = 9.99m
+   - Analysis: High risk due to TTC <1s in lateral dimension.
+   - Risk: 2 (High)
+
+4. Obstacle 30500 (Rear-right):
+   - Longitudinal: -11.06m, moving away at -0.92m/s
+   - Lateral: -8.23m, approaching at 1.33m/s
+   - TTC (lateral): 8.23/1.33 = 6.19s
+   - MDC: 8.23m
+   - Analysis: Low risk as TTC >5s and MDC >5m.
+   - Risk: 4 (Low)
+
+5. Obstacle 30502 (Rear-right):
+   - Longitudinal: -18.45m, moving away at -1.52m/s
+   - Lateral: -13.22m, approaching at 0.85m/s
+   - TTC (lateral): 13.22/0.85 = 15.55s
+   - MDC: 13.22m
+   - Analysis: No risk as distances are large and increasing.
+   - Risk: 5 (Negligible)
+
+6. Obstacle 30503 (Front-right):
+   - Longitudinal: 8.48m, moving away at 0.81m/s
+   - Lateral: -15.67m, moving away at -6.55m/s
+   - Analysis: No risk as both distances are increasing.
+   - Risk: 5 (Negligible)
+
+JSON Summary:
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "30499",
+        "OverallRiskScore": "2"
+    }
+}

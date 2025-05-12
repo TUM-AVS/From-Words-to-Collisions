@@ -1,0 +1,19 @@
+The ego vehicle (30214.0) is accelerating and moving in roughly the same direction as obstacles 30218.0 and 30219.0.  All three are in the same lanelet (503.0).
+
+Looking at the x-coordinates, the ego vehicle starts closer to obstacle 30218.0 than 30219.0. Over the provided time steps, the distance between the ego vehicle and obstacle 30218.0 decreases.  While the ego vehicle is accelerating faster than 30218.0 in some time steps, the difference in their velocities isn't large enough to prevent the gap from closing.
+
+Obstacle 30219.0 is further away and although the ego vehicle is approaching it as well, the rate of closure is less concerning over this short time horizon.
+
+Given the continued decrease in distance between the ego vehicle and obstacle 30218.0 and their speeds, a collision within the next few timesteps appears increasingly likely.  At timestep 0.9, the x-coordinate of the ego vehicle is -148.5902 and that of obstacle 30218.0 is -158.975. The y-coordinate of the ego vehicle is -278.5657 and that of obstacle 30218.0 is -281.2235. By simple extrapolation from previous timesteps, it looks very likely to hit within a second or two if the vehicles maintain their current course and speed. Thus obstacle 30218.0 poses an extreme risk.
+
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30218.0",
+    "OverallRiskScore": 1
+  },
+  "HighRiskObstacle": null
+}
+```

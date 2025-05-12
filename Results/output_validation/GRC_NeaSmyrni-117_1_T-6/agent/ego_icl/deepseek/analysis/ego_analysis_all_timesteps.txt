@@ -1,0 +1,75 @@
+### Obstacle-by-Obstacle Analysis:
+
+#### **Obstacle 20036 (Front)**
+- **Position**: Front (longitudinal 21.82m, lateral 0.00m)
+- **Relative Velocity**: Longitudinal -1.64 m/s (approaching), Lateral 0.00 m/s (no lateral movement)
+- **Trajectory Analysis**: 
+  - Longitudinal distance is decreasing steadily (~1.65 m/s closing speed).
+  - Lateral alignment is exact (0.00m), but no lateral movement.
+- **Time-to-Collision (TTC)**:
+  - Longitudinal TTC = 21.82 / 1.64 ≈ **13.30 seconds** (Negligible Risk, TTC > 5.0s)
+- **Minimum Distance to Collision (MDC)**:
+  - MDC is the current longitudinal distance (21.82m) since lateral distance is stable.
+  - **MDC = 21.82m** (Negligible Risk, MDC > 5.0m)
+- **Risk Assessment**: 
+  - **Overall Risk Score: 5 (Negligible Risk)** – No immediate threat.
+
+---
+
+#### **Obstacle 20037 (Front)**
+- **Position**: Front (longitudinal 14.50m, lateral 0.00m)
+- **Relative Velocity**: Longitudinal -0.97 m/s (approaching), Lateral 0.00 m/s (no lateral movement)
+- **Trajectory Analysis**:
+  - Longitudinal distance is decreasing (~0.97 m/s closing speed).
+  - Lateral alignment is exact (0.00m), but no lateral movement.
+- **Time-to-Collision (TTC)**:
+  - Longitudinal TTC = 14.50 / 0.97 ≈ **14.95 seconds** (Negligible Risk, TTC > 5.0s)
+- **Minimum Distance to Collision (MDC)**:
+  - MDC is the current longitudinal distance (14.50m) since lateral distance is stable.
+  - **MDC = 14.50m** (Negligible Risk, MDC > 5.0m)
+- **Risk Assessment**:
+  - **Overall Risk Score: 5 (Negligible Risk)** – No immediate threat.
+
+---
+
+#### **Obstacle 20039 (Behind)**
+- **Position**: Behind (longitudinal -0.34m, lateral 0.00m)
+- **Relative Velocity**: Longitudinal 4.30 m/s (approaching rapidly), Lateral 0.00 m/s (no lateral movement)
+- **Trajectory Analysis**:
+  - Longitudinal distance is decreasing rapidly (~4.30 m/s closing speed).
+  - Lateral alignment is exact (0.00m), but no lateral movement.
+- **Time-to-Collision (TTC)**:
+  - Longitudinal TTC = 0.34 / 4.30 ≈ **0.079 seconds** (Extreme Risk, TTC < 0.5s)
+- **Minimum Distance to Collision (MDC)**:
+  - MDC is the current longitudinal distance (0.34m) since lateral distance is stable.
+  - **MDC = 0.34m** (Extreme Risk, MDC < 0.5m)
+- **Risk Assessment**:
+  - **Overall Risk Score: 0 (Collision)** – Obstacle is already overlapping with the ego vehicle (negative distance) and closing rapidly. Collision is imminent or already occurring.
+
+---
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20039",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20039",
+        "OverallRiskScore": "0"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "20039",
+        "OverallRiskScore": "0"
+    }
+}
+```
+
+### Key Findings:
+1. **Obstacle 20039** is at **Collision Risk (Score 0)**. It is already overlapping with the ego vehicle (longitudinal distance = -0.34m) and closing at 4.30 m/s, indicating an unavoidable collision.
+2. Obstacles 20036 and 20037 pose **Negligible Risk (Score 5)** due to large distances and slow closing speeds.
+3. No other obstacles are at Extreme Risk (Score 1) or High Risk (Score 2). 
+
+### Immediate Action Required:
+- **Emergency braking or evasive maneuver** is needed to mitigate the collision with Obstacle 20039. The collision is unavoidable based on current trajectories.

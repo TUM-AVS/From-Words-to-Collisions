@@ -1,0 +1,59 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30187 (Front-left of ego car)
+- **Most Recent Timestep (2.1s):**
+  - **Adjusted Distances:** Longitudinal: 6.39 m, Lateral: 1.74 m
+  - **Relative Velocities:** Longitudinal: -15.92 m/s (approaching), Lateral: 0.19 m/s (moving away)
+  - **Motion Description:** Obstacle is driving toward the ego car longitudinally. Obstacle is moving away laterally to the left.
+  - **Trajectory Analysis:**
+    - Longitudinal distance is decreasing rapidly (from 20.85 m at 1.2s to 6.39 m at 2.1s).
+    - Lateral distance initially decreases (from 1.71 m to 1.84 m at 2.0s) but starts increasing slightly (1.74 m at 2.1s).
+    - The obstacle is primarily approaching longitudinally with a high relative velocity (-15.92 m/s).
+  - **TTC Calculation:**
+    - Longitudinal TTC = 6.39 / 15.92 ≈ 0.40 seconds (Extreme Risk, TTC ≤ 0.5s)
+    - Lateral TTC: Not applicable (moving away)
+  - **MDC Calculation:**
+    - Since the obstacle is moving away laterally, the MDC is primarily the longitudinal distance: 6.39 m (Low Risk, MDC > 5.0 m).
+    - However, the longitudinal trajectory is converging rapidly.
+  - **Overall Risk:**
+    - TTC indicates Extreme Risk (1), while MDC indicates Low Risk (4).
+    - Prioritize the higher risk (lower score): **Extreme Risk (1)**.
+
+#### Obstacle 30195 (Behind ego car)
+- **Most Recent Timestep (2.1s):**
+  - **Adjusted Distances:** Longitudinal: -0.76 m, Lateral: 0.00 m
+  - **Relative Velocities:** Longitudinal: 4.61 m/s (approaching), Lateral: 0.13 m/s (minimal movement)
+  - **Motion Description:** Obstacle is driving toward the ego car from behind. Exact lateral alignment or unknown case.
+  - **Trajectory Analysis:**
+    - Longitudinal distance is decreasing rapidly (from -5.41 m at 1.2s to -0.76 m at 2.1s).
+    - Lateral distance remains 0.00 m (exact alignment).
+    - The obstacle is approaching from behind with a high relative velocity (4.61 m/s).
+  - **TTC Calculation:**
+    - Longitudinal TTC = 0.76 / 4.61 ≈ 0.16 seconds (Collision Risk, TTC ≈ 0s)
+  - **MDC Calculation:**
+    - Lateral distance is 0.00 m, and longitudinal distance is -0.76 m (already overlapping in longitudinal dimension).
+    - MDC ≈ 0 m (Collision Risk, MDC = 0m).
+  - **Overall Risk:**
+    - Both TTC and MDC indicate **Collision Risk (0)**.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30195",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30187",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "30195",
+        "OverallRiskScore": "0"
+    }
+}
+```
+
+### Explanation:
+- **Obstacle 30195** is at **Collision Risk (0)** because it is already overlapping with the ego vehicle longitudinally (distance = -0.76 m) and is exactly aligned laterally (0.00 m). The TTC is also near-zero (0.16s), indicating an imminent collision.
+- **Obstacle 30187** is at **Extreme Risk (1)** because it is approaching rapidly longitudinally (TTC = 0.40s), though it is moving away laterally. The longitudinal trajectory is highly dangerous.

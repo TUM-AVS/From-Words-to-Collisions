@@ -1,0 +1,66 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+---
+
+#### **Obstacle 30257 (Front-left)**
+- **Adjusted Distances**: Longitudinal 14.17m, Lateral 10.99m  
+- **Relative Velocity**: Longitudinal -5.14 m/s (approaching), Lateral 6.31 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally but moving away laterally.  
+- **TTC Longitudinal**: 14.17 / 5.14 ≈ 2.76s (Medium Risk)  
+- **TTC Lateral**: Not applicable (moving away).  
+- **MDC**: Lateral distance is increasing (10.99m → No Risk).  
+- **Overall Risk**: **3 (Medium Risk)** due to longitudinal approach, but lateral separation is safe.
+
+---
+
+#### **Obstacle 30258 (Front)**
+- **Adjusted Distances**: Longitudinal 10.69m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 1.23 m/s (moving away), Lateral 1.71 m/s (moving away).  
+- **Motion**: Moving away in both dimensions.  
+- **TTC Longitudinal**: Not applicable (diverging).  
+- **TTC Lateral**: Not applicable (diverging).  
+- **MDC**: 0.00m lateral alignment but diverging trajectories → **5 (No Risk)**.  
+
+---
+
+#### **Obstacle 30260 (Front-right)**
+- **Adjusted Distances**: Longitudinal 0.48m, Lateral -1.89m  
+- **Relative Velocity**: Longitudinal -3.82 m/s (approaching rapidly), Lateral 0.00 m/s (stable).  
+- **Motion**: Driving toward ego longitudinally with minimal lateral change.  
+- **TTC Longitudinal**: 0.48 / 3.82 ≈ 0.126s (Extreme Risk).  
+- **MDC**: 0.48m longitudinal (Extreme Risk) + stable lateral distance (1.89m).  
+- **Overall Risk**: **1 (Extreme Risk)** due to imminent longitudinal collision.  
+
+---
+
+#### **Obstacle 30265 (Rear-right)**
+- **Adjusted Distances**: Longitudinal -4.16m (behind), Lateral -1.90m  
+- **Relative Velocity**: Longitudinal -0.26 m/s (moving away), Lateral 0.01 m/s (approaching negligibly).  
+- **Motion**: Moving away longitudinally, negligible lateral movement.  
+- **TTC Longitudinal/Lateral**: Not applicable (diverging).  
+- **MDC**: Safe distances in both dimensions → **5 (No Risk)**.  
+
+---
+
+### JSON Summary  
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30260",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    }
+}
+```
+
+### Key Findings:  
+- **Obstacle 30260** poses an **Extreme Risk (1)** due to imminent longitudinal collision (TTC ≈ 0.13s, MDC ≈ 0.48m).  
+- No other obstacles are currently at high risk or colliding.  
+- **Action Required**: Immediate braking or evasive action to avoid collision with Obstacle 30260.

@@ -1,0 +1,68 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30294 (Right)
+- **Adjusted Distances at 14.3s**: Longitudinal 0.00 m, Lateral -23.42 m
+- **Relative Velocity**: Longitudinal -0.33 m/s, Lateral 0.82 m/s
+- **Motion**: Exact longitudinal alignment, approaching laterally from the right
+- **TTC Calculation**:
+  - Longitudinal: Not applicable (no meaningful motion in longitudinal direction)
+  - Lateral: |23.42 m / 0.82 m/s| ≈ 28.56 seconds
+- **MDC**: Not a concern; lateral distance much larger than 5.0 meters
+- **Risk Assessment**: No Risk (5)
+
+#### Obstacle 30295 (Left)
+- **Adjusted Distances at 14.3s**: Longitudinal 0.00 m, Lateral 1.67 m
+- **Relative Velocity**: Longitudinal -1.60 m/s, Lateral -1.53 m/s
+- **Motion**: Exact longitudinal alignment, approaching laterally from the left
+- **TTC Calculation**:
+  - Longitudinal: |0.00 m / 1.60 m/s| = 0 seconds (no motion in longitudinal direction)
+  - Lateral: |1.67 m / 1.53 m/s| ≈ 1.09 seconds
+- **MDC**: Less than 1.67 meters laterally due to closing lateral motion
+- **Risk Assessment**: High Risk (2) due to lateral TTC < 1.0 seconds
+
+#### Obstacle 30297 (Rear-right)
+- **Adjusted Distances at 14.3s**: Longitudinal -4.72 m, Lateral -16.80 m
+- **Relative Velocity**: Longitudinal 0.00 m/s, Lateral -0.00 m/s
+- **Motion**: No relative motion
+- **TTC Calculation**: Not applicable (no relative motion)
+- **MDC**: Distances are stable; no intervention required
+- **Risk Assessment**: No Risk (5)
+
+#### Obstacle 30306 (Front-left)
+- **Adjusted Distances at 14.3s**: Longitudinal 13.28 m, Lateral 13.64 m
+- **Relative Velocity**: Longitudinal -1.44 m/s, Lateral -1.12 m/s
+- **Motion**: Approaching both longitudinally and laterally
+- **TTC Calculation**:
+  - Longitudinal: |13.28 m / 1.44 m/s| ≈ 9.22 seconds
+  - Lateral: |13.64 m / 1.12 m/s| ≈ 12.18 seconds
+- **MDC**: Distinctly greater than 5.0 meters; no imminent risk
+- **Risk Assessment**: No Risk (5)
+
+#### Obstacle 30308 (Collision)
+- **Adjusted Distances at 14.3s**: Longitudinal 0.00 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 0.00 m/s, Lateral 0.00 m/s
+- **Motion**: Exact longitudinal and lateral alignment
+- **TTC Calculation**: Not applicable (stationary with respect to ego vehicle)
+- **MDC**: Zero in both dimensions
+- **Risk Assessment**: Collision (0)
+
+### Conclusion
+
+Obstacle 30308 is a collision with the ego vehicle as both adjusted longitudinal and lateral distances are zero, with no relative motion to avoid direct contact. This situation immediately classifies the scenario as a collision scenario.
+
+### JSON Summary
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "30308",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "",
+    "OverallRiskScore": ""
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30308 is in exact alignment with the ego vehicle in both longitudinal and lateral dimensions, with no motion away, indicating an ongoing collision."
+}
+```

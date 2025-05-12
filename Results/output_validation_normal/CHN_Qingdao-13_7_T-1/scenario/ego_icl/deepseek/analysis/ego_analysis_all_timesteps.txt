@@ -1,0 +1,65 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 30618 (Rear-left)**
+- **Adjusted Distance**: Longitudinal -18.66m, Lateral 1.90m  
+- **Relative Velocity**: Longitudinal -20.40 m/s (moving away), Lateral 0.01 m/s (moving away)  
+- **Motion**: Moving away longitudinally and laterally to the left.  
+- **TTC**: Not applicable (moving away in both dimensions).  
+- **MDC**: Lateral distance (1.90m) is stable/increasing.  
+- **Risk**: **5 (No Risk)** – No convergence in trajectory.
+
+#### **Obstacle 30619 (Left)**
+- **Adjusted Distance**: Longitudinal 0.00m (aligned), Lateral 1.88m  
+- **Relative Velocity**: Longitudinal -17.86 m/s (moving away), Lateral 0.04 m/s (moving away)  
+- **Motion**: Exact longitudinal alignment but moving away in both dimensions.  
+- **TTC**: Not applicable (diverging paths).  
+- **MDC**: Lateral distance (1.88m) is stable/increasing.  
+- **Risk**: **5 (No Risk)** – No collision path.
+
+#### **Obstacle 30620 (Front-right)**
+- **Adjusted Distance**: Longitudinal 12.59m, Lateral -4.28m  
+- **Relative Velocity**: Longitudinal -4.58 m/s (approaching), Lateral -7.14 m/s (moving away)  
+- **Motion**: Approaching longitudinally but moving away laterally to the right.  
+- **TTC Longitudinal**: 12.59 / 4.58 ≈ 2.75s (Medium Risk).  
+- **MDC**: Lateral distance (4.28m) is increasing.  
+- **Risk**: **3 (Medium Risk)** – Only longitudinal approach, but lateral separation is growing.
+
+#### **Obstacle 30621 (Front-left)**
+- **Adjusted Distance**: Longitudinal 12.41m, Lateral 5.91m  
+- **Relative Velocity**: Longitudinal -8.50 m/s (approaching), Lateral -6.99 m/s (approaching from left)  
+- **Motion**: Approaching in both dimensions but with significant lateral distance.  
+- **TTC Longitudinal**: 12.41 / 8.50 ≈ 1.46s (Medium Risk).  
+- **TTC Lateral**: 5.91 / 6.99 ≈ 0.85s (High Risk).  
+- **MDC**: Minimum distance is lateral (5.91m), but closing rapidly.  
+- **Risk**: **2 (High Risk)** – Lateral TTC < 1.0s, but MDC > 1.0m.  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 30619**: Passed the ego vehicle longitudinally at 0.7s (distance = 0.00m) but is now moving away. No collision risk.  
+- **Obstacle 30621**: Shows consistent approach in both dimensions, but lateral distance remains >5m. High risk due to closing speed but not extreme.  
+- No obstacles meet **Collision (0)** or **Extreme Risk (1)** criteria.  
+
+---
+
+### Final Determination
+- **No Collision Scenario**: No obstacle has risk score ≤ 1.  
+- Highest risk is **Obstacle 30621 (High Risk)**, but MDC and TTC do not indicate imminent collision.  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle has risk score ≤ 1. Highest risk is Obstacle 30621 (High Risk) with lateral TTC ≈ 0.85s, but MDC remains >1.0m and trajectories are not converging to collision."
+}
+```

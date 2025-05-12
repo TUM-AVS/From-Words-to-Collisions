@@ -1,0 +1,30 @@
+Obstacle 31 (Front-Left): Trajectory shows obstacle moving closer both longitudinally and laterally.  At the last timestep, it's 12.61m longitudinally and 15.00m laterally.  Given the velocities, TTC_longitudinal = 12.61m / 2.13m/s ≈ 5.9s and TTC_lateral = 15.00m / 1.82m/s ≈ 8.2s.  MDC is difficult to precisely calculate without path projections, but given the distances and the fact that both are decreasing, let's estimate MDC > 5m. Both TTC and MDC suggest low risk (4/5), thus overall risk is 4 (Low).
+
+Obstacle 35 (Front-Right): Similar to Obstacle 31, this obstacle is approaching diagonally but from the right. At the last timestep, it's 14.77m longitudinally and -13.63m laterally.  TTC_longitudinal = 14.77m / 1.73m/s ≈ 8.5s. TTC_lateral = 13.63m / 1.65m/s ≈ 8.3s. Again, MDC is estimated to be > 5m. Overall risk is 5 (No Risk).
+
+Obstacle 36 (Front-Right):  This obstacle is also approaching diagonally from the right, closer than Obstacle 35. At the last timestep, it's 12.66m longitudinally and -13.14m laterally. TTC_longitudinal = 12.66m / 1.68m/s ≈ 7.5s. TTC_lateral = 13.14m / 2.70m/s ≈ 4.9s.  MDC is estimated to be > 5m. Overall risk is 4 (Low Risk) due to the lateral TTC.
+
+Obstacle 310 (Front): This obstacle is approaching head-on (exact lateral alignment) but still relatively far. At the last timestep, it's 14.11m longitudinally. TTC_longitudinal = 14.11m / 1.70m/s ≈ 8.3s. MDC is estimated to be >5 based on longitudinal distance. Overall risk is 5 (No Risk).
+
+Obstacle 315 (Front-Right): This obstacle is approaching diagonally, similar to others in the front-right.  At the last timestep, it's 15.04m longitudinally and -9.67m laterally.  TTC_longitudinal = 15.04m / 1.71m/s ≈ 8.8s.  TTC_lateral = 9.67m / 1.72m/s ≈ 5.6s.  MDC > 5m. Overall risk is 5 (No Risk)
+
+Obstacle 317 (Behind): This obstacle is approaching from directly behind and is VERY close. At the last timestep, it's -0.27m longitudinally. TTC_longitudinal = 0.27m / 5.06m/s ≈ 0.05s. MDC is extremely small (< 0.5m). This is a very high risk situation given the extremely low TTC and close proximity. Overall Risk is 1 (Extreme Risk).
+
+Obstacle 320 (Rear-Left): This obstacle is approaching from slightly behind and to the left. At the last timestep, it's -19.74m longitudinally and 0.48m laterally. The longitudinal distance is relatively large, and it is receding. The main risk is lateral. TTC_lateral ≈ 0.48m/0.41m/s ≈ 1.2s.  MDC is small (< 0.5m) if the lateral distance continues to decrease as suggested by the positive relative lateral velocity. Overall risk is 2 (High risk) as MDC takes priority despite longer TTC.
+
+Obstacle 355 (Front-Left): This obstacle is moving away laterally while slightly approaching longitudinally. The large and increasing lateral distance suggests no immediate risk. At the last timestep, it is 16.86m longitudinally and 17.57m laterally, with the relative velocity showing that the obstacle is moving away laterally. TTC_longitudinal = 16.86/0.28 ≈ 60s, which does not make sense as the obstacle is stated as driving towards the ego car longitudially. Given the lateral motion, MDC > 5m. We classify this as 5 (No Risk) due to diverging lateral trajectory.
+
+
+This IS a collision scenario because Obstacle 317 poses an Extreme Risk (1) with a very low TTC (0.05s) and a very small MDC (< 0.5m).
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "317",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 317 has an extremely low TTC (0.05s) and MDC < 0.5m, indicating a near-certain collision."
+}
+```

@@ -1,0 +1,64 @@
+Let's evaluate the scenario using the most recent data at 0.9 seconds, while considering the motion trends from earlier data points:
+
+### Latest Analysis at 0.9 Seconds
+
+- **Ego Vehicle (1.0):**
+  - Position: (440.184, -590.5743)
+  - Orientation: 0.7734 radians (~44.33 degrees)
+  - Velocity: 7.2873 m/s
+  - Lanelet: 41693.0
+
+- **Obstacle 35.0: Stationary**
+  - Position: (432.23737, -564.05277)
+  - Velocity: 0.0 m/s
+  - Lanelet: 41061.0
+  - This obstacle has no motion and is in a different lanelet; therefore, there's no immediate risk.
+
+- **Obstacle 375.0: Virtually Stationary**
+  - Position: (456.06752, -599.29844)
+  - Velocity: 5.02e-05 m/s
+  - Lanelet: 41094.0
+  - This obstacle moves negligibly and is in a separate lanelet; hence, it presents no immediate risk.
+
+- **Obstacle 383.0: High Velocity**
+  - Position: (447.06301, -583.89044)
+  - Velocity: 10.034623 m/s
+  - Lanelet: 41693.0
+  - Obstacle 383 is in the same lanelet as the ego vehicle, a slightly higher velocity, and moving in close proximity.
+  - **Relative lateral and longitudinal distances:**
+    - Longitudinal: Ahead by ~6.879 m in the same lanelet
+    - The direction of travel is congruent with the ego's path.
+    - **TTC and MDC are positive** values indicating separation, but due to high relative velocity, it's considered **High Risk**.
+
+- **Obstacle 391.0: High Velocity, Same Lanelet**
+  - Position: (428.30919, -602.54324)
+  - Velocity: 8.9192418 m/s
+  - Lanelet: 41197.0 initially but is approaching the ego's position in 41693.0
+  - It is slightly behind and moving faster than the ego vehicle, closing the gap.
+  - **Relative Longitudinal and Lateral distances:**
+    - Longitudinal: ~11.8748 m behind
+    - Negative relative velocity indicates closure on the ego vehicle.
+    - **TTC and Minimum Distance** to Ego presents a **Medium Risk**.
+
+### Summary of Risk Analysis
+- **Obstacle 383** poses a **High Risk** as it is closer and aligned with the ego vehicle's trajectory.
+- **Obstacle 391** is moderately a threat due to its speed and nearness but manageable.
+- Other obstacles: Negligible impact due to position, speed, or lanelet separation.
+
+### Overall Risk Scores
+- **Collision Risk (0):** None detected.
+- **Extreme Risk (1):** None detected.
+- **High Risk (2):** Obstacle 383
+
+Here is the JSON summary:
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": {},
+  "HighRiskObstacle": {
+    "ObstacleID": "383",
+    "OverallRiskScore": 2
+  }
+}
+```

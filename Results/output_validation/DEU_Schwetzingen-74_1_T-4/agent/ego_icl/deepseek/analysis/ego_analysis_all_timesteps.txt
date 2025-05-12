@@ -1,0 +1,48 @@
+Let me analyze each obstacle at the most recent timestep (3.2 seconds) with trajectory context:
+
+1. Obstacle 20058 (Front-right):
+- Adjusted distances: longitudinal 17.47m, lateral -11.04m
+- Relative velocity: longitudinal -2.06 m/s (approaching), lateral 0.00 m/s (stable)
+- Motion: Driving toward ego longitudinally, no lateral motion
+- TTC (longitudinal): 17.47/2.06 = 8.48s (No Risk)
+- MDC (lateral): 11.04m (No Risk)
+- Risk: 5 (Negligible) - Large distances in both dimensions
+
+2. Obstacle 20060 (Front-right):
+- Adjusted distances: longitudinal 12.07m, lateral -4.93m
+- Relative velocity: longitudinal -0.94 m/s (approaching), lateral -0.98 m/s (moving away)
+- Motion: Approaching longitudinally but moving away laterally
+- TTC (longitudinal): 12.07/0.94 = 12.84s (No Risk)
+- MDC (lateral): 4.93m (Low Risk)
+- Risk: 4 (Low) - Moving away laterally despite longitudinal approach
+
+3. Obstacle 20064 (Behind):
+- Adjusted distances: longitudinal -0.42m, lateral 0.00m
+- Relative velocity: longitudinal 3.26 m/s (approaching rapidly), lateral 0.79 m/s
+- Motion: Driving toward ego from behind with exact lateral alignment
+- TTC (longitudinal): 0.42/3.26 = 0.13s (Extreme Risk)
+- MDC (lateral): 0.00m (but lateral velocity shows moving away)
+- Risk: 1 (Extreme) - Rapid rear approach with very small distance
+
+Trajectory Analysis:
+- Obstacle 20064 shows consistent rapid approach from behind (longitudinal distance reduced from -3.73m to -0.42m in 0.9s)
+- Lateral movement shows slight divergence (0.73m/s to 0.79m/s) but exact alignment at current timestep
+- At current relative velocity, collision is imminent (TTC=0.13s)
+
+JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20064",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "20064",
+        "OverallRiskScore": "0"
+    }
+}
+```

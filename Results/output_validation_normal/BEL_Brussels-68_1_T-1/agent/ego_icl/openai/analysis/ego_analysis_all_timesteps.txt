@@ -1,0 +1,49 @@
+**Obstacle Analysis:**
+
+**Obstacle 30101:**
+
+1. **Trajectory Analysis:**
+   - At 0.0 to 0.9 seconds, Obstacle 30101 was consistently in the front of the ego vehicle.
+   - At the beginning (0.0-0.2s), it moved towards the ego vehicle showing decreasing longitudinal distances.
+   - After 0.2 seconds, the obstacle started moving slightly away from the ego vehicle, evidencing an increasing longitudinal distance trend from 9.49m to 9.56m at 0.9 seconds.
+   - Throughout these timesteps, the lateral distance remained at 0.00m, signaling same-lane alignment, but without immediate collision since the relative longitudinal distance was not near zero.
+   
+2. **Most Recent Timestep (0.9 seconds) Analysis:**
+   - **Position:** Front of the ego vehicle. 
+   - **Adjusted Distances:** 
+       - Longitudinal: 9.56m 
+       - Lateral: 0.00m
+   - **Relative Velocity (final):** 
+       - Longitudinal: 0.22 m/s (indicating moving away)
+       - Lateral: 0.08 m/s
+   - **Relative Acceleration (final):**
+       - Longitudinal: 0.09 m/s²
+       - Lateral: -0.03 m/s²
+   - **MDC Calculation:** 
+       - Monitored trajectory shows a minimum longitudinal distance of 9.49m (safe distance as it’s greater than 3.0m).
+   - **TTC Calculation:**
+       - Time-to-Collision would typically apply if trajectory was converging.
+       - With relative longitudinal direction and velocity towards moving away, the TTC becomes irrelevant as there is no closing path.
+
+3. **Risk Assessment:**
+   - Longitudinal alignment is in the escaping trend with the obstacle moving away from the ego car.
+   - The longitudinal distance is greater than 5m, ensuring no imminent collision or significant risk.
+   
+**Final Risk Score for Obstacle 30101:**
+- **Risk Level: Negligible Risk** - With both MDC > 5.0m and TTC adhering to no substantial risk due to an escaping obstacle motion.
+
+**JSON Summary:**
+
+```json
+{
+    "CollisionObstacle": null,
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": null,
+    "NegligibleRiskObstacle": {
+        "ObstacleID": "30101",
+        "OverallRiskScore": "5"
+    }
+}
+```
+
+This offers a comprehensive analysis based on the motion dynamics and adjusted distances of Obstacle 30101, ensuring it poses no risk of collision.

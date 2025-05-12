@@ -1,0 +1,53 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30689 (Front-left)
+- **Most Recent Timestep (13.5s)**:
+  - Adjusted Distance: Longitudinal 14.00 m, Lateral 12.04 m
+  - Relative Velocity: Longitudinal -4.12 m/s, Lateral 8.49 m/s
+  - Motion: Driving toward ego longitudinally, moving away laterally to the left.
+- **Trajectory Analysis**:
+  - Longitudinal distance is decreasing (from 18.38m to 14.00m over 0.9s).
+  - Lateral distance is increasing (from 4.36m to 12.04m over 0.9s).
+  - The obstacle is moving diagonally away from the ego vehicle (left and forward).
+- **TTC Calculation**:
+  - Longitudinal TTC: 14.00 / 4.12 ≈ 3.40s (Low Risk, 4)
+  - Lateral TTC: Not applicable (moving away).
+- **MDC Calculation**:
+  - The obstacle is moving away laterally, so MDC is effectively infinite (No Risk, 5).
+- **Overall Risk**: No Risk (5).
+
+#### Obstacle 30693 (Front)
+- **Most Recent Timestep (13.5s)**:
+  - Adjusted Distance: Longitudinal 0.02 m, Lateral 0.00 m
+  - Relative Velocity: Longitudinal -2.31 m/s, Lateral 0.00 m/s
+  - Motion: Driving toward ego longitudinally, exact lateral alignment.
+- **Trajectory Analysis**:
+  - Longitudinal distance is decreasing rapidly (from 2.75m to 0.02m over 0.9s).
+  - Lateral distance remains 0.00m (exact alignment).
+  - The obstacle is directly in front of the ego vehicle and closing fast.
+- **TTC Calculation**:
+  - Longitudinal TTC: 0.02 / 2.31 ≈ 0.0087s (Extreme Risk, 1).
+  - Lateral TTC: Not applicable (no lateral movement).
+- **MDC Calculation**:
+  - Current longitudinal distance is 0.02m (Collision Risk, 0).
+- **Overall Risk**: Collision Risk (0).
+
+### Collision Scenario Determination
+- Obstacle 30693 is at a longitudinal distance of 0.02m with a closing velocity of 2.31 m/s. This is effectively a collision (distance ≈ 0m with closing velocity).
+- Obstacle 30689 poses no risk as it is moving away from the ego vehicle.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30693",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30693 is at a longitudinal distance of 0.02m with a closing velocity of 2.31 m/s, indicating an actual collision."
+}
+```

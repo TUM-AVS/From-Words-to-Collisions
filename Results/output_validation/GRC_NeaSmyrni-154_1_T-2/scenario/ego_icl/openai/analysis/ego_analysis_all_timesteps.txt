@@ -1,0 +1,60 @@
+**Obstacle-by-Obstacle Analysis at 3.1 seconds:**
+
+### Obstacle 20063
+- **Position**: In the Front
+- **Adjusted Distance**: Longitudinal 19.37 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal -1.26 m/s, Lateral -0.00 m/s
+- **Trajectory Analysis**: Obstacle continually approaches, reducing longitudinal distance steadily with each timestep.
+- **TTC Calculation**: \( \text{TTC} = \frac{19.37}{1.26} \approx 15.37 \text{ seconds} \)
+- **MDC Assessment**: Longitudinal distance decreasing, but still greater than 5 meters. Lateral alignment but not near-zero in both dimensions.
+- **Risk Score**: No Risk (5). The obstacle is aligned laterally but far in front with a decreasing but sufficient TTC. 
+
+### Obstacle 20064
+- **Position**: In the Front
+- **Adjusted Distance**: Longitudinal 12.39 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal -1.26 m/s, Lateral -0.00 m/s
+- **Trajectory Analysis**: Continues to close in at a steady rate.
+- **TTC Calculation**: \( \text{TTC} = \frac{12.39}{1.26} \approx 9.83 \text{ seconds} \)
+- **MDC Assessment**: Longitudinal distance is reducing but safe for the present.
+- **Risk Score**: No Risk (5). Despite the decreasing distance, the time to potential collision is safe.
+
+### Obstacle 20066
+- **Position**: Exact Collision
+- **Adjusted Distance**: Longitudinal 0.00 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 3.98 m/s, Lateral -0.00 m/s
+- **Trajectory Analysis**: Obstacle 20066 has reached 0m distance in both dimensions indicating an existing collision.
+- **TTC Calculation**: Not applicable, already in contact.
+- **MDC Assessment**: Distance is zero in both directions, indicating overlap and collision.
+- **Risk Score**: Collision (0). The situation directly presents a collision occurring.
+
+### Obstacle 20067
+- **Position**: Behind
+- **Adjusted Distance**: Longitudinal -13.86 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 6.16 m/s, Lateral -0.00 m/s
+- **Trajectory Analysis**: Closing in from behind with velocity consistently decreasing towards the ego vehicle.
+- **TTC Calculation**: Absolute value of distance required for relative approach speed, meaning calculation would align when positive.
+- **MDC Assessment**: Longitudinal distance is negative but indicating position behind and closing.
+- **Risk Score**: Low Risk (4). No immediate danger but requires monitoring due to closing velocity.
+
+**Collision Scenario Determination:**
+- Obstacle 20066 is currently in a collision state at the last time step (t = 3.1 seconds).
+- Collision is occurring due to overlap in both dimensions, confirming high severity.
+  
+**Conclusion:**
+- This scenario is a collision scenario because Obstacle 20066 presents an ongoing collision.
+
+**Final JSON Summary:**
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "20066",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 20066 is currently in collision with the ego vehicle, showing overlap in both longitudinal and lateral distances."
+}
+```

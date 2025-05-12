@@ -1,0 +1,56 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 5.3 seconds)
+
+#### **Obstacle 10 (Front-left)**
+- **Adjusted Position**: Longitudinal 18.19m, Lateral 5.30m  
+- **Relative Velocity**: Longitudinal -2.11 m/s (approaching), Lateral 0.00 m/s (no lateral motion)  
+- **Trajectory Analysis**:  
+  - Longitudinal distance decreasing (from 20.22m at 4.8s to 18.19m at 5.3s).  
+  - Lateral distance stable (no relative motion).  
+- **TTC (Longitudinal)**: 18.19 / 2.11 ≈ **8.62s** (No Risk, TTC > 5.0s).  
+- **MDC (Lateral)**: 5.30m (Low Risk, MDC > 5.0m).  
+- **Overall Risk**: **5 (No Risk)**.  
+
+#### **Obstacle 12 (Front-left)**
+- **Adjusted Position**: Longitudinal 10.81m, Lateral 3.12m  
+- **Relative Velocity**: Longitudinal -1.92 m/s (approaching), Lateral 0.06 m/s (moving away).  
+- **Trajectory Analysis**:  
+  - Longitudinal distance decreasing (from 12.40m at 4.8s to 10.81m at 5.3s).  
+  - Lateral distance increasing (moving away).  
+- **TTC (Longitudinal)**: 10.81 / 1.92 ≈ **5.63s** (No Risk, TTC > 5.0s).  
+- **MDC (Lateral)**: 3.12m (Low Risk, MDC > 3.0m).  
+- **Overall Risk**: **5 (No Risk)**.  
+
+#### **Obstacle 21 (Behind)**
+- **Adjusted Position**: Longitudinal -0.09m (behind), Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 1.13 m/s (approaching), Lateral 0.95 m/s (moving left).  
+- **Trajectory Analysis**:  
+  - Longitudinal distance rapidly closing (from -1.02m at 4.8s to -0.09m at 5.3s).  
+  - Lateral distance stable (0.00m alignment but moving away).  
+- **TTC (Longitudinal)**: 0.09 / 1.13 ≈ **0.08s** (Extreme Risk, TTC < 0.5s).  
+- **MDC (Lateral)**: 0.00m (but lateral velocity is diverging).  
+- **Collision Risk**:  
+  - Longitudinal: Extreme Risk (TTC ≈ 0.08s).  
+  - Lateral: No immediate collision (moving away).  
+  - **Overall Risk**: **1 (Extreme Risk)** due to imminent rear collision.  
+
+---
+
+### **Collision Scenario Determination**
+- **Obstacle 21** is at **Extreme Risk (Score 1)** with TTC ≈ 0.08s, indicating an imminent rear collision.  
+- While lateral motion is diverging, the longitudinal closing speed is critical.  
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "21",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 21 has Extreme Risk (TTC ≈ 0.08s) due to rapid longitudinal closing from behind, indicating an imminent rear collision."
+}
+```

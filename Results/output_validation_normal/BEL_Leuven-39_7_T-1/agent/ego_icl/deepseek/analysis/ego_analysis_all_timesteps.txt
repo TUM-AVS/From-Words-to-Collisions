@@ -1,0 +1,50 @@
+### Obstacle-by-Obstacle Analysis:
+
+#### Obstacle 30193 (Front of ego car):
+- **Adjusted Distance**: Longitudinal 19.46 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal -4.11 m/s (approaching), Lateral 0.00 m/s (stable)
+- **Trajectory Analysis**: 
+  - The obstacle is longitudinally aligned with the ego (lateral distance = 0.00 m) and is approaching at a decreasing speed (relative velocity magnitude is decreasing over time).
+  - Longitudinal distance is decreasing but remains large (19.46 m).
+  - Lateral distance is stable at 0.00 m, indicating no lateral movement toward the ego.
+- **TTC Calculation**: 
+  - TTC = 19.46 m / 4.11 m/s = 4.73 seconds (Low Risk, TTC > 3.0s)
+- **MDC Calculation**: 
+  - MDC is primarily longitudinal (since lateral distance is stable and zero). MDC = 19.46 m (No Risk, MDC > 5.0 m).
+- **Overall Risk**: 
+  - TTC indicates Low Risk (4), MDC indicates No Risk (5). Prioritize the higher risk (Lower score): **Low Risk (4)**.
+
+#### Obstacle 30194 (Front of ego car):
+- **Adjusted Distance**: Longitudinal 11.15 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal -3.30 m/s (approaching), Lateral 0.00 m/s (stable)
+- **Trajectory Analysis**: 
+  - The obstacle is longitudinally aligned with the ego (lateral distance = 0.00 m) and is approaching at a decreasing speed (relative velocity magnitude is decreasing over time).
+  - Longitudinal distance is decreasing but remains moderate (11.15 m).
+  - Lateral distance is stable at 0.00 m, indicating no lateral movement toward the ego.
+- **TTC Calculation**: 
+  - TTC = 11.15 m / 3.30 m/s = 3.38 seconds (Medium Risk, 1.0s < TTC ≤ 3.0s)
+- **MDC Calculation**: 
+  - MDC is primarily longitudinal (since lateral distance is stable and zero). MDC = 11.15 m (No Risk, MDC > 5.0 m).
+- **Overall Risk**: 
+  - TTC indicates Medium Risk (3), MDC indicates No Risk (5). Prioritize the higher risk (Lower score): **Medium Risk (3)**.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```
+
+### Notes:
+- Neither obstacle poses an immediate collision or extreme risk. Obstacle 30194 is at Medium Risk due to its TTC, while Obstacle 30193 is at Low Risk. Both are longitudinally aligned but are not closing at a dangerous rate. The ego vehicle has sufficient time to react to both obstacles.

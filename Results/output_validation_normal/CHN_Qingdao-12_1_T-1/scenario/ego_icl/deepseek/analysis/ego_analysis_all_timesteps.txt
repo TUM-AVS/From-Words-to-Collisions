@@ -1,0 +1,80 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9 seconds)
+
+#### **Obstacle 30745**
+- **Position**: Front-right of ego car  
+- **Adjusted Distances**: Longitudinal 16.05 m, Lateral -18.38 m  
+- **Relative Velocity**: Longitudinal -0.26 m/s (approaching), Lateral -0.56 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally, moving away laterally to the right.  
+
+**TTC Calculation**:  
+- Longitudinal TTC = 16.05 / 0.26 ≈ 61.73 seconds (No Risk)  
+- Lateral TTC: Not applicable (moving away)  
+
+**MDC Calculation**:  
+- Lateral distance is increasing (18.38 m), longitudinal distance is large (16.05 m).  
+- MDC ≈ Lateral distance = 18.38 m (No Risk)  
+
+**Overall Risk**: 5 (No Risk)  
+
+---
+
+#### **Obstacle 30746**
+- **Position**: Front-right of ego car  
+- **Adjusted Distances**: Longitudinal 2.90 m, Lateral -4.53 m  
+- **Relative Velocity**: Longitudinal -0.69 m/s (approaching), Lateral -1.92 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally, moving away laterally to the right.  
+
+**TTC Calculation**:  
+- Longitudinal TTC = 2.90 / 0.69 ≈ 4.20 seconds (Low Risk)  
+- Lateral TTC: Not applicable (moving away)  
+
+**MDC Calculation**:  
+- Lateral distance is increasing (4.53 m), longitudinal distance is decreasing but still > 1.0 m.  
+- MDC ≈ Lateral distance = 4.53 m (Low Risk)  
+
+**Overall Risk**: 4 (Low Risk)  
+
+---
+
+#### **Obstacle 30750**
+- **Position**: Front-right of ego car  
+- **Adjusted Distances**: Longitudinal 8.74 m, Lateral -5.82 m  
+- **Relative Velocity**: Longitudinal 0.69 m/s (moving away), Lateral -3.51 m/s (moving away)  
+- **Motion**: Moving away longitudinally and laterally to the right.  
+
+**TTC Calculation**:  
+- Longitudinal TTC: Not applicable (moving away)  
+- Lateral TTC: Not applicable (moving away)  
+
+**MDC Calculation**:  
+- Both distances are increasing.  
+- MDC ≈ min(8.74, 5.82) = 5.82 m (No Risk)  
+
+**Overall Risk**: 5 (No Risk)  
+
+---
+
+### Trajectory Analysis Across Timesteps
+- **Obstacle 30745**: Consistently moving away laterally, with minor longitudinal approach. No collision risk.  
+- **Obstacle 30746**: Longitudinal distance is decreasing but remains > 2.4 m. Lateral distance is increasing. Low risk.  
+- **Obstacle 30750**: Moving away in both dimensions. No risk.  
+
+### Collision Scenario Determination
+- No obstacle has a risk score of 0 (Collision) or 1 (Extreme Risk).  
+- The closest obstacle (30746) has a longitudinal distance of 2.90 m and is moving away laterally.  
+
+### Final JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle has a risk score of 0 or 1. The closest obstacle (30746) has a longitudinal distance of 2.90 m and is moving away laterally, posing only Low Risk (Score 4)."
+}
+```

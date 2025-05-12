@@ -1,0 +1,52 @@
+### Obstacle Analysis
+
+#### Obstacle 30615 (Front of Ego Vehicle)
+- **Trajectory Analysis:**
+  - Longitudinal position is decreasing steadily from 16.04m at 0.1s to 14.29m at 0.9s, indicating it is approaching the ego vehicle.
+  - Relative longitudinal velocity is negative (-2.08 m/s), reinforcing that the obstacle is moving towards the ego vehicle.
+
+- **Calculation:**
+  - **Adjusted Longitudinal Distance at 0.9s:** 14.29 meters
+  - **Relative Velocity Longitudinal:** -2.08 m/s
+  - **TTC Longitudinal:** |14.29 / -2.08| ≈ 6.87 seconds (since the velocity is negative, indicating approaching, use absolute value for TTC)
+  - **MDC Longitudinal:** The projected path shows a decreasing distance, but remains sufficiently large for now.
+
+- **Risk Assessment:**
+  - **TTC** is above 5.0 seconds.
+  - **MDC**, based on current trajectory, remains above 5.0 meters.
+  - **Risk Level:** 5 (Negligible Risk)
+
+#### Obstacle 30618 (Behind Ego Vehicle)
+- **Trajectory Analysis:**
+  - Longitudinal position is steadily increasing from -19.44m at 0.1s to -20.25m at 0.9s, indicating it is moving further away from the ego vehicle.
+  - Relative longitudinal velocity is negative and decreasing in magnitude (-0.13 m/s) but still indicating the obstacle is moving away.
+
+- **Calculation:**
+  - **Adjusted Longitudinal Distance at 0.9s:** -20.25 meters
+  - **Relative Velocity Longitudinal:** -0.13 m/s
+  - As the obstacle moves away, TTC is not applicable for collision assessment, but distance confirms no approaching risk.
+
+- **Risk Assessment:**
+  - **Relatively moving away**, with longitudinal position increasing, indicating no collision risk trajectory.
+  - **Risk Level:** 5 (Negligible Risk)
+
+### JSON Summary
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "5"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "5"
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "5"
+  }
+}
+```
+
+Both obstacles have negligible risk based on the current trajectory and velocity data. The relative positions and the adjusting velocities suggest no risk of collision in the imminent time frame. The projected TTC and MDC calculations ensure safety and no need for immediate action.

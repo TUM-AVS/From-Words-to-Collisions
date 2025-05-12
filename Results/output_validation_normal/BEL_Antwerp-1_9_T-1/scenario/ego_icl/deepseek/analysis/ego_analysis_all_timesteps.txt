@@ -1,0 +1,57 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30765 (Front of ego car)
+- **Latest Timestep (0.9s):**
+  - **Adjusted Distance:** Longitudinal = 8.07 m, Lateral = 0.00 m
+  - **Relative Velocity:** Longitudinal = -4.02 m/s (approaching), Lateral = 0.00 m/s (no lateral movement)
+  - **Motion Description:** Obstacle is driving toward the ego car longitudinally with exact lateral alignment.
+  - **Trajectory Analysis:**
+    - Longitudinal distance decreases from 12.16 m (0.1s) to 8.07 m (0.9s), showing consistent closing behavior.
+    - Lateral distance remains 0.00 m (exact alignment), but no lateral movement is observed.
+  - **TTC Calculation:**
+    - TTC (longitudinal) = 8.07 m / 4.02 m/s ≈ 2.01 seconds
+    - TTC (lateral) = N/A (no lateral movement)
+    - **TTC Risk:** Medium Risk (3) (1.0 < TTC ≤ 3.0 seconds)
+  - **MDC Calculation:**
+    - MDC is primarily the lateral distance (0.00 m), but since there is no lateral movement, the risk is driven by longitudinal closing.
+    - **MDC Risk:** No Risk (5) (MDC > 5.0 meters longitudinally, but exact lateral alignment is not risky without closing).
+  - **Overall Risk:** Medium Risk (3) (prioritize TTC over MDC due to closing trajectory).
+
+#### Obstacle 30782 (Behind ego car)
+- **Latest Timestep (0.9s):**
+  - **Adjusted Distance:** Longitudinal = -8.98 m, Lateral = 0.00 m
+  - **Relative Velocity:** Longitudinal = 0.99 m/s (approaching), Lateral = 0.00 m/s (no lateral movement)
+  - **Motion Description:** Obstacle is driving toward the ego car from behind with exact lateral alignment.
+  - **Trajectory Analysis:**
+    - Longitudinal distance changes from -9.31 m (0.1s) to -8.98 m (0.9s), showing slow closing behavior.
+    - Lateral distance remains 0.00 m (exact alignment), but no lateral movement is observed.
+  - **TTC Calculation:**
+    - TTC (longitudinal) = 8.98 m / 0.99 m/s ≈ 9.07 seconds
+    - TTC (lateral) = N/A (no lateral movement)
+    - **TTC Risk:** No Risk (5) (TTC > 5.0 seconds)
+  - **MDC Calculation:**
+    - MDC is primarily the lateral distance (0.00 m), but since there is no lateral movement, the risk is driven by longitudinal closing.
+    - **MDC Risk:** No Risk (5) (MDC > 5.0 meters longitudinally, and exact lateral alignment is not risky without closing).
+  - **Overall Risk:** No Risk (5).
+
+### Collision Scenario Determination
+- Neither obstacle has a risk score of 0 (collision) or 1 (extreme risk).
+- Obstacle 30765 has a Medium Risk (3) due to closing longitudinal distance, but TTC is still above 1.0 seconds.
+- Obstacle 30782 poses No Risk (5) due to slow closing speed and large distance.
+- **This is not a collision scenario.**
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle has a risk score of 0 or 1. Obstacle 30765 has Medium Risk (TTC = 2.01s), and Obstacle 30782 has No Risk (TTC = 9.07s)."
+}
+```

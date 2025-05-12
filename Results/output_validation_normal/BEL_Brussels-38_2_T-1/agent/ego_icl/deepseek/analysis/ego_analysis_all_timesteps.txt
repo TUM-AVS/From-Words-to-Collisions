@@ -1,0 +1,43 @@
+### Obstacle Analysis: 30220
+
+#### Trajectory Analysis (0.1s to 0.9s):
+- **Longitudinal Distance**: Starts at 14.56m and decreases slightly to 14.00m, indicating the obstacle was initially approaching but then stabilized/moved away (relative velocity changes from -1.97 m/s to 0.04 m/s).
+- **Lateral Distance**: Starts at 1.26m and decreases to 0.81m, but the obstacle is consistently moving away laterally (relative velocity remains positive, increasing from 1.30 m/s to 0.79 m/s).
+
+#### Most Recent Timestep (0.9s):
+- **Adjusted Distances**: Longitudinal = 14.00m, Lateral = 0.81m
+- **Relative Velocities**: Longitudinal = 0.04 m/s (moving away), Lateral = 0.79 m/s (moving away)
+- **Motion Description**: "Obstacle is moving away longitudinally. Obstacle is moving away laterally to the left."
+
+#### Risk Assessment:
+1. **Time-to-Collision (TTC)**:
+   - Longitudinal: TTC = 14.00m / 0.04 m/s → 350s (diverging, no risk)
+   - Lateral: TTC = 0.81m / 0.79 m/s → 1.03s (but moving away, so no risk)
+   - **TTC Risk**: 5 (No Risk)
+
+2. **Minimum Distance to Collision (MDC)**:
+   - The obstacle is moving away in both dimensions, so MDC is the current distance (longitudinal 14.00m, lateral 0.81m).
+   - The smaller distance is lateral (0.81m), but since the obstacle is moving away, the risk is minimal.
+   - **MDC Risk**: 5 (No Risk)
+
+3. **Overall Risk**:
+   - The obstacle is moving away in both dimensions, and the distances are large enough to avoid any immediate risk.
+   - **Overall Risk Score**: 5 (No Risk)
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```

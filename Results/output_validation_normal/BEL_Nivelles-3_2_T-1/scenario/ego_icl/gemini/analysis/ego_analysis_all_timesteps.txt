@@ -1,0 +1,44 @@
+* **Obstacle 312 Analysis:**
+
+    * Trajectory: Obstacle 312 consistently approaches the ego vehicle from the front-right, with the lateral distance decreasing across timesteps. In the last timestep, it is positioned front-left, suggesting a lane change or crossing maneuver by either vehicle.
+    * Longitudinal Analysis (at t=0.9s): Distance = 20.51m, Relative Velocity = -7.27 m/s (approaching). TTC_longitudinal = 20.51 / 7.27 ≈ 2.82 seconds.  Risk: Medium (3).
+    * Lateral Analysis (at t=0.9s): Distance = 3.43m, Relative Velocity = -0.09 m/s (slightly approaching). TTC_lateral is very large and not indicative of risk. Risk: Medium (3).
+    * MDC: Approximately 3.43m. Risk: Medium (3)
+    * Overall Risk: Medium (3) - The obstacle is approaching but not imminently.
+
+* **Obstacle 329 Analysis:**
+
+    * Trajectory:  Obstacle 329 is consistently in front-right and closing in on the ego vehicle both longitudinally and laterally until around 0.8 seconds.  In the last timestep, it moves to the front-left, also suggesting a maneuver by one or both vehicles.
+    * Longitudinal Analysis (at t=0.9s): Distance = 14.15m, Relative Velocity = -6.36 m/s. TTC_longitudinal = 14.15 / 6.36 ≈ 2.22 seconds. Risk: Medium (3).
+    * Lateral Analysis (at t=0.9s): Distance = 1.05m, Relative Velocity = 0.30 m/s (moving away). TTC_lateral wouldn't indicate risk as the vehicle is moving away laterally. Risk: Medium (3).
+    * MDC: approximately 1.05 m. Risk: Medium (3).
+    * Overall Risk: Medium (3) - Although closer than 312, the lateral motion suggests divergence.
+
+* **Obstacle 335 Analysis:**
+
+    * Trajectory: Obstacle 335 starts directly behind the ego vehicle and gradually moves further behind and to the right.  The longitudinal velocity indicates moving away, but the lateral motion shows 335 is approaching ego from the right.
+    * Longitudinal Analysis (at t=0.9s): Distance = -4.89m (behind), Relative Velocity = -0.15 m/s (moving further away). TTC is not a relevant metric here due to separating motion.  No risk.
+    * Lateral Analysis (at t=0.9s): Distance = -2.41m (to the right), Relative Velocity = 1.08 m/s (approaching). TTC_lateral = 2.41 / 1.08 ≈ 2.23 seconds. Risk: Medium (3).
+    * MDC: Approximately 2.41 m. Risk: Medium (3).
+    * Overall Risk: Medium (3) - While longitudinally safe, lateral movement requires monitoring.
+
+**Collision Scenario Determination:**
+
+No obstacle has a risk score of 0 (collision) or 1 (extreme risk).  Therefore, this is NOT a collision scenario.
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 or 1. All obstacles are assessed as Medium Risk (3) at the last timestep."
+}
+```

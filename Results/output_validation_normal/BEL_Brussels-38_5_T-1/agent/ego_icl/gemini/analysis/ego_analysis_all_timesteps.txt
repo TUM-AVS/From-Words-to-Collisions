@@ -1,0 +1,33 @@
+Obstacle 30221 is behind the ego vehicle and initially moving away, but the latest timesteps show it approaching from behind.
+
+Trajectory Analysis:
+- Initially, the longitudinal distance increases (moving away) from -6.98m to -7.69m between 0.0s and 0.6s.
+- From 0.6s to 0.9s the longitudinal distance starts decreasing towards the ego vehicle. The distance shrinks to -7.62m.
+- Lateral distance remains consistently at 0.00m. This exact lateral alignment implies the obstacle is in the same lane as the ego vehicle.
+
+At 0.9 seconds (most recent timestep):
+- Longitudinal distance: -7.62m (behind ego)
+- Lateral distance: 0.00m (same lane)
+- Longitudinal relative velocity: 0.51 m/s (approaching)
+- Lateral relative velocity: 0.15 m/s (slightly converging)
+
+TTC Calculation:
+- Longitudinal TTC = |-7.62m| / 0.51 m/s ≈ 14.94s
+
+MDC Calculation:
+- Given the obstacle's trajectory and constant lateral alignment, the MDC is primarily determined by the longitudinal distance.
+- MDC ≈ |-7.62m| = 7.62m
+
+Risk Assessment:
+- TTC > 5.0s implies negligible risk (5)
+- MDC > 5.0m implies negligible risk (5)
+
+The obstacle is approaching from behind, in the same lane, and slightly to the left of the ego vehicle. However, the relative velocity is low, so the risk at this instant is negligible.
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": null
+}
+```

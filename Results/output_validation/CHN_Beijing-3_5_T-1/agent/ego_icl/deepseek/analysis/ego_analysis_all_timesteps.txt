@@ -1,0 +1,71 @@
+Let me analyze each obstacle at the most recent timestep (9.0 seconds) with trajectory context from previous timesteps:
+
+1. Obstacle 3096 (Rear-left):
+- Longitudinal: -9.11m (moving away at -6.12m/s)
+- Lateral: 1.94m (moving away at 0.02m/s)
+- Analysis: Both distances increasing, no collision risk
+- Risk: 5 (No Risk)
+
+2. Obstacle 3099 (Front-right):
+- Longitudinal: 8.71m (approaching at -0.74m/s)
+- Lateral: -11.68m (moving away at -8.44m/s)
+- Analysis: Moving away diagonally, no collision risk
+- Risk: 5 (No Risk)
+
+3. Obstacle 3100 (Front):
+- Longitudinal: 9.32m (approaching at -3.61m/s → TTC = 2.58s)
+- Lateral: 0.00m (exact alignment)
+- Analysis: Approaching frontally but with sufficient distance/time
+- Risk: 3 (Medium Risk)
+
+4. Obstacle 3101 (Rear-right):
+- Longitudinal: -22.67m (moving away at -0.84m/s)
+- Lateral: -7.73m (stationary)
+- Analysis: Moving away, no risk
+- Risk: 5 (No Risk)
+
+5. Obstacle 3102 (Rear-left):
+- Longitudinal: -20.82m (moving away at -6.39m/s)
+- Lateral: 0.84m (approaching at -2.52m/s)
+- Analysis: Moving away longitudinally despite lateral approach
+- Risk: 5 (No Risk)
+
+6. Obstacle 3103 (Front-right):
+- Longitudinal: 12.26m (approaching at -0.84m/s)
+- Lateral: -7.83m (stationary)
+- Analysis: Slow approach with large distance
+- Risk: 5 (No Risk)
+
+7. Obstacle 3104 (Front-right):
+- Longitudinal: 12.23m (approaching at -0.84m/s)
+- Lateral: -16.43m (approaching at 1.07m/s)
+- Analysis: Very slow approach with large distances
+- Risk: 5 (No Risk)
+
+8. Obstacle 3107 (Behind):
+- Longitudinal: -0.56m (approaching at 2.34m/s → TTC = 0.24s)
+- Lateral: 0.00m (exact alignment)
+- Analysis: Rapid rear approach with extremely small distance
+- Risk: 0 (Collision Risk)
+
+Trajectory Analysis:
+- Obstacle 3107 shows consistent rear approach from -2.86m at 8.1s to -0.56m at 9.0s
+- Closing speed remains high (2.34m/s at last timestep)
+- Will collide with ego within next 0.24 seconds if trajectories continue
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "3107",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3100",
+        "OverallRiskScore": "3"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "3107",
+        "OverallRiskScore": "0"
+    }
+}
+```

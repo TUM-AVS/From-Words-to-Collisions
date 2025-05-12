@@ -1,0 +1,32 @@
+Obstacle 10 (Front-Left):
+- Trajectory:  Obstacle 10 has been in front of the ego vehicle, and at the last timestamp, it shifts slightly to the front-left. The longitudinal distance is decreasing, suggesting the ego vehicle is approaching Obstacle 10 or Obstacle 10 is approaching the ego vehicle, although the rate of approach appears to be slowing down based on the relative velocity trend.  The lateral movement at the last timestep is significant, jumping from 0.00m to 6.56m which suggests a sudden lane change.
+- MDC: With a significant lateral distance at the final timestep, MDC is approximately 18.18m longitudinally.
+- TTC: TTC longitudinal = 18.18m / 2.02 m/s ≈ 8.99 seconds. Lateral movement makes TTC in this direction not relevant for collision risk.
+- Risk: 5 (Negligible Risk)
+
+Obstacle 12 (Front-Left):
+- Trajectory: Similar to Obstacle 10, this obstacle was directly in front and now moves slightly to the front left at the last time step.  Longitudinal distance is decreasing.
+- MDC: The longitudinal distance is the primary concern and is 10.90m. The lateral distance is relatively small at 3.97 m and increasing. The MDC is approximately 10.90m.
+- TTC: TTC longitudinal = 10.90m / 1.78 m/s ≈ 6.12 seconds. TTC lateral = 3.97 m/ -0.08m/s (negative because moving apart), not a risk.
+- Risk: 5 (Negligible Risk)
+
+Obstacle 21 (Behind):
+- Trajectory: Obstacle 21 is behind the ego vehicle and rapidly approaching. The longitudinal distance is decreasing rapidly across the time steps, closing in on zero. This indicates Obstacle 21 is moving toward the ego vehicle and a high risk of collision.
+- MDC:  MDC is -0.25m. Although negative, the magnitude indicates extreme proximity.
+- TTC: TTC longitudinal = -0.25m / 1.39 m/s ≈ -0.18 seconds. The negative TTC with very small MDC indicates likely recent or imminent collision.
+- Risk: 0 (Collision)
+
+JSON Summary:
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "Obstacle 21",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {},
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "Obstacle 21",
+    "OverallRiskScore": "0"
+  }
+}
+```

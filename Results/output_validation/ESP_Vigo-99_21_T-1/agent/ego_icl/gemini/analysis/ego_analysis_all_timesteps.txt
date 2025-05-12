@@ -1,0 +1,28 @@
+* **Obstacle 3511 (Front):** This obstacle is longitudinally aligned (lateral distance 0.00 m) and 7.67 m in front of the ego vehicle.  The relative longitudinal velocity is -0.04 m/s, indicating a very slow closing speed, or nearly stationary relative to the ego vehicle. Across all timesteps, the longitudinal distance remains relatively constant, suggesting the vehicles are maintaining a safe distance.
+    - *MDC:* Approximately 7.67m (using the longitudinal distance as the primary metric due to alignment).
+    - *TTC:*  Since the closing velocity is effectively zero, TTC isn't meaningfully calculable and is not a primary risk factor in this near-stationary scenario.
+    - *Risk:* 5 (Negligible Risk)
+
+* **Obstacle 3515 (Behind):**  The obstacle is directly behind the ego vehicle (lateral distance 0.00 m) at -0.39 m (meaning 0.39m behind the ego vehicle's rear bumper). The relative longitudinal velocity is 1.28 m/s, showing it is closing rapidly. The longitudinal distance has been decreasing across the timesteps.
+    - *MDC:* 0.39 m
+    - *TTC:* 0.39m / 1.28 m/s ≈ 0.3 seconds.
+    - *Risk:* 1 (Extreme Risk - imminent collision likely)
+
+* **Obstacle 3519 (Behind):** This obstacle is 9.45m behind the ego vehicle and longitudinally aligned (lateral distance 0.00m). The relative longitudinal velocity is 1.47 m/s, indicating it is approaching. The longitudinal distance is consistently decreasing across timesteps.
+    - *MDC:* 9.45 m
+    - *TTC:* 9.45 m / 1.47 m/s ≈ 6.4 seconds
+    - *Risk:* 5 (Negligible risk)
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3515",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "3515",
+    "OverallRiskScore": "1"
+  }
+}
+```

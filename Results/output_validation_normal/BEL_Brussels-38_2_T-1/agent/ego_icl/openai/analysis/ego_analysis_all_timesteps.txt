@@ -1,0 +1,53 @@
+### Obstacle Analysis:
+
+#### Obstacle 30220 Analysis:
+**Position and Trajectory:**
+- At the most recent timestep (0.9 seconds), Obstacle 30220 is located in the front-left of the ego vehicle.
+- Adjusted real distances are longitudinal 14.00 m and lateral 0.81 m.
+- The obstacle is moving away in both longitudinal and lateral directions at this time.
+
+**Trajectory over Time:**
+- Between 0.0s and 0.9s, the obstacle was initially approaching the ego vehicle longitudinally with a slowing rate of approach (decreasing relative longitudinal velocity and decreasing lateral velocity moving away to the left).
+- By 0.6s, the obstacle started to move away longitudinally, confirming the change in trajectory.
+- The observed pattern shows that the lateral distance has decreased from 1.26 m to 0.81 m, indicating a closer proximity on the lateral dimension over time.
+
+**TTC and MDC Calculations:**
+- **TTC (Time-to-Collision):**
+  - Longitudinal: Relative longitudinal velocity at 0.9s is 0.04 m/s moving away (effectively infinite TTC).
+  - Lateral: Relative lateral velocity at 0.9s is 0.79 m/s. With the lateral distance at 0.81 m, TTC (lateral) ≈ 0.81 m / 0.79 m/s ≈ 1.03 seconds.
+
+- **MDC (Minimum Distance to Collision):**
+  - Longitudinal and lateral movement suggest increasing distance. Therefore, MDC is not primarily constrained by a converging path.
+  - MDC primarily assessed on lateral proximity: 0.81 m
+
+**Risk Assessment:**
+- Lateral TTC is approx. 1.03 seconds.
+- MDC (lateral) approximately 0.81 m.
+  
+Considering that the closest dimension (lateral) yields a TTC just over 1 second and MDC less than 1 meter, the risk is assessed based on these tight constraints.
+
+### Risk Classification:
+- **TTC (lateral) ≈ 1.03 s:** Just crosses the boundary between high risk (2) and medium risk (3).
+- **MDC (lateral) ≈ 0.81 m:** Places it in a high risk (2) category.
+
+The scores from both assessments lean towards a high risk situation mainly due to the reduced lateral proximity even while the obstacle is moving away longitudinally.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": "-1"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": "-1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "30220",
+        "OverallRiskScore": "2"
+    }
+}
+```
+
+The JSON summary indicates that Obstacle 30220 presents a high risk due to its close lateral proximity, despite the longitudinal distance being stable or increasing. The obstacle's current and projected path suggests no imminent collision but a risk that should not be ignored.

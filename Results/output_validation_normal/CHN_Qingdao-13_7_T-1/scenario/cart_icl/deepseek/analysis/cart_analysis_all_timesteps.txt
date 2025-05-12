@@ -1,0 +1,53 @@
+### Safety analysis for the most recent timestep (0.9 seconds):
+
+### Obstacle Analysis:
+
+#### Obstacle ID: 30618.0
+- **Distance Risk reason**: Moving away from ego in lanelet 381.0 (parallel lane). Distance increasing over time (from ~5m to ~23m).
+- **Distance safety score**: 5 (Negligible Risk)
+- **Time Risk reason**: High relative velocity (14.46 m/s vs ego's 5.94 m/s) but moving in opposite direction.
+- **Time safety score**: 5 (Negligible Risk)
+- **Overall Risk score**: 5
+
+#### Obstacle ID: 30619.0
+- **Distance Risk reason**: Approaching from front in parallel lane (lanelet 381.0). Distance decreasing (~13m to ~1.4m over 0.9s).
+- **Distance safety score**: 2 (High Risk)
+- **Time Risk reason**: High closing speed (11.92 m/s vs ego's 5.94 m/s). TTC ~0.12s.
+- **Time safety score**: 1 (Extreme Risk)
+- **Overall Risk score**: 1
+
+#### Obstacle ID: 30620.0
+- **Distance Risk reason**: Moving away in lanelet 1111.0 (crossing path). Distance increasing (~18m to ~22m).
+- **Distance safety score**: 5 (Negligible Risk)
+- **Time Risk reason**: Low relative velocity (7.27 m/s vs ego's 5.94 m/s) and diverging paths.
+- **Time safety score**: 5 (Negligible Risk)
+- **Overall Risk score**: 5
+
+#### Obstacle ID: 30621.0
+- **Distance Risk reason**: Moving away in lanelet 1112.0. Distance increasing (~18m to ~20m).
+- **Distance safety score**: 5 (Negligible Risk)
+- **Time Risk reason**: Low relative velocity (7.45 m/s vs ego's 5.94 m/s) and diverging paths.
+- **Time safety score**: 5 (Negligible Risk)
+- **Overall Risk score**: 5
+
+### Chain of Thought Scenario Analysis:
+1. Ego is decelerating sharply (from 10.3 m/s to 5.94 m/s in 0.9s)
+2. Obstacle 30619.0 is approaching rapidly from front in parallel lane with high closing speed
+3. TTC with 30619.0 is critically low (~0.12s)
+4. Other obstacles are moving away or on non-conflicting paths
+5. No actual collision at current timestep, but extreme risk of imminent collision
+
+### Summary in JSON Format:
+```json
+{
+    "CollisionObstacles": null,
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30619.0",
+        "OverallRiskScore": "1"
+    },
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "Obstacle 30619.0 presents extreme risk (score 1) due to high closing speed and low TTC, but no actual collision has occurred yet. Other obstacles are moving away safely."
+    }
+}
+```

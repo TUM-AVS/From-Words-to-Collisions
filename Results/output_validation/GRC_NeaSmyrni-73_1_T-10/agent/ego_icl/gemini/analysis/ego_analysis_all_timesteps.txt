@@ -1,0 +1,43 @@
+* **Obstacle 20056 (Front-Left):** This obstacle is approaching the ego vehicle both longitudinally and laterally.  At the last timestep (3.5s), the longitudinal distance is 5.98m and the lateral distance is 8.74m.  The longitudinal relative velocity is -4.15 m/s, implying the obstacle is moving closer. With the lateral distance of 8.74, a lateral relative velocity of -0.24 m/s.
+    * Longitudinal TTC = 5.98m / 4.15m/s ≈ 1.44s (Medium Risk)
+    * Lateral TTC = 8.74m / 0.24 m/s ≈ 36.41s (Negligible Risk)
+    * MDC is difficult to precisely calculate without projected paths, but given the distances and moderate closing velocity, it is likely in the Low to Medium risk range.
+    * Overall Risk: Medium (3) - dominated by the longitudinal TTC.
+
+* **Obstacle 20089 (Front-Left):**  Similar to 20056, this obstacle is also approaching diagonally. At 3.5s, the longitudinal distance is 3.69m and lateral distance is 15.35m, with longitudinal relative velocity of -4.22 m/s and lateral relative velocity of -0.05m/s.
+    * Longitudinal TTC = 3.69m / 4.22m/s ≈ 0.87s (High Risk)
+    * Lateral TTC = 15.35m / 0.05 m/s ≈ 307s (Negligible Risk)
+    * MDC is again difficult to estimate precisely, but likely falls within the Medium Risk range due to the 3.69 longitudinal distance.
+    * Overall Risk: High (2) - due to the longitudinal TTC.
+
+* **Obstacle 20090 (Front-Left):** This obstacle presents the highest longitudinal risk.  At 3.5s, it is 1.29m longitudinally and 22.27m laterally, with a longitudinal relative velocity of -3.80 m/s and lateral relative velocity of -1.26 m/s.
+    * Longitudinal TTC: 1.29m / 3.80m/s ≈ 0.34s (Extreme Risk)
+    * Lateral TTC: 22.27m / 1.26m/s ≈ 17.67s (Negligible Risk)
+    * The small longitudinal distance and closing velocity suggest an extremely high risk.
+    * Overall Risk: Extreme (1) - Due to very short TTC.
+
+* **Obstacle 20096 (Front-Right):**  This obstacle is longitudinally closing but laterally moving away from the ego vehicle. It is at 16.22m longitudinally and -18.52m laterally, longitudinal relative velocity of -1.02 m/s, and lateral relative velocity of -9.69m/s at 3.5s. 
+    * Longitudinal TTC = 16.22m / 1.02m/s ≈ 15.90s (Negligible Risk)
+    * Lateral velocity is negative, implying divergence and no lateral collision risk (TTC not meaningful). The lateral distance is increasing, further reducing risk.
+    * Overall Risk: Negligible (5)
+
+* **Obstacle 20100 (Behind):** This obstacle is directly behind the ego vehicle and approaching longitudinally. At 3.5s, it is -1.14m longitudinally and 0.00m laterally (perfectly aligned in the lane). Longitudinal relative velocity is 7.25 m/s.
+    * Longitudinal TTC = 1.14m / 7.25m/s ≈ 0.16s (Extreme Risk)
+    * Lateral distance is 0.00, meaning directly behind and aligned in the lane. The closing longitudinal velocity implies an imminent collision.
+    * Overall Risk: Extreme (1) due to high closing velocity and close proximity.
+
+```json
+{
+  "CollisionObstacle": {
+    
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "20100",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "20100",
+    "OverallRiskScore": "0"
+  }
+}
+```

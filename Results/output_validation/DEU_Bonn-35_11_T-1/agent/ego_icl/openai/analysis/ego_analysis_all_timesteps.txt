@@ -1,0 +1,41 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30200:
+- **Position & Motion**: Currently behind the ego vehicle. At the most recent timestamp, the adjusted longitudinal distance is -1.07 meters (as it's behind), with a lateral distance of 0.00 meters, indicating exact lateral alignment.
+- **Relative Velocity**: Longitudinal component is 5.43 m/s (positive, indicating closing), and lateral is -0.01 m/s.
+- **Trajectory Analysis**: Over the past timesteps, the longitudinal distance is consistently decreasing, suggesting that this obstacle is approaching rapidly towards the ego vehicle. The lateral component remains near zero, so the primary risk is due to decreasing longitudinal distance.
+- **TTC & MDC Calculation**:
+  - **TTC (Longitudinal)**: TTC = 1.07m / 5.43m/s ≈ 0.197 seconds.
+  - **MDC (Longitudinal)**: Given the trajectory and current velocity, MDC approaches zero very quickly.
+- **Risk Assessment**: With a TTC of approximately 0.197 seconds and a rapidly decreasing MDC along with converging paths, this meets the criteria for *Extreme Risk*. Highly likely to reach a collision state imminently.
+
+#### Obstacle 30201:
+- **Position & Motion**: Currently behind the ego vehicle. At the most recent timestamp, the adjusted longitudinal distance is -19.64 meters, lateral distance 0.00 meters.
+- **Relative Velocity**: Longitudinal component is 4.71 m/s (closing velocity), and lateral is -0.74 m/s.
+- **Trajectory Analysis**: The obstacle has been steadily closing the distance, but at a much slower rate compared to obstacle 30200.
+- **TTC & MDC Calculation**:
+  - **TTC (Longitudinal)**: TTC = 19.64m / 4.71m/s ≈ 4.167 seconds.
+  - **MDC (Longitudinal)**: With the steady approach and with the longitudinal distance still being relatively large, the MDC remains above critical values for collision.
+- **Risk Assessment**: The TTC of about 4.167 seconds places this in the *Low Risk* category due to sufficient time to respond, despite continued approach.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30200",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30200",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    }
+}
+```
+
+### Conclusion
+- **Obstacle 30200** has been identified as the most immediate threat with a TTC of approximately 0.197 seconds and rapidly decreasing separation distance. It is marked both as the Collision and Extreme Risk obstacle due to its imminent danger.
+- **Obstacle 30201**, while closing in, is categorized as Low Risk because of the greater distance and manageable approach time. Hence, it is not highlighted here as high risk under the given conditions.

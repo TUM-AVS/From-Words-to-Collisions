@@ -1,0 +1,26 @@
+* **Obstacle 542 (Left):** This obstacle is longitudinally aligned with the ego vehicle (0.00m) and approaching laterally from the left (5.40m).  Across the timesteps, the lateral distance has been decreasing. Though longitudinally aligned, the consistent lateral distance above 5m suggests this is not a collision. The lateral relative velocity is -0.39 m/s.  Even though it shows it is driving toward the ego laterally, the speed is very slow and  the lateral distance is greater than 5m, posing no immediate threat. This scenario resembles a vehicle in an adjacent lane slightly behind the ego vehicle. We won't calculate TTC in this case, as the longitudinal relative velocity is positive (moving in the same direction). MDC is primarily lateral, estimated at 5.40m. Risk level is **No Risk (5)**.
+
+* **Obstacle 594 (Front-Left):**  This obstacle is moving away longitudinally (12.72m) and slightly approaching laterally (1.75m). The longitudinal distance has been consistently increasing across timesteps, indicating no longitudinal risk. The lateral distance is small and the lateral relative velocity is also small, posing minimal lateral risk. TTC is not calculated longitudinally since the obstacle is moving away. Lateral TTC is around 4 seconds. MDC is around 1.75 meters.  Risk level is **Low Risk (4)** due to the small lateral distance.
+
+* **Obstacle 625 (Behind/Collision):** This obstacle is now at 0.00m longitudinal and 0.00m lateral distance, indicating a collision. The data clearly marks this as a "Collision" in the motion description.  Across prior timesteps, the longitudinal distance has been rapidly decreasing, leading to this collision. TTC is 0. Risk is **Collision (0)**.
+
+* **Obstacle 634 (Rear-Left):** This obstacle is approaching from behind (-11.56m longitudinally) and also slightly from the left (2.19m laterally). The longitudinal distance has been steadily decreasing in prior timesteps. The lateral distance is more stable. Longitudinal TTC is approximately 2 seconds. MDC is around 2.19m. Risk level is **Medium Risk (3)** due to the proximity and closing longitudinal distance.
+
+
+**Collision Scenario Determination:**
+
+Yes, this is a collision scenario. Obstacle 625 has collided with the ego vehicle.
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "625",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 625 has collided with the ego vehicle (0.00m longitudinal and 0.00m lateral distance)."
+}
+```

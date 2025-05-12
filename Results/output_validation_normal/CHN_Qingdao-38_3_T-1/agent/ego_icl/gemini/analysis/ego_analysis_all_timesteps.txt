@@ -1,0 +1,34 @@
+Obstacle 30667:
+
+- Trajectory: This obstacle starts directly in front of the ego vehicle (lateral distance 0.00m) and gradually moves to the front-left.  The longitudinal distance remains relatively stable around 10m, even slightly increasing in the most recent timesteps.  The lateral movement is increasing.
+- TTC: Since the longitudinal relative velocity is positive (moving away), TTC is not applicable in the longitudinal direction. Lateral velocity is increasingly moving away from the ego vehicle. Hence, TTC is not applicable.
+- MDC: The minimum distance to collision will be the lateral distance at the last timestep, which is 3.23m.
+- Risk: 4 (Low Risk) due to the stable longitudinal distance and increasing lateral distance.
+
+Obstacle 30669:
+
+- Trajectory: This obstacle is approaching the ego vehicle from the front-left. Both longitudinal and lateral distances are decreasing across all timesteps.
+- TTC: Longitudinal TTC = 8.35m / 4.33m/s = 1.93s. Lateral TTC = 9.92m / 6.25m/s = 1.59s.
+- MDC: Since this obstacle is approaching diagonally, the MDC will be based on the smaller of the projected distances when the paths intersect. Given the current trajectories and velocities, we approximate MDC as slightly less than the current longitudinal distance since the lateral closing velocity is slightly slower than longitudinal.  We estimate MDC ≈ 7-8m.
+- Risk: 3 (Medium Risk) due to the decreasing distances and TTC values between 1.5 - 2 seconds.
+
+Obstacle 30670:
+
+- Trajectory: This obstacle is approaching from the front-right, with the longitudinal distance decreasing and the lateral distance generally decreasing but more stable in the more recent timesteps. 
+- TTC: Longitudinal TTC = 11.23m / 3.70m/s = 3.04s.  Lateral velocity is positive (moving away), so lateral TTC is not applicable.
+- MDC: Given the diagonal approach, MDC will depend on the projected intersection point. Since lateral distance is more stable in the latest timesteps, MDC will likely be based on the longitudinal trajectory, estimated to be around 10-11m.
+- Risk: 3 (Medium Risk) based on longitudinal TTC and MDC values.
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "HighRiskObstacle": {},
+  "MediumRiskObstacle": {
+    "ObstacleID": "30669",
+    "OverallRiskScore": "3"
+
+  }
+
+}
+```

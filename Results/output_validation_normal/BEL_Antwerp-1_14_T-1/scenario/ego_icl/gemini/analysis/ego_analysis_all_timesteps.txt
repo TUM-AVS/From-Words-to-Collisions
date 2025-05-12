@@ -1,0 +1,38 @@
+Obstacle-by-Obstacle Analysis at t=0.9s:
+
+* **Obstacle 30755:** Front-right, moving away longitudinally and laterally.  Trajectory analysis shows it has been consistently moving away from the ego vehicle.  No risk of collision. Risk Score: 5
+
+* **Obstacle 30756:** Rear-left. Though laterally approaching the ego vehicle (towards the left of the ego vehicle) it is longitudinally moving away. The lateral distance is above 1.8m and increasing, the longitudinal distance is -9.05 and increasing, indicating no immediate risk.  Risk Score: 5
+
+* **Obstacle 30759:** To the right of the ego vehicle, and moving away laterally. The longitudinal alignment (0.00m) does *not* indicate a collision because this obstacle's lateral distance is large (-26.08m) and increasing. Its longitudinal relative velocity is -5.96, and the motion description confirms it is longitudinally driving away from the ego car.  Risk Score: 5
+
+* **Obstacle 30762:**  To the right, lateral distance is -3.33m. Longitudinally aligned (0.00m), BUT motion description shows it is moving away laterally. While the lateral distance is moderately close, the fact that it's increasing indicates decreasing risk. Risk Score: 4 (Low Risk due to proximity but diverging trajectory).
+
+* **Obstacle 30763:** Rear-right, moving away longitudinally and its lateral distance is also increasing. Trajectory analysis shows it is moving further away from the ego vehicle. Risk Score: 5
+
+* **Obstacle 30764:** Rear-right, moving away both longitudinally and laterally from the ego vehicle. Trajectory analysis confirms this trend. Risk Score: 5
+
+* **Obstacle 30768:** Rear-left, moving away longitudinally and laterally. Trajectory analysis confirms it is moving further away from the ego vehicle. Risk Score: 5
+
+
+Collision Scenario Determination:
+
+No obstacle has a risk score of 0 or 1. Therefore, this is NOT a collision scenario.
+
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 (collision) or 1 (extreme risk) at the most recent timestep (t=0.9s)."
+}
+```

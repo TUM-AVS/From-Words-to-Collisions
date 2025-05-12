@@ -1,0 +1,21 @@
+At t=0.9s, the ego vehicle at (-193.21, 412.41) in lanelet 251 is moving with a velocity of 6.73 m/s and decelerating slightly.  Let's analyze the obstacles:
+
+* **Obstacle 30168:** Located at (-196.16, 397.48) in lanelet 253.  While the y-coordinate difference suggests some distance, the x-coordinate difference is small and this obstacle has transitioned from lanelet 1413 to 253, indicating a possible lane change towards the ego vehicle. The decreasing velocity also suggests it could be slowing down or stopping in preparation for a full merge.  Given the small x-difference and uncertain future trajectory based on recent lane change behavior, this obstacle presents an extreme risk.
+
+* **Obstacle 30170:**  Located at (-197.28, 383.59) in lanelet 253. While this obstacle is in the same lanelet as 30168 (253) its y-coordinate is significantly lower than both the ego vehicle and 30168.  This implies it's further behind and poses no immediate threat.
+
+* **Obstacles 30171, 30172, and 30173:** These obstacles are all located in lanelet 249. Their x-coordinates are significantly lower than that of the ego vehicle, posing no immediate risk.
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30168",
+    "OverallRiskScore": 1
+  },
+  "ScenarioAnalysis": {
+    "IsCollisionScenario": false,
+    "Reasoning": "Obstacle 30168 presents an extreme risk due to its proximity in the x-coordinate, recent lane change into a lane adjacent to the ego vehicle, and its decelerating behavior."
+  }
+}
+```

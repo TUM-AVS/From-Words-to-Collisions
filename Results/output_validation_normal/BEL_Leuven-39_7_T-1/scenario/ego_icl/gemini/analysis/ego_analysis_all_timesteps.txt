@@ -1,0 +1,30 @@
+Obstacle 30193 Analysis:
+- Trajectory: Obstacle 30193 is consistently in front of the ego vehicle and approaching along the longitudinal axis.  Lateral distance remains at 0.00m throughout all timesteps, indicating perfect lateral alignment. Longitudinal distance decreases from 24.39m to 19.46m over 0.9 seconds.
+- TTC (Longitudinal): At t=0.9s, distance = 19.46m, relative velocity = -4.11 m/s. TTC = 19.46 / 4.11 ≈ 4.73 seconds.
+- MDC: Given the continuous lateral alignment (0.00m) and the closing longitudinal distance, the MDC is effectively the longitudinal distance, which at t=0.9s is 19.46m.
+- Risk Assessment:  Based on TTC (4.73s) and MDC (19.46m), the longitudinal risk is Low (4).  The exact lateral alignment does not pose a risk in itself as the obstacle's lateral velocity is also 0.00 m/s. The overall risk is therefore Low (4).
+
+Obstacle 30194 Analysis:
+- Trajectory:  Similar to Obstacle 30193, this obstacle is also consistently in front and approaching longitudinally.  Lateral distance remains at 0.00m, indicating sustained lateral alignment. Longitudinal distance decreases from 15.16m to 11.15m over 0.9 seconds.
+- TTC (Longitudinal):  At t=0.9s, distance = 11.15m, relative velocity = -3.30 m/s. TTC = 11.15 / 3.30 ≈ 3.38 seconds.
+- MDC: Again, due to the persistent lateral alignment (0.00m) and closing longitudinal distance, MDC is effectively the longitudinal distance at t=0.9s, which is 11.15m.
+- Risk Assessment: Based on TTC (3.38s) and MDC (11.15m), the longitudinal risk is Medium (3). The sustained lateral alignment (with 0 lateral velocity) isn't a risk factor. Overall risk is Medium (3).
+
+Collision Scenario Determination:
+Neither obstacle exhibits a risk score of 0 (collision) or 1 (extreme risk).  Therefore, this is NOT a collision scenario.
+
+JSON Summary:
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 or 1. The lowest risk score is 3 (Medium), indicating a safe scenario at the current timestep."
+}
+```

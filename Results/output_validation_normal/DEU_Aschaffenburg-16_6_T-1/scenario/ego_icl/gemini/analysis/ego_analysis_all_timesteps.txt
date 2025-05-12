@@ -1,0 +1,70 @@
+Obstacle-by-Obstacle Analysis at t=0.9s:
+
+* **Obstacle 30372:** Rear-left (longitudinal -1.43m, lateral 1.77m).  This obstacle has already mostly passed the ego vehicle longitudinally. While it is still somewhat close laterally, the lateral distance is increasing across timesteps (from 3.08m to 1.77m) and the motion description confirms it is moving away longitudinally. This obstacle presents a low risk.
+    * TTC (longitudinal): N/A (already passed)
+    * TTC (lateral): 1.77m / 0.96 m/s = 1.84s (Medium Risk)
+    * MDC: ~1.77m (Medium Risk)
+    * Overall Risk: Medium (3)
+
+* **Obstacle 30373:** Front-left (longitudinal 14.73m, lateral 7.54m).  This obstacle is relatively far away and the lateral distance is increasing, meaning it's moving further left. The motion description says that "Obstacle is moving away laterally to the left."
+    * TTC (longitudinal): 14.73m / 2.54m/s = 5.79s (No Risk)
+    * TTC (lateral): N/A (moving away)
+    * MDC: 7.54m (No Risk)
+    * Overall Risk: No Risk (5)
+
+* **Obstacle 30376:** Front-right (longitudinal 8.97m, lateral -2.16m). This obstacle is approaching longitudinally at a moderate speed. The lateral distance is relatively small and decreasing slightly.  The motion description says "No lateral relative motion." meaning in the recent timestamp the obstacle is keeping its current lateral distance or slowly moving away.
+    * TTC (longitudinal): 8.97m / 4.32m/s = 2.08s (High Risk)
+    * TTC (lateral): N/A
+    * MDC: ~2.16m (High Risk)
+    * Overall Risk: High (2)
+
+* **Obstacle 30377:** Front-left (longitudinal 5.17m, lateral 3.45m). This obstacle is approaching longitudinally. Its lateral motion is away from the ego vehicle, so lateral distance is increasing.
+    * TTC (longitudinal): 5.17m / 1.91m/s = 2.71s (Medium Risk)
+    * TTC (lateral): N/A (moving away)
+    * MDC: ~3.45m (Medium Risk)
+    * Overall Risk: Medium (3)
+
+* **Obstacle 30378:** Front-left (longitudinal 10.35m, lateral 9.44m). This obstacle is quite far laterally, and the distance is increasing. No immediate concern.
+    * TTC (longitudinal): 10.35m / 4.32m/s = 2.40s (Medium Risk)
+    * TTC (lateral): N/A (moving away)
+    * MDC: 9.44m (No Risk)
+    * Overall Risk: Medium (3)
+
+* **Obstacle 30381:** Rear-right (longitudinal -10.12m, lateral -2.40m).  This obstacle is behind the ego vehicle and moderately close laterally, with lateral distance is still decreasing.
+    * TTC (longitudinal): N/A (behind)
+    * TTC (lateral): 2.40m / 3.03 m/s = 0.79s (Extreme Risk)
+    * MDC: 2.40m (High Risk)
+    * Overall Risk: Extreme Risk (1)
+
+* **Obstacle 30383:** Front-left (longitudinal 17.31m, lateral 12.48m). No immediate risk due to distance.
+    * TTC (longitudinal): 17.31m / 4.41m/s = 3.93s (Low Risk)
+    * TTC (lateral): N/A (moving away)
+    * MDC: 12.48m (No Risk)
+    * Overall Risk: Low (4)
+
+* **Obstacle 30384:** Front-right (14.25m, -7.70m). This obstacle is somewhat far away, and the lateral distance is large and increasing. No immediate concern.
+    * TTC (longitudinal): 14.25m / 4.42m/s = 3.22s (Medium Risk)
+    * TTC (lateral): N/A (moving away)
+    * MDC: 7.70m (No Risk)
+    * Overall Risk: Medium (3)
+
+
+
+Collision Scenario Determination:
+
+Yes, this is a collision scenario. Obstacle 30381 poses an Extreme Risk (1) with a TTC of 0.79s laterally, indicating a likely collision if trajectories are maintained.
+
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30381",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30381 has an Extreme Risk assessment due to a low TTC (0.79s) laterally and decreasing lateral distance, indicating a high probability of collision if current trajectories are maintained."
+}
+```

@@ -1,0 +1,79 @@
+* **Obstacle 35 Analysis:**
+
+    * Trajectory: Obstacle 35 has been consistently in the front-left of the ego vehicle, approaching longitudinally but moving away laterally.
+    * At t=0.9s:
+        * Longitudinal distance: 8.38m
+        * Lateral distance: 1.79m
+        * Longitudinal relative velocity: -9.90 m/s (approaching)
+        * Lateral relative velocity: 0.01 m/s (almost no lateral movement)
+    * TTC (longitudinal): 8.38m / 9.90m/s ≈ 0.85s 
+    * MDC: Primarily lateral distance due to being front-left; MDC ≈ 1.79m
+    * Risk Assessment:
+        * Longitudinal Risk (based on TTC): Medium Risk (3)
+        * Lateral Risk: Medium Risk (3)
+        * Overall Risk: Medium Risk (3)
+
+* **Obstacle 313 Analysis:**
+
+    * Trajectory: Similar to Obstacle 35, consistently front-left, approaching longitudinally and moving slightly away laterally.
+    * At t=0.9s:
+        * Longitudinal distance: 16.34m
+        * Lateral distance: 1.68m
+        * Longitudinal relative velocity: -9.53 m/s (approaching)
+        * Lateral relative velocity: 0.01 m/s (almost no lateral movement)
+    * TTC (longitudinal): 16.34m / 9.53m/s ≈ 1.71s
+    * MDC: Primarily lateral distance, MDC ≈ 1.68m
+    * Risk Assessment:
+        * Longitudinal Risk: Medium Risk (3)
+        * Lateral Risk: Medium Risk (3)
+        * Overall Risk: Medium Risk (3)
+
+* **Obstacle 317 Analysis:**
+
+    * Trajectory:  This obstacle appears at t=0.8s in the front-left and continues to approach both longitudinally and laterally.
+    * At t=0.9s:
+        * Longitudinal distance: 23.38m
+        * Lateral distance: 3.69m
+        * Longitudinal relative velocity: -8.35 m/s (approaching)
+        * Lateral relative velocity: -0.67 m/s (approaching) 
+    * TTC (longitudinal): 23.38m / 8.35m/s ≈ 2.80s
+    * TTC (lateral): 3.69m / 0.67m/s ≈ 5.51s
+    * MDC: Since both are closing, consider the smaller distance, MDC ≈ 3.69m
+    * Risk Assessment:
+        * Longitudinal Risk: Medium Risk (3)
+        * Lateral Risk: Low Risk (4)
+        * Overall Risk: Medium Risk (3)
+
+
+* **Obstacle 335 Analysis:**
+
+    * Trajectory: Obstacle 335 has been consistently approaching the ego vehicle longitudinally while initially moving slightly away laterally.  At t=0.9s, it reaches exact longitudinal alignment.
+    * At t=0.9s:
+        * Longitudinal distance: 0.00m
+        * Lateral distance: 1.89m
+        * Longitudinal relative velocity: -10.55 m/s (approaching)
+        * Lateral relative velocity: -0.00 m/s (almost no lateral movement)
+    * TTC (longitudinal): Not applicable due to 0 distance, but the high closing velocity indicates extreme risk.
+    * MDC: Since there's exact longitudinal alignment, MDC is the lateral distance, MDC ≈ 1.89m.
+    * Risk Assessment:
+        * Longitudinal Risk: Extreme Risk (1) due to near-zero distance and high negative velocity, indicating a very close pass or potential collision.
+        * Lateral Risk: Medium Risk (3)
+        * Overall Risk: Extreme Risk (1) - Prioritize the higher risk from longitudinal movement
+
+
+* **Collision Scenario Determination:**
+
+Yes, this is a collision scenario. Obstacle 335 poses an Extreme Risk (1) due to near-zero longitudinal distance and high closing velocity at the most recent timestep.
+
+
+```json
+{
+    "CollisionObstacle": null,
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "335",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 335 is at an extremely high risk of collision due to near-zero longitudinal distance (0.00m) and a high closing velocity (-10.55 m/s) at the latest timestep (0.9s). This indicates a very close pass or a potential collision, making it a collision scenario."
+}
+```

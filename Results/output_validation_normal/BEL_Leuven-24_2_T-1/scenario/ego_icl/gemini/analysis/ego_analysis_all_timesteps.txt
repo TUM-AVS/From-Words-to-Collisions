@@ -1,0 +1,41 @@
+Obstacle 30253:
+- Trajectory: This obstacle has been directly in front of the ego vehicle (lateral distance 0.00m) for all observed timesteps.  The longitudinal distance has been consistently increasing, indicating the obstacle is moving away from the ego vehicle.
+- At t=0.9s:
+    - Longitudinal distance: 17.10m
+    - Lateral distance: 0.00m
+    - Longitudinal relative velocity: 1.08 m/s (moving away)
+    - Lateral relative velocity: -0.00 m/s 
+- Risk Assessment:
+    - MDC:  Not applicable since obstacle is moving away and there's a zero lateral distance
+    - TTC: Not applicable due to diverging trajectory.
+    - Overall Risk: 5 (No Risk) - The obstacle is moving away from the ego vehicle, and although laterally aligned, poses no immediate threat.
+
+Obstacle 30254:
+- Trajectory: This obstacle has been in the front-left of the ego vehicle for all observed timesteps. While the lateral distance initially increased, the longitudinal distance shows a trend of decreasing in recent timesteps, suggesting the obstacle may be turning into the ego vehicle's path.
+- At t=0.9s:
+    - Longitudinal distance: 14.94m
+    - Lateral distance: 1.89m
+    - Longitudinal relative velocity: -1.27 m/s (approaching)
+    - Lateral relative velocity: -0.00 m/s (approaching from left)
+- Risk Assessment:
+    - MDC: 1.89m (using smaller distance which is lateral. However, with an assumed approaching trajectory and negative longitudinal velocity, we analyze both directions)
+    - TTC (longitudinal): 14.94m / |-1.27m/s| = 11.76s
+    - TTC (lateral): 1.89 / |-0.00| = Not applicable (but practically zero lateral distance) 
+    - Overall Risk: 3 (Medium Risk) -  While the longitudinal TTC is high, the recent trend of decreasing longitudinal distance and the zero lateral velocity (motion description indicates closing laterally) warrants a medium risk assessment. The near-zero lateral velocity also raises concern despite the longitudinal TTC. The lateral distance contributes more significantly here due to the motion description indicating closing laterally. The lateral velocity is also essentially zero which indicates near alignment, therefore we take the lateral distance of 1.89m which represents the minimal distance and is still within the Medium risk range.
+
+Final Assessment: This is NOT a collision scenario. No obstacle has a risk score of 0 or 1.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 (collision) or 1 (extreme risk)."
+}
+```

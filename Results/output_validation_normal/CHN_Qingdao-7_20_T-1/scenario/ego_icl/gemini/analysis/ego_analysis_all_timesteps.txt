@@ -1,0 +1,44 @@
+Obstacle Analysis:
+
+Obstacle 30674:
+
+Trajectory Analysis: Over the past 0.9 seconds, Obstacle 30674 has been moving closer to the ego vehicle longitudinally while moving further away laterally.  The longitudinal distance has decreased from 20.10m to 15.51m, while the lateral distance has slightly increased from 4.83m to 5.31m. This indicates a diagonal, converging trajectory but with lateral separation increasing.
+
+At t=0.9s:
+- Longitudinal distance: 15.51m
+- Lateral distance: 5.31m
+- Longitudinal relative velocity: -7.66 m/s (approaching)
+- Lateral relative velocity: 4.93 m/s (moving away)
+
+TTC Calculation:
+- Longitudinal TTC = 15.51m / 7.66 m/s ≈ 2.02 seconds
+- Lateral TTC is not meaningful for collision assessment since the lateral distance is increasing.  We are interested in when the lateral distance becomes very small or negative, which isn't occurring in this scenario based on trends.
+
+MDC Calculation: Since this object is approaching diagonally from the front-left, the MDC will be determined by the smaller of the lateral and projected longitudinal distances when the paths could intersect. The lateral distance is consistently increasing, mitigating risk in that dimension. Thus, the MDC isn't a critical factor here due to the diverging lateral motion.
+
+Risk Assessment:
+- Longitudinal TTC suggests a Medium Risk (3) due to the closing longitudinal distance.
+- Lateral motion is diverging, reducing the risk of collision in the lateral direction. No Risk (5)
+- Overall Risk: The dominant factor is the longitudinal approach. Therefore, we assign a Medium Risk (3). The increasing lateral distance significantly reduces the likelihood of a collision, even with the decreasing longitudinal distance.
+
+
+Collision Scenario Determination:
+
+This is NOT a collision scenario. No obstacle has a risk score of 0 (collision) or 1 (extreme risk).
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle presents an immediate collision risk. Obstacle 30674 is approaching longitudinally but diverging laterally, resulting in a Medium Risk (3) assessment."
+}
+```

@@ -1,0 +1,73 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 3052 (Front-right)**
+- **Adjusted Position**: Longitudinal 0.79m, Lateral -7.77m  
+- **Relative Velocity**: Longitudinal -11.14 m/s (approaching), Lateral 0.00 m/s (no lateral motion)  
+- **Motion**: Driving toward ego longitudinally, no lateral motion.  
+- **TTC (Longitudinal)**: 0.79 / 11.14 ≈ 0.071s (Extreme Risk)  
+- **MDC (Lateral)**: 7.77m (No Risk)  
+- **Overall Risk**: **1 (Extreme Risk)** due to imminent longitudinal collision (TTC < 0.5s).  
+
+#### **Obstacle 3053 (Front)**
+- **Adjusted Position**: Longitudinal 20.67m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -0.34 m/s (approaching slowly), Lateral 0.05 m/s (minimal lateral drift).  
+- **Motion**: Driving toward ego longitudinally, negligible lateral motion.  
+- **TTC (Longitudinal)**: 20.67 / 0.34 ≈ 60.8s (No Risk)  
+- **MDC (Lateral)**: 0.00m alignment but no lateral convergence (No Risk).  
+- **Overall Risk**: **5 (No Risk)**.  
+
+#### **Obstacle 3054 (Front-right)**
+- **Adjusted Position**: Longitudinal 0.84m, Lateral -15.68m  
+- **Relative Velocity**: Longitudinal -11.15 m/s (approaching), Lateral 0.42 m/s (converging from right).  
+- **Motion**: Driving toward ego longitudinally and laterally.  
+- **TTC (Longitudinal)**: 0.84 / 11.15 ≈ 0.075s (Extreme Risk)  
+- **TTC (Lateral)**: 15.68 / 0.42 ≈ 37.3s (No Risk)  
+- **MDC (Longitudinal)**: 0.84m (High Risk).  
+- **Overall Risk**: **1 (Extreme Risk)** due to imminent longitudinal collision (TTC < 0.5s).  
+
+#### **Obstacle 3055 (Front-left)**
+- **Adjusted Position**: Longitudinal 9.57m, Lateral 1.90m  
+- **Relative Velocity**: Longitudinal -11.14 m/s (approaching), Lateral 0.00 m/s (no lateral motion).  
+- **Motion**: Driving toward ego longitudinally, no lateral motion.  
+- **TTC (Longitudinal)**: 9.57 / 11.14 ≈ 0.86s (High Risk)  
+- **MDC (Lateral)**: 1.90m (Medium Risk).  
+- **Overall Risk**: **2 (High Risk)**.  
+
+#### **Obstacle 3058 (Behind)**
+- **Adjusted Position**: Longitudinal -17.38m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 0.62 m/s (approaching slowly), Lateral -0.05 m/s (negligible).  
+- **Motion**: Driving toward ego from behind, no significant lateral motion.  
+- **TTC (Longitudinal)**: 17.38 / 0.62 ≈ 28.0s (No Risk)  
+- **MDC (Lateral)**: 0.00m alignment but diverging (No Risk).  
+- **Overall Risk**: **5 (No Risk)**.  
+
+---
+
+### Trajectory Analysis
+- **Obstacles 3052 and 3054**: Rapidly closing longitudinal distance (TTC < 0.1s). Both will collide with ego imminently if trajectories persist.  
+- **Obstacle 3055**: High risk but not yet extreme (TTC ≈ 0.86s).  
+- Other obstacles pose no immediate threat.  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "3052",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3054",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 3052 has a TTC of 0.071s (collision imminent), and Obstacle 3054 has a TTC of 0.075s (extreme risk). Both are converging on the ego vehicle with no time to avoid impact."
+}
+``` 
+
+### Key Findings:
+- **Collision Scenario**: Yes. Obstacles 3052 and 3054 will collide with the ego vehicle within the next 0.1s.  
+- **Primary Threat**: Longitudinal collision from front-right (3052 and 3054).  
+- **Secondary Threat**: Obstacle 3055 approaching at high risk (TTC ≈ 0.86s).  
+- **Action Required**: Immediate emergency braking or evasive maneuver to mitigate collision with 3052/3054.

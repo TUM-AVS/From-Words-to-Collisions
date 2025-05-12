@@ -1,0 +1,48 @@
+### Obstacle Analysis: Obstacle 3052
+
+#### Trajectory Analysis:
+- **Direction**: Front of the ego car (longitudinal alignment)
+- **Longitudinal Distance**: Increasing from 12.54m to 14.41m over 0.9 seconds
+- **Lateral Distance**: Consistently 0.00m (exact lateral alignment)
+- **Relative Velocity (Longitudinal)**: Positive and increasing (0.94 m/s to 4.69 m/s), indicating the obstacle is moving away from the ego vehicle.
+- **Relative Velocity (Lateral)**: Very small (-0.04 m/s to -0.02 m/s), negligible lateral movement.
+- **Motion Description**: "Obstacle is moving away longitudinally. Exact lateral alignment or unknown case."
+
+#### Risk Assessment:
+1. **Proximity**: 
+   - Longitudinal distance is increasing (14.41m at the last timestep).
+   - Lateral distance is 0.00m but stable (no closing velocity).
+
+2. **Minimum Distance to Collision (MDC)**:
+   - Since the obstacle is moving away longitudinally and the lateral distance is stable, the MDC is effectively the current longitudinal distance (14.41m), which is > 5.0m. This falls under **Negligible Risk (5)**.
+
+3. **Time-to-Collision (TTC)**:
+   - The relative longitudinal velocity is 4.69 m/s (moving away), so TTC is not applicable (diverging paths).
+   - The lateral relative velocity is negligible (-0.02 m/s), so no TTC concern.
+   - This also falls under **Negligible Risk (5)**.
+
+4. **Overall Risk**:
+   - Both MDC and TTC indicate **Negligible Risk (5)**.
+   - The obstacle is moving away with no closing velocity in any dimension.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```
+
+### Conclusion:
+- No collision or extreme/high-risk obstacles detected.
+- Obstacle 3052 poses negligible risk as it is moving away from the ego vehicle with no closing velocity.

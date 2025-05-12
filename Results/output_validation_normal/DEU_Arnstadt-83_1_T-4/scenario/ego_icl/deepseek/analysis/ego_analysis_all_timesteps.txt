@@ -1,0 +1,51 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 20036 (Rear-left of ego car at 0.9s)
+- **Adjusted Distance**: Longitudinal -14.66 m, Lateral 2.40 m  
+- **Relative Velocity**: Longitudinal -24.33 m/s (moving away), Lateral 0.50 m/s (moving away)  
+- **Motion Description**: Obstacle is moving away both longitudinally and laterally to the left.  
+- **Trajectory Analysis**:  
+  - Longitudinal distance increases from -2.31m to -14.66m over 0.5s (moving away rapidly).  
+  - Lateral distance increases slightly from 1.89m to 2.40m (moving away slowly).  
+- **TTC Calculation**:  
+  - Longitudinal: Not applicable (moving away).  
+  - Lateral: 2.40 / 0.50 = 4.8s (Low Risk).  
+- **MDC Calculation**:  
+  - Current lateral distance is 2.40m (Medium Risk).  
+  - No convergence in trajectories (distance increasing).  
+- **Overall Risk**: 4 (Low Risk).  
+
+#### Obstacle 20055 (Front of ego car at 0.9s)
+- **Adjusted Distance**: Longitudinal 17.45 m, Lateral 0.00 m  
+- **Relative Velocity**: Longitudinal 1.85 m/s (moving away), Lateral 2.01 m/s (moving away).  
+- **Motion Description**: Obstacle is moving away longitudinally and laterally. Exact lateral alignment.  
+- **Trajectory Analysis**:  
+  - Longitudinal distance increases from 16.54m to 17.45m (moving away).  
+  - Lateral distance remains 0.00m but lateral velocity is positive (moving away).  
+- **TTC Calculation**:  
+  - Longitudinal: Not applicable (moving away).  
+  - Lateral: Not applicable (moving away).  
+- **MDC Calculation**:  
+  - Current lateral distance is 0.00m, but obstacle is moving away (No Risk).  
+- **Overall Risk**: 5 (No Risk).  
+
+### Collision Scenario Determination
+- **Obstacle 20036**: Low Risk (4).  
+- **Obstacle 20055**: No Risk (5).  
+- **No obstacles** have a risk score of 0 (Collision) or 1 (Extreme Risk).  
+
+### Final JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacles have a risk score of 0 or 1. Both obstacles are moving away from the ego vehicle, with increasing distances in both longitudinal and lateral dimensions."
+}
+```

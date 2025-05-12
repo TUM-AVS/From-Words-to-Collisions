@@ -1,0 +1,30 @@
+Obstacle 30220 is consistently located in the Front-Left of the ego vehicle across all timesteps.  Initially, it is approaching the ego vehicle longitudinally while moving away laterally to the left. However, from 0.6 seconds onwards, the longitudinal relative velocity becomes positive, indicating that the obstacle is moving away from the ego vehicle in the longitudinal direction.  The lateral movement away from the ego vehicle continues throughout the entire duration.
+
+At the last timestep (0.9 seconds):
+
+* **Longitudinal:**
+    - Distance: 14.00 m
+    - Relative Velocity: 0.04 m/s (moving away)
+    - TTC: Not applicable due to diverging trajectory.
+
+* **Lateral:**
+    - Distance: 0.81 m
+    - Relative Velocity: 0.79 m/s (moving away)
+    - TTC: Not applicable due to diverging trajectory.
+
+* **MDC:** Approximately 0.81 meters (using lateral distance as the dominant factor since the longitudinal distance and velocity suggests no risk of collision).
+
+* **Risk Assessment:** The MDC of 0.81m suggests a High Risk (2) according to the criteria.  Even though the longitudinal movement indicates separation, the lateral proximity is still concerning. Since the lateral velocity is positive (obstacle moving away from ego), this mitigates the risk somewhat, but it remains high due to the current proximity. 
+
+Given that the obstacle is moving away from the ego vehicle both longitudinally and laterally at the last timestep, the overall risk is decreasing, though still high given the proximity.
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": {
+    "ObstacleID": "30220",
+    "OverallRiskScore": "2"
+  }
+}
+```

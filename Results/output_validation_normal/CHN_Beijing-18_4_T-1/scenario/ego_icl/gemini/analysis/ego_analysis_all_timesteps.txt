@@ -1,0 +1,48 @@
+* **Obstacle 3046 (Front-Left):**
+
+    * **Trajectory:** This obstacle has been consistently approaching the ego vehicle both longitudinally and laterally across all timesteps.  At the last timestep (0.9s), it is 6.27m longitudinally and 2.91m laterally away.
+    * **TTC:** Longitudinal TTC = 6.27m / 9.31m/s ≈ 0.67s. Lateral TTC = 2.91m / 2.93m/s ≈ 0.99s.
+    * **MDC:**  Given the diagonal approach, MDC is approximately 2.91m (lateral distance being the smaller of the two).
+    * **Risk:** The lowest TTC (0.67s) suggests an *Extreme Risk (1)* due to the short time to collision. MDC also suggests at least medium risk.
+
+* **Obstacle 3047 (Front-Right):**
+
+    * **Trajectory:** This obstacle has been moving slightly closer longitudinally and further away laterally from the ego vehicle. At the last timestep (0.9s), it is 9.64m longitudinally and -3.40m laterally away. The negative lateral distance and the consistent motion away laterally confirms it is moving to the right.
+    * **TTC:** Longitudinal TTC = 9.64m / 1.20m/s ≈ 8.03s. Lateral TTC is not relevant as the obstacle is moving away.
+    * **MDC:** Given the obstacle's movement further to the right, MDC is greater than 3.40m. 
+    * **Risk:** Both TTC and MDC values suggest a *No Risk (5)*.
+
+* **Obstacle 3049 (Behind):**
+
+    * **Trajectory:** This obstacle has been approaching the ego vehicle from behind and remained longitudinally aligned (lateral distance 0.0). Its longitudinal distance was -10.63 at 0.1 seconds and now at 0.9 seconds it is -8.55 m which is reducing significantly and suggesting that the car might collide soon.
+    * **TTC:** Longitudinal TTC = 8.55m / 4.35m/s ≈ 1.97s. Lateral TTC isn't relevant due to consistent 0 lateral distance and velocity.
+    * **MDC:** With exact lateral alignment, MDC is essentially the absolute longitudinal distance, which is 8.55m.
+    * **Risk:** The TTC (1.97s) indicates a *Medium Risk (3)*.
+
+* **Obstacle 3051 (Front-Left):**
+
+    * **Trajectory:** This obstacle was initially approaching from the front-right and moving across the ego vehicle's path. Now at 0.9 seconds it is moving away laterally.
+    * **TTC:** Longitudinal TTC = 13.71m / 2.96m/s ≈ 4.63s. Lateral TTC= 10.32 m/ 40.75m/s =0.25s.
+    * **MDC:** Due to the lateral movement, MDC is greater than 2.74m.
+    * **Risk:** Longitudinal TTC suggests low risk, but lateral TTC at 0.25s suggests an *Extreme Risk (1)*.
+
+**Collision Scenario Determination:**
+
+Yes, this is a collision scenario. Obstacle 3046 has an Extreme Risk (1) assessment due to a low TTC (0.67s) and converging trajectory, and Obstacle 3051 also has an Extreme risk (1) due to lateral TTC of 0.25s.
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3046",
+    "OverallRiskScore": "1"
+  },
+    "ExtremeRiskObstacle": {
+    "ObstacleID": "3051",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacles 3046 and 3051 pose an Extreme Risk with TTCs less than 1.0s and converging trajectories."
+}
+```

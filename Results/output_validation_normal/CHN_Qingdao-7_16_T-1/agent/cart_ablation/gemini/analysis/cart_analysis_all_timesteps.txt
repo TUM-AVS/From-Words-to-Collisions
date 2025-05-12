@@ -1,0 +1,14 @@
+The ego vehicle and obstacle 30654.0 are in the same lanelet (447.0).  The obstacle's initial velocity is higher than the ego vehicle's, but it's decelerating significantly while the ego vehicle maintains a relatively constant velocity (initially slightly increasing, then decreasing).  The longitudinal distance between them is decreasing over the provided timeframe.  While the lateral positions aren't provided directly, we can infer from the context that they are close enough laterally to be a concern since they are in the same lane and the longitudinal distance is shrinking.
+
+Analyzing the positions, at t=0.1s the obstacle is 14.7m ahead. This gap closes to 12.2m at t=0.5s and 9.9m at t=0.7s.  This decreasing distance combined with the relative velocities suggests a high risk of collision if the obstacle continues to decelerate less aggressively than currently predicted or if the ego vehicle doesn't react. The obstacle continues decelerating while the ego starts decelerating more at 0.6 seconds onwards and the rate of deceleration is higher than the obstacle. However, given the previous history of both the objects and the fact that we only have information up to 0.9 seconds, the time is too short for the ego vehicle to maneuver safely with deceleration alone, if the obstacle continues to decelerate at a lower rate, even if both vehicles are likely to have similar velocities at the end of 1 second. Hence we categorize this as a high risk scenario.
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": {
+    "ObstacleID": "30654.0",
+    "OverallRiskScore": 2
+  }
+}
+```

@@ -1,0 +1,66 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30659 (Front)
+- **Most Recent Timestep (0.9s):**
+  - **Adjusted Distance:** Longitudinal 11.10 m, Lateral 0.00 m
+  - **Relative Velocity:** Longitudinal 2.78 m/s (moving away), Lateral 0.00 m/s
+  - **Motion Description:** "Obstacle is moving away longitudinally. Exact lateral alignment or unknown case."
+  
+- **Trajectory Analysis:**
+  - Longitudinal distance increases from 7.68 m (0.1s) to 11.10 m (0.9s), indicating the obstacle is moving away from the ego vehicle.
+  - Lateral distance remains 0.00 m (aligned), but no lateral movement is observed.
+  
+- **TTC Calculation:**
+  - Longitudinal: Not applicable (relative velocity is positive, moving away).
+  - Lateral: Not applicable (no relative velocity).
+  
+- **MDC Calculation:**
+  - Lateral distance is 0.00 m, but since the obstacle is moving away longitudinally, the MDC is effectively infinite (no collision path).
+  
+- **Risk Assessment:**
+  - **MDC Risk:** 5 (No Risk, MDC > 5.0 m)
+  - **TTC Risk:** 5 (No Risk, TTC not applicable)
+  - **Overall Risk:** 5 (No Risk)
+
+#### Obstacle 30661 (Behind)
+- **Most Recent Timestep (0.9s):**
+  - **Adjusted Distance:** Longitudinal -8.02 m, Lateral 0.00 m
+  - **Relative Velocity:** Longitudinal -3.49 m/s (moving away), Lateral 0.00 m/s
+  - **Motion Description:** "Obstacle is moving away longitudinally. Exact lateral alignment or unknown case."
+  
+- **Trajectory Analysis:**
+  - Longitudinal distance increases in magnitude from -4.63 m (0.1s) to -8.02 m (0.9s), indicating the obstacle is moving away from the ego vehicle.
+  - Lateral distance remains 0.00 m (aligned), but no lateral movement is observed.
+  
+- **TTC Calculation:**
+  - Longitudinal: Not applicable (relative velocity is negative, moving away).
+  - Lateral: Not applicable (no relative velocity).
+  
+- **MDC Calculation:**
+  - Lateral distance is 0.00 m, but since the obstacle is moving away longitudinally, the MDC is effectively infinite (no collision path).
+  
+- **Risk Assessment:**
+  - **MDC Risk:** 5 (No Risk, MDC > 5.0 m)
+  - **TTC Risk:** 5 (No Risk, TTC not applicable)
+  - **Overall Risk:** 5 (No Risk)
+
+### Collision Scenario Determination
+- Neither obstacle has a risk score of 0 (collision) or 1 (extreme risk).
+- Both obstacles are moving away from the ego vehicle in the longitudinal direction, and there is no lateral movement or convergence.
+- No collision or imminent collision risk is present.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Both obstacles are moving away from the ego vehicle with no converging trajectories, and no risk scores indicate collision or extreme risk."
+}
+```

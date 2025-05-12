@@ -1,0 +1,59 @@
+### Obstacle-by-Obstacle Analysis:
+
+#### Obstacle 312 - Front-left
+- **Adjusted Distances**: Longitudinal: 7.86m, Lateral: 24.58m
+- **Relative Velocity**: Longitudinal: -2.57 m/s
+- **Trajectory**: Approaching longitudinally, no lateral motion
+- **TTC Calculation**: |7.86 / 2.57| ≈ 3.06 seconds (longitudinal)
+- **MDC Calculation**: Considering constant path, MDC ≈ 7.86 meters due to no lateral closure
+- **Risk Assessment**: With a TTC of around 3.06s and MDC > 5.0m, this obstacle poses a low risk. **Risk Level: 4**
+
+#### Obstacle 344 - Rear-right
+- **Adjusted Distances**: Longitudinal: -0.68m, Lateral: -0.29m
+- **Relative Velocity**: Longitudinal: 4.99 m/s, Lateral: 1.72 m/s
+- **Trajectory**: Approaching from rear-right, both dimensions converging
+- **TTC Calculation**: |0.68 / 4.99| ≈ 0.14 seconds (longitudinal), |0.29 / 1.72| ≈ 0.17 seconds (lateral)
+- **MDC Calculation**: Critical as the approach is nearly aligned longitudinally and laterally. MDC ≈ 0 meters if trajectories hold.
+- **Risk Assessment**: Extreme collision risk due to converging paths in all dimensions and very low TTC. **Risk Level: 1**
+
+#### Obstacle 355 - Front-right
+- **Adjusted Distances**: Longitudinal: 13.79m, Lateral: -9.29m
+- **Relative Velocity**: Longitudinal: -0.83 m/s, Lateral: -5.96 m/s
+- **Trajectory**: Approaching longitudinally, moving away laterally
+- **TTC Calculation**: Not prone to collision due to lateral movement away 
+- **MDC Calculation**: Estimation above 5m due to diverging paths laterally
+- **Risk Assessment**: With paths diverging laterally and high MDC, this obstacle poses no significant risk. **Risk Level: 5**
+
+#### Obstacle 359 - Front
+- **Adjusted Distances**: Longitudinal: 6.90m, Lateral: 0.00m
+- **Relative Velocity**: Longitudinal: 3.84 m/s
+- **Trajectory**: Moving away, maintaining exact lateral alignment
+- **TTC Calculation**: |6.90 / 3.84| ≈ 1.80 seconds (longitudinal)
+- **MDC Calculation**: As it moves away, risk is reduced, MDC ≈ 6.90 m
+- **Risk Assessment**: Medium risk due to moving away longitudinally, with a decent TTC. **Risk Level: 3**
+
+### Trajectory Analysis across Timesteps
+- **Obstacle 312** is consistently approaching longitudinally but is well beyond immediate risk at >5m MDC.
+- **Obstacle 344** follows a consistent closure path longitudinally and laterally, indicating an imminent collision risk if unchecked.
+- **Obstacle 355** is consistently moving away laterally, posing negligible or no risk.
+- **Obstacle 359** is moving slightly longitudinally away, maintaining lateral alignment, with a substantial MDC.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "344",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "344",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "N/A",
+        "OverallRiskScore": "N/A"
+    }
+}
+```
+
+Obstacle **344** is at extreme risk of collision due to the converging trajectory with very low TTC across dimensions. JSONException

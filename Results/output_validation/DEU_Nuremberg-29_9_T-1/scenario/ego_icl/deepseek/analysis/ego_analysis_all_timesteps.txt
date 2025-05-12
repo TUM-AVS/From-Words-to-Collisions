@@ -1,0 +1,61 @@
+### Obstacle-by-Obstacle Analysis
+
+#### **Obstacle 30785 (Front-Right)**
+- **Latest Timestep (2.6s):**
+  - Longitudinal Distance: 23.76 m (moving away)
+  - Lateral Distance: -2.07 m (moving right, away from ego)
+  - Relative Velocity: Longitudinal 7.73 m/s (away), Lateral -4.48 m/s (away)
+  - Motion: Moving away both longitudinally and laterally.
+
+**Risk Assessment:**
+- **MDC (Minimum Distance to Collision):** Increasing in both dimensions (no convergence).
+- **TTC (Time-to-Collision):** Not applicable (diverging paths).
+- **Overall Risk:** **5 (No Risk)** – No collision path exists.
+
+---
+
+#### **Obstacle 30786 (Front → Collision)**
+- **Latest Timestep (2.6s):**
+  - Longitudinal Distance: **0.00 m** (collision occurred).
+  - Lateral Distance: **0.00 m** (collision occurred).
+  - Relative Velocity: Longitudinal -3.57 m/s (still approaching at impact).
+  - Motion: **Exact longitudinal and lateral alignment** (collision confirmed).
+
+**Risk Assessment:**
+- **MDC:** **0.00 m** (collision in both dimensions).
+- **TTC:** **0.00 s** (collision occurring).
+- **Overall Risk:** **0 (Collision)** – Direct collision confirmed.
+
+---
+
+### Trajectory Analysis
+- **Obstacle 30785:** Consistently moving away from the ego vehicle (longitudinally and laterally). No risk of collision.
+- **Obstacle 30786:** 
+  - Progressively closed longitudinal distance from 5.60 m (1.7s) to **0.00 m (2.6s)**.
+  - Maintained **0.00 m lateral alignment** (same lane).
+  - Collision unavoidable due to high closing speed (-3.57 m/s at impact).
+
+---
+
+### Final Determination
+This is a **collision scenario** because **Obstacle 30786** has:
+1. **Collision Risk Score = 0** (actual collision at 2.6s).
+2. **0.00 m distance in both dimensions** with ongoing closing velocity.
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30786",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30786 has collided with the ego vehicle (0.00m distance in both dimensions with closing velocity)."
+}
+```

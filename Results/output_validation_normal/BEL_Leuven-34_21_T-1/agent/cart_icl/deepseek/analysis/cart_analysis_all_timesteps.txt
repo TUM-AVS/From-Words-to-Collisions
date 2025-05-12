@@ -1,0 +1,50 @@
+### Analysis:
+
+1. **Obstacle 30214 (Stationary)**:
+   - Position: (449.5494, 370.9002)
+   - Distance to Ego: ~11.5m (static)
+   - No relative motion (velocity = 0)
+   - **Risk**: Negligible (5) - Stationary and far enough.
+
+2. **Obstacle 30215 (Moving towards Ego)**:
+   - Position: (434.9286, 391.3616)
+   - Distance to Ego: ~14.5m (lateral)
+   - Velocity: 7.1521 m/s (direction away from Ego)
+   - **Risk**: Low (4) - Moving away laterally.
+
+3. **Obstacle 30217 (Approaching Ego)**:
+   - Position: (454.3314, 363.7792)
+   - Distance to Ego: ~16.5m (longitudinal)
+   - Velocity: 1.0453 m/s (approaching slowly)
+   - TTC: ~15.8s (very slow approach)
+   - **Risk**: Negligible (5) - Slow approach, large distance.
+
+4. **Obstacle 30218 (Fast-moving towards Ego)**:
+   - Position: (456.4963, 389.2091)
+   - Distance to Ego: ~18.5m (diagonal)
+   - Velocity: 13.0327 m/s (direction towards Ego)
+   - TTC: ~1.4s (fast approach)
+   - **Risk**: High (2) - Fast approach but still sufficient distance for reaction.
+
+5. **Obstacle 30219 (Fast-moving towards Ego)**:
+   - Position: (428.6204, 364.3306)
+   - Distance to Ego: ~9.7m (longitudinal)
+   - Velocity: 10.5751 m/s (approaching)
+   - TTC: ~0.9s (very fast approach)
+   - **Risk**: Extreme (1) - Fast approach with minimal time to react.
+
+### JSON Output:
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30219",
+        "OverallRiskScore": 1
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "30218",
+        "OverallRiskScore": 2
+    }
+}
+```

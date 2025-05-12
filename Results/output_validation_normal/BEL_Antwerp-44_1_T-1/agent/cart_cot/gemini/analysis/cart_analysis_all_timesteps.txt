@@ -1,0 +1,27 @@
+At t=0.9s, the ego vehicle (ID 30617.0) is at (484.4433, 216.2206) with a velocity of 7.8227 and heading 1.3191768346503112.  We analyze the two obstacles present:
+
+**Obstacle 30615.0:** Located at (489.1206, 234.4289), velocity 5.7428, heading 1.3193. This obstacle is ahead and to the right of the ego vehicle.  The similar headings suggest both are traveling in roughly the same direction.  Examining the positions over the previous timesteps, the lateral distance has been decreasing and this obstacle now appears in lanelet 298 which is also ego-vehicle lanelet as reported in timestep 0.4. The longitudinal velocity difference is not significant enough to rule out a potential collision. Given the decreasing lateral distance, the persistent presence in the same lane as the ego vehicle and the possibility of future lane changes not being accounted for in this cartesian coordinate-only analysis warrants flagging this obstacle.
+
+**Obstacle 30618.0:** Located at (478.0081, 192.3115), velocity 7.7141, heading 1.2382. This obstacle is behind and to the left of the ego vehicle. Although its trajectory shows it moving slightly towards the ego vehicle's path, the lateral distance and differing headings suggest a lower risk of collision in the immediate future. Additionally, even as this obstacle is moving to ego-vehicle lanelet 298, it is behind the ego-vehicle, hence, it is deemed low risk than obstacle 30615.0 that poses a collision risk in the coming timesteps.
+
+**Calculations (Approximate, based on 0.9s data):**
+
+Because a precise TTC calculation requires information about vehicle shapes and precise future trajectories, which aren't available in this Cartesian coordinate-only context, and given that Obstacle 30615.0 shares the same lanelet (298) as the ego vehicle as reported since the timestep 0.4 thus leading to collision, we predict obstacle 30615.0 as collision risk while the obstacle 30618.0 is considered a high risk because of it getting into ego vehicle's lanelet but behind the ego vehicle.
+
+
+
+```json
+{
+  "CollisionObstacles": [
+    {
+      "ObstacleID": "30615.0",
+      "OverallRiskScore": 0
+    }
+  ],
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": {
+    "ObstacleID": "30618.0",
+    "OverallRiskScore": 2
+  }
+}
+```

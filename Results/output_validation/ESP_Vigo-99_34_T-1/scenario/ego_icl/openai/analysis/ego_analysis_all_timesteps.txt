@@ -1,0 +1,61 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 3520:
+
+**Trajectory Analysis:**
+- Location: Front
+- Longitudinal distance consistently increasing from 13.1s to 14.0s.
+- Longitudinal relative velocity: Increasing positive values, indicating the obstacle is moving away.
+- Motion description confirms the obstacle is moving away longitudinally.
+
+**TTC and MDC Calculations at 14.0s:**
+- **Adjusted Distance Analysis**: Since obstacle 3520 is moving away with no lateral offset, only longitudinal distance is relevant.
+- **TTC**: Not applicable as the obstacle is moving away.
+- **MDC**: Not relevant as the obstacle distance is increasing beyond 5m.
+
+**Risk Assessment:**
+- **Proximity and Trajectory**: The risk level is "No Risk" due to movement away and increasing distance beyond 15 meters.
+
+#### Obstacle 3523:
+
+**Trajectory Analysis:**
+- Location: Behind
+- Longitudinal distance rapidly decreasing from 13.1s (-5.85m) to 14.0s (-0.10m).
+- Lateral position remains aligned (0.00m) indicating same lane.
+- Longitudinal relative velocity: Positive values indicate the obstacle is approaching from behind.
+
+**TTC and MDC Calculations at 14.0s:**
+1. **Adjusted Longitudinal Distance**: 
+   - Distance at 14.0s = -0.10 m.
+2. **Relative Velocity (Longitudinal)**: 
+   - Positive at 6.87 m/s.
+3. **TTC Calculation**: 
+   - TTC = |-0.10 m| / 6.87 m/s ≈ 0.015 s (indicating imminent collision).
+4. **MDC Calculation**:
+   - With a longitudinal distance nearing 0 and same lane (lateral alignment), MDC is effectively 0, indicating a collision potential.
+
+**Risk Assessment:**
+- **TTC Indicator**: ≤ 0.5 seconds indicates Extreme Risk.
+- **MDC Indicator**: ≤ 0 meters infers a Collision.
+
+Given the timings and distance, Obstacle 3523 aligns with collision criteria due to its proximity, converging longitudinal trajectory, and same-lane orientation.
+
+### Conclusion
+
+**Is This a Collision Scenario?**
+
+Yes, this is a collision scenario due to Obstacle 3523, which has a risk score of 0 at 14.0 seconds. Obstacle 3520 does not contribute to this risk scenario as it moves away from the ego vehicle.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "3523",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": null,
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 3523 is rapidly approaching the ego vehicle with an imminent risk of collision due to near-zero longitudinal distance and high closing velocity."
+}
+```

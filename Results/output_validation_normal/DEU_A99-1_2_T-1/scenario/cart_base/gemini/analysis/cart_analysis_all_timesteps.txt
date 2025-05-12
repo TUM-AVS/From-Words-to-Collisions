@@ -1,0 +1,25 @@
+At t=0.9s, Ego is in lanelet 47629.0 at (24.6967, 0.2744).
+
+Obstacle 202 is in the same lanelet at (10.424, 0.60595).  The y-difference is small and x-difference is decreasing, suggesting a potential collision risk if this trend continues.
+
+Obstacle 204 is also in the same lanelet at (3.5574, 0.41615). Similar to Obstacle 202, the y-difference is small, and the x-difference is decreasing, posing a collision risk.
+
+Obstacle 200 is in lanelet 47627.0 at (25.2136, 4.8487).  The x values are very close, but the y values are significantly different suggesting it's in a different lane.  While close in x, the difference in y and different lanelets suggest this isn't an immediate risk.
+
+Obstacle 201 is in lanelet 47625.0 at (3.9237, 8.0008), and Obstacle 203 is in lanelet 47629.0 at (52.6901, 1.7742). Both are far enough away to not be considered extreme risks at this timestep.
+
+While obstacles 202 and 204 present a risk, additional information like lane widths and obstacle sizes are needed to definitively determine if a collision is unavoidable. Based on trajectory and lanelet information alone, they present an extreme risk.
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "202",
+    "OverallRiskScore": 1
+  },
+  "ScenarioAnalysis": {
+    "IsCollisionScenario": false,
+    "Reasoning": "Obstacle 202 and 204 in the same lanelet as Ego with rapidly decreasing x-distance.  Obstacle 202 is the closer of the two, so categorized as the single extreme risk obstacle. Insufficient information to declare unavoidable collision yet."
+  }
+}
+```

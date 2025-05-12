@@ -1,0 +1,64 @@
+## Obstacle Analysis
+
+### Obstacle 30597 (In Front)
+- **Most Recent Data (0.9 seconds):**
+  - Adjusted Longitudinal Distance: 14.03 meters
+  - Adjusted Lateral Distance: 0.00 meters (exact alignment)
+  - Relative Velocity: Longitudinal -0.30 m/s (approaching), Lateral 0.46 m/s (moving away)
+  - Relative Acceleration: Longitudinal -0.15 m/s², Lateral 0.02 m/s²
+
+- **Trajectory Analysis:**
+  - This obstacle is aligned longitudinally and is moving toward the ego vehicle with a slight decrease in approach speed, as denoted by the negative acceleration.
+  - Lateral movement is diverging slightly, indicating a lateral alignment but a slight positional change over time.
+
+- **TTC Calculation:**
+  - Longitudinal TTC = 14.03 m / |0.30 m/s| = 46.77 seconds
+  - Lateral movement is divergent.
+
+- **MDC Analysis:**
+  - Longitudinal MDC: 14.03 meters
+  - Lateral MDC: 14.03 meters (given longitudinal alignment and no direct lateral intersection, de facto MDC limits risk)
+
+- **Risk Assessment:**
+  - Based on both TTC and MDC, no imminent collision risk.
+  - **Risk Score:** 5 (No Risk)
+
+### Obstacle 30598 (Behind)
+- **Most Recent Data (0.9 seconds):**
+  - Adjusted Longitudinal Distance: -13.34 meters (behind)
+  - Adjusted Lateral Distance: 0.00 meters (exact alignment)
+  - Relative Velocity: Longitudinal 2.91 m/s (approaching), Lateral -0.29 m/s (very slow relative movement)
+  - Relative Acceleration: Longitudinal -0.82 m/s², Lateral 2.20 m/s²
+
+- **Trajectory Analysis:**
+  - This obstacle is catching up to the ego vehicle rapidly from behind, as shown by positive longitudinal velocity and consolidation with slight variance in lateral velocity.
+
+- **TTC Calculation:**
+  - Longitudinal TTC = -13.34 m / 2.91 m/s = 4.58 seconds 
+
+- **MDC Analysis:**
+  - Longitudinal MDC based on consistent approach: |13.34 meters| is current threshold.
+
+- **Risk Assessment:**
+  - Considering continuous convergence and acceleration, risk level is evaluated using projected trajectory.
+  - **Risk Score:** 3 (Medium Risk)
+
+## Final Collision Scenario Determination
+- No obstacles with a risk score of 0 or 1 were identified.
+- Therefore, not considered a collision scenario presently, despite rapid approach from behind.
+
+## JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "N/A",
+        "OverallRiskScore": "N/A"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "N/A",
+        "OverallRiskScore": "N/A"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "There are no obstacles with an immediate collision risk (score 0) or marked as extreme risk with a score of 1. Despite the rapid approach from behind, trajectories indicate manageable risk presently."
+}
+```

@@ -1,0 +1,78 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 2.8s)
+
+#### **Obstacle 30 (Left of ego)**
+- **Adjusted Distance**: Longitudinal 0.00m, Lateral 1.63m  
+- **Relative Velocity**: Longitudinal -1.69 m/s (away), Lateral 0.00 m/s  
+- **Motion**: Exact longitudinal alignment, no lateral motion.  
+- **Trajectory**: Stable lateral distance (1.63m), longitudinal alignment maintained.  
+- **MDC**: Lateral distance (1.63m) > 1.0m → **Medium Risk (3)**  
+- **TTC**: Not applicable (lateral velocity = 0, longitudinal velocity negative).  
+- **Overall Risk**: **Medium Risk (3)**  
+
+---
+
+#### **Obstacle 31 (Front-left of ego)**
+- **Adjusted Distance**: Longitudinal 1.53m, Lateral 1.65m  
+- **Relative Velocity**: Longitudinal -1.69 m/s (closing), Lateral 0.00 m/s  
+- **Motion**: Approaching longitudinally, no lateral motion.  
+- **Trajectory**: Longitudinal distance decreasing (from 2.23m at 2.5s to 1.53m at 2.8s).  
+- **MDC**: Lateral distance (1.65m) > 1.0m → **Medium Risk (3)**  
+- **TTC**: Longitudinal TTC = 1.53 / 1.69 ≈ 0.91s → **High Risk (2)**  
+- **Overall Risk**: **High Risk (2)**  
+
+---
+
+#### **Obstacle 36 (Front-left of ego)**
+- **Adjusted Distance**: Longitudinal 8.39m, Lateral 1.66m  
+- **Relative Velocity**: Longitudinal -1.69 m/s (closing), Lateral 0.00 m/s  
+- **Motion**: Approaching longitudinally, no lateral motion.  
+- **Trajectory**: Slowly closing longitudinally (from 9.09m at 2.5s to 8.39m at 2.8s).  
+- **MDC**: Lateral distance (1.66m) > 1.0m → **Medium Risk (3)**  
+- **TTC**: Longitudinal TTC = 8.39 / 1.69 ≈ 4.96s → **Low Risk (4)**  
+- **Overall Risk**: **Low Risk (4)**  
+
+---
+
+#### **Obstacle 342 (Collision of ego)**
+- **Adjusted Distance**: Longitudinal 0.00m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 9.53 m/s (closing), Lateral 0.19 m/s  
+- **Motion**: Exact alignment in both dimensions (collision occurring).  
+- **Trajectory**: Rapidly closed from behind (longitudinal distance went from -2.26m at 2.5s to 0.00m at 2.8s).  
+- **MDC**: 0.00m → **Collision (0)**  
+- **TTC**: 0.00s → **Collision (0)**  
+- **Overall Risk**: **Collision (0)**  
+
+---
+
+#### **Obstacle 343 (Behind of ego)**
+- **Adjusted Distance**: Longitudinal -24.58m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -1.40 m/s (away), Lateral -7.84 m/s (away)  
+- **Motion**: Moving away in both dimensions.  
+- **Trajectory**: Increasing distance in both dimensions.  
+- **MDC**: Lateral distance stable (0.00m but diverging) → **No Risk (5)**  
+- **TTC**: Not applicable (diverging paths).  
+- **Overall Risk**: **No Risk (5)**  
+
+---
+
+### **Collision Scenario Determination**
+- **Obstacle 342** has a collision risk score of **0** (actual collision occurring at 2.8s).  
+- No other obstacles are at extreme risk (score 1), but Obstacle 31 is at high risk (score 2).  
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "342",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "31",
+        "OverallRiskScore": "2"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 342 has collided with the ego vehicle (distance = 0.00m in both dimensions with closing velocity)."
+}
+```

@@ -1,0 +1,58 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30354 (Behind Ego)
+- **Position**: Behind ego, longitudinal distance = -12.69 m, lateral distance = 0.00 m
+- **Relative Velocity**: Longitudinal = 2.57 m/s (approaching), Lateral = -0.04 m/s (negligible)
+- **Motion Description**: Obstacle is driving toward the ego car from behind. Exact lateral alignment.
+- **Trajectory Analysis**: 
+  - Over the timesteps, the longitudinal distance is decreasing (from -13.44 m to -12.69 m), indicating the obstacle is approaching the ego vehicle.
+  - The lateral distance remains 0.00 m, indicating exact alignment in the same lane.
+  - The relative longitudinal velocity is positive and increasing, suggesting the obstacle is accelerating toward the ego vehicle.
+- **TTC Calculation**:
+  - TTC = Distance / Relative Velocity = 12.69 m / 2.57 m/s ≈ 4.94 seconds
+  - TTC > 5.0 seconds: No Risk (5)
+- **MDC Calculation**:
+  - MDC is the longitudinal distance since lateral distance is 0.00 m (same lane).
+  - MDC = 12.69 m > 5.0 m: No Risk (5)
+- **Overall Risk**: 
+  - Both TTC and MDC indicate No Risk (5).
+  - Despite the obstacle approaching, the distance is large enough to pose no immediate risk.
+
+#### Obstacle 30358 (Front Ego)
+- **Position**: Front of ego, longitudinal distance = 17.63 m, lateral distance = 0.00 m
+- **Relative Velocity**: Longitudinal = 1.60 m/s (moving away), Lateral = 0.52 m/s (moving laterally)
+- **Motion Description**: Obstacle is moving away longitudinally. Exact lateral alignment.
+- **Trajectory Analysis**:
+  - The longitudinal distance is increasing (from 16.40 m to 17.63 m), indicating the obstacle is moving away from the ego vehicle.
+  - The lateral distance remains 0.00 m, but the lateral velocity is positive (0.52 m/s), suggesting the obstacle is drifting laterally away from the ego vehicle.
+  - The relative longitudinal velocity is positive but decreasing, indicating the obstacle is slowing its departure.
+- **TTC Calculation**:
+  - TTC is not applicable since the obstacle is moving away (relative velocity is positive in longitudinal direction).
+- **MDC Calculation**:
+  - MDC is the longitudinal distance since lateral distance is 0.00 m (same lane).
+  - MDC = 17.63 m > 5.0 m: No Risk (5)
+- **Overall Risk**:
+  - The obstacle is moving away and poses no risk. No Risk (5).
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```
+
+### Final Notes:
+- Neither obstacle poses any significant risk (Collision, Extreme Risk, or High Risk) at the most recent timestep.
+- Obstacle 30354 is approaching from behind but is still at a safe distance (12.69 m) with a TTC of ~4.94 seconds.
+- Obstacle 30358 is moving away from the ego vehicle and poses no risk.

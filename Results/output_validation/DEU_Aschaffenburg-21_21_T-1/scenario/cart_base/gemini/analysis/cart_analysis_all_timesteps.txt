@@ -1,0 +1,23 @@
+At t=6.4s, the ego vehicle at (279.1349, 300.5916) in lanelet 322 has several obstacles to consider.
+
+* **Obstacle 30285:** Located at (276.457, 304.5122) in the same lanelet 322 as the ego vehicle and is stationary.  Given the ego vehicle's slow speed (0.117) and deceleration (-0.0833) and the obstacle's stationary state, a collision is imminent if the ego vehicle does not brake harder. This represents an **Extreme Risk (1)**.
+
+* **Obstacle 30288:** Located at (286.2861, 290.1225) also in lanelet 322. While this obstacle is behind and to the side of the ego vehicle, the distance is not enough to confidently rule out a collision, particularly given the ego vehicle's continued forward movement. Further, previous timesteps show this obstacle is approaching the ego vehicle, increasing the risk.  This obstacle presents a **High Risk (2)** and should be monitored carefully, but is not the primary concern.
+
+* **Obstacle 30281:** In lanelet 321 at (276.3468, 298.428),  represents a potential risk due to its high velocity (8.3951) and proximity. However, given the different lanelets and the trajectories observed from previous timesteps, the likelihood of collision is less immediate than with Obstacle 30285.
+
+Other obstacles (30277 and 30280) are in different lanelets and pose no immediate threat given their current trajectories and the ego vehicle's motion.
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30285",
+        "OverallRiskScore": 1
+    },
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "Obstacle 30285 is stationary in the same lane and the ego vehicle is approaching it with minimal speed reduction, posing an extreme risk of collision. While other obstacles exist, 30285 presents the most immediate threat."
+    }
+}
+```

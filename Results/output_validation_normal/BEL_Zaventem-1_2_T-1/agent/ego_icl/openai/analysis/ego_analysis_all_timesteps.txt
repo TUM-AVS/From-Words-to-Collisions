@@ -1,0 +1,81 @@
+### Analysis of Obstacle Risks
+
+#### Obstacle 35
+- **Trajectory and Motion**: 
+  - **Initial Position**: Front-left
+  - **Longitudinal Distance**: 17.64m to 8.38m (continuously decreasing)
+  - **Velocity**: Longitudinal decrease from -12.12 m/s to -9.90 m/s
+  - **Lateral Distance**: Remained around 1.78-1.79m
+  - **Observation**: Consistent approach in the longitudinal direction but stable laterally.
+- **Current Timestep**: 
+  - **Longitudinal Distance**: 8.38m
+  - **Relative Longitudinal Velocity**: -9.90 m/s
+- **TTC Calculation**:
+  - TTC (Longitudinal) = 8.38m / 9.90 m/s ≈ 0.85s
+- **MDC Calculation**:
+  - Based on trajectory, MDC ≈ 8.38m (as lateral distance is not closing significantly)
+- **Conclusion**: The risk of collision is primarily in the longitudinal approach. The lateral distance is stable. 
+- **Risk Score**: High Risk (2) – Due to TTC < 1 second.
+
+#### Obstacle 313
+- **Trajectory and Motion**: 
+  - **Initial Position**: Front-left
+  - **Longitudinal Distance**: 24.25m to 16.34m (decreasing)
+  - **Velocity**: Longitudinal decrease from -11.88 m/s to -9.53 m/s
+  - **Lateral Distance**: Nearly stable around 1.68m
+  - **Observation**: Continuous approach in the longitudinal direction with minimal lateral movement.
+- **Current Timestep**: 
+  - **Longitudinal Distance**: 16.34m
+  - **Relative Longitudinal Velocity**: -9.53 m/s
+- **TTC Calculation**:
+  - TTC (Longitudinal) = 16.34m / 9.53 m/s ≈ 1.71s
+- **MDC Calculation**:
+  - Based on trajectory, MDC ≈ 16.34m
+- **Conclusion**: Longitudinal approach is significant but slower; lateral stability reduces immediate risk. 
+- **Risk Score**: Medium Risk (3) – Due to longitudinal TTC between 1s and 3s.
+
+#### Obstacle 317
+- **Trajectory and Motion**: 
+  - **Position Crossed Over Time**: Starting at longer distances without significant risk.
+  - **Current Timestep**: Approaching both longitudinally and laterally.
+  - **Distance Changes**: From 24.30m longitudinally at 0.8s to 23.38m, lateral 3.73m to 3.69m.
+- **Observation**: Approaching in both dimensions; however, initial distances are large.
+- **Risk Assessment**: Low considering current proximity and rate of closure.
+- **Risk Score**: Low Risk (4) - Due to large enough margin currently, but approaching.
+
+#### Obstacle 335
+- **Trajectory and Motion**: 
+  - **Initial Position**: Front-left
+  - **Longitudinal Distance**: 9.42m to almost 0m, effective alignment by 0.9s
+  - **Velocity**: Longitudinal reduction from -11.81 m/s to -10.55 m/s
+  - **Lateral Distance**: Consistent at around 1.88m, approaching but staying somewhat stable
+- **Current Timestep**: 
+  - **Longitudinal Distance**: Near 0.00m
+  - **Observation**: Exact alignment longitudinally, indicated in motion description.
+- **TTC Calculation**:
+  - TTC (Longitudinal) ≤ 0, as the distances have effectively aligned and vehicle has reached alongside.
+- **MDC Calculation**:
+  - MDC for longitudinal alignment ≈ 0m
+- **Conclusion**: High urgency due to alignment on longitudinal dimension, representing an extremely risky situation.
+- **Risk Score**: Collision (0) – Due to direct alignment and close proximity.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "335",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "35",
+        "OverallRiskScore": "2"
+    }
+}
+```
+
+### Final Note:
+The collision risk with Obstacle 335 is critical due to its complete longitudinal alignment with no effective lateral movement to mitigate. Immediate action is necessary.

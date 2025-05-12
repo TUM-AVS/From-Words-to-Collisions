@@ -1,0 +1,98 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 3.3s)
+
+#### **Obstacle 30604 (Rear-left)**
+- **Adjusted Distance**: Longitudinal -11.65m (behind), Lateral 9.01m (left)
+- **Relative Velocity**: Longitudinal -19.65 m/s (moving away), Lateral -0.01 m/s (very slight movement toward ego)
+- **Motion**: Moving away longitudinally, very slight lateral movement toward ego.
+- **TTC**: Not applicable (longitudinal velocity is negative - moving away).
+- **MDC**: Lateral distance is 9.01m (No Risk).
+- **Risk Score**: 5 (No Risk).
+
+#### **Obstacle 30605 (Front-left)**
+- **Adjusted Distance**: Longitudinal 12.16m (ahead), Lateral 17.69m (left)
+- **Relative Velocity**: Longitudinal -5.85 m/s (approaching), Lateral -0.00 m/s (no lateral motion).
+- **Motion**: Approaching longitudinally, no lateral motion.
+- **TTC**: 12.16 / 5.85 ≈ 2.08s (Medium Risk).
+- **MDC**: Lateral distance is very large (17.69m - No Risk).
+- **Risk Score**: 3 (Medium Risk, due to longitudinal approach).
+
+#### **Obstacle 30606 (Rear-left)**
+- **Adjusted Distance**: Longitudinal -13.05m (behind), Lateral 5.51m (left)
+- **Relative Velocity**: Longitudinal -20.08 m/s (moving away), Lateral -0.01 m/s (very slight movement toward ego).
+- **Motion**: Moving away longitudinally, very slight lateral movement toward ego.
+- **TTC**: Not applicable (longitudinal velocity is negative).
+- **MDC**: Lateral distance is 5.51m (No Risk).
+- **Risk Score**: 5 (No Risk).
+
+#### **Obstacle 30610 (Front-left)**
+- **Adjusted Distance**: Longitudinal 0.22m (ahead), Lateral 2.03m (left)
+- **Relative Velocity**: Longitudinal -5.85 m/s (approaching), Lateral 0.00 m/s (no lateral motion).
+- **Motion**: Approaching longitudinally, no lateral motion.
+- **TTC**: 0.22 / 5.85 ≈ 0.038s (Extreme Risk).
+- **MDC**: Lateral distance is 2.03m (Medium Risk).
+- **Risk Score**: 1 (Extreme Risk, due to very low TTC longitudinally).
+
+#### **Obstacle 30613 (Left)**
+- **Adjusted Distance**: Longitudinal 0.00m (aligned), Lateral 2.03m (left)
+- **Relative Velocity**: Longitudinal -5.85 m/s (approaching), Lateral 0.00 m/s (no lateral motion).
+- **Motion**: Approaching longitudinally, no lateral motion.
+- **TTC**: 0.00 / 5.85 = 0s (Collision Risk).
+- **MDC**: Lateral distance is 2.03m (Medium Risk).
+- **Risk Score**: 0 (Collision, due to exact longitudinal alignment and approaching velocity).
+
+#### **Obstacle 30614 (Rear-left)**
+- **Adjusted Distance**: Longitudinal -5.78m (behind), Lateral 2.02m (left)
+- **Relative Velocity**: Longitudinal -5.84 m/s (moving away), Lateral 0.00 m/s (no lateral motion).
+- **Motion**: Moving away longitudinally, no lateral motion.
+- **TTC**: Not applicable (longitudinal velocity is negative).
+- **MDC**: Lateral distance is 2.02m (Medium Risk).
+- **Risk Score**: 5 (No Risk, as it is moving away).
+
+#### **Obstacle 30628 (Rear-left)**
+- **Adjusted Distance**: Longitudinal -14.54m (behind), Lateral 2.01m (left)
+- **Relative Velocity**: Longitudinal -4.66 m/s (moving away), Lateral 0.00 m/s (no lateral motion).
+- **Motion**: Moving away longitudinally, no lateral motion.
+- **TTC**: Not applicable (longitudinal velocity is negative).
+- **MDC**: Lateral distance is 2.01m (Medium Risk).
+- **Risk Score**: 5 (No Risk, as it is moving away).
+
+#### **Obstacle 30629 (Front - Collision)**
+- **Adjusted Distance**: Longitudinal 0.00m, Lateral 0.00m.
+- **Relative Velocity**: Longitudinal -4.96 m/s (approaching), Lateral 0.00 m/s.
+- **Motion**: Exact alignment in both dimensions, approaching longitudinally.
+- **TTC**: 0.00 / 4.96 = 0s (Collision Risk).
+- **MDC**: 0.00m (Collision Risk).
+- **Risk Score**: 0 (Collision, due to exact alignment in both dimensions and approaching velocity).
+
+---
+
+### Trajectory Analysis
+- **Obstacle 30610**: Rapidly approaching longitudinally (TTC ≈ 0.038s at 3.3s). This is an extreme risk.
+- **Obstacle 30613**: Exact longitudinal alignment with approaching velocity (TTC = 0s). This is a collision.
+- **Obstacle 30629**: Exact alignment in both dimensions (longitudinal and lateral) with approaching velocity (TTC = 0s). This is a collision.
+
+---
+
+### Collision Scenario Determination
+This is a **collision scenario** because:
+1. **Obstacle 30613** has a risk score of 0 (collision due to exact longitudinal alignment and approaching velocity).
+2. **Obstacle 30629** has a risk score of 0 (collision due to exact alignment in both dimensions).
+3. **Obstacle 30610** has a risk score of 1 (extreme risk due to very low TTC).
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30629",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30610",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30629 is in exact alignment (longitudinal and lateral) with approaching velocity (collision). Obstacle 30610 has extreme risk (TTC ≈ 0.038s)."
+}
+```

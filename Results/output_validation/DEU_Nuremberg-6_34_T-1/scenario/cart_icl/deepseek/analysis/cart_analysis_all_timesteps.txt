@@ -1,0 +1,67 @@
+### Safety Analysis for the Most Recent Timestep (3.8 seconds)
+
+### Obstacle Analysis:
+
+1. **Obstacle ID: 30784.0**
+   - **Distance Risk reason**: Located in lanelet 765.0 (different from ego's lanelet 2056.0), but relatively close (X: 572.6663 vs ego's 573.4941). Y-distance is significant (125.7723 vs ego's 107.5831).
+   - **Distance safety score**: 4 (Low Risk)
+   - **Time Risk reason**: Moving slowly (velocity 0.9446) with deceleration (-0.9818). Relative velocity is low.
+   - **Time safety score**: 4 (Low Risk)
+   - **Overall Risk score**: 4
+
+2. **Obstacle ID: 30785.0**
+   - **Distance Risk reason**: In lanelet 2051.0, X position (575.9472) is behind ego, Y position (139.5818) is significantly different.
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: Moving at 6.7327 m/s but decelerating (-0.4695). Not on collision course.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5
+
+3. **Obstacle ID: 30787.0**
+   - **Distance Risk reason**: Stationary at (578.2151, 108.2154), in lanelet 769.0. X is ahead of ego, Y is very close.
+   - **Distance safety score**: 3 (Medium Risk)
+   - **Time Risk reason**: Stationary (velocity 0.0), but close Y position warrants caution.
+   - **Time safety score**: 3 (Medium Risk)
+   - **Overall Risk score**: 3
+
+4. **Obstacle ID: 30789.0**
+   - **Distance Risk reason**: In lanelet 2156.0, Y position (154.7706) is far from ego's Y (107.5831).
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: Moving at 6.7665 m/s but away from ego's path.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5
+
+5. **Obstacle ID: 30790.0**
+   - **Distance Risk reason**: In lanelet 495.0, Y position (172.2514) is far from ego's Y.
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: Moving at 7.6032 m/s but away from ego's path.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5
+
+6. **Obstacle ID: 30796.0**
+   - **Distance Risk reason**: In lanelet 2056.0 (same as ego), Y position (111.0833) is close to ego's (107.5831).
+   - **Distance safety score**: 2 (High Risk)
+   - **Time Risk reason**: Moving at 8.6737 m/s towards ego (positive acceleration 0.9693).
+   - **Time safety score**: 1 (Extreme Risk)
+   - **Overall Risk score**: 1
+
+### Chain of Thought Scenario Analysis:
+1. Ego vehicle is in lanelet 2056.0 with decreasing speed (1.6714 m/s).
+2. Obstacle 30796.0 is in the same lanelet, moving faster (8.6737 m/s) towards the ego vehicle.
+3. Distance between ego and obstacle 30796.0 is closing rapidly (Y difference: 3.5m).
+4. Other obstacles are either stationary or in different lanelets with no collision risk.
+5. This is an extreme risk scenario due to obstacle 30796.0, but not yet a collision.
+
+### Summary in JSON Format:
+```json
+{
+    "CollisionObstacles": null,
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30796.0",
+        "OverallRiskScore": 1
+    },
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "Obstacle 30796.0 is in the same lanelet as ego and closing rapidly, creating extreme risk. No actual collision has occurred yet."
+    }
+}
+```

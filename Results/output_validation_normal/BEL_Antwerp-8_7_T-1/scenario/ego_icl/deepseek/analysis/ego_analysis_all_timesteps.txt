@@ -1,0 +1,51 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 30597 (Front)**
+- **Adjusted Distance**: Longitudinal 14.03m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -0.30 m/s (approaching), Lateral 0.46 m/s (moving slightly away)  
+- **Motion**: Driving toward ego longitudinally but with very low closing speed (-0.30 m/s). Laterally aligned but drifting away (0.46 m/s).  
+- **TTC (Longitudinal)**:  
+  - Distance = 14.03m, |Relative Velocity| = 0.30 m/s → **TTC = 14.03 / 0.30 ≈ 46.77s** (No Risk, TTC > 5s).  
+- **MDC (Lateral)**:  
+  - Lateral distance is stable/increasing (0.46 m/s away) → **MDC > 5.0m** (No Risk).  
+- **Overall Risk**: **5 (No Risk)**.  
+
+#### **Obstacle 30598 (Behind)**
+- **Adjusted Distance**: Longitudinal -13.34m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 2.91 m/s (approaching rapidly), Lateral -0.29 m/s (minor drift).  
+- **Motion**: Driving toward ego from behind with increasing speed (acceleration trend from prior timesteps).  
+- **TTC (Longitudinal)**:  
+  - Distance = 13.34m, |Relative Velocity| = 2.91 m/s → **TTC = 13.34 / 2.91 ≈ 4.58s** (Low Risk, TTC just below 5s).  
+- **MDC (Lateral)**:  
+  - Lateral distance stable (0.00m alignment, minor drift) → **MDC ≈ 0.00m but not closing** (monitor).  
+- **Overall Risk**: **4 (Low Risk)** due to TTC nearing 5s threshold, but no imminent collision.  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 30597**: Slowly closing longitudinal gap but with negligible risk (TTC extremely high). Lateral drift reduces risk further.  
+- **Obstacle 30598**: Rapidly approaching from behind (TTC decreasing from 5s to 4.58s in 0.9s). If acceleration continues, TTC could drop to Medium Risk soon.  
+
+---
+
+### Final Determination  
+- **No obstacles** meet collision (0) or extreme risk (1) criteria.  
+- Highest risk is **Low Risk (4)** for Obstacle 30598 due to longitudinal TTC ≈ 4.58s.  
+
+---
+
+### JSON Summary  
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacles have risk scores ≤ 1. Obstacle 30598 has Low Risk (TTC ≈ 4.58s), and Obstacle 30597 has No Risk (TTC ≈ 46.77s)."
+}
+```

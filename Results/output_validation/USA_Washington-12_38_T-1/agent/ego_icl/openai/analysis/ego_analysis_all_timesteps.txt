@@ -1,0 +1,89 @@
+**Obstacle-by-Obstacle Analysis**
+
+1. **Obstacle 30604**
+   - Position: Rear-left with moved position more behind over time.
+   - Adjusted Distances: Lateral 9.05 m, Longitudinal -8.95 m
+   - Velocity: Longitudinal -20.86 m/s, Lateral 0.01 m/s
+   - Description: Moving away, not a collision risk.
+   - Calculated Risk: No TTC or MDC applicable as obstacle is moving away.
+
+2. **Obstacle 30605**
+   - Position: Front-left
+   - Adjusted Distances: Lateral 17.66 m, Longitudinal 13.66 m
+   - Velocity: Longitudinal -7.39 m/s, Lateral 0.00 m/s
+   - Description: Approaching but not on a collision path.
+   - Calculated Risk: TTC > 5 s, MDC > 5 m. Risk score: 5
+   
+3. **Obstacle 30606**
+   - Position: Rear-left moving further back over time.
+   - Adjusted Distances: Lat 5.54 m, Long -8.74 m
+   - Velocity: Longitudinal -21.23 m/s, Lateral 0.01 m/s
+   - Description: Moving away, reducing collision risk.
+   - Calculated Risk: No TTC or MDC applicable as obstacle is moving away.
+
+4. **Obstacle 30610**
+   - Position: Front-left
+   - Adjusted Distances: Lat 2.02 m, Long 1.69 m
+   - Velocity: Longitudinal -7.39 m/s
+   - Description: On approach with relatively close longitudinal distance.
+   - TTC (Long): 0.229 s, approaching
+   - MDC (Long): 1.69 m
+   - Calculated Risk: Medium Risk as both TTC and MDC are close to medium risk limits. Risk score: 3
+
+5. **Obstacle 30613**
+   - Position: Left, aligned longitudinally
+   - Adjusted Distances: Lat 2.03 m
+   - Velocity: Longitudinal -7.38 m/s, Lateral 0.00 m/s
+   - Description: Side-by-side alignment, moving away laterally.
+   - Calculated Risk: Not applicable for TTC or MDC due to current movement
+
+6. **Obstacle 30614**
+   - Position: Rear-left moving away and laterally driving
+   - Adjusted Distances: Lat 2.03 m, Long -4.31 m
+   - Velocity: Longitudinal -7.37 m/s, Lateral 0.00 m/s
+   - Description: Moving proportionally so no current escalation in risk.
+   - Calculated Risk: Not applicable for TTC or MDC due to current movement
+
+7. **Obstacle 30628**
+   - Position: Rear-left moving away over time.
+   - Adjusted Distances: Lat 2.04 m, Long -13.32 m
+   - Velocity: Longitudinal -5.97 m/s, Lateral 0.00 m/s
+   - Description: Continues moving away.
+   - Calculated Risk: No notable collision risk due to direction
+
+8. **Obstacle 30629**
+   - Position: Front, direct longitudinal alignment
+   - Adjusted Distances: Long 1.07 m
+   - Velocity: Longitudinal -5.63 m/s
+   - Description: On a clear collision path, converging
+   - TTC (Long): 0.19 s
+   - MDC (Long): 1.07 m
+   - Calculated Risk: Extreme risk, highest priority. Risk score: 1
+
+**Summary:**
+
+- **Collision Obstacle**: None (No obstacle has 0 distance in both components with zero/closing velocity)
+- **Extreme Risk Obstacle**:
+  - **Obstacle ID**: 30629
+  - **Overview Risk Score**: 1
+- **High Risk Obstacle**: None
+- **Medium Risk Obstacle**:
+  - **Obstacle ID**: 30610
+  - **Overall Risk Score**: 3
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30629",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "2"
+    }  
+}
+```

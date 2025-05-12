@@ -1,0 +1,48 @@
+* **Obstacle 30217 Analysis:**
+
+This obstacle is behind the ego vehicle and approaching.  Let's analyze the trajectory across the timesteps:
+
+- Lateral distance remains constant at 0.00m (exact lateral alignment).
+- Longitudinal distance starts at -9.16m and decreases to -8.58m, indicating the obstacle is closing in.
+- Longitudinal relative velocity is increasing, showing acceleration towards the ego vehicle.
+
+At the last timestep (0.9s):
+
+- Longitudinal distance: -8.58m
+- Longitudinal relative velocity: 2.08 m/s
+
+TTC (longitudinal) = |-8.58m| / 2.08 m/s ≈ 4.12 seconds.  This falls under Low Risk (4).
+
+MDC is primarily determined by the lateral distance since the obstacle is directly behind.  Given the exact lateral alignment (0.00m) we must look at the trajectory.  While the lateral distance is currently zero, the obstacle is not moving laterally towards the ego vehicle. The motion description and increasing longitudinal velocity indicate the primary risk is from behind. So, while lateral distance is 0m,  the MDC risk is not considered a collision. The longitudinal TTC of 4.12 seconds dominates the assessment.
+
+* **Obstacle 30218 Analysis:**
+
+This obstacle is also behind the ego vehicle and approaching.  Analyzing its trajectory:
+
+- Lateral distance remains constant at 0.00m (exact lateral alignment).
+- Longitudinal distance starts at -21.50m and reduces to -21.54m.  While it reduced a bit initially, it then began to close in.
+- Longitudinal relative velocity increased gradually, indicating acceleration towards the ego vehicle.
+
+At the last timestep (0.9s):
+
+- Longitudinal distance: -21.54m
+- Longitudinal relative velocity: 1.73 m/s
+
+TTC (longitudinal) = |-21.54m| / 1.73 m/s ≈ 12.45 seconds. This falls under No Risk (5).
+
+MDC is assessed similar to Obstacle 30217. Due to exact lateral alignment (0.00m), we examine the trajectory. The obstacle is primarily moving longitudinally towards the ego vehicle. The longitudinal TTC of 12.45 seconds gives a No Risk (5) assessment.
+
+**Collision Scenario Determination:**
+
+Neither obstacle poses an Extreme Risk (1) or Collision Risk (0). The highest risk level present is Low Risk (4) from Obstacle 30217. Therefore, this is NOT a collision scenario.
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a Collision Risk (0) or Extreme Risk (1) score. The highest risk is Low Risk (4) from Obstacle 30217 due to its longitudinal approach, but it does not pose an immediate collision threat."
+}
+```

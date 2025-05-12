@@ -1,0 +1,58 @@
+### Obstacle Analysis
+
+#### Obstacle 30200
+- **Position at 3.7 seconds**: 
+  - Longitudinal distance: 0.00 m (collision point)
+  - Lateral distance: 0.00 m
+  - Relative velocity: 5.45 m/s (closing from behind)
+
+- **Trajectory Analysis**:
+  - Over previous timesteps, the distance has progressively decreased from -4.79 m to 0.00 m, indicating consistent approach.
+  - Velocity has remained positive, indicating the vehicle continued to approach the ego vehicle.
+  - Adjusted distances now at zero indicate physical proximity that suggests collision.
+
+- **TTC Calculation**:
+  - Since the longitudinal distance was leading to zero with a closing velocity, the Time-to-Collision (TTC) is essentially at 0 seconds, indicating an immediate collision scenario.
+
+- **MDC Calculation**:
+  - Minimum Distance to Collision (MDC) is already at 0 meters in both lateral and longitudinal dimensions.
+
+- **Risk Score**: 0 (Collision occurring)
+
+#### Obstacle 30201
+- **Position at 3.7 seconds**: 
+  - Longitudinal distance: -18.69 m (further behind)
+  - Lateral distance: 0.00 m
+  - Relative velocity: 4.76 m/s (approaching)
+
+- **Trajectory Analysis**:
+  - The distance has gradually decreased from -22.76 m to -18.69 m over timesteps, but trajectory doesn't bring it close enough imminently.
+  - Relative velocity indicates approach but not rapid enough for immediate collision concerns.
+
+- **TTC Calculation**:
+  - TTC for longitudinal movement: distance / |relative velocity| = 18.69 / 4.76 ≈ 3.93 seconds.
+  - Still maintaining a safe distance, with no immediate risk of collision.
+
+- **MDC Calculation**:
+  - MDC is greater than 5 meters given current position and trajectory, suggesting no immediate risk.
+
+- **Risk Score**: 3 (Medium Risk, monitoring required)
+
+### Scenario Conclusion
+This analysis clearly indicates that this is a collision scenario due to Obstacle 30200 having reached the collision point, which results in a risk score of 0.
+
+### JSON Summary
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "30200",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "None"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30200 has achieved exact alignment with the ego vehicle, indicating a collision currently occurring due to zero distance in both directions."
+}
+```

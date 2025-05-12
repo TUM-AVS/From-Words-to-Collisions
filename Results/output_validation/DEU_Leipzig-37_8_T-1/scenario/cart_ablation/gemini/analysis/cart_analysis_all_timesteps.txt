@@ -1,0 +1,21 @@
+At t=3.1s, Ego is in lanelet 393. Obstacles 3071 and 3075 are in different lanelets and pose no immediate risk. Obstacle 3074 is in the same lanelet as Ego.  Let's analyze:
+
+Ego: (-131.9053, -259.353) velocity: 0.1741
+Obstacle 3074: (-135.0324, -262.5993) velocity: 3.69
+
+Obstacle 3074 is behind Ego, but moving significantly faster while Ego decelerates. The y-coordinate difference is small and could lead to a collision if Ego continues braking while Obstacle 3074 maintains its speed. Since we only have information up to 3.1 seconds, we must consider a collision extremely likely.
+
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3074",
+    "OverallRiskScore": 1
+  },
+  "ScenarioAnalysis": {
+    "IsCollisionScenario": false,
+    "Reasoning": "Obstacle 3074 poses an extreme risk. It is approaching Ego rapidly from behind in the same lanelet while Ego is decelerating."
+  }
+}
+```

@@ -1,0 +1,70 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 3.9s)
+
+---
+
+#### **Obstacle 30193 (Front-left)**
+- **Adjusted Position**: Longitudinal 0.99m, Lateral 17.40m  
+- **Relative Velocity**: Longitudinal 1.13 m/s (moving away), Lateral 4.51 m/s (moving away)  
+- **Trajectory**: Consistently moving away both longitudinally and laterally (increasing distances in all timesteps).  
+- **TTC**:  
+  - Longitudinal: Not applicable (moving away).  
+  - Lateral: Not applicable (moving away).  
+- **MDC**:  
+  - Current distance: √(0.99² + 17.40²) ≈ 17.43m (far beyond 5.0m threshold).  
+- **Risk**: **5 (No Risk)**.  
+
+---
+
+#### **Obstacle 30196 (Right)**
+- **Adjusted Position**: Longitudinal 0.00m (exact alignment), Lateral -0.88m (right side).  
+- **Relative Velocity**: Longitudinal 1.47 m/s (moving away), Lateral 5.57 m/s (approaching).  
+- **Trajectory**:  
+  - Longitudinal: From -0.31m (3.7s) to 0.00m (3.9s) – now aligned but moving away.  
+  - Lateral: From -1.23m to -0.88m – closing rapidly.  
+- **TTC**:  
+  - Lateral: 0.88m / 5.57 m/s ≈ **0.16s** (Extreme Risk).  
+- **MDC**:  
+  - Lateral distance is 0.88m (High Risk).  
+- **Risk**: **1 (Extreme Risk)** due to TTC < 0.5s and closing laterally.  
+
+---
+
+#### **Obstacle 30197 (Rear-right)**
+- **Adjusted Position**: Longitudinal -6.21m, Lateral -12.75m.  
+- **Relative Velocity**: Longitudinal 3.52 m/s (approaching), Lateral 4.30 m/s (approaching).  
+- **Trajectory**:  
+  - Consistently closing longitudinally but still far (>6m).  
+  - Lateral distance fluctuates but remains >12m.  
+- **TTC**:  
+  - Longitudinal: 6.21m / 3.52 m/s ≈ 1.76s (Medium Risk).  
+  - Lateral: Not applicable (distance increasing in recent timesteps).  
+- **MDC**:  
+  - Current distance: √(6.21² + 12.75²) ≈ 14.18m (No Risk).  
+- **Risk**: **3 (Medium Risk)** due to longitudinal TTC.  
+
+---
+
+### Collision Scenario Determination
+- **Obstacle 30196** is at **Extreme Risk (Score 1)** due to:  
+  - Lateral TTC = 0.16s (< 0.5s).  
+  - Lateral MDC = 0.88m (< 1.0m).  
+  - Exact longitudinal alignment (0.00m) with rapid lateral closure.  
+- No actual collision (Score 0) observed, but collision is imminent without intervention.  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30196",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30196 has Extreme Risk (TTC = 0.16s, MDC = 0.88m) due to rapid lateral closure with exact longitudinal alignment. Collision is imminent without intervention."
+}
+```

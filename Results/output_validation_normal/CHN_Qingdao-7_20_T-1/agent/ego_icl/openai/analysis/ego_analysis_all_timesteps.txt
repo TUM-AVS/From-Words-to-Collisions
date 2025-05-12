@@ -1,0 +1,48 @@
+### Obstacle Analysis and Trajectory Assessment
+
+#### Obstacle ID: 30674
+
+**Trajectory Analysis:**
+- The obstacle is in the front-left of the ego vehicle and moving toward it longitudinally and laterally away.
+- Over the timesteps, the obstacle's longitudinal distance decreases continuously, indicating a converging trajectory in the longitudinal direction.
+- The lateral distance has increased slightly from 4.83 m to 5.31 m, indicating a diverging trajectory in the lateral direction.
+
+**Most Recent Timestep (0.9 seconds):**
+- **Adjusted Longitudinal Distance:** 15.51 m
+- **Adjusted Lateral Distance:** 5.31 m
+- **Relative Longitudinal Velocity:** -7.66 m/s (Approaching)
+- **Relative Lateral Velocity:** 4.93 m/s (Diverging)
+  
+**Calculations:**
+
+1. **Minimum Distance to Collision (MDC):**
+   - In the longitudinal direction: The distance is 15.51 m. 
+   - In the lateral direction: The distance is 5.31 m. 
+   - MDC is therefore primarily longitudinal since the vehicle is moving to the left laterally.
+   - MDC = 15.51 m, which is outside of any immediate risk category.
+
+2. **Time-to-Collision (TTC):**
+   - **Longitudinal TTC:** 
+     - TTC (longitudinal) = 15.51 m / 7.66 m/s ≈ 2.02 seconds 
+   - **Lateral TTC:** Not directly applicable since the obstacle is moving away.
+   - Longitudinal direction dictates the TTC since the obstacle is converging longitudinally.
+
+**Risk Assessment:**
+- **TTC Analysis:** 
+  - Longitudinal TTC = 2.02 s (Medium Risk, as this is under the 3.0s threshold for medium risk)
+- **MDC Analysis:** 
+  - Longitudinal MDC = 15.51 m (No Risk, since there is ample distance)
+- **Overall Risk Score:** Given that the longitudinal TTC is driving the risk assessment, the overall risk level is Medium Risk (3).
+
+### Conclusion:
+
+For obstacle 30674, the primary concern is its longitudinal approach, with a TTC of about 2.02 seconds falling in the medium risk range. Lateral movement indicates divergence.
+
+```json
+{
+    "MediumRiskObstacle": {
+        "ObstacleID": "30674",
+        "OverallRiskScore": "3"
+    }
+}
+```

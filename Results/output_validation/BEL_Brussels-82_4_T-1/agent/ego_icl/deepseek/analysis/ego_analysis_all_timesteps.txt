@@ -1,0 +1,50 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30231 (Rear-right of ego car at 2.7 seconds)
+- **Adjusted Distance**: Longitudinal -12.11 m, Lateral -0.53 m  
+- **Relative Velocity**: Longitudinal 2.23 m/s (approaching), Lateral 0.63 m/s (approaching from right)  
+- **Trajectory Analysis**:  
+  - The obstacle is consistently moving toward the ego car from behind and laterally from the right.  
+  - Longitudinal distance is decreasing (from -13.85 m to -12.11 m over 0.9 seconds).  
+  - Lateral distance is also decreasing (from 0.00 m to -0.53 m, indicating rightward movement).  
+- **TTC Calculation**:  
+  - Longitudinal TTC = 12.11 / 2.23 ≈ 5.43 seconds (No Risk, TTC > 5.0s)  
+  - Lateral TTC = 0.53 / 0.63 ≈ 0.84 seconds (High Risk, TTC < 1.0s)  
+- **MDC Calculation**:  
+  - The obstacle is diagonally approaching, so we consider the smaller distance (lateral).  
+  - MDC = 0.53 m (High Risk, 0.5 < MDC ≤ 1.0 m)  
+- **Overall Risk**: High Risk (2) due to lateral proximity and closing speed.  
+
+#### Obstacle 30233 (Behind ego car at 2.7 seconds)
+- **Adjusted Distance**: Longitudinal -0.86 m, Lateral 0.00 m  
+- **Relative Velocity**: Longitudinal 3.16 m/s (approaching rapidly), Lateral 0.76 m/s (minor lateral movement)  
+- **Trajectory Analysis**:  
+  - The obstacle is closing in longitudinally at an accelerating rate (from -3.10 m to -0.86 m over 0.9 seconds).  
+  - Lateral alignment is exact (0.00 m), but lateral velocity is minimal.  
+- **TTC Calculation**:  
+  - Longitudinal TTC = 0.86 / 3.16 ≈ 0.27 seconds (Extreme Risk, TTC ≤ 0.5s)  
+  - Lateral TTC = N/A (distance is 0.00 m, but lateral velocity is not significant).  
+- **MDC Calculation**:  
+  - Since the obstacle is directly behind, MDC is the longitudinal distance: 0.86 m (High Risk, 0.5 < MDC ≤ 1.0 m).  
+- **Overall Risk**: Extreme Risk (1) due to extremely short TTC and rapid closing speed.  
+
+### Predicted Collision
+- Obstacle 30233 is on an imminent collision course with the ego vehicle due to its high closing speed and very short TTC (0.27s). If current trends continue, a rear-end collision is likely within the next timestep.  
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30233",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "30233",
+        "OverallRiskScore": "0"
+    }
+}
+```

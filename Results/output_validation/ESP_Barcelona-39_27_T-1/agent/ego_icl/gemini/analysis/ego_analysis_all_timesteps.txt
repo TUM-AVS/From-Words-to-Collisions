@@ -1,0 +1,40 @@
+Obstacle 30805: Located front-right, longitudinal distance decreasing across timesteps (10.53m to 1.64m), lateral distance constant at -8.85m.  The obstacle is moving towards the ego vehicle longitudinally but no lateral movement.
+TTC (longitudinal): 1.64m / 7.23m/s = 0.23s
+MDC: Approx. 1.64m (using longitudinal distance as primary, lateral is constant and larger)
+Risk: 1 (Extreme Risk due to very low TTC)
+
+Obstacle 30807: Located right, initially front-right, longitudinal distance decreases to 0m at 2.6s and remains 0m. Lateral distance constant at -8.89m. Though longitudinal distance becomes 0m, meaning cars are aligned longitudinally, it is not a collision risk as long as the lateral distance is maintained or increases.
+TTC (lateral): Not applicable - lateral velocity near zero.
+MDC: Approx. 8.89m (using lateral distance)
+Risk: 3 (Medium risk due to close proximity but not an imminent collision threat)
+
+
+Obstacle 30808: Located front-right, longitudinal distance decreasing (10.42m to 1.53m), lateral distance constant at -5.35m. Similar trajectory to Obstacle 30805.
+TTC (longitudinal): 1.53m / 7.23m/s = 0.21s
+MDC: Approx. 1.53m (longitudinal as primary, lateral is larger and constant)
+Risk: 1 (Extreme Risk due to very low TTC)
+
+Obstacle 30810: Located front, longitudinal distance decreasing (10.18m to 1.31m), lateral distance 0.00m throughout.  The lateral distance being zero means the vehicles are in the same lane, however the rapidly decreasing longitudinal distance signals a high risk of collision.
+TTC (longitudinal): 1.31m / 7.23m/s = 0.18s
+MDC: Approx. 1.31m (longitudinal as lateral is consistently zero)
+Risk: 1 (Extreme risk due to very low TTC)
+
+JSON Summary:
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30810",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "30810", 
+    "OverallRiskScore": "1"
+  }
+}
+```
+Reasoning for PredictedCollisionObstacle:
+All the obstacles are showing extreme risk. Among them obstacle 30810 is the most dangerous, because it has the lowest longitudinal distance and TTC to the ego car, indicating that the collision is most imminent.  While no collision is registered at the last timestep, based on current trajectories and extremely low TTC values, Obstacle 30810 has the highest likelihood of impacting the ego vehicle imminently. If no evasive action taken in the next timestep, 30810 would likely collide with ego.  As there are multiple obstacles exhibiting Extreme Risk, selecting the obstacle with the lowest TTC as the most imminent is a reasonable selection. 

@@ -1,0 +1,22 @@
+At t=0.9s, the ego vehicle (ID 3101) is at (257.3612, 558.1993) with a velocity of 7.4914 and heading approximately 0.0148 radians.  Let's analyze the risk posed by each obstacle at this timestep:
+
+* **Obstacle 3095:** Position (265.5105, 549.759), Velocity 0.  This obstacle is stationary and located laterally offset from the ego vehicle, and about 8 units behind it in the Y direction.  Given the ego vehicle's current trajectory, there is no immediate risk of collision.  Risk Score: 5
+
+* **Obstacle 3097:** Position (265.5423, 541.9484), Velocity 0.3177. This obstacle is moving slowly and is located laterally offset from the ego vehicle and further behind it in the Y direction than Obstacle 3095. No immediate risk of collision.  Risk Score: 5
+
+* **Obstacle 3098:** Position (262.0388, 540.7894), Velocity 9.5084. This obstacle is moving at a higher speed than the ego vehicle, and located diagonally behind and offset from it. Although moving towards where the ego vehicle has been, it is increasingly further behind and to the side of it. No immediate collision risk. Risk Score: 5
+
+* **Obstacle 3102:** Position (265.578, 533.1923), Velocity 1.1833.  This obstacle is moving slowly and is located laterally offset, and significantly behind in the Y direction from the ego vehicle. No immediate risk of collision. Risk Score: 5
+
+* **Obstacle 3106:** Position (230.6683, 556.7168), Velocity 14.3638.  This obstacle is located significantly behind the ego vehicle in the X direction, but slightly behind it in Y, and is traveling much faster than the ego.  This obstacle represents a potential rear-end collision risk if the ego vehicle were to decelerate rapidly or stop. Although no immediate risk at t=0.9s, at the rate the gap is closing it will need to be monitored over the coming timesteps. Risk Score: 4 (Low Risk)
+
+Given that the ego vehicle has been decelerating over the previous timesteps, obstacle 3106 represents a risk that should be closely monitored.
+
+
+```json
+{
+  "CollisionObstacles": null,
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": null
+}
+```

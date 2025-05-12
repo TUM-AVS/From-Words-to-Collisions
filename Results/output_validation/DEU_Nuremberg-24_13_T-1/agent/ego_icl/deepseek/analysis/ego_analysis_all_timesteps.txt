@@ -1,0 +1,66 @@
+### Obstacle Analysis for Obstacle 30716 (Most Recent Timestep: 8.2 seconds)
+
+#### Trajectory Analysis:
+- **Position Changes (from 7.3s to 8.2s):**
+  - Longitudinal distance decreases from -5.00 m to -0.77 m (approaching from behind).
+  - Lateral distance shifts from 0.00 m to -0.44 m (moving toward the right side of the ego vehicle).
+  - Relative velocity:
+    - Longitudinal: ~4.16 m/s initially, decreasing to ~2.77 m/s (still approaching).
+    - Lateral: Increases from 0.41 m/s to 4.70 m/s (rapid lateral movement toward the ego).
+
+- **Motion Description:**  
+  The obstacle is driving toward the ego car from behind and laterally from the right. The lateral movement is significant, indicating a diagonal approach.
+
+#### Risk Assessment (8.2s):
+- **Adjusted Distances (USE THESE):**
+  - Longitudinal: -0.77 m (behind the ego).
+  - Lateral: -0.44 m (right side of the ego).
+  
+- **Relative Velocities:**
+  - Longitudinal: 2.77 m/s (closing distance).
+  - Lateral: 4.70 m/s (closing distance rapidly).
+
+- **Time-to-Collision (TTC):**
+  - Longitudinal TTC: 0.77 m / 2.77 m/s ≈ 0.28 seconds (Extreme Risk, TTC ≤ 0.5s).
+  - Lateral TTC: 0.44 m / 4.70 m/s ≈ 0.09 seconds (Extreme Risk, TTC ≤ 0.5s).
+  - **Overall TTC:** Dominated by the smaller TTC (lateral: 0.09s).
+
+- **Minimum Distance to Collision (MDC):**
+  - The obstacle is diagonally approaching. The smaller distance is lateral (0.44 m), which is in the High Risk range (0.5 < MDC ≤ 1.0 m).
+  - However, with the rapid lateral velocity, this distance will shrink to near-zero very quickly.
+
+- **Acceleration Trends:**
+  - Longitudinal acceleration is near zero (-0.07 m/s² to 0.02 m/s²), so velocity is roughly constant.
+  - Lateral acceleration is negligible (-0.03 m/s²), so lateral velocity remains high.
+
+#### Risk Score:
+- **TTC indicates Extreme Risk (0.09s).**
+- **MDC indicates High Risk (0.44 m).**
+- **Overall Risk:** Prioritize the higher risk (lower score). Thus, **Extreme Risk (1)**.
+
+#### Collision Prediction:
+- The obstacle is closing rapidly in both longitudinal and lateral dimensions. At the current rates, a collision is imminent within the next 0.1-0.2 seconds (next timestep). Thus, this is a **Predicted Collision Obstacle**.
+
+---
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30716",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "30716",
+        "OverallRiskScore": "0"
+    }
+}
+```
+
+### Notes:
+- No collision has occurred yet (no physical contact at 8.2s), but the obstacle is on an imminent collision course.
+- The Extreme Risk score (1) reflects the immediate danger, and the Predicted Collision score (0) reflects the unavoidable collision in the next timestep unless evasive action is taken.

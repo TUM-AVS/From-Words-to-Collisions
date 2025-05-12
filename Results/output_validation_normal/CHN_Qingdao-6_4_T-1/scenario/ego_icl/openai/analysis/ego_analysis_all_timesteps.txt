@@ -1,0 +1,67 @@
+### Obstacle-by-Obstacle Analysis
+
+#### **Obstacle 30680**
+- **At 0.9 seconds:**
+  - **Relative Direction:** Front-right
+  - **Adjusted Longitudinal Distance:** 18.14 m
+  - **Adjusted Lateral Distance:** -15.21 m
+  - **Relative Longitudinal Velocity:** -2.64 m/s (driving toward ego)
+  - **Relative Lateral Velocity:** -1.45 m/s (moving laterally away)
+  - **Motion Description:** The obstacle is moving toward the ego longitudinally and moving away laterally.
+
+- **Trajectory Analysis:**
+  - The obstacle is gradually decreasing its longitudinal distance to the ego vehicle. However, the lateral distance is increasing slightly, indicating a widening gap to the right.
+
+- **TTC Calculation:**
+  - **Longitudinal TTC =** 18.14 m / |2.64 m/s| ≈ 6.87 seconds
+  - **Lateral TTC =** Not relevant as it's moving away laterally.
+
+- **Minimum Distance to Collision (MDC):** 
+  - Using longitudinal distance primarily due to front-right direction.
+  - **MDC = 18.14 m (longitudinal component)**
+
+- **Risk Assessment:**
+  - **TTC > 5.0 seconds** – No Risk (5)
+  - **MDC > 5.0 meters** – No Risk (5)
+  - Overall Risk Score for Obstacle 30680 is **5** (No Risk).
+
+#### **Obstacle 30686**
+- **At 0.9 seconds:**
+  - **Relative Direction:** Front
+  - **Adjusted Longitudinal Distance:** 2.80 m
+  - **Adjusted Lateral Distance:** 0.00 m
+  - **Relative Longitudinal Velocity:** -2.95 m/s (driving toward ego)
+  - **Relative Lateral Velocity:** -1.13 m/s (minor lateral shift)
+  - **Motion Description:** Exact lateral alignment, moving directly toward the ego.
+
+- **Trajectory Analysis:**
+  - The obstacle is rapidly closing in on the ego from a longitudinal standpoint over consecutive timestamps.
+
+- **TTC Calculation:**
+  - **Longitudinal TTC =** 2.80 m / |2.95 m/s| ≈ 0.95 seconds
+
+- **Minimum Distance to Collision (MDC):**
+  - Using solely longitudinal distance due to direct frontal alignment.
+  - **MDC = 2.80 m (longitudinal component)** 
+
+- **Risk Assessment:**
+  - **TTC < 1.0 seconds** – High Risk (2)
+  - **MDC < 3.0 meters but > 1.0 meters** – Medium Risk (3)
+  - Prioritize higher risk (2 for TTC).
+  - Overall Risk Score for Obstacle 30686 is **2** (High Risk).
+
+### Conclusion
+While obstacle 30680 poses no threat, Obstacle 30686 rapidly approaches directly in front of the ego vehicle, positioning it as a high-risk situation.
+
+This scenario is NOT classified as a collision scenario. Despite a high risk from Obstacle 30686, it does not have a risk score of 0 (collision) or 1 (extreme risk).
+
+### JSON Summary:
+
+```json
+{
+    "CollisionObstacle": null,
+    "ExtremeRiskObstacle": null,
+    "IsCollisionScenario": false,
+    "Justification": "No collision or extreme risk identified. Highest risk score is 2 (High Risk) due to short TTC with Obstacle 30686."
+}
+```

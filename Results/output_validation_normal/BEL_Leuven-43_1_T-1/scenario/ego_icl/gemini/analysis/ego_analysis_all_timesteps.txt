@@ -1,0 +1,40 @@
+Obstacle 30293 Analysis:
+
+Trajectory Analysis: Obstacle 30293 has been consistently behind the ego vehicle across all timesteps. The longitudinal distance is increasing, indicating the obstacle is moving away from the ego vehicle.  The lateral distance remains at 0.00 m, suggesting the obstacle is either directly behind or very close to the ego vehicle's longitudinal axis.
+
+At t=0.9s:
+- Longitudinal distance: -10.63 m
+- Lateral distance: 0.00 m
+- Longitudinal relative velocity: -0.86 m/s (moving away)
+- Lateral relative velocity: -0.55 m/s
+
+TTC Calculation: Since the relative longitudinal velocity is negative (moving away), TTC is not applicable in the longitudinal direction.  Similarly, the negative lateral velocity indicates the obstacle is not approaching the ego vehicle laterally.
+
+MDC Calculation: The minimum distance to collision in this case is the lateral distance of 0.00 m. However, since the obstacle is moving *away* from the ego vehicle both longitudinally and laterally, the MDC of 0.0m does not indicate an immediate collision risk.
+
+Risk Assessment:
+- Longitudinal Risk: 5 (No Risk) - Obstacle is moving away.
+- Lateral Risk: 5 (No Risk) - Although lateral distance is zero, lateral velocity shows divergence.
+
+Overall Risk: 5 (No Risk)
+
+Collision Scenario Determination:
+
+No obstacle shows a risk score of 0 or 1. Therefore, this is NOT a collision scenario.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 or 1. Obstacle 30293 is moving away from the ego vehicle, despite the zero lateral distance."
+}
+```

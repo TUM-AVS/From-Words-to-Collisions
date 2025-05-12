@@ -1,0 +1,66 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 2.9 seconds)
+
+#### **Obstacle 3071 (Rear-left)**
+- **Adjusted Distances**: Longitudinal: -6.85 m, Lateral: 1.88 m  
+- **Relative Velocity**: Longitudinal: -11.37 m/s (moving away), Lateral: -0.01 m/s (slight approach)  
+- **Motion**: Moving away longitudinally, slight lateral approach (negligible).  
+- **TTC**:  
+  - Longitudinal: Not applicable (moving away).  
+  - Lateral: 1.88 / 0.01 = 188 s (negligible risk).  
+- **MDC**: Lateral distance is 1.88 m (Low Risk).  
+- **Risk Assessment**: **5 (Negligible Risk)**.  
+
+#### **Obstacle 3074 (Behind)**
+- **Adjusted Distances**: Longitudinal: -0.70 m, Lateral: 0.00 m  
+- **Relative Velocity**: Longitudinal: 3.54 m/s (approaching), Lateral: 0.00 m/s (aligned).  
+- **Motion**: Approaching from behind with exact lateral alignment.  
+- **TTC**:  
+  - Longitudinal: 0.70 / 3.54 ≈ 0.20 s (Extreme Risk).  
+  - Lateral: Not applicable (aligned).  
+- **MDC**: Longitudinal distance is 0.70 m (Extreme Risk).  
+- **Risk Assessment**: **1 (Extreme Risk)**.  
+
+#### **Obstacle 3075 (Front-left)**
+- **Adjusted Distances**: Longitudinal: 6.61 m, Lateral: 3.26 m  
+- **Relative Velocity**: Longitudinal: -5.87 m/s (approaching), Lateral: -3.35 m/s (approaching).  
+- **Motion**: Approaching diagonally from front-left.  
+- **TTC**:  
+  - Longitudinal: 6.61 / 5.87 ≈ 1.13 s (High Risk).  
+  - Lateral: 3.26 / 3.35 ≈ 0.97 s (High Risk).  
+- **MDC**: Minimum distance is lateral (3.26 m, Low Risk).  
+- **Risk Assessment**: **2 (High Risk)** (prioritize lower TTC).  
+
+#### **Obstacle 3072 (Front-right)**
+- **Not present in the latest timestep (2.9s)**, but was moving away in previous timesteps. **Risk: 5 (Negligible)**.  
+
+---
+
+### **Trajectory Analysis**
+- **Obstacle 3074**: Rapidly closing from behind (longitudinal distance reduced from -3.91 m to -0.70 m in 0.9s). Extreme risk of rear-end collision.  
+- **Obstacle 3075**: Approaching diagonally but decelerating laterally (from -6.52 m/s to -3.35 m/s). Still high risk due to closing speeds.  
+- **Obstacle 3071**: Moving away safely.  
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3074",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "3074",
+        "OverallRiskScore": "1"
+    }
+}
+```
+
+### **Key Findings**
+- **Obstacle 3074** is the most critical (Extreme Risk, **Score 1**) due to rapid rear approach (TTC ≈ 0.20s).  
+- **Obstacle 3075** is High Risk (**Score 2**) but decelerating.  
+- No active collision (**Score 0**) at the current timestep, but **3074 is predicted to collide if unchecked**.

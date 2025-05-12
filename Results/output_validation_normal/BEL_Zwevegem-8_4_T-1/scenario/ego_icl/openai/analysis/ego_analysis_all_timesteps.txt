@@ -1,0 +1,56 @@
+### Obstacle-by-Obstacle Analysis
+
+**Obstacle 312** (Behind):
+- **Position Change & Alignment**: 
+  - Longitudinal distance decreased from -20.08m to -19.57m.
+  - Lateral distance remains 0.00m, indicating exact alignment behind the ego car.
+- **Relative Motion**: 
+  - Longitudinal velocity increased from 0.35 m/s to 0.96 m/s towards ego.
+  - Longitudinal acceleration shows the obstacle is speeding up.
+- **Trajectory Analysis**: 
+  - Although coming from behind, its speed relative to the ego vehicle is low, and the distance change per second is minor.
+- **TTC Calculation**: 
+  - Currently, TTC is high as the distance is quite large (19.57m), and the closing velocity is small.
+- **MDC**: 
+  - Given the increase in speed and alignment, but distance yet large (19.57m), MDC is approximately the same as current longitudinal distance.
+- **Risk Assessment**:
+  - TTC > 5.0s; MDC ≈ 19.57m
+  - **Risk Score**: 5 (No Risk), as no immediate collision threat is posed right now.
+
+**Obstacle 319** (Front):
+- **Position Change & Alignment**: 
+  - Longitudinal distance decreased from 2.57m to 1.97m.
+  - Lateral distance remains 0.00m, indicating exact alignment in front of the ego car.
+- **Relative Motion**: 
+  - Longitudinal velocity substantially negative but decelerating.
+  - It’s moving towards ego with reduced relative velocity over time.
+- **Trajectory Analysis**:
+  - The vehicle is decelerating, reducing its relative speed to the ego vehicle.
+- **TTC Calculation**:
+  - TTC_longitudinal = 1.97m / 0.07m/s = ~28.14s (approach velocity reducing to zero)
+- **MDC**: 
+  - Predict upcoming stop in relative velocity and relative adjustment.
+  - Reduced distance suggests MDC also reducing, approximate close to current distance when stopping.
+- **Risk Assessment**:
+  - Large adjusted longitudinal distance and decreasing impact velocity. The collision is not imminent with current trends unless sudden acceleration takes place.
+  - **Risk Score**: 5 (No Risk), more aligned and reducing speed without collision immediately.
+
+### Conclusion
+Currently, there is no immediate collision scenario with either obstacle, given their relatively larger distances and low or reducing velocities.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "-"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "-"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacles show a risk score of 0 or 1, as the longitudinal distances are reducing but not sufficiently fast to classify as an immediate collision risk."
+}
+```

@@ -1,0 +1,84 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30304 (Front of the ego car)
+
+- **Final Timestamp (4.9 seconds):**
+  - Adjusted Longitudinal Distance: 18.99 m
+  - Adjusted Lateral Distance: 0.00 m
+  - Relative Velocity: Longitudinal -1.50 m/s, Lateral -0.19 m/s
+  - **Motion Description:** Obstacle is driving toward the ego car longitudinally with exact lateral alignment.
+
+- **Trajectory Analysis:**
+  - The obstacle is moving toward the ego car with a consistent reduction in longitudinal distance across timesteps.
+  - Lateral alignment remains at 0.00 m, indicating alignment in the same lane but not a collision.
+
+- **TTC Calculation:**
+  - Longitudinal TTC = 18.99 m / 1.50 m/s = 12.66 seconds
+  - Lateral alignment at 0.0m indicates no significant lateral velocity affecting risk.
+
+- **MDC Calculation:**
+  - Minimum Distance to Collision (MDC): Primarily longitudinal, since lateral = 0 m
+  - Current longitudinal distance safely greater than critical collision distance.
+
+- **Risk Score:** Given TTC > 5.0 seconds and MDC > 5.0 m, risk level is 5 (No Risk).
+
+#### Obstacle 30306 (Behind of the ego car)
+
+- **Final Timestamp (4.9 seconds):**
+  - Adjusted Longitudinal Distance: -0.12 m (indicating behind the ego)
+  - Adjusted Lateral Distance: 0.00 m
+  - Relative Velocity: Longitudinal 2.63 m/s, Lateral 0.18 m/s
+  - **Motion Description:** Obstacle is driving toward the ego car from behind with exact lateral alignment.
+
+- **Trajectory Analysis:**
+  - Obstacle is approaching the ego vehicle rapidly from behind, decreasing distance over time.
+
+- **TTC Calculation:**
+  - Longitudinal TTC = 0.12 m / 2.63 m/s = 0.046 seconds
+  - Very low TTC indicates imminent impact from behind.
+
+- **MDC Calculation:**
+  - The obstacle remains almost at the edge of touching the ego car, with zero lateral separation.
+  
+- **Risk Score:** Extremely low TTC of 0.046 seconds suggests extreme risk, with a risk level of 1 (Extreme Risk).
+- **Conclusion:** Current trajectory and speeds indicate this is an urgent collision risk that needs immediate attention.
+
+#### Obstacle 30307 (Behind of the ego car)
+
+- **Final Timestamp (4.9 seconds):**
+  - Adjusted Longitudinal Distance: -16.39 m
+  - Adjusted Lateral Distance: 0.00 m
+  - Relative Velocity: Longitudinal 3.73 m/s, Lateral 0.31 m/s
+  - **Motion Description:** Obstacle is driving toward the ego car from behind.
+
+- **Trajectory Analysis:**
+  - Continuously approaching ego car from behind at significant speed increase.
+
+- **TTC Calculation:**
+  - Longitudinal TTC = 16.39 m / 3.73 m/s = 4.39 seconds
+  - Longitudinal distance is not immediately threatening, but continues to close.
+
+- **MDC Calculation:**
+  - Current longitudinal separation suggests monitoring but not immediate risk.
+
+- **Risk Score:** Given that the TTC is nearing a potential issue but still above 3.0 seconds, medium level of vigilance needed with a score of 3 (Medium Risk).
+
+### Conclusion: Is this a collision scenario?
+
+Yes, this is identified as a collision scenario primarily due to Obstacle 30306. The extreme risk posed by this obstacle due to the nearly zero and rapidly closing longitudinal distance with a very low TTC indicates an urgent threat that qualifies this as a collision scenario.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30306",
+        "OverallRiskScore": "1"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30306",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30306 is at extreme risk of collision due to immediate and rapidly closing distance from behind with a very low TTC indicating imminent impact."
+}
+```

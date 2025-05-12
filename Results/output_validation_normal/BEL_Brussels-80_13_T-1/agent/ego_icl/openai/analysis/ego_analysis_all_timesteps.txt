@@ -1,0 +1,79 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30217:
+- **Trajectory Analysis:**
+  - At 0.0 seconds, the obstacle was moving away from the ego vehicle.
+  - By 0.2 seconds, it began moving towards the ego vehicle.
+  - By 0.9 seconds, it has consistently moved closer.
+  - Longitudinal distance decreased from -9.16m to -8.58m indicating the obstacle is closing in on the ego vehicle.
+  - Relative velocity in the longitudinal direction increased to 2.08 m/s, meaning it is approaching the ego vehicle faster.
+
+- **TTC Calculation:**
+  - **TTC Longitudinal**: 
+    \[
+    \text{TTC}_\text{long} = \frac{8.58}{2.08} = \text{approximately } 4.12 \text{ seconds}
+    \]
+  - **TTC Lateral** is not significant here due to `0.00m` lateral position and small lateral velocity.
+
+- **MDC Calculation:**
+  - Assuming a steady increase in approach speed, the shortest distance might occur sooner. Ergo, the MDC longitudinal is monitored.
+  - There is no close lateral distance to worry about due to the alignment.
+
+- **Risk Assessment:**
+  - TTC longitudinal is greater than 3 seconds but less than 5 seconds, indicating a **Low Risk**.
+  - The MDC and the decreasing trajectory need consideration, but there isn't an immediate risk.
+
+#### Obstacle 30218:
+- **Trajectory Analysis:**
+  - The obstacle began behind and continued to drive towards the ego vehicle, though at a slower rate.
+  - Longitudinal distance changed from -21.50m to -21.54m without significant impact.
+  - The relative velocity in the longitudinal direction fluctuated and settled at 1.73 m/s toward the ego vehicle.
+
+- **TTC Calculation:**
+  - **TTC Longitudinal**: 
+    \[
+    \text{TTC}_\text{long} = \frac{21.54}{1.73} = \text{approximately } 12.45 \text{ seconds}
+    \]
+  - Lateral velocity and distance are not significant contributors to close collision risk due to full alignment.
+
+- **MDC Calculation:**
+  - Due to small changes in distance and velocity, the trajectory does not suggest a riskier configuration.
+
+- **Risk Assessment:**
+  - TTC significantly above 5 seconds in longitudinal indicates **Negligible Risk**.
+  - Despite the movement toward the ego vehicle and a slightly decreasing trajectory, no indication of convergence within a critical window.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": "5"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": "5"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": "5"
+    },
+    "MediumRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": "5"
+    },
+    "LowRiskObstacle": {
+        "ObstacleID": "30217",
+        "OverallRiskScore": "4"
+    },
+    "NegligibleRiskObstacle": {
+        "ObstacleID": "30218",
+        "OverallRiskScore": "5"
+    }
+}
+```
+
+### Explanation:
+1. **Obstacle 30217** poses a low-level risk. Its trajectory is closing with moderate pace; however, TTC places it in a low-risk zone, warranting vigilance without immediate action.
+2. **Obstacle 30218** maintains a safe buffer with a negligible risk due to extended TTC and no accelerating convergence, precluding critical action.

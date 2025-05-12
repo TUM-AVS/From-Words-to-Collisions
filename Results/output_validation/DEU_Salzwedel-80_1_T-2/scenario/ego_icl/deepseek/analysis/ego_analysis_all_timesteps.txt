@@ -1,0 +1,75 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 13.1s)
+
+---
+
+#### **Obstacle 20016 (Rear-left)**
+- **Adjusted Distance**: Longitudinal -17.53m, Lateral 2.02m  
+- **Relative Velocity**: Longitudinal -4.23 m/s (moving away), Lateral 0.00 m/s  
+- **Motion**: Moving away longitudinally, no lateral motion.  
+- **Risk Assessment**:  
+  - **MDC**: Lateral distance (2.02m) > 5.0m (No Risk). Longitudinal distance increasing (diverging).  
+  - **TTC**: Not applicable (relative velocity negative).  
+  - **Overall Risk**: **5 (No Risk)**  
+
+---
+
+#### **Obstacle 20025 (Rear-left)**
+- **Adjusted Distance**: Longitudinal -8.60m, Lateral 1.90m  
+- **Relative Velocity**: Longitudinal -4.23 m/s (moving away), Lateral 0.00 m/s  
+- **Motion**: Moving away longitudinally, no lateral motion.  
+- **Risk Assessment**:  
+  - **MDC**: Lateral distance (1.90m) > 1.0m (Low Risk). Longitudinal distance increasing.  
+  - **TTC**: Not applicable (diverging).  
+  - **Overall Risk**: **5 (No Risk)**  
+
+---
+
+#### **Obstacle 20029 (Collision)**
+- **Adjusted Distance**: Longitudinal 0.00m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 4.41 m/s (approaching), Lateral -0.00 m/s  
+- **Motion**: Exact longitudinal and lateral alignment (collision occurring).  
+- **Risk Assessment**:  
+  - **MDC**: 0.00m (Collision).  
+  - **TTC**: 0.00s (Collision).  
+  - **Overall Risk**: **0 (Collision)**  
+
+---
+
+#### **Obstacle 20031 (Rear-left)**
+- **Adjusted Distance**: Longitudinal -1.61m, Lateral 1.89m  
+- **Relative Velocity**: Longitudinal -4.30 m/s (moving away), Lateral 0.00 m/s  
+- **Motion**: Moving away longitudinally and laterally.  
+- **Risk Assessment**:  
+  - **MDC**: Lateral distance (1.89m) > 1.0m (Low Risk). Longitudinal distance increasing.  
+  - **TTC**: Not applicable (diverging).  
+  - **Overall Risk**: **5 (No Risk)**  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 20029**:  
+  - From 12.2s to 13.1s, longitudinal distance decreased from -4.82m to 0.00m with consistent closing velocity (~4.3 m/s).  
+  - Lateral distance remained 0.00m (exact alignment).  
+  - **Collision confirmed at 13.0s and 13.1s** (both dimensions = 0.00m).  
+
+- Other obstacles (20016, 20025, 20031) are moving away with no convergence.  
+
+---
+
+### Final Determination
+This is a **collision scenario** because **Obstacle 20029** has a collision risk score of 0 (actual collision occurring at 13.1s).  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20029",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": null,
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 20029 has both longitudinal and lateral distances at 0.00m with a closing velocity, confirming an actual collision at the most recent timestep (13.1s)."
+}
+```

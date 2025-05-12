@@ -1,0 +1,73 @@
+### Obstacle Analysis
+
+#### Recent Timestep Analysis (8.1 seconds)
+
+---
+
+### Obstacle 3044 Analysis:
+
+**Trajectory Assessment**:
+- **Longitudinal Distance**: Adjusted longitudinal distance at 8.1 seconds is -0.43 meters.
+- **Relative Velocity**: Longitudinal velocity is 0.94 m/s indicating the obstacle is closing in on the ego vehicle due to the ego vehicle being positioned longitudinally at 0.00 meters.
+- **Movement Pattern**: The trajectory data shows a consistent decrease in distance, as Obstacle 3044 advances towards the ego vehicle.
+
+**Calculations**:
+- **TTC (Time to Collision) Calculation**:
+  - TTC = |Distance| / Relative Velocity
+  - TTC = 0.43 / 0.94 ≈ 0.46 seconds
+- **MDC (Minimum Distance to Collision) Calculation**:
+  - Since the lateral distance is 0.00 meters and longitudinal distance is -0.43 meters, the MDC is below 0.50 meters.
+
+**Risk Assessment**:
+- **TTC** indicates an Extreme Risk due to being less than 0.5 seconds.
+- **MDC** indicates an Extreme Risk for being less than 0.5 meters.
+
+**Final Risk Score**: 1 (Extreme Risk)
+
+---
+
+### Obstacle 3045 Analysis:
+
+**Trajectory Assessment**:
+- **Longitudinal Distance**: Adjusted longitudinal distance at 8.1 seconds is -15.89 meters.
+- **Relative Velocity**: Longitudinal velocity is 0.94 m/s indicating a closing trajectory but over a longer distance.
+- **Movement Pattern**: Consistent trajectory towards the ego vehicle, but at a slower pace compared to Obstacle 3044.
+
+**Calculations**:
+- **TTC (Time to Collision) Calculation**:
+  - TTC = |Distance| / Relative Velocity
+  - TTC = 15.89 / 0.94 ≈ 16.91 seconds
+- **MDC (Minimum Distance to Collision) Calculation**:
+  - The minimum distance remains above 5.0 meters owing to the steady trajectory and sufficient closing time.
+
+**Risk Assessment**:
+- **TTC** indicates Negligible Risk as it is well beyond 5 seconds.
+- **MDC** also indicates a Negligible Risk being above 5.0 meters.
+
+**Final Risk Score**: 5 (Negligible Risk)
+
+---
+
+### JSON Summary:
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3044",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }  
+}
+```
+
+### Observations:
+- Obstacle 3044 poses an Extreme Risk due to imminence of collision as calculated by a low MDC and low TTC less than 0.5 seconds, indicating an urgent need for evasive action or adaptation by the ego vehicle. This vehicle is approaching rapidly from behind and closing in on the ego vehicle very closely in the same lane.
+
+- Obstacle 3045, while also on an approach trajectory, poses negligible risk given the significantly greater distance and sufficient TTC, allowing ample time for corrective actions if needed.

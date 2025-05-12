@@ -1,0 +1,36 @@
+### Analysis:
+
+1. **Obstacle 20058.0**:
+   - **Position**: (144.8894, -98.2687) (stationary)
+   - **Distance to Ego**: ~26.0m (longitudinal), ~0.61m (lateral)
+   - **TTC**: Infinite (stationary obstacle, ego moving away)
+   - **Risk**: **Negligible (5)** - Ego is moving away, no immediate danger.
+
+2. **Obstacle 20060.0**:
+   - **Position**: (152.5761, -100.9956)
+   - **Distance to Ego**: ~17.67m (longitudinal), ~3.32m (lateral)
+   - **Relative Velocity**: Ego (2.0633 m/s), Obstacle (1.4912 m/s) → Closing slowly.
+   - **TTC**: ~17.67 / (2.0633 - 1.4912) ≈ 30.9s (very high)
+   - **Risk**: **Low (4)** - Lateral distance is significant, closing speed is low.
+
+3. **Obstacle 20064.0**:
+   - **Position**: (174.3218, -95.8714)
+   - **Distance to Ego**: ~4.08m (longitudinal), ~2.81m (lateral)
+   - **Relative Velocity**: Ego (2.0633 m/s), Obstacle (5.3811 m/s) → Approaching fast.
+   - **TTC**: ~4.08 / (5.3811 - 2.0633) ≈ 1.23s (critical)
+   - **Risk**: **Extreme (1)** - High closing speed, small lateral distance, and TTC < 2s.
+
+### JSON Output:
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20064.0",
+        "OverallRiskScore": 1
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```

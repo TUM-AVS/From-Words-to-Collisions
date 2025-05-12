@@ -1,0 +1,45 @@
+Obstacle 30739:
+
+* Trajectory Analysis: This obstacle has been consistently in the front-right of the ego vehicle across all observed timesteps.  Both longitudinal and lateral distances initially decreased but then increased. The lateral distance and the longitudinal distance are decreasing. The obstacle is moving away laterally to the right but towards the ego car longitudinally, The lateral motion slightly reduces the risk.
+
+* At 0.9 seconds:
+    * Longitudinal distance: 4.91 m
+    * Lateral distance: -2.79 m
+    * Longitudinal relative velocity: -0.41 m/s (approaching)
+    * Lateral relative velocity: -3.81 m/s (moving away)
+
+* TTC Calculation:
+    * Longitudinal TTC = 4.91 m / 0.41 m/s = 12.0 s (Not applicable if negative)
+    * Lateral TTC = 2.79 / 3.81 = 0.73s
+
+* MDC Calculation: Since the obstacle is primarily in front, but slightly to the right, we'll focus on the longitudinal distance, which is 4.91m. Because the lateral distance is much less than this we will consider it for MDC as well. The MDC would be close to the lateral distance of 2.79m considering the obstacle's trajectory.
+
+* Risk Assessment:
+    * Longitudinal distance suggests low risk (4).
+    * Lateral distance suggests medium risk (3).
+    * Longitudinal TTC suggests no risk (5).
+    * Lateral TTC suggests a medium risk(3).
+    * Overall Risk: Considering the MDC and the lateral TTC, the overall risk is assessed as Medium (3).
+
+Final JSON Summary:
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "HighRiskObstacle": {
+      "ObstacleID": null,
+      "OverallRiskScore": null
+  },
+    "MediumRiskObstacle": {
+      "ObstacleID": "30739",
+      "OverallRiskScore": "3"
+  }
+
+}
+```

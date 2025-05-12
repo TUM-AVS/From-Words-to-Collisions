@@ -1,0 +1,65 @@
+### Safety analysis for the most recent timestep (0.4 seconds):
+
+### Obstacle Analysis:
+1. **Obstacle ID: 20039.0**
+   - **Distance Risk reason**: Static obstacle in the same lanelet (117.0) as ego. Distance is decreasing as ego approaches (~3.67m at 0.4s).
+   - **Distance safety score**: 1 (Extreme Risk)
+   - **Time Risk reason**: Ego is decelerating but still closing distance. TTC is low (~0.63s).
+   - **Time safety score**: 1 (Extreme Risk)
+   - **Overall Risk score**: 1 (Extreme Risk)
+
+2. **Obstacle ID: 20044.0**
+   - **Distance Risk reason**: Far from ego (~56.17m) and moving away (different lanelet).
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: Moving away with deceleration.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5 (Negligible Risk)
+
+3. **Obstacle ID: 20045.0**
+   - **Distance Risk reason**: Far from ego (~70.56m) and in a different lanelet.
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: Nearly stationary.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5 (Negligible Risk)
+
+4. **Obstacle ID: 20047.0**
+   - **Distance Risk reason**: Far from ego (~77.33m) and in a different lanelet.
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: Stationary.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5 (Negligible Risk)
+
+5. **Obstacle ID: 20048.0**
+   - **Distance Risk reason**: Far from ego (~80.26m) and in a different lanelet.
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: Stationary.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5 (Negligible Risk)
+
+6. **Obstacle ID: 20050.0**
+   - **Distance Risk reason**: Far from ego (~16.74m) and moving perpendicular to ego's path.
+   - **Distance safety score**: 4 (Low Risk)
+   - **Time Risk reason**: High speed but not on a collision course.
+   - **Time safety score**: 4 (Low Risk)
+   - **Overall Risk score**: 4 (Low Risk)
+
+### Chain of Thought Scenario Analysis:
+1. Ego is decelerating but approaching static obstacle 20039.0 in the same lanelet.
+2. Distance to 20039.0 is closing rapidly (~3.67m at 0.4s) with low TTC (~0.63s).
+3. Other obstacles are either far away or not on a collision path.
+4. No actual collision has occurred yet, but extreme risk of collision with 20039.0 is imminent.
+
+### Summary in JSON Format:
+```json
+{
+    "CollisionObstacles": null,
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20039.0",
+        "OverallRiskScore": 1
+    },
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "No collision has occurred yet, but obstacle 20039.0 presents extreme risk (score 1) as ego is rapidly approaching it in the same lanelet with low TTC (~0.63s). All other obstacles are either far away or not on a collision path."
+    }
+}
+```

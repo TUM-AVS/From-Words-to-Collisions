@@ -1,0 +1,103 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30623 (Front)
+
+- **Adjusted Distances**: Longitudinal = 16.71m, Lateral = 0.00m
+- **Relative Velocity**: Longitudinal = -3.45 m/s, Lateral = 0.00 m/s
+- **Relative Acceleration**: Both components near zero.
+
+Trajectory Analysis:
+- Observed consistent decrease in longitudinal distance over the last few timesteps, indicating a closing gap.
+- Lateral distance is 0.00m, but with no decrease indicating alignment without immediate collision risk.
+  
+TTC Calculation:
+- \( \text{TTC}_{long} = \frac{16.71}{3.45} \approx 4.84 \, \text{seconds} \)
+
+Risk Assessment:
+- **MDC**: Since lateral distance is stable at 0.00m, focus on longitudinal distance.
+- **TTC**: \( \approx 4.84 \, \text{seconds} \)) suggests low risk as it's greater than 3.0s.
+
+Overall Risk: Low Risk (4)
+
+---
+
+#### Obstacle 30625 (Left)
+
+- **Adjusted Distances**: Longitudinal = 0.00m, Lateral = 1.95m
+- **Relative Velocity**: Longitudinal = -11.93 m/s, Lateral = 0.13 m/s
+
+Trajectory Analysis:
+- Obstacle is on the left of the ego with a side-by-side alignment longitudinally.
+- Lateral distance decreasing across timesteps.
+  
+TTC Calculation:
+- Longitudinal alignment here indicates no risk there.
+- Lateral movement away suggests relative safety on lateral evaluation.
+
+Risk Assessment:
+- **MDC**: Surrounding trajectories imply unlikely convergence to below 1m rapidly.
+- **TTC for lateral**: Not a closing situation; movement away.
+
+Overall Risk: Medium Risk (3) due to alignment coupled with lateral distance.
+
+---
+
+#### Obstacle 30626 (Front-Left)
+
+- **Adjusted Distances**: Longitudinal = 10.03m, Lateral = 1.83m
+- **Relative Velocity**: Longitudinal = -11.84 m/s, Lateral = 0.01 m/s
+
+Trajectory Analysis:
+- Consistent closing in both dimensions with longitudinal reduction clearly observed.
+  
+TTC Calculation:
+- \( \text{TTC}_{long} = \frac{10.03}{11.84} \approx 0.85 \, \text{seconds} \)
+
+Risk Assessment:
+- **MDC**: Progressive decrease implies potential intersection soon.
+- **TTC**: \( \approx 0.85 \, \text{seconds} \) is indicative of high risk.
+
+Overall Risk: High Risk (2)
+
+---
+
+#### Obstacle 30628 (Behind)
+
+- **Adjusted Distances**: Longitudinal = -0.18m, Lateral = 0.00m
+- **Relative Velocity**: Longitudinal = 2.68 m/s, Lateral = -0.15 m/s
+
+Trajectory Analysis:
+- Obstacle is concluding to be overtaking from behind.
+  
+TTC Calculation:
+- Given forward position change beyond negative threshold, now more of passing behavior.
+
+Risk Assessment:
+- No immediate collision in the immediate future since distance continues to increase, but significant proximity.
+
+Overall Risk: Medium Risk (3) for monitoring due to close proximity but diverging path.
+
+---
+
+### Conclusion of Analysis
+
+This scenario contains multiple obstacles, notably Obstacle 30626, presenting a risk factor with a TTC that puts the obstacle in High Risk of collision. 
+
+Given the high score combination and approximately closing trajectory with low TTC, **this is not an immediate collision scenario**, but sustained high vigilance is advised for Obstacle 30626.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30626",
+        "OverallRiskScore": "2"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30626 represents a high risk due to converging trajectory and very short TTC but not extreme risk or collision at this moment."
+}
+```

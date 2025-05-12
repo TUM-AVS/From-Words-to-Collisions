@@ -1,0 +1,142 @@
+### Safety Analysis for the Most Recent Timestep (3.8 seconds):
+
+### Obstacle Analysis:
+1. **Obstacle ID: 30664.0**
+   - **Distance Risk reason**: Moving away from ego (X-coordinate decreasing, Y-coordinate stable).
+   - **Distance safety score**: 4 (Low Risk)
+   - **Time Risk reason**: High velocity but diverging trajectory.
+   - **Time safety score**: 4 (Low Risk)
+   - **Overall Risk score**: 4
+
+2. **Obstacle ID: 30665.0**
+   - **Distance Risk reason**: Moving parallel to ego but at a safe lateral distance.
+   - **Distance safety score**: 4 (Low Risk)
+   - **Time Risk reason**: High velocity but no convergence.
+   - **Time safety score**: 4 (Low Risk)
+   - **Overall Risk score**: 4
+
+3. **Obstacle ID: 30666.0**
+   - **Distance Risk reason**: Close to ego (X: 276.64, Y: -182.74 vs ego X: 278.97, Y: -184.68).
+   - **Distance safety score**: 2 (High Risk)
+   - **Time Risk reason**: Low relative velocity but minimal separation.
+   - **Time safety score**: 2 (High Risk)
+   - **Overall Risk score**: 2
+
+4. **Obstacle ID: 30667.0**
+   - **Distance Risk reason**: Very close (X: 276.68, Y: -174.28) and decelerating.
+   - **Distance safety score**: 1 (Extreme Risk)
+   - **Time Risk reason**: Low velocity but critically close.
+   - **Time safety score**: 1 (Extreme Risk)
+   - **Overall Risk score**: 1
+
+5. **Obstacle ID: 30668.0**
+   - **Distance Risk reason**: Static obstacle at (273.15, -194.60), safe lateral distance.
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: Zero velocity.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5
+
+6. **Obstacle ID: 30669.0**
+   - **Distance Risk reason**: Moving away (X: 305.02, Y: -155.31).
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: High velocity but diverging.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5
+
+7. **Obstacle ID: 30670.0**
+   - **Distance Risk reason**: Close (X: 284.60, Y: -166.21) but diverging.
+   - **Distance safety score**: 3 (Medium Risk)
+   - **Time Risk reason**: Decelerating and lateral separation increasing.
+   - **Time safety score**: 3 (Medium Risk)
+   - **Overall Risk score**: 3
+
+8. **Obstacle ID: 30671.0**
+   - **Distance Risk reason**: Safe distance (X: 292.94, Y: -157.68).
+   - **Distance safety score**: 4 (Low Risk)
+   - **Time Risk reason**: Low relative velocity.
+   - **Time safety score**: 4 (Low Risk)
+   - **Overall Risk score**: 4
+
+9. **Obstacle ID: 30672.0**
+   - **Distance Risk reason**: Far away (X: 223.72, Y: -240.46).
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: High velocity but diverging.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5
+
+10. **Obstacle ID: 30674.0**
+    - **Distance Risk reason**: Safe distance (X: 301.33, Y: -148.98).
+    - **Distance safety score**: 5 (Negligible Risk)
+    - **Time Risk reason**: Low velocity.
+    - **Time safety score**: 5 (Negligible Risk)
+    - **Overall Risk score**: 5
+
+11. **Obstacle ID: 30675.0**
+    - **Distance Risk reason**: Safe distance (X: 266.57, Y: -201.40).
+    - **Distance safety score**: 4 (Low Risk)
+    - **Time Risk reason**: Low velocity.
+    - **Time safety score**: 4 (Low Risk)
+    - **Overall Risk score**: 4
+
+12. **Obstacle ID: 30676.0**
+    - **Distance Risk reason**: Safe distance (X: 256.16, Y: -212.15).
+    - **Distance safety score**: 4 (Low Risk)
+    - **Time Risk reason**: Decelerating.
+    - **Time safety score**: 4 (Low Risk)
+    - **Overall Risk score**: 4
+
+13. **Obstacle ID: 30677.0**
+    - **Distance Risk reason**: Safe distance (X: 263.62, Y: -199.41).
+    - **Distance safety score**: 4 (Low Risk)
+    - **Time Risk reason**: Decelerating.
+    - **Time safety score**: 4 (Low Risk)
+    - **Overall Risk score**: 4
+
+14. **Obstacle ID: 30678.0**
+    - **Distance Risk reason**: Far away (X: 208.25, Y: -262.04).
+    - **Distance safety score**: 5 (Negligible Risk)
+    - **Time Risk reason**: High velocity but diverging.
+    - **Time safety score**: 5 (Negligible Risk)
+    - **Overall Risk score**: 5
+
+15. **Obstacle ID: 30679.0**
+    - **Distance Risk reason**: Safe distance (X: 309.45, Y: -140.25).
+    - **Distance safety score**: 5 (Negligible Risk)
+    - **Time Risk reason**: Low velocity.
+    - **Time safety score**: 5 (Negligible Risk)
+    - **Overall Risk score**: 5
+
+16. **Obstacle ID: 30680.0**
+    - **Distance Risk reason**: Far away (X: 193.84, Y: -272.62).
+    - **Distance safety score**: 5 (Negligible Risk)
+    - **Time Risk reason**: High velocity but diverging.
+    - **Time safety score**: 5 (Negligible Risk)
+    - **Overall Risk score**: 5
+
+17. **Obstacle ID: 30681.0**
+    - **Distance Risk reason**: Safe distance (X: 251.74, Y: -211.68).
+    - **Distance safety score**: 4 (Low Risk)
+    - **Time Risk reason**: Decelerating.
+    - **Time safety score**: 4 (Low Risk)
+    - **Overall Risk score**: 4
+
+### Chain of Thought Scenario Analysis:
+1. **Obstacle 30667.0** is critically close to the ego vehicle (X: 276.68 vs ego X: 278.97) and decelerating rapidly (acceleration: -5.336). This poses an extreme risk (score 1).
+2. **Obstacle 30666.0** is also close but has a safer lateral separation and stable velocity.
+3. No obstacles are in direct collision (score 0) at this timestep.
+4. All other obstacles are at safe distances or moving away.
+
+### Summary in JSON Format:
+```json
+{
+    "CollisionObstacles": null,
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30667.0",
+        "OverallRiskScore": 1
+    },
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "No collision (score 0) obstacles. Obstacle 30667.0 is extreme risk (score 1) due to proximity and deceleration."
+    }
+}
+```

@@ -1,0 +1,62 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30374 (Front of ego car)
+- **Most Recent Timestep (3.5s):**
+  - Adjusted longitudinal distance: 0.46 m (raw: 0.46 m)
+  - Adjusted lateral distance: 0.00 m (raw: 0.00 m)
+  - Relative velocity: longitudinal -1.26 m/s (approaching), lateral 0.00 m/s
+  - Motion: Exact lateral alignment, driving toward ego longitudinally
+  - **Trajectory Analysis:**
+    - Longitudinal distance decreases from 2.92 m (2.6s) to 0.46 m (3.5s)
+    - Lateral distance remains 0.00 m (same lane)
+    - Closing speed is decreasing slightly but still significant
+  - **TTC Calculation:**
+    - TTC = 0.46 m / 1.26 m/s ≈ 0.365 seconds (Extreme Risk, TTC ≤ 0.5s)
+  - **MDC Calculation:**
+    - MDC = 0.46 m (Extreme Risk, MDC ≤ 0.5m)
+  - **Risk Assessment:**
+    - Both TTC and MDC indicate Extreme Risk (1)
+    - Collision is imminent if no evasive action is taken
+
+#### Obstacle 30378 (Front-left of ego car)
+- **Most Recent Timestep (3.5s):**
+  - Adjusted longitudinal distance: 8.90 m (raw: 8.90 m)
+  - Adjusted lateral distance: 12.30 m (raw: 12.30 m)
+  - Relative velocity: longitudinal -1.27 m/s (approaching), lateral -3.24 m/s (approaching)
+  - Motion: Driving toward ego both longitudinally and laterally
+  - **Trajectory Analysis:**
+    - Longitudinal distance decreases from 11.32 m (2.6s) to 8.90 m (3.5s)
+    - Lateral distance decreases from 17.30 m (2.6s) to 12.30 m (3.5s)
+    - Closing speeds are moderate but consistent
+  - **TTC Calculation:**
+    - Longitudinal TTC = 8.90 m / 1.27 m/s ≈ 7.01 seconds (No Risk, TTC > 5.0s)
+    - Lateral TTC = 12.30 m / 3.24 m/s ≈ 3.80 seconds (Low Risk, 3.0 < TTC ≤ 5.0s)
+    - Overall TTC is dominated by lateral component (Low Risk)
+  - **MDC Calculation:**
+    - MDC is the smaller of the two distances: 8.90 m (No Risk, MDC > 5.0m)
+  - **Risk Assessment:**
+    - Overall risk is Low (4) based on TTC and MDC
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30374",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "30374",
+        "OverallRiskScore": "0"
+    }
+}
+```
+
+### Reasoning:
+- **Obstacle 30374** is at Extreme Risk (1) due to very small longitudinal distance (0.46 m) and short TTC (0.365 s). If current trends continue, it will soon become a collision (Risk 0).
+- **Obstacle 30378** is at Low Risk (4) due to larger distances and longer TTCs.
+- No collision has occurred yet, but Obstacle 30374 is predicted to collide if no action is taken.

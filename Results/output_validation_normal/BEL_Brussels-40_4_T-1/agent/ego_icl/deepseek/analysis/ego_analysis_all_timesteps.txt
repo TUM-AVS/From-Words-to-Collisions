@@ -1,0 +1,64 @@
+Let me analyze each obstacle at the most recent timestep (0.9 seconds) with trajectory context:
+
+1. Obstacle 30194 (Front-left):
+   - Adjusted distances: longitudinal 21.92m, lateral 11.97m
+   - Relative velocity: longitudinal -6.27m/s (approaching), lateral 7.77m/s (moving away)
+   - Motion: Moving toward longitudinally but away laterally
+   - TTC (longitudinal): 21.92/6.27 = 3.50s (Medium Risk)
+   - MDC: Lateral distance increasing → No collision path
+   - Overall Risk: 3 (Medium)
+
+2. Obstacle 30198 (Front-left):
+   - Adjusted distances: longitudinal 5.72m, lateral 4.37m
+   - Relative velocity: longitudinal -5.34m/s (approaching), lateral 0.00m/s
+   - Motion: Directly approaching longitudinally, stable laterally
+   - TTC (longitudinal): 5.72/5.34 = 1.07s (High Risk)
+   - MDC: Lateral distance stable at 4.37m (Low Risk)
+   - Overall Risk: 2 (High)
+
+3. Obstacle 30199 (Front-left):
+   - Adjusted distances: longitudinal 4.84m, lateral 15.56m
+   - Relative velocity: longitudinal -5.14m/s (approaching), lateral -2.87m/s (approaching)
+   - Motion: Approaching from diagonal front-left
+   - TTC (longitudinal): 4.84/5.14 = 0.94s (High Risk)
+   - TTC (lateral): 15.56/2.87 = 5.42s (No Risk)
+   - MDC: Lateral distance large but closing → Medium Risk
+   - Overall Risk: 2 (High)
+
+4. Obstacle 30201 (Front):
+   - Adjusted distances: longitudinal 13.85m, lateral 0.00m
+   - Relative velocity: longitudinal -0.59m/s (approaching), lateral -0.79m/s
+   - Motion: Same lane, slowly approaching
+   - TTC (longitudinal): 13.85/0.59 = 23.47s (No Risk)
+   - MDC: Lateral alignment but slow approach → Low Risk
+   - Overall Risk: 4 (Low)
+
+5. Obstacle 30202 (Behind):
+   - Adjusted distances: longitudinal -13.35m, lateral 0.00m
+   - Relative velocity: longitudinal 2.58m/s (approaching), lateral -0.01m/s
+   - Motion: Same lane, approaching from rear
+   - TTC (longitudinal): 13.35/2.58 = 5.17s (No Risk)
+   - MDC: Lateral alignment but slow approach → Low Risk
+   - Overall Risk: 4 (Low)
+
+JSON Summary:
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": ["30198", "30199"],
+        "OverallRiskScore": "2"
+    }
+}
+
+Key Findings:
+- No collisions or extreme risks detected
+- Two high-risk obstacles (30198 and 30199) approaching from front-left
+- Other obstacles present minimal risk
+- Highest immediate concern is Obstacle 30198 with 1.07s TTC longitudinally at 5.72m distance

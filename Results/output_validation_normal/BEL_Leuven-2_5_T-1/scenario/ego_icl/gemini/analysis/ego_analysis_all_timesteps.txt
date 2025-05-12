@@ -1,0 +1,46 @@
+* **Obstacle 30290:** This obstacle is in the front-left of the ego vehicle.  Across the timesteps, it has been consistently approaching the ego vehicle longitudinally, while maintaining a lateral distance of around 4.27m. At the last timestep (0.9s), the longitudinal distance is 17.64m. The relative longitudinal velocity is -9.62 m/s (approaching).  There is no lateral relative motion.
+
+    * **TTC (longitudinal):** 17.64m / 9.62 m/s = 1.83s
+    * **MDC:** Approximately 4.27m (lateral distance)
+    * **Risk Assessment:** Medium risk (TTC < 3s, MDC < 5m)
+
+* **Obstacle 30291:** This obstacle is also in the front-left, but further out laterally.  It is approaching longitudinally and slightly laterally.  At the last timestep (0.9s), the longitudinal distance is 17.54m and the lateral distance is 12.06m. The relative longitudinal velocity is -9.62 m/s and the lateral velocity is -0.30 m/s.
+
+    * **TTC (longitudinal):** 17.54m / 9.62 m/s = 1.82s
+    * **TTC (lateral):** 12.06m / 0.30 m/s = 40.2s (not a concern given the large distance and slow closing speed).
+    * **MDC:**  Approximately 12.06 m (lateral distance)
+    * **Risk Assessment:** Medium risk (TTC < 3s)
+
+* **Obstacle 30294:** This obstacle is rear-right, and its longitudinal distance is increasing (moving away) while lateral distance is decreasing (getting closer). It passed the ego vehicle longitudinally sometime between 0.2 and 0.3 seconds. At 0.9s the longitudinal distance is -6.27m, lateral is -3.66m. The lateral velocity is 1.04 m/s (approaching ego).
+
+    * **TTC (lateral):** 3.66m / 1.04 m/s = 3.52s
+    * **MDC:** 3.66m
+    * **Risk Assessment:** Medium Risk (TTC < 5s, MDC < 5m)
+
+* **Obstacle 30295:**  Similar to 30294, this obstacle is also rear-right and moving away longitudinally, but approaching laterally. At 0.9s, it is -8.01m longitudinally and -13.83m laterally. The lateral velocity is 2.44 m/s towards the ego vehicle.
+
+    * **TTC (lateral):** 13.83m / 2.44 m/s = 5.67s
+    * **MDC:** 13.83m
+    * **Risk Assessment:** Low Risk (TTC > 5s)
+
+* **Obstacle 30296:**  This obstacle is in front of the ego vehicle, moving away longitudinally. The lateral distance is consistently zero, indicating perfect lateral alignment.  At 0.9s, the longitudinal distance is 12.54m and longitudinal velocity is 0.14m/s (away).
+
+    * **TTC (longitudinal):** Not applicable in a practical sense as the obstacle is moving away longitudinally.
+    * **MDC:** Not applicable given current trajectory. 
+    * **Risk Assessment:** No risk. The exact lateral alignment is not a concern since it's moving away longitudinally.
+
+
+
+**Collision Scenario Determination:**  No, this is not a collision scenario.  No obstacle has a risk score of 0 or 1.
+
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 (collision) or 1 (extreme risk). The highest risk level present is Medium Risk."
+}
+```

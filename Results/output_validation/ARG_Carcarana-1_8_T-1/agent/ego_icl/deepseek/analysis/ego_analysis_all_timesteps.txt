@@ -1,0 +1,64 @@
+Let me analyze each obstacle at the most recent timestep (2.9 seconds) with trajectory context:
+
+1. Obstacle 341 (Behind):
+   - Current: longitudinal -1.58m (closing at 6.53m/s), lateral 0.00m (closing at 1.74m/s)
+   - Trajectory: Rapidly approaching from directly behind (lateral alignment)
+   - TTC_long: 1.58/6.53 = 0.24s (Extreme Risk)
+   - TTC_lat: 0.00/1.74 = 0s (Collision Risk)
+   - MDC: 0m (direct rear impact imminent)
+   - Risk: 0 (Collision)
+
+2. Obstacle 357 (Left):
+   - Current: longitudinal 0.00m (closing at -4.99m/s), lateral 2.53m (moving away at 0.13m/s)
+   - Trajectory: Side-swiping left side but moving away laterally
+   - TTC_long: Not applicable (already aligned)
+   - TTC_lat: Not applicable (diverging)
+   - MDC: 2.53m (safe lateral distance)
+   - Risk: 5 (No Risk)
+
+3. Obstacle 360 (Rear-right):
+   - Current: longitudinal -13.38m (closing at 4.41m/s), lateral -0.95m (closing at 1.32m/s)
+   - Trajectory: Approaching from rear-right but still distant
+   - TTC_long: 13.38/4.41 = 3.03s (Medium Risk)
+   - TTC_lat: 0.95/1.32 = 0.72s (High Risk)
+   - MDC: 0.95m (High Risk)
+   - Risk: 2 (High Risk)
+
+4. Obstacle 3104 (Front-right):
+   - Current: longitudinal 13.68m (closing at -0.35m/s), lateral -20.96m (moving away at 8.90m/s)
+   - Trajectory: Moving diagonally away
+   - TTC: Not applicable (diverging in both dimensions)
+   - MDC: >5m in both dimensions
+   - Risk: 5 (No Risk)
+
+5. Obstacle 3111 (Front-left):
+   - Current: longitudinal 15.50m (closing at -11.13m/s), lateral 6.97m (closing at -1.79m/s)
+   - Trajectory: Approaching diagonally but still distant
+   - TTC_long: 15.50/11.13 = 1.39s (Medium Risk)
+   - TTC_lat: 6.97/1.79 = 3.89s (Low Risk)
+   - MDC: 6.97m (Low Risk)
+   - Risk: 3 (Medium Risk)
+
+JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "341",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "341",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "341",
+        "OverallRiskScore": "0"
+    }
+}
+```
+
+Key Findings:
+- Obstacle 341 is in imminent collision (0.24s TTC) from directly behind with 0m lateral offset
+- No other obstacles pose immediate collision threat
+- Obstacle 360 shows high risk but is still >1s away
+- All other obstacles are at medium or lower risk levels

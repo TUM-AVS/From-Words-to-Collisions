@@ -1,0 +1,81 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+---
+
+#### **Obstacle 30238 (Front-left)**
+- **Position**: Longitudinal 20.19m, Lateral 3.38m  
+- **Relative Velocity**: Longitudinal -9.37 m/s (approaching), Lateral 0.03 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally, moving away laterally.  
+- **TTC Longitudinal**: 20.19 / 9.37 ≈ 2.15s (Medium Risk)  
+- **TTC Lateral**: N/A (moving away)  
+- **MDC**: Lateral distance (3.38m) is stable/increasing → Low Risk (4)  
+- **Overall Risk**: Medium (3)  
+
+---
+
+#### **Obstacle 30241 (Left)**
+- **Position**: Longitudinal 0.00m (aligned), Lateral 1.92m  
+- **Relative Velocity**: Longitudinal -4.56 m/s (moving away), Lateral 0.02 m/s (moving away)  
+- **Motion**: Exact longitudinal alignment but moving away laterally.  
+- **TTC Longitudinal**: N/A (moving away)  
+- **TTC Lateral**: N/A (moving away)  
+- **MDC**: Lateral distance (1.92m) is stable/increasing → Medium Risk (3)  
+- **Overall Risk**: Medium (3)  
+
+---
+
+#### **Obstacle 30242 (Front)**
+- **Position**: Longitudinal 16.75m, Lateral 0.00m (aligned)  
+- **Relative Velocity**: Longitudinal -6.88 m/s (approaching), Lateral 0.26 m/s (minimal lateral motion)  
+- **Motion**: Driving toward ego longitudinally, exact lateral alignment.  
+- **TTC Longitudinal**: 16.75 / 6.88 ≈ 2.43s (Medium Risk)  
+- **TTC Lateral**: N/A (lateral alignment but no convergence)  
+- **MDC**: Longitudinal distance (16.75m) is large → No Risk (5)  
+- **Overall Risk**: Medium (3)  
+
+---
+
+#### **Obstacle 30243 (Rear-left)**
+- **Position**: Longitudinal -23.68m (behind), Lateral 2.24m  
+- **Relative Velocity**: Longitudinal -2.30 m/s (moving away), Lateral -1.12 m/s (approaching laterally)  
+- **Motion**: Moving away longitudinally, driving toward ego laterally.  
+- **TTC Longitudinal**: N/A (moving away)  
+- **TTC Lateral**: 2.24 / 1.12 ≈ 2.0s (Medium Risk)  
+- **MDC**: Lateral distance (2.24m) is decreasing but > 1.0m → Medium Risk (3)  
+- **Overall Risk**: Medium (3)  
+
+---
+
+#### **Obstacle 30249 (Front-left)**
+- **Position**: Longitudinal 8.55m, Lateral 2.39m  
+- **Relative Velocity**: Longitudinal -6.33 m/s (approaching), Lateral 0.21 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally, moving away laterally.  
+- **TTC Longitudinal**: 8.55 / 6.33 ≈ 1.35s (High Risk)  
+- **TTC Lateral**: N/A (moving away)  
+- **MDC**: Lateral distance (2.39m) is stable/increasing → Low Risk (4)  
+- **Overall Risk**: High (2)  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 30249** is the highest-risk obstacle with a High Risk (2) due to rapid longitudinal approach (TTC = 1.35s).  
+- No obstacles meet Collision (0) or Extreme Risk (1) criteria.  
+- All other obstacles are at Medium Risk (3) or lower.  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle has a risk score of 0 (collision) or 1 (extreme risk). The highest risk is Obstacle 30249 with High Risk (2) due to longitudinal TTC of 1.35s."
+}
+```

@@ -1,0 +1,47 @@
+Obstacle 3277:
+
+- Trajectory Analysis: This obstacle has been consistently in front of the ego vehicle and laterally aligned (lateral distance = 0.00m) throughout all timesteps.  The longitudinal distance has been steadily decreasing, indicating a closing motion.
+- At t=6.4s:
+    - Longitudinal distance: 0.27m
+    - Lateral distance: 0.00m
+    - Longitudinal relative velocity: -0.09 m/s (approaching)
+- TTC Calculation (longitudinal): 0.27m / 0.09m/s = 3.0s
+- MDC:  0.27m (using longitudinal distance as it represents the closest approach given the lateral alignment).
+- Risk Assessment:
+    - Based on MDC (0.27m): High Risk (2)
+    - Based on TTC (3.0s): Medium Risk (3)
+- Overall Risk Score: 2 (High Risk - using the more conservative MDC assessment)
+
+Obstacle 3278:
+
+- Trajectory Analysis: This obstacle has been consistently to the front-left of the ego vehicle, maintaining a safe lateral and longitudinal distance throughout the provided timesteps.
+- At t=6.4s:
+    - Longitudinal distance: 10.15m
+    - Lateral distance: 12.19m
+    - Longitudinal relative velocity: -0.09 m/s
+    - Lateral relative velocity: 0.00 m/s
+- TTC Calculation (longitudinal): 10.15m / 0.09m/s = 112.8s (not a meaningful collision indicator in this scenario as lateral distance is large). The lateral velocity is effectively zero, so lateral TTC is not applicable.
+- MDC: Based on the trajectories and distances, the MDC is significantly greater than 5.0m. Precise calculation isn't necessary as the risk is clearly low.
+- Risk Assessment:
+    - Based on both longitudinal and lateral assessment: No Risk (5)
+
+Collision Scenario Determination:
+
+Although Obstacle 3277 poses a High Risk (2), neither obstacle has a risk score of 0 or 1. Therefore, this is NOT classified as a collision scenario at this timestep. However, the rapidly decreasing distance for Obstacle 3277 requires close monitoring as a collision is likely without intervention.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 (Collision) or 1 (Extreme Risk). Obstacle 3277 presents a High Risk (2) due to close proximity and closing velocity, requiring further monitoring."
+}
+```

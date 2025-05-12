@@ -1,0 +1,54 @@
+At t=0.9s:
+
+Obstacle 312: Located behind the ego vehicle.
+
+- Longitudinal distance: -19.57 m 
+- Lateral distance: 0.00 m
+- Longitudinal relative velocity: 0.96 m/s (approaching)
+- Lateral relative velocity: 0.14 m/s (approaching)
+
+Trajectory Analysis: Obstacle 312 has been consistently behind the ego vehicle and is slowly approaching.  The lateral distance remains at 0.00m indicating it is traveling in the same lane as the ego vehicle.
+
+TTC: Since the obstacle is approaching from behind, the longitudinal TTC calculation is relevant.
+TTC = Distance / Relative Velocity = 19.57m / 0.96 m/s ≈ 20.39 seconds. This corresponds to a Negligible Risk (5).
+
+MDC: Given the longitudinal trajectory and constant lateral alignment (0.0m), the MDC is primarily determined by the longitudinal distance, which is 19.57m. This also implies a Negligible Risk (5).
+
+Overall Risk: Negligible Risk (5)
+
+Obstacle 319: Located in front of the ego vehicle.
+
+- Longitudinal distance: 1.97 m
+- Lateral distance: 0.00 m
+- Longitudinal relative velocity: -0.07 m/s (slightly moving away)
+- Lateral relative velocity: -0.66 m/s (moving away)
+
+Trajectory Analysis: Obstacle 319 has been consistently in front of the ego vehicle.  While the motion description states that it is "driving toward the ego car longitudinally", at the last timestamp it is slowly moving away from the ego vehicle longitudinally while the lateral distance remains at 0.00m.
+
+TTC: The longitudinal relative velocity is negative so a standard TTC calculation is not meaningful, suggesting minimal collision risk.  The lateral motion is also diverging.
+
+MDC: Given the trajectory and the current longitudinal distance of 1.97m, the MDC is approximately 1.97 m. This translates to a Medium Risk (3). Although the relative velocity is negative, it is still not safe based on proximity and the high relative lateral velocity. 
+
+Overall Risk: Medium Risk (3)
+
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+    "MediumRiskObstacle": {
+    "ObstacleID": "319",
+    "OverallRiskScore": "3"
+  }
+}
+```

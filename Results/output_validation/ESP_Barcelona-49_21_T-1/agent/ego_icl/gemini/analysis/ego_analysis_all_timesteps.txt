@@ -1,0 +1,39 @@
+* **Obstacle 30784 (Front):** This obstacle is directly in front of the ego vehicle and rapidly approaching.  The longitudinal distance is decreasing across all timesteps, reaching 0.71m in the last timestep.  Lateral distance remains 0.00m, indicating perfect longitudinal alignment. The relative longitudinal velocity is -3.53 m/s.
+    * TTC = 0.71m / 3.53m/s = 0.2s
+    * MDC ≈ 0.71m (using longitudinal distance as lateral is 0)
+    * Risk Level: 1 (Extreme Risk) due to very low TTC and MDC
+
+* **Obstacle 30786 (Front-Left):**  This obstacle is approaching diagonally from the front-left.  Both longitudinal and lateral distances are decreasing across timesteps. The latest readings are 0.66m longitudinal and 1.99m lateral. The relative longitudinal velocity is -3.53 m/s, while lateral velocity is negligible.
+    * Longitudinal TTC = 0.66m / 3.53m/s ≈ 0.19s
+    * MDC ≈ 0.66m (longitudinal distance is smaller and decreasing rapidly)
+    * Risk Level: 1 (Extreme Risk) due to very low TTC and MDC
+
+* **Obstacle 30787 (Front-Left):** Similar to Obstacle 30786, this obstacle is approaching diagonally, but further to the left. Longitudinal distance is 0.60m and lateral is 5.50m. Longitudinal velocity is -3.53 m/s, with lateral velocity negligible.
+    * Longitudinal TTC = 0.60m / 3.53m/s ≈ 0.17s
+    * MDC ≈ 0.60m
+    * Risk Level: 1 (Extreme Risk) due to very low TTC
+
+* **Obstacle 30789 (Behind):** This obstacle is behind the ego vehicle and its longitudinal distance is increasing in earlier timesteps, but starts decreasing in the last few. In the last timestep it sits at -12.42m with a positive relative longitudinal velocity of 0.49m/s. While it's approaching, it is still far behind.  The lateral distance is 0.00, indicating alignment in the same lane, but the longitudinal distance confirms no immediate risk.
+    * TTC = 12.42m / 0.49m/s ≈ 25.3s (not applicable in the collision risk assessment as obstacle is behind the ego)
+    * MDC is not relevant as the obstacle is moving behind ego and longitudinal separation is significant. 
+    * Risk Level: 5 (Negligible Risk)
+
+
+Based on the analysis, Obstacle 30784, 30786, and 30787 pose an Extreme Risk, and it is predicted that Obstacle 30787 will collide with the ego vehicle first as it has the lowest TTC, despite none of them being assigned the Risk Level 0, since a collision is imminent within less than 0.2 seconds if the velocities are not adjusted.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "30787",
+    "OverallRiskScore": "1"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30787", 
+    "OverallRiskScore": "1"
+  },
+    "PredictedCollisionObstacle": {
+    "ObstacleID": "30787", 
+    "OverallRiskScore": "1"
+  }
+}
+```

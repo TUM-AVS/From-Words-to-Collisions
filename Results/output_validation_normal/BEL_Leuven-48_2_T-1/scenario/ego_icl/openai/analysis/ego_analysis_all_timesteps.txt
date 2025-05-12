@@ -1,0 +1,47 @@
+### Obstacle-by-Obstacle Analysis
+
+**Obstacle ID: 30118**
+
+- **Position Analysis:**
+  - At 0.9 seconds: 
+    - Adjusted longitudinal distance = 13.17 meters
+    - Adjusted lateral distance = 0.00 meters
+    - Relative velocity longitudinal = 0.74 m/s (moving away longitudinally)
+    - Relative velocity lateral = 0.02 m/s (almost no lateral movement)
+    - Motion: Obstacle is moving away longitudinally with an exact lateral alignment
+
+- **Trajectory Analysis Across Timesteps:**
+  - From 0.1 to 0.9 seconds, the obstacle has been consistently moving away from the ego vehicle longitudinally. The lateral position indicates exact alignment throughout this period.
+
+- **TTC Calculation:**  
+  - Longitudinal TTC = Longitudinal Distance / |Relative Longitudinal Velocity| = 13.17 m / 0.74 m/s ≈ 17.80 seconds
+  - Lateral movement is negligible; hence, lateral TTC is not applicable.
+
+- **MDC Calculation:**
+  - Since the obstacle is moving away, MDC is effectively the increasing longitudinal distance. Thus, no concerning minimum distance at this time.
+  - Longitudinal distances have been increasing over time.
+
+- **Risk Assessment:**
+  - Longitudinal TTC > 5.0 seconds, indicating No Risk in the longitudinal dimension.
+  - MDC is greater than 5.0 meters as the distances are increasing; hence there is No Risk.
+  - Overall Risk Score = 5 (No Risk)
+
+### Conclusion:
+- **Is this a collision scenario?** No
+- Obstacle 30118 presents an overall risk score of 5 (No Risk), as both TTC and MDC indicate a safe divergence from the ego vehicle.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30118 is moving away from the ego vehicle with increasing distance, resulting in a risk score of 5 (No Risk)."
+}
+```

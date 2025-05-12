@@ -1,0 +1,61 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+**Obstacle 30738:**
+- **Direction:** Front of ego car (longitudinally aligned, lateral distance = 0.00m)
+- **Adjusted Distances:** 
+  - Longitudinal: 10.68m (raw distance matches adjusted since no size adjustment is provided)
+  - Lateral: 0.00m (exact alignment)
+- **Relative Velocity:** 
+  - Longitudinal: -4.74 m/s (approaching ego)
+  - Lateral: 0.00 m/s (no lateral movement)
+- **Relative Acceleration:** 
+  - Longitudinal: 0.10 m/s² (slightly decelerating)
+  - Lateral: -1.08 m/s² (minor lateral correction)
+- **Motion Description:** "Obstacle is driving toward the ego car longitudinally. Exact lateral alignment."
+
+---
+
+### Trajectory Analysis (0.1s to 0.9s)
+- **Longitudinal Distance Trend:** Decreasing steadily from 14.77m to 10.68m over 0.9s (~4.09m decrease, average relative velocity ~4.54 m/s).
+- **Lateral Distance Trend:** Consistently 0.00m (perfect alignment, no lateral drift).
+- **Velocity Trend:** Relative velocity fluctuates slightly but remains high (~4.43 to -4.94 m/s), indicating rapid closure.
+- **Acceleration Trend:** Longitudinal acceleration is near-zero (slight deceleration), suggesting constant high-speed approach.
+
+---
+
+### Risk Assessment Calculations
+1. **Time-to-Collision (TTC):**
+   - TTC = Longitudinal Distance / |Relative Velocity| = 10.68m / 4.74 m/s ≈ **2.25 seconds**.
+   - **TTC Risk Score:** 3 (Medium Risk, 1.0 < TTC ≤ 3.0s).
+
+2. **Minimum Distance to Collision (MDC):**
+   - Since the obstacle is longitudinally aligned (lateral = 0.00m), MDC is the longitudinal distance: **10.68m**.
+   - **MDC Risk Score:** 5 (No Risk, MDC > 5.0m).
+
+3. **Overall Risk Score:** 
+   - Prioritize the higher risk (lower score): **3 (Medium Risk)**.
+   - **Justification:** While MDC is large, TTC indicates potential collision within 2.25s if trajectories remain unchanged. No extreme or immediate risk.
+
+---
+
+### Collision Scenario Determination
+- No obstacle has a risk score of 0 (collision) or 1 (extreme risk).
+- The closest obstacle (30738) is at Medium Risk (score 3) with stable alignment and no imminent collision.
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30738 has a Medium Risk score (3) with TTC of 2.25s and MDC of 10.68m. No collision or extreme risk detected."
+}
+```

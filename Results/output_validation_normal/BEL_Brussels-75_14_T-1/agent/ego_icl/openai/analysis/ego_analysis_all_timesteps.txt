@@ -1,0 +1,72 @@
+**Analysis of Each Obstacle**
+
+### Obstacle 30207 (Front-left)
+- **Trajectory Summary**: Obstacle is moving closer longitudinally and moving away laterally.
+- **Most recent timestep (0.9s)**:
+  - Adjusted Longitudinal Distance: 13.49 m
+  - Adjusted Lateral Distance: 11.54 m
+  - Relative Velocity (Longitudinal): -6.25 m/s
+  - Relative Velocity (Lateral): 4.90 m/s
+  - **TTC Calculation (Longitudinal)**: |13.49 / 6.25| ≈ 2.16 seconds
+  - **TTC Calculation (Lateral)**: Not applicable, moving away
+  - **Minimum Distance to Collision (MDC)**: Primarily longitudinal at 13.49 m
+
+Based on the above, the risk is manageable as the obstacle is more than 5.0 meters away longitudinally with a TTC > 2.0 seconds in the longitudinal direction. Current assessment is Medium Risk (3) due to fast-approaching longitudinal velocity despite the significant distance.
+
+### Obstacle 30209 (Front-right)
+- **Trajectory Summary**: Obstacle is moving closer both longitudinally and laterally.
+- **Most recent timestep (0.9s)**:
+  - Adjusted Longitudinal Distance: 8.21 m
+  - Adjusted Lateral Distance: 20.91 m
+  - Relative Velocity (Longitudinal): -6.14 m/s
+  - Relative Velocity (Lateral): 4.23 m/s
+  - **TTC Calculation (Longitudinal)**: |8.21 / 6.14| ≈ 1.34 seconds
+  - **TTC Calculation (Lateral)**: Not applicable (relative movement away or stable)
+  - **Minimum Distance to Collision (MDC)**: Primarily longitudinal at 8.21 m
+
+Given the trajectory and velocity, there is a significant approach, but the longitudinal distance is still above 5 meters, and TTC is under 3 seconds, indicating Medium Risk (3).
+
+### Obstacle 30210 (Behind)
+- **Trajectory Summary**: Obstacle is approaching from behind on the same lane (exact lateral alignment).
+- **Most recent timestep (0.9s)**:
+  - Adjusted Longitudinal Distance: -11.58 m
+  - Adjusted Lateral Distance: 0.00 m
+  - Relative Velocity (Longitudinal): 1.66 m/s
+  - **TTC Calculation**: |11.58 / 1.66| ≈ 6.97 seconds
+  - **Minimum Distance to Collision (MDC)**: Not applicable as the obstacle is behind
+
+Since the obstacle is approaching but still a considerable distance away (-11.58 m) with a relatively slow speed, the TTC is more than 5 seconds. The risk level is Low Risk (4).
+
+### Obstacle 30211 (Behind)
+- **Trajectory Summary**: The obstacle is moving away or stable in position.
+- **Most recent timestep (0.9s)**:
+  - Adjusted Longitudinal Distance: -25.05 m
+  - Adjusted Lateral Distance: 0.00 m
+  - Relative Velocity (Longitudinal): 0.63 m/s
+  - **TTC Calculation**: Not applicable, moving away
+  - **Minimum Distance to Collision (MDC)**: Not applicable due to motion away
+
+The obstacle is far away and moving away from the ego vehicle, ensuring there is no collision risk or immediate threat. The risk level is Negligible Risk (5).
+
+### Risk Summary
+
+Based on the aforementioned analysis of each obstacle, the current risk assessments show no extreme scenarios. Here is the JSON summary reflecting the analyzed risk levels:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "2"
+  }
+}
+```
+
+No collision, extreme, or high-risk scenarios are detected, but monitoring is advised for Obstacles 30207 and 30209 due to medium risk from approaching trajectories.

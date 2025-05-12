@@ -1,0 +1,54 @@
+**Obstacle-by-Obstacle Analysis (Most Recent Timestep at 0.9 seconds)**
+
+**Obstacle 30182:**
+- **Position and Motion:** Front-left of ego vehicle. Adjusted longitudinal distance = 17.25 m, adjusted lateral distance = 5.99 m.
+- **Relative Velocity:** Longitudinal = -3.50 m/s (approaching), Lateral = -0.00 m/s (no lateral movement).
+- **Trajectory Analysis:** The obstacle exhibits minimal lateral movement and a consistent reduction in longitudinal distance over the past timesteps indicating a moderate approach towards the ego vehicle.
+- **TTC Calculation:** 
+  - TTC_longitudinal = 17.25 m / 3.50 m/s = 4.93 seconds.
+  - Since there is no lateral closing velocity, TTC_lateral is not applicable.
+- **MDC Calculation:** As lateral distance remains stable and is large (MDC = 5.99 m), risk derives from the longitudinal approach.
+- **Risk Assessment:** Low Risk (4) as both TTC and MDC are > 5.0m and > 5.0s respectively.
+
+**Obstacle 30183:**
+- **Position and Motion:** Front of ego vehicle. Adjusted longitudinal distance = 10.28 m, adjusted lateral distance = 0.00 m.
+- **Relative Velocity:** Longitudinal = -3.50 m/s (approaching), Lateral = -0.00 m/s (in an aligned path).
+- **Trajectory Analysis:** The obstacle is on an exact alignment towards the ego vehicle. The longitudinal distance decreases consistently over time.
+- **TTC Calculation:** 
+  - TTC_longitudinal = 10.28 m / 3.50 m/s = 2.94 seconds.
+  - TTC_lateral is not applicable due to zero lateral closing velocity.
+- **MDC Calculation:** The MDC primarily relies on longitudinal distance, which is now at 10.28 m with continuous convergence.
+- **Risk Assessment:** Medium Risk (3) as TTC falls between 1.0s and 3.0s with a continuously reducing longitudinal gap.
+
+**Obstacle 30186:**
+- **Position and Motion:** Front-left of ego vehicle. Adjusted longitudinal distance = 15.86 m, adjusted lateral distance = 16.91 m.
+- **Relative Velocity:** Longitudinal = -3.13 m/s (approaching), Lateral = -2.89 m/s (approaching laterally).
+- **Trajectory Analysis:** The obstacle is closing in both longitudinal and lateral directions, indicating a diagonal approach.
+- **TTC Calculation:** 
+  - TTC_longitudinal = 15.86 m / 3.13 m/s = 5.07 seconds.
+  - TTC_lateral = 16.91 m / 2.89 m/s = 5.85 seconds.
+  - The shorter TTC of about 5.07 seconds implies slight risk.
+- **MDC Calculation:** As the obstacle is closing diagonally, MDC will depend on the intersection trajectory, which projects beyond 5.0m in both distances.
+- **Risk Assessment:** No Risk (5), since both TTCs exceed 5.0s and MSD supports no immediate intersection within a dangerous proximity.
+
+**Conclusion:**
+
+- **Collision Scenario:** Analysis reveals no collision risk since none of the obstacles have a risk score of 0 (collision) or 1 (extreme risk).
+- **Overall Condition:** Although Obstacle 30183 exhibits a medium risk due to the alignment and decreasing longitudinal gap, it does not justify the scenario as an immediate collision threat based on the criteria.
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "None of the obstacles present a collision or extreme risk, with the closest risk assessment being a medium risk for Obstacle 30183. Overall trajectories do not indicate any imminent collision within the critical risk thresholds."
+}
+```

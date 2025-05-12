@@ -1,0 +1,69 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 20042 (Front of ego car at 0.9s)
+- **Adjusted Distances**: Longitudinal = 23.39m, Lateral = 0.00m
+- **Relative Velocity**: Longitudinal = -21.03 m/s (approaching), Lateral = 4.70 m/s (moving right)
+- **Motion Description**: Obstacle is driving toward the ego car longitudinally. Exact lateral alignment.
+  
+**Trajectory Analysis**:
+- The obstacle is directly in front of the ego car (lateral alignment = 0.00m) and closing the longitudinal distance rapidly (relative velocity = -21.03 m/s).
+- Over the last two timesteps (0.8s to 0.9s), the longitudinal distance decreased from 25.48m to 23.39m, confirming rapid approach.
+
+**TTC Calculation**:
+- Longitudinal TTC = 23.39m / 21.03 m/s ≈ 1.11 seconds
+- Lateral TTC: Not applicable (lateral distance is stable/increasing due to positive lateral velocity).
+
+**MDC Calculation**:
+- Since the obstacle is longitudinally aligned (lateral = 0.00m), MDC is effectively the longitudinal distance (23.39m), but the rapid closing velocity makes this a high-risk scenario.
+
+**Risk Assessment**:
+- TTC (1.11s) falls into Medium Risk (3).
+- However, the rapid closing speed and exact lateral alignment elevate this to High Risk (2).
+
+---
+
+#### Obstacle 20063 (Front-right of ego car at 0.9s)
+- **Adjusted Distances**: Longitudinal = 23.55m, Lateral = -1.80m
+- **Relative Velocity**: Longitudinal = 3.58 m/s (moving away), Lateral = -4.63 m/s (moving right)
+- **Motion Description**: Obstacle is moving away longitudinally and laterally to the right.
+
+**Trajectory Analysis**:
+- The obstacle is moving away from the ego car in both dimensions (positive longitudinal velocity, negative lateral velocity).
+- Over the timesteps, both longitudinal and lateral distances are increasing.
+
+**TTC Calculation**:
+- Not applicable (relative velocities are diverging in both dimensions).
+
+**MDC Calculation**:
+- Current distance is large (longitudinal = 23.55m, lateral = 1.80m), and increasing.
+
+**Risk Assessment**:
+- No Risk (5).
+
+---
+
+### Final Risk Scores
+- **Obstacle 20042**: High Risk (2)
+- **Obstacle 20063**: No Risk (5)
+
+### Collision Scenario Determination
+This is **not** a collision scenario because:
+1. No obstacle has a risk score of 0 (collision) or 1 (extreme risk).
+2. Obstacle 20042 is at High Risk (2), but the TTC (1.11s) and MDC (23.39m) do not indicate imminent collision.
+3. Obstacle 20063 poses no risk.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle has a risk score of 0 or 1. Obstacle 20042 is at High Risk (2) but not imminent, and Obstacle 20063 poses no risk."
+}
+```

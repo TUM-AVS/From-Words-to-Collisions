@@ -1,0 +1,50 @@
+At t=4.1s, two obstacles are present: Obstacle 20044 and Obstacle 20052.
+
+**Obstacle 20044 (Front-Right):**
+
+* **Trajectory Analysis:** This obstacle has been approaching the ego vehicle both longitudinally and laterally from the front-right.  The longitudinal distance is decreasing while the lateral distance is also decreasing.
+* **Longitudinal Analysis:**
+    * Distance: 19.56m
+    * Relative Velocity: -11.32 m/s (approaching)
+    * TTC (Longitudinal): 19.56m / 11.32 m/s = 1.73s 
+* **Lateral Analysis:**
+    * Distance: -3.18m (to the right)
+    * Relative Velocity: 10.75 m/s (approaching)
+    * TTC (Lateral): 3.18m / 10.75 m/s = 0.30s
+* **MDC:** Given the diagonal approach, the MDC is difficult to precisely calculate without more information on the obstacle's path curvature.  However, the rapidly decreasing lateral distance and the low lateral TTC suggest a high risk of collision. We can estimate MDC based on the smaller of the two distances which is the lateral distance. This means the estimated MDC is 3.18m
+* **Risk Assessment:** The low lateral TTC (0.30s) indicates an *Extreme Risk (1)*.
+
+**Obstacle 20052 (Behind/Collision):**
+
+* **Trajectory Analysis:** This obstacle has been approaching the ego vehicle from directly behind, with the longitudinal distance consistently decreasing across all timesteps. The lateral distance has consistently been 0.00m, indicating alignment in the same lane.
+* **Longitudinal Analysis:**
+    * Distance: 0.00m
+    * Relative Velocity: 7.14 m/s (approaching)
+    * TTC (Longitudinal): Not applicable as distance is zero.
+* **Lateral Analysis:**
+    * Distance: 0.00m
+    * Relative Velocity: 0.17 m/s (slightly approaching)
+    * TTC (Lateral): Not applicable as distance is zero.
+* **MDC:** 0.00m
+* **Risk Assessment:** The zero distance in both dimensions, combined with the positive longitudinal relative velocity, indicates a *Collision (0)*. The data explicitly states "Obstacle 20052 is in the Collision of the ego car".
+
+**Collision Scenario Determination:**
+
+Yes, this is a collision scenario. Obstacle 20052 has a risk score of 0 (Collision), and Obstacle 20044 has a risk score of 1 (Extreme Risk).
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "20052",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "20044",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 20052 has collided with the ego vehicle (distance 0.00m in both dimensions with closing velocity). Obstacle 20044 poses an Extreme Risk with a very low lateral TTC of 0.30s."
+}
+```

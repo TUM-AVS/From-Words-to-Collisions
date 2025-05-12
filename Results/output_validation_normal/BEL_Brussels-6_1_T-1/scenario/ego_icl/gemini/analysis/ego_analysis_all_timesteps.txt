@@ -1,0 +1,33 @@
+Obstacle 30095 Analysis:
+
+Trajectory Analysis:
+The obstacle initially approaches the ego vehicle both longitudinally and laterally from the front-left.  Over the timesteps, the lateral distance decreases to 0, indicating alignment with the ego vehicle's front. While the obstacle initially closes in longitudinally, in the most recent timesteps, the longitudinal distance starts to increase slightly, suggesting the obstacle might be starting to move away or match the ego vehicle's speed.
+
+TTC Calculation (at t=0.9s):
+- Longitudinal TTC: Distance = 13.90m, Relative Velocity = 0.20 m/s (moving away). Since the relative velocity is positive (moving away), TTC is not applicable in the longitudinal direction.
+- Lateral TTC: Distance = 0.00m, Relative Velocity = 0.29 m/s. Since the lateral distance is 0 and velocity is positive (diverging), a lateral collision is not indicated.
+
+MDC Calculation (at t=0.9s):
+Given the obstacle's position directly in front of the ego vehicle, the MDC is primarily determined by the lateral distance, which is 0.00m. However, the obstacle is moving away laterally.
+
+Risk Assessment:
+
+- Longitudinal Risk: No Risk (5). Although there was initial longitudinal closing, the obstacle is now moving away or matching ego speed in the longitudinal direction.
+- Lateral Risk: No Risk (5).  Despite the exact lateral alignment (0.00m), the obstacle is diverging laterally.
+
+Overall Risk: No Risk (5).  Although lateral alignment exists, the obstacle is moving away both longitudinally and laterally in the most recent timestep.
+
+Collision Scenario Determination:
+
+This is NOT a collision scenario. No obstacle has a risk score of 0 or 1.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a collision risk score of 0 or an extreme risk score of 1.  The only obstacle analyzed is moving away from the ego vehicle in the most recent timestep."
+}
+```

@@ -1,0 +1,65 @@
+## Obstacle-by-Obstacle Analysis
+
+### Obstacle 30372
+- **Motion Description**: Now in the Rear-left of the ego car, moving away longitudinally, but driving towards ego laterally.
+- **Adjusted Distance**: Longitudinal approx. -1.43m, Lateral 1.77m
+- **Relative Velocity**: Longitudinal: -5.79 m/s, Lateral: -0.96 m/s
+
+1. **Trajectory Analysis**: This obstacle began to move away longitudinally but continues to close laterally. The decreasing lateral distance is note-worthy given the object's exact alignment config.
+2. **MDC Calculation**: The critical component here is the lateral distance, currently 1.77m.
+3. **TTC Calculation (Lateral)**: Approx. 1.84 seconds (1.77m / 0.96 m/s).
+4. **Risk Assessment**: Medium risk due to decreasing lateral distance and proximity close enough to monitor closely.
+
+### Obstacle 30373
+- **Motion Description**: In the Front-left, moving away laterally, but approaching longitudinally.
+- **Adjusted Distance**: Longitudinal 14.73m, Lateral 7.54m
+- **Relative Velocity**: Longitudinal: -2.54 m/s, Lateral: 0.78 m/s
+
+1. **Trajectory Analysis**: Longitudinal approach maintains alignment, while laterally moving away.
+2. **MDC Calculation**: No immediate collision risk; lateral distance is increasing.
+3. **TTC Calculation (Longitudinal)**: Approx. 5.80 seconds (14.73m / 2.54 m/s).
+4. **Risk Assessment**: Low risk, trajectory indicates increased separation over time.
+
+### Obstacle 30376
+- **Motion Description**: In the Front-right, no lateral motion; approaching longitudinally.
+- **Adjusted Distance**: Longitudinal 8.97m, Lateral -2.16m
+- **Relative Velocity**: Longitudinal: -4.32 m/s, Lateral: 0.00 m/s
+
+1. **Trajectory Analysis**: Maintains exact alignment longitudinally, no lateral divergence.
+2. **MDC Calculation**: Longitudinal distance is the focus. Effective approach without lateral alteration.
+3. **TTC Calculation (Longitudinal)**: Approx. 2.08 seconds (8.97m / 4.32 m/s).
+4. **Risk Assessment**: Medium risk due to the sustained trajectory and approaching velocity.
+
+### Obstacle 30377
+- **Motion Description**: In the Front-left, moving away laterally, but approaching longitudinally.
+- **Adjusted Distance**: Longitudinal 5.17m, Lateral 3.45m
+- **Relative Velocity**: Longitudinal: -1.91 m/s, Lateral: 0.99 m/s
+
+1. **Trajectory Analysis**: Continued decreasing longitudinal distance, diverging laterally.
+2. **MDC Calculation**: No immediate risk with separation increasing laterally.
+3. **TTC Calculation (Longitudinal)**: Approx. 2.71 seconds (5.17m / 1.91 m/s).
+4. **Risk Assessment**: Medium risk, considering proximity and trajectory.
+
+### Remaining Obstacles (30378, 30381, 30383, 30384)
+- Distance, velocity, and motion indicate trajectories likely to either increase separation or pose no immediate collision threat compared to critically aligned obstacles previously discussed.
+- For each, the calculated TCC shows safe divergence, both laterally and longitudinally, with no factor intensifying to "extreme."
+
+## Conclusion
+- **Collision Scenario Identification**: Although no direct collision (Risk Score 0) or extreme alignment (Risk Score 1 with immediate convergence) conditions exist within the scenario, some obstacles (30376) pose medium risks in terms of trajectory principles.
+- **Final Decision**: This is not a collision scenario based on the lack of imminent extreme conditions.
+
+## JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "N/A",
+        "OverallRiskScore": "N/A"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "N/A",
+        "OverallRiskScore": "N/A"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Medium risks present but trajectories indicate no immediate extreme risk or collision conditions."
+}
+```

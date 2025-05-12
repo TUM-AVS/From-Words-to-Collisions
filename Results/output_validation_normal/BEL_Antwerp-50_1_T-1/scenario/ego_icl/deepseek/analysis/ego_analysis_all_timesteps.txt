@@ -1,0 +1,73 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+---
+
+#### **Obstacle 30633 (Front)**
+- **Position**: Longitudinal 14.00m, Lateral 0.00m (aligned front)
+- **Relative Velocity**: Longitudinal -0.33 m/s (approaching slowly), Lateral 2.32 m/s (moving laterally away)
+- **Motion**: Driving toward ego longitudinally but decelerating; lateral movement increasing.
+- **TTC Longitudinal**: 
+  - Distance: 14.00m, |Relative Velocity|: 0.33 m/s → TTC = 14.00 / 0.33 ≈ 42.42s (No Risk, TTC > 5s)
+- **TTC Lateral**: 
+  - Lateral distance increasing (positive velocity), so no collision risk.
+- **MDC**: 
+  - Lateral distance is 0.00m but increasing (2.32 m/s away). Longitudinal distance is large (14.00m). No imminent collision.
+- **Overall Risk**: **5 (No Risk)** – No converging trajectory.
+
+---
+
+#### **Obstacle 30634 (Behind)**
+- **Position**: Longitudinal -17.76m (behind), Lateral 0.00m (aligned)
+- **Relative Velocity**: Longitudinal 3.56 m/s (approaching from behind), Lateral 0.00 m/s (no lateral movement)
+- **Motion**: Driving toward ego from behind with increasing speed.
+- **TTC Longitudinal**: 
+  - Distance: 17.76m, |Relative Velocity|: 3.56 m/s → TTC = 17.76 / 3.56 ≈ 4.99s (Low Risk, TTC ≈ 5s)
+- **MDC**: 
+  - Lateral distance is 0.00m but stable. Longitudinal distance is large (17.76m) and closing slowly.
+- **Overall Risk**: **4 (Low Risk)** – Not an immediate threat.
+
+---
+
+#### **Obstacle 30638 (Front-Left)**
+- **Position**: Longitudinal 18.12m, Lateral 12.90m (diagonal front-left)
+- **Relative Velocity**: Longitudinal -10.41 m/s (closing rapidly), Lateral -7.64 m/s (closing rapidly from left)
+- **Motion**: Driving toward ego both longitudinally and laterally.
+- **TTC Longitudinal**: 
+  - Distance: 18.12m, |Relative Velocity|: 10.41 m/s → TTC = 18.12 / 10.41 ≈ 1.74s (Medium Risk)
+- **TTC Lateral**: 
+  - Distance: 12.90m, |Relative Velocity|: 7.64 m/s → TTC = 12.90 / 7.64 ≈ 1.69s (Medium Risk)
+- **MDC**: 
+  - Projected paths intersect diagonally. Minimum distance is decreasing rapidly in both dimensions.
+  - Current lateral distance (12.90m) is large, but closing velocities are high. MDC is still > 3.0m (Medium Risk).
+- **Overall Risk**: **3 (Medium Risk)** – Rapidly closing but not yet extreme.
+
+---
+
+### Trajectory Analysis
+- **Obstacle 30633**: Decelerating longitudinally and moving laterally away. No collision risk.
+- **Obstacle 30634**: Approaching from behind but at a safe distance. Low risk.
+- **Obstacle 30638**: High closing speeds in both dimensions, but distances are still large enough to avoid extreme risk.
+
+---
+
+### Final Determination
+- No obstacle has a risk score of 0 (collision) or 1 (extreme risk).
+- The highest risk is Obstacle 30638 with a Medium Risk (3).
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle has a risk score of 0 or 1. The highest risk is Obstacle 30638 with Medium Risk (3)."
+}
+```

@@ -1,0 +1,45 @@
+At t=5.3s:
+
+**Obstacle 30623:** Located in front, longitudinally 16.71m, laterally 0.00m.  Laterally aligned with the ego vehicle but at a safe longitudinal distance. The relative longitudinal velocity is -3.45 m/s (moving away) indicating no immediate risk. The trajectory history shows consistent and safe separation.
+
+* MDC: Not applicable in this case due to nature of assessment (using adjusted longitudinal distance, confirmed by lateral velocity assessment); collision ruled out based on raw distance.
+* TTC: Not applicable as relative velocity is negative (moving away).
+* Risk Score: 5 (No Risk)
+
+**Obstacle 30625:** Located to the left, longitudinally 0.00m, laterally 1.95m.  Longitudinally aligned but with a safe lateral distance of nearly 2 meters. Lateral relative velocity is 0.13m/s (moving away slightly). Trajectory shows the obstacle passing the ego vehicle.
+
+* MDC:  Not applicable in this case due to nature of assessment (using adjusted lateral distance, confirmed by longitudinal velocity assessment); collision ruled out based on raw distance.
+* TTC: Not applicable as relative longitudinal velocity is near zero and obstacle is diverging laterally.
+* Risk Score: 5 (No Risk)
+
+**Obstacle 30626:** Located front-left, longitudinally 10.03m, laterally 1.83m.  Both longitudinal and lateral distances are relatively safe.  The trajectory shows the obstacle moving slightly away laterally and forward longitudinally at a relatively similar speed. 
+
+* MDC: ~10m (using raw longitudinal and lateral distance for reference)
+* TTC: ~9 seconds (using minimum of longitudinal and lateral distance) if approaching. However, motion description indicates diverging trajectories.
+* Risk Score: 5 (No Risk)
+
+
+**Obstacle 30628:** Located behind, longitudinally -0.18m, laterally 0.00m. Laterally aligned and very close longitudinally (-0.18m means it is slightly behind, nearly touching). Relative longitudinal velocity is 2.68 m/s (closing rapidly). The trajectory history confirms this rapid approach from behind.  This represents a high risk of imminent collision.
+
+* MDC: 0.18m
+* TTC: 0.18m / 2.68m/s = 0.07s
+* Risk Score: 1 (Extreme Risk - imminent rear-end collision)
+
+
+
+**Conclusion:**
+
+This IS a collision scenario because Obstacle 30628 poses an Extreme Risk (score 1) with a very low TTC (0.07s) and very close proximity (-0.18m) from behind, indicating an imminent rear-end collision.
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30628",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30628 is extremely close (-0.18m) behind the ego vehicle with a high closing velocity (2.68 m/s) resulting in a very low TTC (0.07s), indicating an imminent rear-end collision."
+}
+```

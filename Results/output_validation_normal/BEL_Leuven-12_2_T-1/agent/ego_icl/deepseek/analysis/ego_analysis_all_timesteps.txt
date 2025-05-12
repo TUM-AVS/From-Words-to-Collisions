@@ -1,0 +1,66 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30296 (Front-left of ego car)
+- **Adjusted Distance**: Longitudinal 18.86 m, Lateral 3.25 m  
+- **Relative Velocity**: Longitudinal -6.08 m/s (approaching), Lateral 8.82 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally but moving away laterally to the left.  
+- **TTC Longitudinal**: 18.86 / 6.08 ≈ 3.10 s (Medium Risk)  
+- **TTC Lateral**: Not applicable (moving away)  
+- **MDC**: Lateral distance is increasing (3.25 m), so MDC is not a concern.  
+- **Overall Risk**: Medium Risk (3) due to longitudinal approach but safe lateral distance.
+
+#### Obstacle 30297 (Front-right of ego car)
+- **Adjusted Distance**: Longitudinal 9.62 m, Lateral -0.62 m  
+- **Relative Velocity**: Longitudinal -0.33 m/s (approaching), Lateral -1.81 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally but moving away laterally to the right.  
+- **TTC Longitudinal**: 9.62 / 0.33 ≈ 29.15 s (No Risk)  
+- **TTC Lateral**: Not applicable (moving away)  
+- **MDC**: Lateral distance is increasing (0.62 m), so MDC is not a concern.  
+- **Overall Risk**: No Risk (5) due to minimal longitudinal approach and safe lateral distance.
+
+#### Obstacle 30299 (Behind of ego car)
+- **Adjusted Distance**: Longitudinal -9.09 m, Lateral 0.00 m  
+- **Relative Velocity**: Longitudinal -0.10 m/s (moving away), Lateral 0.95 m/s (moving away)  
+- **Motion**: Moving away longitudinally and laterally.  
+- **TTC Longitudinal**: Not applicable (moving away)  
+- **TTC Lateral**: Not applicable (moving away)  
+- **MDC**: Not applicable (moving away in both dimensions).  
+- **Overall Risk**: No Risk (5) as the obstacle is moving away.
+
+#### Obstacle 30300 (Rear-right of ego car)
+- **Adjusted Distance**: Longitudinal -19.83 m, Lateral -1.46 m  
+- **Relative Velocity**: Longitudinal -2.32 m/s (moving away), Lateral 0.87 m/s (approaching)  
+- **Motion**: Moving away longitudinally but approaching laterally from the right.  
+- **TTC Longitudinal**: Not applicable (moving away)  
+- **TTC Lateral**: 1.46 / 0.87 ≈ 1.68 s (Medium Risk)  
+- **MDC**: Lateral distance is 1.46 m (Medium Risk).  
+- **Overall Risk**: Medium Risk (3) due to lateral approach but safe longitudinal distance.
+
+### Trajectory Analysis
+- **Obstacle 30296**: Shows consistent longitudinal approach but increasing lateral distance, indicating a diagonal pass with no collision risk.  
+- **Obstacle 30297**: Minimal longitudinal approach and increasing lateral distance, posing no risk.  
+- **Obstacle 30299**: Consistently moving away in both dimensions.  
+- **Obstacle 30300**: Moving away longitudinally but slowly approaching laterally, requiring monitoring but no immediate risk.  
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```
+
+### Final Notes
+- No obstacles pose a collision (0), extreme risk (1), or high risk (2).  
+- Obstacles 30296 and 30300 have medium risk (3) due to longitudinal and lateral approaches, respectively, but with sufficient time/distance to react.  
+- The ego vehicle should monitor Obstacle 30296 (longitudinal approach) and Obstacle 30300 (lateral approach) but no immediate action is required.

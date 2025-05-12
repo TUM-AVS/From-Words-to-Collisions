@@ -1,0 +1,37 @@
+Obstacle-by-Obstacle Analysis at t=0.9s:
+
+Obstacle 312:
+- Trajectory: Consistently behind the ego vehicle and laterally aligned (lateral distance = 0.00m). Longitudinal distance is gradually decreasing, indicating the obstacle is approaching the ego vehicle from behind.
+- Longitudinal TTC: Not applicable as the relative velocity is positive, meaning the obstacle is moving away from the ego vehicle longitudinally (or ego vehicle is moving away from the obstacle).
+- Lateral TTC: Not applicable as the lateral relative velocity is near zero. 
+- MDC:  As the obstacle is behind and laterally aligned, MDC can be approximated as the longitudinal distance of -19.57 m. Since, there is no adjusted distances provided we cannot calculate actual MDC or TTC.  Assuming sufficient lateral distance if any, we can assume this distance is not risky.
+- Risk Assessment: Low Risk (4) due to the substantial longitudinal distance. However, continuous monitoring is needed as the obstacle is approaching.
+
+Obstacle 319:
+- Trajectory: Consistently in front of the ego vehicle and laterally aligned (0.00m). Longitudinal distance is decreasing across timesteps, indicating the obstacle is getting closer to the ego vehicle, and relative longitudinal velocity is negative and magnitude decreasing meaning the approach rate is reducing.
+- Longitudinal TTC: 1.97m / 0.07 m/s = 28.14 seconds. (Positive velocity used as it is closing velocity).
+- Lateral TTC: Not applicable as the lateral relative velocity is near zero.
+- MDC: Approximately the longitudinal distance of 1.97m. Assuming a small lateral deviation, we can approximate the MDC as the current distance 1.97m
+- Risk Assessment: Medium Risk (3) due to the relatively small longitudinal distance (1.97m), but the closing velocity is very small and decreasing in magnitude.
+
+
+Collision Scenario Determination:
+
+This is NOT a collision scenario. Neither obstacle exhibits an overall risk score of 0 (collision) or 1 (extreme risk).
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a collision risk score of 0 or an extreme risk score of 1. All obstacles maintain safe distances or have diverging trajectories."
+}
+```

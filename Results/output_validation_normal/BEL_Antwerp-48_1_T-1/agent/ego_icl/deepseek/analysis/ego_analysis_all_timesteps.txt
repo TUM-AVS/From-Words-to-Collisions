@@ -1,0 +1,87 @@
+### Obstacle-by-Obstacle Analysis:
+
+#### **Obstacle 30519 (Front-right)**  
+- **Latest Data (0.9s):**  
+  - Adjusted longitudinal distance: 7.45 m (closing at -3.78 m/s)  
+  - Adjusted lateral distance: -9.45 m (moving away at -6.07 m/s)  
+  - Motion: Moving toward ego longitudinally but away laterally (right).  
+
+- **Trajectory Analysis:**  
+  - Longitudinal distance decreases (from 12.33m to 7.45m), but lateral distance increases (from -4.49m to -9.45m).  
+  - No convergence in both dimensions.  
+
+- **TTC Calculation:**  
+  - Longitudinal TTC: 7.45 / 3.78 ≈ 1.97s (Medium Risk)  
+  - Lateral TTC: Not applicable (moving away).  
+
+- **MDC Calculation:**  
+  - MDC is dominated by lateral distance (9.45m), which is increasing.  
+  - No collision risk.  
+
+- **Overall Risk:** **5 (Negligible Risk)**  
+
+---
+
+#### **Obstacle 30521 (Front-left)**  
+- **Latest Data (0.9s):**  
+  - Adjusted longitudinal distance: 7.82 m (closing at -4.43 m/s)  
+  - Adjusted lateral distance: 15.68 m (closing at -5.73 m/s)  
+  - Motion: Approaching ego both longitudinally and laterally (left).  
+
+- **Trajectory Analysis:**  
+  - Both distances decrease (longitudinal: 13.02m → 7.82m; lateral: 20.34m → 15.68m).  
+  - Convergence in both dimensions, but distances remain large.  
+
+- **TTC Calculation:**  
+  - Longitudinal TTC: 7.82 / 4.43 ≈ 1.77s (Medium Risk)  
+  - Lateral TTC: 15.68 / 5.73 ≈ 2.74s (Medium Risk)  
+
+- **MDC Calculation:**  
+  - MDC is the smaller of the two distances: 7.82m (Low Risk).  
+
+- **Overall Risk:** **3 (Medium Risk)**  
+
+---
+
+#### **Obstacle 30524 (Behind)**  
+- **Latest Data (0.9s):**  
+  - Adjusted longitudinal distance: -13.76 m (approaching at 3.13 m/s)  
+  - Adjusted lateral distance: 0.00 m (exact alignment, moving away at -0.51 m/s)  
+  - Motion: Approaching longitudinally but laterally aligned (no lateral convergence).  
+
+- **Trajectory Analysis:**  
+  - Longitudinal distance decreases (from -14.53m to -13.76m), but lateral distance remains 0.00m (no lateral motion toward ego).  
+
+- **TTC Calculation:**  
+  - Longitudinal TTC: 13.76 / 3.13 ≈ 4.40s (Low Risk)  
+  - Lateral TTC: Not applicable (moving away).  
+
+- **MDC Calculation:**  
+  - MDC is longitudinal (13.76m), which is large.  
+
+- **Overall Risk:** **4 (Low Risk)**  
+
+---
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```
+
+### Key Findings:  
+- No collision or extreme/high-risk obstacles detected.  
+- **Obstacle 30521 (Front-left)** poses the highest risk (Medium Risk, score 3) due to convergence in both dimensions, but distances remain manageable.  
+- Other obstacles are low or negligible risk.

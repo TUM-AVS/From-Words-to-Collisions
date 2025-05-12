@@ -1,0 +1,21 @@
+The ego vehicle starts in lanelet 11385 and transitions to lanelet 12922.  Several obstacles are present. Obstacle 34 and 37 are in the same initial lanelet as the ego vehicle and are moving slowly, initially posing a potential risk. However, as the ego vehicle changes lanelets, these become less concerning.
+
+Obstacle 32 is in lanelet 12922, the same lanelet the ego vehicle transitions into.  The ego vehicle's velocity is decreasing, but obstacle 32 is *accelerating* towards the ego vehicle. This represents a rapidly developing risky situation.  Given the acceleration and velocity differences within the same lanelet, a collision or near-miss is very likely in the very near future.
+
+Obstacles 313, 319, 331 are in different lanelets and, despite their varying velocities, don't pose an immediate threat within the given timeframe.  Obstacle 332 is stationary and far enough away to not be an immediate concern.
+
+Obstacle 358, while sharing a lanelet with the ego vehicle for a short duration after the ego vehicle transitions to 12922, is also exhibiting unpredictable movement and acceleration/deceleration patterns making it a potential near-term risk, however the velocity of the ego vehicle remains higher than Obstacle 358 and the relative distance appears safe enough for the current timeframe.
+
+Given the accelerating nature of Obstacle 32 toward the ego vehicle in the same lanelet, this poses the most imminent risk.
+
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "32",
+        "OverallRiskScore": 1
+    },
+    "HighRiskObstacle": null
+}
+```

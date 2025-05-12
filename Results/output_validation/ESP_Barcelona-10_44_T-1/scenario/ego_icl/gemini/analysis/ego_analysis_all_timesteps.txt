@@ -1,0 +1,69 @@
+*Obstacle-by-Obstacle Analysis at t=10.2 seconds*
+
+**Obstacle 30717:** Front-left, adjusted distances not provided.  Approaching longitudinally, stable lateral position. Trajectory analysis shows consistent longitudinal approach.  Without adjusted distances, a precise risk assessment is impossible. Assuming a safe distance based on the raw data, assigning a tentative risk score of 4 (Low Risk).
+
+**Obstacle 30718:** Front-left, adjusted distances not provided. Approaching longitudinally and slightly laterally.  Trajectory analysis indicates continued approach. Without adjusted distances, precise risk assessment is impossible. Assuming a safe distance based on the raw data, assigning a tentative risk score of 4 (Low Risk).
+
+**Obstacle 30727:** Front-right, adjusted distances not provided. Moving away in both directions. Trajectory confirms divergence. Poses no immediate risk. Tentative risk score of 5 (No Risk).
+
+**Obstacle 30735:** Front-right, adjusted distances not provided. Raw longitudinal distance very close (0.11m), but moving laterally away. Trajectory shows the obstacle passing in front of the ego vehicle. Without adjusted distances, risk assessment is not reliable.  However, the raw data and motion suggest a possible high risk (2) in the recent past (t=10.0s, raw distance 0.27m) that is now likely decreasing. Tentative risk score of 3 (Medium Risk) due to recent proximity.
+
+**Obstacle 30736:** Front-right, adjusted distances not provided. Moving away longitudinally and laterally. Trajectory confirms this divergence.  No immediate risk. Tentative risk score of 5 (No Risk).
+
+**Obstacle 30738:** Front-right, adjusted distances not provided. Moving away, diverging trajectory. No immediate risk. Tentative risk score of 5 (No Risk).
+
+**Obstacle 30739:** Front-right, adjusted distances not provided. Moving away from the ego vehicle, trajectory indicates continued divergence. No immediate risk. Tentative risk score of 5 (No Risk).
+
+
+**Obstacle 30740:** Right, adjusted distances not provided. Moving away laterally, longitudinally aligned (0.00m).  This alignment does not indicate collision; the obstacle remains to the right and is moving further away. No immediate risk. Tentative risk score of 5 (No Risk).
+
+
+**Obstacle 30741:** Right, adjusted distances not provided. Laterally moving away, longitudinal distance 0.00m (aligned, not a collision). Trajectory confirms increasing lateral separation. No risk. Tentative risk score of 5 (No Risk).
+
+**Obstacle 30744:** Rear-right, adjusted distances not provided.  Raw longitudinal distance is close (-1.23m) and approaching; lateral distance small and increasing. Trajectory analysis shows continued longitudinal approach.  Without adjusted distances, accurate risk assessment is difficult. Based on the raw data, this could represent a High (2) or Medium (3) risk. Tentative risk score of 3 (Medium Risk).
+
+**Obstacle 30746:** Rear-right, adjusted distances not provided. Approaching longitudinally, moving further away laterally. Trajectory indicates converging longitudinally. Without adjusted data, proper risk assessment is not possible. Tentatively assigning a risk score of 4 (Low Risk).
+
+**Obstacle 30747:** Rear-right, adjusted distances not provided.  Approaching longitudinally, lateral distance small but slightly increasing. Trajectory indicates continued longitudinal convergence. Without adjusted distances, it's difficult to judge the risk, but the raw data suggest Medium to High risk. Tentative risk score of 3 (Medium Risk).
+
+**Obstacle 30749:** Behind, adjusted distances not provided. Raw longitudinal distance is extremely close (-0.11m) and rapidly approaching, laterally aligned (0.00). This obstacle poses the highest risk.  Without adjusted distances, we cannot definitively call this a collision, but given the trajectory and raw distance, Extreme Risk (1) is likely.  Tentative risk score of 1 (Extreme Risk).
+
+**Obstacle 30750:** Front-left, adjusted distances not provided. Approaching longitudinally, stable lateral distance. Trajectory analysis shows a continued approach.  Without adjusted distances, it's hard to accurately assess risk. Tentative risk score of 4 (Low Risk).
+
+**Obstacle 30751:** Rear-right, adjusted distances not provided.  Moving slightly away longitudinally and laterally. Trajectory suggests continued divergence, posing minimal risk. Tentative risk score of 5 (No Risk).
+
+**Obstacle 30752:** Front-left, adjusted distances not provided. Approaching longitudinally, stable lateral distance. Trajectory indicates continued approach. Risk assessment difficult without adjusted data. Tentative risk score of 4 (Low Risk).
+
+**Obstacle 30753:** Rear-right, adjusted distances not provided. Approaching longitudinally, moving away laterally. Without adjusted distances, risk assessment is incomplete. Tentatively assigning a risk score of 4 (Low Risk).
+
+
+**Obstacle 30754:** Rear-right, adjusted distances not provided. Slightly approaching longitudinally, slightly moving away laterally.  Trajectory data needed for better assessment. Without adjusted distances, it is difficult to assess the risk with certainty. Tentative risk score 4 (Low Risk).
+
+
+**Obstacle 30757:** Rear-right, adjusted distances not provided. Slightly approaching both longitudinally and laterally.  Trajectory shows continuing convergence. Without adjusted distances, risk assessment is limited. Tentative risk score of 4 (Low Risk).
+
+**Obstacle 30758:** Behind, adjusted distances not provided. Approaching longitudinally, laterally aligned.  Trajectory indicates continuing convergence. Accurate risk assessment difficult without adjusted distances. Tentative risk score of 4 (Low Risk).
+
+**Obstacle 30759:** Front-left, adjusted distances not provided. Approaching in both directions, but lateral distance is larger than longitudinal.  Trajectory shows convergence.  Without adjusted distances, accurate risk assessment is difficult. Tentative risk score of 3 (Medium Risk).
+
+**Obstacle 30760:** Behind, adjusted distances not provided. Approaching longitudinally, lateral distance close to zero. Trajectory shows convergence.  Without adjusted distances, proper risk assessment is not possible. Tentative risk score of 4 (Low Risk).
+
+
+**Collision Scenario Determination:**
+
+Based on the available raw data and trajectories, Obstacle 30749 represents an *Extreme Risk (1)* of collision due to its very close proximity (-0.11m longitudinally) and rapid approach from behind.  Obstacle 30735 presented a higher risk in previous timesteps, nearly crossing directly in front of the ego. The lack of adjusted distances hinders a precise determination, but the raw data suggests a likely collision scenario.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null, 
+    "OverallRiskScore": null 
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30749",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30749 is extremely close (-0.11m raw longitudinal distance) and rapidly approaching from behind. This, combined with near-zero lateral distance and converging trajectories, represents an Extreme Risk (1), making this a collision scenario even without adjusted distances. Obstacle 30735 also posed a high risk in recent past timesteps due to close proximity while crossing."
+}
+```

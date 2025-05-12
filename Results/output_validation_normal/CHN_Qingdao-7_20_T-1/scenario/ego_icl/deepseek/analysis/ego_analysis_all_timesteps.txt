@@ -1,0 +1,51 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### Obstacle 30674 (Front-left of ego car)
+- **Adjusted Distances**: Longitudinal 15.51 m, Lateral 5.31 m  
+- **Relative Velocity**: Longitudinal -7.66 m/s (approaching), Lateral 4.93 m/s (moving away left)  
+- **Relative Acceleration**: Longitudinal 0.29 m/s², Lateral -2.73 m/s²  
+- **Motion Description**:  
+  - Longitudinal: Approaching ego at 7.66 m/s (closing distance).  
+  - Lateral: Moving away left at 4.93 m/s (increasing lateral distance).  
+
+#### Trajectory Analysis (0.1s to 0.9s)
+- **Longitudinal Trend**:  
+  - Distance decreases from 20.10 m to 15.51 m (consistent closing).  
+  - Relative velocity increases from -5.81 m/s to -7.66 m/s (accelerating toward ego).  
+- **Lateral Trend**:  
+  - Distance increases from 4.83 m to 5.31 m (consistent divergence).  
+  - Relative velocity decreases from 5.86 m/s to 4.93 m/s (lateral acceleration is negative, slowing divergence).  
+
+#### Risk Calculations
+1. **Time-to-Collision (TTC)**:  
+   - Longitudinal TTC = 15.51 m / 7.66 m/s = **2.03 seconds** (Medium Risk).  
+   - Lateral TTC: Not applicable (moving away).  
+
+2. **Minimum Distance to Collision (MDC)**:  
+   - Since the obstacle is moving away laterally, the MDC is effectively the current lateral distance (**5.31 m**, Low Risk).  
+   - Longitudinal MDC is not critical because lateral separation is increasing.  
+
+3. **Overall Risk**:  
+   - Longitudinal: Medium Risk (TTC = 2.03s).  
+   - Lateral: No Risk (diverging).  
+   - **Final Risk Score**: 3 (Medium Risk).  
+
+### Collision Scenario Determination
+- No obstacle has a risk score of 0 (collision) or 1 (extreme risk).  
+- Obstacle 30674 is approaching longitudinally but with sufficient lateral separation and increasing distance.  
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30674 is longitudinally approaching but laterally diverging, with no immediate collision risk (TTC = 2.03s, MDC = 5.31m)."
+}
+```

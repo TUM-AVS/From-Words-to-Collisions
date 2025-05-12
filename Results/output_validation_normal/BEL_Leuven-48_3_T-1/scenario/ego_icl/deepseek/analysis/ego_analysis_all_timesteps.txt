@@ -1,0 +1,50 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### Obstacle 30118 (Front of ego car)
+- **Adjusted Distances**: 
+  - Longitudinal: 15.33 m (raw distance provided, adjusted distance assumed same due to lack of explicit adjusted values)
+  - Lateral: 0.00 m (exact alignment)
+- **Relative Velocity**: 
+  - Longitudinal: -1.10 m/s (approaching ego)
+  - Lateral: 0.18 m/s (moving slightly away laterally)
+- **Relative Acceleration**: 
+  - Longitudinal: -3.28 m/s² (decelerating toward ego)
+  - Lateral: -1.90 m/s² (decelerating laterally)
+- **Motion Description**: "Obstacle is driving toward the ego car longitudinally. Exact lateral alignment or unknown case."
+
+#### Trajectory Analysis (0.0s to 0.9s)
+- Longitudinal distance decreases from 15.68m to 15.33m over 0.9s, with increasing approach velocity (from -0.13 m/s to -1.10 m/s).
+- Lateral distance remains 0.00m (exact alignment), but lateral velocity is slightly positive (0.18 m/s), indicating minor divergence.
+
+#### TTC Calculation:
+- **Longitudinal TTC**: Distance / |Relative Velocity| = 15.33 / 1.10 ≈ 13.94 seconds (No Risk, TTC > 5s)
+- **Lateral TTC**: Not applicable (lateral distance stable/increasing)
+
+#### MDC Calculation:
+- **Longitudinal MDC**: 15.33 m (No Risk, MDC > 5m)
+- **Lateral MDC**: 0.00 m (alignment, but no convergence)
+
+#### Risk Assessment:
+- **Primary Risk**: Longitudinal approach (TTC = 13.94s, MDC = 15.33m) → **No Risk (5)**
+- **Lateral Risk**: Exact alignment but diverging (lateral velocity positive) → **No Risk (5)**
+- **Overall Risk**: **No Risk (5)** (no imminent collision threat)
+
+### Conclusion
+- No collision (risk score 0) or extreme risk (risk score 1) detected.
+- Obstacle is longitudinally aligned and approaching, but at a safe distance and TTC.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30118 is longitudinally approaching but with high TTC (13.94s) and large MDC (15.33m). Lateral alignment is stable with slight divergence. No collision or extreme risk detected."
+}
+```

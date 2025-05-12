@@ -1,0 +1,62 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 20055 (Front-left of ego car at 0.9s)
+- **Position**: 
+  - Longitudinal: 17.69 m (front)
+  - Lateral: 3.08 m (left)
+- **Relative Velocity**: 
+  - Longitudinal: -0.98 m/s (approaching ego)
+  - Lateral: 4.81 m/s (moving away left)
+- **Trajectory Analysis**:
+  - Over the last 0.9s, the obstacle has been moving away laterally (left) while slowly approaching longitudinally.
+  - The lateral distance is increasing rapidly (from 0.00m to 3.08m), indicating no lateral collision risk.
+  - Longitudinal distance is decreasing slowly (from 18.32m to 17.69m).
+- **TTC (Longitudinal)**:
+  - Distance: 17.69m
+  - Relative Velocity: 0.98 m/s
+  - TTC = 17.69 / 0.98 ≈ 18.05s (No Risk, TTC > 5s)
+- **MDC**:
+  - Since the obstacle is moving away laterally, the MDC is effectively the current lateral distance (3.08m).
+  - 3.0 < MDC ≤ 5.0m: Low Risk (4)
+- **Overall Risk**: 
+  - No Risk (5) for both TTC and MDC.
+
+#### Obstacle 20057 (Rear-right of ego car at 0.9s)
+- **Position**: 
+  - Longitudinal: -18.21 m (rear)
+  - Lateral: -0.16 m (right)
+- **Relative Velocity**: 
+  - Longitudinal: -0.26 m/s (moving away longitudinally)
+  - Lateral: 1.49 m/s (approaching from right)
+- **Trajectory Analysis**:
+  - The obstacle is moving away longitudinally (distance increasing from -18.22m to -18.21m).
+  - Laterally, it is very close (0.16m) but moving toward the ego at 1.49 m/s.
+- **TTC (Lateral)**:
+  - Distance: 0.16m
+  - Relative Velocity: 1.49 m/s
+  - TTC = 0.16 / 1.49 ≈ 0.107s (Extreme Risk, TTC ≤ 0.5s)
+- **MDC**:
+  - Current lateral distance is 0.16m (very small).
+  - MDC = 0.16m (Extreme Risk, MDC < 0.5m)
+- **Overall Risk**: 
+  - Extreme Risk (1) due to very small TTC and MDC.
+
+### Collision Scenario Determination
+- Obstacle 20057 is at Extreme Risk (score 1) due to very small lateral distance (0.16m) and TTC (0.107s). The obstacle is approaching the ego laterally at high speed, making a collision imminent if trajectories are maintained.
+- Obstacle 20055 poses no risk.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20057",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 20057 is at Extreme Risk (score 1) due to very small lateral distance (0.16m) and TTC (0.107s), indicating an imminent collision if trajectories are maintained."
+}
+```

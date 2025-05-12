@@ -1,0 +1,97 @@
+### Obstacle-by-Obstacle Analysis
+
+#### **Obstacle 30295 (Behind)**
+- **Latest Timestep (0.9s):**
+  - Adjusted longitudinal distance: -12.45 m (behind)
+  - Adjusted lateral distance: 0.00 m (same lane)
+  - Relative velocity: longitudinal 4.06 m/s (approaching), lateral -0.21 m/s (slight drift)
+  - Motion: Driving toward ego from behind, exact lateral alignment.
+
+- **Trajectory Analysis:**
+  - Longitudinal distance decreasing (from -14.30m to -12.45m in 0.9s).
+  - Lateral distance remains 0.00m (same lane).
+  - Closing speed is increasing (relative velocity from 0.84 m/s to 4.06 m/s).
+
+- **Risk Assessment:**
+  - **TTC (longitudinal):** 12.45 / 4.06 ≈ 3.07s → Medium Risk (3).
+  - **MDC (lateral):** 0.00m (same lane) but not closing laterally → No immediate collision risk.
+  - **Overall Risk:** Medium (3) due to closing speed from behind.
+
+---
+
+#### **Obstacle 30298 (Front-left)**
+- **Latest Timestep (0.9s):**
+  - Adjusted longitudinal distance: 7.71 m (front)
+  - Adjusted lateral distance: 11.15 m (left)
+  - Relative velocity: longitudinal -5.47 m/s (approaching), lateral 6.69 m/s (moving away left).
+  - Motion: Driving toward ego longitudinally, moving away laterally.
+
+- **Trajectory Analysis:**
+  - Longitudinal distance decreasing (from 13.50m to 7.71m in 0.9s).
+  - Lateral distance increasing (from 6.13m to 11.15m in 0.9s).
+  - Obstacle is diagonally moving away from ego.
+
+- **Risk Assessment:**
+  - **TTC (longitudinal):** 7.71 / 5.47 ≈ 1.41s → Medium Risk (3).
+  - **MDC (lateral):** 11.15m (increasing) → No Risk (5).
+  - **Overall Risk:** Medium (3) due to longitudinal approach.
+
+---
+
+#### **Obstacle 30301 (Front-right)**
+- **Latest Timestep (0.9s):**
+  - Adjusted longitudinal distance: 7.43 m (front)
+  - Adjusted lateral distance: -1.90 m (right)
+  - Relative velocity: longitudinal -3.61 m/s (approaching), lateral 7.56 m/s (moving toward ego laterally).
+  - Motion: Driving toward ego both longitudinally and laterally.
+
+- **Trajectory Analysis:**
+  - Longitudinal distance decreasing (from 12.23m to 7.43m in 0.9s).
+  - Lateral distance decreasing (from -7.72m to -1.90m in 0.9s).
+  - Obstacle is diagonally approaching ego.
+
+- **Risk Assessment:**
+  - **TTC (longitudinal):** 7.43 / 3.61 ≈ 2.06s → Medium Risk (3).
+  - **TTC (lateral):** 1.90 / 7.56 ≈ 0.25s → Extreme Risk (1).
+  - **MDC (lateral):** 1.90m and closing → High Risk (2).
+  - **Overall Risk:** Extreme (1) due to lateral TTC < 0.5s.
+
+---
+
+#### **Obstacle 30304 (Front-right)**
+- **Latest Timestep (0.9s):**
+  - Adjusted longitudinal distance: 4.64 m (front)
+  - Adjusted lateral distance: -19.79 m (right)
+  - Relative velocity: longitudinal -3.24 m/s (approaching), lateral 8.73 m/s (moving toward ego laterally).
+  - Motion: Driving toward ego both longitudinally and laterally.
+
+- **Trajectory Analysis:**
+  - Longitudinal distance decreasing (from 8.06m to 4.64m in 0.6s).
+  - Lateral distance decreasing (from -24.95m to -19.79m in 0.6s).
+  - Obstacle is diagonally approaching but still far laterally.
+
+- **Risk Assessment:**
+  - **TTC (longitudinal):** 4.64 / 3.24 ≈ 1.43s → Medium Risk (3).
+  - **TTC (lateral):** 19.79 / 8.73 ≈ 2.27s → Medium Risk (3).
+  - **MDC (lateral):** 19.79m → No Risk (5).
+  - **Overall Risk:** Medium (3).
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30301",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```

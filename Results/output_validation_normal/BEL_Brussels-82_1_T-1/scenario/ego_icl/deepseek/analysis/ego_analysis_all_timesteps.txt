@@ -1,0 +1,68 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 30230 (Front-right)**
+- **Adjusted Distance**: Longitudinal 7.14 m, Lateral -1.79 m  
+- **Relative Velocity**: Longitudinal -0.49 m/s (approaching), Lateral -5.87 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally, moving away laterally to the right.  
+- **TTC (Longitudinal)**: 7.14 / 0.49 ≈ 14.57 s (No Risk)  
+- **TTC (Lateral)**: N/A (moving away)  
+- **MDC**: Lateral distance is increasing (1.79 m → safe). Longitudinal distance is decreasing but still large (7.14 m).  
+- **Risk**: Low Risk (4) – No immediate threat due to increasing lateral separation and slow longitudinal approach.
+
+#### **Obstacle 30231 (Front-right)**
+- **Adjusted Distance**: Longitudinal 13.06 m, Lateral -14.27 m  
+- **Relative Velocity**: Longitudinal -0.98 m/s (approaching), Lateral -7.97 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally, moving away laterally to the right.  
+- **TTC (Longitudinal)**: 13.06 / 0.98 ≈ 13.33 s (No Risk)  
+- **TTC (Lateral)**: N/A (moving away)  
+- **MDC**: Lateral distance is increasing rapidly (14.27 m → very safe).  
+- **Risk**: No Risk (5) – Diverging paths.
+
+#### **Obstacle 30235 (Behind)**
+- **Adjusted Distance**: Longitudinal -6.97 m, Lateral 0.00 m  
+- **Relative Velocity**: Longitudinal -0.78 m/s (moving away), Lateral 0.00 m/s  
+- **Motion**: Moving away longitudinally, exact lateral alignment.  
+- **TTC (Longitudinal)**: N/A (moving away)  
+- **TTC (Lateral)**: N/A (no lateral movement)  
+- **MDC**: Longitudinal distance increasing (6.97 m → safe).  
+- **Risk**: No Risk (5) – No convergence.
+
+#### **Obstacle 30237 (Behind)**
+- **Adjusted Distance**: Longitudinal -18.97 m, Lateral 0.00 m  
+- **Relative Velocity**: Longitudinal -0.56 m/s (moving away), Lateral 0.00 m/s  
+- **Motion**: Moving away longitudinally, exact lateral alignment.  
+- **TTC (Longitudinal)**: N/A (moving away)  
+- **TTC (Lateral)**: N/A (no lateral movement)  
+- **MDC**: Longitudinal distance increasing (18.97 m → very safe).  
+- **Risk**: No Risk (5) – No convergence.
+
+---
+
+### Trajectory Analysis
+- **Obstacle 30230**: Initially in front (lateral 0.00 m), now moving diagonally away (lateral -1.79 m). Longitudinal approach is slow (0.49 m/s).  
+- **Obstacle 30231**: Consistently moving away both longitudinally and laterally.  
+- **Obstacle 30235/30237**: Both moving away longitudinally with no lateral movement.  
+
+---
+
+### Collision Scenario Determination
+- **No obstacle has a risk score of 0 or 1**.  
+- Closest risk is Obstacle 30230 (Low Risk) due to slow longitudinal approach, but lateral separation is increasing.  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacles have a risk score ≤ 1. All obstacles are either moving away or maintaining safe distances."
+}
+```

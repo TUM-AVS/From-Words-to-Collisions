@@ -1,0 +1,25 @@
+* **Obstacle 33 (Behind):** This obstacle is approaching the ego vehicle from behind, remaining in perfect lateral alignment across all timesteps. At t=0.9s, the longitudinal distance is -19.47m and the relative longitudinal velocity is 3.84 m/s. This translates to a TTC of approximately 5.1 seconds. Given the relatively stable lateral alignment (0.00m consistently), the MDC is effectively the lateral distance, which is 0.00m. While this might seem alarming, the motion description clarifies that it represents "exact lateral alignment" rather than a collision. Because obstacle and ego vehicle are driving in the same direction and their relative speed is relatively small, the risk is related only to the fact that the obstacle is behind, thus reduced. The high closing velocity needs continued observation. Since the obstacle is behind the ego vehicle and longitudinally separated, the low MDC value of 0.00m (due to perfect lateral alignment) is less concerning than a similar lateral MDC for crossing or side-by-side obstacles. We classify this as a Low risk (4) due to the MDC, despite the TTC indicating No risk.
+
+* **Obstacle 319 (Front):**  This obstacle is in front of the ego vehicle and is moving away longitudinally in all timesteps. At t=0.9s, the longitudinal distance is 10.09m and the relative velocity is 2.84 m/s (moving away).  This signifies a diverging trajectory and a negative TTC (which is not applicable in the risk calculation).  The lateral distance remains at 0.00m. Similar to Obstacle 33, this indicates "exact lateral alignment" rather than a collision, according to the motion description. MDC is 0.00m due to alignment, however the obstacle is moving away and poses no immediate risk. This situation presents No Risk (5).
+
+* **Obstacle 355 (Front-Left):** This obstacle is positioned diagonally front-left of the ego vehicle. It's moving away longitudinally but slightly towards the ego vehicle laterally. At t=0.9s, the longitudinal distance is 13.79m (increasing) and the lateral distance is 4.51m (decreasing slightly).  Longitudinally, the relative velocity is large and positive thus the TTC is not applicable. For the lateral motion the relative velocity is -1.27 m/s. Thus there is a TTC value of approximately 3.5s. MDC is 4.51m. Given that the obstacle is mostly moving away longitudinally while slightly approaching laterally, with distances greater than 3 meters and TTC > 3s, we classify this as Low risk (4).
+
+
+**Conclusion:**
+
+This is NOT a collision scenario. No obstacle has a risk score of 0 or 1.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a collision risk score of 0 or an extreme risk score of 1."
+}
+```

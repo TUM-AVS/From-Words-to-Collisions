@@ -1,0 +1,52 @@
+### Obstacle-by-Obstacle Analysis:
+
+#### Obstacle 30223 (Front of the ego car):
+- **Adjusted Distance**: Longitudinal 9.92 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 1.68 m/s (moving away), Lateral -0.13 m/s (slight lateral movement)
+- **Trajectory Analysis**: 
+  - The obstacle is consistently moving away longitudinally (distance increasing from 7.58 m to 9.92 m over 0.9 seconds).
+  - Lateral distance remains 0.00 m, indicating exact alignment but no lateral movement toward the ego vehicle.
+- **TTC Calculation**: 
+  - Longitudinal TTC: Not applicable (moving away).
+  - Lateral TTC: Not applicable (lateral distance is stable at 0.00 m with negligible velocity).
+- **MDC Calculation**: 
+  - Longitudinal MDC: 9.92 m (Low Risk, MDC > 5.0 m).
+  - Lateral MDC: 0.00 m (but no closing velocity, so no collision risk).
+- **Overall Risk**: Negligible Risk (5). The obstacle is moving away and poses no threat.
+
+#### Obstacle 30224 (Front-left of the ego car):
+- **Adjusted Distance**: Longitudinal 12.52 m, Lateral 1.80 m
+- **Relative Velocity**: Longitudinal 1.62 m/s (moving away), Lateral -0.13 m/s (slight lateral movement toward ego).
+- **Trajectory Analysis**: 
+  - The obstacle is moving away longitudinally (distance increasing from 10.22 m to 12.52 m over 0.9 seconds).
+  - Lateral distance is decreasing slightly (from 1.83 m to 1.80 m), but the rate is very slow.
+- **TTC Calculation**: 
+  - Longitudinal TTC: Not applicable (moving away).
+  - Lateral TTC: 1.80 m / 0.13 m/s ≈ 13.85 s (No Risk, TTC > 5.0 s).
+- **MDC Calculation**: 
+  - Longitudinal MDC: 12.52 m (No Risk, MDC > 5.0 m).
+  - Lateral MDC: 1.80 m (Low Risk, 1.0 < MDC ≤ 3.0 m).
+- **Overall Risk**: Low Risk (4). The obstacle is moving away longitudinally and has minimal lateral movement toward the ego vehicle.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```
+
+### Explanation:
+- Neither obstacle poses a collision or extreme/high risk. Both are moving away from the ego vehicle longitudinally, and lateral movements are minimal.
+- Obstacle 30223 is aligned laterally but has no closing velocity, so it is not a collision risk.
+- Obstacle 30224 has a slight lateral movement toward the ego, but the distance is large and the rate is slow, resulting in low risk.

@@ -1,0 +1,65 @@
+### Obstacle-by-Obstacle Analysis:
+
+**Obstacle 30647:**
+- **Trajectory Analysis:**
+  - Position: Front-left of the ego.
+  - Velocity and Motion: Extremely high relative longitudinal velocity of -32.91 m/s and negative lateral velocity (-1.60 m/s), indicating rapid converging toward the ego vehicle.
+  - Adjusted Distances: Not provided, but given raw distances (longitudinal 19.24 m, lateral 4.77 m).
+
+- **Calculations:**
+  - **TTC Longitudinal:** |19.24 m / 32.91 m/s| ≈ 0.584 seconds.
+  - **TTC Lateral:** |4.77 m / 1.60 m/s| ≈ 2.981 seconds.
+  - **MDC:** Near convergence in both dimensions suggests medium-high risk zone given rapid relative closing speed.
+
+- **Risk Assessment:**
+  - The obstacle is quickly closing on the ego, mainly longitudinally. Both calculated TTC indicates potential threat, with the longitudinal component being particularly urgent.
+  - **Risk Score:** 1 (Extreme Risk) due to rapid approach in the longitudinal direction.
+
+**Obstacle 30670:**
+- **Trajectory Analysis:**
+  - Position: Front-left of the ego.
+  - Velocity and Motion: Moving toward the ego longitudinally (-2.52 m/s) while increasing lateral distance (2.00 m/s away).
+
+- **Calculations:**
+  - **TTC Longitudinal:** |20.25 m / 2.52 m/s| ≈ 8.036 seconds.
+  - **TTC Lateral:** Already moving away, lateral position risk reduced.
+  - **MDC:** Adequate separation is available in both dimensions, reducing risk.
+
+- **Risk Assessment:**
+  - The longitudinal approach is slow and lateral increase suggests diverging path.
+  - **Risk Score:** 5 (Negligible Risk) due to increasing lateral distance and slow longitudinal approach.
+
+**Obstacle 30672:**
+- **Trajectory Analysis:**
+  - Position: Rear-left.
+  - Velocity and Motion: Moving away, both longitudinally and laterally, with lateral distance slight increase to 0.60 m.
+
+- **Calculations:**
+  - **TTC Longitudinal:** Not applicable as velocity shows it's increasing longitudinal distance (moving apart).
+  - **TTC Lateral:** |0.60 m / 2.48 m/s| ≈ 0.242 seconds but with divergence greater than the scaling factor suggested negligible immediate risk.
+  
+- **Risk Assessment:**
+  - Trajectory diverging into a lesser risk zone, reducing immediate concern.
+  - **Risk Score:** 5 (Negligible Risk) due to increasing distances in both dimensions.
+
+### JSON Summary:
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30647",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    }
+}
+```
+
+### Conclusion:
+Obstacle 30647 presents an extreme risk due to its high-speed closing velocity in the longitudinal direction. Immediate action is required to prevent collision. Other obstacles 30670 and 30672 present negligible risks at this time due to their trajectories diverging or slowly closing without posing immediate threats.

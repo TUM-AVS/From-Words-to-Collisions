@@ -1,0 +1,46 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 7.4s)
+
+**Obstacle 20071:**
+- **Position:** Collision (longitudinal 0.00m, lateral 0.00m)
+- **Relative Velocity:** Longitudinal 4.17 m/s (approaching), Lateral -0.02 m/s (negligible)
+- **Motion Description:** Exact longitudinal alignment (collision occurring)
+- **Trajectory Analysis:**
+  - From 6.5s to 7.4s, the obstacle rapidly closes the longitudinal distance from -3.36m to 0.00m at ~4.1 m/s relative velocity.
+  - Lateral distance remains 0.00m (perfect alignment) with negligible lateral velocity.
+  - The obstacle's longitudinal acceleration is slightly negative (-0.08 m/s²), but the closing speed remains high enough to cause a collision.
+
+### TTC and MDC Calculations:
+1. **Time-to-Collision (TTC):**
+   - Longitudinal TTC = 0.00m / 4.17 m/s = **0.00s** (collision occurring)
+   - Lateral TTC = N/A (no lateral closing velocity)
+   - **TTC Risk:** 0 (Collision)
+
+2. **Minimum Distance to Collision (MDC):**
+   - Longitudinal MDC = 0.00m (collision)
+   - Lateral MDC = 0.00m (collision)
+   - **MDC Risk:** 0 (Collision)
+
+### Risk Assessment:
+- **Overall Risk Score:** 0 (Collision occurring)
+  - Both TTC and MDC confirm a collision (distance = 0.00m in both dimensions with closing velocity).
+
+### Collision Scenario Determination:
+This is a **collision scenario** because:
+1. Obstacle 20071 has a collision risk score of 0 (actual collision at 7.4s).
+2. The obstacle's longitudinal distance reaches 0.00m with significant closing velocity (4.17 m/s), and lateral alignment is perfect (0.00m).
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20071",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 20071 has collided with the ego vehicle (longitudinal and lateral distances = 0.00m with closing velocity)."
+}
+```

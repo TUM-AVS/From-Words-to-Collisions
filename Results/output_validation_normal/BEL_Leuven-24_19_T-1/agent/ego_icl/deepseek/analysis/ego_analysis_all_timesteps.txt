@@ -1,0 +1,60 @@
+Let me analyze each obstacle at the most recent timestep (0.9 seconds) with trajectory context:
+
+1. Obstacle 30221 (Front):
+- Adjusted distances: longitudinal 10.85m, lateral 0.00m
+- Relative velocity: longitudinal -5.03 m/s (approaching), lateral 0.07 m/s (moving slightly right)
+- TTC (longitudinal): 10.85/5.03 = 2.16s (Medium Risk)
+- MDC: Lateral distance is 0.00m but moving away (no collision risk)
+- Overall Risk: 3 (Medium) - closing longitudinally but sufficient time
+
+2. Obstacle 30225 (Front-left):
+- Adjusted distances: longitudinal 19.15m, lateral 2.98m
+- Relative velocity: longitudinal -6.11 m/s (approaching), lateral 0.00 m/s
+- TTC (longitudinal): 19.15/6.11 = 3.13s (Medium Risk)
+- MDC: Lateral distance stable at ~3m (Low Risk)
+- Overall Risk: 3 (Medium) - primary risk is longitudinal approach
+
+3. Obstacle 30228 (Front):
+- Adjusted distances: longitudinal 19.48m, lateral 0.00m
+- Relative velocity: longitudinal -6.11 m/s (approaching), lateral 0.00 m/s
+- TTC (longitudinal): 19.48/6.11 = 3.19s (Medium Risk)
+- MDC: Lateral distance is 0.00m but no lateral movement (same lane)
+- Overall Risk: 3 (Medium) - same lane but distant
+
+4. Obstacle 30229 (Front-left):
+- Adjusted distances: longitudinal 10.85m, lateral 2.31m
+- Relative velocity: longitudinal -5.30 m/s (approaching), lateral 0.06 m/s (moving away)
+- TTC (longitudinal): 10.85/5.30 = 2.05s (Medium Risk)
+- MDC: Lateral distance increasing (Low Risk)
+- Overall Risk: 3 (Medium) - closing longitudinally but moving away laterally
+
+5. Obstacle 30241 (Rear-left):
+- Adjusted distances: longitudinal -15.16m, lateral 2.80m
+- Relative velocity: longitudinal 0.44 m/s (moving away), lateral -0.52 m/s (approaching)
+- TTC (lateral): 2.80/0.52 = 5.38s (No Risk)
+- MDC: Longitudinal distance increasing (No Risk)
+- Overall Risk: 5 (No Risk) - moving away in both dimensions
+
+Trajectory Analysis:
+- All front obstacles show consistent longitudinal closing but with sufficient distance
+- No obstacles show imminent collision risk (TTC > 2s for all)
+- Lateral movements are either stable or diverging
+- Rear obstacle is moving away from ego vehicle
+
+Final JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```

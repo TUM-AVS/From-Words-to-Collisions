@@ -1,0 +1,81 @@
+### Analysis of Obstacles for Collision Risk:
+
+#### Obstacle 3298:
+- **Recent Data (4.1 seconds):**
+  - **Adjusted Longitudinal Distance:** 10.10 m
+  - **Adjusted Lateral Distance:** 0.00 m
+  - **Relative Velocity (Longitudinal):** -3.14 m/s
+  
+- **Trajectory Analysis:**
+  - The obstacle is consistently approaching the ego vehicle longitudinally, with decreasing longitudinal distance over time.
+  
+- **TTC Calculation:**
+  - **TTC (Longitudinal):** \( TTC = \frac{10.10}{3.14} \approx 3.22 \) seconds
+  
+- **MDC Calculation:**
+  - **MDC:** Primarily determined by longitudinal distance here due to alignment, which is steadily decreasing.
+
+- **Risk Assessment:**
+  - **TTC (Longitudinal: Low Risk):** Between 3.0 and 5.0 seconds
+  - **MDC:** Considering distance and trajectory, no immediate collision, as distance > 5.0 meters.
+  - **Overall Risk Score for Obstacle 3298:** 4 (Low Risk)
+
+#### Obstacle 3300:
+- **Recent Data (4.1 seconds):**
+  - **Adjusted Longitudinal Distance:** 9.96 m
+  - **Adjusted Lateral Distance:** -8.90 m
+  - **Relative Velocity (Longitudinal):** -3.14 m/s
+
+- **Trajectory Analysis:**
+  - Consistently approaching, but on the front-right diagonal, more focused on longitudinal trajectory.
+
+- **TTC Calculation:**
+  - **TTC (Longitudinal):** \( TTC = \frac{9.96}{3.14} \approx 3.17 \) seconds
+  
+- **MDC Calculation:**
+  - **MDC:** Based on diagonal position and decreasing trajectory.
+
+- **Risk Assessment:**
+  - **TTC (Longitudinal: Low Risk):** Between 3.0 and 5.0 seconds
+  - **MDC:** Safe distance with no imminent collision.
+  - **Overall Risk Score for Obstacle 3300:** 4 (Low Risk)
+
+#### Obstacle 3301:
+- **Recent Data (4.1 seconds):**
+  - **Adjusted Longitudinal Distance:** 0.14 m
+  - **Adjusted Lateral Distance:** 0.00 m
+  - **Relative Velocity (Longitudinal):** -0.98 m/s
+
+- **Trajectory Analysis:**
+  - Rapidly reducing longitudinal distance, indicating high risk of collision.
+
+- **TTC Calculation:**
+  - **TTC (Longitudinal):** \( TTC = \frac{0.14}{0.98} \approx 0.14 \) seconds
+
+- **MDC Calculation:**
+  - **MDC:** 0.14 meters (collision imminent based on continued trajectory)
+
+- **Risk Assessment:**
+  - **TTC (Collision):** Less than 0.5 seconds indicates imminent collision
+  - **MDC:** 0.14 meters (indicating a collision risk)
+  - **Overall Risk Score for Obstacle 3301:** 0 (Collision)
+
+### Conclusion:
+- **Collision Status:** An impending collision detected with Obstacle 3301.
+- **Collision Scenario Determination:** Yes, due to detected collision risk (score 0) for Obstacle 3301.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "3301",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Detected impending collision with Obstacle 3301 due to extreme proximity and closing relative velocity."
+}
+```

@@ -1,0 +1,57 @@
+### Obstacle-by-Obstacle Analysis
+
+**Obstacle 20111:**
+- **Latest Timestep:** At 3.6 seconds, it's indicated in a collision with the ego vehicle.
+- **Longitudinal Distance Analysis:** 
+  - At 3.6s, the longitudinal distance is 0.00m.
+  - Relative velocity longitudinal component = 7.10 m/s, indicating it's rapidly approaching.
+  - The negative distance trend from previous timesteps shows this obstacle has consistently been closing in on the ego vehicle.
+  - Acceleration indicates it's slowing down but still converging.
+
+- **Lateral Distance Analysis:**
+  - At 3.6 seconds, lateral distance is exactly 0.00m, indicating exact alignment. Given longitudinal distance is also 0.00m, it confirms a collision.
+
+- **TTC and MDC:**
+  - TTC longitudinal = 0 seconds since they are at the same point.
+  - MDC also results in 0 meters.
+
+- **Risk Assessment:**
+  - Risk score: 0 (Collision occurring).
+
+**Obstacle 20112:**
+- **Latest Timestep:** At 3.6 seconds, the obstacle is situated rear-right to the ego vehicle.
+- **Longitudinal Distance Analysis:**
+  - At 3.6s, longitudinal distance = -20.90m, with closing velocity of 5.76 m/s.
+  - Consistently getting closer but still at a safe distance laterally.
+
+- **Lateral Distance Analysis:**
+  - At 3.6s, lateral distance = -1.22m, with a velocity of 2.14 m/s indicating it's converging laterally.
+  
+- **TTC and MDC:**
+  - Since the obstacle is significantly distant both longitudinally and laterally, there is still some time before any potential collision path converges.
+  - TTC overall is safe (greater than 5 seconds) as neither component is converging rapidly enough to be at risk.
+  - MDC overall is safe (greater than 5m).
+
+- **Risk Assessment:**
+  - Risk score: 5 (No Risk).
+
+### Conclusion
+
+This situation is a collision scenario due to Obstacle 20111 being exactly on the collision point at the latest timestep, both longitudinally and laterally. 
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20111",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 20111 is in a collision scenario with the ego vehicle as both longitudinal and lateral distances are zero with converging trajectories."
+}
+```

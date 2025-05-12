@@ -1,0 +1,83 @@
+### Safety Analysis for the Most Recent Timestep (5.3 seconds):
+
+#### Obstacle Analysis:
+1. **Obstacle ID: 30267.0**
+   - **Distance Risk Reason**: Static obstacle, not in the same lanelet as ego. Distance remains constant (~5.0m away).
+   - **Distance Safety Score**: 4 (Low Risk)
+   - **Time Risk Reason**: Zero velocity, no movement.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 4 (Low Risk)
+
+2. **Obstacle ID: 30270.0**
+   - **Distance Risk Reason**: Moving away from ego (X-coordinate increasing, Y-coordinate stable). Distance ~30m.
+   - **Distance Safety Score**: 5 (Negligible Risk)
+   - **Time Risk Reason**: Decelerating (negative acceleration), velocity decreasing.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 5 (Negligible Risk)
+
+3. **Obstacle ID: 30271.0**
+   - **Distance Risk Reason**: Moving away (X-coordinate increasing rapidly, Y-coordinate stable). Distance ~50m.
+   - **Distance Safety Score**: 5 (Negligible Risk)
+   - **Time Risk Reason**: High velocity but moving away, acceleration positive but not towards ego.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 5 (Negligible Risk)
+
+4. **Obstacle ID: 30272.0**
+   - **Distance Risk Reason**: Static, not in ego's lanelet. Distance ~18m.
+   - **Distance Safety Score**: 4 (Low Risk)
+   - **Time Risk Reason**: Zero velocity.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 4 (Low Risk)
+
+5. **Obstacle ID: 30273.0**
+   - **Distance Risk Reason**: Moving away (X-coordinate increasing, Y-coordinate stable). Distance ~70m.
+   - **Distance Safety Score**: 5 (Negligible Risk)
+   - **Time Risk Reason**: High velocity but moving away, acceleration positive but not towards ego.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 5 (Negligible Risk)
+
+6. **Obstacle ID: 30274.0**
+   - **Distance Risk Reason**: Moving towards ego (X-coordinate decreasing, Y-coordinate stable). Distance ~4.4m.
+   - **Distance Safety Score**: 2 (High Risk)
+   - **Time Risk Reason**: Decelerating but still closing distance.
+   - **Time Safety Score**: 2 (High Risk)
+   - **Overall Risk Score**: 2 (High Risk)
+
+7. **Obstacle ID: 30275.0**
+   - **Distance Risk Reason**: Static, not in ego's lanelet. Distance ~20m.
+   - **Distance Safety Score**: 4 (Low Risk)
+   - **Time Risk Reason**: Zero velocity.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 4 (Low Risk)
+
+8. **Obstacle ID: 30276.0**
+   - **Distance Risk Reason**: Moving slowly, not in ego's lanelet. Distance ~26m.
+   - **Distance Safety Score**: 4 (Low Risk)
+   - **Time Risk Reason**: Low velocity, decelerating.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 4 (Low Risk)
+
+9. **Obstacle ID: 30277.0**
+   - **Distance Risk Reason**: Moving slowly, not in ego's lanelet. Distance ~24m.
+   - **Distance Safety Score**: 4 (Low Risk)
+   - **Time Risk Reason**: Low velocity, decelerating.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 4 (Low Risk)
+
+### Chain of Thought Scenario Analysis:
+1. **Ego Vehicle**: Moving very slowly (~0.0225 m/s) with deceleration.
+2. **Obstacle 30274.0**: The only high-risk obstacle (~4.4m away, closing distance at ~2.17 m/s). TTC ~2.0s.
+3. **Other Obstacles**: Either static or moving away.
+4. **Conclusion**: No immediate collision (TTC > 0), but high risk due to Obstacle 30274.0.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacles": null,
+    "ExtremeRiskObstacle": null,
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "No immediate collision detected. Highest risk is Obstacle 30274.0 (High Risk, TTC ~2.0s). All other obstacles are low or negligible risk."
+    }
+}
+```

@@ -1,0 +1,47 @@
+* **Obstacle 30295 (Behind):** This obstacle is directly behind the ego vehicle (lateral distance = 0.00m) and approaching longitudinally.  Across the timesteps, the longitudinal distance decreases from -14.30m to -12.45m, indicating a closing motion. The relative longitudinal velocity increases from 0.84 m/s to 4.06 m/s, meaning the obstacle is gaining on the ego vehicle. Although laterally aligned, the consistent 0.00m lateral distance across all timestamps suggests the obstacle is likely staying in the same lane. Given the increasing closing velocity and longitudinal distance shrinking, this poses a potential risk.
+
+    * **MDC:** Approximately 0m (due to lateral alignment and closing longitudinal distance).
+    * **TTC (Longitudinal):** -12.45m / 4.06 m/s ≈ -3.07 seconds. Negative TTC normally implies passing/no collision, but combined with near-zero MDC and the closing trend, this means a near miss or potential future collision if trends continue.
+
+    * **Risk:** Medium (3) - The negative TTC suggests a passing scenario, however, the small distance still warrants attention.
+
+
+* **Obstacle 30298 (Front-Left):** This obstacle is positioned diagonally ahead and to the left of the ego vehicle. Both longitudinal and lateral distances are decreasing across timesteps (from 13.50m to 7.71m longitudinally, and 6.13m to 11.15m laterally).  The relative longitudinal velocity is negative and decreasing, indicating the ego is moving away from the obstacle in this direction.  The motion description confirms it is "moving away laterally to the left". The combination of negative longitudinal velocity and the increasing lateral gap indicates a low probability of collision.
+
+    * **MDC:** >5.0m (using Pythagorean theorem on latest positions)
+    * **TTC (Longitudinal):** 7.71m / -5.47m/s (using absolute value of velocity): Not applicable due to negative velocity.
+    * **TTC (Lateral):** 11.15m / 6.69m/s = 1.67 seconds (Risk 3).
+
+    * **Risk:** Low (4)
+
+
+* **Obstacle 30301 (Front-Right):** This obstacle is diagonally ahead and to the right, with the lateral distance being the more prominent separation.  The lateral distances are actually decreasing (-7.72 to -1.90) across timesteps and longitudinal distance also decreases from 12.23m to 7.43m. The obstacle might be changing lanes or cutting across. It's getting closer in both dimensions and approaching ego car laterally. This needs careful monitoring.
+
+    * **MDC:** 1.90m (lateral distance is used because it shows closing trend and is primary separation).
+    * **TTC (Longitudinal):**  7.43m / -3.61 m/s ≈ -2.06 seconds (not applicable for collision)
+    * **TTC (Lateral):** -1.9m / 7.56 m/s = -0.25s. Negative value and a small MDC. Warrants attention
+
+    * **Risk:** Medium (3) due to MDC
+
+
+* **Obstacle 30304 (Front-Right):** The obstacle is diagonally ahead and to the right.  The lateral distance decreases from -24.95m to -19.79m, and longitudinal from 8.06m to 4.64m.  This obstacle's longitudinal approach is more concerning, as it rapidly closes in while slightly diverging laterally.
+
+    * **MDC:** 4.64m (longitudinal distance is the closest distance).
+    * **TTC (Longitudinal):** 4.64m / -3.24m/s ≈ -1.43s (not applicable for collision)
+    * **TTC (Lateral):** -19.79m / 8.73m/s ≈ -2.27 (not applicable for collision)
+
+    * **Risk:** Low (4) due to MDC
+
+
+**Collision Scenario Determination:** No, this is NOT a collision scenario. No obstacle has a risk score of 0 or 1.
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a collision risk score of 0 or an extreme risk score of 1."
+}
+```

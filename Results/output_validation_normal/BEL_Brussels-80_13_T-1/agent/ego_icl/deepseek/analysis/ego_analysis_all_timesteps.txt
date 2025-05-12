@@ -1,0 +1,68 @@
+### Obstacle Analysis
+
+#### Obstacle 30217
+- **Position**: Behind ego car
+- **Adjusted Distance**: Longitudinal -8.58 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 2.08 m/s (approaching), Lateral 0.29 m/s (minimal lateral movement)
+- **Motion Description**: Obstacle is driving toward the ego car from behind. Exact lateral alignment.
+
+**Trajectory Analysis**:
+- Over the timesteps, the longitudinal distance decreases from -9.16 m to -8.58 m, indicating the obstacle is closing in on the ego vehicle.
+- The lateral distance remains 0.00 m, indicating exact alignment in the same lane.
+- The longitudinal relative velocity is consistently positive and increasing, suggesting the obstacle is accelerating toward the ego vehicle.
+
+**Time-to-Collision (TTC)**:
+- TTC = Distance / Relative Velocity = 8.58 m / 2.08 m/s ≈ 4.12 seconds
+- This falls into the Low Risk category (3.0 < TTC ≤ 5.0 seconds).
+
+**Minimum Distance to Collision (MDC)**:
+- Since the obstacle is directly behind (lateral distance = 0.00 m), the MDC is the longitudinal distance: 8.58 m.
+- This falls into the No Risk category (MDC > 5.0 meters).
+
+**Overall Risk**:
+- The higher risk assessment is Low Risk (4) based on TTC.
+
+#### Obstacle 30218
+- **Position**: Behind ego car
+- **Adjusted Distance**: Longitudinal -21.54 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 1.73 m/s (approaching), Lateral 0.66 m/s (minimal lateral movement)
+- **Motion Description**: Obstacle is driving toward the ego car from behind. Exact lateral alignment.
+
+**Trajectory Analysis**:
+- The longitudinal distance decreases from -21.50 m to -21.54 m, but the trend is not as consistent as Obstacle 30217.
+- The lateral distance remains 0.00 m, indicating exact alignment in the same lane.
+- The longitudinal relative velocity is positive but lower than Obstacle 30217.
+
+**Time-to-Collision (TTC)**:
+- TTC = Distance / Relative Velocity = 21.54 m / 1.73 m/s ≈ 12.45 seconds
+- This falls into the No Risk category (TTC > 5.0 seconds).
+
+**Minimum Distance to Collision (MDC)**:
+- MDC is the longitudinal distance: 21.54 m.
+- This falls into the No Risk category (MDC > 5.0 meters).
+
+**Overall Risk**:
+- The higher risk assessment is No Risk (5) based on both TTC and MDC.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```
+
+### Final Notes:
+- Neither obstacle poses an immediate collision or extreme risk. Obstacle 30217 has a Low Risk due to its closing speed, but the distance is still significant. Obstacle 30218 is even further away and poses No Risk.
+- The ego vehicle should monitor Obstacle 30217 for any acceleration or sudden changes in trajectory, but no immediate action is required.

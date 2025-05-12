@@ -1,0 +1,63 @@
+### Obstacle Analysis
+
+**Obstacle 31: Front-left**
+- **Trajectory Analysis**: Obstacle 31 is decreasing both its longitudinal and lateral distances toward the ego vehicle consistently over time, with significant negative relative velocities in both directions, indicating it's moving toward the ego vehicle diagonally.
+- **Current Distances (at 1.0 seconds)**: Longitudinal = 1.75m, Lateral = 3.37m
+- **Relative Velocities**: Longitudinal = -12.50 m/s, Lateral = -4.20 m/s
+- **TTC Calculations**:
+  - **Longitudinal TTC**: \( \text{TTC} = \frac{1.75}{12.50} = 0.14 \, \text{seconds} \)
+  - **Lateral TTC**: \( \text{TTC} = \frac{3.37}{4.20} = 0.80 \, \text{seconds} \)
+- **MDC Calculation**: Given both longitudinal and lateral distances are reducing and considering trajectories, MDC is calculated at approximately 1.75m.
+- **Risk Evaluation**: Due to a very low longitudinal TTC and a minimum distance quite close to the ego vehicle, this results in an **Extreme Risk** assessment.
+
+**Obstacle 325: Behind**
+- **Trajectory Analysis**: Obstacle 325 is directly behind and closing in on the ego vehicle.
+- **Current Distances (at 1.0 seconds)**: Longitudinal = -0.17m (in vehicle's reference), Lateral = 0.00m
+- **Relative Velocities**: Longitudinal = 6.71 m/s, indicating it's rapidly closing the gap.
+- **TTC Calculation**:
+  - **Longitudinal TTC**: Approximated to \( \text{TTC} = \frac{-0.17}{6.71} = \) Near immediate contact.
+- **MDC Calculation**: Practically zero, as the vehicle is nearly touching.
+- **Risk Evaluation**: Due to near-zero longitudinal distance with closing velocity, this situation qualifies as a **Collision.**
+
+**Obstacle 350: Front-left**
+- **Trajectory Analysis**: Obstacle 350 is further ahead and moving laterally away to the left.
+- **Current Distances (at 1.0 seconds)**: Longitudinal = 14.64m, Lateral = 19.83m
+- **Relative Velocities**: Longitudinal = -2.19 m/s, Lateral = 5.79 m/s
+- **TTC Calculation**:
+  - **Longitudinal TTC**: \( \text{TTC} = \frac{14.64}{2.19} = 6.68 \, \text{seconds} \)
+  - **Lateral space increasing**: Movement is away.
+- **MDC Calculation**: With increasing lateral distance and both TTC and MDC well over acceptable limits for collision risk, MDC is significant.
+- **Risk Evaluation**: Given the large longitudinal and lateral distances and diverging paths, this results in **Negligible Risk**.
+
+**Obstacle 344: Behind**
+- **Trajectory Analysis**: This obstacle is significantly behind with a high closing velocity but currently at a safe distance.
+- **Current Distances (at 1.0 seconds)**: Longitudinal = -19.54m, Lateral = 0.00m
+- **Relative Velocities**: Longitudinal = 11.65 m/s
+- **TTC Calculation**:
+  - **Longitudinal TTC**: \( \text{TTC} = \frac{-19.54}{11.65} \) currently not applicable as it's extended.
+- **MDC Calculation**: Given considerable distance, while closing, still safe.
+- **Risk Evaluation**: **Negligible Risk** due to sufficient distance even with closing velocity.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "325",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "31",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": "2"
+    }
+}
+```
+
+### Summary
+- Obstacle 325 is at collision status due to overlapping positions and closing speed despite being behind the ego vehicle.
+- Obstacle 31 poses an extreme risk as it approaches from the front-left rapidly reducing both longitudinal and lateral distances.
+- Other vehicles assessed present negligible risk at this instance.

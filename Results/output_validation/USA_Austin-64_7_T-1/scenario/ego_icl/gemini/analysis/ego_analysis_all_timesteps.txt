@@ -1,0 +1,36 @@
+Obstacle-by-Obstacle Analysis at 4.3 seconds:
+
+* **Obstacle 3332:** Front-right, longitudinal 19.00m, lateral -8.85m.  Relative velocity: longitudinal -2.81 m/s, lateral 0.00 m/s.  The obstacle is approaching longitudinally but the lateral distance is substantial. The longitudinal TTC is 19.00 / 2.81 = 6.76s.  MDC is >5m due to lateral separation. Risk: No Risk (5).
+
+* **Obstacle 3334:** Front-left, longitudinal 9.72m, lateral 1.89m. Relative velocity: longitudinal -2.81 m/s, lateral 0.00 m/s. The obstacle is approaching longitudinally.  Longitudinal TTC is 9.72 / 2.81 = 3.46s. MDC is >3m but <5m given the small lateral distance. Risk: Low Risk (4).
+
+* **Obstacle 3335:** Front, longitudinal 9.74m, lateral 0.00m. Relative velocity: longitudinal -2.81 m/s, lateral 0.00 m/s.  The obstacle is directly ahead and approaching. Longitudinal TTC is 9.74 / 2.81 = 3.47s. MDC is low due to zero lateral distance, but longitudinal distance provides some buffer. Risk: Low Risk (4).
+
+* **Obstacle 3336:** Front-right, longitudinal 22.50m, lateral -8.97m. Relative velocity: longitudinal -2.81 m/s, lateral 0.00 m/s. Similar to Obstacle 3332, this obstacle poses no immediate risk due to the large lateral distance.  Longitudinal TTC is 22.50 / 2.81 = 8.01s. MDC is > 5m. Risk: No Risk (5).
+
+* **Obstacle 3337:** Front-left, longitudinal 0.45m, lateral 1.89m. Relative velocity: longitudinal -1.18 m/s, lateral 0.00 m/s. Although the lateral distance is relatively safe, the longitudinal distance is extremely close. Longitudinal TTC is 0.45/1.18 = 0.38s. This represents an **Extreme Risk (1)** due to the very short TTC. MDC is less than 0.5.
+
+* **Obstacle 3338:** Front, longitudinal 0.19m, lateral 0.00m. Relative velocity: longitudinal -0.97 m/s, lateral 0.00 m/s.  This obstacle is almost directly in front of the ego vehicle and very close. The longitudinal TTC is 0.19 / 0.97 = 0.20s. This is extremely close to a collision, making it an **Extreme Risk (1)**. MDC is close to zero.
+
+* **Obstacle 3340:** Rear-left, longitudinal -2.02m, lateral 1.87m. Relative velocity: longitudinal 0.51 m/s, lateral 0.00 m/s. This obstacle is behind and to the left of the ego and getting further away longitudinally although it has a slight closing lateral velocity.  Since the obstacle is moving away longitudinally, TTC calculation isn't relevant for collision risk assessment. The decent lateral distance and moving away behavior longitudinally suggests No Risk (5).
+
+Collision Scenario Determination:
+
+Yes, this is a collision scenario. Obstacles 3337 and 3338 both present Extreme Risk (1) with TTC values below 0.5 seconds and MDC values below 0.5m, indicating near-certain collision if the trajectories are maintained.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null 
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3337", 
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacles 3337 and 3338 have extremely low TTC (< 0.5s) and MDC (< 0.5m) indicating imminent collision at the most recent timestep."
+}
+```

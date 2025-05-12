@@ -1,0 +1,41 @@
+Obstacle 30639 (Front-Left):
+
+* Trajectory Analysis: This obstacle has been consistently approaching the ego vehicle longitudinally over the observed timesteps. The lateral distance remains constant at 2.01m.  The longitudinal distance has decreased from 25.04m to 19.38m in 0.5 seconds.
+
+* TTC Calculation: 
+    * Longitudinal TTC = 19.38m / 10.35 m/s = 1.87 seconds
+    * Lateral TTC is not applicable since there is no lateral relative motion.
+
+* MDC Calculation: Given the constant lateral distance and closing longitudinal distance, the MDC will be the lateral distance when the obstacle's longitudinal position aligns with the ego vehicle.  Therefore, MDC ≈ 2.01m.
+
+* Risk Assessment:
+    * Longitudinal TTC suggests a Medium Risk (3).
+    * MDC suggests a Medium Risk (3).
+    * Overall Risk: Medium (3)
+
+
+Obstacle 30652 (Front):
+
+* Trajectory Analysis: This obstacle appears to be directly in front of the ego vehicle (lateral distance consistently 0.00m) and is moving away from the ego vehicle longitudinally. The longitudinal distance increases from 13.44m to 16.60m over the timesteps.
+
+* TTC Calculation: Since the relative longitudinal velocity is positive (moving away), TTC calculation is not applicable for a collision risk.
+
+* MDC Calculation: Since the obstacle is moving away, and there is no lateral movement, MDC can be considered infinite.
+
+* Risk Assessment:
+    * Longitudinal motion suggests Negligible Risk (5)
+    * Overall Risk: Negligible (5)
+
+
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": null,
+    "MediumRiskObstacle": {
+        "ObstacleID": "30639",
+        "OverallRiskScore": "3"
+    }
+}
+```

@@ -1,0 +1,79 @@
+### Detailed Analysis:
+
+#### Obstacle 3298:
+- **Trajectory Analysis:**
+  - The longitudinal distance from the ego vehicle continually decreases from 17.83m to 10.93m.
+  - Relative velocity started at -9.83 m/s and reduced to -4.16 m/s at the last time step.
+  - The obstacle is slowing down in its approach towards the ego vehicle.
+
+- **Time-to-Collision (TTC) Calculation:**
+  - Adjusted longitudinal distance at the latest timestamp = 10.93m.
+  - Relative longitudinal velocity = 4.16 m/s (approaching).
+  - TTC = 10.93 / 4.16 ≈ 2.63 seconds.
+
+- **Minimum Distance to Collision (MDC):**
+  - Longitudinally approaching, with alignment, no lateral concern.
+  - MDC primarily influenced by longitudinal distance: 10.93m.
+
+- **Risk Assessment:**
+  - TTC of 2.63 seconds suggests **Medium Risk**.
+  - MDC > 5m, suggesting **Negligible Risk** longitudinally.
+
+#### Obstacle 3300:
+- **Trajectory Analysis:**
+  - Longitudinal decrease from 17.85m to 10.80m.
+  - Lateral distance relatively fixed at around -8.89m (front-right scenario).
+  - Velocity reduced from -9.83 m/s to -4.16 m/s, showing the approach is slowing down.
+
+- **Time-to-Collision (TTC) Calculation:**
+  - Effective analysis focuses on the longitudinal approach.
+  - Longitudinal TTC = 10.80 / 4.16 ≈ 2.60 seconds.
+
+- **Minimum Distance to Collision (MDC):**
+  - Significant lateral distance, keeping the collision risk negligible.
+  - MDC longitudinally: 10.80m (adjusted).
+
+- **Risk Assessment:**
+  - TTC indicates **Medium Risk** due to the longitudinal approach.
+  - MDC much larger laterally, hence **Negligible** risk.
+
+#### Obstacle 3301:
+- **Trajectory Analysis:**
+  - Longitudinal distance has reduced significantly from around 4.37m to 0.51m.
+  - Directly in the front and aligned longitudinally without lateral separation.
+  - Slowing velocity from -5.37m/s to -1.65m/s indicates decreasing relative motion.
+
+- **Time-to-Collision (TTC) Calculation:**
+  - Adjusted longitudinal distance = 0.51m.
+  - Longitudinal velocity = 1.65 m/s.
+  - Low closing speed, but very small distance.
+  - TTC = 0.51 / 1.65 ≈ 0.31 seconds.
+
+- **Minimum Distance to Collision (MDC):**
+  - MDC is 0.51m, presenting a convergence trajectory with high concern.
+
+- **Risk Assessment:**
+  - TTC < 0.5 seconds signals **Extreme Risk**.
+  - MDC < 0.5m supports **High or Extreme Risk**, defaulting to the higher risk score.
+
+### Conclusion:
+- Obstacle 3301 poses an **Extreme Risk** of collision.
+- Obstacle 3298 and 3300 could be considered **Medium Risk**, but with adequate safety measures, remain within manageability.
+
+### JSON Summary:
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "3301",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3301",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  }
+}
+```

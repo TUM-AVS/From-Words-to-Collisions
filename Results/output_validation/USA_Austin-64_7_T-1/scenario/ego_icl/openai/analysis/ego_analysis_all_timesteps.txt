@@ -1,0 +1,83 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 3332
+- **Position**: Front-right of the ego car
+- **Adjusted Distances**: Longitudinal 19.00 m, Lateral -8.85 m
+- **Relative Velocity**: Longitudinal -2.81 m/s, Lateral 0.00 m/s
+- **Motion**: Driving toward the ego car longitudinally, no lateral motion
+- **TTC Calculation**: Longitudinal distance / |longitudinal velocity| = 19.00 m / 2.81 m/s = 6.76 s
+- **MDC Calculation**: Longitudinal distance = 19.00 m
+- **Risk Assessment**: No Risk (Risk Score: 5)
+
+#### Obstacle 3334
+- **Position**: Front-left of the ego car
+- **Adjusted Distances**: Longitudinal 9.72 m, Lateral 1.89 m
+- **Relative Velocity**: Longitudinal -2.81 m/s
+- **Motion**: Driving toward the ego car longitudinally, no lateral motion
+- **TTC Calculation**: Longitudinal distance / |longitudinal velocity| = 9.72 m / 2.81 m/s = 3.46 s
+- **MDC Calculation**: Longitudinal distance = 9.72 m
+- **Risk Assessment**: Medium Risk (Risk Score: 3)
+
+#### Obstacle 3335
+- **Position**: Front of the ego car
+- **Adjusted Distances**: Longitudinal 9.74 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal -2.81 m/s
+- **Motion**: Driving toward the ego car longitudinally, exact lateral alignment
+- **TTC Calculation**: Longitudinal distance / |longitudinal velocity| = 9.74 m / 2.81 m/s = 3.47 s
+- **MDC Calculation**: Longitudinal distance = 9.74 m
+- **Risk Assessment**: Medium Risk (Risk Score: 3)
+
+#### Obstacle 3336
+- **Position**: Front-right of the ego car
+- **Adjusted Distances**: Longitudinal 22.50 m, Lateral -8.97 m
+- **Relative Velocity**: Longitudinal -2.81 m/s
+- **Motion**: Driving toward the ego car longitudinally, no lateral motion
+- **TTC Calculation**: Longitudinal distance / |longitudinal velocity| = 22.50 m / 2.81 m/s = 8.01 s
+- **MDC Calculation**: Longitudinal distance = 22.50 m
+- **Risk Assessment**: No Risk (Risk Score: 5)
+
+#### Obstacle 3337
+- **Position**: Front-left of the ego car
+- **Adjusted Distances**: Longitudinal 0.45 m, Lateral 1.89 m
+- **Relative Velocity**: Longitudinal -1.18 m/s
+- **Motion**: Driving toward the ego car longitudinally, moving away laterally
+- **TTC Calculation**: Longitudinal distance / |longitudinal velocity| = 0.45 m / 1.18 m/s = 0.38 s
+- **MDC Calculation**: Longitudinal distance = 0.45 m
+- **Risk Assessment**: Extreme Risk (Risk Score: 1)
+
+#### Obstacle 3338
+- **Position**: Front of the ego car
+- **Adjusted Distances**: Longitudinal 0.19 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal -0.97 m/s
+- **Motion**: Driving toward the ego car longitudinally, exact lateral alignment
+- **TTC Calculation**: Longitudinal distance / |longitudinal velocity| = 0.19 m / 0.97 m/s = 0.20 s
+- **MDC Calculation**: Longitudinal distance = 0.19 m
+- **Risk Assessment**: Collision (Risk Score: 0)
+
+#### Obstacle 3340
+- **Position**: Rear-left of the ego car
+- **Adjusted Distances**: Longitudinal -2.02 m, Lateral 1.87 m
+- **Relative Velocity**: Longitudinal 0.51 m/s
+- **Motion**: Driving toward the ego car from behind, moving away laterally
+- **TTC Calculation**: Not applicable due to increasing longitudinal distance
+- **MDC Calculation**: Given lateral and increasing longitudinal distances, no imminent collision detected
+- **Risk Assessment**: No Risk (Risk Score: 5)
+
+### Conclusion
+Analyzing the most recent timestep, Obstacle 3338 has a risk score of 0, indicating an ongoing collision. Obstacle 3337 also presents an extreme risk with a score of 1. This scenario must be flagged as a collision scenario due to Obstacle 3338.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "3338",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3337",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 3338 is currently in a collision state with the ego vehicle."
+}
+```

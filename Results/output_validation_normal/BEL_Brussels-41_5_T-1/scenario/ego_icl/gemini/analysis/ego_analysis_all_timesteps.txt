@@ -1,0 +1,28 @@
+* **Obstacle 30168:** This obstacle is in the front-left of the ego vehicle.  Across the timesteps, it has maintained a longitudinal distance of roughly 10-11 meters while drifting slightly to the left from perfect longitudinal alignment.  At the last timestep, the longitudinal distance is 10.59m and the lateral distance is 0.35m. While the longitudinal velocity is negative (-1.52 m/s) indicating it is approaching the ego vehicle, the lateral velocity is positive (1.23 m/s), suggesting the obstacle is moving further left and away from the ego vehicle's path. This diverging lateral movement decreases the likelihood of a collision.  Given the distances and relative velocities, TTC longitudinally is approximately 6.97s and laterally is approximately 2.88s. MDC is approximately 0.35m.  This gives us risk scores of 5 (No Risk) longitudinally, 4 (Low Risk) laterally, and 3 (Medium Risk) based on MDC. The overall risk is Medium (3).
+
+* **Obstacle 30170:** This obstacle is in the front-left and remains at a safe distance throughout all timesteps.  At the last timestep, the longitudinal distance is 24.11m and the lateral distance is 3.70m.  The negative longitudinal velocity (-1.33 m/s) shows that it's very slowly approaching the ego longitudinally but its lateral movement is positive, indicating it is moving further away from the ego laterally.  TTC longitudinally is approximately 18.13s, while lateral TTC is approximately 2.88s. MDC is 3.70m. Thus, the risk level for this obstacle is 5 (No Risk).
+
+* **Obstacle 30171:** This obstacle is in the front-right, and its trajectory across timesteps indicates it is getting closer to the ego vehicle both longitudinally and laterally. At the last timestep, it's at 3.79m longitudinally and -13.38m laterally. With a longitudinal relative velocity of -6.47 m/s and a lateral relative velocity of 0.98 m/s, TTC is 0.59s longitudinally and 13.65s laterally.  MDC is approximately 3.79m. This results in a risk score of 2 (High Risk) longitudinally, 5 (No Risk) laterally, and 3 (Medium Risk) based on MDC. Due to the rapidly closing longitudinal distance and the low TTC, this obstacle poses a High (2) risk.
+
+* **Obstacle 30172:** Located front-right, this obstacle steadily approaches the ego vehicle longitudinally across all timesteps while maintaining a relatively constant lateral distance. At the last timestep, the longitudinal distance is 5.61m and lateral distance is -5.01m. The relative longitudinal velocity is -6.73 m/s, giving a longitudinal TTC of 0.83s. The lateral velocity is 0.00 m/s.  MDC is 5.01m.  This corresponds to a risk of 2 (High Risk) longitudinally, 5 (No Risk) laterally and 4 (Low Risk) based on MDC.  Therefore, the overall risk from this obstacle is High (2).
+
+* **Obstacle 30173:**  This obstacle, located front-right, shows a concerning trajectory. Across the timesteps, it has rapidly approached the ego vehicle.  In the last timestep, the longitudinal distance is only 1.07m and the lateral distance is -22.62m.  The longitudinal velocity is -6.16 m/s, leading to a TTC of 0.17s. Lateral velocity is 1.87 m/s which is quite fast approaching ego from the right. MDC is 1.07m. The longitudinal risk is 1 (Extreme Risk) due to the very short TTC. Laterally, the risk is 5 (No Risk). Due to the extremely low longitudinal TTC and short MDC, this obstacle represents an Extreme Risk (1).
+
+**Collision Scenario Determination:**
+
+Yes, this is a collision scenario. Obstacle 30173 has an Extreme Risk (1) assessment with a TTC of only 0.17 seconds and an MDC of 1.07m, indicating an imminent collision.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30173",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30173 has an extremely low TTC (0.17s) and a small MDC (1.07m) with a rapidly closing longitudinal distance, indicating an imminent collision."
+}
+```

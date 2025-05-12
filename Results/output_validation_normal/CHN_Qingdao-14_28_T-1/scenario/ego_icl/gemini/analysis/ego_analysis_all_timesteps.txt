@@ -1,0 +1,31 @@
+* **Obstacle 30650:** This obstacle is to the left of the ego vehicle, with a longitudinal distance of 0.00m and a lateral distance of 11.96m. The longitudinal velocity suggests that the vehicles are aligned in the longitudinal direction.  Given the lateral distance of 11.96m and no lateral relative motion, there is no immediate risk of collision. The risk level for this obstacle is **5 - No Risk**.
+
+* **Obstacle 30653:** Similar to 30650, this obstacle is positioned to the left of the ego vehicle, with a longitudinal distance of 0.00m and lateral distance of 19.85m. The negative relative longitudinal velocity and the lateral distance suggest a low risk. This aligns with the motion description indicating longitudinal alignment. The risk level for this obstacle is **5 - No Risk**.
+
+* **Obstacle 30655:** This obstacle is in front of the ego vehicle and poses the highest risk amongst all obstacles. The longitudinal distance is 17.94m, lateral distance is 0.00m (aligned longitudinally), and the relative longitudinal velocity is -3.62 m/s, indicating the obstacle is approaching the ego vehicle. TTC is calculated as 17.94m / 3.62 m/s ≈ 4.95 seconds. Although the MDC is very small (effectively 0 laterally, but trajectory analysis indicates no immediate lateral movement), the longitudinal distance decreasing indicates a collision in the future. Since TTC is approximately 5 seconds, we categorize this as a 4 - Low Risk scenario based on TTC and MDC.
+
+* **Obstacle 30659:** This obstacle is located front-left of the ego vehicle. The longitudinal distance is 8.07m, the lateral distance is 1.90m, and the relative longitudinal velocity is -17.83 m/s.  The TTC is calculated as 8.07m / 17.83m/s ≈ 0.45s. This indicates an **Extreme Risk (1)** of collision.
+
+* **Obstacle 30665:** This obstacle is positioned front-left with a longitudinal distance of 17.31m and a lateral distance of 1.90m. The relative longitudinal velocity is -19.39 m/s. TTC is 17.31m / 19.39 m/s ≈ 0.89s. This, combined with the small MDC, suggests a **2 - High Risk**.
+
+* **Obstacle 30667:** This obstacle is behind the ego vehicle and moving away. The longitudinal distance is -25.21m, the lateral distance is 0.00m, and the relative longitudinal velocity is -3.34 m/s, meaning it's moving further away. The risk level is **5 - No Risk**.
+
+**Conclusion:**
+
+This is a **collision scenario** because Obstacle 30659 has an Extreme Risk (1) assessment with a TTC of less than 0.5 seconds. 
+
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30659",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30659 poses an extreme risk with a TTC of 0.45 seconds, indicating a likely imminent collision."
+}
+```

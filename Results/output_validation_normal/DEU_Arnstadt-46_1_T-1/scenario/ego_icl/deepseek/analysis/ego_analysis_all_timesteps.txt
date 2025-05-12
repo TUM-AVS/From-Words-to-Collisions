@@ -1,0 +1,45 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9 seconds)
+
+#### Obstacle 20054 (Front of ego car)
+- **Adjusted Distances**: Longitudinal = 11.15 m, Lateral = 0.00 m  
+- **Relative Velocity**: Longitudinal = -0.24 m/s (approaching), Lateral = -0.00 m/s (stable)  
+- **Relative Acceleration**: Longitudinal = 0.02 m/s² (slightly increasing speed), Lateral = -0.41 m/s² (minor lateral adjustment)  
+- **Motion Description**: Obstacle is driving toward the ego car longitudinally. Exact lateral alignment.  
+
+#### Trajectory Analysis (0.0s to 0.9s)
+- The obstacle is consistently approaching the ego car longitudinally with decreasing relative velocity (from -0.74 m/s at 0.1s to -0.24 m/s at 0.9s).  
+- Lateral distance remains 0.00 m (exact alignment), but there is no lateral movement or risk of side collision.  
+- The longitudinal deceleration suggests the obstacle is slowing down slightly, reducing the closing speed.  
+
+#### Time-to-Collision (TTC) Calculation
+- TTC = Longitudinal Distance / |Relative Velocity| = 11.15 m / 0.24 m/s ≈ **46.46 seconds**  
+  - This falls under **No Risk (5)** since TTC > 5.0 seconds.  
+
+#### Minimum Distance to Collision (MDC) Calculation
+- Since the obstacle is directly ahead (lateral = 0.00 m), MDC is effectively the longitudinal distance: **11.15 m**  
+  - This falls under **No Risk (5)** since MDC > 5.0 meters.  
+
+#### Risk Assessment
+- **TTC Risk**: 5 (No Risk)  
+- **MDC Risk**: 5 (No Risk)  
+- **Overall Risk**: 5 (No Risk)  
+
+### Conclusion
+- No collision (risk score 0) or extreme risk (risk score 1) is detected.  
+- The obstacle is far ahead (11.15 m) and closing very slowly (0.24 m/s), posing no immediate danger.  
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 20054 is longitudinally aligned at 11.15m with a low closing speed (0.24 m/s), resulting in high TTC (46.46s) and MDC (11.15m). No collision or extreme risk detected."
+}
+```

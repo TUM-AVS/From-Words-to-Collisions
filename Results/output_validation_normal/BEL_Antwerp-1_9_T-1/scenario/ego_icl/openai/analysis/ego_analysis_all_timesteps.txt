@@ -1,0 +1,55 @@
+### Obstacle Analysis
+
+#### Obstacle 30765 (Front)
+- **Trajectory Analysis:**
+  - At 0.1 seconds, the longitudinal distance was 12.16 m.
+  - By 0.9 seconds, it decreased to 8.07 m.
+  - The obstacle is moving towards the ego vehicle, with a relative longitudinal velocity consistently around -4.02 m/s to -5.88 m/s.
+
+- **Most Recent Timestep Calculation (0.9 seconds):**
+  - **Adjusted Longitudinal Distance:** Use specifically provided adjusted distance if given (unspecified here, assume raw for demo).
+  - **Adjusted Longitudinal Distance:** 8.07 m (assuming adjusted equals raw for demonstration purposes)
+  - **Relative Longitudinal Velocity:** -4.02 m/s
+  - **TTC Longitudinal:** \( \text{TTC} = \frac{8.07 \, \text{m}}{4.02 \, \text{m/s}} \approx 2.01 \, \text{s} \)
+  - **MDC (assuming trajectory follows current speed):** Since lateral alignment is fixed at 0.00 m and trajectory is longitudinal, MDC calculated using longitudinal distance: 8.07 m
+
+- **Risk Assessment:**
+  - **TTC:** 2.01 s falling under Medium Risk
+  - **MDC:** 8.07 m falling under No Risk
+  - **Overall Risk Level:** Medium Risk (3)
+
+#### Obstacle 30782 (Behind)
+- **Trajectory Analysis:**
+  - At 0.1 seconds, the longitudinal distance was -9.31 m.
+  - By 0.9 seconds, it decreased to -8.98 m.
+  - The obstacle is behind the ego vehicle and slightly increasing in distance, as indicated by a positive relative velocity of 0.99 m/s, suggesting it is not catching up at a concerning rate.
+
+- **Most Recent Timestep Calculation (0.9 seconds):**
+  - **Adjusted Longitudinal Distance:** -8.98 m (assuming adjusted equals raw for demonstration purposes)
+  - **Relative Longitudinal Velocity:** 0.99 m/s
+  - Since the relative velocity is positive and position is behind, focus on velocity’s ability to catch the ego.
+  - **MDC:** Greater than 5 m since the obstacle is moving away.
+  
+- **Risk Assessment:**
+  - TTC not applicable as relative distance is increasing.
+  - **MDC:** Greater than 5.0 m resulting in No Risk assessment for interaction.
+  - **Overall Risk Level:** No Risk (5)
+
+### Conclusion
+Neither obstacle is on a collision path according to adjusted trajectory assumptions without explicit detail on adjusted values differing from raw. Obstacle 30765 deserves monitoring but does not currently represent an imminent threat. Obstacle 30782 poses no risk as it trails the ego vehicle at a practical length and increasing range.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Neither obstacle presents any extreme or collision risk based on trajectory and calculated TTC."
+}
+```

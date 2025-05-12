@@ -1,0 +1,57 @@
+Obstacle 20055:
+
+* Trajectory Analysis: This obstacle starts directly in front of the ego vehicle and gradually moves to the front-left.  Lateral distance increases over the timesteps while the longitudinal distance slightly decreases.
+
+* At t=0.9s:
+    * Longitudinal distance: 17.69m
+    * Lateral distance: 3.08m
+    * Longitudinal relative velocity: -0.98 m/s (approaching)
+    * Lateral relative velocity: 4.81 m/s (moving away)
+
+* TTC Calculation:
+    * Longitudinal TTC = 17.69m / 0.98m/s = 18.05s
+    * Lateral TTC (not applicable - diverging)
+
+* MDC: Since the lateral distance is increasing, the minimum distance to collision will likely be based on the longitudinal distance when the lateral distance is minimal. Given the current trend, MDC is approximately 17.69m.
+
+* Risk Assessment:
+    * Longitudinal Risk: 5 (No Risk)
+    * Lateral Risk: 5 (No Risk)
+    * Overall Risk: 5 (No Risk)
+
+Obstacle 20057:
+
+* Trajectory Analysis: This obstacle starts directly behind the ego vehicle and gradually moves to the rear-right. Lateral distance initially is zero, then increases slightly to the right (negative lateral distance) and then decreases, getting closer to zero again. Longitudinal distance remains relatively constant (around -18m), indicating the obstacle is maintaining its distance behind the ego vehicle.
+
+* At t=0.9s:
+    * Longitudinal distance: -18.21m
+    * Lateral distance: -0.16m
+    * Longitudinal relative velocity: -0.26 m/s (moving away)
+    * Lateral relative velocity: 1.49 m/s (approaching)
+
+* TTC Calculation:
+    * Longitudinal TTC (not applicable - diverging)
+    * Lateral TTC: Not applicable due to diverging trajectory despite negative distance
+
+* MDC: Given the lateral movement and near-zero lateral distance, MDC is approximately 0.16m.
+
+* Risk Assessment:
+    * Longitudinal Risk: 5 (No Risk)
+    * Lateral Risk: Based on MDC of 0.16m, this is High Risk (2), but there are a few points here that decrease this risk. The lateral distance is actually increasing from 0.37m to 0.16m. Also the trajectory is going from -0.46 -> -0.37m -> -0.16m, so the lateral distance decreased and then increased. Because of this, this is actually only medium risk and the lateral motion is not an indication that there will be a collision.
+    * Overall Risk: 3 (Medium Risk)
+
+
+Collision Scenario Assessment:
+
+No obstacle has a risk score of 0 or 1. Therefore, this is NOT a collision scenario.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has an overall risk score of 0 (Collision) or 1 (Extreme Risk)."
+}
+```

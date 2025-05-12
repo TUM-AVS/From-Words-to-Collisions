@@ -1,0 +1,71 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 3.7s)
+
+#### **Obstacle 30374 (Front)**
+- **Adjusted Distance**: Longitudinal = 0.20m, Lateral = 0.00m  
+- **Relative Velocity**: Longitudinal = -1.00 m/s (approaching), Lateral = 0.00 m/s  
+- **Motion**: Driving toward ego longitudinally, exact lateral alignment.  
+
+**Trajectory Analysis**:  
+- Longitudinal distance decreases from 2.13m (2.8s) to 0.20m (3.7s).  
+- Relative velocity remains negative (approaching) but decelerating slightly (acceleration = -0.69 m/s²).  
+- Lateral alignment is exact (0.00m), but no lateral movement.  
+
+**Risk Assessment**:  
+1. **Time-to-Collision (TTC)**:  
+   - TTC = Distance / |Relative Velocity| = 0.20 / 1.00 = **0.20 seconds** (Extreme Risk, TTC ≤ 0.5s).  
+2. **Minimum Distance to Collision (MDC)**:  
+   - MDC = 0.20m (Extreme Risk, MDC ≤ 0.5m).  
+3. **Overall Risk**:  
+   - Both TTC and MDC indicate **Extreme Risk (1)**.  
+   - **Collision imminent** unless immediate intervention occurs.  
+
+---
+
+#### **Obstacle 30378 (Front-Left)**
+- **Adjusted Distance**: Longitudinal = 8.59m, Lateral = 11.84m  
+- **Relative Velocity**: Longitudinal = -1.00 m/s (approaching), Lateral = -2.17 m/s (approaching from left).  
+- **Motion**: Driving toward ego both longitudinally and laterally.  
+
+**Trajectory Analysis**:  
+- Longitudinal distance decreases slowly (from 10.52m to 8.59m).  
+- Lateral distance decreases more rapidly (from 15.82m to 11.84m).  
+- Both velocities are negative (approaching), with lateral deceleration (-5.32 m/s²).  
+
+**Risk Assessment**:  
+1. **Time-to-Collision (TTC)**:  
+   - Longitudinal TTC = 8.59 / 1.00 = 8.59s (No Risk).  
+   - Lateral TTC = 11.84 / 2.17 = 5.46s (No Risk).  
+   - **No immediate collision risk** (TTC > 5s in both dimensions).  
+2. **Minimum Distance to Collision (MDC)**:  
+   - MDC is the smaller of the two distances: **8.59m (No Risk, MDC > 5.0m)**.  
+3. **Overall Risk**:  
+   - **No Risk (5)**.  
+
+---
+
+### **Collision Scenario Determination**
+- **Obstacle 30374**:  
+  - **Extreme Risk (1)** with TTC = 0.20s and MDC = 0.20m.  
+  - Collision is imminent unless evasive action is taken.  
+- **Obstacle 30378**:  
+  - **No Risk (5)**, no immediate threat.  
+
+This qualifies as a **collision scenario** because Obstacle 30374 is in **Extreme Risk (1)** with converging trajectories and critically low TTC/MDC.  
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30374",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30374 has Extreme Risk (TTC = 0.20s, MDC = 0.20m) with imminent collision trajectory. No actual collision has occurred yet, but intervention is urgently required."
+}
+```

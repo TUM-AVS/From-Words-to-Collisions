@@ -1,0 +1,60 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30118 (Most Recent Timestep: 0.9 seconds)
+- **Direction**: Front of the ego car
+- **Adjusted Distances**: 
+  - Longitudinal: 13.17 m (increasing over time)
+  - Lateral: 0.00 m (exact alignment, but stable)
+- **Relative Velocity**: 
+  - Longitudinal: 0.74 m/s (moving away)
+  - Lateral: 0.02 m/s (negligible)
+- **Relative Acceleration**: 
+  - Longitudinal: -3.11 m/s² (decelerating away)
+  - Lateral: -1.80 m/s² (stable alignment)
+- **Motion Description**: "Obstacle is moving away longitudinally. Exact lateral alignment or unknown case."
+
+#### Trajectory Analysis (0.1s to 0.9s)
+- **Longitudinal Distance**: Consistently increasing (11.81m → 13.17m)
+- **Lateral Distance**: Stable at 0.00m (no deviation)
+- **Relative Velocity**: 
+  - Longitudinal: Decreasing (3.08 m/s → 0.74 m/s, moving away)
+  - Lateral: Very small (0.15 m/s → 0.02 m/s, negligible)
+- **Acceleration**: 
+  - Longitudinal: Negative (decelerating away)
+  - Lateral: Negative (stable alignment)
+
+#### TTC Calculation
+- **Longitudinal TTC**: Not applicable (relative velocity is positive but distance is increasing, so no collision course)
+- **Lateral TTC**: Not applicable (relative velocity is negligible and distance is stable)
+- **Overall TTC**: No meaningful TTC (paths are diverging or stable)
+
+#### MDC Calculation
+- **Longitudinal MDC**: 13.17 m (No Risk, MDC > 5.0m)
+- **Lateral MDC**: 0.00 m (but stable alignment, no convergence)
+- **Overall MDC**: Since lateral alignment is stable and longitudinal distance is increasing, the effective MDC is effectively infinite (no collision path).
+
+#### Risk Assessment
+- **TTC Risk**: 5 (No Risk, no collision path)
+- **MDC Risk**: 5 (No Risk, stable or increasing distances)
+- **Overall Risk**: 5 (No Risk)
+
+### Conclusion
+- No collision or extreme risk is detected.
+- Obstacle 30118 is moving away longitudinally with stable lateral alignment.
+- Both TTC and MDC indicate no risk of collision.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30118 is moving away longitudinally with stable lateral alignment. Both TTC and MDC indicate no risk of collision."
+}
+```

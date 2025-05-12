@@ -1,0 +1,98 @@
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30308",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30295",
+        "OverallRiskScore": "1"
+    },
+
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30308 is reported as 'In Collision' throughout the entire provided timeframe.  Additionally, Obstacle 30295 shows extremely low longitudinal and lateral distances and negative relative velocities, indicating a very high likelihood of imminent collision."
+}
+```
+
+
+
+### Safety analysis for timestep 13.4-14.3s: Here's the evaluation of each obstacle according to the provided metrics and calculations.
+
+**Methodology:**
+
+Given the data, directly calculating TTC using a simple formula like `TTC = Distance / Relative Velocity` is unreliable due to changing velocities and accelerations. We infer risk based on distance, relative velocity, stated motion, and the "Collision" label.
+
+**Obstacle Analysis:**
+
+* **Obstacle ID: 30294**
+    * Distance Risk reason:  Object is to the right and has zero longitudinal and lateral distance at many timesteps, representing a risk.
+    * Distance safety score: 2
+    * Time Risk reason:  Lateral motion *towards* ego and zero distance at multiple timesteps is concerning.
+    * Time safety score: 2
+    * Overall Risk score: 2
+* **Obstacle ID: 30295**
+    * Distance Risk reason: Extremely close proximity, especially evident at the final timestamps where values approach 0. Initially, distance is small (0.44m) and is rapidly closing from the front left direction with high relative velocity
+    * Distance safety score: 1
+    * Time Risk reason:  Negative relative velocities longitudinally and laterally with very small distances imply extremely short TTC, meaning highly probable imminent collision.
+    * Time safety score: 1
+    * Overall Risk score: 1
+* **Obstacle ID: 30297**
+    * Distance Risk reason:  Located to the rear-right and maintaining a safe distance.
+    * Distance safety score: 5
+    * Time Risk reason: No relative motion.
+    * Time safety score: 5
+    * Overall Risk score: 5
+* **Obstacle ID: 30298**
+    * Distance Risk reason:  Located to the rear-right and maintaining a safe distance.
+    * Distance safety score: 5
+    * Time Risk reason:  No relative motion.
+    * Time safety score: 5
+    * Overall Risk score: 5
+* **Obstacle ID: 30299**
+    * Distance Risk reason:  Located to the rear-right and maintaining a safe distance.
+    * Distance safety score: 5
+    * Time Risk reason: No relative motion.
+    * Time safety score: 5
+    * Overall Risk score: 5
+* **Obstacle ID: 30301**
+    * Distance Risk reason: Located to the rear-right, very close but with no relative motion
+    * Distance safety score: 4
+    * Time Risk reason: No relative motion.
+    * Time safety score: 5
+    * Overall Risk score: 4
+* **Obstacle ID: 30304**
+    * Distance Risk reason:  Located rear-right at a safe distance.
+    * Distance safety score: 5
+    * Time Risk reason: Negligible relative velocity and movement away laterally reduces risk.
+    * Time safety score: 5
+    * Overall Risk score: 5
+* **Obstacle ID: 30305**
+    * Distance Risk reason:  Located to the front-left, and slow closing rates, but with no relative acceleration
+    * Distance safety score: 4
+    * Time Risk reason:  Slow closing velocities, but enough distance exists to consider the time risk to be minimal.
+    * Time safety score: 4
+    * Overall Risk score: 4
+* **Obstacle ID: 30306**
+    * Distance Risk reason: Located front-left at a relatively safe distance.
+    * Distance safety score: 4
+    * Time Risk reason: Closing velocities, but adequate distance provides reaction time.
+    * Time safety score: 4
+    * Overall Risk score: 4
+* **Obstacle ID: 30308**
+    * Distance Risk reason: Reported as "In Collision." Zero distance.
+    * Distance safety score: 0
+    * Time Risk reason:  "In Collision" status throughout signifies a collision event is occurring.
+    * Time safety score: 0
+    * Overall Risk score: 0
+* **Obstacle ID: 30309**
+    * Distance Risk reason:  Located front-left at a safe distance.
+    * Distance safety score: 4
+    * Time Risk reason:  Closing velocities but with safe distance for the time considered.
+    * Time safety score: 4
+    * Overall Risk score: 4
+* **Obstacle ID: 30310**
+    * Distance Risk reason: Located front-left, moderate distance but closing with high negative velocity.
+    * Distance safety score: 3
+    * Time Risk reason: Negative closing velocities longitudinally and laterally pose a risk.
+    * Time safety score: 3
+    * Overall Risk score: 3 

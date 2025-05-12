@@ -1,0 +1,51 @@
+Obstacle 30530 (Front-Left):
+- Trajectory: Moving closer to the ego vehicle both longitudinally and laterally.
+- At t=1.9s: Longitudinal distance = 3.42m, Lateral distance = 5.55m.  Relative longitudinal velocity= -3.33 m/s, Relative lateral velocity = -7.10 m/s
+- Longitudinal TTC = 3.42m / 3.33m/s ≈ 1.03s
+- Lateral TTC = 5.55m / 7.10m/s ≈ 0.78s
+- MDC: Since this obstacle is approaching diagonally, we consider the smaller distance, which is the lateral distance of 5.55m. This falls into the Low Risk category based on MDC.
+- Overall Risk: High Risk (2) due to TTC < 1s.
+
+Obstacle 30532 (Behind):
+- Trajectory: Rapidly approaching the ego vehicle from behind, while lateral distance remains 0.  
+- At t=1.9s: Longitudinal distance = -0.80m, Lateral distance = 0.00m. Relative longitudinal velocity = 3.89 m/s.
+- Longitudinal TTC = 0.8m / 3.89m/s ≈ 0.21s
+- Lateral TTC: N/A as lateral velocity is negligible and distance is zero.
+- MDC:  Since it's directly behind and rapidly closing, MDC is close to 0.8m.
+- Overall Risk: Extreme Risk (1) due to very low TTC (< 0.5s) and MDC < 1.0m.
+
+Obstacle 30537 (Behind):
+- Trajectory: Approaching ego from behind, lateral distance remains at 0.00m.
+- At t=1.9s: Longitudinal distance = -12.28m, Lateral distance = 0.00m, Relative longitudinal velocity = 3.74 m/s.
+- Longitudinal TTC = 12.28m / 3.74m/s ≈ 3.28s
+- Lateral TTC: N/A as lateral velocity is negligible and distance is zero.
+- MDC: Although it's behind and following, the distance is significant so MDC = 12.28.
+- Overall Risk: Medium Risk (3) due to TTC < 3s.
+
+Obstacle 30538 (Front-Right):
+- Trajectory: Moving slightly closer longitudinally while laterally moving further away from the ego vehicle.
+- At t=1.9s: Longitudinal distance = 8.74m, Lateral distance = -15.85m. Relative longitudinal velocity= -0.42 m/s, Relative lateral velocity = 6.09 m/s
+- Longitudinal TTC = 8.74m / 0.42m/s ≈ 20.8s
+- Lateral TTC: N/A as lateral distance is negative and increasing.
+- MDC: Given the trajectories, the lateral distance is becoming less relevant. Therefore, consider the longitudinal distance of 8.74m as a primary factor for MDC.
+- Overall Risk: Low Risk (4) as MDC is > 5m and TTC > 5s.
+
+Obstacle 30539 (Front-Right):
+- Trajectory: Laterally getting closer to the ego vehicle, longitudinally slightly further away.
+- At t=1.9s: Longitudinal distance = 8.18m, Lateral distance = -1.01m. Relative longitudinal velocity= -0.36 m/s, Relative lateral velocity = 5.11 m/s
+- Longitudinal TTC = 8.18m / 0.36m/s ≈ 22.7s
+- Lateral TTC: N/A as lateral distance is increasing.
+- MDC: Because this obstacle is diagonal with a small lateral distance and is moving closer laterally, we consider the lateral distance as the primary factor. MDC = 1.01 m
+- Overall Risk: Medium Risk (3) due to MDC < 3.0m.
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30532",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {}
+}
+```

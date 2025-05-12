@@ -1,0 +1,47 @@
+Let me analyze each obstacle at the most recent timestep (0.9 seconds) with trajectory context:
+
+1. Obstacle 30259 (Front-right):
+   - Current position: longitudinal 10.98m, lateral -21.75m
+   - Relative velocity: longitudinal -9.23 m/s (approaching), lateral -8.76 m/s (moving away)
+   - Trajectory: Consistently moving toward ego longitudinally while moving away laterally
+   - MDC: Lateral distance is increasing (21.75m → no collision path)
+   - TTC (longitudinal): 10.98/9.23 = 1.19s (Medium Risk)
+   - Overall Risk: 3 (Medium) - No immediate collision threat
+
+2. Obstacle 30261 (Front):
+   - Current position: longitudinal 11.10m, lateral 0.00m
+   - Relative velocity: longitudinal -0.30 m/s (slow approach), lateral -1.23 m/s (minor lateral movement)
+   - Trajectory: Very slow longitudinal approach with slight lateral drift
+   - MDC: Lateral alignment but stable distance >11m
+   - TTC (longitudinal): 11.10/0.30 = 37s (No Risk)
+   - Overall Risk: 5 (No Risk) - Extremely slow approach
+
+3. Obstacle 30262 (Front-left):
+   - Current position: longitudinal 21.62m, lateral 12.77m
+   - Relative velocity: longitudinal -7.51 m/s (approaching), lateral 9.27 m/s (moving away)
+   - Trajectory: Approaching longitudinally but moving away laterally
+   - MDC: Lateral distance increasing (12.77m → no collision path)
+   - TTC (longitudinal): 21.62/7.51 = 2.88s (Medium Risk)
+   - Overall Risk: 3 (Medium) - No immediate threat
+
+4. Obstacle 30269 (Behind):
+   - Current position: longitudinal -11.07m, lateral 0.00m
+   - Relative velocity: longitudinal -0.10 m/s (slightly moving away), lateral -0.76 m/s
+   - Trajectory: Oscillating between slight approach and moving away
+   - MDC: Lateral alignment but stable distance >11m
+   - TTC: Not applicable (moving away)
+   - Overall Risk: 5 (No Risk)
+
+JSON Summary:
+{{
+    "CollisionObstacle": {{
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    }},
+    "ExtremeRiskObstacle": {{
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    }},
+    "IsCollisionScenario": false,
+    "Justification": "No obstacles show collision (0) or extreme risk (1). Highest risk is medium (3) from obstacles 30259 and 30262, both with safe lateral separation and non-critical TTCs."
+}}

@@ -1,0 +1,56 @@
+### Obstacle-by-Obstacle Analysis:
+
+#### Obstacle 30802:
+- **Position**: Front of the ego car (longitudinal 18.97 m, lateral 0.00 m)
+- **Relative Velocity**: longitudinal -4.76 m/s (approaching), lateral 0.14 m/s (minimal lateral movement)
+- **Relative Acceleration**: longitudinal 2.17 m/s² (increasing closing speed), lateral 0.29 m/s² (minimal lateral acceleration)
+- **Trajectory Analysis**: The obstacle is consistently approaching the ego vehicle longitudinally with a decreasing distance over time. The lateral distance remains negligible (0.00 m), indicating same-lane alignment. The closing speed is increasing due to positive longitudinal acceleration.
+- **TTC Calculation**: 
+  - Longitudinal TTC = 18.97 m / 4.76 m/s ≈ 3.99 seconds
+  - Lateral TTC: Not applicable (lateral distance is stable/increasing)
+- **MDC Calculation**: 
+  - Primary focus is on longitudinal distance (18.97 m)
+  - MDC = 18.97 m (Low Risk)
+- **Risk Assessment**: 
+  - TTC: 3.99 seconds (Low Risk - 4)
+  - MDC: 18.97 m (No Risk - 5)
+  - Overall Risk: Low Risk (4)
+
+#### Obstacle 30803:
+- **Position**: Front of the ego car (longitudinal 0.51 m, lateral 0.00 m)
+- **Relative Velocity**: longitudinal -1.05 m/s (approaching), lateral 0.00 m/s (no lateral movement)
+- **Relative Acceleration**: longitudinal 2.45 m/s² (rapidly increasing closing speed), lateral 0.44 m/s² (minimal lateral acceleration)
+- **Trajectory Analysis**: The obstacle is very close to the ego vehicle longitudinally (0.51 m) and is approaching with increasing speed. The lateral distance is 0.00 m, indicating same-lane alignment. The closing speed is accelerating rapidly (2.45 m/s²), suggesting imminent collision risk.
+- **TTC Calculation**: 
+  - Longitudinal TTC = 0.51 m / 1.05 m/s ≈ 0.49 seconds
+  - Lateral TTC: Not applicable (lateral distance is stable)
+- **MDC Calculation**: 
+  - Primary focus is on longitudinal distance (0.51 m)
+  - MDC = 0.51 m (Extreme Risk)
+- **Risk Assessment**: 
+  - TTC: 0.49 seconds (Extreme Risk - 1)
+  - MDC: 0.51 m (Extreme Risk - 1)
+  - Overall Risk: Extreme Risk (1)
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30803",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "30803",
+        "OverallRiskScore": "0"
+    }
+}
+```
+
+### Reasoning:
+- **Obstacle 30803** is at Extreme Risk (score 1) due to its very close longitudinal distance (0.51 m) and short TTC (0.49 seconds). Given the rapid acceleration (2.45 m/s²), it is highly likely to collide with the ego vehicle in the immediate future, hence it is also marked as the PredictedCollisionObstacle.
+- **Obstacle 30802** is at Low Risk (score 4) due to its larger longitudinal distance (18.97 m) and longer TTC (3.99 seconds). No immediate collision risk is present.
+- No current collision is occurring, so CollisionObstacle is marked as "None" with score 5.

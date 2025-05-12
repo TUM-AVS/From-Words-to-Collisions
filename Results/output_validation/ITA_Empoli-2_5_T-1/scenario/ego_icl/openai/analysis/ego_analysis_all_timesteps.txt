@@ -1,0 +1,56 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 39:
+- **Position and Trajectory**: At 2.6 seconds, Obstacle 39 is in the front-left of the ego vehicle with an adjusted longitudinal distance of 3.42 m and a lateral distance of 1.37 m. It's moving toward the ego vehicle longitudinally with a velocity of -9.65 m/s and moving away laterally to the left with a velocity of 1.53 m/s.
+- **Relative Distance and Velocity Analysis**:
+  - Longitudinal: Approaching fast with significant longitudinal velocity and decreasing distance.
+  - Lateral: Moving away, reducing lateral risk.
+- **Minimum Distance to Collision (MDC)**: The closer dimension is longitudinal (3.42 m), while the lateral component is increasing.
+- **Time-to-Collision (TTC)**:
+  - Longitudinal: \( \text{TTC} = \frac{3.42}{9.65} \approx 0.35 \) seconds (Extreme Risk due to rapid approach and short interval).
+- **Risk Assessment**: The decreasing longitudinal distance and very short TTC (< 0.5s), despite lateral separation, pose an **Extreme Risk** (Score: 1).
+
+#### Obstacle 352:
+- **Position and Trajectory**: At 2.6 seconds, Obstacle 352 is in the front-right of the ego vehicle with an adjusted longitudinal distance of 11.64 m and a lateral distance of -1.48 m. It is moving away longitudinally at 2.23 m/s and laterally right at 1.71 m/s.
+- **Relative Distance and Velocity Analysis**:
+  - Longitudinal: Increasing distance, reducing collision likelihood.
+  - Lateral: Moving away laterally, further reducing chance of collision.
+- **Minimum Distance to Collision (MDC)**: Greater than 5 m in both dimensions.
+- **Time-to-Collision (TTC)**: Not applicable due to diverging paths and increasing distances.
+- **Risk Assessment**: **No Risk** (Score: 5).
+
+#### Obstacle 358:
+- **Position and Trajectory**: At 2.6 seconds, Obstacle 358 is behind the ego vehicle, aligned longitudinally at -1.44 m. Relative velocity is 4.67 m/s approaching.
+- **Relative Distance and Velocity Analysis**:
+  - Longitudinal: Quickly closing distance due to approach velocity.
+- **Minimum Distance to Collision (MDC)**: Short longitudinal distance indicates urgency.
+- **Time-to-Collision (TTC)**:
+  - Longitudinal: \( \text{TTC} = \frac{1.44}{4.67} \approx 0.31 \) seconds (Extreme Risk due to rapid close-in).
+- **Risk Assessment**: Short TTC and decreasing distance indicate **Extreme Risk** (Score: 1).
+
+#### Obstacle 363:
+- **Position and Trajectory**: At 2.6 seconds, Obstacle 363 is aligned at -15.10 m behind the ego vehicle with a relative longitudinal velocity of 4.32 m/s.
+- **Relative Distance and Velocity Analysis**:
+  - Longitudinal: High approach speed but significant distance.
+- **Minimum Distance to Collision (MDC)**: High initial distance reduces immediate risk.
+- **Time-to-Collision (TTC)**:
+  - Longitudinal: \( \text{TTC} = \frac{15.10}{4.32} \approx 3.50 \) seconds (Medium Risk).
+- **Risk Assessment**: Reduced risk due to longitudinal gap and manageable TTC. **Medium Risk** (Score: 3).
+
+### Collision Scenario Evaluation
+Obstacle 39 and Obstacle 358 both register as being at Extreme Risk (Score: 1) due to very short TTC values, indicating impending collision scenarios without intervention.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": null,
+    "ExtremeRiskObstacle": {
+        "ObstacleID": 39,
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 39 is rapidly approaching the ego vehicle with an extreme risk TTC of 0.35 seconds, indicating imminent collision if unaddressed."
+}
+```
+
+This scenario represents a collision risk primarily due to Obstacle 39, as evidenced by the critical TTC and trajectory.

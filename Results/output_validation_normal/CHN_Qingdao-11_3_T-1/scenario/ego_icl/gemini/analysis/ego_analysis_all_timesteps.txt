@@ -1,0 +1,30 @@
+Obstacle 30702 Analysis:
+
+Trajectory Analysis: The obstacle started front-left of the ego vehicle and has been consistently moving away both longitudinally and laterally to the left.  Over the past 0.9 seconds, the lateral distance has decreased from 0.49m to 0.00m, indicating lateral alignment, while the longitudinal distance has slightly increased from 17.95m to 18.10m. The motion descriptions confirm this diverging trajectory.
+
+TTC Calculation:
+- Longitudinal TTC = 18.10m / 0.01 m/s = 1810 seconds 
+- Lateral TTC =  0.00m / 0.56 m/s = 0 seconds. Note that since both distances are decreasing, this may indicate the most recent timestamp hasn't captured the true minimum. Since the lateral distance and velocity show continued divergence, a collision is not indicated but monitoring is necessary due to the close proximity. Given the trend and the non-negative relative velocity, TTC is not highly relevant in this case.
+
+MDC Calculation: Since the obstacle is primarily in front of the ego vehicle and almost laterally aligned, the MDC is the lateral distance at the last time step (0.00m).
+
+Risk Assessment:
+- Longitudinal Risk: No Risk (5) - Large distance and diverging trajectory.
+- Lateral Risk:  No risk (5) according to the formula but should be considered low risk (4) given the projected short distance, and high velocity.
+- Overall Risk: Low risk (4). Though currently aligned, the trajectories indicate continued separation between vehicles, not convergence.
+
+Collision Scenario Determination:
+
+This is NOT a collision scenario. No obstacle has a risk score of 0 or 1.
+
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a collision risk score of 0 or an extreme risk score of 1. The obstacle is moving away from the ego vehicle, both longitudinally and laterally."
+}
+```

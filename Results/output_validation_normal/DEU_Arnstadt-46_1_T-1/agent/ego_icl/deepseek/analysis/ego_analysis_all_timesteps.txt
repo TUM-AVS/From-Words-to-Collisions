@@ -1,0 +1,49 @@
+### Obstacle Analysis: Obstacle 20054
+
+#### Trajectory Analysis (0.1s to 0.9s):
+- **Longitudinal Distance**: Decreasing from 12.15m to 11.15m over 0.9s (1.0m decrease)
+- **Lateral Distance**: Consistently 0.00m (exact lateral alignment)
+- **Relative Velocity (Longitudinal)**: Initially -0.74 m/s, peaking at -1.21 m/s, then decreasing to -0.24 m/s (slowing approach)
+- **Relative Acceleration (Longitudinal)**: Mostly negative (decelerating approach), then slightly positive at last timesteps
+- **Motion Description**: "Obstacle is driving toward the ego car longitudinally" with exact lateral alignment
+
+#### Most Recent Timestep (0.9s):
+- **Adjusted Longitudinal Distance**: 11.15m (assuming adjusted ≈ raw as not provided)
+- **Adjusted Lateral Distance**: 0.00m
+- **Relative Velocity (Longitudinal)**: -0.24 m/s (approaching slowly)
+- **Relative Acceleration (Longitudinal)**: +0.02 m/s² (slightly decelerating approach)
+
+#### Risk Assessment:
+1. **Minimum Distance to Collision (MDC)**:
+   - Lateral MDC = 0.00m (same lane), but longitudinal MDC = 11.15m
+   - Since obstacle is longitudinally approaching, primary risk is from longitudinal dimension.
+   - MDC = 11.15m → **Risk 5 (Negligible)** per scale (MDC > 5.0m)
+
+2. **Time-to-Collision (TTC)**:
+   - TTC = Distance / |Relative Velocity| = 11.15m / 0.24 m/s ≈ 46.46s
+   - TTC ≈ 46.46s → **Risk 5 (Negligible)** per scale (TTC > 5.0s)
+
+3. **Acceleration Trend**:
+   - Relative acceleration is slightly positive (+0.02 m/s²), meaning approach is decelerating further.
+
+4. **Overall Risk**:
+   - Both MDC and TTC indicate **Negligible Risk (5)**.
+   - No collision or extreme risk observed.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```

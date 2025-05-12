@@ -1,0 +1,83 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9 seconds)
+
+#### **Obstacle 35 (Front-left)**
+- **Adjusted Distance**: Longitudinal 8.33m, Lateral 22.92m  
+- **Relative Velocity**: Longitudinal -7.29 m/s (approaching), Lateral 0.00 m/s (no lateral motion)  
+- **Motion**: Driving toward ego longitudinally, no lateral motion  
+- **TTC Calculation**:  
+  - Longitudinal TTC = 8.33 / 7.29 ≈ 1.14 seconds  
+  - Lateral TTC = N/A (no relative motion)  
+- **MDC**:  
+  - Lateral distance is large (22.92m), so MDC is effectively the longitudinal distance (8.33m)  
+- **Risk Assessment**:  
+  - TTC (1.14s) → Medium Risk (3)  
+  - MDC (8.33m) → No Risk (5)  
+  - **Overall Risk**: Medium (3)  
+
+#### **Obstacle 375 (Front-right)**
+- **Adjusted Distance**: Longitudinal 0.76m, Lateral -15.73m  
+- **Relative Velocity**: Longitudinal -7.29 m/s (approaching), Lateral 0.00 m/s (no lateral motion)  
+- **Motion**: Driving toward ego longitudinally, moving away laterally  
+- **TTC Calculation**:  
+  - Longitudinal TTC = 0.76 / 7.29 ≈ 0.10 seconds  
+  - Lateral TTC = N/A (moving away)  
+- **MDC**:  
+  - Lateral distance is large (15.73m), so MDC is effectively the longitudinal distance (0.76m)  
+- **Risk Assessment**:  
+  - TTC (0.10s) → Extreme Risk (1)  
+  - MDC (0.76m) → High Risk (2)  
+  - **Overall Risk**: Extreme (1)  
+
+#### **Obstacle 383 (Front)**
+- **Adjusted Distance**: Longitudinal 5.08m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 2.75 m/s (moving away), Lateral -0.02 m/s (negligible)  
+- **Motion**: Moving away longitudinally, exact lateral alignment  
+- **TTC Calculation**:  
+  - Longitudinal TTC = N/A (moving away)  
+  - Lateral TTC = N/A (negligible motion)  
+- **MDC**:  
+  - Lateral alignment but no closing velocity → No collision risk  
+  - Longitudinal distance increasing → No Risk  
+- **Risk Assessment**:  
+  - **Overall Risk**: No Risk (5)  
+
+#### **Obstacle 391 (Behind)**
+- **Adjusted Distance**: Longitudinal -12.35m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 1.63 m/s (approaching), Lateral 0.31 m/s (minor lateral motion)  
+- **Motion**: Driving toward ego from behind, exact lateral alignment  
+- **TTC Calculation**:  
+  - Longitudinal TTC = 12.35 / 1.63 ≈ 7.58 seconds  
+  - Lateral TTC = N/A (minor motion, not closing)  
+- **MDC**:  
+  - Lateral alignment but no significant closing velocity → No collision risk  
+  - Longitudinal distance large (12.35m) → No Risk  
+- **Risk Assessment**:  
+  - **Overall Risk**: No Risk (5)  
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "375",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```
+
+### **Key Findings**
+- **Obstacle 375** is at **Extreme Risk (1)** due to very low TTC (0.10s) and small longitudinal distance (0.76m).  
+- No other obstacles pose immediate collision or high risk.  
+- **Obstacle 35** is at Medium Risk (3) but not critical.  
+- **Obstacles 383 and 391** are not at risk.  
+
+**Action Required**: Immediate braking or evasive action is needed to avoid collision with **Obstacle 375**.

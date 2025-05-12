@@ -1,0 +1,49 @@
+### Obstacle Analysis (Obstacle 30095)
+
+#### Trajectory Analysis (0.1s to 0.9s):
+1. **Longitudinal Distance**: Starts at 14.51m and gradually decreases to 13.90m (approaching ego initially, then stabilizing).
+   - Relative velocity: Initially negative (-2.02 m/s), then decreases to positive (0.20 m/s) by 0.9s (moving away).
+   - Acceleration: Positive (increasing speed away from ego).
+2. **Lateral Distance**: Starts at 0.78m, decreases to 0.00m by 0.4s (aligned frontally), then remains 0.00m.
+   - Relative velocity: Positive (moving away laterally to the left).
+   - Acceleration: Positive (increasing speed away laterally).
+
+#### Most Recent Timestep (0.9s):
+- **Adjusted Distances**: Longitudinal = 13.90m, Lateral = 0.00m (exact alignment).
+- **Relative Velocity**: Longitudinal = 0.20 m/s (moving away), Lateral = 0.29 m/s (moving away).
+- **Motion Description**: "Obstacle is moving away longitudinally. Exact lateral alignment or unknown case."
+
+#### Risk Assessment:
+1. **Time-to-Collision (TTC)**:
+   - Longitudinal: Not applicable (relative velocity is positive, moving away).
+   - Lateral: Not applicable (relative velocity is positive, moving away).
+   - **TTC Risk**: 5 (No Risk, diverging paths).
+
+2. **Minimum Distance to Collision (MDC)**:
+   - Lateral distance = 0.00m (aligned), but obstacle is moving away laterally.
+   - Longitudinal distance = 13.90m (large, increasing).
+   - **MDC Risk**: 5 (No Risk, large distance and diverging).
+
+3. **Overall Risk**:
+   - The obstacle is moving away in both dimensions, and the distance is large.
+   - **Overall Risk Score**: 5 (No Risk).
+
+#### Collision Scenario Determination:
+- No collision (risk score 0) or extreme risk (risk score 1) observed.
+- Obstacle is moving away and poses no immediate threat.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30095 is moving away longitudinally and laterally with no converging trajectories. Distance is large and increasing, posing no collision risk."
+}
+```

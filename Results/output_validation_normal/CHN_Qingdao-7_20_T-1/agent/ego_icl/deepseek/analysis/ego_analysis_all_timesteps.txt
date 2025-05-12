@@ -1,0 +1,44 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30674 (Front-left of ego car)
+- **Most Recent Timestep (0.9s):**
+  - Adjusted longitudinal distance: 15.51 m
+  - Adjusted lateral distance: 5.31 m
+  - Relative velocity: longitudinal -7.66 m/s (approaching), lateral 4.93 m/s (moving away)
+  - Motion: Obstacle is driving toward the ego car longitudinally. Obstacle is moving away laterally to the left.
+
+#### Trajectory Analysis (0.1s to 0.9s):
+- **Longitudinal Distance:** Decreasing from 20.10 m to 15.51 m (closing at ~7.66 m/s).
+- **Lateral Distance:** Increasing from 4.83 m to 5.31 m (moving away at ~4.93 m/s).
+- The obstacle is approaching the ego vehicle longitudinally but moving away laterally.
+
+#### TTC Calculation:
+- **Longitudinal TTC:** 15.51 m / 7.66 m/s ≈ 2.02 seconds (Medium Risk).
+- **Lateral TTC:** Not applicable (moving away, no collision risk laterally).
+
+#### MDC Calculation:
+- The obstacle is moving away laterally, so the primary risk is longitudinal.
+- **Longitudinal MDC:** 15.51 m (Low Risk, as MDC > 5.0 m).
+- **Lateral MDC:** 5.31 m (Low Risk, as MDC > 5.0 m).
+
+#### Risk Assessment:
+- The obstacle is approaching longitudinally but at a safe distance (15.51 m) and moving away laterally. The longitudinal TTC is 2.02 seconds (Medium Risk), but the MDC is large (15.51 m, Low Risk). Since the trajectories are diverging laterally, the overall risk is minimal.
+- **Overall Risk Score:** 4 (Low Risk).
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```

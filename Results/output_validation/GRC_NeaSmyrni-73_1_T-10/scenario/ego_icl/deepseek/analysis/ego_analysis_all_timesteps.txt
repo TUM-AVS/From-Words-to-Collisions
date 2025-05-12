@@ -1,0 +1,94 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 3.7s)
+
+---
+
+#### **Obstacle 20056 (Front-Left)**
+- **Adjusted Distance**: Longitudinal 5.15m, Lateral 8.72m  
+- **Relative Velocity**: Longitudinal -3.91 m/s (approaching), Lateral -0.20 m/s (approaching)  
+- **Motion**: Approaching longitudinally and laterally from left.  
+- **TTC (Longitudinal)**: 5.15 / 3.91 ≈ 1.32s (Medium Risk)  
+- **TTC (Lateral)**: 8.72 / 0.20 ≈ 43.6s (No Risk)  
+- **MDC**: Lateral distance dominates (8.72m), but longitudinal closing is faster. Minimum projected distance is longitudinal (5.15m).  
+- **Risk**: Medium (3) due to longitudinal TTC.  
+
+---
+
+#### **Obstacle 20089 (Front-Left)**
+- **Adjusted Distance**: Longitudinal 2.88m, Lateral 15.33m  
+- **Relative Velocity**: Longitudinal -3.98 m/s (approaching), Lateral -0.00 m/s (stable).  
+- **Motion**: Approaching longitudinally, no lateral movement.  
+- **TTC (Longitudinal)**: 2.88 / 3.98 ≈ 0.72s (High Risk)  
+- **TTC (Lateral)**: N/A (no closing velocity).  
+- **MDC**: Lateral distance large (15.33m), but longitudinal closing rapidly.  
+- **Risk**: High (2) due to longitudinal TTC.  
+
+---
+
+#### **Obstacle 20090 (Front-Left)**
+- **Adjusted Distance**: Longitudinal 0.49m, Lateral 22.26m  
+- **Relative Velocity**: Longitudinal -3.60 m/s (approaching), Lateral -1.08 m/s (approaching).  
+- **Motion**: Rapidly approaching longitudinally, slight lateral closing.  
+- **TTC (Longitudinal)**: 0.49 / 3.60 ≈ 0.14s (Extreme Risk)  
+- **TTC (Lateral)**: 22.26 / 1.08 ≈ 20.6s (No Risk).  
+- **MDC**: Longitudinal distance critically small (0.49m) with high closing speed.  
+- **Risk**: Extreme (1) due to longitudinal TTC.  
+
+---
+
+#### **Obstacle 20096 (Front-Right)**
+- **Adjusted Distance**: Longitudinal 15.88m, Lateral -20.27m  
+- **Relative Velocity**: Longitudinal -0.85 m/s (approaching), Lateral -9.50 m/s (moving away).  
+- **Motion**: Slowly approaching longitudinally, rapidly diverging laterally.  
+- **TTC (Longitudinal)**: 15.88 / 0.85 ≈ 18.7s (No Risk).  
+- **MDC**: Lateral distance increasing (20.27m), no collision path.  
+- **Risk**: No Risk (5).  
+
+---
+
+#### **Obstacle 20100 (Collision)**
+- **Adjusted Distance**: Longitudinal 0.00m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 7.37 m/s (rear impact), Lateral -0.03 m/s (negligible).  
+- **Motion**: Exact alignment in both dimensions (collision occurring).  
+- **TTC/MDC**: 0m in both dimensions.  
+- **Risk**: Collision (0).  
+
+---
+
+#### **Obstacle 20104 (Behind)**
+- **Adjusted Distance**: Longitudinal -24.16m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 8.91 m/s (approaching), Lateral -0.03 m/s (negligible).  
+- **Motion**: Approaching from behind, no lateral threat.  
+- **TTC (Longitudinal)**: 24.16 / 8.91 ≈ 2.71s (Medium Risk).  
+- **Risk**: Medium (3).  
+
+---
+
+### **Trajectory Analysis**
+- **Obstacle 20100**: Collision confirmed at 3.7s (longitudinal and lateral distances = 0m).  
+- **Obstacle 20090**: Extreme risk (longitudinal TTC = 0.14s), likely to collide imminently if not already.  
+- Other obstacles pose lower risks (Medium/High) but are not immediate threats.  
+
+---
+
+### **Final Determination**
+This is a **collision scenario** due to:  
+1. **Obstacle 20100** with a collision risk score of 0 (actual collision).  
+2. **Obstacle 20090** with an extreme risk score of 1 (imminent collision).  
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20100",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20090",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 20100 has collided (0m distance in both dimensions), and Obstacle 20090 has extreme risk (TTC = 0.14s)."
+}
+```

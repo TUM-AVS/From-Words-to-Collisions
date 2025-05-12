@@ -1,0 +1,59 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30611 (Most Recent Timestep: 0.9 seconds)
+- **Position**: Front of ego car
+- **Adjusted Distances**: 
+  - Longitudinal: 14.25 m (raw distance, adjusted distance not provided but assumed similar)
+  - Lateral: 0.00 m (exact alignment)
+- **Relative Velocity**: 
+  - Longitudinal: 0.69 m/s (moving away from ego)
+  - Lateral: 0.00 m/s (no lateral movement)
+- **Motion Description**: Obstacle is moving away longitudinally. Exact lateral alignment.
+- **Trajectory Analysis**: 
+  - Over the timesteps, the longitudinal distance increases from 13.70 m to 14.25 m, indicating the obstacle is moving away from the ego vehicle.
+  - Lateral distance remains 0.00 m, but there is no lateral movement or convergence.
+
+#### Time-to-Collision (TTC) Calculation
+- **Longitudinal TTC**: 
+  - Distance: 14.25 m
+  - Relative Velocity: 0.69 m/s (moving away)
+  - TTC = N/A (since the obstacle is moving away, no collision trajectory)
+- **Lateral TTC**: 
+  - Distance: 0.00 m (aligned)
+  - Relative Velocity: 0.00 m/s
+  - TTC = N/A (no movement)
+- **Effective TTC**: Not applicable (no converging trajectories)
+
+#### Minimum Distance to Collision (MDC) Calculation
+- **Longitudinal MDC**: 14.25 m (distance is increasing)
+- **Lateral MDC**: 0.00 m (aligned but no convergence)
+- **Effective MDC**: 14.25 m (since lateral alignment is stable and longitudinal distance is large)
+
+#### Risk Assessment
+- **TTC Risk**: No Risk (5) - No converging trajectories.
+- **MDC Risk**: No Risk (5) - MDC > 5.0 m.
+- **Overall Risk**: No Risk (5) - The obstacle is moving away and poses no immediate threat.
+
+### Trajectory Analysis Across Timesteps
+- The obstacle consistently moves away from the ego vehicle longitudinally (distance increases from 13.70 m to 14.25 m over 0.9 seconds).
+- Lateral alignment remains exact (0.00 m) but with no lateral movement or convergence.
+- Relative velocity decreases slightly over time (from 1.76 m/s to 0.69 m/s), but the obstacle is still moving away.
+
+### Conclusion
+- No collision or extreme risk is present. The obstacle is moving away from the ego vehicle, and the lateral alignment does not indicate any convergence or collision risk.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30611 is moving away from the ego vehicle longitudinally with no lateral convergence. Both TTC and MDC indicate no risk of collision."
+}
+```

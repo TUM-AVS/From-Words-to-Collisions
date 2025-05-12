@@ -1,0 +1,39 @@
+Obstacle 30296:
+- Trajectory: This obstacle is approaching the ego vehicle longitudinally and initially from the right laterally, but the lateral motion shifts towards the left in later timesteps.  At the last timestep, it's moving away laterally to the left.
+- Longitudinal distance is decreasing, indicating an approaching vehicle.
+- Lateral distance starts negative (to the right), moves towards zero, and then becomes positive (to the left).
+- At the latest timestep (0.9s), the longitudinal distance is 18.86m and the lateral distance is 3.25m. The relative longitudinal velocity is -6.08 m/s (approaching) and the lateral velocity is 8.82 m/s (moving away).
+- TTC (longitudinal): 18.86m / 6.08m/s ≈ 3.1s (Medium Risk)
+- MDC: Due to the diverging lateral movement, the minimum distance will be greater than the current lateral distance of 3.25m (Low Risk)
+
+Obstacle 30297:
+- Trajectory: This obstacle maintains a front-right position relative to the ego vehicle, generally moving away laterally to the right and slightly approaching longitudinally at the last timestep.
+- Longitudinal distance is fairly stable, initially increasing slightly and then decreasing slightly.
+- Lateral distance is slightly increasing, which decreases risk.
+- At the latest timestep (0.9s), the longitudinal distance is 9.62m and lateral distance is -0.62m. The relative longitudinal velocity is -0.33 m/s (approaching) and lateral velocity is -1.81 m/s (moving away).
+- TTC (longitudinal): 9.62m / 0.33m/s ≈ 29.2s (Negligible Risk)
+- MDC: Approximately 0.62m (High Risk)
+
+Obstacle 30299:
+- Trajectory: Located behind the ego vehicle and moving away longitudinally, maintaining exact lateral alignment or unknown case. The increasing distance decreases risk.
+- At the latest timestep (0.9s), the longitudinal distance is -9.09m and the lateral distance is 0.00m. Relative longitudinal velocity is -0.10 m/s (moving away) and relative lateral velocity is 0.95 m/s (moving toward from the right).
+- TTC (longitudinal): Not applicable due to diverging trajectory.
+- MDC: Not applicable due to diverging trajectory.
+
+Obstacle 30300:
+- Trajectory: Behind and to the right of the ego vehicle, moving away longitudinally and slightly toward the ego car laterally from the right.  The increasing longitudinal distance reduces risk, while the slight lateral approach needs monitoring.
+- At the latest timestep (0.9s), the longitudinal distance is -19.83m and the lateral distance is -1.46m. Relative longitudinal velocity is -2.32 m/s (moving away) and relative lateral velocity is 0.87 m/s (moving toward from right).
+- TTC (longitudinal): Not applicable due to diverging trajectory.
+- MDC: Not applicable due to diverging trajectory.
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "HighRiskObstacle": {
+    "ObstacleID": "30297",
+    "OverallRiskScore": "2"
+  }
+}
+```

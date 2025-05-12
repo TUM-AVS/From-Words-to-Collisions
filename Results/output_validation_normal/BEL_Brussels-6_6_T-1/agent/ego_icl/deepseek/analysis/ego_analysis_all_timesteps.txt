@@ -1,0 +1,46 @@
+### Obstacle Analysis: 30095
+
+#### Trajectory Analysis:
+- **Position**: Front of the ego car (longitudinal distance decreasing, lateral distance stable at 0.00m)
+- **Longitudinal Distance**: Decreasing from 11.33m to 10.17m over 0.9 seconds
+- **Lateral Distance**: Consistently 0.00m (exact alignment)
+- **Relative Velocity**: 
+  - Longitudinal: -1.10 m/s (approaching)
+  - Lateral: 0.11 m/s (minimal lateral movement)
+- **Relative Acceleration**: 
+  - Longitudinal: 0.08 m/s² (slight increase in closing speed)
+  - Lateral: 0.30 m/s² (minimal lateral acceleration)
+
+#### Risk Assessment:
+1. **Minimum Distance to Collision (MDC)**:
+   - Since the obstacle is directly in front (lateral = 0.00m), the MDC is the longitudinal distance: **10.17m**.
+   - MDC > 5.0m → **Negligible Risk (5)**.
+
+2. **Time-to-Collision (TTC)**:
+   - TTC = Longitudinal Distance / |Relative Velocity| = 10.17 / 1.10 ≈ **9.25 seconds**.
+   - TTC > 5.0 seconds → **Negligible Risk (5)**.
+
+3. **Motion Description**:
+   - The obstacle is approaching longitudinally but at a slow rate (1.10 m/s). The lateral distance is stable (0.00m), but the longitudinal distance is large (10.17m). No immediate collision risk.
+
+#### Overall Risk:
+- Both MDC and TTC indicate **Negligible Risk (5)**.
+- No collision or extreme risk detected.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```

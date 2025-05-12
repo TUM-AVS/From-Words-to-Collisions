@@ -1,0 +1,25 @@
+* **Obstacle 30618 (Rear-Left):**  This obstacle is moving away from the ego vehicle both longitudinally and laterally.  Across all timesteps, the longitudinal distance becomes increasingly negative (further behind) and the lateral distance remains constant. This clearly indicates a diverging trajectory. There is no risk of collision.
+
+* **Obstacle 30619 (Left):** This obstacle is alongside the ego vehicle with exact longitudinal alignment at the last timestep (0.9s).  However, the lateral distance is 1.88m, and the obstacle is slightly moving away laterally.  Given the exact longitudinal alignment but stable lateral separation, we calculate the risk based on the lateral parameters. Since the obstacle is moving away laterally, TTC is not applicable in the lateral direction. The MDC is 1.88m. This corresponds to a Medium Risk (3). 
+
+* **Obstacle 30620 (Front-Right):** This obstacle is in front and to the right of the ego vehicle. The longitudinal distance is decreasing, but the lateral distance is increasing (becoming more negative). The obstacle is moving away laterally to the right. We calculate TTC based on the longitudinal distance and relative velocity: TTC = 12.59m / 4.58 m/s ≈ 2.75s.  MDC is the smaller of the two distances, which is the lateral distance of 4.28m (using the absolute value since we consider the distance itself). This results in a Low Risk (4) based on the lateral MDC (4.28m) and a Medium Risk (3) based on longitudinal TTC (2.75s). Prioritizing the higher risk, we assess this as Medium Risk (3).
+
+* **Obstacle 30621 (Front-Left):** This obstacle is diagonally in front and to the left, with both longitudinal and lateral distances decreasing across the timesteps. At 0.9s, the longitudinal distance is 12.41m and lateral distance is 5.91m. The longitudinal TTC is 12.41m / 8.50m/s ≈ 1.46s (Medium Risk). The lateral TTC is 5.91m / 6.99m/s ≈ 0.85s (Medium Risk), MDC is the minimum distance, which will be smaller as both distances close up further. Conservatively using the smaller of the distances we estimate MDC is 5.91m currently, implying a Low Risk. Considering both TTCs are in the Medium Risk range, we take Medium risk (3) for this obstacle.
+
+**Conclusion:** No obstacle has a risk score of 0 or 1.  Therefore, this is **not** a collision scenario.
+
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a collision risk score of 0 or an extreme risk score of 1."
+}
+```

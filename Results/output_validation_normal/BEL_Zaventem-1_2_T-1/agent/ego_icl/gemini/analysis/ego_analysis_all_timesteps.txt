@@ -1,0 +1,59 @@
+* **Obstacle 35:**
+
+    * Trajectory: This obstacle has been consistently in the front-left of the ego vehicle, with the longitudinal distance decreasing and the lateral distance slightly increasing across the timesteps.
+    * At t=0.9s:
+        * Longitudinal distance: 8.38m
+        * Lateral distance: 1.79m
+        * Longitudinal relative velocity: -9.90 m/s (approaching)
+        * Lateral relative velocity: 0.01 m/s (almost no lateral movement)
+    * TTC (longitudinal): 8.38m / 9.90m/s ≈ 0.85s
+    * MDC: Due to the lateral movement away from the ego vehicle, the MDC is slightly higher than the current lateral distance and estimated to be around 2m.
+    * Risk Assessment: Considering the TTC of 0.85s and MDC of ~2m, the risk is **High (2)**.
+
+* **Obstacle 313:**
+
+    * Trajectory: Similar to Obstacle 35, this obstacle has been consistently in the front-left, approaching longitudinally and slightly moving laterally away from the ego vehicle.
+    * At t=0.9s:
+        * Longitudinal distance: 16.34m
+        * Lateral distance: 1.68m
+        * Longitudinal relative velocity: -9.53 m/s (approaching)
+        * Lateral relative velocity: 0.01 m/s (almost no lateral movement)
+    * TTC (longitudinal): 16.34m / 9.53m/s ≈ 1.71s
+    * MDC: The MDC is again higher than the instantaneous lateral distance and estimated to be around 2m, due to the obstacle moving left.
+    * Risk Assessment: With a TTC of 1.71s and MDC of ~2m, the risk is **Medium (3)**.
+
+* **Obstacle 317:**
+
+    * Trajectory: This obstacle appears at t=0.8s in the front-left and continues to approach the ego vehicle both longitudinally and laterally.
+    * At t=0.9s:
+        * Longitudinal distance: 23.38m
+        * Lateral distance: 3.69m
+        * Longitudinal relative velocity: -8.35 m/s (approaching)
+        * Lateral relative velocity: -0.67 m/s (approaching)
+    * TTC (longitudinal): 23.38m / 8.35m/s ≈ 2.80s
+    * TTC (lateral): 3.69m / 0.67m/s ≈ 5.5s
+    * MDC: Since the lateral distance is greater, it is estimated to be the MDC, which is greater than 3.69m at this time.
+    * Risk Assessment: Considering the TTC and MDC values, the risk is assessed as **Medium (3)**.
+
+
+* **Obstacle 335:**
+    * Trajectory: This obstacle has been consistently approaching the ego vehicle from the front-left across all timesteps, getting progressively closer, while also moving laterally further away from the ego vehicle.
+    * At t=0.9s:
+        * Longitudinal distance: 0.00m
+        * Lateral distance: 1.89m
+        * Longitudinal relative velocity: -10.55 m/s (approaching)
+        * Lateral relative velocity: 0.00 m/s (no lateral movement)
+    * TTC (longitudinal): Not applicable as longitudinal distance is 0 and "Exact longitudinal alignment or co" from the scenario description denotes the distance is 0.
+    * MDC: Although the longitudinal distance is 0, there is "Exact longitudinal alignment" - so the vehicle is positioned longitudinally in the same line. The lateral distance is 1.89m and relative velocity is minimal, hence MDC is considered slightly more than 1.89m.
+    * Risk Assessment: Although the longitudinal distance is zero at this instant, the continuous trajectory shows there isn't collision. With the MDC slightly above 1.89m and no lateral relative velocity, the risk is **Medium (3)**.
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "HighRiskObstacle": {
+    "ObstacleID": "35",
+    "OverallRiskScore": "2"
+  }
+}
+```

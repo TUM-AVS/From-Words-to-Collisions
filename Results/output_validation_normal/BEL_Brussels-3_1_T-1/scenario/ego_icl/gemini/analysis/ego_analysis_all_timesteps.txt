@@ -1,0 +1,48 @@
+* **Obstacle 30243 Analysis:**
+
+This obstacle is consistently in front of the ego vehicle and laterally aligned (lateral distance = 0.00m). Across all timesteps, the longitudinal distance *increases*, indicating the obstacle is moving *away* from the ego vehicle. This aligns with the motion description.  Since the obstacle is moving away, TTC is not relevant. Because the distance is increasing and greater than 5.0 meters, this obstacle poses no risk.
+
+* **Obstacle 30245 Analysis:**
+
+This obstacle is approaching the ego vehicle from the front-left. Let's analyze the latest timestep (0.9 seconds):
+
+* **Longitudinal:**
+    * Distance: 9.76 m
+    * Relative Velocity: -5.36 m/s (approaching)
+    * TTC (longitudinal): 9.76m / 5.36 m/s ≈ 1.82 seconds
+
+* **Lateral:**
+    * Distance: 13.78 m
+    * Relative Velocity: -6.06 m/s (approaching)
+    * TTC (lateral): 13.78m / 6.06 m/s ≈ 2.27 seconds
+
+* **MDC:**  Since this is a diagonal approach, we consider the smaller of the longitudinal and lateral distances, which is the longitudinal distance of 9.76 meters.
+
+* **Overall Risk:**
+
+    * Based on longitudinal TTC (1.82 seconds)  -> Medium Risk (3)
+    * Based on lateral TTC (2.27 seconds) -> Medium Risk (3)
+    * Based on MDC (9.76m) -> No Risk (5)
+
+The highest risk (lowest score) is 3 (Medium Risk).
+
+* **Collision Scenario Determination:**
+
+Since no obstacle has a risk score of 0 (Collision) or 1 (Extreme Risk), this is NOT a collision scenario.
+
+* **JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle presents an immediate collision risk. All obstacles have risk scores greater than 1 (no Extreme or Collision Risk)."
+}
+```

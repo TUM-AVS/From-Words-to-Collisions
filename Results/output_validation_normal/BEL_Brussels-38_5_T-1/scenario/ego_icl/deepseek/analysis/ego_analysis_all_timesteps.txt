@@ -1,0 +1,48 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### Obstacle 30221:
+- **Position**: Behind ego (longitudinal = -7.62m, lateral = 0.00m)
+- **Relative Velocity**: longitudinal = 0.51 m/s (approaching), lateral = 0.15 m/s (minimal lateral movement)
+- **Motion Description**: "Obstacle is driving toward the ego car from behind. Exact lateral alignment or unknown case."
+- **Trajectory Analysis**:
+  - From 0.0s to 0.5s: Obstacle was moving away longitudinally (distance increased from -6.98m to -7.69m).
+  - From 0.6s to 0.9s: Obstacle began approaching longitudinally (distance decreased from -7.69m to -7.62m).
+  - Lateral distance remains 0.00m throughout, indicating exact alignment.
+
+#### TTC Calculation:
+- **Longitudinal TTC**: 
+  - Distance = 7.62m (absolute value)
+  - Relative Velocity = 0.51 m/s (approaching)
+  - TTC = 7.62 / 0.51 ≈ 14.94 seconds
+- **Lateral TTC**: 
+  - Distance = 0.00m (aligned)
+  - Relative Velocity = 0.15 m/s (minimal)
+  - TTC is technically 0, but since lateral velocity is very low and not converging dangerously, this does not indicate immediate risk.
+
+#### MDC Calculation:
+- Since the obstacle is directly behind (lateral = 0.00m), MDC is effectively the longitudinal distance (7.62m).
+
+#### Risk Assessment:
+- **TTC**: 14.94s (No Risk, score = 5)
+- **MDC**: 7.62m (No Risk, score = 5)
+- **Overall Risk**: No Risk (score = 5)
+
+### Collision Scenario Determination:
+- No obstacle has a risk score of 0 (collision) or 1 (extreme risk).
+- Obstacle 30221 is approaching very slowly from behind with a large distance and no immediate danger.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30221 is slowly approaching from behind with a large longitudinal distance (7.62m) and no lateral deviation. TTC and MDC both indicate no risk."
+}
+```

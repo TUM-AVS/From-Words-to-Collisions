@@ -1,0 +1,50 @@
+### Obstacle Analysis: 30627
+
+#### Trajectory Analysis:
+- **Initial State (0.1s):** 
+  - Longitudinal distance: 20.86m (moving away at 1.22 m/s)
+  - Lateral distance: 0.00m (stable alignment)
+- **Final State (0.9s):** 
+  - Longitudinal distance: 19.95m (approaching at -3.29 m/s)
+  - Lateral distance: 0.00m (stable alignment)
+- **Trend:** 
+  - The obstacle initially moves away but starts approaching the ego vehicle after 0.4s with increasing relative velocity (-3.29 m/s at 0.9s).
+  - Lateral distance remains stable at 0.00m (same lane alignment).
+
+#### Risk Assessment (Most Recent Timestep - 0.9s):
+1. **Proximity:**
+   - Longitudinal: 19.95m (large distance)
+   - Lateral: 0.00m (same lane alignment, but not a collision risk unless longitudinal distance is very small)
+
+2. **Minimum Distance to Collision (MDC):**
+   - Since the obstacle is directly in front (lateral = 0.00m), MDC is the longitudinal distance: **19.95m**.
+   - MDC > 5.0m → **Risk Level 5 (Negligible Risk)**.
+
+3. **Time-to-Collision (TTC):**
+   - TTC = Distance / |Relative Velocity| = 19.95 / 3.29 ≈ **6.06s**.
+   - TTC > 5.0s → **Risk Level 5 (Negligible Risk)**.
+
+4. **Acceleration Trend:**
+   - The obstacle is accelerating toward the ego vehicle (longitudinal relative acceleration: 1.92 m/s²). However, the current distance and TTC are large enough to mitigate immediate risk.
+
+#### Overall Risk:
+- Both MDC and TTC indicate **Negligible Risk (Level 5)**.
+- No collision or extreme risk is present.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```

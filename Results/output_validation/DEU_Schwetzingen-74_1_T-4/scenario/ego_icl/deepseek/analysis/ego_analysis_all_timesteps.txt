@@ -1,0 +1,75 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 3.4s)
+
+#### **Obstacle 20058 (Front-Right)**
+- **Adjusted Distance**: Longitudinal 17.06m, Lateral -11.04m  
+- **Relative Velocity**: Longitudinal -2.04 m/s (approaching), Lateral 0.00 m/s (stable)  
+- **Motion**: Driving toward ego longitudinally, no lateral motion  
+- **Trajectory Analysis**:  
+  - Longitudinal distance decreasing steadily (~2.04 m/s closing speed)  
+  - Lateral distance stable (no convergence)  
+- **TTC**:  
+  - Longitudinal: 17.06 / 2.04 ≈ 8.36s (No Risk)  
+  - Lateral: N/A (no relative motion)  
+- **MDC**:  
+  - Lateral distance is large (11.04m), no lateral convergence → No Risk  
+- **Risk Assessment**:  
+  - Longitudinal: No Risk (5)  
+  - Lateral: No Risk (5)  
+  - **Overall Risk**: 5 (No Risk)  
+
+---
+
+#### **Obstacle 20060 (Front-Right)**
+- **Adjusted Distance**: Longitudinal 11.85m, Lateral -5.12m  
+- **Relative Velocity**: Longitudinal -1.18 m/s (approaching), Lateral -0.93 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally, moving away laterally  
+- **Trajectory Analysis**:  
+  - Longitudinal distance decreasing (~1.18 m/s closing speed)  
+  - Lateral distance increasing (~0.93 m/s diverging)  
+- **TTC**:  
+  - Longitudinal: 11.85 / 1.18 ≈ 10.04s (No Risk)  
+  - Lateral: N/A (diverging)  
+- **MDC**:  
+  - Lateral distance increasing → No Risk  
+- **Risk Assessment**:  
+  - Longitudinal: No Risk (5)  
+  - Lateral: No Risk (5)  
+  - **Overall Risk**: 5 (No Risk)  
+
+---
+
+#### **Obstacle 20064 (Behind)**
+- **Adjusted Distance**: Longitudinal 0.00m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 3.00 m/s (approaching), Lateral 0.75 m/s  
+- **Motion**: Exact longitudinal and lateral alignment (collision point)  
+- **Trajectory Analysis**:  
+  - Longitudinal distance decreased from -0.10m to 0.00m (collision occurred)  
+  - Lateral distance stable at 0.00m (same lane)  
+- **TTC**:  
+  - Longitudinal: 0.00m / 3.00 m/s = 0s (Collision)  
+  - Lateral: 0.00m / 0.75 m/s = 0s (Collision)  
+- **MDC**: 0.00m (Collision)  
+- **Risk Assessment**:  
+  - **Overall Risk**: 0 (Collision)  
+
+---
+
+### **Collision Scenario Determination**
+- **Obstacle 20064** has a collision risk score of **0** (actual collision at 3.4s).  
+- The other obstacles pose no immediate risk.  
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20064",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 20064 has reached 0.00m longitudinal and lateral distance with the ego vehicle at 3.4s, indicating a collision."
+}
+```

@@ -1,0 +1,43 @@
+At t=0.9s:
+
+**Obstacle 312:** Located front-left of the ego vehicle.
+
+* Trajectory Analysis:  Obstacle 312 started further right and has been moving towards the ego vehicle's lane across the timesteps. It is also approaching the ego longitudinally.
+* Longitudinal Analysis: Distance = 20.51m, Relative Velocity = -7.27 m/s (approaching). TTC_long = 20.51 / 7.27 ≈ 2.82s. Risk: Medium (3).
+* Lateral Analysis: Distance = 3.43m, Relative Velocity = -0.09 m/s (slightly approaching). TTC_lat = 3.43 / 0.09 ≈ 38.1s, effectively no lateral risk.
+* MDC: Approximately 3.43m laterally. Risk: Low (4)
+* Overall Risk: Medium (3) - Dominated by the longitudinal TTC.
+
+**Obstacle 329:** Located front-left of the ego vehicle.
+
+* Trajectory Analysis: This obstacle has been consistently in front of the ego vehicle, moving closer over time, slightly to the left from the ego's perspective.
+* Longitudinal Analysis: Distance = 14.15m, Relative Velocity = -6.36 m/s (approaching). TTC_long = 14.15 / 6.36 ≈ 2.22s. Risk: Medium (3).
+* Lateral Analysis: Distance = 1.05m, Relative Velocity = 0.30 m/s (moving away).  Lateral movement not a collision concern since it's diverging.
+* MDC: Approximately 1.05m. Risk: High (2).
+* Overall Risk: Medium (3) - While the lateral distance is raising a High Risk level on it's own, the high closing speed longitudinally indicates Medium risk is more appropriate here.
+
+**Obstacle 335:** Located rear-right of the ego vehicle.
+
+* Trajectory Analysis: Initially directly behind, now moving further to right and away from the ego vehicle.
+* Longitudinal Analysis: Distance = -4.89m (behind), Relative Velocity = -0.15 m/s (moving further away). Since moving away longitudinally, there is no collision risk longitudinally.
+* Lateral Analysis: Distance = -2.41m (to the right), Relative Velocity = 1.08 m/s (moving further right). Since moving away laterally, there is no collision risk laterally.
+* MDC: Given trajectory is diverging from ego in both axis, MDC risk is Negligible(5)
+* Overall Risk: Negligible (5) - The obstacle is moving away from the ego vehicle.
+
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  }
+}
+```

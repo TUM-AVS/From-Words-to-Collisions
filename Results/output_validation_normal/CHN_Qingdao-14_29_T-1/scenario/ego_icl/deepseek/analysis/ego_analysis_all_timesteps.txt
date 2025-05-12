@@ -1,0 +1,47 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30656 (Most Recent Timestep: 0.9 seconds)
+- **Position**: Behind ego car
+- **Adjusted Distance**: Longitudinal -10.86 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal -3.51 m/s (moving away), Lateral -0.60 m/s (moving away)
+- **Relative Acceleration**: Longitudinal 2.81 m/s², Lateral 1.73 m/s²
+- **Motion Description**: Obstacle is moving away longitudinally. Exact lateral alignment or unknown case.
+
+#### Trajectory Analysis
+- Over the timesteps (0.1s to 0.9s), the obstacle is consistently moving away from the ego car longitudinally (distance increases from -7.51 m to -10.86 m).
+- The lateral distance remains 0.00 m, indicating exact alignment, but the obstacle is moving away laterally as well (negative relative velocity).
+- The relative acceleration in both dimensions is positive, meaning the obstacle is decelerating its movement away from the ego car, but it is still moving away.
+
+#### TTC Calculation
+- **Longitudinal TTC**: Not applicable (relative velocity is negative, meaning the obstacle is moving away).
+- **Lateral TTC**: Not applicable (relative velocity is negative, meaning the obstacle is moving away).
+
+#### MDC Calculation
+- Since the obstacle is moving away in both dimensions, the MDC is effectively the current distance.
+- **Longitudinal MDC**: 10.86 m (No Risk, MDC > 5.0 m).
+- **Lateral MDC**: 0.00 m (but since the obstacle is moving away, this does not indicate a collision risk).
+
+#### Risk Assessment
+- **Longitudinal Risk**: 5 (No Risk, MDC > 5.0 m and moving away).
+- **Lateral Risk**: 5 (No Risk, despite MDC = 0.00 m, the obstacle is moving away).
+- **Overall Risk Score**: 5 (No Risk).
+
+### Conclusion
+- The obstacle is moving away from the ego car in both longitudinal and lateral dimensions, with no indication of converging trajectories.
+- There is no collision or extreme risk scenario present.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30656 is moving away from the ego car in both longitudinal and lateral dimensions, with no converging trajectories or imminent collision risk."
+}
+```

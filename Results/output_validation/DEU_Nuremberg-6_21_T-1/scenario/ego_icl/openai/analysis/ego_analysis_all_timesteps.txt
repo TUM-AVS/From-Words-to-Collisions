@@ -1,0 +1,69 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30802
+- **Most Recent Timestamp (6.7 seconds):**
+  - Adjusted Longitudinal Distance: 17.95 m
+  - Adjusted Lateral Distance: 0.00 m
+  - Relative Velocity (Longitudinal): -3.79 m/s
+  - Relative Velocity (Lateral): 0.13 m/s
+  - Motion: Moving toward the ego car longitudinally
+  
+- **Trajectory Analysis:**
+  - The obstacle has consistently moved closer to the ego vehicle over recent timesteps, but the longitudinal distance remains above collision thresholds.
+  
+- **Calculations:**
+  - **Time-to-Collision (TTC)** (Longitudinal only, as lateral is zero): 
+    - TTC = 17.95 m / 3.79 m/s ≈ 4.74 seconds
+  - **Minimum Distance to Collision (MDC):**
+    - MDC = 17.95 m (longitudinal), 0.00 m (lateral integration not necessary as the primary collision risk is longitudinal)
+  
+- **Risk Evaluation:**
+  - MDC > 5.0 meters: No Risk (5)
+  - The obstacle is decelerating less significantly and maintaining a critical distance well above direct collision risk.
+
+#### Obstacle 30803
+- **Most Recent Timestamp (6.7 seconds):**
+  - Adjusted Longitudinal Distance: 0.23 m
+  - Adjusted Lateral Distance: 0.00 m
+  - Relative Velocity (Longitudinal): -0.12 m/s
+  - Relative Velocity (Lateral): -0.02 m/s
+  - Motion: Driving toward the ego car longitudinally with exact alignment
+  
+- **Trajectory Analysis:**
+  - The obstacle has been approaching extremely closely over recent seconds, consistently reducing its distance with the ego vehicle.
+  
+- **Calculations:**
+  - **Time-to-Collision (TTC):**
+    - Longitudinal velocity is almost zero (-0.12 m/s), indicating nearly no further closing speed, although already within extremely close proximity.
+  - **Minimum Distance to Collision (MDC):**
+    - MDC = 0.23 m (current adjusted longitudinal distance, negligible lateral impact)
+
+- **Risk Evaluation:**
+  - MDC ≤ 0.5 meters: Extreme Risk (1)
+  - TTC doesn't progress due to minimal velocity, but the critical proximity (0.23 m) and almost zero velocity indicate maintaining extreme risk.
+
+### Collision Scenario Determination
+
+The trajectory and proximity of **Obstacle 30803** indicate an immediate collision risk. The previous and current closeness, declining velocity, and alignment focus suggest the potential of a very near impact. Thus, this situation constitutes an extreme risk condition.
+
+### Conclusion
+- **Obstacle 30802:** No Risk (5) due to safe distance.
+- **Obstacle 30803:** Extreme Risk (1) due to extreme proximity and nearly zero relative speed.
+
+Given the extreme risk score of Obstacle 30803, this constitutes a collision scenario by proximity and alignment criteria.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30803",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30803",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30803 is at an extremely close distance of 0.23 m to the ego vehicle with near-zero resolving velocity, indicating sustained extreme risk of collision."
+}
+```

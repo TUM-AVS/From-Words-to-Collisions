@@ -1,0 +1,60 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 3.1 seconds)
+
+#### **Obstacle 20063 (Front)**
+- **Adjusted Distance**: Longitudinal 19.37m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -1.26 m/s (approaching), Lateral 0.00 m/s  
+- **Motion**: Driving toward ego longitudinally, exact lateral alignment.  
+- **TTC (Longitudinal)**: 19.37 / 1.26 ≈ **15.37s** (No Risk, TTC > 5s)  
+- **MDC**: Lateral distance stable at 0.00m, but longitudinal distance large (19.37m).  
+- **Risk**: **5 (No Risk)** – No imminent collision threat.  
+
+#### **Obstacle 20064 (Front)**
+- **Adjusted Distance**: Longitudinal 12.39m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -1.26 m/s (approaching), Lateral 0.00 m/s  
+- **Motion**: Driving toward ego longitudinally, exact lateral alignment.  
+- **TTC (Longitudinal)**: 12.39 / 1.26 ≈ **9.83s** (No Risk, TTC > 5s)  
+- **MDC**: Lateral distance stable at 0.00m, but longitudinal distance large (12.39m).  
+- **Risk**: **5 (No Risk)** – No imminent collision threat.  
+
+#### **Obstacle 20066 (Collision)**
+- **Adjusted Distance**: Longitudinal 0.00m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 3.98 m/s (still moving toward ego), Lateral 0.00 m/s  
+- **Motion**: Exact longitudinal and lateral alignment (collision occurring).  
+- **TTC (Longitudinal)**: 0.00 / 3.98 = **0s** (Collision)  
+- **MDC**: 0.00m in both dimensions (Collision)  
+- **Risk**: **0 (Collision)** – Actual collision confirmed at 3.0s and continuing at 3.1s.  
+
+#### **Obstacle 20067 (Behind)**
+- **Adjusted Distance**: Longitudinal -13.86m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 6.16 m/s (approaching from behind), Lateral 0.00 m/s  
+- **Motion**: Driving toward ego from behind, exact lateral alignment.  
+- **TTC (Longitudinal)**: 13.86 / 6.16 ≈ **2.25s** (Medium Risk, TTC < 3s)  
+- **MDC**: Lateral distance stable at 0.00m, but longitudinal distance closing rapidly.  
+- **Risk**: **3 (Medium Risk)** – Potential rear-end collision if trajectories continue.  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 20066**: Collision occurred at 3.0s (distance = 0.00m) and persists at 3.1s. Relative velocity remains positive (3.98 m/s), indicating the obstacle is still moving into the ego vehicle (e.g., rear-end collision in progress).  
+- **Obstacle 20067**: Rapidly closing from behind (TTC decreasing from 2.8s to 2.25s). While not yet colliding, this warrants monitoring.  
+- **Front Obstacles (20063, 20064)**: Safe distances with no immediate risk.  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20066",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": null,
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 20066 has a confirmed collision (distance = 0.00m in both dimensions at 3.1s with ongoing positive relative velocity)."
+}
+``` 
+
+### Key Notes:
+- **Collision Scenario**: True because Obstacle 20066 is actively colliding with the ego vehicle (risk score 0).  
+- **Obstacle 20067**: Medium risk but not yet extreme/collision.  
+- **Front Obstacles**: No risk due to large distances and low closing speeds.

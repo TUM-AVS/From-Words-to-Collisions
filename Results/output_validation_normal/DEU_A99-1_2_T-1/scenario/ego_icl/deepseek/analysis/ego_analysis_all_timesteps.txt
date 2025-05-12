@@ -1,0 +1,81 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 200 (Left of ego)**
+- **Adjusted Distances**: Longitudinal 0.00m, Lateral 2.95m  
+- **Relative Velocity**: Longitudinal 2.81 m/s (moving away), Lateral 0.27 m/s (moving away)  
+- **Motion**: Exact longitudinal alignment, moving away laterally to the left.  
+- **TTC**: 
+  - Longitudinal: Not applicable (moving away).  
+  - Lateral: Not applicable (moving away).  
+- **MDC**: 2.95m (lateral distance, stable/increasing).  
+- **Risk**: 5 (No Risk).  
+
+#### **Obstacle 201 (Rear-left of ego)**
+- **Adjusted Distances**: Longitudinal -16.11m, Lateral 6.52m  
+- **Relative Velocity**: Longitudinal 7.81 m/s (approaching), Lateral 0.34 m/s (moving away).  
+- **Motion**: Approaching from behind, moving away laterally.  
+- **TTC**: 
+  - Longitudinal: 16.11 / 7.81 ≈ 2.06s (Medium Risk).  
+  - Lateral: Not applicable (moving away).  
+- **MDC**: 6.52m (lateral distance, increasing).  
+- **Risk**: 3 (Medium Risk).  
+
+#### **Obstacle 202 (Behind of ego)**
+- **Adjusted Distances**: Longitudinal -9.76m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 0.81 m/s (approaching), Lateral 0.23 m/s (minimal lateral movement).  
+- **Motion**: Approaching from behind, exact lateral alignment.  
+- **TTC**: 
+  - Longitudinal: 9.76 / 0.81 ≈ 12.05s (No Risk).  
+  - Lateral: Not applicable (no lateral convergence).  
+- **MDC**: 0.00m (lateral alignment, but longitudinal distance stable/increasing slowly).  
+- **Risk**: 5 (No Risk – no imminent collision path).  
+
+#### **Obstacle 203 (Front of ego)**
+- **Adjusted Distances**: Longitudinal 23.51m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 0.81 m/s (moving away), Lateral 0.23 m/s (minimal lateral movement).  
+- **Motion**: Moving away longitudinally, exact lateral alignment.  
+- **TTC**: 
+  - Longitudinal: Not applicable (moving away).  
+  - Lateral: Not applicable (no lateral convergence).  
+- **MDC**: 0.00m (lateral alignment, but longitudinal distance increasing).  
+- **Risk**: 5 (No Risk).  
+
+#### **Obstacle 204 (Behind of ego)**
+- **Adjusted Distances**: Longitudinal -16.62m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 0.81 m/s (approaching), Lateral 0.23 m/s (minimal lateral movement).  
+- **Motion**: Approaching from behind, exact lateral alignment.  
+- **TTC**: 
+  - Longitudinal: 16.62 / 0.81 ≈ 20.52s (No Risk).  
+  - Lateral: Not applicable (no lateral convergence).  
+- **MDC**: 0.00m (lateral alignment, but longitudinal distance stable/increasing slowly).  
+- **Risk**: 5 (No Risk).  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 200**: Consistently moving away laterally; no collision risk.  
+- **Obstacle 201**: Approaching longitudinally but lateral distance is increasing. Medium risk due to high longitudinal closing speed.  
+- **Obstacles 202/204**: Approaching very slowly from behind with no lateral convergence. No immediate risk.  
+- **Obstacle 203**: Moving away; no risk.  
+
+---
+
+### Final Determination
+- No obstacle has a risk score of 0 (collision) or 1 (extreme risk).  
+- The highest risk is Obstacle 201 (Medium Risk, score 3).  
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle has a risk score of 0 or 1. The highest risk is Obstacle 201 (Medium Risk, score 3)."
+}
+```

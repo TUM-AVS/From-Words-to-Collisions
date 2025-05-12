@@ -1,0 +1,70 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 30627 (Front of ego car)**
+- **Adjusted Distances**: 
+  - Longitudinal: 19.95 m (raw: 19.95 m)
+  - Lateral: 0.00 m (raw: 0.00 m)
+- **Relative Velocity**: 
+  - Longitudinal: -3.29 m/s (approaching ego)
+  - Lateral: -0.20 m/s (minor lateral movement)
+- **Relative Acceleration**: 
+  - Longitudinal: 1.92 m/s² (increasing closing speed)
+  - Lateral: -5.59 m/s² (lateral movement stabilizing)
+- **Motion Description**: 
+  - "Obstacle is driving toward the ego car longitudinally. Exact lateral alignment or unknown case."
+
+---
+
+### **Trajectory Analysis (0.0s to 0.9s)**
+1. **Longitudinal Distance**: 
+   - Initially increases slightly (20.86m → 20.96m at 0.3s), then decreases steadily (20.93m → 19.95m at 0.9s).
+   - Relative velocity becomes negative at 0.4s, indicating the obstacle is now closing in on the ego.
+   - Closing speed accelerates (from -0.36 m/s to -3.29 m/s).
+
+2. **Lateral Distance**: 
+   - Remains 0.00 m (exact alignment) with negligible lateral velocity (-0.08 m/s → -0.20 m/s).
+
+---
+
+### **Risk Assessment Calculations**
+#### **Time-to-Collision (TTC)**
+- **Longitudinal TTC**: 
+  - Distance: 19.95 m
+  - Relative Velocity: 3.29 m/s (absolute value)
+  - TTC = 19.95 / 3.29 ≈ **6.06 seconds** (No Risk, TTC > 5.0s)
+- **Lateral TTC**: 
+  - Not applicable (lateral distance stable at 0.00m with minimal movement).
+
+#### **Minimum Distance to Collision (MDC)**
+- **Primary Focus**: Longitudinal distance (lateral alignment is exact but stable).
+- **MDC**: 19.95 m (No Risk, MDC > 5.0m).
+
+#### **Overall Risk**
+- **TTC**: 5 (No Risk)
+- **MDC**: 5 (No Risk)
+- **Overall Risk Score**: **5 (No Risk)**  
+  - Despite closing longitudinally, the distance is large (>19m) and TTC is high (>6s). Lateral alignment is exact but poses no immediate risk.
+
+---
+
+### **Collision Scenario Determination**
+- No obstacle has a risk score of 0 (collision) or 1 (extreme risk).
+- Obstacle 30627 is closing but remains at a safe distance with no imminent collision risk.
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30627 is longitudinally aligned and closing, but the distance (19.95m) and TTC (6.06s) indicate no immediate collision risk. No other obstacles present."
+}
+```

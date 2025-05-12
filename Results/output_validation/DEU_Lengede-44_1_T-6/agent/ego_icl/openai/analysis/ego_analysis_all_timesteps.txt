@@ -1,0 +1,78 @@
+### Obstacle-by-Obstacle Analysis
+
+**Obstacle 41:**
+- **Position & Trajectory Analysis:**
+  - From previous data, obstacle 41 moves from front-left toward the side of the ego car. By the most recent timestep, it has become aligned with the left of the ego car.
+  - The adjusted longitudinal distance is 0.00 m, indicating exact alignment or co-passing on that axis.
+  - Lateral distance decreases from 2.72 m (6.3s) to 2.40 m (6.5s) and is 2.37 m in the last timestep, showing slight adjustments.
+
+- **Relative Velocity:**
+  - Longitudinal: -43.12 m/s indicates the obstacle is moving away in this dimension, hence no collision risk longitudinally.
+  - Lateral: -0.06 m/s implies it's slightly converging but with a very low rate; still moving relatively steady sideways.
+
+- **TTC and MDC Calculations:**
+  - Longitudinal: Not applicable for collision (moving away).
+  - Lateral: Using 2.37 m / 0.06 m/s = approximately 39.5 seconds, which indicates a very distant or negligible collision time.
+
+- **Risk Assessment:**
+  - Overall risk decreases due to movement away longitudinally and negligible lateral approach. 
+  - TTC and MDC indicate negligible immediate collision risk in the lateral approach.
+
+- **Assigned Risk Score:** 5 (Negligible Risk)
+
+**Obstacle 109:**
+- **Position & Trajectory Analysis:**
+  - This obstacle is consistently behind the ego car with longitudinal distances improving slightly.
+  - Previous and current data show exact lateral alignment at 0.00 m, so primarily a longitudinal threat.
+
+- **Relative Velocity:**
+  - Longitudinal: 2.02 m/s closing speed implies a closing trajectory towards the ego vehicle from behind.
+  - Lateral: 0.18 m/s but extremely minimal impact in this context.
+
+- **TTC and MDC Calculations:**
+  - Longitudinal closing distance of 0.56 m, with TTC calculated as 0.56 m / 2.02 m/s ≈ 0.28 seconds.
+  - This implies high urgency due to the short collision time despite also showing a small non-zero distance.
+
+- **Risk Assessment:**
+  - Given the short TTC indicating imminent risk, with minimal longitudinal distance (approaching zero), it's assessed as high risk.
+  
+- **Assigned Risk Score:** 1 (Extreme Risk)
+
+**Obstacle 45:**
+- **Position & Trajectory Analysis:**
+  - Positioned front-left with closing distances both longitudinally and laterally.
+  - Longitudinal and lateral distances were specified as 18.99 m and 2.58 m.
+
+- **Relative Velocity:**
+  - Longitudinal: Closing at -41.69 m/s. Rapidly approaching.
+  - Lateral: Slow closing approach at -0.32 m/s.
+
+- **TTC and MDC Calculations:**
+  - Longitudinal TTC: 18.99 m / 41.69 m/s ≈ 0.46 seconds.
+  - Lateral closing slow, but still converging.
+
+- **Risk Assessment:**
+  - The low TTC in the longitudinal implies a critical, close proximity with rapid danger.
+  
+- **Assigned Risk Score:** 1 (Extreme Risk)
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "45",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "109",
+        "OverallRiskScore": "1"
+    }  
+}
+```
+
+### Explanation
+Obstacle 45 is identified as the most critical external threat with extremely short TTC in the longitudinal direction at the front-left. Its rapid convergence trajectory makes immediate intervention necessary. Obstacle 41 displays a negligible risk due to divergence, while Obstacle 109, despite approaching, remains extreme due to trajectory indicators encouraging proactive measures.

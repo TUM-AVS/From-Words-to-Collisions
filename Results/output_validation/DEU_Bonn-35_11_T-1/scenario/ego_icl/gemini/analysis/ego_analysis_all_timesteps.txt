@@ -1,0 +1,43 @@
+Obstacle 30200:
+
+* Trajectory Analysis: This obstacle has been consistently approaching the ego vehicle from behind, with the longitudinal distance decreasing across all timesteps. Lateral distance remains at 0.00m, indicating alignment in the same lane.  The motion description "Obstacle is driving toward the ego car from behind" confirms this. At the last timestep (3.7s), the longitudinal distance is 0.00m, meaning a collision has occurred.
+
+* TTC Calculation: At 3.7s, longitudinal relative velocity is 5.45 m/s. Since distance is 0.00m, TTC = 0s.
+
+* MDC Calculation: MDC is 0.00m.
+
+* Risk Assessment:
+    * Longitudinal: Collision Risk (0) due to 0.00m distance and positive relative velocity.
+    * Lateral:  Although lateral distance is 0.00m, the key factor is the longitudinal collision that has occurred. 
+    * Overall Risk: Collision Risk (0).
+
+Obstacle 30201:
+
+* Trajectory Analysis: This obstacle is also approaching the ego vehicle from behind but is much further away. The longitudinal distance is decreasing over time but remains significant.  Lateral distance remains at 0.00m, indicating same-lane alignment, not necessarily a collision.
+
+* TTC Calculation: At 3.7s, longitudinal distance is -18.69m and relative velocity is 4.76 m/s.  TTC = |-18.69m| / 4.76 m/s ≈ 3.93s. Note that TTC is calculated using the absolute value of distance so if relative velocity is positive as here, there is still a risk of collision unless the absolute value of distance is increasing over the time series as is not the case here.
+
+* MDC Calculation:  Given the trajectories and the consistent lateral alignment, MDC is primarily determined by the longitudinal distance, which is -18.69m.
+
+* Risk Assessment:
+    * Longitudinal: Low Risk (4) based on TTC of 3.93s.
+    * Lateral: No Risk (5) as there's a safe lateral distance.
+    * Overall Risk: Low Risk (4).
+
+Collision Scenario Determination:
+
+Yes, this is a collision scenario. Obstacle 30200 has collided with the ego vehicle.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "30200",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30200 has collided with the ego vehicle at t=3.7s (longitudinal distance = 0.00m, relative velocity > 0)."
+}
+```

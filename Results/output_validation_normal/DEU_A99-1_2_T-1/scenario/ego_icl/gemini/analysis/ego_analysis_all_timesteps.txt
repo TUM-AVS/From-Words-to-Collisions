@@ -1,0 +1,53 @@
+Obstacle 200 (Left):
+- Trajectory: Consistently to the left of the ego vehicle and moving further away laterally across all timesteps. Longitudinal position remains aligned with the ego vehicle.
+- At t=0.9s: Lateral distance = 2.95m, Longitudinal distance = 0.00m, Relative velocity (longitudinal = 2.81 m/s, lateral = 0.27 m/s).
+- MDC: 2.95m (using lateral distance as the primary metric).
+- TTC: Not applicable for lateral direction as the obstacle is moving away.  TTC (longitudinal) is not relevant as obstacle maintains longitudinal alignment but doesn't close the gap.
+- Risk: 4 (Low Risk) based on MDC.
+
+Obstacle 201 (Rear-left):
+- Trajectory: Approaching from behind and slightly to the left, but lateral distance increasing over time.
+- At t=0.9s: Longitudinal distance = -16.11m, Lateral distance = 6.52m, Relative velocity (longitudinal = 7.81 m/s, lateral = 0.34 m/s)
+- MDC: 6.52m (using lateral distance as it represents a safer gap than the closing longitudinal distance)
+- TTC (longitudinal): 2.06s. TTC (lateral): Not applicable since lateral distance is increasing.
+- Risk: 3 (Medium Risk) based on TTC.
+
+Obstacle 202 (Behind):
+- Trajectory: Approaching from directly behind, with lateral alignment maintained.
+- At t=0.9s: Longitudinal distance = -9.76m, Lateral distance = 0.00m, Relative velocity (longitudinal = 0.81 m/s, lateral = 0.23 m/s).
+- MDC: Not directly calculable due to persistent lateral alignment; using longitudinal distance with trajectory context = 9.76m
+- TTC (longitudinal): 12.05s.  TTC (lateral): Not applicable since lateral distance is zero and not decreasing.
+- Risk: 5 (No Risk) as TTC is high despite perfect lateral alignment.
+
+Obstacle 203 (Front):
+- Trajectory: Moving further ahead of the ego vehicle, lateral alignment maintained.
+- At t=0.9s: Longitudinal distance = 23.51m, Lateral distance = 0.00m, Relative velocity (longitudinal = 0.81 m/s, lateral = 0.23 m/s).
+- MDC: Not directly calculable due to persistent lateral alignment; using longitudinal distance and diverging trajectory = 23.51m
+- TTC: Not applicable in the longitudinal direction since it's moving away from ego vehicle; also not applicable in the lateral direction because it's moving away.
+- Risk: 5 (No Risk)
+
+Obstacle 204 (Behind):
+- Trajectory: Approaching from directly behind, maintaining lateral alignment.
+- At t=0.9s: Longitudinal distance = -16.62m, Lateral distance = 0.00m, Relative velocity (longitudinal = 0.81 m/s, lateral = 0.23 m/s)
+- MDC: Not directly calculable due to persistent lateral alignment; using longitudinal distance with trajectory context = 16.62m
+- TTC (longitudinal): 20.52s. TTC (lateral): Not applicable. 
+- Risk: 5 (No Risk)
+
+Collision Scenario: No.
+
+Justification: No obstacle has a risk score of 0 or 1.  While obstacles 202 and 204 have exact lateral alignment with the ego, they are also maintaining safe longitudinal following distances and are therefore not considered to be in an Extreme Risk situation.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 or 1. All obstacles maintain safe distances or are moving away from the ego vehicle."
+}
+```

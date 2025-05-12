@@ -1,0 +1,106 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 2.8s)
+
+---
+
+#### **Obstacle 30604 (Front-left)**
+- **Adjusted Distance**: Longitudinal 17.41m, Lateral 5.54m  
+- **Relative Velocity**: Longitudinal -10.73 m/s (approaching), Lateral -0.02 m/s (very slight approach)  
+- **Motion**: Driving toward ego longitudinally and laterally from the left.  
+- **TTC**:  
+  - Longitudinal: 17.41 / 10.73 ≈ 1.62s (Medium Risk)  
+  - Lateral: 5.54 / 0.02 ≈ 277s (Negligible Risk)  
+- **MDC**:  
+  - Lateral distance (5.54m) is large, but longitudinal distance is closing rapidly.  
+  - Focus on longitudinal risk: MDC ≈ 17.41m (Low Risk).  
+- **Overall Risk**: **Medium Risk (3)** due to high longitudinal closing speed.
+
+---
+
+#### **Obstacle 30606 (Front-left)**
+- **Adjusted Distance**: Longitudinal 7.93m, Lateral 2.00m  
+- **Relative Velocity**: Longitudinal -13.95 m/s (rapid approach), Lateral -0.05 m/s (slight approach)  
+- **Motion**: Driving toward ego longitudinally and laterally from the left.  
+- **TTC**:  
+  - Longitudinal: 7.93 / 13.95 ≈ 0.57s (High Risk)  
+  - Lateral: 2.00 / 0.05 ≈ 40s (Negligible Risk)  
+- **MDC**:  
+  - Longitudinal distance is closing extremely fast (MDC ≈ 7.93m, but TTC dominates).  
+- **Overall Risk**: **High Risk (2)** due to very short longitudinal TTC.
+
+---
+
+#### **Obstacle 30610 (Front)**
+- **Adjusted Distance**: Longitudinal 15.53m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -1.88 m/s (approaching), Lateral 0.00 m/s (aligned)  
+- **Motion**: Driving toward ego longitudinally, exact lateral alignment.  
+- **TTC**:  
+  - Longitudinal: 15.53 / 1.88 ≈ 8.26s (Negligible Risk)  
+  - Lateral: N/A (no lateral movement).  
+- **MDC**:  
+  - Longitudinal distance is large (15.53m), stable alignment.  
+- **Overall Risk**: **Negligible Risk (5)**.
+
+---
+
+#### **Obstacle 30613 (Front)**
+- **Adjusted Distance**: Longitudinal 8.01m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -1.87 m/s (approaching), Lateral 0.00 m/s (aligned)  
+- **Motion**: Driving toward ego longitudinally, exact lateral alignment.  
+- **TTC**:  
+  - Longitudinal: 8.01 / 1.87 ≈ 4.28s (Low Risk)  
+  - Lateral: N/A (no lateral movement).  
+- **MDC**:  
+  - Longitudinal distance is closing slowly (MDC ≈ 8.01m).  
+- **Overall Risk**: **Low Risk (4)**.
+
+---
+
+#### **Obstacle 30614 (Front)**
+- **Adjusted Distance**: Longitudinal 0.45m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -1.81 m/s (approaching), Lateral 0.00 m/s (aligned)  
+- **Motion**: Driving toward ego longitudinally, exact lateral alignment.  
+- **TTC**:  
+  - Longitudinal: 0.45 / 1.81 ≈ 0.25s (Extreme Risk)  
+  - Lateral: N/A (no lateral movement).  
+- **MDC**:  
+  - Longitudinal distance is critically small (0.45m), with closing velocity.  
+- **Overall Risk**: **Extreme Risk (1)**.
+
+---
+
+#### **Obstacle 30626 (Front-right)**
+- **Adjusted Distance**: Longitudinal 14.85m, Lateral -1.75m  
+- **Relative Velocity**: Longitudinal 0.80 m/s (moving away), Lateral 0.01 m/s (negligible approach)  
+- **Motion**: Moving away longitudinally, slight lateral approach from the right.  
+- **TTC**:  
+  - Longitudinal: N/A (moving away).  
+  - Lateral: 1.75 / 0.01 ≈ 175s (Negligible Risk).  
+- **MDC**:  
+  - Both distances are large or diverging.  
+- **Overall Risk**: **Negligible Risk (5)**.
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30614",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "30606",
+        "OverallRiskScore": "2"
+    }
+}
+```
+
+### Key Findings:
+- **Obstacle 30614** is at **Extreme Risk (1)** due to very small longitudinal distance (0.45m) and high closing speed (TTC ≈ 0.25s).  
+- **Obstacle 30606** is at **High Risk (2)** due to rapid longitudinal approach (TTC ≈ 0.57s).  
+- No collision is currently occurring, but **30614** requires immediate intervention.  
+- Other obstacles pose negligible or low risk.

@@ -1,0 +1,57 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### Obstacle 30220 (Front-left of ego car)
+- **Adjusted Distances**: Longitudinal = 14.00 m, Lateral = 0.81 m  
+- **Relative Velocity**: Longitudinal = 0.04 m/s (moving away), Lateral = 0.79 m/s (moving left, away from ego)  
+- **Motion Description**: Obstacle is moving away longitudinally and laterally to the left.  
+
+#### Trajectory Analysis (Across Timesteps)
+1. **Longitudinal Motion**:  
+   - Initially approaching (negative relative velocity) until 0.5s, then starts moving away (positive relative velocity).  
+   - Distance stabilizes around 14.00 m by 0.6s.  
+   - No longitudinal convergence in recent timesteps.  
+
+2. **Lateral Motion**:  
+   - Consistently moving left (away from ego) with positive lateral velocity.  
+   - Lateral distance decreases slightly from 1.26 m (0.1s) to 0.81 m (0.9s), but the trend shows divergence.  
+
+#### Risk Assessment
+1. **Time-to-Collision (TTC)**  
+   - **Longitudinal TTC**: Not applicable (relative velocity is positive; moving away).  
+   - **Lateral TTC**: Not applicable (relative velocity is positive; moving away).  
+
+2. **Minimum Distance to Collision (MDC)**  
+   - **Longitudinal MDC**: 14.00 m (No Risk, MDC > 5.0 m).  
+   - **Lateral MDC**: 0.81 m (Medium Risk, 0.5 < MDC ≤ 1.0 m).  
+   - **Overall MDC**: 0.81 m (Medium Risk).  
+
+3. **Acceleration Trends**  
+   - Longitudinal acceleration fluctuates but remains low.  
+   - Lateral acceleration shows the obstacle is actively moving away.  
+
+#### Overall Risk Score  
+- **Highest Risk**: Medium Risk (3) based on lateral MDC.  
+- **No Extreme Risk (1) or Collision (0) indicators**:  
+   - No convergence in trajectories.  
+   - Distances are stable or increasing.  
+
+### Final Determination  
+- **No Collision Scenario**:  
+   - No obstacle has a risk score of 0 or 1.  
+   - All distances are stable or diverging.  
+
+### JSON Summary  
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30220 is moving away longitudinally and laterally, with no convergence in trajectories. Minimum distance (0.81 m) poses only Medium Risk."
+}
+```

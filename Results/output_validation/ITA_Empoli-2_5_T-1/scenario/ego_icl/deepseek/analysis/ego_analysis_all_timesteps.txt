@@ -1,0 +1,122 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 2.6s)
+
+---
+
+#### **Obstacle 39 (Front-left)**
+- **Adjusted Position**: Longitudinal 3.42m, Lateral 1.37m  
+- **Relative Velocity**: Longitudinal -9.65 m/s (approaching), Lateral 1.53 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally but moving away laterally.  
+
+**Risk Assessment**:
+1. **Longitudinal TTC**:  
+   - Distance: 3.42m  
+   - Relative Velocity: 9.65 m/s (approaching)  
+   - TTC = 3.42 / 9.65 ≈ **0.35 seconds** (Extreme Risk, TTC ≤ 0.5s)  
+
+2. **Lateral TTC**:  
+   - Distance: 1.37m  
+   - Relative Velocity: -1.53 m/s (moving away)  
+   - TTC is negative (no collision risk laterally).  
+
+3. **MDC**:  
+   - Longitudinal distance decreasing rapidly (3.42m → likely to reach < 0.5m soon).  
+   - Lateral distance increasing (no collision risk).  
+   - **MDC ≈ 3.42m** (Low Risk, but TTC dominates).  
+
+**Overall Risk**: **1 (Extreme Risk)** due to very low longitudinal TTC.  
+
+---
+
+#### **Obstacle 352 (Front-right)**
+- **Adjusted Position**: Longitudinal 11.64m, Lateral -1.48m  
+- **Relative Velocity**: Longitudinal 2.23 m/s (moving away), Lateral -1.71 m/s (moving away)  
+- **Motion**: Moving away in both dimensions.  
+
+**Risk Assessment**:
+1. **TTC**:  
+   - Both velocities negative (moving away).  
+   - **No collision risk (TTC not applicable)**.  
+
+2. **MDC**:  
+   - Increasing distances in both dimensions.  
+   - **MDC > 5.0m** (No Risk).  
+
+**Overall Risk**: **5 (No Risk)**.  
+
+---
+
+#### **Obstacle 358 (Behind)**
+- **Adjusted Position**: Longitudinal -1.44m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 4.67 m/s (approaching), Lateral -0.01 m/s (negligible)  
+- **Motion**: Approaching from behind with exact lateral alignment.  
+
+**Risk Assessment**:
+1. **Longitudinal TTC**:  
+   - Distance: 1.44m  
+   - Relative Velocity: 4.67 m/s  
+   - TTC = 1.44 / 4.67 ≈ **0.31 seconds** (Extreme Risk, TTC ≤ 0.5s).  
+
+2. **Lateral TTC**:  
+   - Distance: 0.00m (aligned but no lateral motion).  
+   - No lateral collision risk.  
+
+3. **MDC**:  
+   - Longitudinal distance decreasing rapidly (1.44m → likely to reach < 0.5m soon).  
+   - **MDC ≈ 1.44m** (High Risk, but TTC dominates).  
+
+**Overall Risk**: **1 (Extreme Risk)** due to very low longitudinal TTC.  
+
+---
+
+#### **Obstacle 363 (Behind)**
+- **Adjusted Position**: Longitudinal -15.10m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 4.32 m/s (approaching), Lateral -0.01 m/s (negligible)  
+- **Motion**: Approaching from behind with exact lateral alignment.  
+
+**Risk Assessment**:
+1. **Longitudinal TTC**:  
+   - Distance: 15.10m  
+   - Relative Velocity: 4.32 m/s  
+   - TTC = 15.10 / 4.32 ≈ **3.50 seconds** (Medium Risk).  
+
+2. **Lateral TTC**:  
+   - Distance: 0.00m (aligned but no lateral motion).  
+   - No lateral collision risk.  
+
+3. **MDC**:  
+   - Longitudinal distance large but decreasing.  
+   - **MDC ≈ 15.10m** (No Risk).  
+
+**Overall Risk**: **3 (Medium Risk)**.  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 39**: Rapidly closing longitudinal gap (TTC ≈ 0.35s). Lateral distance increasing, so collision unlikely but extreme longitudinal risk.  
+- **Obstacle 358**: Rapidly closing from behind (TTC ≈ 0.31s). Extreme risk of rear-end collision.  
+- Others: No immediate collision risk.  
+
+---
+
+### Final Determination
+This is a **collision scenario** due to:
+1. **Obstacle 358** (Extreme Risk, TTC ≈ 0.31s, approaching from behind).  
+2. **Obstacle 39** (Extreme Risk, TTC ≈ 0.35s, approaching frontally).  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "358, 39",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacles 358 (TTC ≈ 0.31s) and 39 (TTC ≈ 0.35s) both exhibit Extreme Risk (score 1) due to very low TTC with closing velocities, indicating imminent collisions if trajectories are maintained."
+}
+```

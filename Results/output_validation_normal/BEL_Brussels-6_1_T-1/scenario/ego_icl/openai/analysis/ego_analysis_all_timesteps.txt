@@ -1,0 +1,49 @@
+### Obstacle Analysis
+
+#### Obstacle 30095 Trajectory Analysis
+- **Initial Motion:** At 0.0 seconds, obstacle 30095 was moving toward the ego vehicle both longitudinally (very slowly, with some negative velocities indicating adjustments) and slightly laterally away to the left.
+- **Trajectory Shift:** Across the timesteps, the obstacle maintained a largely decreasing longitudinal distance, peaking at a minimal reduction velocity and then started slightly increasing towards the ego's direction. It also significantly decreased in lateral proximity, getting closer over time before aligning exactly with the ego vehicle laterally.
+- **Most Recent Timestep (0.9 seconds):**
+  - **Adjusted Distances:** Longitudinal: 13.90 m, Lateral: 0.00 m
+  - **Relative Velocities:** Longitudinal: 0.20 m/s (increasing, moving away), Lateral: 0.29 m/s (increasing, moving away)
+  - **Acceleration:** Longitudinal: 0.23 m/s², Lateral: 0.77 m/s² moving away indicating the obstacle is pulling away in both dimensions.
+
+#### Collision Risk Assessment
+1. **TTC Calculation:**
+   - **Longitudinal TTC:** 
+     - Distance = 13.90 m
+     - Relative Velocity = 0.20 m/s (moving away, hence positive, indicating spacing is increasing)
+     - TTC is not applicable or infinite as the distance is increasing.
+   - **Lateral TTC:**
+     - Lateral distance = 0.00 m (exact alignment)
+     - Relative Velocity = 0.29 m/s (moving away)
+     - TTC is not applicable or infinite as the lateral proximity distance is increasing.
+
+2. **MDC Calculation:**
+   - **Longitudinal MDC:** 13.90 m
+   - **Lateral MDC:** 0.00 m, but since the movement is divergent now (moving away) and exact alignment only occurred temporarily, this would not constitute a collision risk with the current velocities.
+
+3. **Risk Scores:**
+   - Both TTC components indicate no immediate risk of collision as the obstacle is diverging away (in both dimensions). With exact lateral alignment present but longitudinal separation increasing, the MDC won't decrease further leading to collision risk.
+   - Overall Risk Score: 5 (No Risk) due to no indications of crossing into a dangerous collision trajectory.
+
+### Conclusion
+- **Overall:** There is **No Collision** scenario since the obstacle velocities ensure that the separation distance will remain or increase, not decrease to critical levels.
+  
+- **Risk Levels:** No obstacles present a risk level of 1 (Extreme Risk) or 0 (Collision).
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30095 is moving away, with increasing separation and no risk of collision trajectory detected."
+}
+```

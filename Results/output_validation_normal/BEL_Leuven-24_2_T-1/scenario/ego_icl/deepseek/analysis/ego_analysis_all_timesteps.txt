@@ -1,0 +1,54 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30253 (Front of ego car)
+- **Latest Timestep (0.9s):**
+  - **Adjusted Distance:** Longitudinal 17.10 m, Lateral 0.00 m
+  - **Relative Velocity:** Longitudinal 1.08 m/s (moving away), Lateral -0.00 m/s (stable)
+  - **Motion Description:** Obstacle is moving away longitudinally. Exact lateral alignment or unknown case.
+  - **Trajectory Analysis:**
+    - Longitudinal distance has consistently increased from 15.32 m at 0.1s to 17.10 m at 0.9s.
+    - Lateral distance remains 0.00 m (aligned), but relative lateral velocity is negligible.
+  - **TTC Calculation:**
+    - Longitudinal: TTC = Distance / Relative Velocity = 17.10 / 1.08 ≈ 15.83 s (No Risk, TTC > 5.0s)
+    - Lateral: Not applicable (no relative velocity).
+  - **MDC Calculation:**
+    - Lateral distance is 0.00 m, but since the obstacle is moving away longitudinally, there is no convergence.
+    - MDC is effectively infinite (No Risk, MDC > 5.0m).
+  - **Overall Risk:** 5 (No Risk).
+
+#### Obstacle 30254 (Front-left of ego car)
+- **Latest Timestep (0.9s):**
+  - **Adjusted Distance:** Longitudinal 14.94 m, Lateral 1.89 m
+  - **Relative Velocity:** Longitudinal -1.27 m/s (approaching), Lateral -0.00 m/s (stable)
+  - **Motion Description:** Obstacle is driving toward the ego car longitudinally. Obstacle is driving toward the ego car laterally from the left.
+  - **Trajectory Analysis:**
+    - Longitudinal distance has decreased from 15.18 m at 0.1s to 14.94 m at 0.9s (approaching).
+    - Lateral distance has fluctuated slightly but is now decreasing (from 1.94 m to 1.89 m).
+  - **TTC Calculation:**
+    - Longitudinal: TTC = Distance / |Relative Velocity| = 14.94 / 1.27 ≈ 11.76 s (No Risk, TTC > 5.0s)
+    - Lateral: Not applicable (relative velocity is negligible).
+  - **MDC Calculation:**
+    - Lateral distance is 1.89 m (Medium Risk, 1.0 < MDC ≤ 3.0m).
+    - Longitudinal distance is large (14.94 m), but the obstacle is approaching.
+  - **Overall Risk:** 3 (Medium Risk, based on MDC).
+
+### Collision Scenario Determination
+- Neither obstacle has a risk score of 0 (Collision) or 1 (Extreme Risk).
+- Obstacle 30253 is moving away and poses no risk.
+- Obstacle 30254 is approaching but at a safe distance and with a high TTC.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle has a risk score of 0 or 1. Both obstacles are at safe distances with no imminent collision risk."
+}
+```

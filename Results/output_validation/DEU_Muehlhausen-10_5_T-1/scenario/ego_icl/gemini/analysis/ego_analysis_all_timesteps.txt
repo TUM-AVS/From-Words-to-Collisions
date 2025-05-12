@@ -1,0 +1,24 @@
+* **Obstacle 311 (Front-right):**  This obstacle has been consistently moving away from the ego vehicle both longitudinally and laterally across all timesteps. At the last timestep (1.2s), it is 16.23m ahead and 3.22m to the right, and its relative velocity indicates continued separation.  TTC and MDC calculations are not relevant here due to diverging trajectories. Risk score: 5 (No Risk).
+
+* **Obstacle 315 (Behind/Collision):** This obstacle has been approaching the ego vehicle from behind along the same lateral position (0.00m lateral distance) across all timesteps. The longitudinal distance has been steadily decreasing. At 1.2s, the reported distance is 0.00m longitudinally, indicating a collision. The relative longitudinal velocity is positive (4.07 m/s) indicating the obstacle was moving towards the ego vehicle at the moment of impact. Risk score: 0 (Collision).
+
+* **Obstacle 324 (Front-right):** This obstacle is approaching the ego vehicle diagonally from the front-right.  At 1.2s, it is 21.44m ahead and 4.37m to the right. Although the longitudinal distance is decreasing, the lateral distance remains somewhat stable, but is slowly closing.  Calculating TTC based on longitudinal distance and velocity: TTC = 21.44m / 5.74m/s ≈ 3.7s (Medium Risk). Calculating MDC is more complex given the diagonal approach, but it is greater than 4.37m as the obstacle is slightly to the side of ego vehicle, and the diagonal trajectory is pushing the MDC score into a Low risk or Medium risk band. Risk score: 3 (Medium Risk - prioritizing TTC).
+
+* **Obstacle 331 (Behind):**  This obstacle is approaching the ego vehicle from behind along the same lateral position (0.00m lateral distance). At 1.2s, it is 19.20m behind. The relative longitudinal velocity is positive (2.01m/s), indicating it is closing the distance. TTC = 19.20m / 2.01m/s ≈ 9.6s. MDC > 5.0m. Risk score: 5 (No Risk).
+
+
+**Collision Scenario Determination:** Yes, this is a collision scenario. Obstacle 315 has collided with the ego vehicle.
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "315",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 315 has collided with the ego vehicle at t=1.2s as indicated by a longitudinal distance of 0.00m and a positive relative longitudinal velocity."
+}
+```

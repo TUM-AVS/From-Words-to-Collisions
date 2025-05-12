@@ -1,0 +1,90 @@
+**Obstacle-by-Obstacle Analysis:**
+
+### Obstacle 30750
+- **Direction:** Front-right
+- **Adjusted Distances:** Longitudinal = 16.93m, Lateral = -1.90m
+- **Relative Velocity:** Longitudinal = -0.87 m/s
+- **Trajectory:** Approaching longitudinally, stable laterally.
+- **TTC Longitudinal:** TTC = 16.93 / 0.87 = 19.46s → (No risk)
+- **MDC:** MDC is mainly determined by longitudinal distance, which is large and increasing → (No risk)
+
+### Obstacle 30754
+- **Direction:** Front
+- **Adjusted Distances:** Longitudinal = 16.96m, Lateral = 0.00m (aligned laterally)
+- **Relative Velocity:** Longitudinal = -0.87 m/s
+- **Trajectory:** Driving toward ego.
+- **TTC Longitudinal:** TTC = 16.96 / 0.87 = 19.49s → (No risk)
+- **MDC:** Longitudinal path is clear with stable distance → (No risk)
+
+### Obstacle 30755
+- **Direction:** Front-left
+- **Adjusted Distances:** Longitudinal = 8.02m, Lateral = 1.88m
+- **Relative Velocity:** Longitudinal = +0.51 m/s (moving away)
+- **Trajectory:** Moving away longitudinally and slightly approaching laterally.
+- **TTC Longitudinal:** Not applicable as obstacle is moving away.
+- **MDC:** Present longitudinal distance is significant and lateral closing is low → (Low risk)
+
+### Obstacle 30757
+- **Direction:** Front-left
+- **Adjusted Distances:** Longitudinal = 17.01m, Lateral = 5.38m
+- **Relative Velocity:** Longitudinal = -0.87 m/s
+- **Trajectory:** Approaching longitudinally.
+- **TTC Longitudinal:** TTC = 17.01 / 0.87 = 19.55s → (No risk)
+- **MDC:** Longitudinal distance low risk and lateral distance is effectively outside the risk model → (No risk)
+
+### Obstacle 30758
+- **Direction:** Front-left
+- **Adjusted Distances:** Longitudinal = 16.98m, Lateral = 1.88m
+- **Relative Velocity:** Longitudinal = -0.87 m/s
+- **Trajectory:** Approaching longitudinally.
+- **TTC Longitudinal:** TTC = 16.98 / 0.87 = 19.51s → (No risk)
+- **MDC:** Longitudinal distance is high → (No risk)
+
+### Obstacle 30762
+- **Direction:** Left
+- **Adjusted Distances:** Longitudinal = 0.00m, Lateral = 1.89m
+- **Relative Velocity:** Longitudinal = +3.58 m/s
+- **Trajectory:** Moving away laterally, possibility of side-by-side movement.
+- **MDC:** Lateral distance is significant → (Medium risk)
+
+### Obstacle 30763
+- **Direction:** Front-right
+- **Adjusted Distances:** Longitudinal = 6.13m, Lateral = -1.89m
+- **Relative Velocity:** Longitudinal = +1.74 m/s (moving away)
+- **Trajectory:** Moving away longitudinally but toward laterally.
+- **TTC Lateral:** Not applicable for collision due to movement away.
+- **MDC:** Longitudinal space sufficient → (Medium risk)
+
+### Obstacle 30764
+- **Direction:** Collision (very close)
+- **Adjusted Distances:** Longitudinal = 0.00m, Lateral = 0.00m (aligned both)
+- **Relative Velocity:** Longitudinal = +5.25 m/s
+- **Trajectory:** Exact alignments indicate potential immediate collision.
+- **MDC:** Zero in both dimensions → (Collision occurs)
+- **Risk Score:** 0
+
+### Obstacle 30766
+- **Direction:** Front-left
+- **Adjusted Distances:** Longitudinal = 2.74m, Lateral = 5.39m
+- **Relative Velocity:** Longitudinal = +3.88 m/s (moving away)
+- **Trajectory:** Currently moving away both laterally and longitudinally.
+- **MDC:** Longitudinal distance increasing → (No risk)
+
+**Conclusion:**
+
+A collision scenario is confirmed due to Obstacle 30764 having a minimum distance and zero relative longitudinal alignment, indicating a collision at this timestep.
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30764",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30764 is in direct collision with the ego car given zero distance alignment in both dimensions at this timestep."
+}
+```

@@ -1,0 +1,74 @@
+### Obstacle Analysis
+
+**Obstacle 30638:**
+
+**Trajectory Analysis:**
+- Over the observed timeframe, Obstacle 30638 continuously approaches the ego vehicle longitudinally with a relative velocity ranging from -7.69 m/s to -6.19 m/s, and a slight reduction in longitudinal relative velocity suggesting slight deceleration, but still overall approaching.
+- Laterally, the obstacle moves away from the ego vehicle (increasing lateral distance), indicating no side-on collision risk.
+
+**Current State (0.9s):**
+- **Adjusted Longitudinal Distance:** 2.80 m
+- **Adjusted Lateral Distance:** 13.73 m
+- **Relative Velocity Longitudinal:** -6.19 m/s (approaching)
+- **Relative Velocity Lateral:** 8.34 m/s (moving away)
+
+**Calculations:**
+- **TTC Longitudinal:** 2.80 m / 6.19 m/s ≈ 0.45 seconds
+- **TTC Lateral:** Not applicable as the obstacle is moving away.
+
+Given the scenario, the primary concern is longitudinal collision risk.
+
+**Risk Assessment:**
+- **MDC:** 2.80 m (primarily longitudinal)
+- **TTC Longitudinal:** 0.45 s
+
+**Risk Score:**
+- **Longitudinal TTC Conditions:** TTC < 0.5 s indicates an extreme collision risk.
+
+---
+
+**Obstacle 30640:**
+
+**Trajectory Analysis:**
+- The obstacle consistently approaches the ego vehicle, both longitudinally and slightly laterally.
+- Longitudinal velocities range from -14.19 m/s to -14.45 m/s, showing sustained speed and approach.
+- Lateral velocities indicate slight approaching from the left, but much slower than longitudinal approach.
+
+**Current State (0.9s):**
+- **Adjusted Longitudinal Distance:** 6.38 m
+- **Adjusted Lateral Distance:** 2.15 m
+- **Relative Velocity Longitudinal:** -14.45 m/s (approaching)
+- **Relative Velocity Lateral:** -0.03 m/s (approaching slightly)
+
+**Calculations:**
+- **TTC Longitudinal:** 6.38 m / 14.45 m/s ≈ 0.44 seconds
+- **TTC Lateral:** 2.15 m / 0.03 m/s = 71.67 s (negligible)
+
+**Risk Assessment:**
+- **MDC:** 6.38 m (primarily longitudinal)
+- **TTC Longitudinal:** 0.44 s
+
+**Risk Score:**
+- **Longitudinal TTC Conditions:** TTC < 0.5 s indicates an extreme collision risk.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30638",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "30640",
+        "OverallRiskScore": "1"
+    }
+}
+```
+
+**Analysis Conclusion:**
+- Both obstacles are presenting extreme risk conditions due to rapidly closing longitudinal distances with TTC < 0.5 seconds. Immediate action should be taken to mitigate collision risk, especially for Obstacle 30638, which is the more immediate threat due to extremely short TTC.

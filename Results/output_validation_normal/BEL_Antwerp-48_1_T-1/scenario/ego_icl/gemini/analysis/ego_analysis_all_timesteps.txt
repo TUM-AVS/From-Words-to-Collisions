@@ -1,0 +1,63 @@
+* **Obstacle 30519 (Front-Right):**
+
+    * **Trajectory:** This obstacle has been consistently moving closer to the ego vehicle longitudinally while moving further away laterally to the right across all timesteps.
+    * **At t=0.9s:**
+        * Longitudinal distance: 7.45m
+        * Lateral distance: -9.45m (moving away)
+        * Longitudinal relative velocity: -3.78 m/s (approaching)
+        * Lateral relative velocity: -6.07 m/s (moving away)
+    * **TTC:**
+        * Longitudinal TTC = 7.45m / 3.78m/s = 1.97s
+    * **MDC:** Due to the diverging lateral trajectory, the MDC is primarily determined by the longitudinal distance.  MDC ≈ 7.45m.
+    * **Risk:**
+        * Longitudinal risk: Medium (3) based on TTC.
+        * Lateral risk: No Risk (5) due to increasing distance and diverging trajectory.
+        * Overall Risk: Medium (3)
+
+* **Obstacle 30521 (Front-Left):**
+
+    * **Trajectory:** This obstacle is approaching the ego vehicle both longitudinally and laterally (from the left) across all timesteps.
+    * **At t=0.9s:**
+        * Longitudinal distance: 7.82m
+        * Lateral distance: 15.68m (approaching from the left)
+        * Longitudinal relative velocity: -4.43 m/s (approaching)
+        * Lateral relative velocity: -5.73 m/s (approaching)
+    * **TTC:**
+        * Longitudinal TTC: 7.82m / 4.43m/s ≈ 1.77s
+        * Lateral TTC: 15.68m / 5.73m/s ≈ 2.74s
+    * **MDC:** Considering the converging trajectories, we should focus on the longitudinal distance.  MDC ≈ 7.82m.
+    * **Risk:**
+        * Longitudinal Risk: Medium (3) based on TTC.
+        * Lateral Risk: Medium (3) based on TTC, although lateral distance is large enough to be considered low risk in isolation.
+        * Overall Risk: Medium (3)
+
+* **Obstacle 30524 (Behind):**
+
+    * **Trajectory:** Initially moving away, this obstacle has been consistently approaching the ego vehicle longitudinally from behind while maintaining exact lateral alignment.
+    * **At t=0.9s:**
+        * Longitudinal distance: -13.76m (behind)
+        * Lateral distance: 0.00m (exact alignment)
+        * Longitudinal relative velocity: 3.13 m/s (approaching from behind)
+        * Lateral relative velocity: -0.51 m/s
+    * **TTC:**
+        * Longitudinal TTC: 13.76m / 3.13 m/s ≈ 4.39s
+    * **MDC:** The critical distance here is the lateral distance. MDC = 0.00m indicates the obstacle is currently directly behind the ego vehicle, and should be treated with great caution.
+    * **Risk:**
+        * Longitudinal risk: Low (4) based on TTC.
+        * Lateral risk: High (2) due to direct alignment and the obstacle closing in from behind (MDC = 0m).
+        * Overall Risk: High (2) due to the potential for a rear-end collision if lateral movement occurs.
+
+**Collision Scenario Determination:**
+
+No obstacle has a risk score of 0 (collision) or 1 (extreme risk). Therefore, this is NOT a collision scenario. However, obstacle 30524 poses a high risk due to its position directly behind the ego vehicle and closing speed.
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 or 1. While obstacle 30524 presents a High Risk (2) from behind and has a lateral position of 0.00m, the longitudinal TTC remains 4.39s indicating no immediate collision"
+}
+```

@@ -1,0 +1,68 @@
+### Obstacle-by-Obstacle Analysis
+
+**Obstacle 41:**
+- Position at 6.9 seconds: Rear-left, longitudinal distance = -16.77 m, lateral distance = 0.99 m
+- Relative Velocity: longitudinal = -41.84 m/s, lateral = -10.68 m/s
+- Motion: Moving away longitudinally, driving laterally towards the ego vehicle
+- Trajectory: Initially moved towards the ego vehicle from front-left, now it’s moving away longitudinally but laterally approaching 
+
+**Trajectory Analysis:**
+Over the timesteps, Obstacle 41 approached from the front-left and then moved towards the left side, ultimately moving longitudinally away while laterally it was getting closer before finally moving away entirely.
+
+**TTC and MDC Calculations:**
+- **Longitudinal TTC**: Not applicable as it's moving away,
+- **Lateral TTC** (approx): \( TTC \approx \frac{0.99}{|-10.68|} \approx 0.093 \text{ seconds} \)
+- **MDC**: Initially lateral decreasing rapidly but no immediate collision as it started moving longitudinally away.
+
+**Risk Assessment:**
+- Based on lateral proximity and very short TTC, the obstacle is currently at a distance and moving trajectory indicating no immediate collision from these metrics given divergence now longitudinally, but it had a critical moment crossing in trajectory around 6.5-6.6.
+
+**Obstacle 45:**
+- Position at 6.9 seconds: Front-left, longitudinal distance = 10.53 m, lateral distance = 2.85 m
+- Relative Velocity: longitudinal = -42.31 m/s, lateral = -0.67 m/s
+- Motion: Approaching longitudinally and laterally 
+
+**Trajectory Analysis:**
+Obstacle 45 is steadily approaching the ego vehicle both longitudinally and laterally which shows converging paths.
+
+**TTC and MDC Calculations:**
+- **Longitudinal TTC**: \( TTC \approx \frac{10.53}{42.31} \approx 0.25 \text{ seconds} \)
+- **Lateral TTC**: \( TTC \approx \frac{2.85}{0.67} \approx 4.25 \text{ seconds} \)
+- **MDC**: There’s a rapid approach indicating high risk as both approach trajectories are somewhat converging.
+
+**Risk Assessment:**
+- Longitudinal TTC indicates an extreme risk (1) with rapid closure soon longitudinally unless speed or path diverges significantly. 
+
+**Obstacle 109:**
+- Position at 6.9 seconds: Behind, longitudinal distance = -0.20 m, lateral distance = 0.00 m
+- Relative Velocity: longitudinal = 1.47 m/s, lateral = 0.28 m/s
+- Motion: Exact lateral alignment, moving towards the ego
+
+**Trajectory Analysis:**
+The obstacle 109 has been closing from behind throughout observations.
+
+**TTC and MDC Calculations:**
+- **Longitudinal TTC**: \( TTC \approx \frac{-0.20}{1.47} \approx -0.136 \text{ seconds} \) indicating it has aligned closely but hasn’t collided yet.
+- **Longitudinal MDC**: Given alignment, rapid approach and closing, this indicates an unstable immediate scenario.
+
+**Risk Assessment:**
+- Indicated as extreme risk (1) with close proximity longitudinally and continued approach and pressure towards exchange of space with ego from behind.
+
+### Collision Scenario Conclusion
+
+Based on the most recent data at 6.9 seconds, Obstacle 109 is an extreme risk due to very close proximity and alignment without necessary divergence seen in path, alongside Obstacle 45 which upon approach rapidly is also extreme risk. Thus, they cumulatively indicate collision conditions surrounding the ego vehicle.
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "109",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 109 is extremely close and has been steadily approaching; Obstacle 45 is rapidly approaching from the front-left indicating extreme risk due to reduced TTC."
+}
+```

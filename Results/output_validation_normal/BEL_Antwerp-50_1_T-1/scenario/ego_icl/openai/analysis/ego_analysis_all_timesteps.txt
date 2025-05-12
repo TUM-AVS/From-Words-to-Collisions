@@ -1,0 +1,60 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30633 (Front)
+- **Trajectory Analysis**: Moving toward the ego vehicle from the front, with decreasing longitudinal distance and exact lateral alignment.
+- **Most Recent Adjusted Distances** (at 0.9s): Longitudinal 14.00m, Lateral 0.00m.
+- **Relative Velocity**: Longitudinal -0.33 m/s
+  - **TTC Calculation**: 
+    - Longitudinal TTC = 14.00 / |-0.33| ≈ 42.42 seconds (approaching slowly)
+    - Lateral movement away does not factor into a forward collision in terms of alignment.
+  - **MDC**: 0.00 meters (as lateral alignment is perfect)
+- **Risk Assessment**:
+  - MDC indicates high-risk due to lateral alignment, but longitudinally the TTC suggests monitoring.
+  - Final score: **Medium Risk (3)** because trajectories are not converging rapidly.
+
+#### Obstacle 30634 (Behind)
+- **Trajectory Analysis**: Approaching from behind, with increasing velocity indicating it is slowly catching up.
+- **Most Recent Adjusted Distances** (at 0.9s): Longitudinal -17.76m, Lateral 0.00m.
+- **Relative Velocity**: Longitudinal 3.56 m/s
+  - **TTC Calculation**:
+     - Longitudinal TTC = |-17.76| / 3.56 ≈ 4.99 seconds (approaching slowly)
+  - **MDC**: 17.76 meters (adjusted)
+- **Risk Assessment**:
+  - TTC near 5 seconds suggests low risk.
+  - Final score: **Low Risk (4)** as approach is gradual.
+
+#### Obstacle 30638 (Front-Left)
+- **Trajectory Analysis**: From the front-left, moving both longitudinally and laterally towards the ego vehicle.
+- **Most Recent Adjusted Distances** (at 0.9s): Longitudinal 18.12m, Lateral 12.90m.
+- **Relative Velocities**: Longitudinal -10.41 m/s, Lateral -7.64 m/s
+  - **TTC Calculation**:
+    - Longitudinal TTC = 18.12 / |-10.41| ≈ 1.74 seconds
+    - Lateral TTC = 12.90 / |-7.64| ≈ 1.69 seconds
+  - **MDC**: Given paths are converging -> MDC < 1.0m due to trajectories.
+- **Risk Assessment**:
+  - Both longitudinal and lateral TTCs are short; trajectories converge in less than 2 seconds.
+  - Final score: **High Risk (2)** due to rapid approach in both dimensions.
+
+### Collision Scenario Determination
+- **CollisionObstacle**: None at collision level (0)
+- **ExtremeRiskObstacle**: None at extreme risk level (1)
+- **High Risk**: Obstacle 30638 poses high risk due to converging trajectories from front-left, mostly because of low TTCs.
+- **Medium Risk**: Obstacle 30633 due to alignment, but moderated by low relative velocity
+- **Low Risk**: Obstacle 30634 due to slow approach speed from behind
+
+This is **not a collision scenario** as no obstacle scores 0 or 1, but it flags significant caution needed, especially with Obstacle 30638's trajectory.
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle reaches extreme risk level. Highest risk from Obstacle 30638 is high due to converging trajectories, but not imminent collision."
+}
+```

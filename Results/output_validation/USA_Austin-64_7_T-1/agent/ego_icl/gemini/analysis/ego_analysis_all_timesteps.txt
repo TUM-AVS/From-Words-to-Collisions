@@ -1,0 +1,57 @@
+* **Obstacle 3332:** Front-right, longitudinal 19.69m, lateral -8.82m. Moving towards ego longitudinally. No lateral relative motion.
+    * Trajectory: Consistently far from ego, risk decreasing over time.
+    * TTC (longitudinal): 19.69m / 3.36m/s = 5.86s.  TTC (lateral): N/A as relative lateral velocity is 0.
+    * MDC: Primarily lateral; >5m.
+    * Risk: 5 (Negligible)
+
+* **Obstacle 3334:** Front-left, longitudinal 10.41m, lateral 1.90m. Moving towards ego longitudinally. No lateral relative motion.
+    * Trajectory: Approaching longitudinally, lateral distance safe.
+    * TTC (longitudinal): 10.41m / 3.36m/s = 3.10s
+    * TTC (lateral): N/A
+    * MDC: Primarily lateral; >1m.
+    * Risk: 4 (Low)
+
+* **Obstacle 3335:** Front, longitudinal 10.42m, lateral 0.00m. Moving towards ego longitudinally. Exact lateral alignment.
+    * Trajectory:  Approaching longitudinally, requires monitoring. Lateral alignment, but not necessarily a collision if longitudinal distance is maintained.
+    * TTC (longitudinal): 10.42m / 3.36m/s = 3.10s
+    * MDC: Primarily lateral, but longitudinal trajectory more important here; >1m
+    * Risk: 4 (Low)
+
+* **Obstacle 3336:** Front-right, longitudinal 23.19m, lateral -8.94m.  Moving towards ego longitudinally. No lateral relative motion.
+    * Trajectory: Similar to Obstacle 3332, consistently far and risk decreasing over time.
+    * TTC (longitudinal): 23.19 / 3.36 = 6.90s
+    * TTC (Lateral): N/A
+    * MDC: Primarily lateral; >5m
+    * Risk: 5 (Negligible)
+
+* **Obstacle 3337:** Front-left, longitudinal 0.79m, lateral 1.89m. Moving towards ego longitudinally. Moving away laterally.
+    * Trajectory: Very close longitudinally, needs immediate attention. Lateral distance safe and increasing.
+    * TTC (longitudinal): 0.79m / 1.50m/s = 0.53s
+    * MDC: Primarily longitudinal; <1m.
+    * Risk: 2 (High) - Due to low longitudinal distance and TTC.
+
+* **Obstacle 3338:** Front, longitudinal 0.48m, lateral 0.00m. Moving towards ego longitudinally. Exact lateral alignment.
+    * Trajectory: Extremely close and approaching fast, highest risk. Lateral alignment with closing longitudinal distance indicates very high risk.
+    * TTC (longitudinal): 0.48m / 1.24m/s = 0.39s
+    * MDC: Both longitudinal and lateral are critical here; <0.5m
+    * Risk: 1 (Extreme) - Due to very low longitudinal distance, lateral alignment, and low TTC.
+
+* **Obstacle 3340:** Rear-left, longitudinal -2.02m, lateral 1.87m. Driving toward ego from behind longitudinally. Moving away laterally.
+    * Trajectory: Moving away laterally, poses no immediate threat from the side. Now slightly behind the ego vehicle, though closing longitudinally.
+    * TTC (longitudinal): -2.02m/0.23m/s (negative TTC generally indicates no collision risk)
+    * MDC: Primarily lateral; >1m. 
+    * Risk: 5 (Negligible). Although closing from behind, it is still over 2 meters behind and the lateral distance is safe and increasing.
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3338",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+        "ObstacleID": "3338",
+        "OverallRiskScore": "1"
+    }
+}
+```

@@ -1,0 +1,90 @@
+Let me analyze the most recent timestep (4.1 seconds) for collision risks:
+
+1. **Obstacle 30555 (Front-right)**:
+   - Distance: 18.98m long, -10.55m lat
+   - Velocity: -4.26m/s long, 0m/s lat
+   - TTC: 18.98/4.26 = 4.46s (Low Risk)
+   - MDC: Lateral distance >5m (No Risk)
+   - **Overall Risk: 4 (Low Risk)**
+
+2. **Obstacle 30556 (Front-right)**:
+   - Distance: 8.61m long, -1.87m lat
+   - Velocity: -4.26m/s long, 0m/s lat
+   - TTC: 8.61/4.26 = 2.02s (Medium Risk)
+   - MDC: Lateral distance 1.87m (Medium Risk)
+   - **Overall Risk: 3 (Medium Risk)**
+
+3. **Obstacle 30560 (Front)**:
+   - Distance: 9.37m long, 0.00m lat
+   - Velocity: -4.26m/s long, 0m/s lat
+   - TTC: 9.37/4.26 = 2.20s (Medium Risk)
+   - MDC: Longitudinal distance >5m (No Risk)
+   - **Overall Risk: 3 (Medium Risk)**
+
+4. **Obstacle 30561 (Front-right)**:
+   - Distance: 0.75m long, -1.85m lat
+   - Velocity: -3.89m/s long, 0m/s lat
+   - TTC: 0.75/3.89 = 0.19s (Extreme Risk)
+   - MDC: Lateral distance 1.85m (Medium Risk)
+   - **Overall Risk: 1 (Extreme Risk)**
+
+5. **Obstacle 30563 (Front-left)**:
+   - Distance: 8.49m long, 1.91m lat
+   - Velocity: -4.26m/s long, 0m/s lat
+   - TTC: 8.49/4.26 = 1.99s (Medium Risk)
+   - MDC: Lateral distance 1.91m (Medium Risk)
+   - **Overall Risk: 3 (Medium Risk)**
+
+6. **Obstacle 30564 (Front-left)**:
+   - Distance: 8.42m long, 5.41m lat
+   - Velocity: -4.26m/s long, 0m/s lat
+   - TTC: 8.42/4.26 = 1.98s (Medium Risk)
+   - MDC: Lateral distance >5m (No Risk)
+   - **Overall Risk: 4 (Low Risk)**
+
+7. **Obstacle 30568 (Left)**:
+   - Distance: 0.00m long, 1.89m lat
+   - Velocity: -3.16m/s long, 0m/s lat
+   - TTC: N/A (moving away)
+   - MDC: Lateral distance 1.89m (Medium Risk)
+   - **Overall Risk: 3 (Medium Risk)**
+
+8. **Obstacle 30570 (Collision)**:
+   - Distance: 0.00m long, 0.00m lat
+   - Velocity: -2.45m/s long, 0m/s lat
+   - **Collision occurring (Risk 0)**
+
+9. **Obstacle 30571 (Rear-right)**:
+   - Distance: -0.60m long, -1.89m lat
+   - Velocity: -1.87m/s long, 0m/s lat
+   - TTC: N/A (moving away)
+   - MDC: Lateral distance 1.89m (Medium Risk)
+   - **Overall Risk: 3 (Medium Risk)**
+
+10. **Obstacle 30574 (Front-left)**:
+    - Distance: 0.86m long, 5.39m lat
+    - Velocity: -4.19m/s long, 0m/s lat
+    - TTC: 0.86/4.19 = 0.21s (Extreme Risk)
+    - MDC: Lateral distance >5m (No Risk)
+    - **Overall Risk: 1 (Extreme Risk)**
+
+**Trajectory Analysis**:
+- Obstacle 30570 shows a clear collision at 4.1s (distance 0m in both dimensions)
+- Obstacle 30561 is at extreme risk (TTC 0.19s) and closing rapidly
+- Obstacle 30574 also shows extreme risk (TTC 0.21s) longitudinally
+
+**JSON Summary**:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30570",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30561",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30570 is in collision (0m distance in both dimensions) and Obstacle 30561 has extreme risk (TTC 0.19s)"
+}
+```

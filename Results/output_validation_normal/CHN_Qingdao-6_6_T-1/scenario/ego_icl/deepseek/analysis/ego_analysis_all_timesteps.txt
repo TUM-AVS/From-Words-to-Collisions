@@ -1,0 +1,54 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30675 (Front of ego car)
+- **Most Recent Timestep (0.4 seconds)**:
+  - **Adjusted Distances**: 
+    - Longitudinal: 25.25 m (raw distance provided, adjusted distance assumed same due to lack of explicit adjusted values)
+    - Lateral: 0.00 m (exact alignment)
+  - **Relative Velocity**: 
+    - Longitudinal: 3.27 m/s (positive, but motion description says obstacle is moving away longitudinally)
+    - Lateral: 0.26 m/s (positive, slight lateral movement)
+  - **Relative Acceleration**:
+    - Longitudinal: -1.64 m/s² (decelerating)
+    - Lateral: -3.47 m/s² (decelerating)
+  - **Motion Description**: Obstacle is moving away longitudinally. Exact lateral alignment.
+
+- **Trajectory Analysis**:
+  - Across timesteps (0.1s to 0.4s), the longitudinal distance increases from 24.25 m to 25.25 m, confirming the obstacle is moving away.
+  - Lateral distance remains 0.00 m, but lateral velocity is very low (0.26 m/s) and decelerating (-3.47 m/s²), indicating minimal lateral movement.
+
+- **Time-to-Collision (TTC)**:
+  - Longitudinal: Not applicable (obstacle is moving away, relative velocity is positive but motion description contradicts this; likely a sign error in velocity).
+  - Lateral: TTC = 0.00 m / 0.26 m/s = 0.00 s (but since lateral distance is stable/increasing, no collision risk).
+
+- **Minimum Distance to Collision (MDC)**:
+  - Lateral: 0.00 m (but trajectories are not converging; obstacle is moving away longitudinally and laterally stable).
+  - Longitudinal: Increasing distance, so MDC is not applicable for collision.
+
+- **Risk Assessment**:
+  - **Longitudinal**: No Risk (5) - Distance increasing.
+  - **Lateral**: No Risk (5) - Distance stable/increasing.
+  - **Overall Risk**: No Risk (5) - No converging trajectories.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30675 is moving away longitudinally with stable/increasing lateral distance. No collision or extreme risk detected."
+}
+```
+
+### Key Observations:
+1. The obstacle is moving away from the ego vehicle longitudinally (distance increasing from 24.25 m to 25.25 m over 0.4 seconds).
+2. Lateral distance is 0.00 m but stable (very low lateral velocity and decelerating).
+3. No converging trajectories or imminent collision risks.
+4. This is **not** a collision scenario.

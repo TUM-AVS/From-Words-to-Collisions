@@ -1,0 +1,66 @@
+Let me analyze each obstacle at the most recent timestep (5.3 seconds) with trajectory context from previous timesteps:
+
+1. Obstacle 30267 (Front):
+   - Longitudinal distance: 0.80m (stable around 0.8-0.83m across timesteps)
+   - Lateral distance: 0.00m (exact alignment)
+   - Relative velocity: -0.02 m/s (very slowly approaching)
+   - TTC: 0.80/0.02 = 40s (No Risk)
+   - MDC: 0.80m (Low Risk)
+   - Overall: Low Risk (4) - Stable distance with minimal approach
+
+2. Obstacle 30270 (Front-left):
+   - Longitudinal: 20.75m, Lateral: 13.36m
+   - Velocities: -1.76 m/s (long), -0.28 m/s (lat)
+   - TTC (long): 20.75/1.76 = 11.79s
+   - TTC (lat): 13.36/0.28 = 47.71s
+   - MDC: min(20.75,13.36) = 13.36m
+   - Overall: No Risk (5) - Far away in both dimensions
+
+3. Obstacle 30272 (Front-right):
+   - Longitudinal: 12.57m, Lateral: -11.42m
+   - Velocities: -0.02 m/s (long), 0.00 m/s (lat)
+   - TTC: N/A (negligible approach)
+   - MDC: min(12.57,11.42) = 11.42m
+   - Overall: No Risk (5) - No meaningful approach
+
+4. Obstacle 30274 (Behind) - CRITICAL:
+   - Longitudinal: -0.19m (now overlapping with ego)
+   - Lateral: 0.00m (exact alignment)
+   - Velocity: 2.15 m/s (rapid approach from behind)
+   - TTC: 0.19/2.15 = 0.088s (Extreme Risk)
+   - MDC: 0.19m (Extreme Risk)
+   - Overall: Collision (0) - Already overlapping longitudinally with high approach speed
+
+5. Obstacle 30275 (Front-right):
+   - Longitudinal: 15.99m, Lateral: -11.80m
+   - Velocities: -0.02 m/s (long), 0.00 m/s (lat)
+   - TTC: N/A
+   - MDC: min(15.99,11.80) = 11.80m
+   - Overall: No Risk (5)
+
+6. Obstacle 30276 (Front-right):
+   - Longitudinal: 13.89m, Lateral: -19.06m
+   - Velocities: 0.00 m/s (long), 0.07 m/s (lat)
+   - TTC (lat): 19.06/0.07 = 272.29s
+   - MDC: 13.89m
+   - Overall: No Risk (5)
+
+7. Obstacle 30277 (Front-right):
+   - Longitudinal: 10.24m, Lateral: -19.05m
+   - Velocities: 0.15 m/s (long - moving away), 0.47 m/s (lat)
+   - TTC (lat): 19.05/0.47 = 40.53s
+   - MDC: 10.24m
+   - Overall: No Risk (5)
+
+JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30274",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": null,
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30274 has already longitudinally overlapped with the ego vehicle (-0.19m distance) with high approach speed (2.15 m/s), indicating an active rear-end collision scenario."
+}
+```

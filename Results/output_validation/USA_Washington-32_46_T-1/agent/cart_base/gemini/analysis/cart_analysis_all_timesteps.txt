@@ -1,0 +1,26 @@
+Here's the analysis of the scenario and the resulting JSON:
+
+**Analysis:**
+
+* **Obstacle 30556:**  Static and far from the ego vehicle's trajectory.  Negligible risk.
+* **Obstacle 30560:** Static and far from the ego vehicle's trajectory. Negligible risk.
+* **Obstacle 30561:**  Moving in the same general direction as the ego vehicle but in a different lane (303).  Initially, there's some proximity, but the obstacle is slowing down while the ego vehicle is in lane 302. The distance between them is increasing. Low risk.
+* **Obstacle 30563:** Static and far from the ego vehicle's trajectory. Negligible risk.
+* **Obstacle 30564:** Static and far from the ego vehicle's trajectory. Negligible risk.
+* **Obstacle 30568:** Moving in the same general direction as the ego vehicle but in a different lane (301). Remains far from the ego vehicle. Low risk.
+* **Obstacle 30570:**  In the same lane (302) as the ego vehicle and ahead of it.  The ego vehicle is decelerating more rapidly than this obstacle, increasing the risk of a collision. High risk.
+* **Obstacle 30571:** Moving in a different lane (303).  Initially close to the ego vehicle, but their paths diverge as the scenario progresses. Low to medium risk.
+* **Obstacle 30574:** Moving very slowly and far from the ego vehicle's trajectory. Negligible risk.
+* **Obstacle 30555:** Appears at 3.6 seconds and is static and far from the ego vehicle's path. Negligible risk.
+
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": {
+    "ObstacleID": "30570",
+    "OverallRiskScore": 2
+  }
+}
+```

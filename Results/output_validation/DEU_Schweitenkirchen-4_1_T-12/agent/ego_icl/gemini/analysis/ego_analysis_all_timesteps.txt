@@ -1,0 +1,38 @@
+* **Obstacle 221 (Right):** This obstacle is alongside the ego vehicle, slightly behind and to the right.  Over the past 0.9 seconds, it has moved from a rear-right position to almost directly alongside (longitudinal distance ≈ 0). The lateral distance has remained relatively stable around -1.5m but shows a slight inward trend towards the ego vehicle. The longitudinal relative velocity is rapidly increasing (positive, towards ego), indicating the obstacle is overtaking the ego vehicle quickly. The lateral velocity is small but shows some fluctuations. Although the longitudinal distance is near zero, the consistent lateral separation of around -1.5 meters suggests a low risk of collision.
+    * **MDC:** Approximately 1.5m (primarily lateral)
+    * **TTC (Longitudinal):**  N/A due to near-zero longitudinal distance
+    * **TTC (Lateral):** Not applicable given lateral distance and slight outward trend
+    * **Risk:** 3 (Medium) based on MDC.
+
+
+* **Obstacle 386 (Front-left):** This obstacle is well ahead and to the left of the ego vehicle.  The longitudinal distance is increasing, and the lateral distance is also increasing, indicating the obstacle is moving further away diagonally. This obstacle presents no immediate risk.
+    * **MDC:** > 5m
+    * **TTC:** > 5s (both longitudinal and lateral)
+    * **Risk:** 5 (Negligible)
+
+
+* **Obstacle 426 (Behind):**  This obstacle is directly behind the ego vehicle (0 lateral distance) and rapidly approaching. The longitudinal distance has decreased significantly over the past 0.9 seconds, and the relative longitudinal velocity is very high and increasing.  The lateral distance of 0 suggests a potential rear-end collision scenario if the ego vehicle does not accelerate or change lanes.
+    * **MDC:** Approximately 2.14m (longitudinal)
+    * **TTC:** ~0.15s (2.14m / 13.78m/s)
+    * **Risk:** 1 (Extreme) due to very low TTC. High risk of rear-end collision.
+
+
+* **Obstacle 431 (Rear-left):** This obstacle is behind and to the left, also approaching rapidly. Similar to Obstacle 426, the longitudinal distance is decreasing quickly. The lateral distance is larger, and the lateral relative velocity is negative. Although this obstacle shows higher relative longitudinal velocity, the lateral separation decreases the collision risk compared to Obstacle 426, especially given that obstacle 431 is already in the rear left lane.
+    * **MDC:** Approximately 3.30m (longitudinal)
+    * **TTC:** ~0.24s (3.30/13.65 m/s)
+    * **Risk:** 2 (High) due to low TTC, despite having lateral separation.
+
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "426",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "426",
+    "OverallRiskScore": "1"
+  }
+}
+```

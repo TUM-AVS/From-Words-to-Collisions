@@ -1,0 +1,66 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 30759 (Front-right)**
+- **Adjusted Position**: Longitudinal 7.53m, Lateral -23.19m  
+- **Relative Velocity**: Longitudinal -7.51 m/s (approaching), Lateral 8.95 m/s (moving away)  
+- **Motion**: Approaching longitudinally but moving away laterally to the right.  
+- **TTC Longitudinal**: 7.53 / 7.51 ≈ 1.00s (High Risk)  
+- **TTC Lateral**: Not applicable (moving away)  
+- **MDC**: Lateral distance is large (23.19m), no collision path.  
+- **Overall Risk**: 2 (High Risk due to longitudinal approach)  
+
+#### **Obstacle 30761 (Left)**
+- **Adjusted Position**: Longitudinal 0.00m (aligned), Lateral 10.70m  
+- **Relative Velocity**: Longitudinal -13.44 m/s (moving away), Lateral 5.19 m/s (moving away)  
+- **Motion**: Moving away in both directions.  
+- **TTC**: Not applicable (diverging paths).  
+- **MDC**: Lateral distance is large (10.70m).  
+- **Overall Risk**: 5 (No Risk)  
+
+#### **Obstacle 30766 (Right)**
+- **Adjusted Position**: Longitudinal 0.00m (aligned), Lateral -24.92m  
+- **Relative Velocity**: Longitudinal -5.21 m/s (moving away), Lateral -5.95 m/s (moving away)  
+- **Motion**: Moving away in both directions.  
+- **TTC**: Not applicable (diverging paths).  
+- **MDC**: Lateral distance is large (24.92m).  
+- **Overall Risk**: 5 (No Risk)  
+
+#### **Obstacle 30769 (Rear-left)**
+- **Adjusted Position**: Longitudinal -14.06m, Lateral 11.45m  
+- **Relative Velocity**: Longitudinal 0.77 m/s (approaching slowly), Lateral -4.03 m/s (approaching laterally from left)  
+- **Motion**: Approaching from behind and laterally.  
+- **TTC Longitudinal**: 14.06 / 0.77 ≈ 18.26s (No Risk)  
+- **TTC Lateral**: 11.45 / 4.03 ≈ 2.84s (Medium Risk)  
+- **MDC**: Lateral distance is significant (11.45m), but closing.  
+- **Overall Risk**: 3 (Medium Risk due to lateral approach)  
+
+---
+
+### **Trajectory Analysis**
+- **Obstacle 30759**: Consistently approaching longitudinally but moving away laterally. Risk remains high due to longitudinal closing speed.  
+- **Obstacle 30761/30766**: Moving away in all dimensions. No risk.  
+- **Obstacle 30769**: Slowly closing from behind but with significant lateral distance.  
+
+---
+
+### **Collision Scenario Determination**
+- No obstacle has a risk score of 0 (collision) or 1 (extreme risk).  
+- The highest risk is **Obstacle 30759** with a score of 2 (High Risk), but it is not imminent.  
+
+---
+
+### **Final JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle has a risk score of 0 or 1. The highest risk is Obstacle 30759 (High Risk, score 2) due to longitudinal approach, but collision is not imminent."
+}
+```

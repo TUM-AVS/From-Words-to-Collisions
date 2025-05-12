@@ -1,0 +1,33 @@
+At time 3.9 seconds, several obstacles present varying levels of risk to the ego vehicle.  Let's analyze each based on Proximity, Minimum Distance to Collision (MDC), and Time-to-Collision (TTC):
+
+* **Obstacle 30555:** Located 20.1m longitudinally and -10.55m laterally (front-right).  Relatively far with low closing velocity (-5.62 m/s). Poses negligible risk (MDC > 5, TTC > 5). Risk score: 5.
+
+* **Obstacle 30556:**  Located 9.73m longitudinally and -1.87m laterally (front-right).  Closing velocity of -5.62 m/s.  This obstacle is approaching but at a moderate pace.  Would need more precise TTC/MDC calculations to be certain, but likely poses a low risk at this instant (MDC likely > 3 but < 5 and TTC > 3 but < 5). Risk score: 4.
+
+* **Obstacle 30560:** Located 10.49m longitudinally, directly in front of the ego vehicle. Closing velocity of -5.62 m/s. Similar risk profile to 30556. Risk score: 4.
+
+* **Obstacle 30561:**  Located 1.79m longitudinally and -1.85m laterally (front-right). Very close and closing with -5.18 m/s velocity.  This represents a high risk. It is likely that MDC is between 1 and 3 meters and TTC is over 1 seconds, given the closing velocity. Risk score: 3.
+
+* **Obstacle 30563:** Located 9.61m longitudinally and 1.91m laterally (front-left). Closing velocity of -5.62 m/s.  Similar risk profile to 30556 and 30560. Risk score: 4.
+
+* **Obstacle 30564:**  Located 9.54m longitudinally and 5.41m laterally (front-left).  Closing velocity of -5.62 m/s. Similar to other more distant obstacles. Risk score: 4.
+
+* **Obstacle 30568:** Located only 0.71m longitudinally and 1.89m laterally (front-left). Extremely close. Even a small closing velocity represents extreme risk, but the closing velocity (-4.32 m/s) is significant.  This is very close to being a collision (MDC between 0.5 and 1, and TTC between 0 and 0.5) , so it is ranked as an extreme risk obstacle. Risk Score: 1.
+
+* **Obstacle 30570:** Located 0.65m longitudinally, directly in front of the ego vehicle. Closing velocity is -3.54 m/s.  This is also extremely close and represents an extreme risk (MDC below 0.5 and TTC below 0.5 seconds). Risk score: 1.
+
+* **Obstacle 30571:** Located -1.89m laterally to the right.  Longitudinal position is essentially aligned with the ego vehicle. The lateral movement suggests it's moving out of the way, so it is not considered dangerous at this instant, but it is very close and should be monitored. Risk score: 3.
+
+* **Obstacle 30574:** Located 1.96m longitudinally and 5.39m laterally (front-left). Closing velocity of -5.53 m/s. While quite close longitudinally, the lateral distance lessens immediate risk. Risk score: 3.
+
+
+```json
+{
+  "CollisionObstacles": null,
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30570",
+    "OverallRiskScore": 1
+  },
+  "HighRiskObstacle": null
+}
+```

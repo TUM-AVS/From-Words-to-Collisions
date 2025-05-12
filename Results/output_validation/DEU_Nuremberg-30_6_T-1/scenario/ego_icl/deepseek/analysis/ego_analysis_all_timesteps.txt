@@ -1,0 +1,48 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 5.4 seconds)
+
+#### **Obstacle 30603 (Left of ego car)**
+- **Adjusted Distance**: Longitudinal 0.00 m, Lateral 10.79 m
+- **Relative Velocity**: Longitudinal -0.00 m/s (stationary), Lateral -0.17 m/s (approaching from left)
+- **Motion**: Exact longitudinal alignment. Obstacle is driving toward ego laterally from the left.
+- **Trajectory Analysis**:
+  - Longitudinal: No movement (0.00 m/s relative velocity). No risk of collision in this dimension.
+  - Lateral: Slowly closing at 0.17 m/s. Over the last timesteps, lateral distance has decreased from 10.83 m to 10.79 m.
+- **TTC (Lateral)**: 10.79 m / 0.17 m/s ≈ 63.47 seconds (No Risk, TTC > 5.0s)
+- **MDC (Lateral)**: 10.79 m (No Risk, MDC > 5.0m)
+- **Overall Risk**: 5 (No Risk)
+
+#### **Obstacle 30604 (Right of ego car)**
+- **Adjusted Distance**: Longitudinal 0.00 m, Lateral -2.45 m
+- **Relative Velocity**: Longitudinal 6.54 m/s (moving away), Lateral 4.93 m/s (approaching from right)
+- **Motion**: Exact longitudinal alignment. Obstacle is driving toward ego laterally from the right.
+- **Trajectory Analysis**:
+  - Longitudinal: Moving away at 6.54 m/s. No risk of collision in this dimension.
+  - Lateral: Rapidly closing at 4.93 m/s. Over the last timesteps, lateral distance has decreased from -3.30 m to -2.45 m.
+- **TTC (Lateral)**: 2.45 m / 4.93 m/s ≈ 0.50 seconds (Extreme Risk, TTC ≤ 0.5s)
+- **MDC (Lateral)**: 2.45 m (Medium Risk, 1.0 < MDC ≤ 3.0m)
+- **Overall Risk**: 1 (Extreme Risk due to TTC ≤ 0.5s)
+
+---
+
+### **Collision Scenario Determination**
+- **Obstacle 30604** is at **Extreme Risk (Score 1)** due to very low TTC (0.50s) and rapidly decreasing lateral distance (4.93 m/s closing speed).
+- **Obstacle 30603** poses **No Risk (Score 5)**.
+- This qualifies as a **collision scenario** because at least one obstacle (30604) is at Extreme Risk (TTC ≤ 0.5s) with converging trajectories.
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30604",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30604 has Extreme Risk (TTC = 0.50s, lateral closing speed = 4.93 m/s), indicating imminent collision if trajectories are maintained."
+}
+```

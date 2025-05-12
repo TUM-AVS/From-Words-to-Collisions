@@ -1,0 +1,87 @@
+### Obstacle-by-Obstacle Analysis:
+
+1. **Obstacle 200:**
+   - **Position:** Left of ego vehicle
+   - **Most Recent Distances:** Longitudinal = 0.00 m, Lateral = 2.95 m
+   - **Relative Velocity:** Longitudinal = 2.81 m/s, Lateral = 0.27 m/s
+   - **Motion Description:** Exact longitudinal alignment, moving away laterally to the left
+   - **Trajectory Analysis:** Obstacle is diverging laterally over time.
+   - **TTC & MDC Calculation:**
+     - Longitudinal alignment with no collision risk due to stable/increase in lateral distance.
+     - **MDC & TTC** highly dependent on lateral aspect which is increasing, hence diverging.
+   - **Risk Assessment:** 
+     - **TTC:** Not applicable for lateral divergence.
+     - **MDC:** > 3.0 meters as paths diverge laterally.
+     - **Risk Score:** 5 (Negligible Risk)
+
+2. **Obstacle 201:**
+   - **Position:** Rear-left of ego vehicle
+   - **Most Recent Distances:** Longitudinal = -16.11 m, Lateral = 6.52 m
+   - **Relative Velocity:** Longitudinal = 7.81 m/s, Lateral = 0.34 m/s
+   - **Motion Description:** Approaching from behind, moving away laterally to the left
+   - **Trajectory Analysis:** Consistent approach with increasing velocity.
+   - **TTC & MDC Calculation:**
+     - **TTC Longitudinal:** 16.11 / 7.81 ≈ 2.06 seconds (Medium Risk)
+     - Path diverges laterally, minimal lateral risk.
+     - **MDC:** Greater than 3.0 meters.
+   - **Risk Assessment:**
+     - Given diverging lateral path and TTC > 1.0s, overall safe in current scenario.
+     - **Risk Score:** 3 (Medium Risk)
+
+3. **Obstacle 202:**
+   - **Position:** Behind of ego vehicle
+   - **Most Recent Distances:** Longitudinal = -9.76 m, Lateral = 0.00 m
+   - **Relative Velocity:** Longitudinal = 0.81 m/s, Lateral = 0.23 m/s
+   - **Motion Description:** Approaching, exact lateral alignment
+   - **Trajectory Analysis:** Slow approach with consistent velocity
+   - **TTC & MDC Calculation:**
+     - **TTC Longitudinal:** 9.76 / 0.81 ≈ 12.05 seconds (Negligible Risk)
+     - **MDC:** 9.76 meters longitudinal, immediate risk not present.
+   - **Risk Assessment:**
+     - Due to exact lateral alignment and slow convergence, no collision imminent.
+     - **Risk Score:** 5 (Negligible Risk)
+   
+4. **Obstacle 203:**
+   - **Position:** In Front of ego vehicle
+   - **Most Recent Distances:** Longitudinal = 23.51 m, Lateral = 0.00 m
+   - **Relative Velocity:** Longitudinal = 0.81 m/s, Lateral = 0.23 m/s
+   - **Motion Description:** Moving away longitudinally, exact lateral alignment
+   - **Trajectory Analysis:** Moderate separation, moving away.
+   - **TTC & MDC Calculation:**
+     - **TTC Longitudinal:** Negative as it moves away (No Risk)
+     - Distance > 23m, diverging longitudinally.
+   - **Risk Assessment:**
+     - Diverging path reduces risk significantly.
+     - **Risk Score:** 5 (Negligible Risk)
+
+5. **Obstacle 204:**
+   - **Position:** Behind of ego vehicle
+   - **Most Recent Distances:** Longitudinal = -16.62 m, Lateral = 0.00 m
+   - **Relative Velocity:** Longitudinal = 0.81 m/s, Lateral = 0.23 m/s
+   - **Motion Description:** Approaching, exact lateral alignment
+   - **Trajectory Analysis:** Similar trajectory as Obstacle 202
+   - **TTC & MDC Calculation:**
+     - **TTC Longitudinal:** 16.62 / 0.81 ≈ 20.52 seconds (Negligible Risk)
+     - **MDC:** Longitudinal distance prevents imminent collision.
+   - **Risk Assessment:**
+     - With the slow approach and current trajectory, no collision anticipated.
+     - **Risk Score:** 5 (Negligible Risk)
+
+### JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+      "ObstacleID": null,
+      "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+      "ObstacleID": null,
+      "OverallRiskScore": null
+  },
+  "HighRiskObstacle": {
+      "ObstacleID": null,
+      "OverallRiskScore": null
+  }
+}
+```

@@ -1,0 +1,56 @@
+* **Obstacle 31 (Front-Left):**  This obstacle consistently maintains a safe lateral and longitudinal distance from the ego vehicle across all timesteps.  The longitudinal distance is decreasing, but slowly. The lateral distance remains practically constant, suggesting no lateral movement relative to the ego vehicle.
+
+    * **TTC (Longitudinal):** 11.11m / 2.50m/s = 4.44s (Low Risk)
+    * **TTC (Lateral):** N/A (No lateral relative motion)
+    * **MDC:** Approximately 11.11m (Low Risk)
+    * **Overall Risk:** 4 (Low Risk)
+
+* **Obstacle 34 (Front-Left):**  This obstacle is moving towards the ego vehicle longitudinally while slightly moving away laterally. Although the lateral distance is minimal (0.17m), the motion description clarifies it's moving away. The primary concern is the decreasing longitudinal distance.
+
+    * **TTC (Longitudinal):** 14.61m / 2.50m/s = 5.84s (No Risk)
+    * **TTC (Lateral):** N/A, diverging (No Risk)
+    * **MDC:** Approximately 14.61m (Low Risk)
+    * **Overall Risk:** 4 (Low Risk)
+
+* **Obstacle 36 (Front-Right):** This obstacle is approaching the ego vehicle both longitudinally and laterally. While the longitudinal distance is significant, the lateral motion towards the ego vehicle requires attention.
+
+    * **TTC (Longitudinal):** 14.61m / 2.50m/s = 5.84s (No Risk)
+    * **TTC (Lateral):** 21.14m / 0.71m/s = 29.77s (No Risk)
+    * **MDC:** Approximately 14.61m (Low Risk)
+    * **Overall Risk:** 4 (Low Risk)
+
+
+* **Obstacle 330 (Collision):** This obstacle has collided with the ego vehicle. Both longitudinal and lateral distances are 0.00m in the most recent timestep.
+
+    * **TTC:** N/A (Collision)
+    * **MDC:** 0.00m (Collision Risk)
+    * **Overall Risk:** 0 (Collision)
+
+* **Obstacle 341 (Behind):** While initially moving away, this obstacle is now approaching the ego vehicle from behind, based on the latest timesteps.  Although the longitudinal distance is currently substantial, the closing velocity indicates increasing risk in future timesteps.  Monitoring is necessary.
+
+    * **TTC (Longitudinal):** 11.99m / 1.05m/s = 11.42s (No Risk)
+    * **TTC (Lateral):** N/A, negligible lateral movement (No Risk)
+    * **MDC:** Approximately 11.99m (Low Risk)
+    * **Overall Risk:** 4 (Low Risk)
+
+* **Obstacle 365 (Front-Left):** This obstacle is approaching longitudinally but moving away laterally. The increasing lateral distance mitigates the risk posed by the decreasing longitudinal distance.
+
+    * **TTC (Longitudinal):** 18.30m / 5.30m/s = 3.45s (Medium Risk)
+    * **TTC (Lateral):** N/A, diverging (No Risk)
+    * **MDC:** Approximately 18.30m (Low Risk)
+    * **Overall Risk:** 3 (Medium Risk)
+
+
+**Collision Scenario Determination:** Yes, this is a collision scenario because Obstacle 330 has an overall risk score of 0 (Collision) at the most recent timestep (1.3 seconds).
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "330",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 330 has collided with the ego vehicle at timestep 1.3 seconds, indicated by 0.00m distance in both longitudinal and lateral directions, and a recent history of rapidly closing distance and positive relative velocity from behind."
+}
+```

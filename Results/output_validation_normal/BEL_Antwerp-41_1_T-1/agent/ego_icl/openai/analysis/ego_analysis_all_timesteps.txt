@@ -1,0 +1,54 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30699
+
+**Trajectory Analysis Across Timesteps:**
+- Over the 0.1-second intervals, the obstacle's longitudinal distance from the ego vehicle is decreasing each timestep, indicating that it is moving towards the ego.
+- The obstacle's lateral distance, however, is increasing, suggesting it is moving away to the left relative to the ego vehicle. This lateral movement is confirmed by positive lateral velocities.
+
+**Current Position (Most Recent Timestep at 0.9 seconds):**
+- Adjusted longitudinal distance: 9.66m
+- Adjusted lateral distance: 2.67m
+- Relative longitudinal velocity: -6.86 m/s (approaching)
+- Relative lateral velocity: 1.39 m/s (moving away)
+  
+**Risk Assessment:**
+- **TTC Calculation:**
+  - Longitudinal TTC = 9.66 m / 6.86 m/s ≈ 1.41 seconds (approaching)
+  - Lateral movement is not contributing to the collision as the obstacle moves away, so no lateral TTC is necessary.
+
+- **MDC Calculation:**
+  - Longitudinal MDC is impacted by the linear closure but is confirmed upwards as the vehicle does not have lateral alignment closure.
+  - Lateral MDC is non-threatening due to increasing lateral distance.
+
+- **Risk Scoring:**
+  - Longitudinal TTC suggests a medium risk as it falls between 1.0 and 3.0 seconds.
+  - Due to the obstacle moving laterally away, any potential risk is mitigated.
+
+**Conclusion:**
+- There is a Medium Risk associated with Obstacle 30699 based on the longitudinal TTC calculation while no imminent lateral risk supports maintaining risk score of 3 under these potentially diverging trajectories.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "MediumRiskObstacle": {
+        "ObstacleID": "30699",
+        "OverallRiskScore": "3"
+    }
+}
+```
+
+This summary reflects that while no collision is imminent and no extreme risk is identified, Obstacle 30699 maintains a Medium Risk, primarily influenced by its longitudinal trajectory and converging approach to the ego vehicle.

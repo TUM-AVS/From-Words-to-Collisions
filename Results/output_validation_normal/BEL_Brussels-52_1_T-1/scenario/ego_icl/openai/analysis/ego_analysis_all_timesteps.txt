@@ -1,0 +1,86 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30230
+- **Most Recent Timestep:**
+  - **Position:** In front of the ego car
+  - **Adjusted longitudinal distance:** 9.93 m
+  - **Adjusted lateral distance:** 0.00 m
+  - **Relative velocity longitudinal:** -2.42 m/s (moving away)
+  - **Relative acceleration longitudinal:** -0.60 m/s²
+  - **Motion Description:** Obstacle is moving away longitudinally
+  
+- **Trajectory Analysis:**
+  - The obstacle is consistently moving further in front of the ego vehicle as indicated by increasing longitudinal distance across timesteps.
+  - Velocity and acceleration indicate that the obstacle is decelerating while moving away.
+  
+- **Calculations:**
+  - **TTC Longitudinal:** Distance/|Relative Velocity| = 9.93 m / 2.42 m/s ≈ 4.10 seconds
+  - **MDC Longitudinal:** 9.93 m (trajectory moving away)
+
+- **Risk Assessment:**
+  - **TTC** indicates a time greater than 3 seconds, suggesting low risk.
+  - **MDC** further supports no risk due to increasing distance.
+
+- **Score:** No Risk (5)
+
+#### Obstacle 30235
+- **Most Recent Timestep:**
+  - **Position:** Behind the ego car
+  - **Adjusted longitudinal distance:** -11.39 m
+  - **Adjusted lateral distance:** 0.00 m
+  - **Relative velocity longitudinal:** 2.05 m/s (approaching)
+  - **Relative acceleration longitudinal:** -2.79 m/s²
+  - **Motion Description:** Obstacle is driving toward the ego car from behind
+  
+- **Trajectory Analysis:**
+  - The obstacle is closing the gap with the ego car, but the speed is decreasing significantly based on relative acceleration trends.
+  
+- **Calculations:**
+  - **TTC Longitudinal:** Distance/|Relative Velocity| = 11.39 m / 2.05 m/s ≈ 5.56 seconds
+  - **MDC Longitudinal:** Predicted not to drop below 3.0 meters without an acceleration change
+
+- **Risk Assessment:**
+  - **TTC** is greater than 5 seconds.
+  - **MDC** greater than 3 meters implies medium risk or lower, depending on speed.
+
+- **Score:** Low Risk (4)
+
+#### Obstacle 30237
+- **Most Recent Timestep:**
+  - **Position:** Behind the ego car
+  - **Adjusted longitudinal distance:** -24.60 m
+  - **Adjusted lateral distance:** 0.00 m
+  - **Relative velocity longitudinal:** 1.35 m/s (approaching)
+  - **Relative acceleration longitudinal:** -2.21 m/s²
+  - **Motion Description:** Obstacle is driving toward the ego car from behind
+  
+- **Trajectory Analysis:**
+  - The obstacle is approaching but at a slower relative pace, and it is further decelerating.
+  
+- **Calculations:**
+  - **TTC Longitudinal:** Distance/|Relative Velocity| = 24.60 m / 1.35 m/s ≈ 18.22 seconds
+  - **MDC Longitudinal:** Does not project into collision course within short timeframe
+
+- **Risk Assessment:**
+  - **TTC** far exceeds 5 seconds, ensuring no reasonable imminent collision risk.
+  
+- **Score:** No Risk (5)
+
+### Conclusion
+None of the obstacles show a high risk of collision. Obstacle 30230 is moving away, while obstacles 30235 and 30237 are moving towards the ego vehicle but at low speeds or within manageable distances, indicating low or no risk in the immediate future.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacles were identified as having an immediate or extreme risk based on current trajectory and motion."
+}
+```

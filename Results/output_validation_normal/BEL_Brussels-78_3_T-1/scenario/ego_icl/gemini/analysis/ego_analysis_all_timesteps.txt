@@ -1,0 +1,41 @@
+Obstacle 30218:
+
+* Trajectory Analysis: This obstacle has remained behind the ego vehicle throughout all timesteps.  Lateral distance is consistently 0.00 m, indicating continued alignment in the lateral dimension. Longitudinal distance is negative (behind) and increasing in magnitude, showing that the obstacle is moving away from the ego vehicle.
+
+* TTC Calculation: Since the relative longitudinal velocity is negative (moving away), TTC is not meaningful in assessing collision risk.
+
+* MDC Calculation: The minimum distance to collision (MDC) is primarily determined by the lateral distance since the obstacle is directly behind.  Since the lateral distance remains at 0.00m, MDC will remain 0.00, but because it does not show an approaching pattern based on longitudinal movement, this value needs a further check on relative longitudinal velocity.  And in this case, the longitudinal distance is increasing, thus the risk should be low.
+
+* Risk Assessment: Based on the increasing longitudinal distance and negative relative velocity, despite its MDC being 0.00 laterally, the risk level is 5 (No Risk) as it's diverging and is considered no imminent collision is predicted.
+
+Obstacle 30219:
+
+* Trajectory Analysis: Similar to Obstacle 30218, this obstacle remains behind the ego vehicle for all timesteps.  Lateral distance is consistently 0.00 m. Longitudinal distance is negative and increasing in magnitude, demonstrating that it's moving further away.
+
+* TTC Calculation:  As with Obstacle 30218, the negative relative longitudinal velocity makes TTC calculation not applicable for collision risk assessment.
+
+* MDC Calculation:  MDC, based on the same logic as above, primarily decided by lateral distance. It's also a case of MDC = 0.00 but relative distance is diverging.
+
+* Risk Assessment: Due to increasing longitudinal distance and negative relative velocity, the risk is assessed as 5 (No Risk).
+
+
+Collision Scenario Determination:
+Since neither obstacle has a risk score of 0 or 1, this is NOT a collision scenario.
+
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle poses an immediate collision risk. All obstacles are moving away from the ego vehicle."
+}
+```

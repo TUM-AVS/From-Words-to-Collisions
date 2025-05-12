@@ -1,0 +1,49 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+**Obstacle 30215 (Front-left of ego car)**
+- **Adjusted Distances**: 
+  - Longitudinal: 15.53 m (increasing over time)
+  - Lateral: 3.83 m (increasing over time)
+- **Relative Velocities**:
+  - Longitudinal: 0.31 m/s (moving away)
+  - Lateral: 11.97 m/s (moving away to the left)
+- **Motion Description**: 
+  - "Obstacle is moving away longitudinally. Obstacle is moving away laterally to the left."
+- **Trajectory Analysis**:
+  - The obstacle is consistently moving away from the ego vehicle in both longitudinal and lateral directions. The distances are increasing over time, and the relative velocities indicate divergence.
+- **TTC Calculation**:
+  - Longitudinal TTC: Not applicable (relative velocity is positive, moving away)
+  - Lateral TTC: Not applicable (relative velocity is positive, moving away)
+- **MDC Calculation**:
+  - The minimum distance is the smaller of the two distances, which is lateral (3.83 m). Since both distances are increasing, the MDC is effectively the current lateral distance.
+  - MDC = 3.83 m (Low Risk, as 3.0 < MDC ≤ 5.0)
+- **Risk Assessment**:
+  - No converging trajectories in either dimension.
+  - MDC = 3.83 m → Low Risk (4)
+  - TTC not applicable (diverging paths) → No Risk (5)
+  - **Overall Risk Score**: 4 (Low Risk)
+
+### Trajectory Analysis Across Timesteps
+- The obstacle starts directly in front of the ego vehicle (lateral = 0.00 m) but quickly moves to the front-left. 
+- Both longitudinal and lateral distances increase over time, with the lateral distance increasing rapidly (from 0.00 m to 3.83 m in 0.9s).
+- The relative velocities confirm the obstacle is moving away in both dimensions, with no signs of convergence.
+
+### Conclusion
+- No collision (risk score 0) or extreme risk (risk score 1) is present.
+- The obstacle is moving away from the ego vehicle in both longitudinal and lateral directions, with no imminent collision risk.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30215 is moving away from the ego vehicle in both longitudinal and lateral directions, with increasing distances and no converging trajectories. No collision or extreme risk is present."
+}
+```

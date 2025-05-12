@@ -1,0 +1,61 @@
+At t=0.9s, the ego vehicle is in lanelet 869.  Let's analyze the risk posed by each obstacle at this timestep:
+
+* **Obstacle 30647:** This obstacle is in lanelet 134.  Without lanelet map information, it's difficult to determine the exact road geometry and relationship between lanelets 134 and 869.  Assuming they are parallel lanes and given the lateral separation, there is no immediate risk.  Further analysis with map data is recommended. Risk: **Low (4)**
+
+* **Obstacle 30650:** Stationary and far from the ego vehicle’s trajectory.  Risk: **Negligible (5)**
+
+* **Obstacle 30653:** Stationary and far from the ego vehicle’s trajectory. Risk: **Negligible (5)**
+
+* **Obstacle 30655:** This obstacle is in lanelet 130. Similar to obstacle 30647, further map information is required. Given the current lateral and longitudinal separation, and similar velocities,  a collision is unlikely.  Risk: **Low (4)**
+
+* **Obstacle 30659:** Stationary and far from the ego vehicle’s trajectory.  Risk: **Negligible (5)**
+
+* **Obstacle 30665:** This obstacle is in lanelet 131. Without lanelet map data, assessing the risk is difficult.  It's moving slowly, and currently poses no immediate threat.  Risk: **Medium (3)**
+
+* **Obstacle 30667:** In the same lanelet 133 as the ego vehicle was originally, but the ego vehicle has moved to lanelet 869. No information about the relationship between these lanelets. This obstacle is moving slower than the ego vehicle. There is no immediate danger given the current positions and the fact that ego is changing lanelets away from 133.  Risk: **Low (4)**
+
+
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacles": [],
+    "HighRiskObstacles": [],
+    "MediumRiskObstacles": [
+         {
+             "ObstacleID": "30665",
+             "OverallRiskScore": 3
+         }
+    ],
+    "LowRiskObstacles":[
+        {
+            "ObstacleID":"30647",
+            "OverallRiskScore":4
+        },
+        {
+            "ObstacleID":"30655",
+            "OverallRiskScore":4
+        },
+        {
+            "ObstacleID":"30667",
+            "OverallRiskScore":4
+        }
+    ],
+    "NegligibleRiskObstacles":[
+        {
+            "ObstacleID":"30650",
+            "OverallRiskScore":5
+        },
+        {
+            "ObstacleID":"30653",
+            "OverallRiskScore":5
+        },
+        {
+            "ObstacleID":"30659",
+            "OverallRiskScore":5
+        }
+    ]
+
+
+}
+```

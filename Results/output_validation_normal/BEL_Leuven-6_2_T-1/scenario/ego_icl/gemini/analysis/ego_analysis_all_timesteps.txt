@@ -1,0 +1,57 @@
+* **Obstacle 30259 (Front-Right):** This obstacle is moving towards the ego vehicle longitudinally but away laterally.  Across the timesteps, the lateral distance is increasing, indicating divergence in that dimension. The longitudinal distance is decreasing, but it's still relatively large (10.98m).
+
+    * **Longitudinal TTC:** 10.98m / 9.23m/s ≈ 1.19s 
+    * **Lateral TTC:** Not applicable due to diverging lateral trajectory.
+    * **MDC:**  Given the trajectory, the MDC is primarily determined by the longitudinal distance and is greater than 5m.
+
+    * **Longitudinal Risk:** Medium (3)
+    * **Lateral Risk:** No Risk (5)
+    * **Overall Risk:** Medium (3) - Prioritizing the higher risk.
+
+* **Obstacle 30261 (Front):** This obstacle is almost directly in front of the ego vehicle and is slowly approaching longitudinally. Lateral movement is minimal but fluctuating, so the primary concern is the closing longitudinal distance (11.10m).
+
+    * **Longitudinal TTC:** 11.10m / 0.30m/s ≈ 37s
+    * **Lateral TTC:** Not applicable since the lateral velocity is fluctuating around 0.
+    * **MDC:**  With the exact lateral alignment and minimal lateral velocity, the MDC is approximated by the longitudinal distance, which is greater than 5m.
+
+    * **Longitudinal Risk:** No Risk (5) - although there's a small closing velocity the time to collision is high
+    * **Lateral Risk:** No Risk (5)
+    * **Overall Risk:** No Risk (5)
+
+* **Obstacle 30262 (Front-Left):** This obstacle is approaching longitudinally but moving away laterally.  Its longitudinal distance is greater than that of Obstacle 30259.
+
+    * **Longitudinal TTC:** 21.62m / 7.51m/s ≈ 2.88s
+    * **Lateral TTC:** Not applicable due to diverging lateral trajectory.
+    * **MDC:** > 5m due to large longitudinal and increasing lateral distances.
+
+    * **Longitudinal Risk:** Medium (3)
+    * **Lateral Risk:** No Risk (5)
+    * **Overall Risk:** Medium (3)
+
+* **Obstacle 30269 (Behind):** This obstacle is behind the ego vehicle and is moving away longitudinally based on the most recent time step.  
+
+    * **Longitudinal TTC:** Not applicable as it's moving away longitudinally.
+    * **Lateral TTC:** Not applicable due to persistent exact alignment.
+    * **MDC:**  With the exact lateral alignment and separating longitudinal trajectory, MDC is greater than 5m.
+
+    * **Longitudinal Risk:** No Risk (5)
+    * **Lateral Risk:** No Risk (5)
+    * **Overall Risk:** No Risk (5)
+
+
+**Collision Scenario Determination:**  No obstacle has a risk score of 0 or 1. Therefore, this is NOT a collision scenario.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a collision risk score of 0 or an extreme risk score of 1."
+}
+```

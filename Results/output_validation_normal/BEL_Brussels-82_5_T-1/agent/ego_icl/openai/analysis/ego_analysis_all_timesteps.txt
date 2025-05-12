@@ -1,0 +1,68 @@
+### Obstacle Analysis
+
+#### Obstacle 30231 (Front-right)
+- **Previous Trajectory**: Moving toward the ego car longitudinally and away laterally.
+- **Adjusted Distances** (Latest Time Step):
+  - Longitudinal: 4.86 m
+  - Lateral: -3.12 m
+- **Relative Velocities**:
+  - Longitudinal: -2.79 m/s (approaching)
+  - Lateral: -5.74 m/s (moving away)
+- **TTC Calculations**:
+  - Longitudinal TTC = 4.86 m / 2.79 m/s ≈ 1.74 seconds
+  - Lateral trajectory moving away, hence not critical for collision.
+  
+- **Risk Analysis**:
+  - Longitudinal TTC (1.74 s) places this in the Medium Risk category.
+  - MDC could be in Medium Risk (1.5-3 meters) due to the trajectory, but both longitudinal and lateral components are separating paths.
+  - **Risk Score**: Medium Risk (3)
+
+#### Obstacle 30233 (Behind)
+- **Previous Trajectory**: Consistently moving away from the ego vehicle.
+- **Adjusted Distances** (Latest Time Step):
+  - Longitudinal: -6.61 m (behind)
+  - Lateral: 0.00 m (same lane)
+- **Relative Velocities**:
+  - Longitudinal: -1.80 m/s (moving away)
+  - Lateral: -0.04 m/s (ignorable for longitudinal separation)
+- **Risk Analysis**:
+  - As the obstacle is moving away longitudinally, the risk is negligible.
+  
+- **Risk Score**: Negligible Risk (5)
+
+#### Obstacle 30235 (Behind)
+- **Previous Trajectory**: Generally stationary or moving away from the ego car.
+- **Adjusted Distances** (Latest Time Step):
+  - Longitudinal: -19.25 m (behind)
+  - Lateral: 0.00 m (same lane)
+- **Relative Velocities**:
+  - Longitudinal: -1.28 m/s (moving away)
+  - Lateral: -0.05 m/s (ignorable for longitudinal separation)
+- **Risk Analysis**:
+  - With the distance increasing and the obstacle moving away, the risk is negligible.
+  
+- **Risk Score**: Negligible Risk (5)
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "MediumRiskObstacle": {
+        "ObstacleID": "30231",
+        "OverallRiskScore": "3"
+    }
+}
+```
+
+This analysis considered the most critical obstacle, Obstacle 30231, as the main risk factor due to its trajectory and proximity to the ego vehicle. Other obstacles presented no risk based on their movement away from the ego vehicle.

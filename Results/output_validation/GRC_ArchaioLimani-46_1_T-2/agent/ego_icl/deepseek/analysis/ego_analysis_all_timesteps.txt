@@ -1,0 +1,65 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 5.1s)
+
+#### **Obstacle 10 (Front-left)**
+- **Adjusted Position**: Longitudinal 18.18m, Lateral 6.56m  
+- **Relative Velocity**: Longitudinal -2.02 m/s (approaching), Lateral 0.00 m/s (no lateral motion)  
+- **Motion**: Driving toward ego longitudinally, no lateral motion.  
+- **TTC (Longitudinal)**: 18.18 / 2.02 = **9.0s** (Negligible Risk)  
+- **MDC (Lateral)**: 6.56m (No Risk)  
+- **Risk Assessment**:  
+  - Longitudinal: Low closing speed, large distance (Risk 5)  
+  - Lateral: No relative motion, large distance (Risk 5)  
+- **Overall Risk**: **5 (Negligible Risk)**  
+
+#### **Obstacle 12 (Front-left)**
+- **Adjusted Position**: Longitudinal 10.90m, Lateral 3.97m  
+- **Relative Velocity**: Longitudinal -1.78 m/s (approaching), Lateral 0.08 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally, moving away laterally.  
+- **TTC (Longitudinal)**: 10.90 / 1.78 = **6.12s** (Negligible Risk)  
+- **MDC (Lateral)**: 3.97m (Low Risk)  
+- **Risk Assessment**:  
+  - Longitudinal: Moderate closing speed, but sufficient distance (Risk 5)  
+  - Lateral: Moving away (Risk 5)  
+- **Overall Risk**: **5 (Negligible Risk)**  
+
+#### **Obstacle 21 (Behind)**
+- **Adjusted Position**: Longitudinal -0.25m (behind), Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 1.39 m/s (approaching), Lateral 1.21 m/s (moving left)  
+- **Motion**: Driving toward ego from behind, slight lateral motion.  
+- **TTC (Longitudinal)**: 0.25 / 1.39 = **0.18s** (Extreme Risk)  
+- **MDC (Lateral)**: 0.00m (same lane alignment)  
+- **Risk Assessment**:  
+  - Longitudinal: Extremely close, high closing speed (Risk 1)  
+  - Lateral: Minimal lateral motion, but same-lane alignment (Risk 1)  
+- **Overall Risk**: **1 (Extreme Risk)**  
+
+### Trajectory Analysis
+- **Obstacle 21**: Rapidly closing from behind (longitudinal distance decreased from -2.27m to -0.25m in 0.9s). Lateral motion is minimal but present, indicating a potential side-swipe risk.  
+- **Obstacles 10 & 12**: Moving away or maintaining safe distances.  
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "21",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "21",
+        "OverallRiskScore": "0"
+    }
+}
+```
+
+### Key Findings:
+- **Obstacle 21** is at **Extreme Risk (1)** due to very small longitudinal distance (0.25m) and high closing speed (TTC = 0.18s).  
+- **Predicted Collision**: If trajectories continue, Obstacle 21 will collide with the ego vehicle imminently (Risk 0).  
+- **Obstacles 10 & 12** pose no immediate risk.  
+
+### Action Recommended:
+- **Emergency braking or evasive maneuver** to avoid collision with Obstacle 21.  
+- Monitor Obstacle 12 for potential lane drift, though currently safe.

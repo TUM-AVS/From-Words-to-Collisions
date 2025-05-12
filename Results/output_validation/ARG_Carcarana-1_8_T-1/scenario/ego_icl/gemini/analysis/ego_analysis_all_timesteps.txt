@@ -1,0 +1,42 @@
+* **Obstacle 341 (Behind):** This obstacle poses the most significant risk.  Over the past several timesteps, it has been rapidly approaching the ego vehicle from behind while maintaining near-perfect lateral alignment (0.00m).  At the last timestep (3.1s), the longitudinal distance is only -0.21m, indicating extreme proximity.  The high positive longitudinal velocity (7.10 m/s) confirms the rapid approach. Although the negative acceleration suggests some braking, the current proximity and speed make a collision virtually unavoidable within the next fraction of a second. 
+
+    * **MDC:** ≈ 0.21m (Extremely close)
+    * **TTC:** ≈ 0.21m / 7.10m/s ≈ 0.03s (Imminent collision)
+    * **Risk:** 1 (Extreme Risk) - Imminent rear-end collision
+
+* **Obstacle 357 (Left):** This obstacle has maintained a consistent lateral distance of approximately 2.5m while slightly to the front left of the ego vehicle, but aligned longitudinally in the latest timestep. Critically, its lateral velocity is near zero and slightly moving away from the ego vehicle.  Given the stable lateral separation and the fact that the obstacle has been stationary/moving away slightly from the ego vehicle in a lateral direction, the collision risk is low.
+
+    * **MDC:** ≈ 2.52m 
+    * **TTC:** Not applicable for lateral movement since they are roughly stationary/moving slowly apart (0.06m/s), but longitudinally, the vehicles are likely already separated. 
+    * **Risk:** 3 (Medium Risk) - due to the close lateral proximity initially, though it's now diverging. 
+
+* **Obstacle 360 (Rear-Right):** This obstacle is approaching from behind and slightly to the right.  While the longitudinal distance is decreasing, it's still relatively far (-12.50m).  The lateral distance is also small (-0.27m) indicating potential lane change/merging by the obstacle towards the ego vehicle's path.  This requires close monitoring.
+
+    * **MDC:** ≈ 0.27m (laterally close), but 12.5m longitudinally, which is safe at this point, given converging velocities
+    * **TTC:** longitudinally, roughly ~12.5m/4.88m/s ~2.56s. TTC for lateral distance is very low (0.22s) suggesting possible lane incursion very soon. Note that the obstacle is closing faster laterally. 
+    * **Risk:** 3 (Medium Risk). Although the longitudinal separation is currently acceptable, the high converging lateral velocity and lateral proximity makes this a close-call situation for near-term lateral collision.
+
+* **Obstacle 3104 (Front-Right):**  This obstacle is far from the ego vehicle and moving further away laterally to the right. The trajectory analysis shows increasing lateral distance, indicating a diverging path.
+
+    * **MDC and TTC** are not relevant given diverging path
+    * **Risk:** 5 (No Risk)
+
+* **Obstacle 3111 (Front-Left):**  This obstacle is at a moderate distance and approaching primarily longitudinally.  The lateral distance is decreasing slightly but not immediately concerning.
+
+    * **MDC:** ≈ 6.16m
+    * **TTC:** ≈ 13.44m / 11.54 m/s ≈ 1.16s  (longitudinally)
+    * **Risk:** 2 (High Risk) - primarily due to moderate longitudinal closing velocity/TTC.
+
+**Collision Scenario Determination:** Yes, this is a collision scenario. Obstacle 341 poses an Extreme Risk (Risk score 1) with an imminent rear-end collision highly likely in the next instant, as evidenced by the extremely close proximity (-0.21m longitudinally) and high closing velocity (7.10 m/s).  Even with deceleration, a collision with Obstacle 341 is nearly unavoidable in the immediate future.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "341",
+    "OverallRiskScore": "1"
+  },
+  "ExtremeRiskObstacle": null, 
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 341 is extremely close (-0.21m) and rapidly approaching (7.10 m/s) from behind, indicating an imminent rear-end collision."
+}
+```

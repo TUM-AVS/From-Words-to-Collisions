@@ -1,0 +1,36 @@
+At t=0.9s, the ego vehicle is at (-69.7292, -194.7081) with a velocity of 4.018 and decelerating at -0.7034.  Let's analyze the two obstacles:
+
+**Obstacle 30765.0:** This obstacle is stationary at (-70.8446, -182.1798).  Given the ego vehicle's trajectory and deceleration, a collision with this obstacle is unlikely in the near future. The distance between the ego and this obstacle is primarily in the y-direction (longitudinal) and is approximately 12.5 meters. The x-difference (lateral) is about 1.1 meters.  Given that the vehicles are in the same lanelet and the ego vehicle is decelerating, this requires attention.
+
+**Obstacle 30782.0:** This obstacle is at (-68.5458, -208.144) with a velocity of 5.0081 and decelerating at -1.047.  This obstacle is behind the ego vehicle and moving slightly faster, but is decelerating and relatively far (~13.4 meters). The x-difference is about 1.2 meters.  A near-term collision is unlikely and depends on the continuing deceleration of both vehicles.  However, it's important to continue monitoring it and check for future relative movement.
+
+**Detailed Analysis & TTC/MDC Calculation (t=0.9s):**
+
+For **Obstacle 30765.0**:
+
+* **MDC:**  sqrt(((-70.8446 + 69.7292)^2) + ((-182.1798 + 194.7081)^2)) ≈ 12.6 meters.
+* **Longitudinal TTC:** Difficult to estimate precisely without more data points, but since the obstacle is static and the ego is decelerating, TTC longitudinally would be very high if there was a risk at all.
+* **Lateral TTC:**  The lateral distance is relatively small, but the ego vehicle's orientation suggests it's moving mostly longitudinally. Therefore, the lateral risk appears low for now.
+
+For **Obstacle 30782.0**:
+
+* **MDC:** sqrt(((-68.5458 + 69.7292)^2) + ((-208.144 + 194.7081)^2)) ≈ 13.5 meters.
+* **Longitudinal TTC:** Hard to determine precisely, as both vehicles are decelerating. It is likely that the two vehicles will approach one another for the next few timesteps, but collision is unlikely.
+* **Lateral TTC:** The lateral distance is small and requires further monitoring, but the orientation of both vehicles and the deceleration suggests the risk is low for the immediate future.
+
+
+**Risk Assessment:**
+
+* **Obstacle 30765.0:** Medium Risk (3).  While not immediately likely, a collision is possible if the ego's deceleration isn't maintained or if the obstacle unexpectedly starts moving.
+* **Obstacle 30782.0:** Low Risk (4).  A collision is unlikely in the short term, but its behavior should be monitored due to the close proximity and the decelerating speeds of both ego and this obstacle.
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": {
+    "ObstacleID": "30765.0",
+    "OverallRiskScore": 3
+  }
+}
+```

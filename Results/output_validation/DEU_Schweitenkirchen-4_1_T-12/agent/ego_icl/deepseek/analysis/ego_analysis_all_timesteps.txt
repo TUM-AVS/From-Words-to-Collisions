@@ -1,0 +1,89 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 5.2s)
+
+---
+
+#### **Obstacle 221 (Right of ego car)**
+- **Adjusted Distance**: Longitudinal 0.00m (aligned), Lateral -1.53m  
+- **Relative Velocity**: Longitudinal 13.15 m/s (moving away), Lateral -0.06 m/s (moving away)  
+- **Motion**: Exact longitudinal alignment. Obstacle is moving away laterally to the right.  
+- **Trajectory Analysis**:  
+  - Longitudinal: The obstacle has passed the ego vehicle (longitudinal distance = 0m) and is moving away at high speed (13.15 m/s). No collision risk.  
+  - Lateral: The obstacle is moving away (-0.06 m/s) with a safe lateral distance (1.53m).  
+- **TTC**: Not applicable (relative velocity is diverging).  
+- **MDC**: 1.53m (lateral distance).  
+- **Risk Assessment**:  
+  - MDC = 1.53m → Medium Risk (3)  
+  - TTC = N/A → No Risk (5)  
+  - **Overall Risk**: **3 (Medium Risk)**  
+
+---
+
+#### **Obstacle 386 (Front-left of ego car)**
+- **Adjusted Distance**: Longitudinal 19.37m, Lateral 2.19m  
+- **Relative Velocity**: Longitudinal 14.13 m/s (moving away), Lateral 0.27 m/s (moving away)  
+- **Motion**: Obstacle is moving away longitudinally and laterally to the left.  
+- **Trajectory Analysis**:  
+  - Both distances are increasing (safe divergence).  
+- **TTC**: Not applicable (diverging paths).  
+- **MDC**: Minimum of 19.37m (longitudinal) and 2.19m (lateral) → 2.19m.  
+- **Risk Assessment**:  
+  - MDC = 2.19m → Medium Risk (3)  
+  - TTC = N/A → No Risk (5)  
+  - **Overall Risk**: **3 (Medium Risk)**  
+
+---
+
+#### **Obstacle 426 (Behind of ego car)**
+- **Adjusted Distance**: Longitudinal -2.14m (behind), Lateral 0.00m (aligned)  
+- **Relative Velocity**: Longitudinal 13.78 m/s (approaching), Lateral -0.06 m/s (negligible)  
+- **Motion**: Exact lateral alignment. Obstacle is driving toward the ego car from behind.  
+- **Trajectory Analysis**:  
+  - Longitudinal: Closing rapidly (13.78 m/s) but still 2.14m behind.  
+  - Lateral: Perfect alignment (0.00m), but no lateral movement toward collision.  
+- **TTC**: 2.14m / 13.78 m/s ≈ 0.155s (Extreme Risk).  
+- **MDC**: 0.00m (lateral alignment), but longitudinal distance still 2.14m.  
+- **Risk Assessment**:  
+  - TTC = 0.155s → Extreme Risk (1)  
+  - MDC = 2.14m → Medium Risk (3)  
+  - **Overall Risk**: **1 (Extreme Risk)**  
+
+---
+
+#### **Obstacle 431 (Rear-left of ego car)**
+- **Adjusted Distance**: Longitudinal -3.30m (behind), Lateral 2.12m  
+- **Relative Velocity**: Longitudinal 13.65 m/s (approaching), Lateral -0.07 m/s (moving away)  
+- **Motion**: Obstacle is driving toward the ego car from behind but moving away laterally.  
+- **Trajectory Analysis**:  
+  - Longitudinal: Closing rapidly (13.65 m/s), but lateral distance is increasing.  
+- **TTC**: 3.30m / 13.65 m/s ≈ 0.242s (Extreme Risk).  
+- **MDC**: 2.12m (lateral distance).  
+- **Risk Assessment**:  
+  - TTC = 0.242s → Extreme Risk (1)  
+  - MDC = 2.12m → Medium Risk (3)  
+  - **Overall Risk**: **1 (Extreme Risk)**  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "426",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "426",
+        "OverallRiskScore": "0"
+    }
+}
+```
+
+### Key Findings:
+1. **Obstacle 426** is the highest-risk obstacle (Extreme Risk, score 1) due to rapid longitudinal closure (TTC = 0.155s) and exact lateral alignment.  
+2. **Obstacle 431** also poses Extreme Risk (score 1) but is moving away laterally.  
+3. **No active collision** (score 0) at the current timestep, but Obstacle 426 is predicted to collide if trajectories remain unchanged.  
+4. Obstacles 221 and 386 are Medium Risk (score 3) with safe diverging paths.

@@ -1,0 +1,81 @@
+### Obstacle-by-Obstacle Analysis
+
+**Timestep: 9.8 seconds**
+
+1. **Obstacle 30227**
+   - **Position**: Front-right of ego
+   - **Adjusted Distances**: Longitudinal 0.36m, Lateral -17.17m
+   - **Relative Velocity**: Longitudinal -1.21 m/s, Lateral 0.00 m/s
+   - **Motion**: Approaching longitudinally, aligned laterally.
+   - **TTC (Longitudinal)**: |0.36 / 1.21| ≈ 0.30 s
+   - **MDC**: 0.36m (based on longitudinal distance as it's approaching)
+   - **Risk Assessment**: 
+     - Longitudinal distance is very small and decreasing, lateral alignment indicates potential alignment but not immediate collision laterally.
+     - **Risk Score**: Extreme Risk (1)
+   
+2. **Obstacle 30229**
+   - **Position**: Front-right of ego
+   - **Adjusted Distances**: Longitudinal 1.96m, Lateral -9.85m
+   - **Relative Velocity**: Longitudinal -1.21 m/s
+   - **Motion**: Approaching longitudinally, no lateral motion.
+   - **TTC (Longitudinal)**: |1.96 / 1.21| ≈ 1.62 s
+   - **MDC**: 1.96m
+   - **Risk Assessment**: 
+     - While approaching, it doesn't indicate an imminent collision.
+     - **Risk Score**: Medium Risk (3)
+
+3. **Obstacle 30230**
+   - **Position**: Right of ego
+   - **Adjusted Distances**: Longitudinal 0.00m, Lateral -24.52m
+   - **Relative Velocity**: Longitudinal -1.21 m/s
+   - **Motion**: Lateral alignment, moving laterally.
+   - **Risk Assessment**: 
+     - No longitudinal proximity, not advancing dangerously laterally.
+     - **Risk Score**: No Risk (5)
+
+4. **Obstacle 30232**
+   - **Position**: Right side of ego
+   - **Adjusted Distances**: Longitudinal 0.00m, Lateral -1.76m
+   - **Relative Velocity**: Longitudinal -1.21 m/s
+   - **Motion**: Lateral alignment and stationary lateral motion.
+   - **Risk Assessment**:
+     - While longitudinally aligned, lateral separation prevents immediate collision.
+     - **Risk Score**: Medium Risk (3)
+
+5. **Obstacle 30234**
+   - **Position**: (Was Initially) Behind, now Collision
+   - **Adjusted Distances**: Longitudinal 0.00m, Lateral 0.00m
+   - **Relative Velocity**: Longitudinal 3.56 m/s
+   - **Motion**: Moving directly into collision (same spot as ego).
+   - **TTC**: Doom scenario, inaccurate due to zero distance present.
+   - **MDC**: 0.00m (as distances are zero)
+   - **Risk Assessment**: 
+     - Collision already occurring.
+     - **Risk Score**: Collision (0)
+
+6. **Obstacle 30236**
+   - **Position**: Rear-right of ego
+   - **Adjusted Distances**: Longitudinal -13.02m, Lateral -1.65m
+   - **Relative Velocity**: Longitudinal -1.14 m/s
+   - **Motion**: Separating longitudinally and laterally.
+   - **Risk Assessment**: 
+     - Moving away from the ego vehicle.
+     - **Risk Score**: No Risk (5)
+
+### Risk Conclusion
+This is identified as a collision scenario primarily due to Obstacle 30234, which is in the exact collision position (both adjusted distances are zero), and therefore the highest risk score of 0.
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30234",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30227",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30234 is in a collision position with both longitudinal and lateral distances being zero with converging trajectory at a relatively high velocity."
+}
+```

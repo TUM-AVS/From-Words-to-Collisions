@@ -1,0 +1,42 @@
+* **Obstacle 30737 (Front-Right):**  This obstacle has been consistently moving away from the ego vehicle both longitudinally and laterally across all timesteps. At the last timestep (0.9s), it is 7.09m longitudinally and -1.96m laterally away. The relative velocity indicates continued separation. Therefore, the risk is low.
+    * **MDC:** Approximately 2.0m (using lateral distance as the primary measure since the obstacle is primarily to the right)
+    * **TTC:** Longitudinal TTC is not applicable due to separating movement. However, if we use the magnitude of relative lateral velocity (approximately 2.0 m/s) and lateral distance (approximately 2.0m), a notional TTC of approximately 1 second is calculated. However, the lateral separation trend indicates this does not represent a realistic collision path, therefore the TTC isn't meaningful here.  
+    * **Risk Score:** 4 (Low Risk) - based on MDC
+
+
+* **Obstacle 30739 (Front-Right):**  Similar to Obstacle 30737, this obstacle is also moving away from the ego vehicle in both directions across all timesteps. At the last timestep (0.9s), it's even further away than 30737.
+    * **MDC:** Approximately 3.0m (lateral distance)
+    * **TTC:** Not applicable longitudinally due to diverging movement.
+    * **Risk Score:** 4 (Low risk) - based on MDC.
+
+
+* **Obstacle 30740 (Front-Left):** This obstacle appears at 0.7 seconds and is closing longitudinally while moving away laterally. At 0.9s, the longitudinal distance is 12.14m and decreasing rapidly, while the lateral distance is 20.39m and increasing.  The high closing velocity longitudinally is a concern.
+    * **MDC:** Approximately 12.14m (longitudinal distance as primary concern)
+    * **TTC (Longitudinal):**  12.14m / 22.73 m/s ≈ 0.53 seconds.
+    * **Risk Score:** 2 (High Risk) - based on TTC.
+
+
+* **Obstacle 30743 (Rear-Right):**  This obstacle is behind and to the right of the ego vehicle. The longitudinal distance remains negative (behind) and is slightly increasing in magnitude (moving further behind).  The lateral distance is also negative, and while the lateral distance fluctuates, the magnitude is less than 3m in all timesteps, meaning the car may be cutting alongside the ego. This is a key concern.
+    * **MDC:** Approximately 2.6m (lateral distance at 0.9s).
+    * **TTC:** Not applicable longitudinally as the car is moving further behind. If we were to calculate TTC using the lateral measures, it is a negative value because it is currently moving away. This is not meaningful for collision risk as the data shows it approaching laterally in several steps.
+    * **Risk Score:** 3 (Medium Risk) due to the lateral proximity and fluctuating distances.
+
+**Collision Scenario Determination:**
+
+Obstacle 30740 presents a High Risk (score 2) due to the high closing velocity and a TTC of 0.53 seconds, approaching the Extreme Risk threshold. While no obstacle has a risk score of 0 or 1, the rapid approach of Obstacle 30740 warrants close monitoring.  This is not yet classified as a *collision scenario* as per the strict definition requiring a score of 0 or 1.
+
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 (collision) or 1 (extreme risk). Obstacle 30740 has a high risk (2) due to a TTC of 0.53s, but this is not yet classified as a collision scenario based on the provided criteria."
+}
+```

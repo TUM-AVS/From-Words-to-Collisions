@@ -1,0 +1,76 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30638 (Front-left of ego car)
+- **Adjusted Distance at 0.9s**: Longitudinal 2.80 m, Lateral 13.73 m
+- **Relative Velocity**: Longitudinal -6.19 m/s (approaching), Lateral 8.34 m/s (moving away)
+- **Motion**: The obstacle is driving toward the ego car longitudinally but moving away laterally to the left.
+- **Trajectory Analysis**: 
+  - Longitudinal distance is decreasing (from 8.67 m at 0.1s to 2.80 m at 0.9s).
+  - Lateral distance is increasing (from 7.53 m at 0.1s to 13.73 m at 0.9s).
+  - The obstacle is moving diagonally away from the ego car, with a significant lateral separation increasing over time.
+
+- **Time-to-Collision (TTC)**:
+  - Longitudinal TTC = 2.80 m / 6.19 m/s ≈ 0.45s (Extreme Risk, TTC ≤ 0.5s)
+  - Lateral TTC is not applicable since the obstacle is moving away laterally.
+  - **Overall TTC Risk**: Extreme Risk (1) due to longitudinal TTC.
+
+- **Minimum Distance to Collision (MDC)**:
+  - The obstacle is moving away laterally, so the MDC is effectively the current lateral distance (13.73 m), which is No Risk (5).
+  - However, the longitudinal distance is 2.80 m, which falls into Medium Risk (3) for MDC.
+  - **Overall MDC Risk**: Medium Risk (3).
+
+- **Final Risk Assessment**:
+  - Prioritize the higher risk (lower score) between TTC and MDC.
+  - **Overall Risk**: Extreme Risk (1) due to longitudinal TTC.
+
+#### Obstacle 30640 (Front-left of ego car)
+- **Adjusted Distance at 0.9s**: Longitudinal 6.38 m, Lateral 2.15 m
+- **Relative Velocity**: Longitudinal -14.45 m/s (approaching), Lateral -0.03 m/s (approaching very slowly)
+- **Motion**: The obstacle is driving toward the ego car longitudinally and very slightly toward the ego car laterally from the left.
+- **Trajectory Analysis**:
+  - Longitudinal distance is decreasing rapidly (from 18.14 m at 0.1s to 6.38 m at 0.9s).
+  - Lateral distance is fluctuating slightly but remains small (from 2.10 m at 0.1s to 2.15 m at 0.9s).
+  - The obstacle is closing in rapidly longitudinally with minimal lateral movement.
+
+- **Time-to-Collision (TTC)**:
+  - Longitudinal TTC = 6.38 m / 14.45 m/s ≈ 0.44s (Extreme Risk, TTC ≤ 0.5s)
+  - Lateral TTC is not significant due to very small relative velocity (-0.03 m/s).
+  - **Overall TTC Risk**: Extreme Risk (1) due to longitudinal TTC.
+
+- **Minimum Distance to Collision (MDC)**:
+  - The lateral distance is 2.15 m, which is Medium Risk (3).
+  - The longitudinal distance is 6.38 m, which is Low Risk (4).
+  - **Overall MDC Risk**: Medium Risk (3).
+
+- **Final Risk Assessment**:
+  - Prioritize the higher risk (lower score) between TTC and MDC.
+  - **Overall Risk**: Extreme Risk (1) due to longitudinal TTC.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": [
+        {
+            "ObstacleID": "30638",
+            "OverallRiskScore": "1"
+        },
+        {
+            "ObstacleID": "30640",
+            "OverallRiskScore": "1"
+        }
+    ],
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```
+
+### Key Findings:
+- Both obstacles (30638 and 30640) pose an **Extreme Risk** (Risk Score 1) due to very short Time-to-Collision (TTC) in the longitudinal direction.
+- No collision is currently occurring (Risk Score 0), but immediate action is required to avoid imminent collisions with both obstacles.
+- Obstacle 30640 is closing in more rapidly longitudinally, while Obstacle 30638 is moving away laterally but still poses a longitudinal risk.

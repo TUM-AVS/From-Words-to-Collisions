@@ -1,0 +1,29 @@
+At t=0.9s, Ego is in lanelet 1292.0 at (1.8164, -176.0908). Let's analyze the closest obstacles:
+
+* **Obstacle 30755.0:** Located in lanelet 522.0 at (11.69, -162.1592). While the y-coordinate difference might seem significant, this obstacle has been consistently moving towards the ego vehicle with a relatively high velocity and a positive acceleration.  Given the trajectory trends, an extreme risk assessment is warranted due to the potential for a future collision.
+
+* **Obstacle 30756.0:** Located in lanelet 597.0 at (-1.843, -189.5876).  Although it's decelerating strongly, the current positions and the opposing y-coordinates suggest a potential collision risk if the deceleration isn't sufficient or if there are lane changes involved.  This poses an extreme risk.
+
+* **Obstacle 30762.0:** Located in lanelet 1273.0 at (6.7351, -177.3493). The y-coordinates are relatively close and there's a noticeable difference in x-coordinates, but this obstacle has been consistently increasing its velocity. This, coupled with the lanelet information which suggests proximity, needs to be categorized as high risk to account for the possibility of lane changes or unforeseen movements.  However, it's not an *extreme* risk at this precise moment.
+
+* **Obstacle 30763.0:** Located in lanelet 499.0 at (9.1499, -189.076). The y-coordinates are somewhat separated, and while it is decelerating significantly, the current positioning and the historical trajectory require further analysis for medium-term risk. Not immediately extreme risk.
+
+
+* **Obstacle 30768.0:** Located in lanelet 1340.0 at (-6.8142, -199.6809). While decelerating, the consistent negative x values and considerably higher (more negative) y values make it a low risk.
+
+
+Based on the above analysis, obstacles 30755.0 and 30756.0 present extreme risk.
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30755.0",
+        "OverallRiskScore": 1
+    },
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "Obstacle 30755.0 poses an extreme risk due to its high velocity, positive acceleration, and trajectory towards the ego vehicle. Obstacle 30756.0 also poses an extreme risk given the proximity and opposite driving directions, though it's decelerating."
+    }
+}
+```

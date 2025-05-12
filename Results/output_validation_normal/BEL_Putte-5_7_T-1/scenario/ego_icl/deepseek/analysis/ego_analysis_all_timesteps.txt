@@ -1,0 +1,65 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 30 (Front-left)**
+- **Adjusted Distance**: Longitudinal 3.29m, Lateral 0.05m  
+- **Relative Velocity**: Longitudinal -3.48 m/s (approaching), Lateral 2.27 m/s (moving away left)  
+- **Motion**: Approaching longitudinally but moving away laterally.  
+- **TTC Longitudinal**: 3.29 / 3.48 ≈ 0.95s (High Risk)  
+- **TTC Lateral**: Not applicable (diverging paths).  
+- **MDC**: Lateral distance is increasing (0.05m → no collision path).  
+- **Risk**: High Risk (2) due to longitudinal TTC < 1.0s.  
+
+#### **Obstacle 37 (Front-right)**
+- **Adjusted Distance**: Longitudinal 6.45m, Lateral -6.53m  
+- **Relative Velocity**: Longitudinal -2.24 m/s (approaching), Lateral 0.81 m/s (approaching from right).  
+- **Motion**: Converging diagonally.  
+- **TTC Longitudinal**: 6.45 / 2.24 ≈ 2.88s (Medium Risk).  
+- **TTC Lateral**: 6.53 / 0.81 ≈ 8.06s (No Risk).  
+- **MDC**: Lateral distance dominates (6.53m → Low Risk).  
+- **Risk**: Medium Risk (3) due to longitudinal TTC.  
+
+#### **Obstacle 317 (Rear-left)**
+- **Adjusted Distance**: Longitudinal -8.67m, Lateral 2.57m  
+- **Relative Velocity**: Longitudinal 0.49 m/s (approaching from behind), Lateral -2.47 m/s (approaching from left).  
+- **Motion**: Converging laterally, slowly longitudinally.  
+- **TTC Longitudinal**: Not applicable (moving away after 0.5s).  
+- **TTC Lateral**: 2.57 / 2.47 ≈ 1.04s (High Risk).  
+- **MDC**: 2.57m (Medium Risk).  
+- **Risk**: High Risk (2) due to lateral TTC ~1.0s.  
+
+#### **Obstacle 320 (Rear-left)**
+- **Adjusted Distance**: Longitudinal -15.87m, Lateral 11.80m  
+- **Relative Velocity**: Longitudinal -1.43 m/s (moving away), Lateral -0.99 m/s (approaching from left).  
+- **Motion**: Diverging longitudinally, very slow lateral convergence.  
+- **TTC Lateral**: 11.80 / 0.99 ≈ 11.92s (No Risk).  
+- **Risk**: No Risk (5).  
+
+---
+
+### Trajectory Trends (0.0s → 0.9s)
+- **Obstacle 30**: Rapid longitudinal closure (5.94m → 3.29m). Lateral drift to left avoids collision.  
+- **Obstacle 317**: Lateral distance decreases sharply (4.32m → 2.57m). Longitudinal motion stabilizes.  
+
+---
+
+### Collision Scenario Determination
+- **No obstacles** meet criteria for **Collision (0)** or **Extreme Risk (1)**.  
+- Highest risk is **High Risk (2)** from Obstacle 30 (longitudinal) and Obstacle 317 (lateral).  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle has a risk score of 0 (collision) or 1 (extreme risk). Highest risks are High Risk (2) for Obstacle 30 (longitudinal TTC ~0.95s) and Obstacle 317 (lateral TTC ~1.04s)."
+}
+```

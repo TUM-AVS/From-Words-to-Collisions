@@ -1,0 +1,31 @@
+* **Obstacle 30221 (Front):** This obstacle is directly in front of the ego vehicle and approaching longitudinally.  The lateral distance is consistently 0.00m across all timesteps, indicating perfect longitudinal alignment.  At the last timestep (0.9s), the longitudinal distance is 10.85m.  Given the relative longitudinal velocity of -5.03 m/s, the TTC is approximately 2.16 seconds.  MDC is effectively 0m due to the persistent lateral alignment. This represents a Medium Risk (3) based on TTC and a High Risk (2) due to the MDC and closing longitudinal distance.  We prioritize the higher risk (2).
+
+* **Obstacle 30225 (Front-Left):** This obstacle is approaching the ego vehicle from the front-left.  At the last timestep, the longitudinal distance is 19.15m and the lateral distance is 2.98m.  With a longitudinal relative velocity of -6.11 m/s and no lateral relative velocity, the longitudinal TTC is roughly 3.13 seconds. Since there's no lateral movement, we don't calculate a lateral TTC. The MDC is approximately 3m. Overall, this is a Medium Risk (3).
+
+* **Obstacle 30228 (Front/Front-left):** This obstacle starts front-left and becomes directly front. It is approaching longitudinally with consistent 0 lateral distance in the last timestep, just like obstacle 30221.  At the last timestep, the longitudinal distance is 19.48m. With a longitudinal relative velocity of -6.11 m/s, the longitudinal TTC is about 3.19 seconds. MDC is effectively 0m due to the exact alignment. This is a Medium Risk (3) from the TTC and High risk (2) based on MDC. We take the higher risk assessment (2).
+
+
+* **Obstacle 30229 (Front-Left):** This obstacle is approaching from the front-left, but its lateral distance is increasing, meaning it's moving away from the ego vehicle laterally to the left.  At 0.9 seconds, the longitudinal distance is 10.85m and the lateral distance is 2.31m. The longitudinal relative velocity is -5.30 m/s resulting in a TTC of about 2.05 seconds.  Combined with the increasing lateral distance, this obstacle poses a Medium Risk (3).
+
+* **Obstacle 30241 (Rear-Left):** This obstacle is behind and to the left of the ego vehicle. It is slowly approaching from behind and moving closer laterally. At the last timestep, it is -15.16m longitudinally and 2.80m laterally. The longitudinal relative velocity is 0.44 m/s indicating a slow closing speed from behind. The lateral relative velocity is -0.52m/s. Due to the rear and side position with no immediate rapid closing velocity, we assign a Low Risk (4).
+
+**Collision Scenario Determination:**
+
+No obstacle has a risk score of 0 (Collision) or 1 (Extreme Risk). Therefore, this is NOT a collision scenario.
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a collision risk score of 0 or an extreme risk score of 1."
+}
+```

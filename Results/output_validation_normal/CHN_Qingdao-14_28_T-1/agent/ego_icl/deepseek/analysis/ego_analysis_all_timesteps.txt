@@ -1,0 +1,58 @@
+Let me analyze each obstacle at the most recent timestep (0.9 seconds) with trajectory context:
+
+1. Obstacle 30650 (Left of ego):
+   - Adjusted distances: longitudinal 0.00m, lateral 11.96m
+   - Relative velocity: longitudinal -17.83 m/s (moving away), lateral 0.00 m/s
+   - Motion: Exact longitudinal alignment, no lateral motion
+   - Analysis: Side-by-side with safe lateral distance, moving away longitudinally
+   - Risk: 5 (Negligible)
+
+2. Obstacle 30653 (Left of ego):
+   - Adjusted distances: longitudinal 0.00m, lateral 19.85m
+   - Relative velocity: longitudinal -17.82 m/s (moving away), lateral -0.41 m/s (slowly approaching)
+   - Motion: Exact longitudinal alignment, very slow lateral approach
+   - Analysis: Large lateral distance with minimal closing velocity
+   - Risk: 5 (Negligible)
+
+3. Obstacle 30655 (Front of ego):
+   - Adjusted distances: longitudinal 17.94m, lateral 0.00m
+   - Relative velocity: longitudinal -3.62 m/s (approaching), lateral 0.01 m/s
+   - Motion: Same-lane alignment, slow approach
+   - TTC: 17.94/3.62 = 4.96s
+   - MDC: 17.94m (longitudinal)
+   - Risk: 4 (Low Risk - approaching but sufficient time)
+
+4. Obstacle 30659 (Front-left of ego):
+   - Adjusted distances: longitudinal 8.07m, lateral 1.90m
+   - Relative velocity: longitudinal -17.83 m/s (fast approach), lateral 0.00 m/s
+   - Motion: Rapid longitudinal approach
+   - TTC: 8.07/17.83 = 0.45s
+   - MDC: 1.90m (lateral)
+   - Analysis: Extremely fast approach but lateral distance provides buffer
+   - Risk: 1 (Extreme Risk due to very low TTC)
+
+5. Obstacle 30665 (Front-left of ego):
+   - Adjusted distances: longitudinal 17.31m, lateral 1.90m
+   - Relative velocity: longitudinal -19.39 m/s (fast approach), lateral 0.00 m/s
+   - Motion: Rapid longitudinal approach
+   - TTC: 17.31/19.39 = 0.89s
+   - MDC: 1.90m (lateral)
+   - Risk: 2 (High Risk due to fast approach)
+
+6. Obstacle 30667 (Behind of ego):
+   - Adjusted distances: longitudinal -25.21m, lateral 0.00m
+   - Relative velocity: longitudinal -3.34 m/s (moving away), lateral 0.08 m/s
+   - Motion: Moving away in same lane
+   - Risk: 5 (Negligible)
+
+JSON Summary:
+{
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30659",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "30665",
+        "OverallRiskScore": "2"
+    }
+}

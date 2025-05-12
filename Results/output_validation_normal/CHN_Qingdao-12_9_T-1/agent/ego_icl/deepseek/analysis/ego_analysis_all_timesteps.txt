@@ -1,0 +1,68 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30737
+- **Most Recent Timestep (0.3s)**:
+  - **Position**: Front-right of ego car
+  - **Adjusted Distances**: Longitudinal 3.41 m, Lateral -26.96 m
+  - **Relative Velocity**: Longitudinal -1.71 m/s (approaching), Lateral -8.19 m/s (moving away)
+  - **Motion**: Driving toward ego longitudinally, moving away laterally to the right.
+  
+- **Trajectory Analysis**:
+  - Longitudinal distance is decreasing (from 5.42 m at 0.1s to 3.41 m at 0.3s), but lateral distance is increasing (from -24.70 m to -26.96 m).
+  - The obstacle is moving away laterally faster than it is approaching longitudinally.
+
+- **TTC Calculation**:
+  - Longitudinal TTC: 3.41 m / 1.71 m/s = 1.99 seconds (Medium Risk)
+  - Lateral TTC: Not applicable (moving away)
+  
+- **MDC Calculation**:
+  - The obstacle is moving away laterally, so MDC is effectively the current lateral distance (26.96 m), which is very large (No Risk).
+
+- **Overall Risk**:
+  - The primary risk is longitudinal, with TTC indicating Medium Risk (3). Lateral motion is diverging, so no additional risk.
+  - **Overall Risk Score**: 3 (Medium Risk)
+
+#### Obstacle 30739
+- **Most Recent Timestep (0.9s)**:
+  - **Position**: Front-right of ego car
+  - **Adjusted Distances**: Longitudinal 4.91 m, Lateral -2.79 m
+  - **Relative Velocity**: Longitudinal -0.41 m/s (approaching), Lateral -3.81 m/s (moving away)
+  - **Motion**: Driving toward ego longitudinally, moving away laterally to the right.
+
+- **Trajectory Analysis**:
+  - Longitudinal distance fluctuates but generally decreases (from 5.16 m at 0.1s to 4.91 m at 0.9s).
+  - Lateral distance is increasing (from -2.00 m to -2.79 m), indicating the obstacle is moving away laterally.
+
+- **TTC Calculation**:
+  - Longitudinal TTC: 4.91 m / 0.41 m/s = 11.98 seconds (No Risk)
+  - Lateral TTC: Not applicable (moving away)
+
+- **MDC Calculation**:
+  - The obstacle is moving away laterally, so MDC is effectively the current lateral distance (2.79 m), which is Low Risk (4).
+
+- **Overall Risk**:
+  - Longitudinal TTC is very high (No Risk), and lateral motion is diverging.
+  - **Overall Risk Score**: 4 (Low Risk)
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```
+
+### Summary:
+- No obstacles pose a collision, extreme, or high risk at the most recent timestep.
+- Obstacle 30737 has Medium Risk (3) due to longitudinal approach.
+- Obstacle 30739 has Low Risk (4) due to slow longitudinal approach and lateral divergence.

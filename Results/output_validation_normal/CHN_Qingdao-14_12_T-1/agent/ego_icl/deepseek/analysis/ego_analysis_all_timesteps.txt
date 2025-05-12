@@ -1,0 +1,84 @@
+### Obstacle-by-Obstacle Analysis:
+
+#### **Obstacle 30647 (Front-left)**
+- **Adjusted Distance**: Longitudinal 19.24 m, Lateral 4.77 m  
+- **Relative Velocity**: Longitudinal -32.91 m/s (approaching rapidly), Lateral -1.60 m/s (approaching from left)  
+- **Motion**: Driving toward ego longitudinally and laterally from the left.  
+- **Trajectory Analysis**:  
+  - Longitudinal distance decreases rapidly (from 22.27m to 19.24m in 0.1s).  
+  - Lateral distance decreases (from 5.96m to 4.77m in 0.1s).  
+  - High closing speed longitudinally (-32.91 m/s).  
+
+- **TTC Calculation**:  
+  - Longitudinal TTC = 19.24 / 32.91 ≈ 0.58s (High Risk)  
+  - Lateral TTC = 4.77 / 1.60 ≈ 2.98s (Medium Risk)  
+  - **Overall TTC Risk**: High (0.58s)  
+
+- **MDC Calculation**:  
+  - Since both distances are decreasing, focus on the smaller TTC (longitudinal).  
+  - Projected MDC: If current deceleration continues, collision is imminent.  
+  - **MDC Risk**: High (closing rapidly).  
+
+- **Overall Risk**: **High Risk (2)** due to rapid longitudinal approach.  
+
+---
+
+#### **Obstacle 30670 (Front-left)**
+- **Adjusted Distance**: Longitudinal 20.25 m, Lateral 1.36 m  
+- **Relative Velocity**: Longitudinal -2.52 m/s (approaching), Lateral 2.00 m/s (moving away left)  
+- **Motion**: Driving toward ego longitudinally but moving away laterally.  
+- **Trajectory Analysis**:  
+  - Longitudinal distance slowly decreasing (from 20.37m to 20.25m).  
+  - Lateral distance increasing (from 2.12m to 1.36m).  
+
+- **TTC Calculation**:  
+  - Longitudinal TTC = 20.25 / 2.52 ≈ 8.04s (No Risk)  
+  - Lateral TTC: Not applicable (moving away).  
+  - **Overall TTC Risk**: No Risk (5).  
+
+- **MDC Calculation**:  
+  - Lateral distance is increasing, so no collision risk.  
+  - **MDC Risk**: No Risk (5).  
+
+- **Overall Risk**: **No Risk (5)**.  
+
+---
+
+#### **Obstacle 30672 (Rear-left)**
+- **Adjusted Distance**: Longitudinal -18.21 m (behind), Lateral 0.60 m  
+- **Relative Velocity**: Longitudinal -3.28 m/s (moving away), Lateral -2.48 m/s (approaching from left)  
+- **Motion**: Moving away longitudinally but approaching laterally.  
+- **Trajectory Analysis**:  
+  - Longitudinal distance increasing (moving away).  
+  - Lateral distance decreasing (from 0.00m to 0.60m in 0.1s).  
+
+- **TTC Calculation**:  
+  - Longitudinal TTC: Not applicable (moving away).  
+  - Lateral TTC = 0.60 / 2.48 ≈ 0.24s (Extreme Risk).  
+  - **Overall TTC Risk**: Extreme (0.24s).  
+
+- **MDC Calculation**:  
+  - Lateral distance is small (0.60m) and closing rapidly.  
+  - **MDC Risk**: Extreme (0.60m with closing velocity).  
+
+- **Overall Risk**: **Extreme Risk (1)** due to imminent lateral collision.  
+
+---
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30672",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "30647",
+        "OverallRiskScore": "2"
+    }
+}
+```

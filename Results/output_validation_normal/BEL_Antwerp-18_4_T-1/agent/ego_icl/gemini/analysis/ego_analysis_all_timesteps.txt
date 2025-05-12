@@ -1,0 +1,24 @@
+Obstacle 30738 is in front of the ego vehicle and has been consistently aligned laterally (0.00m lateral distance) across all timesteps.  The longitudinal distance has been decreasing across all timesteps, indicating the obstacle is approaching the ego vehicle.
+
+At the most recent timestep (0.9 seconds), the longitudinal distance is 10.68m and the lateral distance is 0.00m. The relative longitudinal velocity is -4.74 m/s (approaching).  Let's calculate the TTC:
+
+TTC = Distance / |Relative Velocity| 
+TTC = 10.68m / |-4.74 m/s|
+TTC ≈ 2.25 seconds
+
+MDC in this scenario is primarily based on the longitudinal distance since the lateral alignment is exact. Therefore, MDC ≈ 10.68m.
+
+Based on TTC (2.25s) and MDC (10.68m), and the consistent trajectory of the obstacle approaching the ego vehicle while maintaining lateral alignment, the risk level is assessed as Medium (3).
+
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": null,
+    "MediumRiskObstacle": {
+        "ObstacleID": "30738",
+        "OverallRiskScore": "3"
+    }
+}
+```

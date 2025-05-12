@@ -1,0 +1,36 @@
+Obstacle 30243:
+
+- Trajectory: This obstacle is consistently in front of the ego vehicle and moving away longitudinally across all timesteps.  Lateral distance remains at 0.00m, indicating alignment in the same lane, but not a collision risk as the longitudinal distance is increasing.
+- At t=0.9s:
+    - Longitudinal distance: 24.93m
+    - Lateral distance: 0.00m
+    - Longitudinal relative velocity: 5.94 m/s (moving away)
+- TTC: Not applicable for collision risk assessment as the obstacle is moving away longitudinally.
+- MDC:  Given the increasing longitudinal separation and constant lateral alignment, the MDC is large and not indicative of a collision risk.
+- Risk Assessment: Negligible risk (5).
+
+Obstacle 30245:
+
+- Trajectory: This obstacle is consistently located front-left of the ego vehicle and is approaching in both longitudinal and lateral dimensions across all timesteps.
+- At t=0.9s:
+    - Longitudinal distance: 9.76m
+    - Lateral distance: 13.78m
+    - Longitudinal relative velocity: -5.36 m/s (approaching)
+    - Lateral relative velocity: -6.06 m/s (approaching)
+- TTC (longitudinal): 9.76m / 5.36 m/s = 1.82s
+- TTC (lateral): 13.78m / 6.06 m/s = 2.27s
+- MDC: Given the diagonal approach, we focus on the smaller of the two distances (longitudinal). Using the projected paths (difficult to estimate precisely without more data), we can roughly approximate the MDC as greater than 5m at this time step since both longitudinal and lateral distances are greater than that value.
+- Risk Assessment: The lowest TTC is 1.82s (longitudinal) suggesting a Medium risk (3). The MDC also suggests no immediate danger but needs monitoring, so medium risk (3) assessment holds.
+
+JSON Summary:
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "HighRiskObstacle": {},
+  "MediumRiskObstacle": {
+    "ObstacleID": "30245",
+    "OverallRiskScore": "3"
+  }
+}
+```

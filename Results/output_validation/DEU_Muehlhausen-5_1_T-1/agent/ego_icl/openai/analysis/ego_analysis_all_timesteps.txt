@@ -1,0 +1,82 @@
+### Analysis of Obstacle Trajectories at the Most Recent Timestep
+
+#### Obstacle 31 (Front-left)
+- **Adjusted Distances**: Longitudinal = 11.44 m, Lateral = 21.78 m
+- **Relative Velocities**: Longitudinal = -2.50 m/s, Lateral = 0.00 m/s
+- **Trajectory**: Approaching longitudinally with no lateral movement.
+- **TTC Calculation**: 
+  - Longitudinal: 11.44 m / 2.50 m/s = 4.58 s
+  - Lateral: Not applicable (no movement)
+- **MDC**: Focus on longitudinal as lateral is large and stable.
+
+**Risk Evaluation**:  
+- **TTC (Longitudinal)**: 4.58 s (Low Risk)
+- **MDC (Longitudinal)**: Greater than 5.0 m (No Risk)
+
+#### Obstacle 34 (Front)
+- **Adjusted Distances**: Longitudinal = 15.10 m, Lateral = 0.00 m (aligned)
+- **Relative Velocities**: Longitudinal = -2.52 m/s, Lateral = 2.32 m/s
+- **Trajectory**: Approaching longitudinally, moving laterally away to the right.
+- **TTC Calculation**:
+  - Longitudinal: 15.10 m / 2.52 m/s = 5.99 s
+  - Lateral: Not approaching
+- **MDC**: Mainly longitudinal as aligned laterally with sufficient separation.
+
+**Risk Evaluation**:  
+- **TTC (Longitudinal)**: 5.99 s (No significant risk)
+- **MDC (Longitudinal)**: Greater than 5.0 m (No Risk)
+
+#### Obstacle 330 (Behind)
+- **Adjusted Distances**: Longitudinal = -0.55 m, Lateral = 0.00 m (aligned)
+- **Relative Velocities**: Longitudinal = 3.44 m/s, Lateral = -0.24 m/s
+- **Trajectory**: Approaching from behind longitudinally.
+- **TTC Calculation**:
+  - Longitudinal: 0.55 m / 3.44 m/s = 0.16 s
+  - Lateral: Not significant
+- **MDC**: Zero as aligned and approaching
+
+**Risk Evaluation**:  
+- **TTC (Longitudinal)**: 0.16 s (Extreme Risk)
+- **MDC**: Near zero (Collision detailed based on vehicle physical sizes)
+
+#### Obstacle 341 (Behind)
+- **Adjusted Distances**: Longitudinal = -12.18 m, Lateral = 0.00 m (aligned)
+- **Relative Velocities**: Longitudinal = 0.74 m/s, Lateral = -0.15 m/s
+- **Trajectory**: Approaching slowly, relatively stable trajectory.
+- **TTC Calculation**:
+  - Longitudinal: 12.18 m / 0.74 m/s = 16.46 s
+  - Lateral: Not significant
+- **MDC**: Focus on longitudinal 
+
+**Risk Evaluation**:  
+- **TTC (Longitudinal)**: 16.46 s (No Risk)
+- **MDC**: Greater than 5.0 m (No Risk)
+
+#### Obstacle 365 (Front-left)
+- **Adjusted Distances**: Longitudinal = 19.32 m, Lateral = 5.96 m
+- **Relative Velocities**: Longitudinal = -5.72 m/s, Lateral = 3.60 m/s
+- **Trajectory**: Moving quickly towards ego vehicle longitudinally but laterally diverging.
+- **TTC Calculation**:
+  - Longitudinal: 19.32 m / 5.72 m/s = 3.38 s
+  - Lateral: Not concerning due to divergence
+- **MDC**: Primarily longitudinal component important here.
+
+**Risk Evaluation**:  
+- **TTC (Longitudinal)**: 3.38 s (Medium Risk)
+- **MDC**: Greater than 5.0 m (No Risk)
+
+### JSON Risk Summary:
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "330",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "330",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {}
+}
+```

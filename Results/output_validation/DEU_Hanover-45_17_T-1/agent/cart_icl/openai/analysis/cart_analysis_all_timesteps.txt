@@ -1,0 +1,45 @@
+To evaluate the risk, we begin by analyzing the final recorded timestep at 7.5 seconds, and use the past data to gauge the trends in motion between the ego vehicle and the obstacle:
+
+**Calculating TTC and MDC**:
+1. **Relative Position**:
+   - Ego: (405.7125, -80.3602)
+   - Obstacle: (404.1045, -75.5338)
+
+2. **Relative Velocity (Approximate Longitudinal and Lateral Velocity Components)**:
+   - Ego Velocity Vector: Since the orientation is negative and slightly more than -π/2, the vehicle primarily moves in the negative y-direction.
+   - Obstacle having a similar orientation also moves primarily in the negative y-direction. It appears faster due to a higher velocity magnitude.
+
+3. **Relative Longitudinal Position**:
+   - Approximately computed using cosine component of the heading angles briefly analyzed: ΔL = √((405.7125 - 404.1045)²) = 1.608 meters.
+
+4. **Relative Velocity**:
+   - Ego's velocity: ~5.739 m/s and Obstacle's velocity: ~8.3216 m/s (*assumed primarily longitudinal in this relation*).
+
+5. **Time To Collision (TTC)**:
+   - Relative speed: 8.3216 m/s (obstacle) - 5.739 m/s (ego) = 2.5826 m/s.
+   - TTC = 1.608 / 2.5826 =~ 0.623 seconds indicating the obstacle is rapidly approaching the rear of the ego vehicle.
+
+6. **Lateral Distance**:
+   - Since on same lanelet and closely aligned, lateral movement was considered negligible.
+   - The MDC primarily approaches due to different velocities aligned longitudinally.
+
+**Risk Analysis**:
+- **Distance Reduction**:
+   - The distance between the ego and the obstacle consistently decreased throughout each timestep as the obstacle closed in from behind.
+
+- **Final Risk Assessment**:
+   - Given the low TTC, the high relative closing speed, and the decreasing distance trend, this poses an **extreme risk for collision**, classifying it as **risk level 1**.
+
+Here is the final structured JSON output based on the risk analysis:
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30700.0",
+        "OverallRiskScore": 1
+    },
+    "HighRiskObstacle": {}
+}
+```
+This JSON illustrates that obstacle 30700 poses a significant collision risk due to rapidly closing distance, suggesting immediate intervention is required to prevent collision.

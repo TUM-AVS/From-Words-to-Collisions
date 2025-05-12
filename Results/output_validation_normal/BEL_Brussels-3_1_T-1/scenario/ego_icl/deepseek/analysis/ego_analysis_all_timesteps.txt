@@ -1,0 +1,73 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30243 (Front of ego car)
+- **Most Recent Timestep (0.9s):**
+  - **Adjusted Distance:** Longitudinal 24.93 m, Lateral 0.00 m
+  - **Relative Velocity:** Longitudinal 5.94 m/s (moving away), Lateral -0.22 m/s (slight leftward drift)
+  - **Motion Description:** Obstacle is moving away longitudinally. Exact lateral alignment or unknown case.
+  
+- **Trajectory Analysis:**
+  - Longitudinal distance consistently increases (22.17m → 24.93m over 0.9s)
+  - Lateral alignment remains near-zero with minimal drift (-0.22 m/s)
+  
+- **TTC Calculation:**
+  - Longitudinal: Not applicable (moving away)
+  - Lateral: 0.00m / 0.22m/s = 0.00s (but lateral velocity is very low and stable)
+  
+- **MDC Calculation:**
+  - Lateral MDC: 0.00m (but no convergence trajectory)
+  
+- **Risk Assessment:**
+  - No collision risk (moving away longitudinally, stable lateral alignment)
+  - **Overall Risk Score: 5 (No Risk)**
+
+---
+
+#### Obstacle 30245 (Front-left of ego car)
+- **Most Recent Timestep (0.9s):**
+  - **Adjusted Distance:** Longitudinal 9.76 m, Lateral 13.78 m
+  - **Relative Velocity:** Longitudinal -5.36 m/s (approaching), Lateral -6.06 m/s (approaching from left)
+  - **Motion Description:** Obstacle is driving toward the ego car both longitudinally and laterally from the left.
+
+- **Trajectory Analysis:**
+  - Longitudinal distance decreases rapidly (16.07m → 9.76m over 0.9s)
+  - Lateral distance decreases (18.74m → 13.78m over 0.9s)
+  - Both velocities are converging (negative relative velocities)
+
+- **TTC Calculation:**
+  - Longitudinal TTC: 9.76m / 5.36m/s = 1.82s
+  - Lateral TTC: 13.78m / 6.06m/s = 2.27s
+  - **Critical TTC:** 1.82s (longitudinal, more imminent)
+
+- **MDC Calculation:**
+  - Projected paths intersect diagonally. MDC is the minimum distance when paths cross.
+  - Current distances: 9.76m (longitudinal), 13.78m (lateral)
+  - Closing rapidly in both dimensions, but MDC remains above 1.0m for now.
+
+- **Risk Assessment:**
+  - TTC (1.82s) → Medium Risk (3)
+  - MDC (>1.0m) → Medium Risk (3)
+  - **Overall Risk Score: 3 (Medium Risk)**
+
+---
+
+### Collision Scenario Determination
+- **Obstacle 30243:** No Risk (Score 5)
+- **Obstacle 30245:** Medium Risk (Score 3)
+- **No obstacles** meet the criteria for Collision (0) or Extreme Risk (1).
+
+### Final JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacles have a risk score of 0 (collision) or 1 (extreme risk). Obstacle 30245 shows Medium Risk (Score 3) but is not imminent enough to qualify as a collision scenario."
+}
+```

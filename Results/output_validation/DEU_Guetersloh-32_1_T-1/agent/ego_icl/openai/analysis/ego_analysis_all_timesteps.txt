@@ -1,0 +1,126 @@
+## Obstacle Analysis:
+
+### Obstacle 33:
+- **Position:** Behind
+- **Adjusted Distances:** Longitudinal -0.60m, Lateral 0.00m
+- **Relative Velocity:** Longitudinal 1.92 m/s, Lateral 0.03 m/s
+- **Motion Description:** Exact lateral alignment; driving toward the ego car from behind.
+  
+#### Trajectory Analysis:
+- Over the timesteps, Obstacle 33 has been consistently approaching the ego vehicle.
+- Distance is decreasing with positive relative velocity towards the ego.
+
+#### Risk Calculations:
+- **TTC Longitudinal:** | -0.60 m / 1.92 m/s | = 0.31 seconds
+- **MDC:** Practically at 0m in longitudinal direction.
+
+#### Risk Assessment:
+- The obstacle is extremely close and closing in rapidly.
+- **Overall Risk Score:** 1 (Extreme Risk)
+
+### Obstacle 35:
+- **Position:** Behind
+- **Adjusted Distances:** Longitudinal -8.50m, Lateral 0.00m
+- **Relative Velocity:** Longitudinal 1.23 m/s, Lateral -0.10 m/s
+- **Motion Description:** Exact lateral alignment; driving toward the ego car from behind.
+
+#### Trajectory Analysis:
+- The obstacle is closing in but at a slower rate compared to Obstacle 33.
+
+#### Risk Calculations:
+- **TTC Longitudinal:** | -8.50 m / 1.23 m/s | = 6.91 seconds
+- **MDC:** 8.50m in the longitudinal direction.
+
+#### Risk Assessment:
+- Risk is negligible given the current trajectory and distances.
+- **Overall Risk Score:** 5 (Negligible Risk)
+
+### Obstacle 310:
+- **Position:** Behind
+- **Adjusted Distances:** Longitudinal -16.43m, Lateral 0.00m
+- **Relative Velocity:** Longitudinal -0.51 m/s, Lateral -0.07 m/s
+- **Motion Description:** Moving away longitudinally; exact lateral alignment.
+
+#### Trajectory Analysis:
+- This obstacle is not approaching; it's moving away.
+
+#### Risk Calculations:
+- **TTC Longitudinal:** Not applicable as it is moving away.
+- **MDC:** Already moving away, negligible risk of collision.
+
+#### Risk Assessment:
+- Paths are diverging hence negligible risk.
+- **Overall Risk Score:** 5 (Negligible Risk)
+
+### Obstacle 331:
+- **Position:** Rear-left
+- **Adjusted Distances:** Longitudinal -18.49m, Lateral 2.33m
+- **Relative Velocity:** Longitudinal -10.02 m/s, Lateral 0.29 m/s
+- **Motion Description:** Moving away both longitudinally and laterally.
+
+#### Trajectory Analysis:
+- The obstacle is moving away in both axes.
+
+#### Risk Calculations:
+- **TTC Longitudinal:** Not applicable as it is moving away.
+- **MDC:** Moving away, no collision risk.
+
+#### Risk Assessment:
+- Paths diverging. Negligible risk.
+- **Overall Risk Score:** 5 (Negligible Risk)
+
+### Obstacle 338:
+- **Position:** Front
+- **Adjusted Distances:** Longitudinal 10.22m, Lateral 0.00m
+- **Relative Velocity:** Longitudinal -10.71 m/s, Lateral 3.05 m/s
+- **Motion Description:** Driving toward ego car longitudinally with exact lateral alignment.
+
+#### Trajectory Analysis:
+- Approaching at a high velocity both longitudinally and laterally.
+
+#### Risk Calculations:
+- **TTC Longitudinal:** | 10.22 m / 10.71 m/s | = 0.95 seconds
+- **MDC:** Approaching trajectory indicates potential close proximity.
+
+#### Risk Assessment:
+- High risk due to fast closing longitudinal distance.
+- **Overall Risk Score:** 2 (High Risk)
+
+### Obstacle 348:
+- **Position:** Front-left
+- **Adjusted Distances:** Longitudinal 7.16m, Lateral 25.88m
+- **Relative Velocity:** Longitudinal -2.29 m/s, Lateral -0.00 m/s
+- **Motion Description:** No lateral relative motion.
+
+#### Trajectory Analysis:
+- Approaching slowly, but ample lateral space.
+
+#### Risk Calculations:
+- **TTC Longitudinal:** | 7.16 m / 2.29 m/s | = 3.13 seconds
+- **MDC:** Sufficient distance in both axes to react.
+
+#### Risk Assessment:
+- Low risk due to slower approach and ample lateral space.
+- **Overall Risk Score:** 4 (Low Risk)
+
+## Conclusion:
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "33",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "33",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "338",
+        "OverallRiskScore": "2"
+    }  
+}
+```
+
+- Obstacle 33 represents an imminent collision or extreme risk due to close proximity and closing velocity.
+- Obstacle 338 poses a high risk due to rapid approach, though sufficient time remains for evasive action.

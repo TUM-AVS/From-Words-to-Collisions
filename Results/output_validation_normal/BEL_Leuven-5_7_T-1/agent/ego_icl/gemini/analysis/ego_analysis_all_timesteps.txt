@@ -1,0 +1,35 @@
+* **Obstacle 30295 (Behind):** This obstacle is directly behind the ego vehicle, laterally aligned (0.00m lateral distance) and approximately 12.45m behind longitudinally. Across the timesteps, the longitudinal distance is decreasing, and the relative longitudinal velocity is positive (4.06 m/s), meaning the obstacle is approaching the ego vehicle. While the lateral alignment raises some concern, the primary risk is longitudinal.
+    * TTC = 12.45m / 4.06m/s ≈ 3.07s (Medium Risk)
+    * MDC ≈ 12.45m (Low Risk using longitudinal as primary metric since lateral is aligned).
+    * Overall Risk: Medium (3) - based on TTC.
+
+* **Obstacle 30298 (Front-Left):** Located 7.71m in front and 11.15m to the left of the ego vehicle.  The longitudinal distance is decreasing while the lateral distance is increasing.  The obstacle is approaching longitudinally (-5.47m/s) and moving left (6.69m/s) relative to the ego. 
+    * Longitudinal TTC = 7.71m / 5.47m/s ≈ 1.41s (Medium Risk)
+    * Lateral TTC is not applicable because obstacle moves away laterally to the left.
+    * MDC ≈ 13.54m using distance formula (Low Risk).
+    * Overall Risk: Medium (3) - based on Longitudinal TTC.
+
+* **Obstacle 30301 (Front-Right):** This obstacle is 7.43m in front and 1.90m to the right of the ego. The longitudinal distance is decreasing, and the lateral distance is also decreasing, indicating a closing trajectory.  The obstacle is approaching longitudinally (-3.61m/s) and moving right (7.56m/s) relative to the ego.
+    * Longitudinal TTC = 7.43m / 3.61m/s ≈ 2.06s (Medium Risk)
+    * Lateral TTC = 1.90 / 7.56 ≈ 0.25s (Extreme Risk)
+    * MDC ≈ 7.65m (Low Risk)
+    * Overall Risk: Extreme (1) - based on Lateral TTC.
+
+* **Obstacle 30304 (Front-Right):**  This obstacle is 4.64m in front and 19.79m to the right. Both distances are decreasing across timesteps. The obstacle is approaching longitudinally (-3.24m/s) and moving right (8.73m/s) relative to the ego.
+    * Longitudinal TTC = 4.64m / 3.24m/s ≈ 1.43s (Medium Risk)
+    * Lateral TTC = 19.79m / 8.73m/s ≈ 2.27s (Medium Risk)
+    * MDC ≈ 20.28m (Low Risk)
+    * Overall Risk: Medium (3) - based on Longitudinal TTC.
+
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30301",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {}
+}
+```

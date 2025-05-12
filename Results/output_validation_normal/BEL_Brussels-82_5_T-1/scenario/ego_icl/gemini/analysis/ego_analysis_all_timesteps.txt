@@ -1,0 +1,40 @@
+* **Obstacle 30231 (Front-Right):**
+
+    * **Trajectory:** This obstacle starts in front of the ego vehicle and moves slightly to the right and closer over the observed timesteps.  The longitudinal distance decreases from 5.9m to 4.86m, while the lateral distance increases from 0.0m to -3.12m (moving to the right relative to the ego vehicle).
+    * **TTC:** Longitudinal TTC at 0.9 seconds is 4.86m / 2.79 m/s = 1.74s. Lateral TTC is not relevant for collision in this case, as the obstacle is moving away laterally.
+    * **MDC:** Given the obstacle is moving to the front-right, MDC is primarily determined by longitudinal distance (4.86m).
+    * **Risk:** Medium Risk (3) due to the MDC being greater than 3m and TTC less than 3s.
+
+* **Obstacle 30233 (Behind):**
+
+    * **Trajectory:** This obstacle remains behind the ego vehicle and moves further away over the timesteps.  The longitudinal distance increases from -5.57m to -6.61m, and lateral distance remains at 0.0m.
+    * **TTC:** Not applicable as the obstacle is moving away longitudinally.
+    * **MDC:**  Longitudinal distance is -6.61m.
+    * **Risk:** No Risk (5) due to increasing distance and diverging path.
+
+* **Obstacle 30235 (Behind):**
+
+    * **Trajectory:**  This obstacle initially approaches the ego vehicle from behind, then begins to fall further behind after 0.3 seconds. The longitudinal distance increases from -19.08m to -19.25m. The lateral distance is consistently 0.0m.
+    * **TTC:** Not applicable as the obstacle is moving away longitudinally.
+    * **MDC:** Longitudinal distance is -19.25m
+    * **Risk:** No Risk (5) due to increasing distance and diverging path.
+
+
+* **Collision Scenario Determination:**  No obstacle has a risk score of 0 or 1. Therefore, this is NOT a collision scenario.
+
+
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 (collision) or 1 (extreme risk)."
+}
+```

@@ -1,0 +1,28 @@
+**Brief Analysis:**
+
+**Obstacle 3301:** 
+- Obstacle 3301 is in the same lanelet as the Ego vehicle and has been consistently closing the distance between itself and the Ego vehicle over the observed timesteps. At the last timestep (3.9 seconds), the positions of Ego (278.44, 4.2902) and Obstacle 3301 (273.6529, 5.7916) are close.
+- Both vehicles have decreasing velocities, but considering Obstacle 3301 is slowing down at a slower rate and has a lower velocity, the TTC is relatively manageable but concerning as both entities are on converging paths.
+- Also, the MDC (Minimum Distance to Collision) appears tight due to similar orientations and lane presence.
+
+**Obstacle 3298:**
+- Obstacle 3298 remains stationary across all timesteps. Its consistent position (263.7075, 8.91) and zero velocity result in no immediate collision risk with the Ego vehicle. Therefore, its risk level remains low despite being in the same lanelet as the Ego.
+
+**Obstacle 3300:**
+- Obstacle 3300 stays far ahead in a separate lanelet (434.0), with zero velocity and doesn't pose any close collision threat. Thus, its risk level is negligible.
+
+**JSON Output:**
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3301",
+        "OverallRiskScore": 1
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "3298",
+        "OverallRiskScore": 2
+    }
+}
+```

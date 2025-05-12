@@ -1,0 +1,20 @@
+Obstacle 30618: This obstacle is consistently moving away from the ego vehicle both longitudinally and laterally across all timesteps. At the last timestep (0.9s), it is 18.66m behind and 1.90m to the left.  TTC is not applicable as the obstacle is moving away. MDC is large. Risk: Negligible (5).
+
+Obstacle 30619: This obstacle is approaching the ego vehicle longitudinally while maintaining a lateral distance of approximately 1.88m to the left. At 0.9 seconds, the longitudinal distance is essentially zero, indicating it's alongside the ego vehicle. While the longitudinal distance is minimal, the lateral distance is above the collision threshold.  Given the consistent lateral separation and slightly moving away laterally, a collision is unlikely.  However, the close proximity warrants attention. Based on the 1.88m lateral distance, the risk is Medium (3).
+
+Obstacle 30620: This obstacle is in front and slightly to the right of the ego vehicle. It maintains a safe lateral distance while approaching longitudinally. At 0.9 seconds, the longitudinal distance is 12.59m and the lateral distance is -4.28m. TTC calculation is tricky here because, while raw longitudinal velocity indicates approach, the obstacle is deviating laterally so likely the paths will not intersect unless the ego car takes no evasive maneuvers. Assuming a head-on approach for a worst-case scenario, TTC would be 12.59m / 4.58m/s ≈ 2.75s, resulting in a Medium Risk (3). MDC is greater than 3m, confirming a Medium (3) risk.
+
+Obstacle 30621: This obstacle is approaching diagonally from the front-left. At 0.9 seconds, the longitudinal distance is 12.41m and lateral distance is 5.91m.  Both are decreasing. Approximating TTC using the smaller longitudinal distance (since it's closing faster), TTC ≈ 12.41m / 8.5m/s ≈ 1.46s (Medium risk).  MDC is greater than 3, further suggesting a Medium risk (3).
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "HighRiskObstacle": {},
+  "MediumRiskObstacle": {
+    "ObstacleID": "30619",
+    "OverallRiskScore": "3"
+  }
+}
+```

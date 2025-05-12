@@ -1,0 +1,52 @@
+Obstacle 30519 (Front-Right):
+- Trajectory: This obstacle has been consistently moving towards the ego vehicle longitudinally while moving away laterally to the right across all timesteps. 
+- At t=0.9s:
+    - Longitudinal distance: 7.45m
+    - Lateral distance: -9.45m (moving away)
+    - Longitudinal relative velocity: -3.78 m/s (approaching)
+    - Lateral relative velocity: -6.07 m/s (moving away)
+- TTC Longitudinal = 7.45m / 3.78m/s = 1.97s 
+- Since lateral distance is increasing, we primarily consider longitudinal risk.
+- Risk Assessment: Medium Risk (3) due to TTC < 3.0s
+
+Obstacle 30521 (Front-Left):
+- Trajectory:  This obstacle has been consistently moving towards the ego vehicle both longitudinally and laterally (from the left) across all timesteps.
+- At t=0.9s:
+    - Longitudinal distance: 7.82m
+    - Lateral distance: 15.68m (slightly decreasing but still large)
+    - Longitudinal relative velocity: -4.43 m/s (approaching)
+    - Lateral relative velocity: -5.73 m/s (approaching)
+- TTC Longitudinal = 7.82m / 4.43m/s = 1.77s
+- TTC Lateral = 15.68m / 5.73m/s = 2.74s
+- Risk Assessment: Medium Risk (3) due to TTC < 3.0s. Although lateral motion is towards the ego vehicle, the distance is substantial, so the primary risk is longitudinal.
+
+Obstacle 30524 (Behind):
+- Trajectory: Initially, this obstacle was moving away from the ego vehicle, but its longitudinal velocity has become positive and it has started approaching from behind, maintaining perfect lateral alignment. This indicates a potential lane change.
+- At t=0.9s:
+    - Longitudinal distance: -13.76m (behind, but approaching)
+    - Lateral distance: 0.00m (exact alignment—critical!)
+    - Longitudinal relative velocity: 3.13 m/s (approaching quickly from behind)
+    - Lateral relative velocity: -0.51 m/s
+- TTC Longitudinal: 13.76/3.13 = 4.39s (decreasing rapidly over timesteps)
+- With perfect lateral alignment and a fast-approaching longitudinal velocity, this obstacle needs careful monitoring even if TTC appears low risk initially.  The persistent lateral alignment despite some lateral velocity and near-zero lateral distance warrants a more conservative risk assessment.
+- Risk Assessment: Medium Risk (3) based on the combination of closing longitudinal distance, perfect lateral alignment, and trajectory suggesting a lane change maneuver.
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "HighRiskObstacle": {},
+  "MediumRiskObstacle": {
+    "30519": {
+      "OverallRiskScore": "3"
+    },
+    "30521": {
+      "OverallRiskScore": "3"
+    },
+    "30524": {
+      "OverallRiskScore": "3"
+    }
+  }
+}
+```

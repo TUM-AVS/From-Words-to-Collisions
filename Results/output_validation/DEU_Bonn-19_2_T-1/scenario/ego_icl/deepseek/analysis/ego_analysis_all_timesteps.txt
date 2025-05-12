@@ -1,0 +1,87 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 12.1 seconds)
+
+---
+
+#### **Obstacle 30202**  
+- **Position**: Collision (longitudinal 0.00m, lateral 0.00m)  
+- **Relative Velocity**: Longitudinal 5.24 m/s (approaching), Lateral 0.48 m/s (approaching)  
+- **Motion**: Exact alignment in both dimensions with closing velocities.  
+- **Trajectory Analysis**:  
+  - From 11.2s to 12.1s, longitudinal distance decreased from -3.91m to 0.00m at ~4.5 m/s closing speed.  
+  - Lateral distance remained 0.00m (same lane) but lateral velocity indicates potential side-swipe.  
+- **TTC**:  
+  - Longitudinal: 0.00m / 5.24 m/s = **0.00s** (collision occurring).  
+  - Lateral: 0.00m / 0.48 m/s = **0.00s** (collision occurring).  
+- **MDC**: 0.00m (actual collision).  
+- **Risk Score**: **0 (Collision)**.  
+
+---
+
+#### **Obstacle 30203**  
+- **Position**: Behind (longitudinal -12.84m, lateral 0.00m)  
+- **Relative Velocity**: Longitudinal 2.58 m/s (approaching), Lateral 4.38 m/s (approaching).  
+- **Motion**: Same-lane alignment (lateral 0.00m) but rapidly approaching laterally.  
+- **Trajectory Analysis**:  
+  - Lateral velocity increased from 0.80 m/s (11.2s) to 4.38 m/s (12.1s), suggesting aggressive lane change.  
+- **TTC**:  
+  - Longitudinal: 12.84m / 2.58 m/s = **4.98s** (Low Risk).  
+  - Lateral: 0.00m / 4.38 m/s = **0.00s** (collision risk if lateral alignment holds).  
+- **MDC**: 0.00m (same lane).  
+- **Risk Score**: **1 (Extreme Risk)** due to lateral collision potential.  
+
+---
+
+#### **Obstacle 30204**  
+- **Position**: Rear-right (longitudinal -23.89m, lateral -3.13m)  
+- **Relative Velocity**: Longitudinal 2.32 m/s (approaching), Lateral 1.35 m/s (approaching).  
+- **Motion**: Diagonal approach from rear-right.  
+- **TTC**:  
+  - Longitudinal: 23.89m / 2.32 m/s = **10.3s** (No Risk).  
+  - Lateral: 3.13m / 1.35 m/s = **2.32s** (Medium Risk).  
+- **MDC**: 3.13m (Low Risk).  
+- **Risk Score**: **3 (Medium Risk)**.  
+
+---
+
+#### **Obstacle 30206**  
+- **Position**: Rear-right (longitudinal -5.77m, lateral -17.94m)  
+- **Relative Velocity**: Longitudinal -3.64 m/s (moving away), Lateral 3.29 m/s (approaching).  
+- **Motion**: Moving away longitudinally but closing laterally.  
+- **TTC**:  
+  - Lateral: 17.94m / 3.29 m/s = **5.45s** (No Risk).  
+- **MDC**: 17.94m (No Risk).  
+- **Risk Score**: **5 (No Risk)**.  
+
+---
+
+#### **Obstacle 30209**  
+- **Position**: Rear-right (longitudinal -3.34m, lateral -26.98m)  
+- **Relative Velocity**: Longitudinal -3.34 m/s (moving away), Lateral 2.17 m/s (approaching).  
+- **Motion**: Moving away in both dimensions.  
+- **TTC**: N/A (diverging paths).  
+- **MDC**: 26.98m (No Risk).  
+- **Risk Score**: **5 (No Risk)**.  
+
+---
+
+### **Collision Scenario Determination**  
+- **Obstacle 30202** is in active collision (score 0).  
+- **Obstacle 30203** poses extreme risk (score 1) due to lateral alignment and high closing speed.  
+
+---
+
+### **JSON Summary**  
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30202",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30203",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30202 has collided with the ego vehicle (0m distance in both dimensions). Obstacle 30203 is at extreme risk due to same-lane alignment and rapid lateral approach."
+}
+```

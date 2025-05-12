@@ -1,0 +1,56 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 20082
+- **Direction**: Front
+- **Adjusted Distances**: Longitudinal 17.70 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 0.36 m/s, Lateral -0.13 m/s
+- **Trajectory**: Moving away
+- **Analysis**:
+  - **Trajectory**: Observed to be consistently moving away from the ego vehicle, with steadily increasing longitudinal distance.
+  - **TTC**: Not applicable as obstacle is moving away.
+  - **MDC**: Given the increasing longitudinal distance, the risk of collision is minimal.
+
+**Final Risk**: No Risk (5)
+
+#### Obstacle 20084
+- **Direction**: Behind
+- **Adjusted Distances**: Longitudinal -0.84 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 5.24 m/s, Lateral 0.19 m/s
+- **Trajectory**: Driving toward ego vehicle
+- **Analysis**:
+  - **Trajectory**: The longitudinal distance is decreasing, indicating the obstacle is swiftly approaching the ego vehicle.
+  - **TTC Calculation**: TTC = |-0.84 m / 5.24 m/s| ≈ 0.16 seconds
+  - **MDC**: With decreasing distance and positive velocity in longitudinal direction, MDC is likely very small.
+  - **Risk**: This scenario represents a high collision risk given the very low TTC.
+
+**Final Risk**: Extreme Risk (1)
+
+#### Obstacle 20086
+- **Direction**: Rear-right
+- **Adjusted Distances**: Longitudinal -18.32 m, Lateral -1.26 m
+- **Relative Velocity**: Longitudinal 7.29 m/s, Lateral 2.09 m/s
+- **Trajectory**: Driving toward ego vehicle laterally from the right
+- **Analysis**:
+  - **Trajectory**: Longitudinal and lateral distances consistently decreasing.
+  - **TTC Calculation Longitudinal**: TTC = |-18.32 m / 7.29 m/s| ≈ 2.51 seconds
+  - **TTC Calculation Lateral**: TTC = |-1.26 / 2.09 m/s| ≈ 0.60 seconds
+  - **MDC**: Both lateral and longitudinal distances are becoming smaller, but lateral distance is closing faster.
+  - **Risk**: The situation demands attention mainly due to the lateral closing, giving a medium risk overall.
+
+**Final Risk**: Medium Risk (3)
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": null,
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20084",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": null
+}
+```
+
+- **Obstacle 20084** is marked as an Extreme Risk due to a very low TTC, indicating a high likelihood of collision from behind.
+- **Obstacle 20082** shows no significant risk as it is moving away from the vehicle.
+- **Obstacle 20086** presents a Medium Risk mainly due to the lateral closing trajectory.

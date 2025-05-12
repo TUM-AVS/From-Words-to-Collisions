@@ -1,0 +1,23 @@
+At t=0.9s, the ego vehicle is at (710.1132, -2211.9172) with a velocity of 4.0509 m/s and decelerating at -1.2189 m/s².  We will analyze the risk posed by each obstacle at this timestep.
+
+**Obstacle 30680:** Located at (704.1243, -2184.3533) with velocity 2.0218 m/s and acceleration -0.6633 m/s². This obstacle is significantly behind the ego vehicle and in a different lanelet.  The Y separation between the ego and obstacle is -2184.3533 - (-2211.9172) = 27.5639 m.  This is a safe distance given their longitudinal velocities and accelerations, so we need not calculate TTC in this case. The lateral distance is approximately 710.1132 - 704.1243 = 5.989 m. Thus, there is no risk from obstacle 30680 at time t=0.9s.
+
+**Obstacle 30686:** Located at (704.9803, -2206.6921) with velocity 1.5808 m/s and acceleration 2.7677 m/s². The Y position shows that the obstacle is slightly ahead of the ego vehicle.  The Y separation between the ego and obstacle is  -2206.6921 - (-2211.9172) = 5.2251 meters ahead. The lateral distance is approximately 710.1132 - 704.9803 = 5.1329 meters. The obstacle is getting closer to the ego vehicle in Y direction and also accelerating. This could present an unsafe situation within the next few timesteps if the ego vehicle continues to decelerate. Obstacle 30686 presents a medium risk to the ego.
+
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": {},
+  "HighRiskObstacle": {},
+    "MediumRiskObstacle": {
+        "ObstacleID": "30686",
+        "OverallRiskScore": 3
+    },
+        "LowRiskObstacle": {
+        "ObstacleID": "30680",
+        "OverallRiskScore": 4
+    }
+
+}
+```

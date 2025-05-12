@@ -1,0 +1,56 @@
+### Safety analysis for the most recent timestep (0.9 seconds):
+
+### Obstacle Analysis:
+
+1. **Obstacle ID: 30214.0**
+   - **Distance Risk reason**: Static obstacle (velocity = 0), located at (449.5494, 370.9002). Ego is at (438.306, 376.8392). Distance is ~11.5m and increasing as ego moves away. No immediate collision risk.
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: Static obstacle, no relative velocity.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5
+
+2. **Obstacle ID: 30215.0**
+   - **Distance Risk reason**: Located at (434.9286, 391.3616), moving away from ego (y-coordinate increasing). Distance is ~14.5m and increasing.
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: Velocity (7.1521) is higher than ego's (5.355), moving away.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5
+
+3. **Obstacle ID: 30217.0**
+   - **Distance Risk reason**: Located at (454.3314, 363.7792), moving slowly (velocity = 1.0453) away from ego. Distance is ~16m and increasing.
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: Low velocity and decelerating (-0.866), moving away.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5
+
+4. **Obstacle ID: 30218.0**
+   - **Distance Risk reason**: Located at (456.4963, 389.2091), moving away from ego at high speed (13.0327). Distance is ~18m and increasing rapidly.
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: High velocity and accelerating (2.626), moving away.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5
+
+5. **Obstacle ID: 30219.0**
+   - **Distance Risk reason**: Located at (428.6204, 364.3306), moving towards ego but at a decreasing speed (10.5751, decelerating at -4.2888). Distance is ~13m and closing slowly.
+   - **Distance safety score**: 4 (Low Risk)
+   - **Time Risk reason**: Decelerating rapidly, will likely stop before reaching ego.
+   - **Time safety score**: 4 (Low Risk)
+   - **Overall Risk score**: 4
+
+### Chain of Thought Scenario Analysis:
+1. Ego is decelerating (velocity decreasing from 7.2228 to 5.355 over 0.9s).
+2. All obstacles are either static or moving away from ego, except 30219.0 which is closing but decelerating rapidly.
+3. No obstacles are in immediate collision path or same lanelet as ego (lanelet 872.0).
+4. Closest obstacle (30219.0) is at safe distance and decelerating.
+
+### Summary in JSON Format:
+```json
+{
+    "CollisionObstacles": null,
+    "ExtremeRiskObstacle": null,
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "All obstacles are either static, moving away, or decelerating rapidly with safe distances maintained. No immediate collision risk."
+    }
+}
+```

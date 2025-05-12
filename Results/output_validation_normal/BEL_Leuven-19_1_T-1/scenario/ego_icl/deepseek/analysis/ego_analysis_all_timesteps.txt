@@ -1,0 +1,73 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 30166 (Behind)**
+- **Adjusted Distance**: Longitudinal -20.11 m, Lateral 0.00 m  
+- **Relative Velocity**: Longitudinal -14.20 m/s (moving away), Lateral -1.09 m/s (moving away)  
+- **Motion**: Moving away longitudinally and laterally  
+- **TTC**: Not applicable (diverging paths)  
+- **MDC**: Current lateral distance = 0.00 m (aligned but moving away)  
+- **Risk**: 5 (No Risk)  
+
+#### **Obstacle 30167 (Rear-left)**
+- **Adjusted Distance**: Longitudinal -3.33 m, Lateral 2.11 m  
+- **Relative Velocity**: Longitudinal -12.90 m/s (moving away), Lateral 0.35 m/s (moving away)  
+- **Motion**: Moving away longitudinally and laterally  
+- **TTC**: Not applicable (diverging paths)  
+- **MDC**: Current lateral distance = 2.11 m (stable/increasing)  
+- **Risk**: 5 (No Risk)  
+
+#### **Obstacle 30169 (Behind)**
+- **Adjusted Distance**: Longitudinal -5.16 m, Lateral 0.00 m  
+- **Relative Velocity**: Longitudinal 1.25 m/s (approaching), Lateral 0.00 m/s (aligned)  
+- **Motion**: Approaching from behind, no lateral movement  
+- **TTC**: Longitudinal = 5.16 / 1.25 = 4.13 s  
+- **MDC**: Lateral distance = 0.00 m (but not closing)  
+- **Risk**: 4 (Low Risk)  
+
+#### **Obstacle 30170 (Front-left)**
+- **Adjusted Distance**: Longitudinal 4.28 m, Lateral 1.47 m  
+- **Relative Velocity**: Longitudinal -10.66 m/s (approaching), Lateral 2.34 m/s (moving away)  
+- **Motion**: Approaching longitudinally, moving away laterally  
+- **TTC**: Longitudinal = 4.28 / 10.66 = 0.40 s (Extreme Risk)  
+- **MDC**: Lateral distance increasing (1.47 m)  
+- **Overall Risk**: 1 (Extreme Risk due to TTC < 0.5s longitudinally)  
+
+#### **Obstacle 30171 (Rear-right)**
+- **Adjusted Distance**: Longitudinal -24.41 m, Lateral -0.78 m  
+- **Relative Velocity**: Longitudinal 6.65 m/s (approaching), Lateral -0.71 m/s (moving away)  
+- **Motion**: Approaching from behind, moving away laterally  
+- **TTC**: Longitudinal = 24.41 / 6.65 = 3.67 s  
+- **MDC**: Lateral distance increasing (0.78 m)  
+- **Risk**: 4 (Low Risk)  
+
+#### **Obstacle 30172 (Front-right)**
+- **Adjusted Distance**: Longitudinal 14.52 m, Lateral -6.63 m  
+- **Relative Velocity**: Longitudinal -5.74 m/s (approaching), Lateral 8.33 m/s (approaching)  
+- **Motion**: Approaching diagonally  
+- **TTC**: Longitudinal = 14.52 / 5.74 = 2.53 s, Lateral = 6.63 / 8.33 = 0.80 s  
+- **MDC**: Minimum projected distance when paths cross (~2.0 m)  
+- **Risk**: 3 (Medium Risk)  
+
+---
+
+### **Collision Scenario Determination**
+- **Obstacle 30170** has an **Extreme Risk (1)** due to very low TTC (0.40 s) longitudinally, indicating an imminent collision if trajectories are maintained.  
+- No obstacles are currently in collision (risk 0), but the extreme risk qualifies this as a collision scenario.  
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30170",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30170 has Extreme Risk (TTC = 0.40s longitudinally), indicating imminent collision if no intervention occurs."
+}
+```

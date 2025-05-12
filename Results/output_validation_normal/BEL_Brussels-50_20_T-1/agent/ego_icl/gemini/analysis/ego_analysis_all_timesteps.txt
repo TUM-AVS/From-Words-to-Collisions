@@ -1,0 +1,37 @@
+At t=0.9s:
+
+* **Obstacle 30212:** Front-Left, longitudinal 21.09m, lateral 2.13m. Moving away longitudinally (2.90 m/s) and slightly away laterally (0.04 m/s).
+
+    * Trajectory: Consistently front-left, moving further away longitudinally while lateral distance has slightly increased in the last timestep.
+    * TTC: Not applicable for longitudinal as it is moving away from the ego vehicle. Lateral TTC is large due to the low relative velocity.
+    * MDC: > 5m.
+    * Risk: 5 (Negligible Risk)
+
+* **Obstacle 30213:** Front-Left, longitudinal 7.12m, lateral 9.37m. Approaching longitudinally (-3.53 m/s) and laterally (-7.89 m/s).
+
+    * Trajectory: Consistently front-left and approaching the ego vehicle in both directions. Getting closer significantly in all timesteps.
+    * TTC: Longitudinal TTC ≈ 2.0s. Lateral TTC ≈ 1.2s.
+    * MDC: Based on the distances and closing velocities, the MDC is likely around 7m. Further calculation would involve the actual trajectory and assuming constant velocity and acceleration which may not hold true in a dynamic environment.
+    * Risk: 3 (Medium Risk) - Prioritizing the lower TTC value of 1.2s.
+
+* **Obstacle 30215:** Front-Left, longitudinal 5.05m, lateral 25.16m. Approaching longitudinally (-3.83 m/s) and laterally (-8.48 m/s).
+
+    * Trajectory: Newly appeared, and immediately close longitudinally.  Lateral distance is large but closing.
+    * TTC: Longitudinal TTC ≈ 1.3s. Lateral TTC ≈ 3.0s.
+    * MDC: Likely greater than 5m considering the large lateral distance and moderate longitudinal approach. Similar to 30213, precise calculation is not possible without actual trajectory information and assuming constant velocity and acceleration over the time horizon.
+    * Risk: 3 (Medium Risk) - Prioritizing the lower TTC value of 1.3s.
+
+* **Obstacle 30217:** Behind, longitudinal -14.82m, lateral 0.00m. Approaching longitudinally (3.50 m/s) and practically no lateral movement (0.00 m/s).
+
+    * Trajectory: Consistently behind and approaching, though exact lateral alignment is maintained.
+    * TTC: Longitudinal TTC ≈ 4.2s. Lateral TTC is not applicable.
+    * MDC: > 5m. The risk comes mainly from the longitudinal approach.
+    * Risk: 4 (Low Risk)
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": null
+}
+```

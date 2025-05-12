@@ -1,0 +1,73 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 6.6s)
+
+#### **Obstacle 3655 (Front-right)**
+- **Adjusted Distance**: Longitudinal 0.17m, Lateral -1.88m  
+- **Relative Velocity**: Longitudinal -0.26 m/s (approaching), Lateral 0.00 m/s (no motion)  
+- **Trajectory**:  
+  - Longitudinal distance decreasing (from 0.31m at 6.4s to 0.17m at 6.6s).  
+  - Lateral distance stable (~1.88m).  
+- **TTC (Longitudinal)**: 0.17m / 0.26 m/s = **0.65s** (High Risk).  
+- **MDC**: Lateral distance (1.88m) is larger than longitudinal (0.17m). Focus on longitudinal (smaller distance).  
+  - **MDC = 0.17m** (Extreme Risk).  
+- **Risk**:  
+  - TTC: High Risk (2)  
+  - MDC: Extreme Risk (1)  
+  - **Overall Risk**: **1 (Extreme Risk)**  
+
+#### **Obstacle 3658 (Front, exact lateral alignment)**
+- **Adjusted Distance**: Longitudinal 0.24m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -0.26 m/s (approaching), Lateral 0.00 m/s  
+- **Trajectory**:  
+  - Longitudinal distance decreasing (from 0.31m at 6.4s to 0.24m at 6.6s).  
+  - Lateral alignment maintained (0.00m).  
+- **TTC (Longitudinal)**: 0.24m / 0.26 m/s = **0.92s** (High Risk).  
+- **MDC**: Lateral alignment (0.00m) + longitudinal closing → **MDC = 0.24m** (Extreme Risk).  
+- **Risk**:  
+  - TTC: High Risk (2)  
+  - MDC: Extreme Risk (1)  
+  - **Overall Risk**: **1 (Extreme Risk)**  
+
+#### **Obstacle 3659 (Front-left)**
+- **Adjusted Distance**: Longitudinal 0.32m, Lateral 1.90m  
+- **Relative Velocity**: Longitudinal -0.26 m/s (approaching), Lateral 0.00 m/s  
+- **Trajectory**:  
+  - Longitudinal distance decreasing (from 0.39m at 6.4s to 0.32m at 6.6s).  
+  - Lateral distance stable (~1.90m).  
+- **TTC (Longitudinal)**: 0.32m / 0.26 m/s = **1.23s** (Medium Risk).  
+- **MDC**: Lateral distance (1.90m) > longitudinal (0.32m). Focus on longitudinal.  
+  - **MDC = 0.32m** (Extreme Risk).  
+- **Risk**:  
+  - TTC: Medium Risk (3)  
+  - MDC: Extreme Risk (1)  
+  - **Overall Risk**: **1 (Extreme Risk)**  
+
+#### **Other Obstacles (3656, 3657, 3660, 3661)**
+- All have longitudinal distances > 0.84m and lateral distances > 5.38m.  
+- Relative velocities are low (~0.26 m/s).  
+- **TTC and MDC** are well above thresholds for risk (all **No Risk (5)**).  
+
+---
+
+### Collision Scenario Determination
+- **Obstacles 3655, 3658, and 3659** are at **Extreme Risk (1)** due to:  
+  - Very small longitudinal distances (< 0.5m) with closing velocities.  
+  - For **3658**, exact lateral alignment (0.00m) exacerbates risk.  
+- **No actual collision (Risk 0)** observed yet, but imminent without intervention.  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3655, 3658, 3659",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Multiple obstacles (3655, 3658, 3659) are at Extreme Risk (1) due to longitudinal distances < 0.5m with closing velocities. Obstacle 3658 is laterally aligned (0.00m), making collision imminent without intervention."
+}
+```

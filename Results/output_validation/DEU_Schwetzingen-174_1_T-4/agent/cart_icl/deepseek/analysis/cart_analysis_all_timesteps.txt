@@ -1,0 +1,28 @@
+### Analysis:
+
+1. **Obstacle 20111.0**:  
+   - **Position**: (-43.535, -99.9021) at 3.4s, moving at 11.41 m/s with acceleration 0.44 m/s².  
+   - **Ego Position**: (-47.1361, -95.6347) at 3.4s, moving at 4.5082 m/s with deceleration -0.0823 m/s².  
+   - **Relative Motion**: The obstacle is ahead of the ego vehicle and moving faster (closing in).  
+   - **TTC**: The longitudinal distance is ~6.5m (estimated from positions), and the relative velocity is ~6.9 m/s (11.41 - 4.5082). TTC ≈ 6.5 / 6.9 ≈ 0.94s.  
+   - **Lateral Distance**: ~4.3m (estimated from y-coordinates).  
+   - **Risk**: High closing speed and low TTC, but lateral distance is significant. **Risk Score: 2 (High Risk)**.  
+
+2. **Obstacle 20112.0**:  
+   - **Position**: (-28.2112, -114.4926) at 3.4s, moving at 10.2271 m/s with acceleration 0.6796 m/s².  
+   - **Ego Position**: (-47.1361, -95.6347) at 3.4s.  
+   - **Relative Motion**: The obstacle is behind and to the side of the ego vehicle.  
+   - **TTC**: Not directly converging (lateral separation is large).  
+   - **Risk**: No immediate danger. **Risk Score: 4 (Low Risk)**.  
+
+### JSON Output:
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": {
+        "ObstacleID": "20111.0",
+        "OverallRiskScore": 2
+    }
+}
+```

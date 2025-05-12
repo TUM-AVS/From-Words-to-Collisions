@@ -1,0 +1,105 @@
+### Analysis of Obstacle Scenarios at Most Recent Timestep (0.9 seconds):
+
+#### Obstacle 30257 (Front-left)
+- **Adjusted Longitudinal Distance**: 12.10 m
+- **Adjusted Lateral Distance**: 17.54 m
+- **Relative Velocity**: Longitudinal = -5.52 m/s (approaching), Lateral = 9.22 m/s (moving away)
+- **Motion**: Obstacle is driving toward the ego car longitudinally and moving away laterally.
+
+**TTC Calculation**:
+- **Longitudinal TTC**: 12.10 m / 5.52 m/s = 2.19 seconds
+- **Lateral direction does not converge** (moving away).
+
+**MDC Calculation**:
+- With the lateral component moving away, the main focus is longitudinal: 12.10 m.
+
+**Risk Assessment**:
+- Longitudinal TTC < 3 seconds but > 1 second → Medium Risk (3)
+- Overall Risk Score: 3
+
+#### Obstacle 30258 (Front-left)
+- **Adjusted Longitudinal Distance**: 10.80 m
+- **Adjusted Lateral Distance**: 3.71 m
+- **Relative Velocity**: Longitudinal = 0.99 m/s (moving away), Lateral = 5.50 m/s (moving away)
+- **Motion**: Obstacle is moving away in both directions.
+
+**TTC Calculation**:
+- Longitudinal TTC: Obstacle moving away, thus no approaching TTC.
+- Lateral TTC: Obst has positives also means MOVING AWAY, No Collision Risk.
+
+**MDC Calculation**:
+- Since moving away in longitudinal direction, focus on lateral distance but accelerating away.
+
+**Risk Assessment**:
+- Lateral distance > 3.0m and moving away → No Risk (5)
+- Overall Risk Score: 5
+
+#### Obstacle 30259 (Front-right)
+- **Adjusted Longitudinal Distance**: 25.38 m
+- **Adjusted Lateral Distance**: -0.24 m
+- **Relative Velocity**: Longitudinal = 3.16 m/s (moving away), Lateral = -1.43 m/s (moving away)
+- **Motion**: Obstacle is moving away in both dimensions.
+
+**TTC Calculation**:
+- Longitudinal TTC: Moving away, thus no approach.
+- Lateral: Also moving away.
+
+**MDC Calculation**:
+- Safe distance in both dimensions as it's increasing.
+
+**Risk Assessment**:
+- Very Low Risk, paths diverge → No Risk (5)
+- Overall Risk Score: 5
+
+#### Obstacle 30260 (Front)
+- **Adjusted Longitudinal Distance**: 10.15 m
+- **Adjusted Lateral Distance**: 0.00 m
+- **Relative Velocity**: Longitudinal = 3.11 m/s (moving away)
+- **Motion**: Obstacle is moving away longitudinally with lateral alignment.
+
+**TTC Calculation**:
+- Velocity indicates movement away, no collision risk.
+
+**MDC Calculation**:
+- Lateral alignment but longitudinal distance increasing.
+
+**Risk Assessment**:
+- Longitudinal distance and moving away → No Risk (5)
+- Overall Risk Score: 5
+
+#### Obstacle 30261 (Left)
+- **Adjusted Longitudinal Distance**: 0.00 m
+- **Adjusted Lateral Distance**: 1.89 m
+- **Relative Velocity**: Longitudinal = -0.63 m/s, Lateral = 0.00 m/s
+- **Motion**: Moving almost parallel, slight lateral alignment.
+
+**TTC Calculation**:
+- Parallel motion, no collision path detected.
+
+**MDC Calculation**:
+- Longitudinal movement not towards ego, no change laterally.
+
+**Risk Assessment**:
+- Paths are not converging → No Risk (5)
+- Overall Risk Score: 5
+
+### Determination of Collision Scenario
+
+Given the detailed assessment of each obstacle, none meet the criteria for Collision or Extreme Risk (scores 0 or 1). Hence, there is no immediate collision scenario.
+
+### JSON Summary
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "",
+    "OverallRiskScore": ""
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "",
+    "OverallRiskScore": ""
+  },
+  "IsCollisionScenario": false,
+  "Justification": "All obstacles are either moving away or maintaining a safe distance with no immediate risk of collision."
+}
+```

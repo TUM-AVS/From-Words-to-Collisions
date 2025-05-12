@@ -1,0 +1,39 @@
+* **Obstacle 346:** In the front, longitudinally 20.73m, laterally 0.00m.  The lateral distance has been decreasing across the timesteps, indicating the obstacle is moving closer to the ego vehicle's lane. However, at the last timestep, it is perfectly aligned laterally (0.00m). The longitudinal distance is decreasing, with a relative velocity of -1.92 m/s.
+    * TTC (longitudinal): 20.73 / 1.92 = 10.8 seconds
+    * MDC:  Since it's now in the same lane, MDC is primarily based on the longitudinal distance, which is substantial. Thus, MDC > 5.0m
+    * Risk Score: 5 (No Risk)
+* **Obstacle 349:** In the front-left, longitudinally 24.30m, laterally 0.69m. This is a new obstacle appearing in this timestep. The lateral distance is small and closing (-0.45 m/s). The longitudinal distance is large but also closing quickly (-14.19 m/s). This requires careful monitoring.
+    * TTC (longitudinal): 24.30 / 14.19 = 1.7 seconds
+    * TTC (lateral): 0.69 / 0.45 = 1.5 seconds
+    * MDC: Because of the diagonal approach and high longitudinal closing speed, MDC is difficult to determine precisely without more future data but is estimated to be between 1.0 and 3.0 based on the current lateral distance and closing velocity.
+    * Risk Score: 3 (Medium Risk) due to the high closing speed and proximity
+* **Obstacle 354:** In the front, longitudinally 13.98m, laterally 0.00m.  Similar to obstacle 346, the lateral distance is currently 0.00m, meaning same-lane alignment. The longitudinal distance is also decreasing (-1.92 m/s).
+    * TTC (longitudinal): 13.98 / 1.92 = 7.3 seconds
+    * MDC:  Primarily based on longitudinal distance, so MDC > 5.0m
+    * Risk Score: 5 (No Risk)
+* **Obstacle 360:** In the front, longitudinally 7.26m, laterally 0.00m. Again, we see a 0.00m lateral distance indicating alignment in the same lane. The longitudinal distance is decreasing (-1.91 m/s).
+    * TTC (longitudinal): 7.26 / 1.91 = 3.8 seconds
+    * MDC: Primarily based on longitudinal distance, so MDC is between 3 and 5 meters.
+    * Risk Score: 4 (Low Risk)
+* **Obstacle 367:** In the front, longitudinally 0.15m, laterally 0.00m. This obstacle is extremely close longitudinally and perfectly aligned laterally. The longitudinal velocity is still negative (-1.90 m/s), indicating continued approach.
+    * TTC (longitudinal): 0.15 / 1.90 = 0.08 seconds
+    * MDC: ~0.15m
+    * Risk Score: 1 (Extreme Risk - Imminent Collision)
+
+**Collision Scenario Determination:**
+
+Yes, this is a collision scenario. Obstacle 367 has an Extreme Risk score (1) with a TTC of only 0.08 seconds and an MDC of approximately 0.15m, indicating a near-certain collision in the immediate future.
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "367",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 367 has an extremely low TTC (0.08s) and MDC (0.15m), indicating an imminent collision."
+}
+```

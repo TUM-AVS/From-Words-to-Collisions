@@ -1,0 +1,47 @@
+At t=2.6s:
+
+* **Obstacle 315:** Front-left, longitudinal 20.89m, lateral 2.83m, relative velocity longitudinal -4.43 m/s, lateral 0.10 m/s.
+
+This obstacle is moving away longitudinally from the ego vehicle (-4.43 m/s) and slightly away laterally (0.10 m/s).  The lateral distance is stable/increasing, indicating minimal risk in that dimension.  Longitudinally, the obstacle is moving away from the ego vehicle.
+
+    * TTC_longitudinal = 20.89m / 4.43m/s = 4.71s (Low Risk)
+    * TTC_lateral (not applicable as it's moving away)
+    * MDC > 5m (Negligible Risk)
+    * Overall Risk: Low (4)
+
+* **Obstacle 317:** Front-left, longitudinal 24.35m, lateral 1.04m, relative velocity longitudinal -5.51 m/s, lateral 0.20 m/s.
+This obstacle is moving away longitudinally from the ego vehicle (-5.51 m/s) and slightly away laterally (0.20 m/s). There is no collision risk.
+
+    * TTC_longitudinal = 24.35m / 5.51m/s = 4.42s (Low Risk)
+    * TTC_lateral (not applicable as it's moving away)
+    * MDC > 5m (Negligible Risk)
+    * Overall Risk: Low (4)
+
+
+* **Obstacle 333:** Behind, longitudinal -2.05m, lateral 0.00m, relative velocity longitudinal 9.78 m/s, lateral 0.30 m/s.
+This obstacle is very close behind the ego vehicle (-2.05m) and approaching rapidly (9.78 m/s), presenting an extreme risk. The lateral distance is essentially zero, confirming the obstacle is directly behind the ego vehicle in the same lane.
+
+    * TTC_longitudinal = 2.05m / 9.78 m/s = 0.21s (Extreme Risk)
+    * TTC_lateral (not applicable, lateral velocity is considered negligible because the obstacle is perfectly behind)
+    * MDC = 2.05m < 0.5m (Extreme Risk)
+    * Overall Risk: Extreme (1)
+
+* **Obstacle 338:** Behind, longitudinal -22.39m, lateral 0.00m, relative velocity longitudinal 6.73 m/s, lateral 0.15 m/s.
+This obstacle is behind the ego vehicle (-22.39m), but approaching at a moderate speed (6.73 m/s).
+
+    * TTC_longitudinal = 22.39m / 6.73 m/s = 3.33s (Medium Risk)
+    * TTC_lateral (not applicable, lateral velocity is considered negligible because the obstacle is perfectly behind)
+    * MDC > 5m (Negligible Risk)
+    * Overall Risk: Medium (3)
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "333",
+    "OverallRiskScore": 1
+  },
+    "PredictedCollisionObstacle": {}
+}
+```

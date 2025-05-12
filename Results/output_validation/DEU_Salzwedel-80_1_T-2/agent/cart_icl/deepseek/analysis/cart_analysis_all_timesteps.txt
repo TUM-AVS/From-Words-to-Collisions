@@ -1,0 +1,39 @@
+### Analysis:
+
+1. **Obstacle 20016.0**:  
+   - Position: (-7.0471, 23.3764), stationary.  
+   - Distance from ego: ~21.48m (longitudinal), no lateral overlap.  
+   - **Risk**: Negligible (5) - Far behind and stationary.
+
+2. **Obstacle 20025.0**:  
+   - Position: (-8.7681, 32.1424), stationary.  
+   - Distance from ego: ~12.72m (longitudinal), lateral separation ~1.69m.  
+   - **Risk**: Negligible (5) - No motion, lateral separation sufficient.
+
+3. **Obstacle 20029.0**:  
+   - Position: (-6.8201, 39.8784), moving at 8.4393 m/s (accelerating).  
+   - Same lanelet as ego (2629.0), closing distance rapidly.  
+   - Relative velocity: ~4.2 m/s (ego: 4.2348 m/s, obstacle: 8.4393 m/s).  
+   - TTC: ~(44.8602 - 39.8784) / (8.4393 - 4.2348) ≈ 1.19s.  
+   - **Risk**: Extreme (1) - High closing speed, same lane, imminent collision.
+
+4. **Obstacle 20031.0**:  
+   - Position: (-10.2127, 39.0046), decelerating (velocity: 0.1624 m/s).  
+   - Lateral distance: ~3.13m, no overlap with ego's path.  
+   - **Risk**: Low (4) - Minimal motion, lateral separation.
+
+### JSON Output:
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20029.0",
+        "OverallRiskScore": 1
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```

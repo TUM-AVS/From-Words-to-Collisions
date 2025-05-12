@@ -1,0 +1,73 @@
+### Analysis of Each Obstacle (Based on Most Recent Timestep)
+
+#### Obstacle 30206
+- **Direction:** Front of the ego car
+- **Adjusted Distances:** Longitudinal 8.20 m, Lateral 0.00 m 
+- **Relative Velocity:** Longitudinal -0.62 m/s, Lateral 0.00 m/s
+- **Motion Description:** Obstacle is driving toward the ego car longitudinally. Exact lateral alignment.
+- **Trajectory Across Timesteps:**
+  - Obstacle 30206 shows a consistent trend of decreasing longitudinal distance relative to the ego car, indicating it is approaching.
+- **TTC Calculation:**
+  - TTC (Longitudinal) = Longitudinal Distance / |Relative Longitudinal Velocity| = 8.20 m / 0.62 m/s ≈ 13.23 seconds
+- **MDC Evaluation:**
+  - MDC is primarily evaluated on the longitudinal distance as the obstacle directly in front. The decreasing trend confirms the vehicle is approaching.
+- **Risk Assessment:**
+  - Based on TTC of 13.23 seconds and a clear deceleration trend, the risk is Low (4).
+
+#### Obstacle 30209
+- **Direction:** Behind the ego car
+- **Adjusted Distances:** Longitudinal -9.19 m, Lateral 0.00 m
+- **Relative Velocity:** Longitudinal 0.05 m/s, Lateral -0.02 m/s
+- **Motion Description:** Obstacle is driving toward the ego car from behind. Exact lateral alignment.
+- **Trajectory Across Timesteps:**
+  - The change in longitudinal distance is minimal and the velocity is very low, indicating slow convergence.
+- **TTC Calculation:**
+  - TTC (Longitudinal) is less relevant as the relative velocity is quite small, and hence very slow closing speed.
+- **MDC Evaluation:**
+  - With a minimal longitudinal velocity, growing time-to-collision implications due to the convergence speed likely results in a safe margin.
+- **Risk Assessment:**
+  - Based on the negligible relative velocity and stable distance, the risk is Negligible (5).
+
+#### Obstacle 30210
+- **Direction:** Behind the ego car
+- **Adjusted Distances:** Longitudinal -24.76 m, Lateral 0.00 m
+- **Relative Velocity:** Longitudinal -0.13 m/s, Lateral -0.02 m/s
+- **Motion Description:** Obstacle is moving away longitudinally. Exact lateral alignment.
+- **Trajectory Across Timesteps:**
+  - The obstacle consistently increases in longitudinal distance, moving further away.
+- **TTC Calculation:**
+  - TTC is not applicable for collision as the obstacle is moving away.
+- **MDC Evaluation:**
+  - The increasing trend and negative velocity assure divergence, with no risk based on trajectory.
+- **Risk Assessment:**
+  - Based on a separation increasing due to motion dynamics, the risk is Negligible (5).
+
+### Summary in JSON Format
+```
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "MediumRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "LowRiskObstacle": {
+        "ObstacleID": "30206",
+        "OverallRiskScore": "4"
+    },
+    "NegligibleRiskObstacle": {
+        "ObstacleID": "30209",
+        "OverallRiskScore": "5"
+    }
+}
+```

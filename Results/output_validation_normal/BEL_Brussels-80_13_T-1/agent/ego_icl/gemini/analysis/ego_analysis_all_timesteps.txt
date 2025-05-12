@@ -1,0 +1,51 @@
+At t=0.9s:
+
+Obstacle 30217:
+
+- Located behind the ego vehicle.
+- Longitudinal distance: -8.58m (negative indicates behind)
+- Lateral distance: 0.00m (indicates perfect lateral alignment, but not necessarily a collision)
+- Longitudinal relative velocity: 2.08 m/s (positive, closing rapidly)
+- Lateral relative velocity: 0.29 m/s 
+- Motion: Approaching from behind.
+
+Analysis:
+- MDC is primarily based on longitudinal distance due to rear location. MDC ≈ 8.58m. This alone suggests a low risk.
+- However, the high closing longitudinal velocity is concerning.
+- TTC = distance / relative_velocity = 8.58m / 2.08 m/s ≈ 4.12s. This corresponds to a Low Risk (4).
+
+Obstacle 30218:
+
+- Located behind the ego vehicle.
+- Longitudinal distance: -21.54m
+- Lateral distance: 0.00m
+- Longitudinal relative velocity: 1.73 m/s (positive, closing)
+- Lateral relative velocity: 0.66 m/s
+- Motion: Approaching from behind.
+
+Analysis:
+- MDC ≈ 21.54m. This suggests no risk.
+- TTC = 21.54m / 1.73 m/s ≈ 12.45s. This also suggests no risk.
+
+
+Overall Assessment:
+
+While both obstacles are approaching from behind and perfectly laterally aligned, the MDC and TTC values indicate no immediate collision risk.  Obstacle 30217 presents a low risk due to its closer proximity and higher closing velocity.  Obstacle 30218 poses negligible risk.
+
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+   "HighRiskObstacle": null,
+  "MediumRiskObstacle": null,
+  "LowRiskObstacle": {
+    "ObstacleID": "30217",
+    "OverallRiskScore": "4"
+  },
+    "NegligibleRiskObstacle": {
+    "ObstacleID": "30218",
+    "OverallRiskScore": "5"
+  }
+}
+```

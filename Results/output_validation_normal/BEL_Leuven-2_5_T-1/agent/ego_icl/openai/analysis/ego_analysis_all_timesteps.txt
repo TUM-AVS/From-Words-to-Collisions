@@ -1,0 +1,111 @@
+To analyze this scenario, we will focus on the most recent timestep at 0.9 seconds and use the adjusted distances for risk analysis.
+
+### Obstacle-by-Obstacle Analysis:
+
+#### Obstacle 30290:
+- **Position**: Front-left of the ego vehicle
+- **Adjusted Distances**: Longitudinal 17.64 m, Lateral 4.27 m
+- **Relative Velocity**: Longitudinal -9.62 m/s, Lateral -0.00 m/s
+- **Trajectory**: Driving toward the ego vehicle longitudinally with no lateral movement
+
+**TTC Calculation**:
+- **Longitudinal**: TTC = 17.64 m / 9.62 m/s ≈ 1.83 seconds
+- As lateral velocity is zero, no TTC calculation needed laterally.
+
+**MDC Calculation**:
+- Distance and trajectory indicate a longitudinal approach but safe lateral distance.
+
+**Risk Assessment**:
+- **Longitudinal TTC**: Medium Risk (TTC < 3.0s)
+- **Lateral Component**: Not applicable as the lateral distance is stable.
+
+**Overall Risk Score**: 3 (Medium Risk)
+
+#### Obstacle 30291:
+- **Position**: Front-left of the ego vehicle
+- **Adjusted Distances**: Longitudinal 17.54 m, Lateral 12.06 m
+- **Relative Velocity**: Longitudinal -9.62 m/s, Lateral -0.30 m/s
+- **Trajectory**: Driving toward the ego vehicle longitudinally and laterally from the left
+
+**TTC Calculation**:
+- **Longitudinal**: TTC = 17.54 m / 9.62 m/s ≈ 1.82 seconds
+- **Lateral**: TTC = 12.06 m / 0.30 m/s ≈ 40.2 seconds (not critical)
+
+**MDC Calculation**:
+- Metrics show safe lateral clearance.
+
+**Risk Assessment**:
+- **Longitudinal TTC**: Medium Risk (TTC < 3.0s)
+- **Lateral TTC**: No Risk (> 5.0s)
+
+**Overall Risk Score**: 3 (Medium Risk)
+
+#### Obstacle 30294:
+- **Position**: Rear-right of the ego vehicle
+- **Adjusted Distances**: Longitudinal -6.27 m, Lateral -3.66 m
+- **Relative Velocity**: Longitudinal -9.35 m/s, Lateral 1.04 m/s
+- **Trajectory**: Moving away longitudinally and laterally towards the ego vehicle from the right
+
+**TTC Calculation**:
+- Since the relative velocity longitudinally is negative and it is moving away, TTC is not relevant for longitudinal collision.
+- **Lateral**: TTC = 3.66 m / 1.04 m/s ≈ 3.52 seconds
+
+**MDC Calculation**:
+- Obstacle is moving away; reducing concern for a collision.
+
+**Risk Assessment**:
+- **Lateral TTC**: Medium Risk (TTC < 5.0s)
+
+**Overall Risk Score**: 4 (Low Risk)
+
+#### Obstacle 30295:
+- **Position**: Rear-right of the ego vehicle
+- **Adjusted Distances**: Longitudinal -8.01 m, Lateral -13.83 m
+- **Relative Velocity**: Longitudinal -9.27 m/s, Lateral 2.44 m/s
+- **Trajectory**: Moving away longitudinally and laterally towards the ego vehicle from the right
+
+**TTC Calculation**:
+- Longitudinally non-critical as the velocity indicates it's moving away.
+- **Lateral**: TTC = 13.83 m / 2.44 m/s ≈ 5.67 seconds
+
+**MDC Calculation**:
+- Safe distance given larger lateral clearance.
+
+**Risk Assessment**:
+- **Lateral TTC**: No Risk (TTC > 5.0s)
+
+**Overall Risk Score**: 5 (Negligible Risk)
+
+#### Obstacle 30296:
+- **Position**: Front of the ego vehicle
+- **Adjusted Distances**: Longitudinal 12.54 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 0.14 m/s, Lateral 0.05 m/s
+- **Trajectory**: Moving away longitudinally
+
+**TTC Calculation**:
+- Given the positive relative velocity, obstacle moving away, TTC irrelevant.
+
+**MDC Calculation**:
+- Minimal risk due to increasing longitudinal separation.
+
+**Risk Assessment**:
+- **Overall Risk**: No Risk (diverging paths)
+
+**Overall Risk Score**: 5 (Negligible Risk)
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {},
+    "ExtremeRiskObstacle": {},
+    "HighRiskObstacle": {},
+    "MediumRiskObstacle": {
+        "ObstacleID": "30290",
+        "OverallRiskScore": "3"
+    },
+    "LowRiskObstacle": {
+        "ObstacleID": "30294",
+        "OverallRiskScore": "4"
+    }
+}
+```

@@ -1,0 +1,83 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9 seconds)
+
+#### **Obstacle 30207 (Front of ego car)**
+- **Adjusted Distances**: Longitudinal 5.24 m, Lateral 0.00 m  
+- **Relative Velocity**: Longitudinal -0.67 m/s (approaching), Lateral 2.40 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally, exact lateral alignment.  
+- **Trajectory Analysis**:  
+  - Longitudinal distance is decreasing slowly (from 5.38m to 5.24m over 0.9s).  
+  - Lateral distance is stable at 0.00m but obstacle is moving away laterally (positive velocity).  
+- **TTC Calculation**:  
+  - Longitudinal TTC = 5.24 / 0.67 ≈ 7.82 seconds (No Risk, TTC > 5.0s).  
+  - Lateral TTC: Not applicable (moving away).  
+- **MDC Calculation**:  
+  - Lateral MDC = 0.00m (alignment), but obstacle is moving away. No collision risk.  
+- **Overall Risk**: **5 (No Risk)**.  
+
+---
+
+#### **Obstacle 30208 (Rear-left of ego car)**
+- **Adjusted Distances**: Longitudinal -5.90 m, Lateral 8.40 m  
+- **Relative Velocity**: Longitudinal -3.08 m/s (moving away), Lateral -5.55 m/s (approaching)  
+- **Motion**: Moving away longitudinally, driving toward ego laterally.  
+- **Trajectory Analysis**:  
+  - Longitudinal distance is increasing (moving away).  
+  - Lateral distance is decreasing rapidly (from 6.14m to 8.40m in 0.4s).  
+- **TTC Calculation**:  
+  - Lateral TTC = 8.40 / 5.55 ≈ 1.51 seconds (Medium Risk, 1.0 < TTC ≤ 3.0).  
+- **MDC Calculation**:  
+  - Lateral MDC = 8.40m (Low Risk, MDC > 5.0m).  
+- **Overall Risk**: **3 (Medium Risk)**.  
+
+---
+
+#### **Obstacle 30209 (Rear-right of ego car)**
+- **Adjusted Distances**: Longitudinal -10.61 m, Lateral -8.82 m  
+- **Relative Velocity**: Longitudinal -0.91 m/s (moving away), Lateral 1.98 m/s (approaching)  
+- **Motion**: Moving away longitudinally, driving toward ego laterally.  
+- **Trajectory Analysis**:  
+  - Longitudinal distance is increasing (moving away).  
+  - Lateral distance is decreasing slowly (from -14.59m to -8.82m in 0.4s).  
+- **TTC Calculation**:  
+  - Lateral TTC = 8.82 / 1.98 ≈ 4.45 seconds (Low Risk, 3.0 < TTC ≤ 5.0).  
+- **MDC Calculation**:  
+  - Lateral MDC = 8.82m (Low Risk, MDC > 5.0m).  
+- **Overall Risk**: **4 (Low Risk)**.  
+
+---
+
+#### **Obstacle 30211 (Rear-left of ego car)**
+- **Adjusted Distances**: Longitudinal -12.51 m, Lateral 19.54 m  
+- **Relative Velocity**: Longitudinal -3.26 m/s (moving away), Lateral -5.05 m/s (approaching)  
+- **Motion**: Moving away longitudinally, driving toward ego laterally.  
+- **Trajectory Analysis**:  
+  - Longitudinal distance is increasing (moving away).  
+  - Lateral distance is decreasing (from 13.87m to 19.54m in 0.4s).  
+- **TTC Calculation**:  
+  - Lateral TTC = 19.54 / 5.05 ≈ 3.87 seconds (Low Risk, 3.0 < TTC ≤ 5.0).  
+- **MDC Calculation**:  
+  - Lateral MDC = 19.54m (No Risk, MDC > 5.0m).  
+- **Overall Risk**: **4 (Low Risk)**.  
+
+---
+
+### Collision Scenario Determination
+- **No obstacle has a risk score of 0 (Collision) or 1 (Extreme Risk)**.  
+- The highest risk is **Medium Risk (3)** from Obstacle 30208, but it is not imminent.  
+- **This is NOT a collision scenario**.  
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle has a risk score of 0 or 1. The highest risk is Medium (Obstacle 30208), but trajectories do not indicate imminent collision."
+}
+```

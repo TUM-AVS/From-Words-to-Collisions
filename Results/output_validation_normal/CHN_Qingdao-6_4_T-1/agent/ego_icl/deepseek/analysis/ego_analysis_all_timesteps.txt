@@ -1,0 +1,75 @@
+### Obstacle-by-Obstacle Analysis
+
+#### **Obstacle 30680 (Front-right)**
+- **Latest Timestep (0.9s):**
+  - **Adjusted Distances:** Longitudinal 18.14 m, Lateral -15.21 m  
+  - **Relative Velocities:** Longitudinal -2.64 m/s (approaching), Lateral -1.45 m/s (moving away to the right)  
+  - **Motion Description:** Obstacle is driving toward the ego car longitudinally but moving away laterally to the right.  
+
+**Trajectory Analysis:**
+- The longitudinal distance is decreasing (from 19.13m to 18.14m), but the lateral distance is increasing (from -16.65m to -15.21m).  
+- The obstacle is moving diagonally away from the ego vehicle (right-front direction).  
+
+**Time-to-Collision (TTC):**
+- **Longitudinal TTC:** 18.14 / 2.64 ≈ **6.87s** (Negligible Risk, TTC > 5s)  
+- **Lateral TTC:** Not applicable (moving away, relative velocity is negative).  
+
+**Minimum Distance to Collision (MDC):**
+- The obstacle is moving away laterally, so the MDC is effectively the current lateral distance (**15.21m**).  
+- **Risk Level:** Negligible (MDC > 5m).  
+
+**Overall Risk for Obstacle 30680:**  
+- **5 (Negligible Risk)** – No immediate threat.  
+
+---
+
+#### **Obstacle 30686 (Front)**
+- **Latest Timestep (0.9s):**
+  - **Adjusted Distances:** Longitudinal 2.80 m, Lateral 0.00 m  
+  - **Relative Velocities:** Longitudinal -2.95 m/s (approaching), Lateral -1.13 m/s (slight lateral movement)  
+  - **Motion Description:** Obstacle is driving toward the ego car longitudinally with exact lateral alignment.  
+
+**Trajectory Analysis:**
+- The longitudinal distance is decreasing rapidly (from 6.80m to 2.80m in 0.9s).  
+- The lateral distance remains 0.00m (same lane).  
+
+**Time-to-Collision (TTC):**
+- **Longitudinal TTC:** 2.80 / 2.95 ≈ **0.95s** (High Risk, TTC < 1.0s)  
+- **Lateral TTC:** Not applicable (no lateral closing velocity).  
+
+**Minimum Distance to Collision (MDC):**
+- Since the obstacle is directly ahead (lateral = 0.00m), the MDC is the longitudinal distance (**2.80m**).  
+- **Risk Level:** Medium (MDC between 1.0m and 3.0m).  
+
+**Overall Risk for Obstacle 30686:**  
+- **2 (High Risk)** – Due to TTC < 1.0s (higher priority than MDC).  
+
+---
+
+### **Final Risk Summary**
+- **Obstacle 30680:** Negligible Risk (5)  
+- **Obstacle 30686:** High Risk (2)  
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "30686",
+        "OverallRiskScore": "2"
+    }
+}
+```
+
+### **Conclusion**
+- **No collision or extreme risk detected.**  
+- **Obstacle 30686 (directly ahead) is at High Risk (2) due to rapidly decreasing longitudinal distance (TTC < 1.0s).**  
+- **Obstacle 30680 (front-right) poses no immediate risk (moving away).**  
+- **Ego vehicle should prioritize braking or evasive action for Obstacle 30686.**

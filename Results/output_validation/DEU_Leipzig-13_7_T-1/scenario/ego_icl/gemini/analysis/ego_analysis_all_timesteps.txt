@@ -1,0 +1,39 @@
+* **Obstacle 3243:** Front-right, moving away laterally, approaching longitudinally. No immediate risk. Trajectory suggests it will remain clear of the ego vehicle.  Risk score: 5 (No Risk).
+* **Obstacle 3245:** Front-right, approaching both longitudinally and laterally. Longitudinal distance is decreasing, but lateral distance is large and relative lateral velocity is slightly positive.  MDC and TTC calculations needed.
+    * Longitudinal TTC = 6.06m / 0.14 m/s ≈ 43.29s
+    * Lateral TTC = -25.40m/1.33 m/s ≈ -19.10s (not applicable - diverging)
+    * MDC ≈ 6.06m (primarily longitudinal as lateral distance is large).
+    Risk score: 4 (Low Risk)
+* **Obstacle 3247:** Front-right, slightly approaching longitudinally, minimal lateral movement. Requires closer monitoring due to proximity. 
+    * Longitudinal TTC = 4.14 m / 1.52 m/s ≈ 2.72s
+    * Lateral TTC = -22.20m / 0.00 m/s = undefined (no relative lateral motion)
+    * MDC ≈ 4.14m
+    Risk score: 4 (Low risk)
+* **Obstacle 3252:** Rear-right, moving away longitudinally, no lateral movement. No immediate risk due to increasing longitudinal separation. Risk score: 5 (No Risk).
+* **Obstacle 3254:** Behind, exact lateral alignment, rapidly approaching longitudinally.  Collision has occurred.
+    * Longitudinal TTC = 0.00 m / 7.66 m/s = 0.00s
+    * MDC = 0.00m
+    Risk score: 0 (Collision).
+* **Obstacle 3256:** Front-left, moving away both longitudinally and laterally. No risk. Risk score: 5 (No Risk).
+* **Obstacle 3260:** Behind, exact lateral alignment, approaching longitudinally.  Requires monitoring but not an immediate collision threat yet.
+    * Longitudinal TTC = -16.78m / 7.81m/s ≈ -2.15s (Negative TTC indicates the obstacle is approaching from behind, but at the current rate it will take more than 2 seconds to reach the ego car if trajectories remain the same)
+    * MDC ≈ 16.78m
+    Risk score: 5 (No Risk)
+* **Obstacle 3261:** Left, exact longitudinal alignment, approaching laterally but still at a safe distance. Requires monitoring.
+    * Lateral TTC = 1.96m / 0.26m/s = 7.54s
+    * MDC = 1.96m
+    Risk score: 4 (Low risk).
+
+**Collision Scenario Determination:** Yes, this is a collision scenario because Obstacle 3254 has a collision risk score of 0 at the most recent timestep.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "3254",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 3254 has collided with the ego vehicle (risk score 0)."
+}
+```

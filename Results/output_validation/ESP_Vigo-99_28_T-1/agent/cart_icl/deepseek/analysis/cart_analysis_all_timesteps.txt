@@ -1,0 +1,40 @@
+### Analysis of Risky Obstacles:
+
+1. **Obstacle 3517 (High Risk - Score 2)**:
+   - **Position**: (77.2208, -394.8415) at 4.4s, same lanelet (466.0) as ego.
+   - **Relative Motion**: Ego is at (72.5629, -396.9805), moving at 5.8457 m/s. Obstacle is ahead and slightly to the right, moving at 7.6028 m/s but decelerating (-0.8896 m/s²).
+   - **TTC**: Approx. 1.5s (distance ~4.66m, relative speed ~1.76 m/s).
+   - **MDC**: Lateral distance ~2.14m, but closing longitudinally.
+   - **Risk**: High (2) due to proximity and same lanelet, but deceleration reduces imminent collision risk.
+
+2. **Obstacle 3520 (Medium Risk - Score 3)**:
+   - **Position**: (91.1374, -388.5434) at 4.4s, same lanelet (466.0) but far ahead (~18.57m longitudinally).
+   - **Relative Motion**: Ego closing at ~1.83 m/s relative speed (ego: 5.8457 m/s, obstacle: 7.6731 m/s).
+   - **TTC**: ~10.1s (distance / relative speed).
+   - **Risk**: Medium (3) due to large distance and manageable relative speed.
+
+3. **Obstacle 3512 (Extreme Risk - Score 1)**:
+   - **Position**: (60.9880, -399.9350) at 4.4s, lanelet 595.0 (crossing path).
+   - **Relative Motion**: High speed (9.5166 m/s) and acceleration (1.8445 m/s²). Lateral distance ~3.05m but trajectory intersects ego's path.
+   - **TTC**: Hard to estimate due to crossing path, but imminent collision risk if trajectories converge.
+   - **Risk**: Extreme (1) due to high speed and potential intersection.
+
+4. **Obstacle 3515 (Negligible Risk - Score 5)**:
+   - **Position**: Stationary at (63.5087, -384.3391), lanelet 268.0.
+   - **Relative Motion**: No movement, far from ego's path.
+   - **Risk**: Negligible (5).
+
+### JSON Output:
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3512",
+        "OverallRiskScore": 1
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "3517",
+        "OverallRiskScore": 2
+    }
+}
+```

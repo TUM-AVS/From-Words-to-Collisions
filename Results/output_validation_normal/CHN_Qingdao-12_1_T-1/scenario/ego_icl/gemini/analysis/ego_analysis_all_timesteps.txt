@@ -1,0 +1,66 @@
+* **Obstacle 30745:**
+
+    * Trajectory Analysis: This obstacle has been consistently in the front-right of the ego vehicle, moving slightly closer longitudinally while moving further away laterally across all timesteps.
+    * At t=0.9s:
+        * Longitudinal distance: 16.05m
+        * Lateral distance: -18.38m
+        * Longitudinal velocity: -0.26 m/s (towards ego)
+        * Lateral velocity: -0.56 m/s (away from ego)
+
+    * TTC Calculation:
+        * Longitudinal TTC: 16.05m / 0.26 m/s = 61.73s 
+        * Lateral TTC not applicable (diverging)
+    * MDC:  Given the trajectory and distances, MDC is primarily determined by the lateral distance of -18.38m.
+    * Risk Assessment:
+        * Longitudinal Risk: 5 - No Risk
+        * Lateral Risk: 5 - No Risk
+        * Overall Risk: 5 - No Risk
+
+* **Obstacle 30746:**
+
+    * Trajectory Analysis: This obstacle is the most critical one. It is located front-right and approaching the ego vehicle both longitudinally and laterally, though the lateral movement is away from the ego. The longitudinal distance has decreased significantly over the timesteps, while the lateral distance has mostly increased but also fluctuated.
+    * At t=0.9s:
+        * Longitudinal distance: 2.90m
+        * Lateral distance: -4.53m
+        * Longitudinal velocity: -0.69 m/s (towards ego)
+        * Lateral velocity: -1.92 m/s (away from ego)
+
+    * TTC Calculation:
+        * Longitudinal TTC: 2.90m / 0.69 m/s = 4.20s
+        * Lateral TTC not applicable (diverging)
+    * MDC: Although laterally diverging, the longitudinal distance is small and decreasing.  MDC is approximately 2.90m longitudinally.
+    * Risk Assessment:
+        * Longitudinal Risk: 4 - Low Risk
+        * Lateral Risk: 4 - Low Risk
+        * Overall Risk: 4 - Low Risk (due to close longitudinal proximity and closing velocity, despite lateral divergence)
+
+* **Obstacle 30750:**
+
+    * Trajectory Analysis: This obstacle has been in the front-right of the ego vehicle, its longitudinal distance initially decreases then increases slightly again.  The lateral distance is generally increasing.
+    * At t=0.9s:
+        * Longitudinal distance: 8.74m
+        * Lateral distance: -5.82m
+        * Longitudinal velocity: 0.69 m/s (away from ego)
+        * Lateral velocity: -3.51 m/s (away from ego)
+
+    * TTC Calculation:
+        * Longitudinal TTC: Not applicable (diverging)
+        * Lateral TTC: Not applicable (diverging)
+    * MDC: Given the trajectory and distances, MDC is driven by the closest approach, estimated to be > 5.82m, but lateral distance at the final time is still under consideration.
+    * Risk Assessment:
+        * Longitudinal Risk: 5 - No Risk
+        * Lateral Risk: 4 - Low Risk
+        * Overall Risk: 4 - Low Risk
+
+
+**Collision Scenario Determination:** No, this is not currently a collision scenario. Although Obstacle 30746 is getting very close, both its longitudinal and lateral TTC suggest a few more seconds of buffer.
+
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 or 1. Though Obstacle 30746 has a low risk score (4), the current trajectory suggests it is moving away laterally while closing longitudinally, with a longitudinal TTC still greater than 4 seconds at the last timestep."
+}
+```

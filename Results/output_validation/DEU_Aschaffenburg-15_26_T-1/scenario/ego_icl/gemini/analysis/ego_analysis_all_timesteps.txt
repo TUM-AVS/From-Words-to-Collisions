@@ -1,0 +1,42 @@
+* **Obstacle 30420:** Rear-left, moving away longitudinally and no lateral relative motion. No risk.
+
+* **Obstacle 30423:** Front-left, driving toward the ego car longitudinally, no lateral relative motion.  Longitudinal distance is large (13.19m) and lateral distance is very large (20.58m). No risk.
+
+* **Obstacle 30424:** Rear-left, moving away longitudinally and no lateral relative motion. No risk.
+
+* **Obstacle 30426:** Front-right, driving toward the ego car longitudinally, no lateral relative motion. Longitudinal distance is 1.08m and decreasing. Lateral distance is -4.15m.
+    - TTC (longitudinal) = 1.08m / 0.75 m/s = 1.44s (High Risk).
+    - MDC ≈ 1.08m (High Risk)
+    - Overall Risk: High (2)
+
+* **Obstacle 30438:** Front-left, moving away longitudinally and laterally. No risk.
+
+* **Obstacle 30441:** Behind, driving toward the ego car longitudinally. Exact lateral alignment. Longitudinal distance is -0.17m, indicating it is very close behind and approaching rapidly.
+    - TTC (longitudinal) = 0.17m / 5.27m/s = 0.03s (Extreme Risk).
+    - MDC ≈ 0.17m (Extreme Risk).
+    - Overall Risk: Extreme (1)
+
+* **Obstacle 30443:** Rear-left, moving away longitudinally and driving toward the ego car laterally from the left. Longitudinal distance is -6.96m (moving away) but lateral distance is 11.83m and decreasing.  Given the lateral movement is significant while the longitudinal movement shows separation, risk is assessed based on the more concerning lateral component: 
+     - Lateral TTC: 11.83 m/7.06 m/s = 1.67s (Medium Risk)
+     - MDC: Lateral distance reducing, but still significant so MDC > 3 (Medium Risk)
+     - Overall Risk: Medium (3)
+
+
+**Collision Scenario Determination:**
+
+Yes, this is a collision scenario. Obstacle 30441 poses an Extreme Risk (1) with a very low TTC (0.03s) and close proximity (-0.17m) behind the ego vehicle.
+
+```json
+{
+  "CollisionObstacle": {
+      "ObstacleID": null,
+      "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30441",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30441 has an extremely low TTC (0.03s) and a very small longitudinal distance (-0.17m), indicating an imminent rear-end collision."
+}
+```

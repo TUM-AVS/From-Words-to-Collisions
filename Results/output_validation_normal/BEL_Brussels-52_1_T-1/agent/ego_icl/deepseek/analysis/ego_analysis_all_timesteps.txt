@@ -1,0 +1,62 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30230 (Front)
+- **Position**: Front of ego car
+- **Adjusted Distance**: Longitudinal 9.93 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 2.42 m/s (moving away), Lateral 0.15 m/s
+- **Motion**: Moving away longitudinally, exact lateral alignment
+- **Trajectory Analysis**: Over the timesteps, the longitudinal distance increases from 8.18 m to 9.93 m, indicating the obstacle is moving away from the ego vehicle. The lateral distance remains 0.00 m, but the lateral velocity is very low (0.15 m/s), suggesting minimal lateral movement.
+- **TTC**: Not applicable (moving away longitudinally, no collision trajectory)
+- **MDC**: Lateral distance is 0.00 m, but since the obstacle is moving away longitudinally, the MDC is effectively the longitudinal distance (9.93 m).
+- **Risk Assessment**: 
+  - Longitudinal: No risk (MDC > 5.0 m)
+  - Lateral: No risk (stable alignment)
+  - **Overall Risk Score**: 5 (Negligible Risk)
+
+#### Obstacle 30235 (Behind)
+- **Position**: Behind ego car
+- **Adjusted Distance**: Longitudinal -11.39 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 2.05 m/s (approaching), Lateral 0.02 m/s
+- **Motion**: Driving toward the ego car from behind, exact lateral alignment
+- **Trajectory Analysis**: The longitudinal distance decreases from -13.82 m to -11.39 m over the timesteps, indicating the obstacle is approaching the ego vehicle. The lateral distance remains 0.00 m, and the lateral velocity is negligible (0.02 m/s).
+- **TTC**: 
+  - Longitudinal: 11.39 m / 2.05 m/s = 5.56 s
+  - Lateral: Not applicable (stable alignment)
+- **MDC**: Lateral distance is 0.00 m, but the obstacle is approaching longitudinally. The MDC is effectively the longitudinal distance (11.39 m).
+- **Risk Assessment**: 
+  - Longitudinal: Low risk (TTC > 5.0 s, MDC > 5.0 m)
+  - Lateral: No risk (stable alignment)
+  - **Overall Risk Score**: 4 (Low Risk)
+
+#### Obstacle 30237 (Behind)
+- **Position**: Behind ego car
+- **Adjusted Distance**: Longitudinal -24.60 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 1.35 m/s (approaching), Lateral 0.02 m/s
+- **Motion**: Driving toward the ego car from behind, exact lateral alignment
+- **Trajectory Analysis**: The longitudinal distance decreases from -25.44 m to -24.60 m over the timesteps, indicating the obstacle is approaching the ego vehicle. The lateral distance remains 0.00 m, and the lateral velocity is negligible (0.02 m/s).
+- **TTC**: 
+  - Longitudinal: 24.60 m / 1.35 m/s = 18.22 s
+  - Lateral: Not applicable (stable alignment)
+- **MDC**: Lateral distance is 0.00 m, but the obstacle is approaching longitudinally. The MDC is effectively the longitudinal distance (24.60 m).
+- **Risk Assessment**: 
+  - Longitudinal: No risk (TTC > 5.0 s, MDC > 5.0 m)
+  - Lateral: No risk (stable alignment)
+  - **Overall Risk Score**: 5 (Negligible Risk)
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```

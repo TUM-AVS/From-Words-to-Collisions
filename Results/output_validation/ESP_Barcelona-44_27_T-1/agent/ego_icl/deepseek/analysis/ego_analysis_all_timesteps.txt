@@ -1,0 +1,54 @@
+### Obstacle-by-Obstacle Analysis:
+
+#### **Obstacle 30743 (Front-left)**
+- **Adjusted Distance (5.1s):** Longitudinal: 2.10 m, Lateral: 24.63 m  
+- **Relative Velocity:** Longitudinal: -4.28 m/s (approaching), Lateral: -1.66 m/s (approaching from left)  
+- **Motion:** Driving toward ego longitudinally and laterally from the left.  
+- **TTC Longitudinal:** 2.10 / 4.28 ≈ 0.49s (Extreme Risk)  
+- **TTC Lateral:** 24.63 / 1.66 ≈ 14.84s (No Risk)  
+- **MDC:** Lateral distance is large (24.63m), but longitudinal distance is closing rapidly.  
+- **Risk Assessment:** Primary risk is longitudinal (Extreme Risk).  
+
+#### **Obstacle 30757 (Front-left)**
+- **Adjusted Distance (5.1s):** Longitudinal: 8.79 m, Lateral: 2.64 m  
+- **Relative Velocity:** Longitudinal: 3.28 m/s (moving away), Lateral: 0.35 m/s (moving away left)  
+- **Motion:** Moving away longitudinally and laterally to the left.  
+- **TTC Longitudinal:** Not applicable (moving away)  
+- **TTC Lateral:** Not applicable (moving away)  
+- **MDC:** Both distances are increasing.  
+- **Risk Assessment:** No Risk (5).  
+
+#### **Obstacle 30760 (Behind)**
+- **Adjusted Distance (5.1s):** Longitudinal: -1.24 m (behind), Lateral: 0.00 m (aligned)  
+- **Relative Velocity:** Longitudinal: 5.38 m/s (approaching from behind), Lateral: 0.33 m/s (minor lateral motion)  
+- **Motion:** Driving toward ego from behind with exact lateral alignment.  
+- **TTC Longitudinal:** 1.24 / 5.38 ≈ 0.23s (Extreme Risk)  
+- **TTC Lateral:** Not applicable (aligned but no closing velocity)  
+- **MDC:** Lateral alignment but closing longitudinally.  
+- **Risk Assessment:** Extreme Risk (1) due to rapid rear approach.  
+
+### Trajectory Analysis:
+- **Obstacle 30743:** Rapidly closing longitudinally (TTC < 0.5s) with minor lateral convergence. Likely to collide if no action is taken.  
+- **Obstacle 30760:** Rapidly approaching from behind (TTC < 0.3s). High risk of rear-end collision.  
+- **Obstacle 30757:** Moving away safely.  
+
+### Predicted Collision:
+- **Obstacle 30760** is the most imminent threat (rear-end collision likely within 0.23s).  
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30760",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30743",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "30760",
+        "OverallRiskScore": "0"
+    }
+}
+```

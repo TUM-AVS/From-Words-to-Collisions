@@ -1,0 +1,43 @@
+Obstacle 30215 Analysis:
+
+Trajectory Analysis:
+- Over the past 0.9 seconds, obstacle 30215 has been moving away from the ego vehicle both longitudinally and laterally. Initially, it was directly in front of the ego vehicle (lateral distance = 0.00m), but it has been moving to the left and forward relative to the ego vehicle.
+
+Calculations at t=0.9s:
+
+- Longitudinal distance: 15.53m
+- Lateral distance: 3.83m
+- Longitudinal relative velocity: 0.31 m/s (moving away)
+- Lateral relative velocity: 11.97 m/s (moving away)
+
+- Longitudinal TTC: 15.53m / 0.31m/s = 50.1s (Not applicable for collision risk assessment as obstacle is moving away)
+- Lateral TTC: 3.83m / 11.97m/s = 0.32s
+
+- MDC: Since the obstacle is moving away longitudinally and the lateral distance is significant, we consider the lateral distance for MDC. Thus, MDC is approximately 3.83m.
+
+Risk Assessment:
+- Longitudinal Risk: No Risk (5) due to increasing longitudinal distance and obstacle moving away.
+- Lateral Risk: Medium Risk (3) due to the MDC of 3.83m.
+- Lateral TTC: 0.32s corresponds to Extreme Risk (1) as it is less than 0.5 seconds
+
+Overall Risk:
+Since we prioritize the highest risk, the overall risk for Obstacle 30215 is Extreme Risk (1) due to the low lateral TTC.
+
+
+Collision Scenario Determination:
+Yes, this is a collision scenario because Obstacle 30215 poses an Extreme Risk (1) with a very low lateral TTC of only 0.32s.
+
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30215",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30215 has an extremely low lateral TTC (0.32s), indicating an imminent collision risk despite the increasing longitudinal distance."
+}
+```

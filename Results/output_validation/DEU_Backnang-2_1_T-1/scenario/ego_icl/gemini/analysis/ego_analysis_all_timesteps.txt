@@ -1,0 +1,25 @@
+* **Obstacle 33 (Behind):** This obstacle is directly behind the ego vehicle and rapidly approaching.  Across the timesteps, the longitudinal distance has decreased from -3.42m to 0.00m, indicating a collision has occurred at the last timestep. The lateral distance remains at 0.00m, confirming the collision is in the same lane.  Since the collision has occurred, TTC is 0 and MDC is 0.
+
+* **Obstacle 345 (Behind):**  This obstacle is also behind the ego vehicle but at a safer distance (-14.67m). Although it's approaching, the closing speed is relatively slow (2.59 m/s).  TTC = 14.67m / 2.59m/s ≈ 5.66s. MDC is significantly greater than 5m.
+
+* **Obstacle 378 (Front-Right):**  This obstacle is moving away from the ego vehicle longitudinally (8.30m) and laterally (-1.07m). The motion description confirms this diverging trajectory. TTC is not relevant for collision assessment in this case due to diverging direction of travel, and MDC is >5.
+
+* **Obstacle 380 (Front-Right):** This obstacle is in front and to the right of the ego vehicle, moving further away laterally (-7.90m) and slightly towards the ego longitudinally (13.51m).  The diverging lateral movement dominates the risk assessment. TTC in the longitudinal direction is also not relevant due to negative relative velocity, and MDC is >5, indicating very low risk.
+
+* **Obstacle 383 (Front-Left):**  This obstacle is diagonally ahead and to the left (16.94m longitudinal, 12.08m lateral). While both distances are currently large, the lateral closing velocity (-2.91 m/s) warrants monitoring. TTC = 12.08/2.91 ≈ 4.15s. MDC > 5m
+
+**Collision Scenario Determination:**
+
+Yes, this is a collision scenario. Obstacle 33 has collided with the ego vehicle at the last timestep (distance = 0.00m, relative velocity >0, Collision Risk = 0).
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "33",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 33 has collided with the ego vehicle at the final timestep (longitudinal and lateral distances = 0.00m)."
+}
+```

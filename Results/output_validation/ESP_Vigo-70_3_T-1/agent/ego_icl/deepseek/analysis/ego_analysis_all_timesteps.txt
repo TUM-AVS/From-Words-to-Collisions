@@ -1,0 +1,69 @@
+### Obstacle-by-Obstacle Analysis:
+
+#### **Obstacle 3391 (Left of ego car)**
+- **Position**: Longitudinal 0.00 m, Lateral 14.76 m  
+- **Relative Velocity**: Longitudinal -0.89 m/s (moving away), Lateral 0.00 m/s (no motion)  
+- **Motion**: Exact longitudinal alignment, no lateral relative motion.  
+- **Trajectory Analysis**:  
+  - The obstacle is stationary laterally (no closing motion).  
+  - Longitudinally, it is moving away from the ego car (negative relative velocity).  
+  - **MDC**: Lateral distance is 14.76 m (far beyond 5.0 m, no risk).  
+  - **TTC**: Not applicable (no closing velocity in either dimension).  
+- **Risk Assessment**:  
+  - **Overall Risk**: **5 (Negligible Risk)**  
+
+---
+
+#### **Obstacle 3393 (Rear-right of ego car)**
+- **Position**: Longitudinal -9.14 m (behind), Lateral -13.20 m (right)  
+- **Relative Velocity**: Longitudinal 0.84 m/s (approaching), Lateral 7.38 m/s (approaching).  
+- **Motion**: Approaching from behind and laterally from the right.  
+- **Trajectory Analysis**:  
+  - **Longitudinal TTC**: Distance = 9.14 m, Relative Velocity = 0.84 m/s → TTC = 9.14 / 0.84 ≈ 10.88 s (Low Risk).  
+  - **Lateral TTC**: Distance = 13.20 m, Relative Velocity = 7.38 m/s → TTC = 13.20 / 7.38 ≈ 1.79 s (Medium Risk).  
+  - **MDC**: The lateral distance is large (13.20 m), but the longitudinal distance is also significant. The smaller TTC (lateral) suggests Medium Risk.  
+- **Risk Assessment**:  
+  - **Overall Risk**: **3 (Medium Risk)**  
+
+---
+
+#### **Obstacle 3395 (Behind of ego car)**
+- **Position**: Longitudinal -0.99 m (behind), Lateral 0.00 m (aligned).  
+- **Relative Velocity**: Longitudinal 4.68 m/s (rapidly approaching), Lateral 2.40 m/s (approaching but now aligned).  
+- **Motion**: Approaching from behind with exact lateral alignment.  
+- **Trajectory Analysis**:  
+  - **Longitudinal TTC**: Distance = 0.99 m, Relative Velocity = 4.68 m/s → TTC = 0.99 / 4.68 ≈ **0.21 s (Extreme Risk)**.  
+  - **Lateral TTC**: Distance = 0.00 m (aligned), but no closing velocity (lateral motion is stabilizing).  
+  - **MDC**: Longitudinal distance is **0.99 m**, but closing rapidly (Extreme Risk).  
+- **Risk Assessment**:  
+  - **Overall Risk**: **1 (Extreme Risk)**  
+  - **Predicted Collision**: If current trajectory continues, a rear-end collision is imminent (TTC < 0.5 s).  
+
+---
+
+### **Final JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3395",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "3395",
+        "OverallRiskScore": "0"
+    }
+}
+```
+
+### **Key Findings:**
+1. **Obstacle 3395** is at **Extreme Risk (1)** and will likely **collide (Risk 0)** with the ego car if no evasive action is taken (TTC ≈ 0.21 s).  
+2. **Obstacle 3393** poses **Medium Risk (3)** due to lateral approach but is still manageable.  
+3. **Obstacle 3391** is **Negligible Risk (5)** (no collision threat).  
+
+**Immediate Action Required:**  
+- **Emergency braking or evasive maneuver** to avoid rear-end collision with **Obstacle 3395**.  
+- Monitor **Obstacle 3393** for lateral movement changes.

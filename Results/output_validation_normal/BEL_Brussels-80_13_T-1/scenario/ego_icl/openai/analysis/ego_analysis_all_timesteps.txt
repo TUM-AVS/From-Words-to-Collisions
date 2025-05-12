@@ -1,0 +1,60 @@
+### Obstacle Analysis
+
+**Obstacle 30217:**
+
+- **Trajectory Analysis:**
+  - This obstacle is consistently moving toward the ego vehicle over the analyzed time period. The obstacle is behind the ego vehicle, aligned longitudinally, with decreasing longitudinal distance.
+  - Adjusted distances are used to reflect the vehicle's effective position.
+
+- **TTC Calculation:**
+  - Longitudinal velocity (0.10 seconds): 2.08 m/s in the direction towards the ego vehicle.
+  - Adjusted longitudinal distance at 0.9 seconds: approximately -8.58 meters.
+  - TTC (longitudinal) = 8.58 m / 2.08 m/s = approximately 4.12 seconds.
+
+- **MDC Calculation:**
+  - The obstacle is in exact lateral alignment (adjusted lateral distance = 0.00m).
+  - The adjusted longitudinal distance is most critical here.
+  - Based on continued approach and adjusted distances, MDC is primarily the adjusted longitudinal distance, which is decreasing.
+
+- **Risk Assessment:**
+  - With the TTC around 4.12 seconds and longitudinal alignment, this poses a **Medium Risk** unless closed rapidly.
+  - Current motion and decreasing distance indicate heightened vigilance.
+
+**Obstacle 30218:**
+
+- **Trajectory Analysis:**
+  - This obstacle was also initially moving away but is now moving toward the ego vehicle as per the sequence leading to 0.9 seconds.
+  - The obstacle remains behind the ego vehicle, aligned longitudinally.
+
+- **TTC Calculation:**
+  - Longitudinal velocity at 0.90 seconds is 1.73 m/s towards the ego.
+  - Adjusted longitudinal distance at 0.9 seconds: approximately -21.54 meters.
+  - TTC (longitudinal) = 21.54 m / 1.73 m/s = approximately 12.45 seconds.
+
+- **MDC Calculation:**
+  - Again, exact lateral alignment.
+  - The longitudinal distance continues to be significant, currently much larger than the immediate risk threshold.
+
+- **Risk Assessment:**
+  - Longer TTC (> 5 seconds) reflects this obstacle poses a **Low Risk**. The longitudinal distance is large enough to not require immediate action.
+
+### Conclusion
+
+Both obstacles are aligned directly in the longitudinal path behind the ego vehicle, with obstacle 30217 maintaining a declining gap indicating a potential for collision with continued trends, marking Medium Risk. Obstacle 30218, with a longer TTC, remains at Low Risk. None of the analyzed metrics indicate imminent collision.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Neither obstacle presents a risk score of 0 or 1, given current distances and TTC assisting adequate reaction windows."
+}
+```

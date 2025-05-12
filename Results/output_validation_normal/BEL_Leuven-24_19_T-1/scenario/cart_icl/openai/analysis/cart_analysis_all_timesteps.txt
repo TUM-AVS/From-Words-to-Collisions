@@ -1,0 +1,58 @@
+### Obstacle Analysis:
+
+1. **Obstacle ID: 30221**
+   - **Distance Risk reason:** This obstacle is part of the lanelet 116, sharing the space with the ego vehicle. There is a decreasing distance trend, but the obstacle's velocity is low and decelerating, meaning no immediate impact.
+   - **Distance safety score:** 3
+   - **Time Risk reason:** The obstacle has a minor velocity and deceleration, maintaining a slow movement away from the ego vehicle. Its trajectory suggests decreasing relative velocity with the ego, preventing collision.
+   - **Time safety score:** 3
+   - **Overall Risk score:** 3
+
+2. **Obstacle ID: 30220**
+   - **Distance Risk reason:** Positioned in lanelet 420, static across all timesteps. The Ego vehicle is located differently.
+   - **Distance safety score:** 5
+   - **Time Risk reason:** Given its zero velocity, it poses no immediate risk. No dynamic behavior is shown.
+   - **Time safety score:** 5
+   - **Overall Risk score:** 5
+
+3. **Obstacle ID: 30222**
+   - **Distance Risk reason:** Stationary in lanelet 419; no dynamics relative to the ego's lane change.
+   - **Distance safety score:** 5
+   - **Time Risk reason:** The obstacle remains stationary in a separate lanelet.
+   - **Time safety score:** 5
+   - **Overall Risk score:** 5
+
+4. **Obstacle ID: 30223**
+   - **Distance Risk reason:** Located further from ego in a different lanelet (420), decreasing in distance slightly, but notably far.
+   - **Distance safety score:** 4
+   - **Time Risk reason:** Reducing velocity indicates the obstacle is decelerating away from the ego's trajectory.
+   - **Time safety score:** 4
+   - **Overall Risk score:** 4
+
+5. **Obstacle ID: 30224**
+   - **Distance Risk reason:** Occupies lanelet 419, no convergence towards ego's path.
+   - **Distance safety score:** 5
+   - **Time Risk reason:** Continues in its lane with decreasing velocity.
+   - **Time safety score:** 5
+   - **Overall Risk score:** 5
+
+6. **Obstacle ID: 30225 to 30244** (Remaining obstacles)
+   - **Distance Risk reason:** All positioned outside no immediate proximity to the ego vehicle. Obstacles' trajectories typically either center on stationary or low velocity.
+   - **Distance safety score:** 5
+   - **Time Risk reason:** Relative motion does not approach ego with notable velocity changes or anomalous behaviors. Calculated distances at safe margins.
+   - **Time safety score:** 5
+   - **Overall Risk score:** 5
+
+### Chain of Thought Scenario Analysis:
+- Observing the trajectory and positioning, all obstacles demonstrate a stable, low-velocity or stationary tendency, combined with the ego vehicle's gradual acceleration, forms a non-threatening scenario. This indicates a lack of collision probability under current conditions.
+
+### Summary in JSON Format:
+```json
+{
+    "CollisionObstacles": null,
+    "ExtremeRiskObstacle": null,
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "All obstacles demonstrate either static or decelerating behaviors, and occupy different, non-converging lanelets relative to the ego vehicle."
+    }
+}
+```

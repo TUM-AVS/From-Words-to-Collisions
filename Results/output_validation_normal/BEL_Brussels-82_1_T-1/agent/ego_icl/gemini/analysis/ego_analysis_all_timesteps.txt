@@ -1,0 +1,38 @@
+Obstacle 30230:
+- Trajectory: This obstacle starts in front of the ego vehicle and laterally aligned (lateral distance = 0.00m). Over the timesteps, the longitudinal distance slightly increases, indicating the obstacle might be moving slower or braking.  The lateral distance becomes negative, showing obstacle moves to the right of the ego vehicle.
+- At 0.9s: Longitudinal distance is 7.14m, lateral distance is -1.79m, longitudinal relative velocity is -0.49 m/s (moving away), and lateral relative velocity is -5.87 m/s (moving away).
+- TTC: Not applicable for longitudinal direction as the obstacle is moving away. Lateral TTC = 1.79m / 5.87 m/s ≈ 0.3s.
+- MDC: Approximately 1.79m (using the smaller lateral distance).
+- Risk: Lateral TTC suggests an Extreme Risk (1) due to being less than 0.5s.  MDC suggests a Medium Risk (3). Prioritizing the higher risk, the overall risk is **Extreme Risk (1)**.
+
+Obstacle 30231:
+- Trajectory: This obstacle is consistently to the front-right of the ego vehicle and appears to be moving further away in both directions.
+- At 0.9s: Longitudinal distance is 13.06m, lateral distance is -14.27m, longitudinal relative velocity is -0.98 m/s (moving away), and lateral relative velocity is -7.97 m/s (moving away).
+- TTC: Longitudinal TTC = 13.06m / 0.98 m/s ≈ 13.3s. Lateral TTC= 14.27m / 7.97 m/s ≈ 1.8s.
+- MDC: Approximately 13.06m.
+- Risk: Both TTC values are high, and MDC is large. This obstacle poses **Negligible Risk (5)**.
+
+Obstacle 30235:
+- Trajectory: Located behind the ego vehicle and perfectly longitudinally aligned. It maintains its alignment while moving further behind the ego vehicle.
+- At 0.9s: Longitudinal distance is -6.97m, lateral distance is 0.00 m, longitudinal relative velocity is -0.78 m/s (moving away), and lateral relative velocity is 0.00 m/s.
+- TTC: Not applicable as relative velocity is zero/negative for both dimensions and distance is negative.
+- MDC: N/A as lateral distance is zero and negative longitudinal.
+- Risk: Since the obstacle is moving away and behind the ego, it is categorized as **Negligible Risk (5)**.
+
+Obstacle 30237:
+- Trajectory: This obstacle remains behind the ego vehicle and longitudinally aligned, moving further away over time.
+- At 0.9s: Longitudinal distance is -18.97m, lateral distance is 0.00m, longitudinal relative velocity is -0.56 m/s (moving away), and lateral relative velocity is 0.00 m/s.
+- TTC: Not applicable due to negative distance and negative/zero relative velocity.
+- MDC: N/A as lateral distance is zero and negative longitudinal.
+- Risk: Given that the obstacle is moving further behind the ego vehicle, there is **Negligible Risk (5)**.
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30230",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {}
+}
+```

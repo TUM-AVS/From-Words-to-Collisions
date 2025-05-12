@@ -1,0 +1,30 @@
+Here's the analysis for the most recent timestep (8.6 seconds):
+
+1. **Obstacle 3393** (same lanelet 406 as ego):
+   - Relative position: (-531.8545, 512.444) vs ego (-531.3424, 506.8559)
+   - Lateral distance: ~5.588m (y-axis difference)
+   - Longitudinal distance: ~0.512m (x-axis difference, obstacle slightly behind)
+   - Relative velocity: 11.2747 m/s (obstacle) vs 6.9663 m/s (ego) → closing at ~4.3084 m/s
+   - TTC: 0.512m / 4.3084 m/s ≈ 0.12s (imminent collision)
+   - Acceleration: Obstacle accelerating at 2.2764 m/s² vs ego nearly constant speed
+   - **Risk: Collision (0)** - Will physically contact within the next timestep
+
+2. **Obstacle 3394** (lanelet 503):
+   - Moving away from ego's path (different lanelet, diverging trajectories)
+   - No meaningful risk
+
+3. **Obstacle 3395** (lanelet 2254):
+   - Last seen at 8.0s, no longer in recent data → assumed negligible risk
+
+```json
+{
+    "CollisionObstacles": [
+        {
+            "ObstacleID": "3393",
+            "OverallRiskScore": 0
+        }
+    ],
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": null
+}
+```

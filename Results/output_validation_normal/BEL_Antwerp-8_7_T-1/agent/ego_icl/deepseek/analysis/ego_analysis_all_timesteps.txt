@@ -1,0 +1,54 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30597 (Front)
+- **Position**: Front of ego car (longitudinal 14.03 m, lateral 0.00 m)
+- **Relative Velocity**: longitudinal -0.30 m/s (approaching), lateral 0.46 m/s (moving slightly away)
+- **Trajectory Analysis**:
+  - Longitudinal distance is decreasing slowly (from 15.30 m to 14.03 m over 0.9 seconds).
+  - Lateral distance remains 0.00 m, but lateral velocity is positive (0.46 m/s), indicating slight movement away from the ego car.
+- **TTC Calculation**:
+  - Longitudinal TTC = 14.03 / 0.30 ≈ 46.77 seconds (negligible risk).
+  - Lateral TTC = Not applicable (moving away).
+- **MDC Calculation**:
+  - Longitudinal MDC = 14.03 m (low risk).
+  - Lateral MDC = 0.00 m, but with positive lateral velocity, no collision risk.
+- **Overall Risk**: 5 (Negligible Risk).
+
+#### Obstacle 30598 (Behind)
+- **Position**: Behind ego car (longitudinal -13.34 m, lateral 0.00 m)
+- **Relative Velocity**: longitudinal 2.91 m/s (approaching), lateral -0.29 m/s (moving slightly away)
+- **Trajectory Analysis**:
+  - Longitudinal distance is decreasing rapidly (from -14.47 m to -13.34 m over 0.9 seconds).
+  - Lateral distance remains 0.00 m, but lateral velocity is negative (-0.29 m/s), indicating slight movement away from the ego car.
+- **TTC Calculation**:
+  - Longitudinal TTC = 13.34 / 2.91 ≈ 4.58 seconds (low risk).
+  - Lateral TTC = Not applicable (moving away).
+- **MDC Calculation**:
+  - Longitudinal MDC = 13.34 m (no risk).
+  - Lateral MDC = 0.00 m, but with negative lateral velocity, no collision risk.
+- **Overall Risk**: 4 (Low Risk).
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```
+
+### Explanation
+- **Obstacle 30597**: The obstacle is in front of the ego car but is moving away slightly laterally and approaching very slowly longitudinally. The large longitudinal distance and slow approach velocity result in negligible risk.
+- **Obstacle 30598**: The obstacle is behind the ego car and approaching more rapidly, but the longitudinal distance is still large enough to classify as low risk. The lateral movement away from the ego car further reduces any collision risk.
+
+Neither obstacle poses a collision, extreme, or high risk at the current timestep.

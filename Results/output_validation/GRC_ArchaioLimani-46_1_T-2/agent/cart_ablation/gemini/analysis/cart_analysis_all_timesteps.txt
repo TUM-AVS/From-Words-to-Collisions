@@ -1,0 +1,19 @@
+Here's the collision risk analysis:
+
+**Obstacle 10:** Stationary and far from the ego vehicle's trajectory. No risk of collision. Risk score: 5
+
+**Obstacle 12:**  While in the same lanelet as the ego vehicle, it remains significantly further ahead and is decelerating.  Given the ego vehicle's trajectory and deceleration, a collision is unlikely. Risk score: 4.
+
+**Obstacle 21:** This obstacle is the most critical. Initially, it's behind the ego vehicle but moving faster. Over the provided timestamps, the distance between the ego and Obstacle 21 decreases. Furthermore, both are decelerating, but Obstacle 21 shows inconsistent deceleration and at one point its x-coordinate becomes closer to ego than in the prior timestamp. This creates a high risk of a rear-end collision in the near future if these trends continue. It's important to re-evaluate at future timesteps to confirm whether risk escalates. Due to the decreasing distance and speed differential, risk score is 2.
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": {
+    "ObstacleID": "21.0",
+    "OverallRiskScore": 2
+  },
+  "PredictedExtremeRiskObstacle": null
+}
+```

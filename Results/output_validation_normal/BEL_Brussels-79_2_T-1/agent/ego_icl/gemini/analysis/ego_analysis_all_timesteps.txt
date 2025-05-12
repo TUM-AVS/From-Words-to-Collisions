@@ -1,0 +1,46 @@
+At t=0.9s:
+
+**Obstacle 30182:**
+
+* **Trajectory:**  Consistently front-left of the ego vehicle, maintaining a lateral distance around 6m.  Longitudinal distance decreasing steadily, indicating approach. No lateral relative motion.
+* **TTC (Longitudinal):** 17.25m / 3.50m/s ≈ 4.93s
+* **MDC:**  Primarily lateral distance since the obstacle is approaching from a front-left direction. MDC ≈ 5.99m.
+* **Risk:** Low (4), based on both TTC and MDC.
+
+**Obstacle 30183:**
+
+* **Trajectory:** Directly in front of the ego vehicle (0 lateral distance). Longitudinal distance decreasing steadily, indicating approach.
+* **TTC (Longitudinal):** 10.28m / 3.50m/s ≈ 2.94s
+* **MDC:** Since there is exact lateral alignment, MDC is evaluated based on the longitudinal distance, which is the only factor contributing to potential collision risk.  MDC = 10.28m.
+* **Risk:** Medium (3), based on both TTC and MDC.
+
+**Obstacle 30186:**
+
+* **Trajectory:** Approaching from the front-left, with both longitudinal and lateral distances decreasing across timesteps.
+* **TTC (Longitudinal):** 15.86m / 3.13m/s ≈ 5.07s
+* **TTC (Lateral):** 16.91m / 2.89m/s ≈ 5.85s
+* **MDC:** Given the diagonal approach, the smaller of the longitudinal and lateral distances is of primary concern although both are relatively large.
+* **Risk:** Low (4), based on both TTC and MDC.
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": null,
+  "MediumRiskObstacle": {
+      "ObstacleID": "30183",
+      "OverallRiskScore": "3"
+   },
+   "LowRiskObstacle": [
+   {
+      "ObstacleID": "30182",
+      "OverallRiskScore": "4"
+   },
+{
+      "ObstacleID": "30186",
+      "OverallRiskScore": "4"
+   }]
+}
+```

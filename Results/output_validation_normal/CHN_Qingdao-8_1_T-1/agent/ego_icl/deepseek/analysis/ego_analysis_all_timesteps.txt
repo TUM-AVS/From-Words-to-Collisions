@@ -1,0 +1,44 @@
+### Obstacle-by-Obstacle Analysis:
+
+#### Obstacle 30611:
+- **Relative Direction**: Front
+- **Adjusted Distances**: Longitudinal 14.25 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 0.69 m/s (moving away), Lateral 0.00 m/s
+- **Motion Description**: Obstacle is moving away longitudinally. Exact lateral alignment or unknown case.
+
+**Trajectory Analysis**:
+- Across all timesteps, the longitudinal distance increases from 13.70 m to 14.25 m, indicating the obstacle is moving away from the ego vehicle.
+- The lateral distance remains 0.00 m, meaning the obstacle is aligned in the same lane but not closing laterally.
+- The relative velocity is positive but decreasing (from 1.76 m/s to 0.69 m/s), confirming the obstacle is moving away but at a slowing rate.
+
+**TTC Calculation**:
+- Since the obstacle is moving away (positive relative velocity), TTC is not applicable for collision risk (diverging paths).
+
+**MDC Calculation**:
+- The obstacle is longitudinally aligned (lateral distance = 0.00 m), but the longitudinal distance is large (14.25 m) and increasing. Thus, MDC is effectively the current longitudinal distance (14.25 m), which is far above the 5.0 m threshold for any risk.
+
+**Risk Assessment**:
+- **TTC**: Not applicable (diverging paths) → Risk 5 (No Risk).
+- **MDC**: 14.25 m → Risk 5 (No Risk).
+- **Overall Risk**: 5 (Negligible Risk). The obstacle is moving away and poses no collision threat.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```
+
+### Explanation:
+- There is no collision or extreme/high-risk obstacle in this scenario. The only obstacle (30611) is moving away from the ego vehicle with a large longitudinal distance and no lateral closing velocity. The risk is negligible (Level 5).

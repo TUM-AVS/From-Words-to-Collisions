@@ -1,0 +1,45 @@
+### Obstacle Analysis:
+
+#### Obstacle 3277:
+- **Position & Motion**: This obstacle is directly in front of the ego vehicle with a decreasing longitudinal distance over time and exact lateral alignment.
+- **Current Adjusted Distances**: Longitudinal = 0.29 m, Lateral = 0.00 m
+- **Relative Velocity**: Longitudinal = -0.11 m/s, indicating the obstacle is approaching the ego vehicle.
+- **TTC Calculation**:
+  - \( \text{TTC} = \frac{\text{Adjusted Longitudinal Distance}}{|\text{Relative Velocity}|} = \frac{0.29}{0.11} \approx 2.64 \, \text{seconds} \)
+- **MDC**: The calculated MDC is the current adjusted longitudinal distance of 0.29 meters.
+- **Risk Assessment**:
+  - Based on the calculated TTC (2.64 seconds), it lies within the "Medium Risk" category (1.0 < TTC ≤ 3.0 seconds).
+  - Based on the MDC (0.29 meters), this falls under "Extreme Risk" (MDC ≤ 0.5 meters).
+  - As the lowest score is prioritized, the risk is EXTREME (1).
+
+#### Obstacle 3278:
+- **Position & Motion**: This obstacle is in the front-left of the ego vehicle. The longitudinal and lateral distances are relatively stable across the timeline.
+- **Current Adjusted Distances**: Longitudinal = 10.09 m, Lateral = 12.27 m
+- **Relative Velocity**: Longitudinal = -0.11 m/s; no lateral motion.
+- **TTC Calculation**:
+  - Since the relative velocity is small, TTC calculation is not significant for this large distance. The obstacle isn't approaching significantly.
+- **MDC**: Given the distance not reducing strongly, the MDC remains large (> 5.0 meters).
+- **Risk Assessment**: 
+  - Both TTC and MDC provide a "No Risk" (5) outcome due to maintaining a safe distance without converging trajectories.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3277",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "2"
+    }  
+}
+``` 
+
+### Conclusion
+- Obstacle 3277 presents an extreme risk due to the close proximity and converging path. Immediate action is needed to prevent a potential collision.
+- Obstacle 3278 maintains a safe distance and does not present any significant risk at the current moment.

@@ -1,0 +1,36 @@
+* **Obstacle 41 (Rear-Left):**  This obstacle has been moving to the rear-left of the ego vehicle.  The longitudinal distance has been increasing, indicating separation. While the lateral distance initially decreased, in the final timestamp (6.9s), it is 0.99m and rapidly increasing (relative lateral velocity is -10.68m/s and increasing). The longitudinal relative velocity is negative, showing continued separation longitudinally. Given the trajectories and the rapid increase in lateral distance, a collision is not imminent.
+    * **TTC (Longitudinal):** Not applicable due to negative relative velocity (separating).
+    * **TTC (Lateral):** 0.99m / 10.68m/s ≈ 0.09s (Note: Using absolute value of relative velocity for TTC calculation) This value is misleadingly low because the lateral distance is rapidly increasing in the next time steps, and the next step would likely have a much larger lateral distance.
+    * **MDC:** Approximately 0.99m (lateral).
+    * **Risk Score:** 2 (High Risk - due to the low lateral distance, though the overall trajectory points to rapidly decreasing risk in the next time step).
+
+
+* **Obstacle 45 (Front-Left):** This obstacle is approaching the ego vehicle from the front-left.  Both longitudinal and lateral distances are decreasing.
+    * **TTC (Longitudinal):** 10.53m / 42.31m/s ≈ 0.25s
+    * **TTC (Lateral):** 2.85m / 0.67m/s ≈ 4.25s
+    * **MDC:** Approximately 2.85m (lateral).
+    * **Risk Score:** 1 (Extreme Risk - due to low longitudinal TTC)
+
+* **Obstacle 109 (Behind):** This obstacle has been approaching from behind and is very close.  The lateral distance is 0, implying the same lane. The longitudinal distance is small and continues to decrease. This is a high-risk situation.
+    * **TTC (Longitudinal):** 0.20m / 1.47m/s ≈ 0.14s
+    * **TTC (Lateral):**  Not applicable (lateral movement within the same lane is not a collision risk)
+    * **MDC:** Approximately 0.20m (longitudinal).
+    * **Risk Score:** 1 (Extreme Risk - due to low longitudinal distance and TTC)
+
+
+* **Collision Scenario? Yes.** Both Obstacles 45 and 109 have an overall risk score of 1 (Extreme Risk). Obstacle 45 has a very low TTC (0.25 seconds) and is approaching fast.  Obstacle 109 is extremely close and has a very low TTC (0.14s) with a decreasing longitudinal distance, indicating an imminent collision.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "109",
+    "OverallRiskScore": "1"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "45",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacles 45 and 109 pose an extreme risk of collision. Obstacle 45 has a very low TTC (0.25 seconds), and Obstacle 109 is extremely close (0.20m) and rapidly approaching from behind with a very low TTC (0.14s) indicating an almost certain collision if trajectories are maintained."
+}
+```

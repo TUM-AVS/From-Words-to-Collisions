@@ -1,0 +1,35 @@
+*Obstacle 30921 Analysis:*
+
+This obstacle is to the left of the ego vehicle, with a longitudinal distance of 0.00m and a lateral distance of 1.10m at the most recent timestep (5.0 seconds).  The consistent 0.00m longitudinal distance across the last few timesteps indicates continued longitudinal alignment. The lateral distance has been decreasing over the past few time steps: 2.48m, 2.64m, 2.00m, 1.81m, and finally 1.10m.  The obstacle is driving toward the ego car laterally, with a negative relative lateral velocity of -7.53 m/s.
+
+Although the longitudinal distance is zero, there is no immediate collision risk given the lateral separation of 1.10m. However, due to the high closing lateral velocity, the risk is elevated.
+
+* TTC (Lateral): 1.10m / 7.53 m/s = 0.15 seconds. This indicates Extreme Risk (1).
+* MDC: approximately 1.10 meters. This indicates High Risk (2)
+
+*Obstacle 30922 Analysis:*
+
+This obstacle is also to the left of the ego vehicle and maintains a longitudinal distance of 0.00m, similarly exhibiting persistent longitudinal alignment. The lateral distance at the latest timestep is 14.61m. The lateral distance shows a trend of decreasing over the timesteps: 18.87m, 18.75m, 19.35m, 18.59m, 18.63m, 17.77m, 16.96m, 16.22m, 15.31m, and finally 14.61m. The obstacle is driving toward the ego car laterally, with a negative relative lateral velocity of -6.89 m/s.
+
+
+* TTC (Lateral): 14.61m / 6.89 m/s = 2.12 seconds. This indicates Medium Risk (3).
+* MDC: approximately 14.61 meters. This indicates No Risk (5).
+
+
+*Collision Scenario Determination:*
+
+Obstacle 30921 poses an Extreme Risk (1) due to the very low TTC (0.15 seconds) and the rapidly decreasing lateral distance to the ego vehicle.  Even though there is some lateral separation currently, the high closing velocity suggests a likely collision in the next time step.
+
+Therefore, this is classified as a collision scenario.
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30921",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30921 has an extremely low TTC (0.15 seconds) with a rapidly decreasing lateral distance (1.10m) and high negative lateral velocity (-7.53 m/s), indicating a very high probability of collision in the immediate future."
+}
+```

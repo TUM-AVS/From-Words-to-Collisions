@@ -1,0 +1,68 @@
+### Obstacle Analysis
+
+#### Obstacle 312 (Behind the ego car)
+- **Latest Timestep (0.9s):**
+  - **Adjusted Distance:** Longitudinal -19.57 m, Lateral 0.00 m
+  - **Relative Velocity:** Longitudinal 0.96 m/s, Lateral 0.14 m/s
+  - **Motion:** Driving toward the ego car from behind with exact lateral alignment.
+  
+- **Trajectory Analysis:**
+  - The longitudinal distance is decreasing (from -20.08 m to -19.57 m over 0.9s), indicating the obstacle is approaching the ego car from behind.
+  - The lateral distance remains 0.00 m, meaning the obstacle is aligned in the same lane.
+  - The relative longitudinal velocity is positive (0.96 m/s), confirming the obstacle is closing the gap.
+  - The lateral velocity is very small (0.14 m/s) and not significant for collision risk.
+
+- **TTC Calculation:**
+  - Longitudinal TTC = Distance / Relative Velocity = 19.57 / 0.96 ≈ 20.39 seconds (No Risk, TTC > 5.0s)
+  - Lateral TTC is not applicable since the lateral distance is stable (0.00 m) and the lateral velocity is negligible.
+
+- **MDC Calculation:**
+  - Since the obstacle is behind and aligned laterally, the primary risk is longitudinal.
+  - MDC = 19.57 m (No Risk, MDC > 5.0m)
+
+- **Overall Risk:** 5 (Negligible Risk)
+
+#### Obstacle 319 (Front of the ego car)
+- **Latest Timestep (0.9s):**
+  - **Adjusted Distance:** Longitudinal 1.97 m, Lateral 0.00 m
+  - **Relative Velocity:** Longitudinal -0.07 m/s, Lateral -0.66 m/s
+  - **Motion:** Driving toward the ego car longitudinally with exact lateral alignment.
+
+- **Trajectory Analysis:**
+  - The longitudinal distance is decreasing (from 2.57 m to 1.97 m over 0.9s), but the rate of decrease is slowing (relative velocity is -0.07 m/s, almost zero).
+  - The lateral distance remains 0.00 m, meaning the obstacle is aligned in the same lane.
+  - The relative longitudinal velocity is very small (-0.07 m/s), indicating the obstacle is almost stationary relative to the ego car.
+  - The lateral velocity is -0.66 m/s, but since the lateral distance is 0.00 m, this could indicate a potential lateral collision risk if not corrected.
+
+- **TTC Calculation:**
+  - Longitudinal TTC = Distance / Relative Velocity = 1.97 / 0.07 ≈ 28.14 seconds (No Risk, TTC > 5.0s)
+  - Lateral TTC = Distance / Relative Velocity = 0.00 / 0.66 = 0.00 seconds (Collision Risk, TTC = 0s)
+
+- **MDC Calculation:**
+  - Since the obstacle is front and aligned laterally, the primary risk is lateral.
+  - MDC = 0.00 m (Collision Risk, MDC = 0m)
+
+- **Overall Risk:** 0 (Collision Risk)
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "319",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```
+
+### Explanation:
+- **Obstacle 319** is at a collision risk (score 0) because the lateral distance is 0.00 m and the lateral velocity is non-zero, indicating a potential lateral collision.
+- **Obstacle 312** poses negligible risk (score 5) as it is far behind and closing the gap very slowly. The lateral alignment does not contribute to risk since the lateral velocity is minimal.

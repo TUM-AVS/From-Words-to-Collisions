@@ -1,0 +1,50 @@
+* **Obstacle 30259:**
+
+    * **Trajectory:** This obstacle appears in the last timestep (0.9s) for the first time. It is located front-right of the ego vehicle.
+    * **Analysis at 0.9s:**  The obstacle is 24.54m longitudinally and -4.19m laterally away from the ego vehicle. The relative longitudinal velocity is -7.98 m/s (moving away) and the lateral velocity is -6.71 m/s (moving away).  Given the negative relative velocities and substantial distances, there is no immediate risk.
+    * **Risk Assessment:**
+        * Longitudinal TTC: Not applicable due to negative velocity.
+        * Lateral TTC: Not applicable due to negative velocity.
+        * MDC:  > 5m.
+        * Overall Risk Score: 5 (No Risk)
+
+* **Obstacle 30261:**
+
+    * **Trajectory:** This obstacle is consistently in front of the ego vehicle across all timesteps.  The longitudinal distance decreases from 10.16m at 0.1s to 8.20m at 0.9s, showing a closing trend. Although laterally aligned (0.00m), the motion description explicitly states it's driving towards the ego car longitudinally. 
+    * **Analysis at 0.9s:** The longitudinal distance is 8.20m and the relative longitudinal velocity is -4.52 m/s (moving away).
+    * **Risk Assessment:**
+        * Longitudinal TTC: Not applicable due to negative velocity.
+        * Lateral TTC: Not applicable since lateral distance is zero and the obstacle is not approaching laterally.
+        * MDC: > 5m (based on current longitudinal separation).
+        * Overall Risk Score: 5 (No Risk)
+
+* **Obstacle 30268:**
+
+    * **Trajectory:** This obstacle remains behind the ego vehicle throughout the scenario. The longitudinal distance increases (becomes more negative), indicating it is moving further away. It is consistently at 0 lateral distance.
+    * **Analysis at 0.9s:** Longitudinal distance is -13.57m and relative velocity is -1.72 m/s (moving away).
+    * **Risk Assessment:**
+        * Longitudinal TTC: Not applicable due to negative velocity.
+        * Lateral TTC: Not applicable since lateral distance is zero and the obstacle is not approaching laterally.
+        * MDC: > 5m
+        * Overall Risk Score: 5 (No Risk)
+
+
+**Collision Scenario Determination:**  No obstacle has a risk score of 0 or 1. Therefore, this is NOT a collision scenario.
+
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 (collision) or 1 (extreme risk)."
+}
+```

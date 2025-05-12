@@ -1,0 +1,44 @@
+Obstacle 30802:
+
+- Trajectory: This obstacle has been consistently in front of the ego vehicle and moving closer over the observed time steps. The longitudinal distance has decreased from 23.77m to 17.95m.  Lateral distance remains at 0.00m, indicating continued longitudinal alignment.
+
+- TTC (Longitudinal):  17.95m / 3.79 m/s = 4.74 seconds.
+
+- MDC:  Given the consistent lateral alignment (0.00m) and decreasing longitudinal distance, the MDC is primarily based on the longitudinal distance of 17.95m at the last timestep.
+
+- Risk Assessment:
+    - Longitudinal TTC: 4.74s suggests Low Risk (4).
+    - MDC: 17.95m suggests No Risk (5).
+    - Overall Risk: Low Risk (4) - prioritizing the higher risk based on TTC.
+
+Obstacle 30803:
+
+- Trajectory: This obstacle is also in front of the ego vehicle and rapidly approaching. The longitudinal distance has decreased significantly from 2.76m to 0.23m over the observed time steps. The lateral distance remains at 0.00m, indicating longitudinal alignment. This obstacle's continued approach and the near-zero longitudinal distance raise serious concerns.
+
+- TTC (Longitudinal): 0.23m / 0.12m/s = 1.92 seconds
+
+- MDC: With persistent lateral alignment (0.00m) and a drastically decreasing longitudinal distance, the MDC is now extremely low at 0.23m.
+
+- Risk Assessment:
+    - Longitudinal TTC: 1.92s suggests Medium Risk (3).
+    - MDC: 0.23m suggests Extreme Risk (1).
+    - Overall Risk: Extreme Risk (1) - prioritizing the higher risk based on MDC.
+
+Collision Scenario Determination:
+
+Yes, this is a collision scenario. Obstacle 30803 poses an Extreme Risk (1) with an MDC of only 0.23m and a low TTC of 1.92 seconds in the most recent timestep. This indicates a very high probability of an imminent collision if the trajectories are maintained.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30803",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30803 has an extremely low MDC of 0.23m and a low TTC of 1.92 seconds, indicating an imminent collision if current trajectories are maintained."
+}
+```

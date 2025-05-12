@@ -1,0 +1,41 @@
+* **Obstacle 324 (Rear-right):** This obstacle has been moving towards the ego vehicle laterally from the right and was longitudinally aligned with it for several timesteps. Now, at 0.9 seconds, it is slightly behind the ego vehicle (-10.51m longitudinally) and still to its right (-9.73m laterally).  The lateral distance is decreasing slowly (1.10 m/s). The longitudinal distance is increasing, indicating the obstacle is now moving away longitudinally. Given the lateral movement and proximity, we need to calculate TTC and MDC.
+    * **TTC (Lateral):** 9.73m / 1.10m/s ≈ 8.85s
+    * **MDC:**  ≈ 9.73m (primarily lateral as the obstacle is moving away longitudinally)
+    * **Risk:** No Risk (5)
+
+* **Obstacle 350 (Rear-right):** This obstacle was also longitudinally aligned and to the right of the ego vehicle, but has been consistently moving away longitudinally and slightly towards the ego vehicle laterally. At 0.9 seconds, it is -19.18m longitudinally and -14.69m laterally.  The lateral closing velocity is very small (0.69m/s).
+    * **TTC (Lateral):** 14.69m / 0.69m/s ≈ 21.29s
+    * **MDC:** ≈ 14.69m
+    * **Risk:** No Risk (5)
+
+* **Obstacle 3124 (Front-left):** This obstacle has been consistently in front and to the left of the ego vehicle, moving towards the ego longitudinally, but away laterally. At 0.9 seconds, it is 19.35m longitudinally and 9.29m laterally. The longitudinal closing velocity is -4.04 m/s and the lateral velocity is positive (3.59 m/s), meaning the obstacle is moving further to the left and away from the ego vehicle.
+    * **TTC (Longitudinal):** 19.35m / 4.04m/s ≈ 4.79s
+    * **MDC:** ≈ 9.29m (using lateral distance as a proxy due to obstacle moving away)
+    * **Risk:** Low Risk (4)
+
+* **Obstacle 3130 (Front-left):** Similar to 3124, this obstacle is also in front and to the left, moving closer longitudinally but further away laterally. At 0.9 seconds, it is 7.98m ahead and 2.81m to the left. The longitudinal velocity is -4.62 m/s and the lateral velocity is 3.22 m/s, showing it moving away in the lateral direction.
+    * **TTC (Longitudinal):** 7.98m / 4.62m/s ≈ 1.73s
+    * **MDC:** ≈ 2.81m (using lateral distance as proxy due to lateral motion away from ego)
+    * **Risk:** Medium Risk (3)
+
+* **Obstacle 3140 (Rear-left):** This obstacle is behind and to the left, moving away longitudinally but towards the ego laterally. At 0.9 seconds, it is -13.56m longitudinally and 11.42m laterally. The lateral velocity is -7.30 m/s, indicating the obstacle is getting closer from the left side.
+    * **TTC (Lateral):** 11.42m / 7.30m/s ≈ 1.56s
+    * **MDC:** ≈ 11.42m (using lateral distance primarily as obstacle moving away longitudinally)
+    * **Risk:** Medium Risk (3)
+
+**Collision Scenario Determination:** No obstacle has a risk score of 0 or 1. Therefore, this is NOT a collision scenario.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a collision risk score of 0 or an extreme risk score of 1."
+}
+```

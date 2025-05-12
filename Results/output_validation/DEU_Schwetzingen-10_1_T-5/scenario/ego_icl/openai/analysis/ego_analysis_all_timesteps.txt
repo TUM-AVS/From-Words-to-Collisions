@@ -1,0 +1,94 @@
+### Scenario Analysis at the Most Recent Timestep (6.5 seconds)
+
+**Obstacle 20071:**
+- **Position:** Front-left of the ego vehicle
+- **Adjusted Distances:** Longitudinal 2.10 m, Lateral 4.39 m
+- **Relative Velocity:** Longitudinal 0.00 m/s, Lateral 0.00 m/s
+- **Motion:** Driving toward the ego car longitudinally, no lateral relative motion
+
+**Analysis:**  
+- **MDC:** With a longitudinal distance of 2.10 m and no closing velocity, MDC is determined by the lack of relative motion.
+- **TTC:** Not applicable (relative velocity = 0).
+- **Risk Score:** 5 (No risk) as there's no approach.
+
+---
+
+**Obstacle 20072:**
+- **Position:** Front-left of the ego vehicle
+- **Adjusted Distances:** Longitudinal 3.32 m, Lateral 11.47 m
+- **Relative Velocity:** Longitudinal 0.00 m/s, Lateral 0.00 m/s
+- **Motion:** Driving toward the ego car longitudinally, no lateral relative motion
+
+**Analysis:**  
+- **MDC:** Longitudinal distance is adequately safe at 3.32 m; no change expected.
+- **TTC:** Not applicable due to the absence of relative motion.
+- **Risk Score:** 4 (Low risk) as there's some distance cushion.
+
+---
+
+**Obstacle 20074:**
+- **Position:** Front-left of the ego vehicle
+- **Adjusted Distances:** Longitudinal 4.35 m, Lateral 18.37 m
+- **Relative Velocity:** Longitudinal 0.00 m/s, Lateral 0.00 m/s
+- **Motion:** Driving toward the ego car longitudinally, no lateral relative motion
+
+**Analysis:**  
+- **MDC:** Longitudinal proximity is acceptable and currently stable.
+- **TTC:** Not applicable.
+- **Risk Score:** 4 (Low risk)
+
+---
+
+**Obstacle 20077:**
+- **Position:** Front-left of the ego vehicle
+- **Adjusted Distances:** Longitudinal 5.36 m, Lateral 25.28 m
+- **Relative Velocity:** Longitudinal 0.00 m/s, Lateral 0.00 m/s
+- **Motion:** Driving toward the ego car longitudinally, no lateral relative motion
+
+**Analysis:**  
+- **MDC:** Well outside of critical boundaries.
+- **TTC:** Not applicable.
+- **Risk Score:** 5 (No risk)
+
+---
+
+**Obstacle 20130:**
+- **Position:** Collision position with the ego vehicle
+- **Adjusted Distances:** Longitudinal 0.00 m, Lateral 0.00 m
+- **Relative Velocity:** Longitudinal 3.16 m/s, Lateral -0.88 m/s
+- **Motion:** Exact longitudinal and lateral alignment, indicating contact
+
+**Analysis:**  
+- **MDC:** 0.0 m as the adjusted distances are both 0.0 m, indicating collision.
+- **TTC:** Effectively 0 due to the already occurring collision.
+- **Risk Score:** 0 (Collision detected)
+
+---
+
+**Obstacle 20131:**
+- **Position:** Rear-left of the ego car
+- **Adjusted Distances:** Longitudinal -13.71 m, Lateral 3.41 m
+- **Relative Velocity:** Longitudinal 2.16 m/s, Lateral -0.61 m/s
+- **Motion:** Driving toward the ego car from the rear left
+
+**Analysis:**  
+- **MDC:** Longitudinal position and motion reduce the immediate risk.
+- **TTC:** With considerable distance due to remaining cushion.
+- **Risk Score:** 5 (No risk)
+
+---
+
+### Conclusion
+The scenario is classified as a collision scenario due to Obstacle 20130 being in physical contact with the ego vehicle.
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20130",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {},
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 20130 is in physical contact with the ego vehicle, confirmed by adjusted distances being zero in both dimensions, indicating a collision."
+}
+```

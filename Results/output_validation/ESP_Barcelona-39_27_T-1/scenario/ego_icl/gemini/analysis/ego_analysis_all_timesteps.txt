@@ -1,0 +1,26 @@
+* **Obstacle 30805 (Front-Right):**  This obstacle has been consistently approaching the ego vehicle longitudinally while maintaining a relatively safe lateral distance. At the last timestep (3.4s), the longitudinal distance is 0.19m, which is extremely close. Although the lateral distance is -8.84m, the rapid longitudinal approach indicates a very high risk.  The relative longitudinal velocity is -5.92 m/s. TTC = 0.19m / 5.92 m/s = 0.03s.  MDC is approximately 0.19m. Both TTC and MDC indicate Extreme Risk (1).
+
+* **Obstacle 30807 (Right):** This obstacle has maintained a consistent lateral distance of around -8.89m and aligned longitudinally with the ego vehicle from 2.6s.  While the longitudinal alignment might seem concerning, the consistent lateral separation suggests it's simply driving alongside. At 3.4s, the lateral distance remains at -8.90m with a longitudinal distance of 0.00m.  The lateral motion is minimal. TTC is not applicable laterally due to near-zero relative velocity. MDC is approximately 8.90m. Given the distances and lack of lateral closing motion, this obstacle poses a Low Risk (4).
+
+* **Obstacle 30808 (Front-Right):** Similar to Obstacle 30805, this obstacle is approaching longitudinally while maintaining a lateral distance.  At 3.4s, the longitudinal distance is 0.08m and the lateral distance is -5.34m.  The relative longitudinal velocity is -5.92 m/s.  TTC = 0.08m / 5.92 m/s ≈ 0.01s. MDC is approximately 0.08m. This indicates Extreme Risk (1).
+
+* **Obstacle 30810 (Front):**  This obstacle is directly in front of the ego vehicle and has been consistently approaching. At 3.4s, both longitudinal and lateral distances are 0.00m, indicating a collision.  The relative longitudinal velocity is -5.92 m/s.  TTC = 0 / 5.92 = 0s. MDC = 0m. This signifies a Collision Risk (0).
+
+
+**Collision Scenario Determination:** Yes, this is a collision scenario. Obstacle 30810 has collided with the ego vehicle (Risk 0).  Obstacles 30805 and 30808 are also at Extreme Risk (1) with imminent collisions.
+
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "30810",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30805",  
+    "OverallRiskScore": "1"
+  },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30810 shows a collision (Risk 0) with the ego vehicle at the last timestep (3.4s) with 0.00m distance in both longitudinal and lateral directions. Obstacles 30805 and 30808 are also at Extreme Risk (1) with very low TTC and MDC, indicating imminent collisions."
+}
+```

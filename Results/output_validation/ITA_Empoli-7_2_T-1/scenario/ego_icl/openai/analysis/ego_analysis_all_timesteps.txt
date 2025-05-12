@@ -1,0 +1,65 @@
+### Obstacle-by-Obstacle Analysis
+
+**Obstacle 31 (Front-left)**
+- **Adjusted Distances at 2.2 seconds**: Longitudinal 12.61 m, Lateral 15.00 m
+- **Relative Velocities**: Longitudinal -2.13 m/s, Lateral -1.82 m/s
+- **TTC Calculation**:
+  - Longitudinal: 12.61 / 2.13 = 5.92 seconds
+  - Lateral: 15.00 / 1.82 = 8.24 seconds
+- **MDC Analysis**: Given both distances and slightly converging paths, MDC is expected to remain above 5.0 meters in the immediate future.
+- **Risk Assessment**: Both TTCs are greater than 5.0s. Overall: No Risk (5).
+
+**Obstacle 35 (Front-right)**
+- **Adjusted Distances at 2.2 seconds**: Longitudinal 14.77 m, Lateral -13.63 m
+- **Relative Velocities**: Longitudinal -1.73 m/s, Lateral 1.65 m/s
+- **TTC Calculation**:
+  - Longitudinal: 14.77 / 1.73 = 8.54 seconds
+  - Lateral: 13.63 / 1.65 = 8.26 seconds
+- **MDC Analysis**: Both distances remain significantly large with converging lazy paths.
+- **Risk Assessment**: Both TTCs are greater than 5.0s. Overall: No Risk (5).
+
+**Obstacle 36 (Front-right)**
+- **Adjusted Distances at 2.2 seconds**: Longitudinal 12.66 m, Lateral -13.14 m
+- **Relative Velocities**: Longitudinal -1.68 m/s, Lateral 2.70 m/s
+- **TTC Calculation**:
+  - Longitudinal: 12.66 / 1.68 = 7.54 seconds
+  - Lateral: 13.14 / 2.70 = 4.87 seconds
+- **MDC Analysis**: Path convergence nears but maintains over 5.0 meters for any potential collision.
+- **Risk Assessment**: Lateral TTC < 5.0s: Low Risk (4).
+
+**Obstacle 310 (Front)**
+- **Adjusted Distances at 2.2 seconds**: Longitudinal 14.11 m, Lateral 0.00 m (Exact Alignment)
+- **Relative Velocities**: Longitudinal -1.70 m/s, Lateral 1.36 m/s
+- **TTC Calculation**:
+  - Longitudinal: 14.11 / 1.70 = 8.30 seconds
+- **MDC Analysis**: Lateral alignment but longitudinal distance is significantly large.
+- **Risk Assessment**: Low risk due to sufficient longitudinal distance: Low Risk (4).
+
+**Obstacle 317 (Behind)**
+- **Adjusted Distances at 2.2 seconds**: Longitudinal -0.27 m, Lateral 0.00 m (Exact Alignment)
+- **Relative Velocities**: Longitudinal 5.06 m/s, Lateral -0.62 m/s
+- **TTC Calculation**:
+  - Based on longitudinal movement and rapid closure: Collision imminent.
+- **MDC Analysis**: Extremely close, rapidly closing; possible collision if unmitigated.
+- **Risk Assessment**: Overlap with past negative distances; adjustment required. Special attention needed. Overall: Collision Risk (0).
+
+**Summary and Justification**
+- Obstacle 317 presents a critical threat due to extremely short longitudinal distance and high relative velocity, clearly indicating a collision scenario.
+- None of the other obstacles present an immediate collision risk.
+- There's a need for immediate corrective measures for the ego vehicle concerning Obstacle 317.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "317",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 317 has a high relative velocity with close proximity, indicating imminent collision risk."
+}
+```

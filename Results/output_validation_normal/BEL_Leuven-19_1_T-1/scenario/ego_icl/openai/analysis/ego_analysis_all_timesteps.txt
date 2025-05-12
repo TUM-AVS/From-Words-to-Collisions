@@ -1,0 +1,96 @@
+### Obstacle-by-Obstacle Analysis and Risk Assessment
+
+#### Obstacle 30166:
+- **Position**: Rear-left of the ego car
+- **Adjusted Distances**: Longitudinal -18.72 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal -13.85 m/s, Lateral -1.87 m/s
+- **Motion**: Moving away longitudinally, exact lateral alignment
+- **Trajectory**: Continues to move away longitudinally with lateral alignment
+  - **MDC**: Lateral distance is 0.00 m, but it's moving away longitudinally
+  - **TTC**: Not applicable as the relative velocity is moving away longitudinally
+- **Risk Assessment**: No collision risk due to both longitudinal and lateral directions moving away
+- **Risk Score**: 5 (No Risk)
+
+#### Obstacle 30167:
+- **Position**: Rear-left of the ego car
+- **Adjusted Distances**: Longitudinal -3.33 m, Lateral 2.11 m
+- **Relative Velocity**: Longitudinal -12.90 m/s, Lateral 0.35 m/s
+- **Motion**: Moving away in both dimensions
+- **Trajectory**: Gradually moving away from the ego vehicle
+  - **MDC**: Longitudinally increasing, lateral increasing
+  - **TTC**: Not approaching due to velocities indicating it is moving away
+- **Risk Assessment**: Paths diverging, and no imminent collision detected
+- **Risk Score**: 5 (No Risk)
+
+#### Obstacle 30169:
+- **Position**: Behind of the ego car
+- **Adjusted Distances**: Longitudinal -5.16 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 1.25 m/s, Lateral 0.00 m/s
+- **Motion**: Driving toward the ego from behind
+- **Trajectory**: Moving towards the ego car longitudinally
+  - **MDC**: Exact lateral alignment
+  - **TTC**: Longitudinally approaching
+    - **TTC longitudinal**: |Relative velocity| = 1.25 m/s, Distance = 5.16 m
+    - TTC = 5.16 / 1.25 = 4.13 s
+- **Risk Assessment**: There's approaching movement, but the calculated TTC suggests a low risk
+- **Risk Score**: 4 (Low Risk)
+
+#### Obstacle 30170:
+- **Position**: Front-left of the ego car
+- **Adjusted Distances**: Longitudinal 4.28 m, Lateral 1.47 m
+- **Relative Velocity**: Longitudinal -10.66 m/s, Lateral 2.34 m/s
+- **Motion**: Approaching longitudinally, moving away laterally
+- **Trajectory**: Converging longitudinally while diverging laterally
+  - **MDC**: Longitudinally decreasing, lateral stable or increasing
+  - **TTC**: Longitudinally approaching
+    - **TTC longitudinal** = 4.28 / 10.66 ≈ 0.40 seconds
+- **Risk Assessment**: Short TTC indicates an extreme risk with imminent collision path longitudinally
+- **Risk Score**: 1 (Extreme Risk)
+
+#### Obstacle 30171:
+- **Position**: Rear-right of the ego car
+- **Adjusted Distances**: Longitudinal -24.41 m, Lateral -0.78 m
+- **Relative Velocity**: Longitudinal 6.65 m/s, Lateral -0.71 m/s
+- **Motion**: Driving toward the ego from behind
+- **Trajectory**: Approaching both longitudinally and laterally
+  - **MDC**: Longitudinally decreasing, lateral stable or increasing slightly
+  - **TTC**: Longitudinally approaching
+    - **TTC longitudinal** = 24.41 / 6.65 ≈ 3.67 seconds
+- **Risk Assessment**: Distance is greater and is in pursuit but not immediate collision
+- **Risk Score**: 3 (Medium Risk)
+
+#### Obstacle 30172:
+- **Position**: Front-right of the ego car
+- **Adjusted Distances**: Longitudinal 14.52 m, Lateral -6.63 m
+- **Relative Velocity**: Longitudinal -5.74 m/s, Lateral 8.33 m/s
+- **Motion**: Approaching longitudinally and laterally
+- **Trajectory**: Closing distance longitudinally
+  - **MDC**: Increasing distance due to respective motion trajectories
+  - **TTC**: Longitudinally closing
+    - **TTC longitudinal** = 14.52 / 5.74 ≈ 2.53 seconds
+- **Risk Assessment**: Approaching, requiring monitoring for potential risk
+- **Risk Score**: 3 (Medium Risk)
+
+### Conclusion:
+- **Collision Scenario Identification**: Obstacle 30167 shows simultaneous alignment longitudinally and laterally at several instances indicating direct collision. Similarly, obstacle 30170 shows extreme risk scores due to short longitudinal TTC.
+  
+- **Collision and Extreme Risk Identified**:
+  - Obstacle 30167 is directly aligned (Collision Score of 0 in prior steps ensures action)
+  - Furthermore, Obstacle 30170 at extreme risk aligns based on rapid closure in longitudinal at very short TTCs (Score of 1 reinforces situation).
+
+### Final JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30167",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30170",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Identified collision with Obstacle 30167 due to consistent zero distances. Additionally, Obstacle 30170 nearing collision path due to very short TTC, validating extreme risk."
+}
+```

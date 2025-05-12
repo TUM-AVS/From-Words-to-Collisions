@@ -1,0 +1,57 @@
+### Safety analysis for the most recent timestep (0.9 seconds):
+
+### Obstacle Analysis:
+
+1. **Obstacle ID: 30221.0** (Same lanelet as ego: 116.0)
+   - **Distance Risk reason**: Moving towards ego but still at a safe distance (~12.5m). Orientation aligns with ego's path.
+   - **Distance safety score**: 3 (Medium Risk)
+   - **Time Risk reason**: Decelerating (velocity decreasing from 1.9854 to 1.0829 m/s over 0.9s). Relative velocity ~5 m/s.
+   - **Time safety score**: 3 (Medium Risk)
+   - **Overall Risk score**: 3 (Medium Risk)
+
+2. **Obstacle ID: 30225.0** (Lanelet 115.0)
+   - **Distance Risk reason**: Static obstacle in adjacent lane (~20m away). No immediate threat.
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: Stationary (velocity = 0).
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5 (Negligible Risk)
+
+3. **Obstacle ID: 30228.0** (Lanelet 116.0)
+   - **Distance Risk reason**: Static obstacle in same lane (~20m ahead). Orientation opposite to ego.
+   - **Distance safety score**: 4 (Low Risk)
+   - **Time Risk reason**: Stationary (velocity = 0). Ego is decelerating.
+   - **Time safety score**: 4 (Low Risk)
+   - **Overall Risk score**: 4 (Low Risk)
+
+4. **Obstacle ID: 30229.0** (Lanelet 115.0)
+   - **Distance Risk reason**: Moving slowly in adjacent lane (~17m away). Orientation similar to ego.
+   - **Distance safety score**: 4 (Low Risk)
+   - **Time Risk reason**: Decelerating (velocity decreasing from 1.5655 to 0.813 m/s). Relative velocity ~5.3 m/s.
+   - **Time safety score**: 4 (Low Risk)
+   - **Overall Risk score**: 4 (Low Risk)
+
+5. **Obstacle ID: 30241.0** (Lanelet 115.0)
+   - **Distance Risk reason**: Moving away from ego in adjacent lane (~18m behind). Orientation similar to ego.
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: Velocity ~6.5 m/s (moving away). Relative velocity ~0.5 m/s.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5 (Negligible Risk)
+
+### Chain of Thought Scenario Analysis:
+1. Ego is decelerating (velocity decreasing from 7.3153 to 6.1093 m/s).
+2. No obstacles are in immediate collision path (all distances > 12m).
+3. Closest dynamic obstacle (30221.0) is decelerating and not on a direct collision course.
+4. Static obstacles are either in adjacent lanes or far enough ahead to be manageable.
+5. No collision or extreme risk detected in current trajectory.
+
+### Summary in JSON Format:
+```json
+{
+    "CollisionObstacles": null,
+    "ExtremeRiskObstacle": null,
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "All obstacles are at safe distances (>12m) with no immediate collision risk. Ego is decelerating and no obstacles are on a direct collision path."
+    }
+}
+```

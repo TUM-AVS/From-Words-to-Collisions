@@ -1,0 +1,49 @@
+### Safety analysis for the most recent timestep: Here's the evaluation of each obstacle according to the provided metrics and calculations.
+### Obstacle Analysis:
+    - Obstacle ID: 41
+    - Relative Direction: Rear-left
+    - Distance Risk Reason: Obstacle 41 was initially approaching from the front-left, becoming a left obstacle, and is now moving away longitudinally while laterally approaching but at a greater distance. DTClong is -16.77m indicating moving away, and DTClat is 0.99m which is very close.
+    - Longitudinal Distance Safety Score: 5
+    - Lateral Distance Safety Score: 1
+    - Overall Distance Safety Score: 3.0 (5 * 0.5 + 1 * 0.5)
+    - Time Risk Reason: TTClong is inf as the obstacle is moving away longitudinally. TTClat is critically low at 0.09s, indicating a very high risk of lateral collision.
+    - Longitudinal Time Safety Score: 5
+    - Lateral Time Safety Score: 1
+    - Overall Time Safety Score: 3.0 (5 * 0.5 + 1 * 0.5)
+    - Overall Risk Score: 3 (0.5 * 3.0 + 0.5 * 3.0 = 3.0)
+
+    - Obstacle ID: 45
+    - Relative Direction: Front-left
+    - Distance Risk Reason:  Obstacle 45 is approaching the ego vehicle both longitudinally and laterally, with DTClong at 10.53m and DTClat at 2.85m. This represents a medium longitudinal risk and a medium to high lateral risk.
+    - Longitudinal Distance Safety Score: 4
+    - Lateral Distance Safety Score: 3
+    - Overall Distance Safety Score: 3.5 (4 * 0.5 + 3 * 0.5)
+    - Time Risk Reason: TTClong is 0.25s and TTClat is 4.22s, showing an extremely high longitudinal collision risk and a low lateral risk. The longitudinal TTC has been decreasing rapidly over the timesteps.
+    - Longitudinal Time Safety Score: 1
+    - Lateral Time Safety Score: 4
+    - Overall Time Safety Score: 2.5 (1 * 0.5 + 4 * 0.5)
+    - Overall Risk Score: 3 (0.5 * 3.5 + 0.5 * 2.5 = 3.0)
+
+    - Obstacle ID: 109
+    - Relative Direction: Behind
+    - Distance Risk Reason: Obstacle 109 has been consistently approaching the ego vehicle from behind, with DTClong at -0.20m indicating it is extremely close.  DTClat is 0.0 indicating they are on the same lane. 
+    - Longitudinal Distance Safety Score: 1
+    - Lateral Distance Safety Score: 0
+    - Overall Distance Safety Score: 1.0 (1 * 1.0 + 0 * (1-1.0))
+    - Time Risk Reason:  TTClong is 0.13s indicating an extremely high risk of rear-end collision.  TTClat is 0.00, showing no lateral movement/information available. The TTC has been consistently decreasing.
+    - Longitudinal Time Safety Score: 1
+    - Lateral Time Safety Score: 0
+    - Overall Time Safety Score: 1.0 (1 * 1.0 + 0 * (1-1.0))
+    - Overall Risk Score: 1 (0.5 * 1.0 + 0.5 * 1.0 = 1.0)
+
+
+### Summary in JSON Format:
+```json
+{
+    "CollisionObstacle": null,
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "109",
+        "OverallRiskScore": "1"
+    }
+}
+```

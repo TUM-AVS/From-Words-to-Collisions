@@ -1,0 +1,54 @@
+Obstacle 30597 Analysis:
+- Trajectory: Obstacle 30597 has been consistently in front of the ego vehicle and moving closer longitudinally across all timesteps, though the closing velocity is decreasing. Lateral distance remains at 0.00m (perfect alignment) throughout, indicating the obstacle remains directly ahead of the ego vehicle.
+
+- At t=0.9s:
+  - Longitudinal distance: 14.03m
+  - Lateral distance: 0.00m
+  - Longitudinal relative velocity: -0.30 m/s (closing)
+  - Lateral relative velocity: 0.46 m/s
+
+- TTC Calculation:
+  - Longitudinal TTC = 14.03m / 0.30m/s = 46.77s 
+  - Lateral TTC is not meaningful as lateral distance is zero. It suggests the obstacle might slightly drift to the ego vehicle's left but it's not enough for collision assessment since longitudinal distance is large.
+
+- MDC Calculation:
+  - Since the obstacle is directly ahead, MDC is essentially the lateral distance, which is 0.00m.  However, because the longitudinal distance is significant and the lateral velocity is low, a collision is not imminent.
+
+- Risk Assessment:
+  - Longitudinal Risk: No Risk (5) due to large TTC.
+  - Lateral Risk: MDC=0 is usually dangerous, but since it remains directly in front (same lane) and longitudinal motion is slow, the actual risk is low. Consider it a Medium Risk (3) due to continued alignment and slowly decreasing longitudinal distance.
+  - Overall Risk: Medium Risk (3) - prioritizing the more cautious lateral assessment (3 over 5).
+
+Obstacle 30598 Analysis:
+- Trajectory:  This obstacle is behind the ego vehicle and rapidly approaching throughout the timesteps.  Lateral distance remains 0.00m, meaning it's directly behind and in the same lane. The closing longitudinal velocity is significantly increasing, indicating potential for a high-risk situation.
+
+- At t=0.9s:
+  - Longitudinal distance: -13.34m 
+  - Lateral distance: 0.00m
+  - Longitudinal relative velocity: 2.91 m/s (rapidly closing)
+  - Lateral relative velocity: -0.29 m/s
+
+- TTC Calculation:
+  - Longitudinal TTC = 13.34m / 2.91 m/s = 4.58s
+
+- MDC Calculation:
+  - Since the obstacle is directly behind, MDC is considered as the lateral distance, which is 0.00m. This is concerning because the obstacle is rapidly approaching.
+
+- Risk Assessment:
+  - Longitudinal Risk: Low Risk (4) due to the TTC, but should be downgraded considering rapid approach.
+  - Lateral Risk: Due to perfect alignment and rapidly closing longitudinal velocity, this is a High Risk (2). 
+  - Overall Risk: High Risk (2)
+
+Collision Scenario Determination:
+Although there is no collision score (0) or extreme risk score (1), obstacle 30598 presents a High Risk (2) due to the significant closing velocity and perfect lateral alignment from behind. This warrants attention as a potentially developing collision scenario if the current trends continue. 
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": false, 
+  "Justification": "No obstacle has a risk score of 0 or 1. However, obstacle 30598 poses a high risk (2) due to its rapid approach from directly behind the ego vehicle with perfect lateral alignment, requiring close monitoring for potential collision development."
+}
+```

@@ -1,0 +1,49 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 3520 (Front of ego car)
+- **Latest Timestep (14.0s)**:
+  - **Adjusted Distance**: Longitudinal 20.68 m, Lateral 0.00 m
+  - **Relative Velocity**: Longitudinal 6.83 m/s (moving away), Lateral 0.64 m/s (moving away)
+  - **Motion**: Moving away longitudinally, exact lateral alignment.
+  - **Trajectory Analysis**:
+    - Longitudinal distance increases from 14.99 m to 20.68 m over 0.9s (consistent positive relative velocity).
+    - Lateral distance remains 0.00 m but lateral velocity is positive (0.64 m/s), indicating slight divergence.
+  - **TTC**: Not applicable (relative velocity is negative in both dimensions, meaning paths are diverging).
+  - **MDC**: Current longitudinal distance is 20.68 m (No Risk, MDC > 5.0 m).
+  - **Overall Risk**: 5 (No Risk).
+
+#### Obstacle 3523 (Behind ego car)
+- **Latest Timestep (14.0s)**:
+  - **Adjusted Distance**: Longitudinal -0.10 m, Lateral 0.00 m
+  - **Relative Velocity**: Longitudinal 6.87 m/s (approaching), Lateral -0.03 m/s (negligible).
+  - **Motion**: Driving toward ego car from behind, exact lateral alignment.
+  - **Trajectory Analysis**:
+    - Longitudinal distance decreases from -5.85 m to -0.10 m over 0.9s (consistent positive relative velocity).
+    - Lateral distance remains 0.00 m with negligible lateral velocity (-0.03 m/s).
+  - **TTC**:
+    - Longitudinal TTC = 0.10 m / 6.87 m/s ≈ 0.0146 s (Extreme Risk, TTC ≤ 0.5 s).
+  - **MDC**:
+    - Current longitudinal distance is 0.10 m (Extreme Risk, MDC ≤ 0.5 m).
+  - **Overall Risk**: 1 (Extreme Risk).
+
+### Collision Scenario Determination
+- Obstacle 3523 is at Extreme Risk (Overall Risk Score = 1) due to:
+  - Very small longitudinal distance (0.10 m) with high closing velocity (6.87 m/s).
+  - TTC is extremely low (0.0146 s), indicating imminent collision.
+  - Lateral alignment is exact (0.00 m), meaning the obstacle is directly behind the ego vehicle.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "NONE",
+        "OverallRiskScore": "NONE"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3523",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 3523 is at Extreme Risk (Score 1) with TTC ≈ 0.0146 s and MDC = 0.10 m, indicating an imminent collision from behind."
+}
+```

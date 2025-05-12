@@ -1,0 +1,59 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 20017 (Most Recent Timestep: 0.9s)
+- **Position**: Front-right of ego car
+- **Adjusted Distances**: 
+  - Longitudinal: 23.52 m (front)
+  - Lateral: -3.46 m (right)
+- **Relative Velocity**: 
+  - Longitudinal: -1.09 m/s (approaching ego)
+  - Lateral: -4.51 m/s (moving away from ego to the right)
+- **Motion Description**: 
+  - Obstacle is driving toward the ego car longitudinally.
+  - Obstacle is moving away laterally to the right.
+
+#### Trajectory Analysis (Across Timesteps)
+- **Longitudinal Distance**: Decreasing slowly from 23.86 m to 23.52 m over 0.9s.
+- **Lateral Distance**: Increasing (moving away) from -0.93 m to -3.46 m over 0.9s.
+- **Longitudinal Relative Velocity**: Approximately -1.0 to -1.3 m/s (consistent approach).
+- **Lateral Relative Velocity**: Approximately -3.1 to -4.7 m/s (consistent movement away).
+
+#### TTC Calculation
+- **Longitudinal TTC**: 
+  - Distance = 23.52 m
+  - Relative Velocity = 1.09 m/s (absolute value since approaching)
+  - TTC = 23.52 / 1.09 ≈ 21.58 seconds (No Risk, TTC > 5.0s)
+- **Lateral TTC**: 
+  - Distance = 3.46 m (absolute value)
+  - Relative Velocity = 4.51 m/s (moving away)
+  - TTC is not applicable (diverging paths, no collision risk).
+
+#### MDC Calculation
+- **Longitudinal MDC**: 23.52 m (No Risk, MDC > 5.0m)
+- **Lateral MDC**: 3.46 m (Low Risk, 3.0 < MDC ≤ 5.0m)
+- **Overall MDC**: The obstacle is moving away laterally, so the primary risk is longitudinal. Since the longitudinal distance is large and increasing, the MDC is effectively the longitudinal distance.
+
+#### Risk Assessment
+- **Longitudinal Risk**: No Risk (TTC > 5.0s, MDC > 5.0m)
+- **Lateral Risk**: Low Risk (MDC = 3.46m, but moving away)
+- **Overall Risk**: Low Risk (4) - No imminent collision threat.
+
+### Conclusion
+- The obstacle is moving away laterally and approaching very slowly longitudinally. The distances are large, and the trajectories do not indicate any imminent collision risk.
+- This is **not** a collision scenario.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 20017 is moving away laterally and approaching longitudinally at a very slow rate. Both TTC and MDC indicate no imminent collision risk."
+}
+```

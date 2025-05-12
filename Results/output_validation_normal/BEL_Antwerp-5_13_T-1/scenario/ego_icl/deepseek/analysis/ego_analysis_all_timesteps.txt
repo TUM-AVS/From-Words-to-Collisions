@@ -1,0 +1,49 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30694 (Most Recent Timestep: 0.9s)
+- **Position**: Front of ego car
+- **Adjusted Distances**: 
+  - Longitudinal: 13.44 m (raw distance, adjusted distance not provided, assuming raw distance is used)
+  - Lateral: 0.00 m (exact alignment)
+- **Relative Velocity**: 
+  - Longitudinal: 2.91 m/s (moving away from ego)
+  - Lateral: -0.01 m/s (negligible lateral movement)
+- **Motion Description**: Obstacle is moving away longitudinally. Exact lateral alignment or unknown case.
+
+#### Trajectory Analysis (Across Timesteps)
+- The obstacle is consistently moving away from the ego vehicle longitudinally (distance increases from 11.95m to 13.44m over 0.9s).
+- Lateral distance remains at 0.00m, but the relative lateral velocity is negligible (-0.01 m/s), indicating no significant lateral movement.
+- The longitudinal relative velocity is positive and increasing (from 1.68 m/s to 2.91 m/s), confirming the obstacle is accelerating away from the ego vehicle.
+
+#### TTC Calculation
+- Longitudinal TTC: Not applicable (relative velocity is positive, meaning the obstacle is moving away; no collision course).
+- Lateral TTC: Not applicable (lateral relative velocity is negligible and not converging).
+
+#### MDC Calculation
+- Since the obstacle is moving away longitudinally and laterally aligned, the MDC is effectively the current longitudinal distance (13.44 m), which is far beyond the 5.0 m threshold for "No Risk."
+- Lateral MDC is 0.00 m, but since the obstacle is not moving laterally toward the ego, this does not indicate a collision risk.
+
+#### Risk Assessment
+- **Longitudinal Risk**: No Risk (5) - MDC > 5.0 m and TTC not applicable (moving away).
+- **Lateral Risk**: No Risk (5) - MDC = 0.00 m but no converging motion.
+- **Overall Risk Score**: 5 (No Risk).
+
+### Conclusion
+- No collision or extreme risk is present. The obstacle is moving away from the ego vehicle in the longitudinal direction and is not a threat.
+- This is **not** a collision scenario.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30694 is moving away longitudinally with no lateral convergence, posing no collision risk."
+}
+```

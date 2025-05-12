@@ -1,0 +1,111 @@
+Obstacle-by-Obstacle Analysis at t=0.9s:
+
+**Obstacle 30209 (Front-left):**
+
+* Trajectory: Initially approaching in both longitudinal and lateral directions, then lateral motion starts diverging while longitudinal motion fluctuates slightly.  At the last timestep, it is slightly approaching longitudinally and diverging laterally.
+* Longitudinal distance: 8.25m
+* Lateral distance: 2.15m
+* Relative longitudinal velocity: -0.03 m/s (slightly approaching)
+* Relative lateral velocity: 0.17 m/s (diverging)
+* Longitudinal TTC: Not applicable due to near-zero and fluctuating velocity.
+* Lateral TTC: Not applicable since diverging.
+* MDC:  Since the obstacle is primarily front-left and slightly converging, the MDC can be estimated as the longitudinal distance of 8.25m.
+* Risk Assessment:
+    * Longitudinal: Low risk (4) based on distance.
+    * Lateral: No risk (5) based on diverging motion.
+    * Overall: Low Risk (4) - Dominated by longitudinal proximity.
+
+**Obstacle 30214 (Rear-left):**
+
+* Trajectory: Consistently moving away longitudinally and converging laterally.
+* Longitudinal distance: -14.16m (behind)
+* Lateral distance: 2.80m
+* Relative longitudinal velocity: -11.30 m/s (moving away)
+* Relative lateral velocity: -3.61 m/s (approaching)
+* Longitudinal TTC: Not applicable (moving away).
+* Lateral TTC: 2.80m / 3.61 m/s ≈ 0.78s
+* MDC: Lateral distance of 2.80m
+* Risk Assessment:
+    * Longitudinal: No risk (5) based on diverging motion.
+    * Lateral: High risk (2) due to TTC < 1.0s.
+    * Overall: High Risk (2) - Dominated by lateral motion.
+
+**Obstacle 30219 (Rear-left):**
+
+* Trajectory: Initially moving away longitudinally, but then starts approaching from behind. Consistently converging laterally.
+* Longitudinal distance: -9.07m (behind)
+* Lateral distance: 18.21m
+* Relative longitudinal velocity: 3.70 m/s (approaching)
+* Relative lateral velocity: -1.26 m/s (approaching)
+* Longitudinal TTC: 9.07m / 3.70 m/s ≈ 2.45s
+* Lateral TTC: 18.21m / 1.26 m/s ≈ 14.45s
+* MDC: Longitudinal distance (since the obstacle is behind and approaching) -9.07m
+* Risk Assessment:
+    * Longitudinal: Medium risk (3) based on TTC.
+    * Lateral: No risk (5) based on distance and TTC.
+    * Overall: Medium Risk (3) - Dominated by longitudinal motion.
+
+**Obstacle 30220 (Front):**
+
+* Trajectory: Consistently moving away longitudinally and very slightly converging laterally (likely due to noise/drift and can be disregarded).
+* Longitudinal distance: 13.18m
+* Lateral distance: 0.00m 
+* Relative longitudinal velocity: 2.60 m/s (moving away)
+* Relative lateral velocity: 0.26 m/s
+* Longitudinal TTC: Not applicable as moving away.
+* Lateral TTC: Not applicable due to exact alignment and low velocity - essentially no lateral movement.
+* MDC: Longitudinal distance: 13.18m
+* Risk Assessment:
+    * Longitudinal: No risk (5) due to diverging motion.
+    * Lateral: No risk (5) due to exact alignment, but no actual lateral motion.
+    * Overall: No Risk (5).
+
+**Obstacle 30223 (Behind):**
+
+* Trajectory: Consistently moving away longitudinally and nearly stationary laterally.
+* Longitudinal distance: -7.48m
+* Lateral distance: 0.00m
+* Relative longitudinal velocity: -0.52 m/s (moving away)
+* Relative lateral velocity: 0.06 m/s
+* Longitudinal TTC: Not applicable due to diverging motion.
+* Lateral TTC: Not applicable due to near zero values and alignment.
+* MDC: Longitudinal distance -7.48m
+* Risk Assessment:
+    * Longitudinal: No risk (5) - moving away.
+    * Lateral: No risk (5) - essentially no lateral movement.
+    * Overall: No Risk (5).
+
+**Obstacle 30227 (Behind):**
+
+* Trajectory: Consistently moving away longitudinally with minimal lateral movement.
+* Longitudinal distance: -17.49m
+* Lateral distance: 0.00m
+* Relative longitudinal velocity: -1.81 m/s (moving away)
+* Relative lateral velocity: 0.04 m/s
+* Longitudinal TTC: Not applicable due to diverging motion.
+* Lateral TTC: Not applicable due to near-zero velocity and exact alignment.
+* MDC: Longitudinal distance of -17.49m.
+* Risk Assessment:
+    * Longitudinal: No risk (5) - moving away.
+    * Lateral: No risk (5) - essentially no lateral movement.
+    * Overall: No Risk (5).
+
+
+**Collision Scenario Determination:** No.  No obstacle has a risk score of 0 or 1.
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 (collision) or 1 (extreme risk) at the most recent timestep."
+}
+```

@@ -1,0 +1,73 @@
+### Obstacle Analysis
+
+#### Obstacle 30745:
+- **Trajectory Analysis:**
+  - **Longitudinal Movement:** Initially moving toward the ego vehicle with a decreasing rate due to changing acceleration. The obstacle ends at 16.05 m with a very minor approach velocity of -0.26 m/s longitudinally, gradually reducing its closing speed with increasing positive acceleration. 
+  - **Lateral Movement:** Consistently moving away as the lateral distance continues to grow to -18.38 m, with the relative velocity remaining negative.
+
+- **Calculation:**
+  - **Longitudinal TTC**: Given the minor approaching velocity of 0.26 m/s and a distance of 16.05 m, the TTC is 16.05 / 0.26 ≈ 61.73s, indicating no immediate risk.
+  - **Lateral TTC**: Similarly, with a consistent negative velocity, no collision will occur laterally.
+  - **MDC**: Both longitudinal and lateral distances are well beyond dangerous proximity.
+
+- **Risk Assessment:** 
+  - With both TTC and MDC values well beyond risk thresholds, Obstacle 30745 holds a risk score of 5 (Negligible Risk).
+
+#### Obstacle 30746:
+- **Trajectory Analysis:**
+  - **Longitudinal Movement:** Continues to approach the ego vehicle moderately at 2.90 m longitudinally. With slowing velocities and increasing positive acceleration, its approach will decelerate over time.
+  - **Lateral Movement:** With a still moderately close lateral distance of -4.53 m, it is also moving away laterally.
+
+- **Calculation:**
+  - **Longitudinal TTC**: For a distance of 2.90 m and an approach velocity of 0.69 m/s, TTC = 2.90 / 0.69 ≈ 4.20s, indicating manageable risk.
+  - **Lateral TTC**: Given the obstacle's consistent lateral negative velocity, it's moving away, decreasing lateral collision risk.
+  - **MDC**: Conservative approach indicates medium risk proximity longitudinally but diverging laterally reduces potential hazard.
+
+- **Risk Assessment:** 
+  - Despite medium voluntary risk longitudinally, diverging paths lessens danger. The obstacle falls under a risk score of 3 (Medium Risk).
+
+#### Obstacle 30750:
+- **Trajectory Analysis:**
+  - **Longitudinal Movement:** Maneuvering away from the ego vehicle now, demonstrated by its positive longitudinal velocity, establishing separation.
+  - **Lateral Movement:** Also equally distancing laterally.
+  
+- **Calculation:**
+  - **Longitudinal TTC**: With an increasing distance of 8.74 m and absence of approaching velocity, TTC isn't applicable.
+  - **Lateral TTC**: Moving away laterally ensures no collision.
+  - **MDC**: Significant longitudinal and lateral distances establish no risk of collision.
+  
+- **Risk Assessment:** 
+  - The consistent distancing in all directions results in a risk score of 5 (Negligible Risk).
+
+### Final JSON Summary
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "2"
+  },
+  "MediumRiskObstacle": {
+    "ObstacleID": "30746",
+    "OverallRiskScore": "3"
+  },
+  "LowRiskObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "4"
+  },
+  "NegligibleRiskObstacles": {
+    "ObstacleIDs": ["30745", "30750"],
+    "OverallRiskScore": "5"
+  }
+}
+```
+
+All risk assessments were determined based on the most recent conditions of each obstacle and their projected trajectories.

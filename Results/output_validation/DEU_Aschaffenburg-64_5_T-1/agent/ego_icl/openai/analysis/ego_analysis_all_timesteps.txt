@@ -1,0 +1,62 @@
+### Obstacle-by-Obstacle Analysis
+
+**Obstacle 30187 (Front-Left):**
+
+- **Position and Trajectory:**
+  - **Adjusted Position at 2.1 seconds:** Longitudinal = 6.39 m, Lateral = 1.74 m
+  - **Relative Velocity:** Longitudinal = -15.92 m/s, Lateral = 0.19 m/s
+  - The obstacle is closing in on both longitudinal and lateral dimensions.
+
+- **Trajectory Analysis:**
+  - The obstacle has been consistently decreasing its longitudinal distance to the ego vehicle, indicating a strong convergence. However, the lateral velocity suggests a slight divergence in the lateral dimension as it moves away.
+
+- **Calculations:**
+  - **TTC Longitudinal:** |6.39m / 15.92 m/s| ≈ 0.40 seconds
+  - **TTC Lateral (not essential as lateral velocity is divergent):** Infinite (moving away slightly)
+  - **Minimum Distance to Collision (MDC):** Based on the converging motion primarily in the longitudinal direction, with minimal concern laterally due to a slight divergence in lateral velocity.
+
+- **Risk Assessment:**
+  - **TTC:** 0.40 seconds (Extreme Risk - Score 1)
+  - **MDC:** Effective in close proximity in the longitudinal path but divergent laterally.
+  - **Overall Risk Score:** Extreme Risk (1), prioritizing the higher risk due to the converging longitudinal path.
+
+**Obstacle 30195 (Behind):**
+
+- **Position and Trajectory:**
+  - **Adjusted Position at 2.1 seconds:** Longitudinal = -0.76 m, Lateral = 0.00 m
+  - **Relative Velocity:** Longitudinal = 4.61 m/s, Lateral = 0.13 m/s
+  - This obstacle is directly aligned longitudinally behind the ego vehicle with a converging path.
+
+- **Trajectory Analysis:**
+  - The distance between the obstacle and the ego vehicle is decreasing. The consistently increasing relative velocity suggests rapid closing.
+
+- **Calculations:**
+  - **TTC Longitudinal:** |0.76m / 4.61 m/s| ≈ 0.16 seconds
+  - **Longitudinal MDC:** Essentially at zero with continued convergence.
+  - **Lateral Motion:** With perfect alignment, lateral impact cannot be assessed beyond indicating potential same-lane passage.
+
+- **Risk Assessment:**
+  - **TTC:** 0.16 seconds (Extreme Risk - Score 1)
+  - **MDC:** Almost zero indicating inevitable convergence if not mitigated.
+  - **Overall Risk Score:** Collision (0), due to the rapidly converging path in the exact same longitudinal plane.
+
+### JSON Summary
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "30195",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30187",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": "",
+    "OverallRiskScore": ""
+  }
+}
+```
+
+**Conclusion:** Obstacle 30195 poses an imminent risk of collision (score 0) because of the trajectory and relative velocity converging directly in the longitudinal dimension. Meanwhile, Obstacle 30187 is rated as an extreme risk (score 1) due to its converging longitudinal path despite lateral divergence assistance. No high-risk (score 2) scenarios are currently identified based on the latest trajectory data.

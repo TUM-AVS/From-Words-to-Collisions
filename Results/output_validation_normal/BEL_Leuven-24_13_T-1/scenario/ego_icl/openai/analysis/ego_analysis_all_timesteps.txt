@@ -1,0 +1,58 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30223
+**Trajectory Analysis:**
+- Over the timesteps, obstacle 30223 consistently moved away from the ego vehicle longitudinally. 
+- Longitudinal velocities decreased to 1.68 m/s, while lateral velocities decreased slightly but remained negative, suggesting lateral separation is not closing.
+
+**Most Recent Timestep Adjustments:**
+1. **Adjusted Longitudinal Distance:** Consider the reported longitudinal distance decreasing to 9.92 m (at 0.9 seconds).
+2. **Adjusted Lateral Distance:** Consistently 0.00 m, indicating exact alignment but does not imply instantaneous collision.
+
+**Calculations:**
+- **Longitudinal TTC:** 9.92 / 1.68 ≈ 5.90 seconds (indicates no immediate collision)
+- **Lateral MDC:** 0.00 m (alignment but not all collision-prone due to moving away)
+
+**Risk Assessment:**
+- Longitudinal risk minimal due to increasing distance.
+- Lateral alignment with relative movement away indicates no immediate threat.
+- **Risk Score:** 5 (No Risk)
+
+#### Obstacle 30224
+**Trajectory Analysis:**
+- Obstacle 30224 is moving front-left to the ego vehicle.
+- Both longitudinal and lateral velocities suggest it is generally moving away longitudinally but slightly converging laterally.
+
+**Most Recent Timestep Adjustments:**
+1. **Adjusted Longitudinal Distance:** 12.52 m
+2. **Adjusted Lateral Distance:** 1.80 m (slightly increasing proximity)
+
+**Calculations:**
+- **Longitudinal TTC:** 12.52 / 1.62 ≈ 7.73 seconds (further confirmation no immediate longitudinal threat)
+- **Lateral MDC:** 1.80 m (sufficiently large not to suggest collision risk)
+
+**Risk Assessment:**
+- Longitudinal aspect safe due to considerable separation remaining.
+- Lateral approach noted, but distance is not critically reducing to pose danger imminently.
+- **Risk Score:** 5 (No Risk)
+
+### Collision Scenario Determination
+Both obstacles, 30223 and 30224, are assessed with a risk score of 5, indicating no immediate collision or extreme risk under current motion characteristics.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Both obstacles have sufficiently greater distances and velocities indicating divergence or sufficient separation, resulting in no risk of collision."
+}
+``` 
+
+In summary, the assessed adjusted distances, velocities, and acceleration do not indicate a collision scenario according to the provided models, as TTC for both obstacles is confirmed to exceed survival thresholds, while MDC remains non-threatening.

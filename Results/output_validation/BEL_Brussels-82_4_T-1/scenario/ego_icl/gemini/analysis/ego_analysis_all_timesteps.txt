@@ -1,0 +1,47 @@
+Obstacle 30231 (Rear-right):
+
+* Trajectory Analysis: This obstacle started behind the ego vehicle and slightly to the right. Over the timesteps, it has been getting closer longitudinally and moving further to the right laterally. 
+
+* Most Recent Timestep (2.9s):
+    * Longitudinal distance: -11.45m (indicates behind ego)
+    * Lateral distance: -1.51m (indicates to the right of ego)
+    * Longitudinal relative velocity: 2.48 m/s (approaching)
+    * Lateral relative velocity: 1.01 m/s (moving right)
+
+* Risk Assessment:
+    * Longitudinal TTC = 11.45m / 2.48m/s = 4.62s (Low Risk)
+    * Lateral TTC is not applicable for collision risk assessment as the obstacle is driving away laterally from the ego vehicle.
+    * MDC: With the obstacle being behind and to the right, the primary concern would be the longitudinal closing. An MDC assessment isn't straightforward in this diagonal case with only raw distances provided, but given the lateral movement, it is likely greater than the longitudinal distance indicating a low risk.
+    * Overall Risk: Low (4) -  Driven by the longitudinal TTC
+
+Obstacle 30233 (Behind):
+
+* Trajectory Analysis: This obstacle is directly behind the ego vehicle and has been rapidly approaching throughout the provided timesteps.  The lateral distance consistently remains at 0.00m, indicating continued alignment in the same lane.
+
+* Most Recent Timestep (2.9s):
+    * Longitudinal distance: -0.14m (very close behind)
+    * Lateral distance: 0.00 m (same lane)
+    * Longitudinal relative velocity: 3.46 m/s (rapidly approaching)
+    * Lateral relative velocity: 1.22 m/s (moving right)
+
+* Risk Assessment:
+    * Longitudinal TTC = 0.14m / 3.46m/s = 0.04s (Extreme Risk)
+    * Lateral TTC is not applicable for collision risk assessment as the obstacle is driving away laterally from the ego vehicle.
+    * MDC:  Approximately 0.14m (Extreme Risk)
+    * Overall Risk: Extreme (1) - Driven by both very low TTC and very small MDC. This indicates a very high probability of a rear-end collision.
+
+Collision Scenario Determination:
+Yes, this is a collision scenario. Obstacle 30233 poses an Extreme Risk (1) with an extremely low TTC and MDC indicating an imminent rear-end collision.
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30233",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30233 has an extremely low TTC (0.04s) and MDC (0.14m), indicating an imminent rear-end collision."
+}
+```

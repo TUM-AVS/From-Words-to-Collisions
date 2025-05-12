@@ -1,0 +1,37 @@
+Obstacle 30101 Analysis:
+
+Trajectory Analysis:
+- Lateral distance consistently at 0.00m, indicating perfect lateral alignment with the ego vehicle.  This does *not* automatically mean a collision, but requires careful attention to the longitudinal motion.
+- Longitudinal distance initially decreases slightly from 9.53m to 9.49m between 0.0s and 0.4s, then increases to 9.56m by 0.9s. This indicates the obstacle initially approached slightly, then started moving away.
+- The motion description confirms this, transitioning from "driving toward" to "moving away" from the ego vehicle.
+
+TTC and MDC Calculation (at 0.9s):
+- Longitudinal distance: 9.56m
+- Lateral distance: 0.00m
+- Longitudinal relative velocity: 0.22 m/s (moving away)
+- Lateral relative velocity: 0.08 m/s
+
+- Longitudinal TTC: Not applicable for collision assessment since the relative velocity is positive (moving away).
+- Lateral TTC:  Not applicable for collision assessment as vehicles are longitudinally aligned. Irrelevant in this scenario as the main movement is longitudinal.
+
+- MDC: With lateral alignment (0.00m) and increasing longitudinal distance, the MDC is effectively the longitudinal distance of 9.56m.
+
+Risk Assessment:
+- Since the obstacle is moving away longitudinally and the lateral distance, while zero, is not decreasing, there is no immediate risk of collision.
+- MDC > 5.0m and longitudinal velocity is positive (moving away).
+
+- Overall Risk Score: 5 (No Risk)
+
+Collision Scenario Determination:
+Since the only obstacle has a risk score of 5 (No Risk), this is NOT a collision scenario.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 or 1. Obstacle 30101 is moving away from the ego vehicle with a safe MDC and no risk of collision."
+}
+```

@@ -1,0 +1,53 @@
+### Obstacle Analysis: Obstacle 30702
+
+#### Trajectory Analysis (0.1s to 0.9s):
+- **Longitudinal Distance**: Increasing from 17.95m to 18.10m (moving away from ego).
+- **Lateral Distance**: Decreasing from 0.49m to 0.00m (moving left, aligning with ego lane).
+- **Relative Velocity**:
+  - Longitudinal: Decreasing from 1.29 m/s to 0.01 m/s (moving away but slowing down).
+  - Lateral: Decreasing from 2.08 m/s to 0.56 m/s (moving left but slowing down).
+- **Motion Description**: Obstacle is moving away longitudinally and laterally to the left.
+
+#### Most Recent Timestep (0.9s):
+- **Adjusted Distance**: 
+  - Longitudinal: 18.10 m (adjusted_d_long not provided, using raw distance).
+  - Lateral: 0.00 m (adjusted_d_lat not provided, using raw distance).
+- **Relative Velocity**: 
+  - Longitudinal: 0.01 m/s (moving away very slowly).
+  - Lateral: 0.56 m/s (moving left, but slowing down).
+- **Motion**: Obstacle is moving away longitudinally and aligned laterally.
+
+#### Risk Assessment:
+1. **Minimum Distance to Collision (MDC)**:
+   - Lateral distance is 0.00m (aligned), but longitudinal distance is 18.10m (very large).
+   - MDC is effectively the longitudinal distance (18.10m), which is > 5.0m → **Risk 5 (Negligible)**.
+
+2. **Time-to-Collision (TTC)**:
+   - Longitudinal TTC: Distance / Relative Velocity = 18.10 / 0.01 = 1810s (not applicable, moving away).
+   - Lateral TTC: Distance / Relative Velocity = 0.00 / 0.56 = 0s (but obstacle is moving away left, not converging).
+   - TTC is not applicable (paths are diverging) → **Risk 5 (Negligible)**.
+
+3. **Overall Risk**:
+   - Both MDC and TTC indicate negligible risk (Risk 5).
+   - No collision or extreme risk observed.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```
+
+### Conclusion:
+- Obstacle 30702 poses **no risk** (Risk 5) to the ego vehicle. It is moving away both longitudinally and laterally, with no signs of convergence or collision.

@@ -1,0 +1,65 @@
+Let me analyze the most recent timestep (2.2 seconds) and assess collision risks for each obstacle:
+
+1. Obstacle 30800 (Front-right):
+   - Adjusted distances: longitudinal 12.16m, lateral -18.22m
+   - Moving toward ego in both dimensions but very slowly (0.27m/s longitudinally, 0.02m/s laterally)
+   - MDC: >5m in both dimensions → No Risk (5)
+   - TTC: >5s in both dimensions → No Risk (5)
+
+2. Obstacle 30801 (Behind):
+   - Adjusted distances: longitudinal -0.19m, lateral 0.00m
+   - Approaching from behind at 3.27m/s longitudinally (lateral alignment)
+   - MDC: 0.19m longitudinally → Extreme Risk (1)
+   - TTC: 0.19/3.27 = 0.058s → Extreme Risk (1)
+   - This is extremely dangerous as the obstacle is nearly touching ego from behind
+
+3. Obstacle 30802 (Front-right):
+   - Adjusted distances: longitudinal 9.73m, lateral -11.10m
+   - Moving toward ego very slowly (0.26m/s longitudinally)
+   - MDC: >5m → No Risk (5)
+   - TTC: >5s → No Risk (5)
+
+4. Obstacle 30804 (Front-right):
+   - Adjusted distances: longitudinal 3.20m, lateral -1.96m
+   - Moving away longitudinally (9.62m/s), moving away laterally (0.45m/s)
+   - MDC: >5m → No Risk (5)
+   - TTC: N/A (diverging paths) → No Risk (5)
+
+5. Obstacle 30805 (Behind):
+   - Adjusted distances: longitudinal -11.38m, lateral 0.00m
+   - Approaching at 3.29m/s longitudinally
+   - MDC: 11.38m → No Risk (5)
+   - TTC: 11.38/3.29 = 3.46s → Medium Risk (3)
+
+6. Obstacle 30806 (Rear-right):
+   - Adjusted distances: longitudinal -3.18m, lateral -2.51m
+   - Approaching at 8.49m/s longitudinally, 0.68m/s laterally
+   - MDC: 3.18m longitudinally → Medium Risk (3)
+   - TTC: 3.18/8.49 = 0.37s longitudinally → Extreme Risk (1)
+   - High risk from rear approach
+
+7. Obstacle 30807 (Rear-right):
+   - Adjusted distances: longitudinal -23.88m, lateral -1.08m
+   - Approaching at 4.12m/s longitudinally, 0.71m/s laterally
+   - MDC: >5m → No Risk (5)
+   - TTC: >5s → No Risk (5)
+
+Critical Findings:
+- Obstacle 30801 is in Extreme Risk (score 1) with TTC of just 0.058s and MDC of 0.19m
+- Obstacle 30806 also shows Extreme Risk (score 1) with TTC of 0.37s
+- The scenario meets collision criteria due to Obstacle 30801's imminent rear collision
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30801",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30806",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30801 has already collided (longitudinal distance -0.19m) with the ego vehicle from behind, and Obstacle 30806 has extreme risk of imminent collision (TTC 0.37s)"
+}
+```

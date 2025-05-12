@@ -1,0 +1,41 @@
+Obstacle 30194: Located Front-Left, with longitudinal distance 21.92m and lateral distance 11.97m.  The longitudinal velocity is -6.27 m/s (approaching) and lateral velocity is 7.77 m/s (moving away). The trajectory shows the obstacle is moving away laterally while approaching longitudinally.
+    * Longitudinal TTC: 21.92m / 6.27m/s = 3.5s (Medium Risk)
+    * Lateral TTC: Not applicable since the obstacle is moving away laterally.
+    * MDC: Not applicable in this case due to substantial lateral movement.
+    * Overall Risk: Medium (3) - based on longitudinal TTC.
+
+Obstacle 30198: Located Front-Left, with longitudinal distance 5.72m and lateral distance 4.37m. The longitudinal velocity is -5.34 m/s (approaching) and lateral velocity is 0 m/s (no relative lateral movement). Across the timesteps, the lateral distance has stabilized, indicating minimal lateral risk. The main risk comes from the decreasing longitudinal distance.
+    * Longitudinal TTC: 5.72m / 5.34 m/s = 1.07s (High Risk - approaching 2)
+    * Lateral TTC: Not applicable due to zero relative lateral velocity.
+    * MDC: Approximately 5.72m (Low Risk given stable lateral distance).
+    * Overall Risk: High (2) - based on longitudinal TTC.
+
+Obstacle 30199: Located Front-Left with longitudinal distance 4.84m and lateral distance 15.56m. Longitudinal velocity is -5.14m/s (approaching) and lateral velocity is -2.87m/s (approaching). Though lateral distance is large, both longitudinal and lateral distances are decreasing.
+    * Longitudinal TTC: 4.84m / 5.14m/s = 0.94s (High Risk)
+    * Lateral TTC: 15.56m / 2.87m/s = 5.42s (Negligible Risk)
+    * MDC: ~4.84m (Low Risk)
+    * Overall Risk: High (2) - based on longitudinal TTC.
+
+
+Obstacle 30201: Located in Front, with longitudinal distance 13.85m and lateral distance 0.00m. Longitudinal velocity is -0.59 m/s (approaching slowly), lateral velocity is -0.79 m/s (slightly approaching laterally). The consistent 0.00m lateral distance across timesteps, combined with the motion description "Exact lateral alignment" indicates the obstacle is in the same lane. 
+    * Longitudinal TTC: 13.85 / 0.59 = 23.5s (Negligible Risk)
+    * Lateral TTC: Not applicable
+    * MDC: Not applicable given the lateral alignment and relatively stable longitudinal distance.
+    * Overall Risk: Negligible (5). No immediate concern given slow closing velocity.
+
+Obstacle 30202: Located Behind with longitudinal distance -13.35m and lateral distance 0.00m. Longitudinal velocity is 2.58 m/s (obstacle approaching ego from behind) and lateral velocity is -0.01 m/s (negligible lateral movement). The consistent 0.00m lateral distance across timesteps, combined with the motion description "Exact lateral alignment" indicates the obstacle is in the same lane.
+    * Longitudinal TTC: 13.35m / 2.58m/s = 5.17s (Negligible Risk)
+    * Lateral TTC: Not applicable
+    * MDC: Not applicable due to alignment.
+    * Overall Risk: Negligible (5). Although the obstacle is approaching from behind, it is at a safe distance and within the same lane.
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "HighRiskObstacle": {
+    "ObstacleID": "30198",
+    "OverallRiskScore": "2"
+  }
+}
+```

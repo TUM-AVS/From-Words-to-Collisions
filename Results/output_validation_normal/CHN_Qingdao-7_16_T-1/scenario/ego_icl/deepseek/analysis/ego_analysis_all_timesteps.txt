@@ -1,0 +1,62 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+**Obstacle 30654 (Front of ego car):**
+- **Adjusted Distances:** Longitudinal = 12.55m, Lateral = 0.00m (exact alignment)
+- **Relative Velocity:** Longitudinal = -1.26 m/s (approaching), Lateral = 0.35 m/s (moving right)
+- **Relative Acceleration:** Longitudinal = -2.64 m/s² (decelerating), Lateral = -1.62 m/s² (decelerating)
+- **Motion Description:** Obstacle is driving toward the ego car longitudinally. Exact lateral alignment.
+
+#### Trajectory Analysis (0.0s to 0.9s):
+1. **Longitudinal Distance:** 
+   - Starts at 12.71m (0.1s), peaks at 12.94m (0.4s), then decreases to 12.55m (0.9s).
+   - Initially moving away (positive relative velocity), then starts approaching (negative relative velocity at 0.4s).
+   - Acceleration is negative (decelerating), but the obstacle is still closing the distance.
+
+2. **Lateral Distance:** 
+   - Starts at -0.40m (right of ego), moves to 0.00m (aligned) by 0.3s, and remains aligned.
+   - Lateral velocity is initially negative (moving right), then becomes positive (moving left), but very small magnitudes.
+
+#### Risk Assessment:
+1. **Time-to-Collision (TTC):**
+   - Longitudinal TTC = 12.55m / 1.26 m/s = ~9.96 seconds (No Risk, TTC > 5.0s).
+   - Lateral TTC = Not applicable (lateral distance is 0.00m but relative velocity is diverging: 0.35 m/s moving left).
+   - **Overall TTC Risk:** 5 (No Risk).
+
+2. **Minimum Distance to Collision (MDC):**
+   - Longitudinal MDC = 12.55m (No Risk, MDC > 5.0m).
+   - Lateral MDC = 0.00m (exact alignment), but relative velocity is diverging (moving left).
+   - **Overall MDC Risk:** 5 (No Risk, since trajectories are diverging laterally).
+
+3. **Acceleration Trends:**
+   - Longitudinal acceleration is negative (decelerating), but the obstacle is still closing the distance at a reducing rate.
+   - Lateral acceleration is negative (decelerating), but the obstacle is moving away laterally.
+
+4. **Motion Description Alignment:**
+   - The obstacle is approaching longitudinally but at a reducing rate (decelerating).
+   - Laterally, the obstacle is moving away (no collision risk).
+
+#### Overall Risk Score:
+- **TTC Risk:** 5 (No Risk).
+- **MDC Risk:** 5 (No Risk).
+- **Overall Risk:** 5 (No Risk). No imminent or likely collision.
+
+### Collision Scenario Determination:
+- No obstacle has a risk score of 0 (collision) or 1 (extreme risk).
+- The obstacle is longitudinally aligned but moving away laterally and closing longitudinally at a slow, decelerating rate.
+- This is **not a collision scenario**.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30654 is longitudinally aligned but moving away laterally and closing longitudinally at a slow, decelerating rate. No collision or extreme risk detected."
+}
+```

@@ -1,0 +1,66 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 3.1 seconds)
+
+---
+
+#### **Obstacle 3071 (Rear-left)**
+- **Adjusted Distance**: Longitudinal: -9.14 m (behind), Lateral: 1.96 m (left)
+- **Relative Velocity**: Longitudinal: -11.65 m/s (moving away), Lateral: 0.06 m/s (moving away)
+- **Motion**: Moving away longitudinally and laterally to the left.
+- **TTC**: Not applicable (relative velocities are negative/diverging).
+- **MDC**: Lateral distance is stable at ~1.9m (Low Risk).
+- **Risk**: 5 (No Risk). No collision path.
+
+---
+
+#### **Obstacle 3074 (Collision)**
+- **Adjusted Distance**: Longitudinal: 0.00 m, Lateral: 0.00 m.
+- **Relative Velocity**: Longitudinal: 3.52 m/s (approaching), Lateral: -0.02 m/s (negligible).
+- **Motion**: Exact alignment in both dimensions with closing longitudinal velocity.
+- **TTC**: 0.00 m / 3.52 m/s = 0 seconds (Collision occurring).
+- **MDC**: 0.00 m (Collision occurring).
+- **Risk**: 0 (Collision). Direct overlap with closing velocity.
+
+---
+
+#### **Obstacle 3075 (Front-left)**
+- **Adjusted Distance**: Longitudinal: 5.47 m (front), Lateral: 2.72 m (left).
+- **Relative Velocity**: Longitudinal: -6.32 m/s (approaching), Lateral: -2.30 m/s (approaching).
+- **Motion**: Approaching diagonally from front-left.
+- **TTC Longitudinal**: 5.47 m / 6.32 m/s ≈ 0.87 seconds (High Risk).
+- **TTC Lateral**: 2.72 m / 2.30 m/s ≈ 1.18 seconds (Medium Risk).
+- **MDC**: Projected minimum distance is decreasing but still >1.0m (Medium Risk).
+- **Risk**: 2 (High Risk). Converging trajectory but not imminent.
+
+---
+
+### Trajectory Analysis
+- **Obstacle 3074**: 
+  - At 3.0s: Longitudinal distance was -0.35m (behind), closing at 3.51 m/s.
+  - At 3.1s: Reaches 0.00m (collision) with continued closing velocity.
+  - Clear collision trajectory confirmed.
+
+- **Obstacle 3075**: 
+  - Consistently approaching but lateral distance remains >2.7m. No immediate threat.
+
+---
+
+### Final Determination
+This is a **collision scenario** due to Obstacle 3074 overlapping with the ego vehicle (0.00m in both dimensions) with closing velocity.
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "3074",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3075",
+        "OverallRiskScore": "2"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 3074 has collided with the ego vehicle (0.00m distance in both dimensions with closing velocity). Obstacle 3075 poses High Risk but is not yet colliding."
+}
+```

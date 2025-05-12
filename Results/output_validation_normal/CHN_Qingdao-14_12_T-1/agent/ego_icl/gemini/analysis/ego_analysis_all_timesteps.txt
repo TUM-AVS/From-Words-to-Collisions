@@ -1,0 +1,43 @@
+Obstacle 30647: This obstacle appears suddenly at t=0.8s in the front-left of the ego vehicle.  At t=0.9s, it is at longitudinal 19.24m and lateral 4.77m, rapidly approaching with a longitudinal velocity of -32.88 m/s and a lateral velocity of -1.60 m/s (towards the ego vehicle).
+
+* Longitudinal TTC = 19.24m / 32.91 m/s ≈ 0.58s
+* Lateral TTC = 4.77m / 1.60 m/s ≈ 2.98s
+* MDC ≈ 4.77m (using lateral as the primary risk since longitudinal distance is larger and lateral is moving towards ego, the longitudinal is larger, the lateral value should be the MDC at this timestamp)
+
+Since the longitudinal TTC is less than 0.5s despite the larger longitudinal distance and obstacle is converging towards the ego, this obstacle poses an *Extreme Risk (1)*.
+
+Obstacle 30670: This obstacle is consistently in the front-left, initially at 20.93m longitudinal and 1.62m lateral.  It gradually approaches longitudinally while moving away laterally. At t=0.9s, it's at 20.25m longitudinal and 1.36m lateral.
+
+* Longitudinal TTC = 20.25m / 2.52 m/s ≈ 8.04s
+* Lateral TTC = 1.36m / 2.0 m/s = 0.68s (moving away laterally)
+* MDC ≈ 1.36m
+
+While the lateral TTC is sub 1 second, the obstacle is moving away laterally. The longitudinal distance and TTC pose no immediate risk, classifying this obstacle as *Medium Risk (3)* due to the MDC.
+
+Obstacle 30672: This obstacle starts directly behind the ego vehicle and maintains a near-zero lateral distance, suggesting it's in the same lane. However, it moves further behind the ego vehicle throughout the scenario, indicating a diverging path.  At t=0.9s, it's at -18.21m longitudinal and 0.60m lateral.
+
+* Longitudinal TTC is N/A due to diverging paths and is moving behind ego vehicle.
+* Lateral TTC = 0.60m/2.48m/s= 0.24s (toward ego), but longitudinal motion indicates no risk of rear-end collision.
+* MDC ≈ 0.60m
+
+Even though the lateral TTC and MDC indicates immediate risk of collision. Due to it is moving behind longitudinally from the ego. It won't pose an extreme risk. Therefore, we rate this as *Medium Risk (3)* based on MDC.
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30647",
+    "OverallRiskScore": "1"
+  },
+    "HighRiskObstacle": {},
+  "MediumRiskObstacle": {
+      "ObstacleID": "30670",
+      "OverallRiskScore": "3"
+    },
+  "LowRiskObstacle": {},
+  "NegligibleRiskObstacle": {
+      "ObstacleID": "30672",
+      "OverallRiskScore": "3"
+  }
+}
+```

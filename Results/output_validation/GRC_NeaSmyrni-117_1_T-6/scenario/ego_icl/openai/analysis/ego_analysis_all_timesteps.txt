@@ -1,0 +1,49 @@
+**Obstacle-by-Obstacle Analysis:**
+
+### Obstacle 20036:
+- **Position at Latest Timestep (3.6 seconds):** Longitudinal 21.49 m, Lateral 0.00 m
+- **Relative Velocity:** Longitudinal -1.60 m/s (approaching), Lateral 0.00 m/s
+- **Trajectory:** Continues to approach the ego car mainly in the longitudinal direction.
+- **TTC Calculation:**
+  - **TTC Longitudinal:** = 21.49 m / 1.60 m/s = 13.43 seconds
+- **MDC Calculation:**
+  - **MDC Longitudinal:** ≈ 21.49 m (since lateral is 0.00 m, focus on longitudinal)
+- **Risk Assessment:** No Risk as TTC and MDC both indicate no imminent collision.
+
+### Obstacle 20037:
+- **Position at Latest Timestep (3.6 seconds):** Longitudinal 14.29 m, Lateral 0.00 m
+- **Relative Velocity:** Longitudinal -1.09 m/s (approaching), Lateral 0.00 m/s
+- **Trajectory:** Continues to approach the ego car mainly longitudinally.
+- **TTC Calculation:**
+  - **TTC Longitudinal:** = 14.29 m / 1.09 m/s = 13.11 seconds
+- **MDC Calculation:**
+  - **MDC Longitudinal:** ≈ 14.29 m (since lateral is 0.00 m, focus on longitudinal)
+- **Risk Assessment:** No Risk as TTC and MDC both indicate no imminent collision.
+
+### Obstacle 20039:
+- **Position at Latest Timestep (3.6 seconds):** Longitudinal 0.00 m, Lateral 0.00 m
+- **Relative Velocity:** Longitudinal 3.92 m/s (moving towards in both directions)
+- **Trajectory:** In a collision with the ego car as indicated by a position of 0.00 m in both dimensions.
+- **TTC and MDC Calculation:**
+  - **TTC:** = 0.00 m / 3.92 m/s = 0 seconds (actual collision)
+  - **MDC:** = 0 meters
+- **Risk Assessment:** Collision occurring as both longitudinal and lateral distances are 0.00 m, with an approaching velocity and the fact that they've been closing over time.
+
+**Conclusion:**
+Obstacle 20039 is in a collision state with the ego vehicle since the distances in both the longitudinal and lateral dimensions are zero, indicating actual contact, and has a relative velocity pointing towards the ego car. This is a clear collision scenario.
+
+**Final JSON Summary:**
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "20039",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 20039 is in a state of collision with the ego vehicle as evidenced by simultaneous zero longitudinal and lateral distance with positive relative velocity indicating convergence."
+}
+```

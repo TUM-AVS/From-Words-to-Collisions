@@ -1,0 +1,43 @@
+To evaluate the risk of each obstacle, we'll focus on the most recent timestep at 11.9 seconds, while taking into account the trajectory and velocities from previous timesteps. The key metrics to consider are the Time to Collision (TTC) and Minimum Distance to Collision (MDC) in relation to the ego vehicle. 
+
+**Analysis of Obstacles at 11.9 seconds:**
+
+- **Obstacle 30202.0:**
+  - Position: (23.1799, 105.0724)
+  - Velocity: 7.7044, moving towards lanelet 491 where the ego is located. This presents a significant risk as the velocity is high and proximity to ego's lanelet is direct.
+  - Lanelet: Changed to 491.0, indicating a direct interaction with the ego vehicle.
+  - Risk: Extreme Risk due to direct lanelet interaction and high velocity. 
+
+- **Obstacle 30203.0:**
+  - Position: (11.2143, 108.8308)
+  - Velocity: 6.5376, but in a different lanelet (1366.0) which is not interacting with the ego immediately.
+  - Risk: Medium Risk as velocity is increasing significantly but not a threat due to different lanelet.
+
+- **Obstacle 30206.0:**
+  - Position: (11.9499, 88.3323)
+  - Velocity: 3.1021, continues in a different lanelet and no immediate threat to the ego.
+  - Risk: Negligible Risk as obstacle maintains position far from ego's path.
+
+- **Obstacle 30204.0 and 30209.0:**
+  - Both obstacles are moving in different lanelets and not in the path of the ego vehicle.
+  - Risk: Negligible Risk due to distinct lanelet and position away from the ego.
+
+### Conclusion:
+- **Obstacle 30202.0** is the most concerning with an **Extreme Risk Score of 1** because it's in the same lanelet 491 as the ego, with high speed.
+- The other obstacles pose minimal risks in varying degrees.
+
+Here is the structured JSON summary of the highest-risk obstacles:
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30202.0",
+        "OverallRiskScore": 1
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": 2
+    }
+}
+```

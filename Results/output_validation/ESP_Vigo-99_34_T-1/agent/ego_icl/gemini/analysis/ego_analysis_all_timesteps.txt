@@ -1,0 +1,25 @@
+Obstacle 3520:
+- Trajectory: This obstacle has been consistently in front of the ego vehicle and moving away. The longitudinal distance is increasing over each timestep. Lateral distance remains at 0.00m, indicating it's in the same lane.
+- TTC: Not applicable for collision risk assessment, as the obstacle is moving away.
+- MDC:  Given the increasing longitudinal distance and constant lateral alignment, MDC is not a concern.
+- Risk: 5 (Negligible Risk)
+
+Obstacle 3523:
+- Trajectory: This obstacle is behind the ego vehicle and approaching rapidly. The longitudinal distance is decreasing across each timestep. The lateral distance is consistently at 0.00m, meaning it's directly behind in the same lane.
+- TTC: At the last timestep (13.8s), the longitudinal distance is -1.45m. Taking the absolute value for TTC calculation, TTC = |1.45m| / 6.78 m/s ≈ 0.21s.
+- MDC: Since the obstacle is approaching from behind in the same lane, the MDC is primarily based on the decreasing longitudinal distance, which is 1.45m at the latest timestep.
+- Risk: 1 (Extreme Risk) due to the very low TTC (0.21s < 0.5s) and short MDC (1.45m < 5.0m).
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3523",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "3523",
+    "OverallRiskScore": "1"
+  }
+}
+```

@@ -1,0 +1,66 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30312 (Front-Left):
+- **Most Recent Timestep (0.9 seconds):**
+  - **Adjusted Distances**: Longitudinal = 20.22 m, Lateral = 2.42 m
+  - **Relative Velocities**: Longitudinal = -0.46 m/s, Lateral = 1.84 m/s
+  - **Trajectory/Motion**: Moving toward the ego car longitudinally but moving away laterally.
+  
+- **Trajectory Analysis Across Timesteps:**
+  - The obstacle's longitudinal distance is gradually decreasing, indicating movement towards the ego over time.
+  - Lateral distance is increasing, suggesting it's moving further to the left away from the ego vehicle's path.
+
+- **TTC Calculation:**
+  - Longitudinal TTC = |20.22 m / 0.46 m/s| = 43.96 seconds (no risk, as there's still considerable distance being slowly closed and lateral movement is away)
+  - Lateral distance is increasing, mitigating collision risk.
+
+- **MDC Calculation:**
+  - Longitudinal MDC = 20.22 m
+  - Lateral MDC = 2.42 m
+
+- **Risk Assessment:**
+  - Both longitudinal and lateral MDC values significantly exceed 5.0 meters, and the trajectory shows divergence laterally.
+  - **Overall Risk Score**: 5 (No Risk)
+
+#### Obstacle 30321 (Rear-Left):
+- **Most Recent Timestep (0.9 seconds):**
+  - **Adjusted Distances**: Longitudinal = -22.22 m, Lateral = 3.12 m
+  - **Relative Velocities**: Longitudinal = -6.98 m/s, Lateral = 6.15 m/s
+  - **Trajectory/Motion**: Moving away longitudinally and laterally to the left.
+  
+- **Trajectory Analysis Across Timesteps:**
+  - The obstacle continues to increase its distance longitudinally from the ego vehicle.
+  - Lateral movement away from the vehicle is evident as distances are growing.
+
+- **TTC Calculation:**
+  - No meaningful TTC even considered since the vehicle is continually moving away in both dimensions.
+
+- **MDC Calculation:**
+  - Longitudinal MDC is irrelevant for rear-moving objects when increasing, significant at >20m.
+  - Lateral MDC = 3.12 m
+
+- **Risk Assessment:**
+  - There is no risk given the increasing separation in both directions.
+  - **Overall Risk Score**: 5 (No Risk)
+
+### Final Determination:
+Neither obstacle presents any substantial collision risk at this timestep according to their respective places and trajectories.
+
+### Conclusion:
+This is not a collision scenario.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Both obstacles are diverging from the ego vehicle path, and their MDC/TTC calculations confirm a stable, low-risk trajectory. No risk scores below '5' detected."
+}
+```

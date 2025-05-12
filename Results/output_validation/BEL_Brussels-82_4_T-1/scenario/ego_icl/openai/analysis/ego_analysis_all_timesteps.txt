@@ -1,0 +1,64 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30231:
+- **Position at 2.9 seconds:** Rear-right
+- **Adjusted Longitudinal Distance:** -11.45 m
+- **Adjusted Lateral Distance:** -1.51 m
+- **Relative Longitudinal Velocity:** 2.48 m/s (approaching)
+- **Relative Lateral Velocity:** 1.01 m/s (approaching)
+- **Motion Description:** Moving from the rear-right toward the ego vehicle laterally and longitudinally.
+
+**Trajectory Analysis across Timesteps:**
+- Starting from a farther position, this obstacle consistently reduces its longitudinal and lateral distance towards the ego car across the time intervals, indicating a steady approach.
+
+**Time-to-Collision and Minimum Distance to Collision:**
+- **TTC Longitudinal:** 11.45 m / 2.48 m/s ≈ 4.62 seconds
+- **TTC Lateral:** 1.51 m / 1.01 m/s ≈ 1.50 seconds
+- **MDC:** The smaller distance and calculated TTC indicate focus should be more on lateral distance due to its faster closeness.
+
+**Risk Assessment:**
+- **Longitudinal Risk:** Low risk due to TTC > 3.0 seconds
+- **Lateral Risk:** Medium risk due to TTC < 3.0 seconds
+
+Overall Risk for Obstacle 30231: **Medium Risk (3)**
+
+#### Obstacle 30233:
+- **Position at 2.9 seconds:** Behind
+- **Adjusted Longitudinal Distance:** -0.14 m (almost touching)
+- **Adjusted Lateral Distance:** 0.00 m (exact alignment)
+- **Relative Longitudinal Velocity:** 3.46 m/s (approaching rapidly)
+- **Relative Lateral Velocity:** 1.22 m/s 
+
+**Trajectory Analysis across Timesteps:**
+- This obstacle has reduced its longitudinal distance significantly and is extremely close, with longitudinal alignment maintained throughout.
+
+**Time-to-Collision and Minimum Distance to Collision:**
+- **TTC Longitudinal:** 0.14 m / 3.46 m/s ≈ 0.04 seconds (extremely low)
+- **TTC Lateral:** Not applicable since lateral relative velocity is low
+- **MDC:** Approximately 0.14 m due to the very short longitudinal distance.
+
+**Risk Assessment:**
+- **Longitudinal Risk:** Extreme risk due to TTC < 0.5 seconds and very close distance
+- **Lateral Risk:** Not critical given the longitudinal imminent collision
+
+Overall Risk for Obstacle 30233: **Extreme Risk (1)**
+
+### Collision Scenario Determination
+A collision scenario is identified due to the following reasons:
+- **Obstacle 30233** has an Overall Risk Score of **1**, indicating an extreme risk situation with an almost-certain collision path due to minimal longitudinal clearance and rapid relative velocity.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30233",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30233 has a dangerously low longitudinal distance with an extreme risk classification due to an imminent collision trajectory."
+}
+```

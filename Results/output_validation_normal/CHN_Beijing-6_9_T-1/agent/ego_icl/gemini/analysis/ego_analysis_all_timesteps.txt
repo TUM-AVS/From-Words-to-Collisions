@@ -1,0 +1,23 @@
+* **Obstacle 3095:** This obstacle is in the front-right of the ego vehicle.  Across the timesteps, both longitudinal and lateral distances are decreasing, indicating a closing trajectory. At the last timestep (0.9s), the longitudinal distance is 3.52m and the lateral distance is -6.95m.  Given the closing velocity, the TTC longitudinally is approximately 3.52m / 7.49m/s = 0.47s. The MDC is approximately 3.52m longitudinally. This indicates an *Extreme Risk (1)* due to the low TTC.
+
+* **Obstacle 3097:** This obstacle is also approaching from the front-right. At the last timestep, the longitudinal distance is 3.43m and lateral distance is -14.76m. TTC is 3.43m/ 7.49m/s = 0.46s. Although it is moving towards the ego laterally, the lateral distance is greater than the longitudinal distance, so the MDC is primarily determined by the longitudinal distance which is 3.43m. The very short TTC makes this an *Extreme Risk (1)*.
+
+* **Obstacle 3098:**  This obstacle is now directly to the right of the ego (longitudinal distance 0.00m) and moving away laterally with a distance of -15.87m. Even though the lateral distance is decreasing, the lateral relative velocity is negative.  The main concern here is the near-zero longitudinal distance. However, the description clarifies that there is only lateral motion. In the prior timestamp, it shows this vehicle was moving towards the ego, likely crossing its path, it appears to be past the ego vehicle now. Therefore, the risk is *Medium (3)* due to the prior trajectory and current proximity.
+
+* **Obstacle 3102:**  Located front-right, and approaching. At the last timestep, the longitudinal distance is 3.34m, and the lateral distance is -23.52m. TTC is 3.34m / 7.48m/s = 0.45s. The lateral distance is larger, making MDC approximately 3.34m.  The short TTC results in an *Extreme Risk (1)*.
+
+* **Obstacle 3106:** This obstacle is behind the ego and approaching. At the last timestep, it's 22.20 meters behind, thus TTC = 22.2m / 6.86 m/s = 3.24 seconds. The lateral distance is 0, and the MDC is around 22.2 m. Although longitudinally aligned, there is no immediate risk with adequate spacing in this dimension. Given the MDC and TTC, I assess this as *Low Risk (4)*.
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3095",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {
+      "ObstacleID": "3097",
+      "OverallRiskScore": "1"
+  }
+}
+```

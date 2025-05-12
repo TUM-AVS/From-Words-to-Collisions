@@ -1,0 +1,42 @@
+Obstacle-by-Obstacle Analysis at t=0.9s:
+
+**Obstacle 30615:**
+
+* **Trajectory:**  This obstacle has been consistently in front of the ego vehicle and moving closer over the past 0.9 seconds. The lateral distance remains at 0.00m indicating perfect longitudinal alignment.  The longitudinal distance has decreased from 16.04m to 14.29m.
+* **TTC (Longitudinal):** 14.29m / 2.08 m/s ≈ 6.87s 
+* **MDC:**  Given the perfect lateral alignment and the obstacle approaching from the front, MDC is based on the longitudinal distance of 14.29m.
+* **Risk Assessment:**
+    * Longitudinal: Low Risk (4) based on TTC.
+    * Lateral: No Risk (5), given lateral distance is stable.
+    * Overall: Low Risk (4) – The obstacle is approaching, but there's currently ample time and distance.
+
+**Obstacle 30618:**
+
+* **Trajectory:** This obstacle is behind the ego vehicle and has been moving further away over the observed time period.  The lateral distance remains at 0.00m, indicating perfect longitudinal alignment, while the longitudinal distance has increased (negatively) from -19.44m to -20.25m (meaning further behind).
+* **TTC (Longitudinal):** Not applicable for collision assessment in the longitudinal direction because the relative longitudinal velocity is negative (moving away). While distance is negative and closing, the relative velocity indicates divergence.
+* **MDC:**  Because the obstacle is moving away, MDC is not a primary concern.  It is based on the absolute longitudinal distance of 20.25m.
+* **Risk Assessment:**
+    * Longitudinal: No Risk (5) due to increasing distance and diverging velocity.
+    * Lateral: No Risk (5), as the obstacle is moving away.
+    * Overall: No Risk (5)
+
+Collision Scenario Determination:
+
+No obstacle has a risk score of 0 (collision) or 1 (extreme risk). Therefore, this is NOT a collision scenario.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle poses an immediate collision risk. All obstacles have risk scores greater than 1."
+}
+```

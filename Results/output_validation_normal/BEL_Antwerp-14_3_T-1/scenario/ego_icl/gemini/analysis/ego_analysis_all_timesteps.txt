@@ -1,0 +1,48 @@
+Obstacle-by-Obstacle Analysis at t=0.9s:
+
+**Obstacle 30639:**
+
+* **Trajectory:** This obstacle is approaching the ego vehicle from the front-left.  Over the past 0.9 seconds, it has consistently moved closer longitudinally while maintaining a near-constant lateral distance of around 2.01m. The longitudinal velocity is negative and increasing in magnitude, meaning it's driving toward the ego vehicle at an increasing speed. The lateral velocity is consistently 0 m/s.
+
+* **TTC Calculation:** TTC = Longitudinal Distance / |Longitudinal Relative Velocity| = 19.38m / |-10.35 m/s| ≈ 1.87 seconds.
+
+* **MDC Calculation:** Since the lateral velocity is 0 and the lateral distance is stable around 2.01m, the MDC is primarily determined by the lateral distance.  Therefore, MDC ≈ 2.01m.
+
+* **Risk Assessment:**
+    * Longitudinal Risk: TTC of 1.87s suggests a Medium Risk (3).
+    * Lateral Risk:  MDC of 2.01m also suggests a Medium Risk (3).
+    * Overall Risk: Medium Risk (3)
+
+**Obstacle 30652:**
+
+* **Trajectory:**  This obstacle is located directly in front of the ego vehicle (lateral distance ≈ 0m) and moving away longitudinally.  The longitudinal distance has been steadily increasing over the observed time period. The lateral distance is consistently 0 m/s.
+
+* **TTC Calculation:** Since the obstacle is moving *away* from the ego vehicle longitudinally (positive relative velocity), TTC is not applicable in the longitudinal direction.
+
+* **MDC Calculation:** With the consistent lateral distance of 0.00m and the obstacle moving away longitudinally, the MDC is effectively 0m. However, because it is moving *away*, this does not indicate a collision.
+
+* **Risk Assessment:**
+    * Longitudinal Risk: No risk (5) as the obstacle is moving away.
+    * Lateral Risk: Although laterally aligned, the obstacle is moving away longitudinally, hence no risk.
+    * Overall Risk: No Risk (5)
+
+**Collision Scenario Determination:**
+
+No obstacle has a risk score of 0 or 1. Therefore, this is NOT a collision scenario.
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 (collision) or 1 (extreme risk)."
+}
+```

@@ -1,0 +1,106 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 11.5s)
+
+#### **Obstacle 30573 (Front-left)**
+- **Adjusted Distance**: Longitudinal 19.93m, Lateral 4.48m  
+- **Relative Velocity**: Longitudinal -0.73 m/s (approaching), Lateral 0.00 m/s  
+- **Motion**: Approaching longitudinally, no lateral motion.  
+- **TTC (Longitudinal)**: 19.93 / 0.73 ≈ 27.3s (Negligible Risk)  
+- **MDC**: Lateral distance (4.48m) is stable. Longitudinal distance is large.  
+- **Risk**: **5 (Negligible)**  
+
+---
+
+#### **Obstacle 30575 (Front-right)**
+- **Adjusted Distance**: Longitudinal 18.27m, Lateral -13.00m  
+- **Relative Velocity**: Longitudinal 2.90 m/s (moving away), Lateral -8.47 m/s (moving away)  
+- **Motion**: Moving away in both dimensions.  
+- **TTC**: Not applicable (diverging paths).  
+- **MDC**: Increasing distances.  
+- **Risk**: **5 (Negligible)**  
+
+---
+
+#### **Obstacle 30576 (Front)**
+- **Adjusted Distance**: Longitudinal 13.17m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 1.61 m/s (moving away), Lateral -7.04 m/s (moving away)  
+- **Motion**: Moving away longitudinally, no lateral collision risk.  
+- **TTC**: Not applicable (diverging paths).  
+- **MDC**: Lateral alignment but no convergence.  
+- **Risk**: **5 (Negligible)**  
+
+---
+
+#### **Obstacle 30578 (Front-left)**
+- **Adjusted Distance**: Longitudinal 8.75m, Lateral 9.11m  
+- **Relative Velocity**: Longitudinal 1.54 m/s (moving away), Lateral -5.08 m/s (approaching)  
+- **Motion**: Moving away longitudinally, approaching laterally.  
+- **TTC (Lateral)**: 9.11 / 5.08 ≈ 1.79s (Medium Risk)  
+- **MDC**: Lateral distance is closing but remains >3m.  
+- **Risk**: **3 (Medium)**  
+
+---
+
+#### **Obstacle 30579 (Front)**  
+- **Adjusted Distance**: Longitudinal 0.39m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -0.73 m/s (approaching), Lateral 0.00 m/s  
+- **Motion**: Approaching longitudinally, exact lateral alignment.  
+- **TTC (Longitudinal)**: 0.39 / 0.73 ≈ 0.53s (Extreme Risk)  
+- **MDC**: Longitudinal distance is critically small (0.39m).  
+- **Risk**: **1 (Extreme Risk)**  
+- **Prediction**: Likely collision within 0.5s if no action is taken.  
+
+---
+
+#### **Obstacle 30581 (Front-left)**
+- **Adjusted Distance**: Longitudinal 18.20m, Lateral 1.31m  
+- **Relative Velocity**: Longitudinal 4.80 m/s (moving away), Lateral -4.64 m/s (approaching)  
+- **Motion**: Moving away longitudinally, approaching laterally.  
+- **TTC (Lateral)**: 1.31 / 4.64 ≈ 0.28s (Extreme Risk)  
+- **MDC**: Lateral distance is very small (1.31m) and closing rapidly.  
+- **Risk**: **1 (Extreme Risk)**  
+
+---
+
+#### **Obstacle 30582 (Front-left)**
+- **Adjusted Distance**: Longitudinal 4.04m, Lateral 19.68m  
+- **Relative Velocity**: Longitudinal 1.23 m/s (moving away), Lateral -4.38 m/s (approaching)  
+- **Motion**: Moving away longitudinally, approaching laterally.  
+- **TTC (Lateral)**: 19.68 / 4.38 ≈ 4.49s (Low Risk)  
+- **MDC**: Lateral distance is large but closing.  
+- **Risk**: **4 (Low)**  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": [
+        {
+            "ObstacleID": "30579",
+            "OverallRiskScore": "1"
+        },
+        {
+            "ObstacleID": "30581",
+            "OverallRiskScore": "1"
+        }
+    ],
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "30579",
+        "OverallRiskScore": "0"
+    }
+}
+```
+
+### Key Findings:
+1. **Obstacle 30579 (Front)**: Extreme risk (TTC ≈ 0.53s, MDC ≈ 0.39m). Likely to collide if no evasive action is taken.  
+2. **Obstacle 30581 (Front-left)**: Extreme risk (TTC ≈ 0.28s laterally). Rapid lateral approach.  
+3. **Obstacle 30578**: Medium risk due to lateral approach.  
+4. All other obstacles pose negligible or low risk.  
+
+### Immediate Action Required:
+- **Emergency braking or steering** to avoid collision with **Obstacle 30579**.  
+- Monitor **Obstacle 30581** for lateral collision risk.

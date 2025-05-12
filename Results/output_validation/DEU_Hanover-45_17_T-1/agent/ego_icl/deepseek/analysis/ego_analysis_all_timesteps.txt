@@ -1,0 +1,47 @@
+### Obstacle Analysis: 30700
+
+#### Trajectory Analysis (6.6s to 7.5s):
+- **Longitudinal Distance**: Decreases from -2.89m to -0.58m (approaching ego from behind)
+- **Lateral Distance**: Consistently 0.00m (exact lateral alignment)
+- **Relative Velocity**: Longitudinal ~2.55-2.60 m/s (consistent closing speed)
+- **Acceleration**: Minor fluctuations (~±0.3 m/s²) but no significant deceleration
+
+#### Most Recent Timestep (7.5s):
+- **Adjusted Distance**: Longitudinal -0.58m (raw distance matches adjusted since no vehicle dimensions given)
+- **Relative Velocity**: 2.58 m/s (closing)
+- **TTC Calculation**: 
+  - TTC = |distance| / relative_velocity = 0.58 / 2.58 ≈ 0.225 seconds
+  - This falls in **Extreme Risk (1)** category (TTC ≤ 0.5s)
+- **MDC Calculation**: 
+  - Current longitudinal distance = 0.58m (raw/adjusted)
+  - Projected to reach 0m in 0.225s if velocities remain constant
+  - MDC = 0.58m (current distance), which falls in **High Risk (2)** category (0.5 < MDC ≤ 1.0m)
+
+#### Risk Assessment:
+- **TTC (0.225s)** indicates Extreme Risk (1)
+- **MDC (0.58m)** indicates High Risk (2)
+- **Overall Risk**: Prioritize the higher risk (lower score) → **Extreme Risk (1)**
+- **Collision Prediction**: At current closing speed (2.58 m/s), obstacle will reach ego vehicle in ~0.225s unless evasive action is taken.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30700",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "30700",
+        "OverallRiskScore": "0"
+    }
+}
+```
+
+### Explanation:
+- No **current collision** (distance > 0m), but obstacle 30700 is in **Extreme Risk (1)** due to TTC < 0.5s.
+- **Predicted collision** if trajectories/velocities remain unchanged (will reach ego in ~0.225s).
+- Immediate evasive action (acceleration or lane change) is required to avoid collision.

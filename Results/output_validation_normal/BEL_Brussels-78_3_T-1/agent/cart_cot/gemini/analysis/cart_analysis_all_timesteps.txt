@@ -1,0 +1,41 @@
+At t=0.9s, the ego vehicle at (-148.5902, -278.5657) is moving with a velocity of 5.1034 and acceleration of 0.7713.  We'll analyze the two obstacles relative to the ego vehicle's position and motion.
+
+**Obstacle 30218:**
+
+* Position: (-158.975, -281.2235)
+* Velocity: 3.5929
+* Acceleration: 1.5627
+
+Distance:  sqrt((-158.975 - -148.5902)^2 + (-281.2235 - -278.5657)^2) = sqrt(10.3848^2+ -2.6578^2) ≈ 10.72 meters.
+
+The obstacle is behind and slightly to the left of the ego vehicle. Both are moving in roughly the same direction (small orientation difference), but the ego vehicle is significantly faster.  While the obstacle is accelerating more quickly, the velocity difference suggests increasing separation in the near future.  Therefore, the risk of collision is relatively low.
+
+**Obstacle 30219:**
+
+* Position: (-168.9588, -283.0493)
+* Velocity: 2.909
+* Acceleration: 0.7251
+
+Distance: sqrt((-168.9588 - -148.5902)^2 + (-283.0493 - -278.5657)^2) = sqrt(-20.3686^2 + -4.4836^2) ≈ 20.81 meters.
+
+This obstacle is further behind and to the left of the ego vehicle.  It's even slower than obstacle 30218, with a lower acceleration. This suggests the separation between the ego vehicle and this obstacle will increase even more quickly than with obstacle 30218. The risk of collision is negligible.
+
+**TTC and MDC Calculations (Approximate):**
+
+Due to the complexity of accurately determining TTC in a dynamic, continuous system with changing accelerations and lanelet information absent, we will make a simplified assessment.  It is clear from the relative velocities and positions that the ego vehicle is rapidly moving away from both obstacles at t=0.9s. Thus, TTC would be a large value in both longitudinal and lateral directions.  MDC is approximately 10.72 meters with obstacle 30218.
+
+
+**Risk Assessment:**
+
+* **Obstacle 30218:** Low Risk (Overall Risk Score: 4).  Although moderately close, the relative velocity and acceleration suggest increasing separation.
+* **Obstacle 30219:** Negligible Risk (Overall Risk Score: 5).  Further away and moving slower than both the ego vehicle and obstacle 30218, the risk is very low.
+
+
+
+```json
+{
+  "CollisionObstacles": null,
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": null
+}
+```

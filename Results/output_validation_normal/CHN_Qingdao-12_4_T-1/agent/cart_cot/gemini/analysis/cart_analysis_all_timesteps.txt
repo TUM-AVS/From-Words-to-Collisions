@@ -1,0 +1,23 @@
+At t=0.9s, the ego vehicle is at (653.6879, -1811.2815) with a velocity of 3.4513 and heading 0.177 radians.  Let's analyze the risk posed by each obstacle:
+
+* **Obstacle 30737.0:** Position (665.7344, -1812.7567), velocity 6.2867, heading -0.144 radians. This obstacle is roughly 12 meters ahead and slightly to the left of the ego vehicle.  The difference in Y coordinates is small (-1.4752 meters), making a lateral collision unlikely given the different headings. The positive closing velocity indicates a longitudinal risk if the vehicles maintain their current trajectories.  Given the closing velocities and distance of only 12m, this presents a high risk
+
+* **Obstacle 30739.0:** Position (680.3391, -1811.3406), velocity 8.0286, heading -0.1436 radians. Similar to Obstacle 30737, this obstacle is further ahead but more aligned with the ego vehicle's Y coordinate.  The higher velocity increases the risk, but the increased longitudinal distance offsets this somewhat.  Overall, still a medium risk.
+
+* **Obstacle 30740.0:** Position (666.2043, -1786.6914), velocity 20.2605, heading 3.0057 radians. This obstacle is at a similar X coordinate but a significantly different Y coordinate (about 25 meters). The large difference in Y, combined with the high velocity and diverging headings, indicates a low risk of collision.
+
+* **Obstacle 30743.0:** Position (647.3107, -1816.6937), velocity 2.492, heading 1.315 radians. This obstacle is behind the ego vehicle and slightly to the left. While the headings differ, the proximity and opposite Y-direction movement should be flagged as a medium risk for a rear-end or side-swipe collision if the ego vehicle were to slow down or change lanes to the left.
+
+
+Based on the analysis above, no obstacle poses an immediate or certain collision risk at t=0.9s. Obstacle 30737.0 presents the highest risk due to proximity and closing velocity.
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": {
+    "ObstacleID": "30737.0",
+    "OverallRiskScore": 2
+  }
+}
+```

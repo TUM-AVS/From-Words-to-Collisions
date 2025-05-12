@@ -1,0 +1,51 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30194 Analysis:
+
+**Trajectory Analysis Across Timesteps:**
+
+- Over the span from 0.1s to 0.9s, obstacle 30194's longitudinal distance decreases from 19.50 m to 15.93 m, indicating it is approaching the ego vehicle. The lateral distance remains effectively 0.00 m throughout, affirming perfectly aligned paths longitudinally.
+
+**Most Recent Timestep (0.9 seconds):**
+
+- **Relative Position & Motion:** 
+  - Adjusted longitudinal distance: 15.93 m
+  - Adjusted lateral distance: Exact alignment (0.00 m)
+  - Relative velocity: longitudinal -4.04 m/s, which means the obstacle is approaching the ego vehicle.
+  - Relative lateral velocity: 0.04 m/s, contributing minimally to any potential change in lateral distance.
+
+**Risk Assessment Calculations:**
+
+- **Time-to-Collision (TTC):**
+  - Since the obstacle is directly in front and closing in, only longitudinal TTC is considered: 
+  - TTC (Longitudinal) = 15.93 m / 4.04 m/s = 3.94 seconds
+
+- **Minimum Distance to Collision (MDC):**
+  - Since both lateral and longitudinal trajectories are almost perfectly aligned, we consider the longitudinal path primarily.
+  - The current longitudinal distance is 15.93 m, and given the aligned lateral distance (0.00 m), the longitudinal trajectory will impact future MDC while closing in.
+  - Therefore, MDC is managed primarily by longitudinal trajectory which decreases towards 0 if path maintained, but provides no immediate risk below 10m considering the approaching rate.
+
+**Risk Scores:**
+- TTC = 3.94 seconds → Medium Risk (3)
+- MDC > 5 meters currently, decreasing but far from problematic thresholds → No Immediate Risk Change beyond Medium Risk (3)
+
+**Conclusion:**
+
+- The lowest risk score for this scenario is Medium Risk (3), based on the approach rate and calculated TTC that exceeds the thresholds for higher immediacy of risk.
+  
+- There are no extreme conditions like imminent collision within 0.5s or MDC sharply reducing under 0.5m imminently, given current known rates. No collision or extreme risk is assessed.
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30194 presents a medium risk scenario due to moderately high TTC and stable MDC over near future, with no immediate collision probability."
+}
+```

@@ -1,0 +1,84 @@
+Let me analyze each obstacle at the most recent timestep (5.1 seconds) with trajectory context from previous timesteps:
+
+1. Obstacle 30267 (Front):
+   - Longitudinal: 0.80m (decreasing slowly from 0.85m over 1s)
+   - Lateral: 0.00m (aligned)
+   - Relative velocity: -0.03m/s (slow approach)
+   - TTC: 0.80/0.03 ≈ 26.67s (No Risk)
+   - MDC: 0.80m (High Risk)
+   - Motion: Slowly approaching longitudinally
+   - Overall Risk: 2 (High Risk due to MDC < 1.0m)
+
+2. Obstacle 30270 (Front-left):
+   - Longitudinal: 20.45m
+   - Lateral: 14.59m
+   - Relative velocity: -2.64m/s (longitudinal), -0.53m/s (lateral)
+   - TTC: 20.45/2.64 ≈ 7.75s (longitudinal), 14.59/0.53 ≈ 27.53s (lateral)
+   - MDC: >5m in both dimensions
+   - Motion: Approaching diagonally but very distant
+   - Overall Risk: 5 (No Risk)
+
+3. Obstacle 30272 (Front-right):
+   - Longitudinal: 13.16m
+   - Lateral: -10.62m
+   - Relative velocity: -0.03m/s (negligible)
+   - TTC: Not applicable (velocity near zero)
+   - MDC: >5m in both dimensions
+   - Motion: Nearly stationary relative to ego
+   - Overall Risk: 5 (No Risk)
+
+4. Obstacle 30274 (Behind):
+   - Longitudinal: -0.65m (rapidly closing from -3.29m over 1s)
+   - Lateral: 0.00m (aligned)
+   - Relative velocity: 2.50m/s (fast approach)
+   - TTC: 0.65/2.50 ≈ 0.26s (Extreme Risk)
+   - MDC: 0.65m (High Risk)
+   - Motion: Rapidly approaching from behind
+   - Overall Risk: 1 (Extreme Risk due to TTC < 0.5s)
+
+5. Obstacle 30275 (Front-right):
+   - Longitudinal: 16.60m
+   - Lateral: -10.84m
+   - Relative velocity: -0.03m/s (negligible)
+   - TTC: Not applicable
+   - MDC: >5m in both dimensions
+   - Motion: Nearly stationary relative to ego
+   - Overall Risk: 5 (No Risk)
+
+6. Obstacle 30276 (Front-right):
+   - Longitudinal: 14.83m
+   - Lateral: -18.20m
+   - Relative velocity: 0.00m/s (longitudinal), 0.09m/s (lateral)
+   - TTC: Not applicable longitudinally, 18.20/0.09 ≈ 202.22s laterally
+   - MDC: >5m in both dimensions
+   - Motion: Very slow lateral approach
+   - Overall Risk: 5 (No Risk)
+
+7. Obstacle 30277 (Front-right):
+   - Longitudinal: 11.16m
+   - Lateral: -18.46m
+   - Relative velocity: 0.15m/s (longitudinal), 0.57m/s (lateral)
+   - TTC: 18.46/0.57 ≈ 32.39s (lateral)
+   - MDC: >5m in both dimensions
+   - Motion: Moving away longitudinally, very slow lateral approach
+   - Overall Risk: 5 (No Risk)
+
+Predicted Collision:
+- Obstacle 30274 will collide with ego vehicle within 0.26s if current trajectory continues
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30274",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "30274",
+        "OverallRiskScore": "0"
+    }
+}
+```

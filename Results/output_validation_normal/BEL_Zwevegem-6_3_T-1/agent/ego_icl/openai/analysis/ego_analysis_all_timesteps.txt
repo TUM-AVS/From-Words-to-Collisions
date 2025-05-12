@@ -1,0 +1,76 @@
+### Obstacle Analysis:
+
+#### Obstacle 35
+- Position: Front-left of the ego car
+- Adjusted Distances (most recent timestep): longitudinal 8.33 m, lateral 22.92 m
+- Relative Velocity: longitudinal -7.29 m/s (driving toward), lateral 0.00 m/s
+- **Trajectory Analysis:**
+  - Consistently decreasing longitudinal distance, indicating it's moving towards the ego car.
+  - Lateral distance stable, no side approach.
+- **TTC Calculation:**
+  - Longitudinal TTC = 8.33 m / 7.29 m/s ≈ 1.14 seconds.
+- **MDC Calculation:**
+  - Primarily longitudinal concern, resulting in MDC ≈ 8.33 m as lateral is not decreasing.
+- **Risk Assessment:**
+  - TTC indicates Medium Risk.
+  - MDC indicates No Risk.
+
+#### Obstacle 375
+- Position: Front-right of the ego car
+- Adjusted Distances (most recent timestep): longitudinal 0.76 m, lateral -15.73 m
+- Relative Velocity: longitudinal -7.29 m/s (driving toward), lateral 0.00 m/s (moving away)
+- **Trajectory Analysis:**
+  - Rapidly decreasing longitudinal distance, consistent motion toward ego.
+  - Lateral distance stable with moving away trend.
+- **TTC Calculation:**
+  - Longitudinal TTC = 0.76 m / 7.29 m/s ≈ 0.10 seconds.
+- **MDC Calculation:**
+  - Primarily longitudinal concern, resulting in MDC of 0.76 m, lateral aspect is non-threatening.
+- **Risk Assessment:**
+  - Extremely close longitudinal distance with very short TTC, indicating Extreme Risk.
+
+#### Obstacle 383
+- Position: Front of the ego car
+- Adjusted Distances (most recent timestep): longitudinal 5.08 m, lateral 0.00 m
+- Relative Velocity: longitudinal 2.75 m/s (moving away), lateral -0.02 m/s
+- **Trajectory Analysis:**
+  - Longitudinal distance slightly increasing due to moving away.
+- **TTC Calculation:**
+  - TTC is irrelevant as it's moving away from the ego car.
+- **MDC Calculation:**
+  - Primarily longitudinal, MDC is maintained at > 5.0 m, lateral alignment does not threaten.
+- **Risk Assessment:**
+  - Considered No Risk due to moving away trajectory.
+
+#### Obstacle 391
+- Position: Behind the ego car
+- Adjusted Distances (most recent timestep): longitudinal -12.35 m, lateral 0.00 m
+- Relative Velocity: longitudinal 1.63 m/s (approaching), lateral 0.31 m/s
+- **Trajectory Analysis:**
+  - Moving toward the ego, but steady increase in distance due to lesser speed.
+- **TTC Calculation:**
+  - Longitudinal TTC = 12.35 m / 1.63 m/s ≈ 7.57 seconds.
+- **MDC Calculation:**
+  - Primarily longitudinal, resulting in MDC well above concern threshold.
+- **Risk Assessment:**
+  - TTC and MDC place it into No Risk.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "375",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```
+
+In this scenario, Obstacle 375 presents the highest risk, with an extreme risk status due to very close proximity and short time to collision. Other obstacles were deemed low to no risk, given their trajectories and distances from the ego vehicle.

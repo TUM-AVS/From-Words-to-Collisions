@@ -1,0 +1,53 @@
+### Analysis:
+
+1. **Obstacle 30220 (Same Lanelet 87.0)**:
+   - **Position**: (404.3589, 246.9738) vs Ego (393.2909, 233.1738)
+   - **Relative Distance**: ~14.5m (longitudinal), ~13.8m (lateral)
+   - **Velocity**: 7.8557 m/s (ahead of ego, moving away)
+   - **TTC**: Positive (no immediate collision risk)
+   - **Risk**: **Low (4)** - Same lane but moving away.
+
+2. **Obstacle 30209 (Adjacent Lanelet 86.0)**:
+   - **Position**: (398.6322, 245.3512) vs Ego (393.2909, 233.1738)
+   - **Relative Distance**: ~12.3m (longitudinal), ~12.2m (lateral)
+   - **Velocity**: 5.2306 m/s (ahead, slight lateral separation)
+   - **TTC**: Positive (no immediate risk)
+   - **Risk**: **Low (4)** - Adjacent lane, safe lateral distance.
+
+3. **Obstacle 30214 (Lanelet 1313.0)**:
+   - **Position**: (377.8958, 221.7314) vs Ego (393.2909, 233.1738)
+   - **Relative Distance**: ~15.4m (behind ego), ~11.4m (lateral)
+   - **Velocity**: 7.0426 m/s (approaching from behind, lateral separation)
+   - **TTC**: Negative (overtaking from behind, safe lateral gap)
+   - **Risk**: **Medium (3)** - Manageable with monitoring.
+
+4. **Obstacle 30219 (Lanelet 1310.0)**:
+   - **Position**: (369.3849, 235.5481) vs Ego (393.2909, 233.1738)
+   - **Relative Distance**: ~23.9m (behind ego), ~2.4m (lateral)
+   - **Velocity**: 9.0478 m/s (approaching fast, small lateral gap)
+   - **TTC**: ~2.6s (if lateral gap closes)
+   - **Risk**: **High (2)** - Needs attention due to high speed and proximity.
+
+5. **Obstacle 30223 (Lanelet 1476.0)**:
+   - **Position**: (385.8569, 223.76) vs Ego (393.2909, 233.1738)
+   - **Relative Distance**: ~7.4m (behind ego), ~9.4m (lateral)
+   - **Velocity**: 4.7398 m/s (safe lateral separation)
+   - **Risk**: **Low (4)** - Minimal risk.
+
+6. **Obstacle 30227 (Lanelet 1476.0)**:
+   - **Position**: (379.5048, 216.0209) vs Ego (393.2909, 233.1738)
+   - **Relative Distance**: ~13.8m (behind ego), ~17.2m (lateral)
+   - **Velocity**: 3.4468 m/s (safe distance)
+   - **Risk**: **Negligible (5)** - No significant risk.
+
+### JSON Output:
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": {
+        "ObstacleID": "30219",
+        "OverallRiskScore": 2
+    }
+}
+```

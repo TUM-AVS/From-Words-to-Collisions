@@ -1,0 +1,43 @@
+Obstacle 30785:
+
+* Trajectory Analysis: This obstacle starts in front of the ego vehicle with exact lateral alignment and a longitudinal distance of almost 20m. Over the timesteps, it moves further away longitudinally and slightly to the right laterally. The motion description confirms it's moving away from the ego vehicle in both directions.
+
+* Risk Assessment at t=2.6s:
+    * Longitudinal distance: 23.76m. No risk.
+    * Lateral distance: -2.07m. No risk.
+    * Relative longitudinal velocity: 7.73 m/s (moving away). TTC calculation not applicable.
+    * Relative lateral velocity: -4.48 m/s (moving away). TTC calculation not applicable.
+    * MDC: > 5m (due to large and increasing distances in both directions).
+    * Overall Risk Score: 5 (No Risk)
+
+
+Obstacle 30786:
+
+* Trajectory Analysis: This obstacle is directly in front of the ego vehicle (laterally aligned) and approaching throughout all timesteps. The longitudinal distance steadily decreases, ultimately reaching 0.00m at the final timestep.
+
+* Risk Assessment at t=2.6s:
+    * Longitudinal distance: 0.00m. Collision risk.
+    * Lateral distance: 0.00m. This, combined with the 0.00m longitudinal distance and the motion description ("Collision of the ego car"), confirms the collision.
+    * Relative longitudinal velocity: -3.57 m/s.  While negative, this doesn't negate the collision given the zero distance and confirmation in the description. The negative value might be a sensor reading error in the instant of the collision.
+    * TTC: Not applicable due to collision already occurring.
+    * MDC: 0m.
+    * Overall Risk Score: 0 (Collision)
+
+
+Collision Scenario Determination:
+
+Yes, this is a collision scenario. Obstacle 30786 has collided with the ego vehicle at t=2.6s.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "30786",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30786 has collided with the ego vehicle at t=2.6s, exhibiting a longitudinal and lateral distance of 0.00m, as described in the scenario data."
+}
+```

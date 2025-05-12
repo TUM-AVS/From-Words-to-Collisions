@@ -1,0 +1,55 @@
+Obstacle 30277 (Front-Left):
+- Trajectory: Consistently front-left, lateral distance decreasing more rapidly than longitudinal.
+- At 6.2s: Lateral distance is 14.12m, longitudinal 9.98m. Both are sufficiently large.  Relative lateral velocity is -7.47 m/s (approaching). Relative longitudinal velocity is -0.28 m/s (slightly approaching).
+- TTC (Lateral): 14.12m / 7.47m/s ≈ 1.89s (Medium Risk)
+- TTC (Longitudinal): 9.98m / 0.28m/s ≈ 35.64s (Negligible Risk)
+- MDC:  Since this is a diagonal approach, and the lateral distance is smaller and rapidly closing, it poses the more significant risk.  Approximating MDC as the lateral distance since it is the dominant risk factor: MDC ≈ 14.12m (Negligible Risk)
+- Overall Risk: Medium (3) - Dominated by the lateral TTC.
+
+
+Obstacle 30280 (Front-Left):
+- Trajectory: Consistently front-left, lateral distance increasing, longitudinal slightly decreasing.
+- At 6.2s: Lateral distance 12.93m and increasing. Longitudinal distance 13.45m and very slowly closing.
+- TTC (Lateral): Not applicable as moving away laterally.
+- TTC (Longitudinal): 13.45m / 0.05m/s = 269s (Negligible Risk)
+- MDC: Due to increasing lateral distance and a very slow longitudinal closing speed, MDC is large. Approximate MDC using the smaller longitudinal distance: 13.45m (Negligible Risk)
+- Overall Risk: Negligible (5)
+
+
+Obstacle 30281 (Left):
+- Trajectory: Moving from front-left to purely left, primarily lateral movement. Longitudinal velocity high which indicates its path crossing ego's.
+- At 6.2s: Lateral distance is 1.93m, longitudinal is 0.00m (aligned longitudinally but crossing). Lateral velocity is -0.14 m/s (closing). Longitudinal relative velocity is high at -8.55 m/s (closing).
+- TTC (Lateral): 1.93m / 0.14 m/s ≈ 13.79s (Negligible Risk)
+- TTC (Longitudinal): Not applicable since the longitudinal distance is 0 at this instant, obstacle is crossing ego's path.
+- MDC:  Although longitudinally aligned at this instant (0.00m), the obstacle is moving across the ego vehicle's path.  The relevant metric is the lateral distance of 1.93m and the relatively slow lateral closing velocity. Thus, MDC ≈ 1.93m (Medium Risk)
+- Overall Risk: Medium (3) based on the MDC value.
+
+
+Obstacle 30285 (Front):
+- Trajectory: Directly in front, longitudinal distance rapidly closing.
+- At 6.2s: Longitudinal distance 0.27m. Lateral distance 0.00m (aligned).  Relative velocity is -0.15m/s (closing).
+- TTC: 0.27m / 0.15m/s ≈ 1.8s (Medium Risk)
+- MDC: 0.27m (Extreme Risk)
+- Overall Risk: Extreme Risk (1) due to low MDC and consistent closing trajectory.
+
+
+Obstacle 30288 (Behind):
+- Trajectory: Directly behind, closing slowly.
+- At 6.2s: Longitudinal distance is -8.51m (behind). Lateral distance is 0.00m. Relative velocity is 1.84 m/s (closing).
+- TTC: 8.51m / 1.84m/s ≈ 4.63s (Low Risk)
+- MDC: 8.51m since the lateral distance is 0.00m (Negligible Risk)
+- Overall Risk: Low (4)
+
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30285",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {}
+}
+```

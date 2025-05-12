@@ -1,0 +1,82 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 20043:
+- **Direction and Position**: Front-left of the ego car.
+- **Adjusted Distances**: longitudinal 25.22 m, lateral 0.40 m.
+- **Relative Velocity**: longitudinal -1.15 m/s.
+- **Motion**: Driving toward the ego car longitudinally with no lateral relative motion.
+
+**Analysis**:
+- **Trajectory**: Stable, primarily approaching longitudinally.
+- **TTC Longitudinal**: \( \frac{25.22}{|1.15|} \approx 21.92 \) seconds.
+- **MDC**: Given stable lateral alignment and non-zero longitudinal distance, MDC > 5 m.
+
+**Risk Evaluation**: With the TTC > 5 seconds and MDC > 5 m, the risk is negligible.
+
+#### Obstacle 20045:
+- **Direction and Position**: In the front.
+- **Adjusted Distances**: longitudinal 18.32 m, lateral 0.00 m.
+- **Relative Velocity**: longitudinal -1.15 m/s.
+- **Motion**: Driving toward the ego car longitudinally.
+
+**Analysis**:
+- **Trajectory**: Stable alignment with decreasing longitudinal distance.
+- **TTC Longitudinal**: \( \frac{18.32}{|1.15|} \approx 15.93 \) seconds.
+
+**Risk Evaluation**: With both TTC > 5 seconds and relatively large longitudinal distances, the risk is negligible.
+
+#### Obstacle 20048:
+- **Direction and Position**: In the front.
+- **Adjusted Distances**: longitudinal 11.37 m, lateral 0.00 m.
+- **Relative Velocity**: longitudinal -1.15 m/s.
+- **Motion**: Driving toward the ego car longitudinally.
+
+**Analysis**:
+- **Trajectory**: Stable alignment with slightly decreasing longitudinal distance.
+- **TTC Longitudinal**: \( \frac{11.37}{|1.15|} \approx 9.89 \) seconds.
+
+**Risk Evaluation**: Both TTC > 5 seconds and decreasing but non-critical distance, the risk is negligible.
+
+#### Obstacle 20051:
+- **Direction and Position**: Behind the ego car.
+- **Adjusted Distances**: longitudinal -0.43 m, lateral 0.00 m.
+- **Relative Velocity**: longitudinal 3.79 m/s.
+- **Motion**: Approaching from behind longitudinally.
+
+**Analysis**:
+- **Trajectory**: Rapidly closing distance with slight acceleration.
+- **TTC Longitudinal**: \( \frac{|-0.43|}{3.79} \approx 0.11 \) seconds.
+- **MDC Longitudinal** indicates extreme immediate risk due to rapid closing in alignment.
+
+**Risk Evaluation**: Extreme Risk (1) due to exceedingly low TTC.
+
+#### Obstacle 20052:
+- **Direction and Position**: Behind the ego car.
+- **Adjusted Distances**: longitudinal -15.41 m, lateral 0.00 m.
+- **Relative Velocity**: longitudinal 6.42 m/s.
+- **Motion**: Approaching from behind longitudinally.
+
+**Analysis**:
+- **Trajectory**: Decreasing distance, closing longitudinally.
+- **TTC Longitudinal**: \( \frac{|-15.41|}{6.42} \approx 2.40 \) seconds, indicating a manageable risk.
+
+**Risk Evaluation**: Medium Risk (3) as TTC indicates manageable scenario, given adequate reaction time.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "N/A",
+        "OverallRiskScore": "N/A"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "20051",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "N/A",
+        "OverallRiskScore": "N/A"
+    }
+}
+```

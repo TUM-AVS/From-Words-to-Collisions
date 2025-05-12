@@ -1,0 +1,46 @@
+Obstacle 39:
+- Trajectory: This obstacle has been consistently in front of the ego vehicle and approaching along the longitudinal axis.  The lateral distance has remained at 0.00m until the most recent steps where it started to increase, indicating a potential lane change by either vehicle. 
+- At t=2.4s: Longitudinal distance is 5.32m, relative velocity is -9.26 m/s (closing). Lateral distance is 1.00 m and increasing (obstacle moving left relative to ego).
+- TTC (longitudinal): 5.32m / 9.26m/s = 0.57s (Extreme Risk)
+- MDC: Primarily longitudinal as the main movement is along this axis.  Given the closing velocity and short distance, MDC is estimated to be < 0.5m within the next time step. (Extreme Risk)
+- Risk: Extreme (1) - due to low TTC and MDC, despite the lateral movement.
+
+Obstacle 352:
+- Trajectory:  Consistently front-right of the ego vehicle and moving further away both longitudinally and laterally.
+- At t=2.4s: Longitudinal distance is 11.25m, relative velocity is 1.69 m/s (diverging). Lateral distance is -1.20 m and increasing (diverging).
+- TTC: Not applicable due to diverging trajectories.
+- MDC: > 5m
+- Risk: Negligible (5)
+
+Obstacle 358:
+- Trajectory: Consistently behind the ego vehicle, approaching rapidly along the longitudinal axis. The lateral distance remains at 0.00m throughout the scenario, indicating same-lane alignment.
+- At t=2.4s: Longitudinal distance is -2.33m, relative velocity is 4.33 m/s (closing). Lateral distance is 0.00m.
+- TTC (longitudinal): 2.33m / 4.33m/s = 0.54s (Extreme Risk)
+- MDC: Primarily longitudinal; given the closing velocity and position directly behind, MDC is < 0.5m within the next time step. (Extreme Risk).
+- Risk: Extreme (1)
+
+Obstacle 363:
+- Trajectory: Consistently behind the ego vehicle, approaching along the longitudinal axis. Lateral distance is constant at 0.00m.
+- At t=2.4s: Longitudinal distance is -15.92m, relative velocity is 4.00 m/s (closing). Lateral distance is 0.00m.
+- TTC: 15.92m / 4.00m/s = 3.98s (Low Risk)
+- MDC:  >5m
+- Risk: Low (4)
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null, 
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "358",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "358",
+    "OverallRiskScore": "1" 
+  }
+}
+```

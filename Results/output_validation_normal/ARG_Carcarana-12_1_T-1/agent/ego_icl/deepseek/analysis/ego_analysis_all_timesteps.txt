@@ -1,0 +1,84 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+---
+
+#### **Obstacle 324 (Rear-right)**
+- **Adjusted Distance**: Longitudinal -10.51m, Lateral -9.73m  
+- **Relative Velocity**: Longitudinal -8.40 m/s (moving away), Lateral 1.10 m/s (approaching)  
+- **Motion**: Moving away longitudinally, approaching laterally from the right.  
+- **TTC (Lateral)**: 9.73m / 1.10 m/s ≈ 8.85s (No Risk)  
+- **MDC**: Lateral distance is large (9.73m) and increasing.  
+- **Risk**: 5 (Negligible Risk)  
+
+---
+
+#### **Obstacle 350 (Rear-right)**
+- **Adjusted Distance**: Longitudinal -19.18m, Lateral -14.69m  
+- **Relative Velocity**: Longitudinal -9.12 m/s (moving away), Lateral 0.69 m/s (approaching)  
+- **Motion**: Moving away longitudinally, approaching laterally from the right.  
+- **TTC (Lateral)**: 14.69m / 0.69 m/s ≈ 21.29s (No Risk)  
+- **MDC**: Lateral distance is large (14.69m) and increasing.  
+- **Risk**: 5 (Negligible Risk)  
+
+---
+
+#### **Obstacle 3124 (Front-left)**
+- **Adjusted Distance**: Longitudinal 19.35m, Lateral 9.29m  
+- **Relative Velocity**: Longitudinal -4.04 m/s (approaching), Lateral 3.59 m/s (moving away)  
+- **Motion**: Approaching longitudinally, moving away laterally to the left.  
+- **TTC (Longitudinal)**: 19.35m / 4.04 m/s ≈ 4.79s (Low Risk)  
+- **MDC**: Longitudinal distance is large (19.35m) and decreasing slowly.  
+- **Risk**: 4 (Low Risk)  
+
+---
+
+#### **Obstacle 3130 (Front-left)**
+- **Adjusted Distance**: Longitudinal 7.98m, Lateral 2.81m  
+- **Relative Velocity**: Longitudinal -4.62 m/s (approaching), Lateral 3.22 m/s (moving away)  
+- **Motion**: Approaching longitudinally, moving away laterally to the left.  
+- **TTC (Longitudinal)**: 7.98m / 4.62 m/s ≈ 1.73s (Medium Risk)  
+- **MDC**: Longitudinal distance is moderate (7.98m) and decreasing.  
+- **Risk**: 3 (Medium Risk)  
+
+---
+
+#### **Obstacle 3140 (Rear-left)**
+- **Adjusted Distance**: Longitudinal -13.56m, Lateral 11.42m  
+- **Relative Velocity**: Longitudinal -5.80 m/s (moving away), Lateral -7.30 m/s (approaching)  
+- **Motion**: Moving away longitudinally, approaching laterally from the left.  
+- **TTC (Lateral)**: 11.42m / 7.30 m/s ≈ 1.56s (Medium Risk)  
+- **MDC**: Lateral distance is moderate (11.42m) but closing rapidly.  
+- **Risk**: 3 (Medium Risk)  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```
+
+### Key Observations:
+1. **No Collision or Extreme Risk**: All obstacles maintain sufficient distance or are moving away in critical dimensions.  
+2. **Highest Risks**: Obstacles 3130 (Front-left) and 3140 (Rear-left) have Medium Risk (Score 3) due to closing distances in one dimension.  
+3. **Low Risk**: Obstacle 3124 (Front-left) has Low Risk (Score 4) as it approaches slowly.  
+4. **Negligible Risk**: Obstacles 324 and 350 (Rear-right) pose no immediate threat.  
+
+### Trajectory Trends:
+- **Obstacle 3130**: Longitudinal distance decreases steadily (8.55m → 7.98m in 0.9s), but lateral distance increases (6.58m → 2.81m).  
+- **Obstacle 3140**: Lateral distance closes rapidly (5.35m → 11.42m in 0.9s) but remains manageable.  
+
+### Final Note:
+The ego vehicle should monitor Obstacles 3130 and 3140 for potential lateral/longitudinal adjustments, but no urgent action is required.

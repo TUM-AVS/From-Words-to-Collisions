@@ -1,0 +1,41 @@
+Obstacle 32: Located front-left, with longitudinal distance of 1.95m and lateral distance of 2.68m at the last timestep.  The longitudinal distance has been rapidly decreasing across all timesteps, indicating a high risk of collision. The lateral distance is also decreasing but less rapidly.  Relative longitudinal velocity is -10.10 m/s.
+
+* TTC (longitudinal): 1.95m / 10.10m/s = 0.19s (Extreme Risk)
+* MDC: Approximately 1.95m (High Risk). We primarily use the longitudinal distance here due to the rapid closing velocity in that direction and the obstacle's front-left position.
+
+Obstacle 310:  Front-left, with longitudinal distance 9.44m and lateral distance 3.07m. Longitudinal distance decreasing across timesteps. Relative longitudinal velocity is -10.10 m/s.
+
+* TTC (longitudinal): 9.44m / 10.10m/s = 0.94s (High Risk)
+* MDC: Approximately 9.44m (Medium Risk).
+
+Obstacle 318: Front-left, with longitudinal distance 17.18m and lateral distance 3.49m.  Longitudinal distance is steadily decreasing. Relative longitudinal velocity is -10.37 m/s.
+
+* TTC (longitudinal): 17.18m / 10.37m/s = 1.66s (Medium Risk)
+* MDC: Approximately 17.18m (Low Risk).
+
+Obstacle 326: Front, with longitudinal distance 15.98m and lateral distance 0.00m.  Longitudinal distance is slowly decreasing. Relative longitudinal velocity is -1.85 m/s. The lateral distance of 0 indicates alignment in the lateral dimension, meaning it's in the same lane, not necessarily a collision.
+
+* TTC (longitudinal): 15.98m / 1.85m/s = 8.64s (Negligible Risk)
+* MDC: Approximately 15.98m, but with the near-zero lateral distance and decreasing longitudinal distance, the MDC is more relevant here (Low Risk).
+
+
+Obstacle 332: Left of the ego, with longitudinal distance of 0.00m and a lateral distance of 2.29m. The longitudinal distance being zero indicates alignment in the longitudinal dimension. The consistently decreasing lateral distance combined with a small MDC value indicate risk. Relative longitudinal velocity is -10.10 m/s which is not used for TTC calculation here.
+
+* TTC (lateral):  Not applicable due to -0.00 m/s relative lateral velocity. However, given the closing lateral motion observed across timesteps and the near-zero longitudinal distance, we prioritize MDC.
+* MDC: 2.29m (Medium Risk).
+
+Based on the analysis above, Obstacle 32 presents an Extreme Risk due to the short TTC.
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "32",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": "310",
+    "OverallRiskScore": "2"
+  }
+}
+```

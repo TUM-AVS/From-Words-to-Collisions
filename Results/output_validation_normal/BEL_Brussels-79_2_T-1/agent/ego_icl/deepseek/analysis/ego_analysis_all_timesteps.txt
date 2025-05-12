@@ -1,0 +1,64 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30182 (Front-left)
+- **Adjusted Distance**: Longitudinal 17.25 m, Lateral 5.99 m
+- **Relative Velocity**: Longitudinal -3.50 m/s (approaching), Lateral -0.00 m/s (no lateral motion)
+- **Motion Description**: Driving toward ego longitudinally, no lateral relative motion.
+- **TTC Longitudinal**: 17.25 / 3.50 ≈ 4.93 seconds (Low Risk)
+- **MDC**: Lateral distance is stable at ~6.00 m (No Risk)
+- **Risk Assessment**: 
+  - Longitudinal: Low Risk (TTC ≈ 4.93s)
+  - Lateral: No Risk (MDC ≈ 6.00m)
+  - **Overall Risk**: Low Risk (4)
+
+#### Obstacle 30183 (Front)
+- **Adjusted Distance**: Longitudinal 10.28 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal -3.50 m/s (approaching), Lateral -0.00 m/s
+- **Motion Description**: Driving toward ego longitudinally, exact lateral alignment.
+- **TTC Longitudinal**: 10.28 / 3.50 ≈ 2.94 seconds (Medium Risk)
+- **MDC**: Lateral distance is 0.00 m, but no lateral motion (collision depends on longitudinal trajectory)
+- **Risk Assessment**:
+  - Longitudinal: Medium Risk (TTC ≈ 2.94s)
+  - Lateral: No Risk (no lateral motion)
+  - **Overall Risk**: Medium Risk (3)
+
+#### Obstacle 30186 (Front-left)
+- **Adjusted Distance**: Longitudinal 15.86 m, Lateral 16.91 m
+- **Relative Velocity**: Longitudinal -3.13 m/s (approaching), Lateral -2.89 m/s (approaching)
+- **Motion Description**: Driving toward ego both longitudinally and laterally from the left.
+- **TTC Longitudinal**: 15.86 / 3.13 ≈ 5.07 seconds (No Risk)
+- **TTC Lateral**: 16.91 / 2.89 ≈ 5.85 seconds (No Risk)
+- **MDC**: Both distances are large and decreasing slowly.
+- **Risk Assessment**:
+  - Longitudinal: No Risk (TTC ≈ 5.07s)
+  - Lateral: No Risk (TTC ≈ 5.85s)
+  - **Overall Risk**: No Risk (5)
+
+### Trajectory Analysis
+- **Obstacle 30182**: Consistently approaching longitudinally with stable lateral distance. No immediate collision risk.
+- **Obstacle 30183**: Approaching longitudinally with exact lateral alignment. Medium risk due to decreasing longitudinal distance.
+- **Obstacle 30186**: Approaching both longitudinally and laterally, but distances are large and TTCs are above 5 seconds.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```
+
+### Explanation
+- **No Collision or Extreme Risk**: None of the obstacles have TTC < 0.5s or MDC < 0.5m.
+- **Highest Risk**: Obstacle 30183 has the highest risk (Medium Risk, score 3) due to its longitudinal approach with exact lateral alignment. However, it does not meet the threshold for High Risk (score 2).
+- **Other Obstacles**: Obstacle 30182 is Low Risk (score 4), and Obstacle 30186 is No Risk (score 5).
+- The JSON summary reflects the absence of Collision, Extreme Risk, or High Risk obstacles in the most recent timestep.

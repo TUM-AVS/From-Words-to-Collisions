@@ -1,0 +1,25 @@
+Both ego vehicle and obstacle 20063.0 are in the same lanelet (1455.0) and the obstacle is behind the ego vehicle.  Let's analyze the distance between them over time:
+
+* **0.1s:**  Distance is sqrt((34.4376 - 20.6484)^2 + (191.3091 - 212.8682)^2) ≈ 25.6 meters.
+* **0.2s:** Distance ≈ 25.3 meters.
+* **0.3s:** Distance ≈ 25.0 meters.
+* **0.4s:** Distance ≈ 24.7 meters.
+* **0.5s:** Distance ≈ 24.4 meters.
+* **0.6s:** Distance ≈ 24.1 meters.
+* **0.7s:** Distance ≈ 23.8 meters.
+* **0.8s:** Distance ≈ 23.5 meters.
+* **0.9s:** Distance ≈ 23.2 meters.
+
+
+The distance is consistently decreasing, indicating a potential risk. However, at the current rate of closure, a collision doesn't appear imminent within the next few timesteps.  The ego vehicle is decelerating more aggressively than the obstacle is accelerating, so the closure rate might decrease. Additionally, the obstacle's change in orientation at 0.9 seconds might indicate a lane change, but we need more future data to confirm this. At this point, the risk is high (2), but not extreme (1) or collision (0).
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": {
+        "ObstacleID": "20063.0",
+        "OverallRiskScore": 2
+    }
+}
+```

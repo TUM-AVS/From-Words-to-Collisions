@@ -1,0 +1,56 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 30240 (Front-right)**
+- **Adjusted Distances**: Longitudinal 11.74m, Lateral -1.94m  
+- **Relative Velocity**: Longitudinal -1.90 m/s (approaching), Lateral -0.03 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally, moving away laterally  
+- **TTC (Longitudinal)**: 11.74 / 1.90 ≈ 6.18s (No Risk)  
+- **TTC (Lateral)**: N/A (moving away)  
+- **MDC**: Lateral distance is stable/increasing (1.94m moving away) → No collision path  
+- **Overall Risk**: 5 (No Risk)  
+
+#### **Obstacle 30241 (Right, Exact Longitudinal Alignment)**
+- **Adjusted Distances**: Longitudinal 0.00m (aligned), Lateral -1.89m  
+- **Relative Velocity**: Longitudinal -2.52 m/s (approaching), Lateral -0.01 m/s (negligible)  
+- **Motion**: Exact longitudinal alignment, moving away laterally (but very slowly)  
+- **TTC (Longitudinal)**: 0.00m alignment but no lateral convergence → No direct collision path  
+- **MDC**: Lateral distance (1.89m) is stable/very slowly increasing → No immediate risk  
+- **Overall Risk**: 5 (No Risk)  
+
+#### **Obstacle 30242 (Rear-right)**
+- **Adjusted Distances**: Longitudinal -5.17m (behind), Lateral -1.75m  
+- **Relative Velocity**: Longitudinal -3.89 m/s (moving away), Lateral -0.28 m/s (moving away)  
+- **Motion**: Moving away in both dimensions  
+- **TTC**: N/A (diverging paths)  
+- **MDC**: Increasing distances in both dimensions → No Risk  
+- **Overall Risk**: 5 (No Risk)  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 30241**: Maintains exact longitudinal alignment (0.00m) but lateral distance is stable (~1.89m). No convergence observed.  
+- **Obstacle 30240/30242**: Both moving away from ego in lateral dimension.  
+
+---
+
+### Collision Scenario Determination
+- **No obstacle** has a risk score of 0 (collision) or 1 (extreme risk).  
+- Closest risk is Obstacle 30241 with longitudinal alignment but safe lateral distance (1.89m).  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle has a risk score ≤1. Obstacle 30241 is longitudinally aligned but maintains safe lateral distance (1.89m) with no convergence."
+}
+```

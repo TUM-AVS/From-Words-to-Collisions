@@ -1,0 +1,38 @@
+At t=3.5s:
+
+**Obstacle 30200 Analysis:**
+
+* **Trajectory:** This obstacle has been consistently approaching the ego vehicle from behind along the same lateral line (0.00m lateral distance) across all observed timesteps.  The longitudinal distance has been decreasing steadily.
+* **Longitudinal Analysis:** The latest longitudinal distance is -1.07m, and closing velocity is 5.43 m/s.
+* **Lateral Analysis:** Lateral distance is 0.00m, meaning it's directly behind the ego vehicle. The lateral velocity is minimal (-0.01 m/s), not indicating a lateral movement.
+* **TTC:** TTC = distance / relative_velocity = 1.07/5.43 ≈ 0.20 seconds. 
+* **MDC:** Approximately 1.07m (using longitudinal distance as it's the primary concern).
+* **Risk:** TTC indicates Extreme Risk (1). MDC indicates High Risk (2).  Prioritizing the higher risk: Extreme Risk (1).
+
+**Obstacle 30201 Analysis:**
+
+* **Trajectory:** This obstacle is also behind the ego vehicle and has been approaching, but at a greater distance than obstacle 30200. Lateral distance remains at 0.00m.
+* **Longitudinal Analysis:**  Longitudinal distance is -19.64 m with a closing velocity of 4.71 m/s.
+* **Lateral Analysis:** Lateral distance is 0.00m, indicating it's directly behind in the same lane as the ego vehicle. The small lateral velocity isn't a major factor.
+* **TTC:** TTC = 19.64/4.71 ≈ 4.17 seconds.
+* **MDC:** Approximately 19.64m (using longitudinal distance).
+* **Risk:** Both TTC and MDC suggest Low Risk (4).
+
+**Overall Assessment:**
+
+Obstacle 30200 presents an Extreme Risk (1) of collision due to its very short TTC (0.20 seconds) and close proximity (-1.07m) behind the ego vehicle, with a high closing velocity.  Obstacle 30201 presents a Low Risk (4). No other obstacles present extreme or collision risk in this timestep.
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30200",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "30200",
+    "OverallRiskScore": "1"
+  }
+}
+```

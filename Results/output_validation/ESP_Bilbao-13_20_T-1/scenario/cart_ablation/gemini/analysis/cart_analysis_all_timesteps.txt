@@ -1,0 +1,22 @@
+At t=2.2s, Ego is at (-415.2573, -208.074) in lanelet 705. Let's analyze the closest obstacles:
+
+* **Obstacle 30801:** Position (-412.2354, -204.4561), also in lanelet 705.  This obstacle is very close to the ego vehicle and its velocity (3.5364) is much higher than ego's (0.2607), while accelerating at 2.0185.  Given the proximity and differing velocities/accelerations, an immediate collision is highly likely. Risk score: 1 (Extreme Risk).
+
+* **Obstacle 30805:** Position (-405.0108, -195.8679), also in lanelet 705. This obstacle is relatively close and ahead of the ego vehicle.  It is moving slightly faster than Ego. The risk of collision exists as both are in the same lanelet, but there's still some time to react.  Considering previous timesteps shows that both Ego and obstacle 30805 are in the same lanelet, implying possible collision in the future. Risk score: 2 (High Risk). However, it is not an *extreme* risk at the present moment (2.2s).
+
+* **Obstacle 30806:** Position (-412.805, -199.7079) in lanelet 706. This obstacle is close and its velocity is significantly higher than ego's but it's in a different lanelet. The current trajectory suggests this will remain true in the near future. It presents some medium risk but less critical than the other lanelet 705 obstacles like obstacle 30801 and 30805. Risk score: 3 (Medium Risk).
+
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30801",
+    "OverallRiskScore": 1
+  },
+  "ScenarioAnalysis": {
+    "IsCollisionScenario": false,
+    "Reasoning": "Obstacle 30801 poses an extreme risk of collision with Ego due to close proximity, high relative velocity, and both being in the same lanelet (705). No immediate collision detected."
+  }
+}
+```

@@ -1,0 +1,38 @@
+Obstacle Analysis:
+
+Obstacle 30082:
+- Trajectory:  Across the provided timesteps, Obstacle 30082 consistently remains in front of the ego vehicle and is moving away longitudinally.  Lateral distance is consistently 0.00m, indicating perfect lateral alignment.
+- Latest Timestep (0.9s):
+    - Longitudinal distance: 15.47m
+    - Lateral distance: 0.00m
+    - Longitudinal relative velocity: 5.03 m/s (moving away)
+    - Lateral relative velocity: 0.00 m/s
+
+- TTC Calculation: Since the obstacle is moving away from the ego vehicle longitudinally, TTC is not applicable in the longitudinal direction.  Lateral velocity is also 0, so lateral TTC is also not applicable.
+- MDC Calculation: Given the longitudinal movement away from the ego vehicle and exact lateral alignment, the MDC is effectively the longitudinal distance of 15.47m.
+- Risk Assessment:
+    - Longitudinal: No Risk (5) - Obstacle is moving away.
+    - Lateral: No Risk (5) - Obstacle is perfectly aligned but not approaching.
+    - Overall: No Risk (5)
+
+Collision Scenario Determination:
+
+No obstacle has a risk score of 0 or 1. Therefore, this is NOT a collision scenario.
+
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle presents an immediate collision risk. Obstacle 30082 is moving away from the ego vehicle while maintaining lateral alignment."
+}
+```

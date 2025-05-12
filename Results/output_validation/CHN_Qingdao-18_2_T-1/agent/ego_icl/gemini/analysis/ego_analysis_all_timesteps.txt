@@ -1,0 +1,57 @@
+* **Obstacle 30655 Analysis:**
+
+This obstacle is consistently in front of the ego vehicle and approaching rapidly along the longitudinal axis. Lateral distance remains 0.00m throughout the provided timesteps, indicating exact lateral alignment within the same lane.
+
+* Trajectory:** The longitudinal distance decreases from 6.21m to 0.77m in the last 0.9 seconds, indicating a high closing velocity.
+
+* **TTC (Longitudinal):** At the last timestep (3.9s), longitudinal distance is 0.77m and relative velocity is -4.24 m/s.  TTC = 0.77 / 4.24 ≈ 0.18 seconds.
+
+* **MDC:** Given the persistent lateral alignment (0.00m) and rapidly decreasing longitudinal distance, MDC is effectively the longitudinal distance, which is 0.77m.
+
+* **Risk:** Based on TTC (0.18s < 0.5s) and MDC (0.77m < 1.0m), this obstacle poses an *Extreme Risk (1)* of collision.
+
+* **Obstacle 30656 Analysis:**
+
+This obstacle is approaching the ego vehicle from the front-right.
+
+* **Trajectory:**  While the longitudinal distance decreases, the lateral distance fluctuates, suggesting a crossing trajectory rather than a direct head-on approach.
+
+* **TTC (Longitudinal):** At 3.9s, longitudinal distance is 11.96m and relative velocity is -10.59 m/s. TTC ≈ 11.96 / 10.59 ≈ 1.13 seconds.
+
+* **TTC (Lateral):** At 3.9s, lateral distance is -1.74m and relative velocity is 7.00 m/s. Lateral motion is away from the ego, so we consider only the longitudinal motion.
+
+* **MDC:** Considering the trajectory and relative velocities, MDC is assessed primarily based on the longitudinal approach, which is approximately 11.96. 
+
+* **Risk:** Based on TTC (1.13s < 3s) and MDC, this obstacle presents a *Medium Risk (3)*.
+
+
+* **Obstacle 30658 Analysis:**
+
+This obstacle begins behind and to the right of the ego vehicle, then moves to be directly behind the ego.
+ 
+* **Trajectory:** Initially, this obstacle is moving away longitudinally but approaching laterally. At timestep 3.5s, the lateral distance reaches approximately 0 and is directly behind the ego vehicle.  By timestep 3.9s, the obstacle remains approximately in the same lane and approaching the ego from behind.
+
+* **TTC (Longitudinal):** At 3.9s, longitudinal distance is -17.90m and relative velocity is 1.71 m/s. TTC ≈ 17.90 / 1.71 ≈ 10.47 seconds. (Obstacle approaches from behind)
+
+* **TTC (Lateral):** Lateral distance is 0.00m and relative velocity is 1.77 m/s, indicating same lane motion.
+
+* **MDC:** Given the trajectory and relative motion, MDC is again assessed primarily based on the longitudinal distance which is approximately 17.90.
+
+* **Risk:** TTC (10.47s > 5s) and MDC suggest a *Negligible Risk (5)*, though its longitudinal approach from behind should be monitored in subsequent timesteps.
+
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30655",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "30655",
+    "OverallRiskScore": "1"
+  }
+}
+```

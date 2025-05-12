@@ -1,0 +1,38 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Analysis of Obstacle 30785:
+- **Position and Motion Description**: At the latest timestamp (2.6 seconds), Obstacle 30785 is in the Front-right of the ego car with longitudinal distance 23.76 m and lateral distance -2.07 m (adjusted distances are not provided here but assumed to be similarly large, thus focusing on large raw distances).
+- **Relative Velocities**: Longitudinal velocity is 7.73 m/s (moving away longitudinally) and lateral velocity is -4.48 m/s (moving away to the right).
+- **Trajectory**: Over the timesteps, Obstacle 30785 is consistently moving away in both dimensions. The lateral distance is increasing as the obstacle moves further right.
+- **TTC and MDC Calculation**:
+  - **TTC Longitudinal**: Not applicable as the obstacle is moving away.
+  - **MDC**: Based on front-right positioning over time, predictions indicate increasing separation, hence MDC > 5.0 m.
+- **Risk Assessment**: With increasing separation in both dimensions, the risk score is `5 (No Risk)`.
+
+#### Analysis of Obstacle 30786:
+- **Position and Motion Description**: At the latest timestamp (2.6 seconds), Obstacle 30786 is at a collision position (longitudinal 0.00 m and lateral 0.00 m) indicating immediate contact with the ego car.
+- **Relative Velocities**: Longitudinal velocity is -3.57 m/s (indicating a closing trajectory) and lateral velocity is 0.00 m/s.
+- **Trajectory**: This obstacle has been consistently closing towards the ego car over previous timesteps.
+- **TTC and MDC Calculation**:
+  - **TTC Longitudinal**: Already at 0.00 m, collision has occurred.
+  - **MDC**: 0 meters, as both longitudinal and lateral distances are aligned to zero at this point.
+- **Risk Assessment**: Collision is occurring, risk score is `0 (Collision)`.
+
+### Conclusion
+- **Collision Scenario**: With Obstacle 30786 in a collision position with the ego vehicle, this situation is unequivocally a collision scenario.
+
+### JSON Summary
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "30786",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "None"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30786 is in direct collision with the ego vehicle, with zero longitudinal and lateral separation at the most recent timestep."
+}
+```

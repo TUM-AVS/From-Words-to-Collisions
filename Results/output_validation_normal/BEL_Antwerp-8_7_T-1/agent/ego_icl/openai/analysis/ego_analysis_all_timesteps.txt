@@ -1,0 +1,58 @@
+### Obstacle-by-Obstacle Analysis at the Most Recent Timestep (0.9 seconds)
+
+**Obstacle 30597**
+- **Position**: In front of the ego vehicle
+- **Adjusted Distances**: Longitudinal = 14.03 m, Lateral = 0.00 m
+- **Relative Velocity**: Longitudinal = -0.30 m/s, Lateral = 0.46 m/s
+- **Trajectory and Motion**: The obstacle is directly in front, moving toward the ego vehicle, confirmed by the negative longitudinal velocity, and motion description shows "Exact longitudinal alignment."
+
+- **Time-to-Collision (TTC) Calculation**: 
+  - Longitudinal direction is critical.
+  - TTC = 14.03 m / 0.30 m/s = 46.77 seconds
+  - Extremely high TTC implies a negligible collision risk based on current speed.
+
+- **Minimum Distance to Collision (MDC)**:
+  - The current distance is the MDC since it is closing slowly, and the lateral distance is already aligned.
+  - MDC = 14.03 m
+
+- **Risk Assessment**:
+  - With a longitudinal distance of 14.03 m and a negligible closing rate, it interprets as negligible or low risk.
+  - Risk Score: 5 (Negligible Risk)
+
+**Obstacle 30598**
+- **Position**: Behind the ego vehicle
+- **Adjusted Distances**: Longitudinal = -13.34 m, Lateral = 0.00 m
+- **Relative Velocity**: Longitudinal = 2.91 m/s (closing), Lateral = -0.29 m/s
+- **Trajectory and Motion**: The obstacle is behind, moving towards the ego vehicle with rapidly increasing relative speed, suggesting its approach.
+
+- **Time-to-Collision (TTC) Calculation**:
+  - Longitudinal direction is critical.
+  - TTC = 13.34 m / 2.91 m/s = 4.58 seconds
+
+- **Minimum Distance to Collision (MDC)**:
+  - Since the trajectory is closing longitudinally at a considerable pace, the adjusted distance becomes MDC.
+  - MDC = 0 m if trajectorial alignment approaches, but here MDC = ~13.34 m with continuous analysis.
+
+- **Risk Assessment**:
+  - A TTC of 4.58 seconds indicates a low to medium risk, as it's relatively close but not imminent given the distance.
+  - Given closing speed and alignment, quick reaction advisable.
+  - Risk Score: 4 (Low Risk)
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": null,
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": null,
+    "MediumRiskObstacle": null,
+    "LowRiskObstacle": {
+        "ObstacleID": "30598",
+        "OverallRiskScore": "4"
+    }
+}
+```
+
+**Summary**: 
+- Obstacle 30597 presents negligible risk, with a very safe distance and no fast approach.
+- Obstacle 30598 presents a low risk; although approaching quickly from behind, there is sufficient distance and time for the ego vehicle to react accordingly.

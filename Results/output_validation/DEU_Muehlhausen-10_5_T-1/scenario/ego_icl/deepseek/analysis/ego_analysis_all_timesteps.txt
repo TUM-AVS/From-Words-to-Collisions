@@ -1,0 +1,69 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 1.2 seconds)
+
+#### **Obstacle 311 (Front-right)**
+- **Adjusted Position**: Longitudinal 16.23m, Lateral -3.22m  
+- **Relative Velocity**: Longitudinal 2.31 m/s (moving away), Lateral -8.88 m/s (moving right, away from ego)  
+- **Trajectory Analysis**:  
+  - Longitudinal distance increasing (moving away from ego)  
+  - Lateral distance rapidly increasing (moving right)  
+- **TTC**: Not applicable (both components diverging)  
+- **MDC**: >5.0m (no convergence in either dimension)  
+- **Risk Score**: 5 (No Risk)  
+
+---
+
+#### **Obstacle 315 (Behind)**
+- **Adjusted Position**: Longitudinal 0.00m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 4.07 m/s (approaching), Lateral -0.03 m/s (negligible lateral motion)  
+- **Trajectory Analysis**:  
+  - **Collision occurred at 1.2s**: Longitudinal distance = 0.00m with closing velocity (4.07 m/s).  
+  - Lateral alignment is exact but stable (no significant lateral motion).  
+- **TTC**: 0.00s (collision occurring now).  
+- **MDC**: 0.00m (collision occurring).  
+- **Risk Score**: 0 (Collision)  
+
+---
+
+#### **Obstacle 324 (Front-right)**
+- **Adjusted Position**: Longitudinal 21.44m, Lateral -4.37m  
+- **Relative Velocity**: Longitudinal -5.74 m/s (approaching), Lateral 0.38 m/s (slight leftward motion toward ego).  
+- **Trajectory Analysis**:  
+  - Longitudinal distance decreasing (approaching).  
+  - Lateral motion negligible (0.38 m/s toward ego).  
+- **TTC**: Longitudinal = 21.44 / 5.74 ≈ 3.73s (Low Risk).  
+- **MDC**: >5.0m (no immediate convergence).  
+- **Risk Score**: 4 (Low Risk)  
+
+---
+
+#### **Obstacle 331 (Behind)**
+- **Adjusted Position**: Longitudinal -19.20m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 2.01 m/s (approaching), Lateral 0.00 m/s.  
+- **Trajectory Analysis**:  
+  - Slowly closing from behind but distant (19.20m).  
+  - No lateral motion.  
+- **TTC**: 19.20 / 2.01 ≈ 9.55s (No Risk).  
+- **MDC**: >5.0m.  
+- **Risk Score**: 5 (No Risk)  
+
+---
+
+### **Collision Scenario Determination**
+- **Obstacle 315** has a **risk score of 0** (collision occurring at 1.2s).  
+- No other obstacles are at extreme risk (score ≤ 1).  
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "315",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 315 has collided with the ego vehicle (longitudinal distance = 0.00m at 1.2s with closing velocity)."
+}
+```

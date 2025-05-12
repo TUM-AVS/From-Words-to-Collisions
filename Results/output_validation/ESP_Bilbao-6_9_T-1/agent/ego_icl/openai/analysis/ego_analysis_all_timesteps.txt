@@ -1,0 +1,65 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30689
+- **Position and Motion**:
+  - Positioned Front-left of the ego car.
+  - Adjusted distances: longitudinal 14.88 m, lateral 10.35 m.
+  - Motion indicates the obstacle is moving away laterally while closing longitudinally.
+  
+- **Trajectory Analysis**:
+  - Over the timesteps, this obstacle is continuously reducing its longitudinal distance while lateral distance increases, suggesting a divergence laterally but still approaching longitudinally.
+
+- **Time-to-Collision (TTC) Calculation**:
+  - Longitudinal velocity = -4.43 m/s (approaching due to negative sign)
+  - TTC (longitudinal) = 14.88 m / 4.43 m/s = 3.36 seconds
+
+- **Minimum Distance to Collision (MDC) Calculation**:
+  - MDC can be assumed based on the trajectory as more influenced by lateral divergence.
+  - With the lateral distance increasing significantly and both distances not nearing 0, MDC is greater than 3 m.
+
+- **Risk Assessment**:
+  - Longitudinal distance is significantly above any critical threshold and lateral divergence indicates manageable risks.
+  - **Risk Level**: 3 - Medium Risk
+
+#### Obstacle 30693
+- **Position and Motion**:
+  - Positioned directly in front of the ego car.
+  - Adjusted distances: longitudinal 0.54 m, lateral 0.00 m.
+  - Exact longitudinal alignment with a closing approach.
+
+- **Trajectory Analysis**:
+  - The obstacle continuously closes in on the ego vehicle with a considerable reduction in distance across timesteps, remaining on the same lateral plane.
+
+- **Time-to-Collision (TTC) Calculation**:
+  - Longitudinal velocity = -2.62 m/s (approaching)
+  - TTC (longitudinal) = 0.54 m / 2.62 m/s = 0.21 seconds
+
+- **Minimum Distance to Collision (MDC) Calculation**:
+  - As both longitudinal and lateral distances indicate very close proximity with converging trajectories.
+  - MDC is 0.54 meters longitudinally as lateral constraint is 0.
+
+- **Risk Assessment**:
+  - Extremely close in front, aligned in the same lane with a rapid decrease in clearance, leading to an inevitable collision if no action is taken.
+  - **Risk Level**: 1 - Extreme Risk
+
+### JSON Summary Output
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30693",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    }  
+}
+```
+
+#### Final Thoughts:
+- **Obstacle 30693** is of the utmost concern, given its extreme proximity and alignment directly in front of the ego vehicle. Immediate evasive action or braking is advised to mitigate collision risk.
+- **Obstacle 30689** presents a medium risk, largely manageable due to increasing lateral separation. However, caution should be exercised given the consistent approach longitudinally.

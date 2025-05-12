@@ -1,0 +1,50 @@
+Here's a breakdown of the collision analysis at t=0.9s:
+
+**Ego Vehicle State:**
+
+* Position: (24.6967, 0.2744)
+* Orientation: 0.019456 radians
+* Velocity: 27.185 m/s
+* Acceleration: -0.0115 m/s²
+
+**Obstacles Analysis:**
+
+* **Obstacle 200:**
+    * Position: (25.2136, 4.8487)
+    * Velocity: 30.0 m/s
+    * Lanelet: 47627.0 (different lanelet than ego)
+    * Analysis:  While in a different lanelet, the x-positions are very close. However, given the lateral separation of nearly 4.6 meters and the differing lanelets, a collision is unlikely in the immediate future.  A risk score of 4 (Low Risk) is assigned.
+
+* **Obstacle 201:**
+    * Position: (3.9237, 8.0008)
+    * Velocity: 35.0 m/s
+    * Lanelet: 47625.0 (different lanelet than ego)
+    * Analysis:  Significant lateral and longitudinal separation exists, coupled with different lanelets, indicating no immediate risk. Risk score: 5 (Negligible Risk)
+
+* **Obstacle 202:**
+    * Position: (10.424, 0.60595)
+    * Velocity: 28.0 m/s
+    * Lanelet: 47629.0 (same lanelet as ego)
+    * Analysis: This obstacle is in the same lanelet as the ego vehicle and poses the most risk.  The longitudinal separation is significant; however the lateral separation is relatively small. Extrapolating the trajectories, a collision is possible but not imminent within the next few timesteps if the trajectories remain constant. Given the same lanelet, it is assigned risk score 3 (Medium Risk) as proactive monitoring/action may be required.
+
+* **Obstacle 203:**
+    * Position: (52.6901, 1.7742)
+    * Velocity: 28.0 m/s
+    * Lanelet: 47629.0 (same lanelet as ego)
+    * Analysis: Far ahead of the ego vehicle in the same lanelet.  No immediate risk. Risk score: 5 (Negligible Risk)
+
+* **Obstacle 204:**
+    * Position: (3.5574, 0.41615)
+    * Velocity: 28.0 m/s
+    * Lanelet: 47629.0 (same lanelet as ego)
+    * Analysis: This obstacle is behind the ego vehicle and slightly to the left, and based on the trajectories in the same lanelet as ego. There is no immediate risk of collision. Risk score: 4 (Low Risk)
+
+
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": null
+}
+```

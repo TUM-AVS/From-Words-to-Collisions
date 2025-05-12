@@ -1,0 +1,62 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30217 (Most Recent Timestep: 0.9s)
+- **Position**: Behind ego car
+- **Adjusted Distance**: Longitudinal -8.58 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 2.08 m/s (approaching), Lateral 0.29 m/s (small lateral drift)
+- **Motion Description**: Obstacle is driving toward the ego car from behind with exact lateral alignment.
+- **Trajectory Analysis**:
+  - Longitudinal distance is decreasing (from -9.16m at 0.1s to -8.58m at 0.9s).
+  - Lateral distance remains 0.00m (exact alignment).
+  - Relative velocity is positive longitudinally (closing gap) and small laterally (minimal drift).
+- **TTC Calculation**:
+  - Longitudinal TTC = 8.58 / 2.08 ≈ 4.13 seconds (Low Risk, TTC > 3.0s).
+  - Lateral TTC: Not applicable (lateral velocity is very small and not converging).
+- **MDC Calculation**:
+  - Since obstacle is directly behind (lateral = 0.00m), MDC is effectively the longitudinal distance (8.58m).
+  - MDC > 5.0m (No Risk).
+- **Overall Risk**: 
+  - Longitudinal: Low Risk (TTC = 4.13s, MDC = 8.58m).
+  - Lateral: No Risk (no convergence).
+  - **Final Risk Score**: 4 (Low Risk).
+
+#### Obstacle 30218 (Most Recent Timestep: 0.9s)
+- **Position**: Behind ego car
+- **Adjusted Distance**: Longitudinal -21.54 m, Lateral 0.00 m
+- **Relative Velocity**: Longitudinal 1.73 m/s (approaching), Lateral 0.66 m/s (small lateral drift)
+- **Motion Description**: Obstacle is driving toward the ego car from behind with exact lateral alignment.
+- **Trajectory Analysis**:
+  - Longitudinal distance is decreasing (from -21.50m at 0.1s to -21.54m at 0.9s, but note fluctuations due to acceleration).
+  - Lateral distance remains 0.00m (exact alignment).
+  - Relative velocity is positive longitudinally (closing gap) and small laterally (minimal drift).
+- **TTC Calculation**:
+  - Longitudinal TTC = 21.54 / 1.73 ≈ 12.45 seconds (No Risk, TTC > 5.0s).
+  - Lateral TTC: Not applicable (lateral velocity is very small and not converging).
+- **MDC Calculation**:
+  - Since obstacle is directly behind (lateral = 0.00m), MDC is effectively the longitudinal distance (21.54m).
+  - MDC > 5.0m (No Risk).
+- **Overall Risk**: 
+  - Longitudinal: No Risk (TTC = 12.45s, MDC = 21.54m).
+  - Lateral: No Risk (no convergence).
+  - **Final Risk Score**: 5 (No Risk).
+
+### Collision Scenario Determination
+- Neither obstacle has a risk score of 0 (Collision) or 1 (Extreme Risk).
+- Both obstacles are at a safe distance with no imminent collision risk.
+- The closest obstacle (30217) is 8.58m behind with a TTC of 4.13s, which is Low Risk.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle has a risk score of 0 or 1. The closest obstacle (30217) is 8.58m behind with a TTC of 4.13s, which is Low Risk."
+}
+```

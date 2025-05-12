@@ -1,0 +1,52 @@
+**Obstacle 30231 Analysis:**
+
+- **Position and Motion:**
+  - Recent Position: Rear-right of the ego with longitudinal distance of -12.11 m and lateral distance of -0.53 m.
+  - Relative Velocity: Longitudinal: 2.23 m/s toward ego, Lateral: 0.63 m/s toward ego.
+  - Relative Acceleration: Longitudinal: 0.74 m/s², Lateral: -0.44 m/s².
+
+- **Trajectory and Risk Analysis:**
+  - **Longitudinal Analysis:** The distance is large enough (-12.11 m) and the closing speed is modest. The longer longitudinal distance suggests a lower immediate risk compared to Obstacle 30233.
+  - **Lateral Analysis:** At -0.53 m lateral and closing, though this indicates a high lateral closing speed. However, since the longitudinal distance is large, it does not pose an immediate collision risk.
+  - **TTC Calculations:** Given the larger longitudinal distance, let's assume an averaged impact on TTC, primarily noted by the longitudinal movement due to its higher seriousness:
+    - Distance to closure in longitudinal direction: |12.11 m| / 2.23 m/s = ~5.43 seconds
+    - Lateral direction is closing faster but still within a moderate timeframe compared to the longitudinal.
+
+- **Risk Assessment:** Given the large longitudinal distance compared with a fast lateral closing, the risk score would be Medium (3) factoring in the time to closure and comparative longitudinal dominance.
+
+**Obstacle 30233 Analysis:**
+
+- **Position and Motion:**
+  - Recent Position: Behind the ego vehicle with a longitudinal distance of -0.86 m and lateral distance of 0.00 m.
+  - Relative Velocity: Longitudinal: 3.16 m/s toward ego, Lateral: 0.76 m/s.
+  - Relative Acceleration: Longitudinal: 1.60 m/s², Lateral: -0.96 m/s².
+
+- **Trajectory and Risk Analysis:**
+  - **Longitudinal Analysis:** Distance (-0.86 m) is very short with a fast closing velocity, indicating an extreme risk.
+  - **Lateral Analysis:** Exact alignment with 0.00 m lateral distance, maximizing potential for collision in current trajectory if not accounted with proper realignment measures.
+  - **TTC Calculations:** For longitudinal dimension due to its criticality:
+    - Distance to closure: |0.86 m| / 3.16 m/s is approximately ~0.27 seconds.
+  - **MDC:** Approaches nearly 0 accounting for quick potential intersection at exact lateral alignment.
+
+- **Risk Assessment:** As this proximity suggests both an extreme risk in the immediate future and possible imminent collision with a short TTC, the risk scoring is Critical (0).
+
+**Final JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "30233",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30233",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": "30231",
+    "OverallRiskScore": "3"
+  }
+}
+```
+
+This analysis evaluates trajectories, velocities, and proximities to determine risk. Obstacle 30233 poses an immediate collision risk due to its proximity and rapid closure, while Obstacle 30231, though also closing, poses a more moderate but critical next-tier concern.

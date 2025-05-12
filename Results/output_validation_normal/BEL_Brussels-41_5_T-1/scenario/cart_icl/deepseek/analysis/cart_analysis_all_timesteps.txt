@@ -1,0 +1,55 @@
+### Safety Analysis for the Most Recent Timestep (0.9 seconds):
+
+#### Obstacle Analysis:
+1. **Obstacle ID: 30168.0**
+   - **Distance Risk Reason**: Moving in a different lanelet (253.0 vs ego's 251.0), but relatively close (~15m away). Trajectory shows consistent deceleration but not directly intersecting ego's path.
+   - **Distance Safety Score**: 3 (Medium Risk)
+   - **Time Risk Reason**: Velocity is higher than ego's (5.35 m/s vs 6.73 m/s), but trajectory is diverging. TTC is high due to lateral separation.
+   - **Time Safety Score**: 4 (Low Risk)
+   - **Overall Risk Score**: 3 (Medium Risk)
+
+2. **Obstacle ID: 30170.0**
+   - **Distance Risk Reason**: Located in lanelet 253.0, moving away from ego's lanelet (251.0). Distance is increasing over time (~30m away).
+   - **Distance Safety Score**: 4 (Low Risk)
+   - **Time Risk Reason**: Velocity is slightly lower than ego's (5.55 m/s vs 6.73 m/s), but moving away. TTC is not applicable due to diverging paths.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 4 (Low Risk)
+
+3. **Obstacle ID: 30171.0**
+   - **Distance Risk Reason**: Located in lanelet 249.0, ~18m away from ego. Trajectory shows slight convergence but remains in a different lanelet.
+   - **Distance Safety Score**: 3 (Medium Risk)
+   - **Time Risk Reason**: Very low velocity (1.01 m/s) and decelerating. No immediate collision risk.
+   - **Time Safety Score**: 4 (Low Risk)
+   - **Overall Risk Score**: 3 (Medium Risk)
+
+4. **Obstacle ID: 30172.0**
+   - **Distance Risk Reason**: Stationary obstacle in lanelet 249.0, ~12m away from ego. No movement observed.
+   - **Distance Safety Score**: 4 (Low Risk)
+   - **Time Risk Reason**: Zero velocity, no collision risk unless ego deviates significantly.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 4 (Low Risk)
+
+5. **Obstacle ID: 30173.0**
+   - **Distance Risk Reason**: Located in lanelet 249.0, ~24m away from ego. Trajectory shows slight convergence but remains in a different lanelet.
+   - **Distance Safety Score**: 3 (Medium Risk)
+   - **Time Risk Reason**: Low velocity (1.95 m/s) and decelerating. No immediate collision risk.
+   - **Time Safety Score**: 4 (Low Risk)
+   - **Overall Risk Score**: 3 (Medium Risk)
+
+### Chain of Thought Scenario Analysis:
+1. **Lanelet Separation**: Ego is in lanelet 251.0, while all obstacles are in lanelets 249.0, 253.0, or 1413.0. No overlap in lanelets.
+2. **Trajectory Trends**: Obstacles are either stationary, moving away, or on non-intersecting paths.
+3. **Velocity/Acceleration**: No obstacles are accelerating toward ego; most are decelerating or stationary.
+4. **TTC/MDC**: No critical TTC or MDC values indicating imminent collision.
+
+### Summary in JSON Format:
+```json
+{
+    "CollisionObstacles": null,
+    "ExtremeRiskObstacle": null,
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "All obstacles are in different lanelets with no intersecting trajectories. No immediate or high-risk collision threats detected."
+    }
+}
+```

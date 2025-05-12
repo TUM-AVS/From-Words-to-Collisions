@@ -1,0 +1,77 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+---
+
+#### **Obstacle 30168 (Front-left)**
+- **Adjusted Distance**: Longitudinal 10.59m, Lateral 0.35m  
+- **Relative Velocity**: Longitudinal -1.52 m/s (approaching), Lateral 1.23 m/s (moving left)  
+- **Motion**: Moving away laterally but approaching longitudinally.  
+- **TTC (Longitudinal)**: 10.59 / 1.52 ≈ **6.97s** (Negligible Risk).  
+- **MDC (Lateral)**: 0.35m (Low Risk).  
+- **Overall Risk**: **5 (Negligible)**.  
+
+---
+
+#### **Obstacle 30170 (Front-left)**
+- **Adjusted Distance**: Longitudinal 24.11m, Lateral 3.70m  
+- **Relative Velocity**: Longitudinal -1.33 m/s (approaching), Lateral 1.29 m/s (moving left).  
+- **Motion**: Moving away laterally and slowly approaching longitudinally.  
+- **TTC (Longitudinal)**: 24.11 / 1.33 ≈ **18.13s** (Negligible Risk).  
+- **MDC (Lateral)**: 3.70m (Low Risk).  
+- **Overall Risk**: **5 (Negligible)**.  
+
+---
+
+#### **Obstacle 30171 (Front-right)**
+- **Adjusted Distance**: Longitudinal 3.79m, Lateral -13.38m  
+- **Relative Velocity**: Longitudinal -6.47 m/s (approaching rapidly), Lateral 0.98 m/s (approaching from right).  
+- **Motion**: Converging diagonally with high longitudinal velocity.  
+- **TTC (Longitudinal)**: 3.79 / 6.47 ≈ **0.59s** (High Risk).  
+- **MDC (Lateral)**: 13.38m (Negligible Risk).  
+- **Prioritize Longitudinal Risk**: **2 (High Risk)**.  
+
+---
+
+#### **Obstacle 30172 (Front-right)**
+- **Adjusted Distance**: Longitudinal 5.61m, Lateral -5.01m  
+- **Relative Velocity**: Longitudinal -6.73 m/s (approaching rapidly), Lateral 0.00 m/s (no lateral motion).  
+- **Motion**: Directly approaching longitudinally.  
+- **TTC (Longitudinal)**: 5.61 / 6.73 ≈ **0.83s** (High Risk).  
+- **MDC (Lateral)**: 5.01m (Low Risk).  
+- **Prioritize Longitudinal Risk**: **2 (High Risk)**.  
+
+---
+
+#### **Obstacle 30173 (Front-right)**
+- **Adjusted Distance**: Longitudinal 1.07m, Lateral -22.62m  
+- **Relative Velocity**: Longitudinal -6.16 m/s (approaching rapidly), Lateral 1.87 m/s (approaching from right).  
+- **Motion**: Extremely close longitudinally with high velocity.  
+- **TTC (Longitudinal)**: 1.07 / 6.16 ≈ **0.17s** (Extreme Risk).  
+- **MDC (Lateral)**: 22.62m (Negligible Risk).  
+- **Prioritize Longitudinal Risk**: **1 (Extreme Risk)**.  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30173",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": ["30171", "30172"],
+        "OverallRiskScore": "2"
+    }
+}
+```
+
+### Key Findings:
+- **Extreme Risk**: Obstacle 30173 (TTC = 0.17s, longitudinal closing).  
+- **High Risk**: Obstacles 30171 and 30172 (TTC < 1.0s).  
+- **No Collision**: No physical contact observed.  
+- **Action Required**: Immediate braking or evasive maneuver for Obstacle 30173.

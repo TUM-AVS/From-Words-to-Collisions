@@ -1,0 +1,38 @@
+Obstacle 3520:
+
+* Trajectory Analysis: This obstacle has been consistently in front of the ego vehicle and moving away over the past several timesteps.  The longitudinal distance is increasing. Lateral distance remains at 0.00m, indicating continued alignment in the same lane.
+
+* TTC Calculation:  Since the obstacle is moving away longitudinally, TTC is not applicable in the longitudinal direction.  Lateral velocity is small and positive (0.64 m/s) but with a negative acceleration. Given the increasing longitudinal distance, lateral movement doesn't pose a collision risk.
+
+* MDC Calculation:  The minimum distance to collision is based on the longitudinal distance, which is substantial and increasing (20.68m at the last timestep).
+
+* Risk Assessment:  No Risk (5). The obstacle is moving away from the ego vehicle.  The lateral alignment does not pose a risk due to the large and increasing longitudinal separation.
+
+Obstacle 3523:
+
+* Trajectory Analysis: This obstacle is behind the ego vehicle and has been rapidly approaching over the past several timesteps.  The longitudinal distance has been decreasing significantly, with the obstacle now very close to the ego vehicle (-0.10m). Lateral distance remains at 0.00m, indicating same-lane alignment.
+
+* TTC Calculation:  TTC = Distance / Relative Velocity = 0.10m / 6.87m/s ≈ 0.015 seconds. This extremely low TTC indicates an imminent collision.
+
+* MDC Calculation: The minimum distance to collision is effectively zero, given the -0.10 longitudinal distance. The lateral alignment confirms this.
+
+* Risk Assessment: Extreme Risk (1). The extremely low TTC and near-zero MDC, combined with the obstacle's rapid approach from behind, indicate an unavoidable or imminent collision.
+
+
+Collision Scenario Determination:
+
+Yes, this is a collision scenario. Obstacle 3523 poses an Extreme Risk (1) with a very low TTC (≈ 0.015 seconds) and near-zero MDC, indicating an imminent rear-end collision.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3523",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 3523 is rapidly approaching the ego vehicle from behind, resulting in an extremely low TTC (≈ 0.015s) and a near-zero MDC. This indicates an imminent rear-end collision."
+}
+```

@@ -1,0 +1,90 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 30182 (Front-left)**
+- **Adjusted Distances**: Longitudinal 17.25 m, Lateral 5.99 m  
+- **Relative Velocity**: Longitudinal -3.50 m/s (approaching), Lateral -0.00 m/s (stable)  
+- **Motion**: Driving toward ego longitudinally, no lateral motion.  
+
+**TTC Calculation**:  
+- Longitudinal TTC = 17.25 / 3.50 ≈ 4.93s (Low Risk)  
+- Lateral TTC = N/A (no relative motion)  
+
+**MDC Calculation**:  
+- Primary focus is lateral distance (5.99m) since obstacle is front-left.  
+- MDC = 5.99m (Low Risk)  
+
+**Risk Assessment**:  
+- TTC: 4 (Low Risk)  
+- MDC: 4 (Low Risk)  
+- **Overall Risk**: 4 (Low Risk)  
+
+---
+
+#### **Obstacle 30183 (Front, Exact Lateral Alignment)**
+- **Adjusted Distances**: Longitudinal 10.28 m, Lateral 0.00 m  
+- **Relative Velocity**: Longitudinal -3.50 m/s (approaching), Lateral -0.00 m/s (stable)  
+- **Motion**: Driving toward ego longitudinally, exact lateral alignment.  
+
+**TTC Calculation**:  
+- Longitudinal TTC = 10.28 / 3.50 ≈ 2.94s (Medium Risk)  
+- Lateral TTC = N/A (no relative motion)  
+
+**MDC Calculation**:  
+- Primary focus is longitudinal distance (10.28m).  
+- MDC = 10.28m (No Risk)  
+
+**Risk Assessment**:  
+- TTC: 3 (Medium Risk)  
+- MDC: 5 (No Risk)  
+- **Overall Risk**: 3 (Medium Risk)  
+
+---
+
+#### **Obstacle 30186 (Front-left, Approaching Laterally)**
+- **Adjusted Distances**: Longitudinal 15.86 m, Lateral 16.91 m  
+- **Relative Velocity**: Longitudinal -3.13 m/s, Lateral -2.89 m/s (both approaching)  
+- **Motion**: Driving toward ego both longitudinally and laterally.  
+
+**TTC Calculation**:  
+- Longitudinal TTC = 15.86 / 3.13 ≈ 5.07s (No Risk)  
+- Lateral TTC = 16.91 / 2.89 ≈ 5.85s (No Risk)  
+
+**MDC Calculation**:  
+- Projected paths are converging diagonally.  
+- MDC is the minimum of the two distances when paths intersect. Given the large distances and moderate relative velocities, MDC > 5m (No Risk).  
+
+**Risk Assessment**:  
+- TTC: 5 (No Risk)  
+- MDC: 5 (No Risk)  
+- **Overall Risk**: 5 (No Risk)  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 30182**: Consistently approaching longitudinally but maintaining stable lateral distance. No imminent collision risk.  
+- **Obstacle 30183**: Steadily closing longitudinal gap (~3.5 m/s), but still at a safe distance (10.28m).  
+- **Obstacle 30186**: Approaching diagonally but with large initial distances and no drastic acceleration.  
+
+---
+
+### Collision Scenario Determination
+- **No obstacles** have risk scores of 0 (Collision) or 1 (Extreme Risk).  
+- Highest risk is Obstacle 30183 (Medium Risk, TTC ≈ 2.94s).  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacles have risk scores ≤ 1 (Collision/Extreme Risk). Highest risk is Obstacle 30183 (Medium Risk, TTC ≈ 2.94s)."
+}
+```

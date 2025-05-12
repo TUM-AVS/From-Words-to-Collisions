@@ -1,0 +1,48 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 3.6s)
+
+#### **Obstacle 20111 (Behind → Collision)**
+- **Position**: Longitudinal = 0.00m, Lateral = 0.00m  
+- **Relative Velocity**: Longitudinal = 7.10 m/s (approaching), Lateral = 0.63 m/s (approaching)  
+- **Motion**: Exact longitudinal and lateral alignment (collision occurring).  
+- **Trajectory Analysis**:  
+  - From 2.7s to 3.6s, the longitudinal distance decreases from -5.72m to 0.00m with increasing velocity (6.39 m/s → 7.10 m/s).  
+  - Lateral distance remains 0.00m (same lane), but lateral velocity is non-zero (0.63 m/s), indicating potential post-collision movement.  
+- **TTC**:  
+  - Longitudinal TTC = 0.00m / 7.10 m/s = **0.00s** (collision occurring).  
+  - Lateral TTC = 0.00m / 0.63 m/s = **0.00s** (collision occurring).  
+- **MDC**: 0.00m (vehicles are in contact).  
+- **Risk Score**: **0 (Collision)**.  
+
+#### **Obstacle 20112 (Rear-Right)**
+- **Position**: Longitudinal = -20.90m, Lateral = -1.22m  
+- **Relative Velocity**: Longitudinal = 5.76 m/s (approaching), Lateral = 2.14 m/s (approaching).  
+- **Motion**: Approaching from rear-right (both dimensions closing).  
+- **Trajectory Analysis**:  
+  - Longitudinal distance decreases from -25.28m (2.8s) to -20.90m (3.6s).  
+  - Lateral distance fluctuates slightly but overall closes from -1.76m to -1.22m.  
+- **TTC**:  
+  - Longitudinal TTC = 20.90m / 5.76 m/s ≈ **3.63s** (Low Risk).  
+  - Lateral TTC = 1.22m / 2.14 m/s ≈ **0.57s** (High Risk).  
+- **MDC**: Minimum distance is lateral (1.22m), but both dimensions are closing.  
+- **Risk Score**: **2 (High Risk)** due to lateral TTC < 1.0s.  
+
+---
+
+### Collision Scenario Determination  
+- **Obstacle 20111** is in **collision** (score 0) at 3.6s, with both longitudinal and lateral distances at 0.00m and positive closing velocities.  
+- **Obstacle 20112** is not a collision threat at this timestep (score 2).  
+
+---
+
+### JSON Summary  
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20111",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": null,
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 20111 has collided with the ego vehicle (0.00m distance in both dimensions with closing velocities)."
+}
+```

@@ -1,0 +1,65 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30737 (Most Recent Timestep: 0.3s)
+- **Position**: Front-right of ego car
+- **Adjusted Distances**: 
+  - Longitudinal: 3.41 m (approaching at -1.71 m/s)
+  - Lateral: -26.96 m (moving away at -8.19 m/s)
+- **Motion**: 
+  - Driving toward ego longitudinally (closing distance)
+  - Moving away laterally to the right (increasing lateral distance)
+- **TTC Calculation**:
+  - Longitudinal TTC: 3.41 / 1.71 ≈ 1.99 seconds (Medium Risk)
+  - Lateral TTC: Not applicable (moving away)
+- **MDC Calculation**:
+  - Lateral distance is large (26.96 m) and increasing → No Risk (5)
+  - Longitudinal distance is closing but still > 3.0 m → Low Risk (4)
+- **Overall Risk**: Medium Risk (3) due to longitudinal TTC.
+
+#### Obstacle 30739 (Most Recent Timestep: 0.9s)
+- **Position**: Front-right of ego car
+- **Adjusted Distances**: 
+  - Longitudinal: 4.91 m (approaching at -0.41 m/s)
+  - Lateral: -2.79 m (moving away at -3.81 m/s)
+- **Motion**: 
+  - Driving toward ego longitudinally (closing distance)
+  - Moving away laterally to the right (increasing lateral distance)
+- **TTC Calculation**:
+  - Longitudinal TTC: 4.91 / 0.41 ≈ 11.98 seconds (No Risk)
+  - Lateral TTC: Not applicable (moving away)
+- **MDC Calculation**:
+  - Lateral distance is 2.79 m and increasing → Low Risk (4)
+  - Longitudinal distance is 4.91 m and closing slowly → Low Risk (4)
+- **Overall Risk**: Low Risk (4).
+
+### Trajectory Analysis
+- **Obstacle 30737**: 
+  - Longitudinal distance decreases from 5.42 m (0.1s) to 3.41 m (0.3s), but acceleration is negative (-4.15 m/s²), suggesting deceleration.
+  - Lateral distance increases rapidly (moving away).
+- **Obstacle 30739**: 
+  - Longitudinal distance fluctuates but remains > 4.0 m, with low closing velocity (-0.41 m/s).
+  - Lateral distance increases steadily (moving away).
+
+### Risk Summary
+- Neither obstacle has a risk score of 0 (collision) or 1 (extreme risk).
+- Obstacle 30737 has the highest risk (Medium Risk, score 3), but it is not extreme or imminent.
+- Obstacle 30739 poses Low Risk (score 4).
+
+### Final Determination
+This is **not** a collision scenario. No obstacle is in immediate danger of colliding with the ego vehicle.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle has a risk score of 0 or 1. The highest risk is Medium Risk (score 3) for Obstacle 30737, but it is not imminent or extreme."
+}
+```

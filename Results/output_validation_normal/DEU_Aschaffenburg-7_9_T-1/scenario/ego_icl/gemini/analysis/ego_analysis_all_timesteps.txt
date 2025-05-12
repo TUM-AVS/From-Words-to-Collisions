@@ -1,0 +1,47 @@
+Obstacle 30354 (Behind):
+
+* Trajectory Analysis: This obstacle is approaching the ego vehicle from behind.  It has been consistently behind the ego vehicle and the longitudinal distance has been decreasing over the observed timesteps, while lateral distance remains at 0. The relative longitudinal velocity is increasing, indicating the obstacle is accelerating towards the ego vehicle.
+
+* TTC Calculation: Since the obstacle is behind, TTC is only calculated using longitudinal data if the relative velocity is positive (meaning the obstacle is catching up). At t=0.9s, relative longitudinal velocity is 2.57 m/s and longitudinal distance is -12.69m.  We don't calculate TTC in this case because the distance is negative and the obstacle, while getting closer, is still behind the ego vehicle.
+
+* MDC Calculation:  Given the consistent lateral alignment (0.00m) and the obstacle approaching from behind, MDC is the absolute value of the longitudinal distance. At t=0.9s, MDC = |-12.69m| = 12.69m.
+
+* Risk Assessment:
+    * Longitudinal: MDC of 12.69m suggests No Risk (5).
+    * Lateral: Perfect lateral alignment needs careful monitoring. However, without lateral velocity or predicted change in lateral position, there is no immediate lateral risk. We classify it as No Risk (5) for now.
+    * Overall Risk: No Risk (5)
+
+Obstacle 30358 (Front):
+
+* Trajectory Analysis: This obstacle is in front of the ego vehicle and moving further away.  The longitudinal distance has been consistently increasing across all timesteps. Lateral distance remains at 0. The relative longitudinal velocity is positive but decreasing, meaning the obstacle is moving away from the ego vehicle although the ego might be accelerating slower than the lead vehicle. 
+
+
+* TTC Calculation: At t=0.9s, relative longitudinal velocity is 1.60 m/s and longitudinal distance is 17.63m. TTC = 17.63m / 1.60 m/s = 11.02 seconds.
+
+* MDC Calculation: Given the consistent lateral alignment (0.00m) and the obstacle moving away in front, MDC is the longitudinal distance. At t=0.9s, MDC = 17.63m.
+
+* Risk Assessment:
+    * Longitudinal: MDC of 17.63m and TTC of 11.02 seconds indicates No Risk (5).
+    * Lateral: Perfect lateral alignment requires monitoring. Since there is no immediate lateral risk with a stable lateral velocity, we classify it as No Risk (5) at this timestep.
+    * Overall Risk: No Risk (5)
+
+
+
+Collision Scenario Determination:
+
+Neither obstacle poses an immediate collision risk.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 or 1. All obstacles have sufficient distance and TTC."
+}
+```

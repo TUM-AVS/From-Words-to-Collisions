@@ -1,0 +1,55 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 312 (Behind Ego Vehicle)
+- **Position Change Analysis:**
+  - Longitudinal Distance Timestep Progression: -20.08 m to -19.57 m.
+  - Approaching the ego, longitudinal velocity increasing over time.
+- **Adjusted Distances at Most Recent Timestep:**
+  - Longitudinal: -19.57 m
+  - Lateral: 0.00 m 
+- **Velocity and Motion Analysis:**
+  - Longitudinal Velocity: 0.96 m/s (approaching)
+  - Relative acceleration indicates increasing speed towards the ego.
+- **TTC Calculation:**
+  - Longitudinal TTC = 19.57 / 0.96 ≈ 20.39 seconds
+  - Lateral velocity not critical due to longitudinal focus.
+- **MDC Analysis:**
+  - Currently behind and decreasing distance, but at a slow rate.
+- **Risk Assessment:**
+  - With a TTC > 5 seconds and a large MDC (> 5 m), the risk is negligible.
+- **Risk Score: 5 (Negligible Risk)**
+
+#### Obstacle 319 (In Front of Ego Vehicle)
+- **Position Change Analysis:**
+  - Longitudinal Distance Timestep Progression: 2.57 m to 1.97 m.
+  - Approaching the ego, but longitudinal velocity decreases over time.
+- **Adjusted Distances at Most Recent Timestep:**
+  - Longitudinal: 1.97 m
+  - Lateral: 0.00 m
+- **Velocity and Motion Analysis:**
+  - Longitudinal Velocity: -0.07 m/s (slowly moving away)
+  - Relative acceleration showing slight increase in distance expected.
+- **TTC Calculation:**
+  - Longitudinal TTC = 1.97 / 0.07 ≈ 28.14 seconds (since velocity indicates moving apart slightly)
+  - For lateral TTC, due to lateral velocity (-0.66 m/s), not relevant here.
+- **MDC Analysis:**
+  - Longitudinal distance decreasing but approaching very slowly.
+- **Risk Assessment:**
+  - Medium proximity, but velocity suggests no imminent collision.
+  - With MDC ~ 2.0m and a very extended TTC due to change in relative velocity, the risk is low.
+- **Risk Score: 4 (Low Risk)**
+
+### Summary JSON Output
+```json
+{
+    "CollisionObstacle": {},
+    "ExtremeRiskObstacle": {},
+    "HighRiskObstacle": {}
+}
+```
+
+### Explanation
+- **No Collision/Extreme Risk:** 
+  - No obstacles in a collision course or with extreme risk given all trajectories, speeds, and distances.
+- **No High Risk:**
+  - Closest obstacle (319) has sufficient distance and velocity dynamics to avoid imminent collision risks.

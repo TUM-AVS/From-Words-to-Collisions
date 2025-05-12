@@ -1,0 +1,92 @@
+### Safety Analysis for the Most Recent Timestep (2.8 seconds):
+
+#### Obstacle Analysis:
+1. **Obstacle ID: 30.0**
+   - **Distance Risk reason**: Moving parallel to ego in a different lanelet (38854.0 vs. 39405.0), maintaining a safe distance (~18.4m).
+   - **Distance safety score**: 4 (Low Risk)
+   - **Time Risk reason**: Velocity (1.9 m/s) is lower than ego (1.9 m/s), acceleration stable.
+   - **Time safety score**: 4 (Low Risk)
+   - **Overall Risk score**: 4 (Low Risk)
+
+2. **Obstacle ID: 33.0**
+   - **Distance Risk reason**: Far from ego (~53.7m), different lanelet (38029.0).
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: Low velocity (1.75 m/s), no convergence.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5 (Negligible Risk)
+
+3. **Obstacle ID: 315.0**
+   - **Distance Risk reason**: ~18.5m away, different lanelet (39809.0), moving away.
+   - **Distance safety score**: 4 (Low Risk)
+   - **Time Risk reason**: Velocity (2.3 m/s) higher than ego but diverging.
+   - **Time safety score**: 4 (Low Risk)
+   - **Overall Risk score**: 4 (Low Risk)
+
+4. **Obstacle ID: 317.0**
+   - **Distance Risk reason**: ~23.5m away, lanelet 39022.0, diverging.
+   - **Distance safety score**: 4 (Low Risk)
+   - **Time Risk reason**: High velocity (3.44 m/s) but diverging.
+   - **Time safety score**: 4 (Low Risk)
+   - **Overall Risk score**: 4 (Low Risk)
+
+5. **Obstacle ID: 320.0**
+   - **Distance Risk reason**: ~31.7m away, lanelet 38854.0, parallel path.
+   - **Distance safety score**: 4 (Low Risk)
+   - **Time Risk reason**: Velocity (2.7 m/s) higher but no convergence.
+   - **Time safety score**: 4 (Low Risk)
+   - **Overall Risk score**: 4 (Low Risk)
+
+6. **Obstacle ID: 324.0**
+   - **Distance Risk reason**: ~43.2m away, high velocity (13.45 m/s), but diverging.
+   - **Distance safety score**: 3 (Medium Risk)
+   - **Time Risk reason**: Extremely high speed but moving away.
+   - **Time safety score**: 3 (Medium Risk)
+   - **Overall Risk score**: 3 (Medium Risk)
+
+7. **Obstacle ID: 325.0**
+   - **Distance Risk reason**: ~39.7m away, lanelet 39024.0, diverging.
+   - **Distance safety score**: 4 (Low Risk)
+   - **Time Risk reason**: Low velocity (1.31 m/s).
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 4 (Low Risk)
+
+8. **Obstacle ID: 329.0**
+   - **Distance Risk reason**: ~53.4m away, lanelet 37690.0, diverging.
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: Low velocity (1.03 m/s).
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5 (Negligible Risk)
+
+9. **Obstacle ID: 333.0**
+   - **Distance Risk reason**: ~3.9m away, same lanelet (39405.0), approaching from behind.
+   - **Distance safety score**: 2 (High Risk)
+   - **Time Risk reason**: High velocity (12.33 m/s), accelerating (1.83 m/s²).
+   - **Time safety score**: 1 (Extreme Risk)
+   - **Overall Risk score**: 1 (Extreme Risk)
+
+10. **Obstacle ID: 338.0**
+    - **Distance Risk reason**: ~21.5m away, lanelet 38214.0, diverging.
+    - **Distance safety score**: 4 (Low Risk)
+    - **Time Risk reason**: High velocity (9.32 m/s) but diverging.
+    - **Time safety score**: 4 (Low Risk)
+    - **Overall Risk score**: 4 (Low Risk)
+
+#### Chain of Thought Scenario Analysis:
+1. **Obstacle 333.0** is the primary concern: same lanelet as ego, high speed (12.33 m/s), and closing distance (~3.9m). TTC ≈ 0.32s (Extreme Risk).
+2. All other obstacles are either diverging or in different lanelets.
+3. No immediate collision (score 0), but **Obstacle 333.0** poses Extreme Risk (score 1).
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacles": null,
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "333.0",
+        "OverallRiskScore": 1
+    },
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "Obstacle 333.0 is in the same lanelet as ego, approaching rapidly (TTC ~0.32s), but no collision has occurred yet. All other obstacles are diverging or in different lanelets."
+    }
+}
+```

@@ -1,0 +1,23 @@
+Obstacle 20036:
+- Trajectory: Initially to the left of the ego, then moves to the rear-left.  Lateral distance initially near constant, then increases slightly. Longitudinal distance becomes increasingly negative (moving away).
+- Most Recent Timestep (0.9s): Rear-left, longitudinal -14.66m, lateral 2.40m. Relative velocity: longitudinal -24.33 m/s, lateral 0.50 m/s.
+- TTC: Not applicable for collision risk assessment in the longitudinal direction due to separating movement (-24.33 m/s). Lateral TTC = 2.40m / 0.50m/s = 4.8s
+- MDC: Approximately 2.40m (lateral distance is primary concern as the obstacle is primarily to the side and moving away longitudinally)
+- Risk Assessment: Low Risk (4) based on MDC (2.40m < 5.0m) and lateral TTC (4.8s)
+
+Obstacle 20055:
+- Trajectory: Consistently in front of the ego and moving further away.  Lateral distance remains at 0.00m (same lane). Longitudinal distance increases steadily.
+- Most Recent Timestep (0.9s): Front, longitudinal 17.45m, lateral 0.00m. Relative velocity: longitudinal 1.85 m/s, lateral 2.01 m/s.
+- TTC: Longitudinal TTC = 17.45m / 1.85m/s ≈ 9.43s. Lateral TTC is not applicable as it stays in the same lane and the obstacle is moving away longitudinally, so lateral movement alone doesn't lead to a collision.
+- MDC: Approximately 17.45m (using longitudinal as primary). Lateral distance of 0.00m indicates no lateral separation (same lane), not a collision.
+- Risk Assessment: Negligible Risk (5) as MDC > 5.0m and longitudinal TTC > 5.0s and the motion description indicates the obstacle is moving away longitudinally.
+
+Overall: No collision or extreme risk detected.
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": null
+}
+```

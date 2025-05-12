@@ -1,0 +1,90 @@
+### Safety Analysis for the Most Recent Timestep (2.1 seconds):
+
+#### Obstacle Analysis:
+1. **Obstacle ID: 30529.0**
+   - **Distance Risk Reason**: Moving in the same lanelet (84.0) as ego, but position (10.8031, -361.1945) is behind ego (24.6127, -387.179). Distance increasing over time.
+   - **Distance Safety Score**: 4 (Low Risk)
+   - **Time Risk Reason**: Velocity (5.1622) is higher than ego (0.1384), but moving away. Relative velocity trend shows decreasing risk.
+   - **Time Safety Score**: 4 (Low Risk)
+   - **Overall Risk Score**: 4 (Low Risk)
+
+2. **Obstacle ID: 30530.0**
+   - **Distance Risk Reason**: In lanelet 1038.0, not overlapping with ego's lanelet (84.0). Position (33.271, -390.7008) is laterally distant.
+   - **Distance Safety Score**: 5 (Negligible Risk)
+   - **Time Risk Reason**: Velocity (7.7759) is high but moving away from ego's path.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 5 (Negligible Risk)
+
+3. **Obstacle ID: 30532.0**
+   - **Distance Risk Reason**: Same lanelet (84.0), position (22.4995, -383.2256) is close to ego. Distance decreasing over time.
+   - **Distance Safety Score**: 2 (High Risk)
+   - **Time Risk Reason**: Velocity (4.436) is much higher than ego (0.1384), closing distance. Acceleration trend shows increasing speed.
+   - **Time Safety Score**: 2 (High Risk)
+   - **Overall Risk Score**: 2 (High Risk)
+
+4. **Obstacle ID: 30533.0**
+   - **Distance Risk Reason**: Same lanelet (84.0), position (2.0887, -344.7803) is far ahead of ego. Distance increasing.
+   - **Distance Safety Score**: 5 (Negligible Risk)
+   - **Time Risk Reason**: Velocity (8.0877) is high but moving away.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 5 (Negligible Risk)
+
+5. **Obstacle ID: 30534.0**
+   - **Distance Risk Reason**: Lanelet 367.0, position (59.9936, -377.7628) is laterally distant.
+   - **Distance Safety Score**: 5 (Negligible Risk)
+   - **Time Risk Reason**: High velocity (12.5834) but moving away.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 5 (Negligible Risk)
+
+6. **Obstacle ID: 30535.0**
+   - **Distance Risk Reason**: Lanelet 461.0, position (-28.1524, -431.3972) is far and not in ego's path.
+   - **Distance Safety Score**: 5 (Negligible Risk)
+   - **Time Risk Reason**: Velocity (8.9386) is high but moving away.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 5 (Negligible Risk)
+
+7. **Obstacle ID: 30536.0**
+   - **Distance Risk Reason**: Lanelet 367.0, position (78.1689, -367.4734) is laterally distant.
+   - **Distance Safety Score**: 5 (Negligible Risk)
+   - **Time Risk Reason**: High velocity (12.9116) but moving away.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 5 (Negligible Risk)
+
+8. **Obstacle ID: 30537.0**
+   - **Distance Risk Reason**: Same lanelet (84.0), position (17.0904, -373.0371) is close to ego. Distance decreasing.
+   - **Distance Safety Score**: 2 (High Risk)
+   - **Time Risk Reason**: Velocity (4.122) is much higher than ego (0.1384), closing distance. Acceleration trend shows increasing speed.
+   - **Time Safety Score**: 2 (High Risk)
+   - **Overall Risk Score**: 2 (High Risk)
+
+9. **Obstacle ID: 30538.0**
+   - **Distance Risk Reason**: Lanelet 461.0, position (16.267, -406.3369) is not in ego's path.
+   - **Distance Safety Score**: 5 (Negligible Risk)
+   - **Time Risk Reason**: Velocity (6.23) is high but moving away.
+   - **Time Safety Score**: 5 (Negligible Risk)
+   - **Overall Risk Score**: 5 (Negligible Risk)
+
+10. **Obstacle ID: 30539.0**
+    - **Distance Risk Reason**: Lanelet 1133.0, position (29.0453, -399.0929) is not in ego's path.
+    - **Distance Safety Score**: 5 (Negligible Risk)
+    - **Time Risk Reason**: Velocity (5.4812) is high but moving away.
+    - **Time Safety Score**: 5 (Negligible Risk)
+    - **Overall Risk Score**: 5 (Negligible Risk)
+
+### Chain of Thought Scenario Analysis:
+1. **Obstacles in Same Lanelet**: 30529.0, 30532.0, 30533.0, 30537.0.
+2. **Closest Obstacles**: 30532.0 and 30537.0 are closing distance with high relative velocity.
+3. **Risk Assessment**: No collision at current timestep, but 30532.0 and 30537.0 pose high risk due to closing distance and high relative velocity.
+4. **Conclusion**: Not a collision scenario yet, but high risk of collision if trajectory continues.
+
+### Summary in JSON Format:
+```json
+{
+    "CollisionObstacles": null,
+    "ExtremeRiskObstacle": null,
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "No immediate collision, but high risk from obstacles 30532.0 and 30537.0 due to closing distance and high relative velocity in same lanelet."
+    }
+}
+```

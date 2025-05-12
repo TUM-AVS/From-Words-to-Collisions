@@ -1,0 +1,51 @@
+### Obstacle Analysis
+
+#### Obstacle 30215
+
+1. **Trajectory Analysis**:
+   - Across the timestamps from 0.0 seconds to 0.9 seconds, Obstacle 30215 is consistently increasing its distance from the ego vehicle both longitudinally and laterally. Initially, it is directly in front with no lateral distance, but by 0.9 seconds, it has shifted to a clear position to the front-left.
+   - **Longitudinal Distance**: Begins at 13.21m and increases to 15.53m.
+   - **Lateral Distance**: Begins at 0.00m and increases to 3.83m.
+   - The obstacle is moving away both longitudinally and laterally over time.
+
+2. **Most Recent Timestep Analysis (0.9 seconds)**:
+   - **Adjusted Distances**: assume these are the values provided. If not provided, this will be considered as per raw data.
+   - **Relative Velocity**: Longitudinal = 0.31 m/s (moving away), Lateral = 11.97 m/s (moving to the left).
+   - **Motion Description**: Obstacle is moving away longitudinally and laterally to the left, indicating divergence from ego's path.
+
+3. **Time-to-Collision (TTC)**:
+   - **Longitudinal TTC**: Not applicable since the obstacle is moving away (positive distance and positive relative velocity).
+   - **Lateral TTC**: As the obstacle is moving left at a high velocity (11.97 m/s), there is no risk of lateral collision.
+
+4. **Minimum Distance to Collision (MDC)**:
+   - **Longitudinal MDC**: Accommodating the increase in distance, MDC is >5.0 meters.
+   - **Lateral MDC**: As lateral distance is increasing, MDC >5.0 meters.
+
+5. **Risk Scores**:
+   - **TTC-Based Risk**: No risk (5), as there is no closing velocity suggests collision.
+   - **MDC-Based Risk**: No risk (5), considering both distances are increasing.
+
+6. **Overall Analysis**:
+   - **Motion** suggests continual divergence from the ego's path. There is no risk of collision identified by either TTC or MDC.
+
+### Conclusion
+- Obstacle 30215 presents no risk of collision given the moving away trajectory both longitudinally and laterally.
+- No obstacles present an immediate collision risk.
+- This analysis scenario is NOT a collision scenario.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "Obstacle 30215 is diverging both longitudinally and laterally from the ego vehicle. No risk of collision identified."
+}
+```

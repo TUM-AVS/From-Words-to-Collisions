@@ -1,0 +1,27 @@
+* **Obstacle 20033 (Front-right):** This obstacle is approaching the ego vehicle longitudinally but moving away laterally.  At the last timestep, it's 23.04m ahead longitudinally and 0.36m to the right laterally. The longitudinal TTC is 23.04m / 4.92m/s ≈ 4.7s (Low Risk). The lateral distance is increasing, indicating no lateral risk.  Overall, this is a Low Risk (4) situation due to the longitudinal TTC.
+
+* **Obstacle 20036 (Behind/Collision):** This obstacle has been consistently approaching the ego vehicle from behind and is now at the same longitudinal and lateral position as the ego vehicle according to the data. At t=7.0s, the reported state is a "Collision." Given the zero distance in both dimensions and the fact that the obstacle has been approaching across multiple timestamps, this is clearly a **Collision Risk (0).**
+
+* **Obstacle 20037 (Rear-left):** This obstacle is moving away longitudinally but approaching laterally. At the last timestep, it is 11.15m behind longitudinally and 0.37m to the left laterally.  The lateral TTC is 0.37m / 6.10m/s ≈ 0.06s (Extreme Risk).  The small lateral distance and high closing velocity indicate an imminent collision despite the obstacle being behind the ego vehicle longitudinally. This is an **Extreme Risk (1).**
+
+* **Obstacle 20038 (Rear-right):** This obstacle is moving away longitudinally but approaching laterally.  At the last timestep, it is 18.33m behind longitudinally and 5.40m to the right laterally.  The lateral TTC is 5.40m / 4.93m/s ≈ 1.1s (High Risk). While the longitudinal motion presents no risk, the lateral motion presents a High Risk (2).
+
+* **Obstacle 20039 (Front-left):**  This obstacle is approaching longitudinally but moving away laterally.  At the last timestep, it is 5.53m ahead longitudinally and 1.85m to the left laterally.  The longitudinal TTC is 5.53m / 20.15m/s ≈ 0.27s (Extreme Risk). While it is moving away laterally, the longitudinal TTC is extremely low, indicating an imminent collision. This represents an **Extreme Risk (1).**
+
+
+**Conclusion:** This is a **collision scenario** because Obstacle 20036 is in a direct collision (Risk 0) with the ego vehicle. Obstacles 20037 and 20039 present additional extreme risks (Risk 1).
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "20036",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "20037",  
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 20036 is in direct collision with the ego vehicle (Risk 0). Obstacles 20037 and 20039 also present Extreme Risk (1) situations."
+}
+```

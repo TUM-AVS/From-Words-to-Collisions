@@ -1,0 +1,38 @@
+Obstacle 30681:
+
+- Trajectory: This obstacle has been consistently in front of the ego vehicle and approaching closer with each timestep.  The longitudinal distance has decreased from 2.06m to 0.46m over the provided timesteps, indicating a high risk of collision. Lateral distance remains at 0.00m, indicating perfect lateral alignment.
+
+- TTC: At the last timestep (9.6s), the longitudinal distance is 0.46m and the relative longitudinal velocity is -1.25 m/s. TTC = 0.46 / 1.25 = 0.37 seconds. This indicates an *extreme risk*.
+
+- MDC: Given the continuous lateral alignment (0.00m) and rapidly decreasing longitudinal distance, the MDC is 0.46m, also confirming the *extreme risk*.
+
+Obstacle 30685:
+
+- Trajectory: This obstacle is behind and to the right of the ego vehicle.  While it is getting closer laterally, it is moving further away longitudinally.  The risk associated with this obstacle is decreasing over time.
+
+- TTC (Lateral): At the last available timestep for this obstacle (9.0s), the lateral distance is -1.86m and the relative lateral velocity is 1.03 m/s.  TTC = 1.86 / 1.03 ≈ 1.8 seconds. This would initially suggest a *medium risk* laterally.  However, it's crucial to consider the longitudinal motion.
+
+- TTC (Longitudinal): The longitudinal distance is increasing (moving away) at -25.12 m and the relative velocity is -4.71 m/s.  Since the obstacle is moving *away* longitudinally, the longitudinal TTC is less relevant for collision risk assessment.
+
+- MDC: Considering that the obstacle is moving *away* longitudinally while approaching laterally, we can use the current state and look for any approaching in the next few frames. This indicates this object isn't collision risk in the near future. Hence, the MDC in the future is expected to be >1.0m, therefore the risk level would be at most a *medium risk*.
+
+Overall Assessment:
+
+Obstacle 30681 poses an *extreme risk* of collision due to its very low MDC (0.46m) and TTC (0.37s) with a direct closing trajectory. Obstacle 30685 is considered *medium risk* given its stable and increasing distance over time.  The risk levels are summarized in the JSON output below.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30681",
+    "OverallRiskScore": "1"
+  },
+    "PredictedCollisionObstacle": {
+    "ObstacleID": "30681",
+    "OverallRiskScore": "1"
+  }
+}
+```

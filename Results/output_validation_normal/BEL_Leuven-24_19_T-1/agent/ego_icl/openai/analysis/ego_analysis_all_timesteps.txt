@@ -1,0 +1,86 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30221
+- **Position and Trajectory:**
+  - At the most recent timestep (0.9 seconds), Obstacle 30221 is in front of the ego vehicle.
+  - The adjusted longitudinal distance is approximately 10.85 meters, and lateral distance is 0.00 meters, indicating a same-lane alignment.
+  - Relative longitudinal velocity is -5.03 m/s (approaching), and lateral velocity is 0.07 m/s.
+
+- **Risk Assessment:**
+  - **TTC (Longitudinal):** 10.85 m / 5.03 m/s ≈ 2.16 seconds
+  - **MDC (Longitudinal):** Since the lateral distance is exactly 0.00 m, MDC is the same as the longitudinal distance, 10.85 m.
+  - **Conclusion:** Medium Risk (3), as TTC is between 1.0 to 3.0 seconds with alignment in the same lane.
+
+#### Obstacle 30225
+- **Position and Trajectory:**
+  - Obstacle 30225 is front-left of the ego vehicle.
+  - At 0.9 seconds, the adjusted longitudinal distance is 19.15 meters, and the lateral distance is 2.98 meters.
+  - Relative longitudinal velocity is -6.11 m/s, with no significant lateral velocity.
+
+- **Risk Assessment:**
+  - **TTC (Longitudinal):** 19.15 m / 6.11 m/s ≈ 3.14 seconds
+  - **MDC (Longitudinal):** 19.15 meters (since lateral movement is stable).
+  - **Conclusion:** Low Risk (4), given the TTC is just over 3 seconds and paths are not rapidly closing.
+
+#### Obstacle 30228
+- **Position and Trajectory:**
+  - At 0.9 seconds, Obstacle 30228 is directly in front of the ego vehicle.
+  - The adjusted longitudinal distance is 19.48 meters, lateral distance is 0.00 meters.
+  - Relative longitudinal velocity is -6.11 m/s.
+
+- **Risk Assessment:**
+  - **TTC (Longitudinal):** 19.48 m / 6.11 m/s ≈ 3.19 seconds
+  - **MDC (Longitudinal):** 19.48 meters.
+  - **Conclusion:** Low Risk (4) due to a relatively safe TTC time.
+
+#### Obstacle 30229
+- **Position and Trajectory:**
+  - This obstacle is front-left, with adjusted longitudinal distance being 10.85 meters and lateral being 2.31 meters.
+  - Relative longitudinal velocity is -5.30 m/s, with small lateral velocity.
+
+- **Risk Assessment:**
+  - **TTC (Longitudinal):** 10.85 m / 5.30 m/s ≈ 2.05 seconds
+  - **MDC (Using smaller dimension, lateral):** 2.31 meters.
+  - **Conclusion:** Medium Risk (3) as both TTC and MDC indicate moderate proximity.
+
+#### Obstacle 30241
+- **Position and Trajectory:**
+  - Located rear-left, with the adjusted longitudinal distance -15.16 meters (behind) and lateral 2.80 meters.
+  - Relative longitudinal velocity is 0.44 m/s (approaching), with lateral velocity causing lateral closing.
+
+- **Risk Assessment:**
+  - Obstacle is behind and approaching slowly longitudinally.
+  - Longitudinal distance increasing due to low relative speed.
+  - **Conclusion:** Negligible Risk (5) as paths are not significantly converging.
+
+### Overall JSON Summary
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "",
+    "OverallRiskScore": ""
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "",
+    "OverallRiskScore": ""
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": "",
+    "OverallRiskScore": ""
+  },
+  "MediumRiskObstacle": {
+    "ObstacleID": "30221, 30229",
+    "OverallRiskScore": "3"
+  },
+  "LowRiskObstacle": {
+    "ObstacleID": "30225, 30228",
+    "OverallRiskScore": "4"
+  },
+  "NegligibleRiskObstacle": {
+    "ObstacleID": "30241",
+    "OverallRiskScore": "5"
+  }
+}
+```
+
+This summary focuses on the highest risk determinants per obstacle, emphasizing immediate attention is needed for any closer approaching objects categorized within the medium-risk tier.

@@ -1,0 +1,56 @@
+### Obstacle-by-Obstacle Analysis:
+
+#### **Obstacle 30240 (Front-right of ego car)**
+- **Adjusted Distance**: Longitudinal 11.74 m, Lateral -1.94 m  
+- **Relative Velocity**: Longitudinal -1.90 m/s (approaching), Lateral -0.03 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally, moving away laterally.  
+- **TTC (Longitudinal)**: 11.74 / 1.90 ≈ 6.18 s (No Risk, TTC > 5.0s)  
+- **MDC (Lateral)**: 1.94 m (Low Risk, MDC > 1.0m)  
+- **Overall Risk**: **5 (Negligible Risk)** – No immediate threat due to large longitudinal distance and diverging lateral motion.
+
+#### **Obstacle 30241 (Right of ego car)**
+- **Adjusted Distance**: Longitudinal 0.00 m (aligned), Lateral -1.89 m  
+- **Relative Velocity**: Longitudinal -2.52 m/s (approaching), Lateral -0.01 m/s (moving away)  
+- **Motion**: Exact longitudinal alignment, moving away laterally.  
+- **TTC (Longitudinal)**: 0.00 / 2.52 = 0 s (Collision Risk if lateral distance were also closing, but it is not).  
+- **MDC (Lateral)**: 1.89 m (Medium Risk, MDC > 1.0m but < 3.0m)  
+- **Overall Risk**: **3 (Medium Risk)** – While longitudinally aligned, the lateral distance is stable/increasing, reducing immediate collision risk.  
+
+#### **Obstacle 30242 (Rear-right of ego car)**
+- **Adjusted Distance**: Longitudinal -5.17 m (behind), Lateral -1.75 m  
+- **Relative Velocity**: Longitudinal -3.89 m/s (moving away), Lateral -0.28 m/s (moving away)  
+- **Motion**: Moving away in both dimensions.  
+- **TTC (Longitudinal)**: Not applicable (negative relative velocity, diverging).  
+- **MDC (Lateral)**: 1.75 m (Medium Risk, MDC > 1.0m but < 3.0m)  
+- **Overall Risk**: **5 (Negligible Risk)** – No threat due to diverging trajectories in both dimensions.  
+
+---
+
+### **Trajectory Analysis**
+- **Obstacle 30241** is the most critical due to longitudinal alignment (0.00m) and slight lateral movement. However, the lateral distance is stable/increasing, preventing immediate collision.  
+- **Obstacle 30240** and **30242** are not immediate threats due to large distances or diverging paths.  
+
+---
+
+### **Final JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```
+
+**Key Takeaways**:  
+- No collision or extreme/high-risk obstacles detected.  
+- **Obstacle 30241** (Medium Risk) requires monitoring due to longitudinal alignment, but lateral motion mitigates immediate danger.  
+- **Obstacles 30240/30242** pose negligible risk.

@@ -1,0 +1,41 @@
+At the most recent timestep (5.2 seconds):
+
+**Obstacle 30603 (Left):**
+
+* **Trajectory Analysis:** This obstacle was consistently behind and to the left of the ego vehicle, gradually moving forward and slightly to the right across the timesteps. In the final timestep, it is directly to the left of the ego vehicle (longitudinally aligned).
+* **Longitudinal Analysis:**
+    * Distance: 0.00 m (aligned)
+    * Relative Velocity: 0.00 m/s
+    * TTC: Not applicable (no longitudinal movement relative to ego)
+* **Lateral Analysis:**
+    * Distance: 10.83 m
+    * Relative Velocity: -0.21 m/s (moving away from ego)
+    * TTC: Not applicable (moving away laterally)
+* **MDC:**  10.83m (using lateral distance as longitudinal is zero and stable).
+* **Risk Assessment:** Based on MDC and the diverging lateral movement, the risk is negligible.
+* **Risk Score:** 5 (Negligible Risk)
+
+
+**Obstacle 30604 (Right):**
+
+* **Trajectory Analysis:** This obstacle was initially in front and to the right, moving away longitudinally and towards the ego laterally. It moved substantially to the right and slightly backward over the timesteps. In the latest timestep, it's to the right side of the ego (longitudinally aligned). 
+* **Longitudinal Analysis:**
+    * Distance: 0.00 m (aligned)
+    * Relative Velocity: 7.39 m/s (moving away from ego - possible error in provided data given previous trend, but using this provided value)
+    * TTC: Not applicable
+* **Lateral Analysis:**
+    * Distance: -3.30 m 
+    * Relative Velocity: 3.52 m/s (moving towards ego - from the right)
+    * TTC: -3.30 / 3.52 = -0.94 s (Negative TTC - unusual but implies it's very close and recently passed, or there is a data inconsistency.)
+* **MDC:**  3.30m
+* **Risk Assessment:** Despite the longitudinal alignment, the obstacle is moving away in that direction. The lateral distance is 3.30m, relatively small, with the obstacle moving towards the ego at 3.52 m/s. The negative TTC suggests either a very recent close pass or a possible data glitch (given the high relative longitudinal velocity shift). Prioritizing the small lateral distance, the relatively high closing speed.
+* **Risk Score:** 3 (Medium Risk)
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "PredictedCollisionObstacle": {}
+}
+```

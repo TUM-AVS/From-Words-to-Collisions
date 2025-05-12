@@ -1,0 +1,79 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30753 (Rear-right of ego car at 9.6 seconds)
+- **Adjusted Distances**: 
+  - Longitudinal: -4.86 m (behind ego)
+  - Lateral: -24.41 m (right of ego)
+- **Relative Velocity**:
+  - Longitudinal: -17.89 m/s (moving away from ego)
+  - Lateral: 2.71 m/s (moving toward ego laterally)
+- **Motion Description**: 
+  - "Obstacle is moving away in behind longitudinally. Obstacle is driving toward the ego car laterally from the right."
+
+**Trajectory Analysis**:
+- Over the timesteps, the obstacle transitions from front-right to right to rear-right.
+- Longitudinal distance changes from positive (front) to negative (rear), indicating the obstacle has passed the ego vehicle.
+- Lateral distance decreases slowly (from -26.92 m to -24.41 m), but remains large (>24 m).
+
+**TTC Calculation**:
+- **Lateral TTC**: 24.41 m / 2.71 m/s ≈ 9.01 s (No Risk, TTC > 5.0 s)
+- **Longitudinal TTC**: Not applicable (moving away, relative velocity negative)
+
+**MDC Calculation**:
+- The obstacle is moving away longitudinally and laterally is still very far (24.41 m). 
+- MDC is effectively the current lateral distance (24.41 m), which is >> 5.0 m (No Risk).
+
+**Overall Risk**: 
+- **Risk Score**: 5 (Negligible Risk)
+
+---
+
+#### Obstacle 30762 (Rear-right of ego car at 9.3 seconds)
+- **Adjusted Distances**:
+  - Longitudinal: -8.77 m (behind ego)
+  - Lateral: -25.14 m (right of ego)
+- **Relative Velocity**:
+  - Longitudinal: -3.37 m/s (moving away from ego)
+  - Lateral: -2.55 m/s (moving away from ego laterally)
+- **Motion Description**:
+  - "Obstacle is moving away in behind longitudinally. Obstacle is moving away laterally to the right."
+
+**Trajectory Analysis**:
+- The obstacle is consistently moving away in both longitudinal and lateral directions.
+- Distances increase over time (longitudinal: -7.23 m → -8.77 m, lateral: -23.86 m → -25.14 m).
+
+**TTC Calculation**:
+- Not applicable (both velocity components negative, moving away).
+
+**MDC Calculation**:
+- The obstacle is diverging in both dimensions. 
+- MDC is effectively the current distance, which is very large (>20 m).
+
+**Overall Risk**:
+- **Risk Score**: 5 (Negligible Risk)
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```
+
+### Reasoning:
+- Neither obstacle poses any significant risk (Risk Score 5 for both).
+- Obstacle 30753 is moving away longitudinally and is very far laterally (>24 m).
+- Obstacle 30762 is moving away in both dimensions.
+- No collision or extreme risk is detected.

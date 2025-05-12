@@ -1,0 +1,62 @@
+* **Obstacle 30647:**
+
+    * **Trajectory:** This obstacle appears suddenly at t=0.8s in the front-left of the ego vehicle.  It's approaching rapidly in the longitudinal direction and slightly in the lateral direction. The high negative longitudinal velocity (-32.91 m/s) and decreasing longitudinal distance suggest a high risk of collision.
+
+    * **TTC (Longitudinal):** 19.24m / 32.91 m/s ≈ 0.58s
+    * **TTC (Lateral):** 4.77m / 1.60 m/s ≈ 2.98s
+
+    * **MDC:** The rapid longitudinal approach makes longitudinal distance the primary concern. Therefore, MDC ≈ 4.77m (lateral distance).
+
+    * **Risk Assessment:**
+        * Longitudinal: TTC of 0.58s indicates Extreme Risk (1).
+        * Lateral: TTC of 2.98s suggests a Medium Risk (3) and MDC of 4.77m suggests a Low Risk (4).
+
+    * **Overall Risk:** Extreme Risk (1) due to the very short TTC longitudinally.
+
+* **Obstacle 30670:**
+
+    * **Trajectory:**  Consistently in the front-left, initially moving away laterally but approaching longitudinally. However, the longitudinal closing speed is relatively low, and lateral motion is away from the ego vehicle.
+
+    * **TTC (Longitudinal):** 20.25m / 2.52 m/s ≈ 8.04s
+    * **TTC (Lateral):** 1.36m / 2.00 m/s ≈ 0.68s
+
+    * **MDC:** The low lateral distance despite diverging lateral motion suggests MDC ≈ 1.36m.
+
+    * **Risk Assessment:**
+        * Longitudinal: TTC of 8.04s indicates No Risk (5).
+        * Lateral: TTC of 0.68s suggests a High Risk (2), but the diverging lateral velocity and increasing lateral distance mitigate this to some extent. MDC of 1.36 suggests Medium Risk (3).
+
+    * **Overall Risk:** Medium Risk (3) - lateral proximity requires monitoring despite the diverging lateral velocity, longitudinal motion is non-threatening.
+
+* **Obstacle 30672:**
+
+    * **Trajectory:**  Initially directly behind the ego vehicle and moving away. At t=0.9s it's still moving away longitudinally but slightly towards the ego laterally, though starting from a zero lateral position. The key is it is moving away longitudinally consistently.
+
+    * **TTC (Longitudinal):** Not applicable as the obstacle is moving away longitudinally.
+    * **TTC (Lateral):** 0.60m / 2.48 m/s ≈ 0.24s
+
+    * **MDC:** The lateral distance being very low, and the lateral TTC being under 0.5s, despite starting at 0.00 lateral offset and moving away longitudinally are signs of concern. MDC ≈ 0.60m.
+
+    * **Risk Assessment:**
+        * Longitudinal: No risk (5) as it's moving away.
+        * Lateral:  High Risk (2) considering the lateral TTC and distance. Lateral movement toward the ego warrants a higher risk level despite the negative longitudinal velocity. MDC being less than 1m also contributes to this risk.
+
+    * **Overall Risk:** High Risk (2) due to lateral motion and small lateral distance although longitudinally the vehicle is moving away.
+
+
+* **Collision Scenario?**: Yes. Obstacle 30647 has an Extreme Risk (1) assessment due to the very low TTC (0.58s).
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30647",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30647 poses an Extreme Risk (score 1) with a TTC of 0.58s, indicating a likely collision if trajectories are maintained."
+}
+```

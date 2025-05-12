@@ -1,0 +1,72 @@
+Obstacle-by-Obstacle Analysis at t=0.9s:
+
+* **Obstacle 32:** Front, longitudinal 3.52m, lateral 0.00m, Relative Velocity: longitudinal -0.17 m/s, lateral 0.42 m/s
+    * Trajectory: Consistently in front and laterally aligned with the ego vehicle. Longitudinal distance decreasing slowly, but not enough to be alarming yet. Lateral velocity suggests slight lateral movement, likely within the same lane.
+    * TTC (longitudinal): 3.52m / 0.17m/s = 20.7s  (No Risk)
+    * MDC: ~0m (Extreme Risk - due to continuous lateral alignment and decreasing longitudinal distance)
+    * Risk: Extreme Risk (1) - due to the combination of near-zero lateral distance, decreasing longitudinal distance despite slow closing velocity, and predicted future proximity.  Although TTC is high, the consistent lateral alignment and decreasing longitudinal distance are concerning.
+
+* **Obstacle 34:** Behind, longitudinal -5.74m, lateral 0.00m, Relative Velocity: longitudinal -0.95 m/s, lateral -0.01 m/s
+    * Trajectory: Consistently behind and laterally aligned. Longitudinal distance is increasing; moving away from the ego vehicle.
+    * TTC: Not applicable due to separating movement.
+    * MDC: Not applicable due to separating movement.
+    * Risk: No Risk (5)
+
+* **Obstacle 37:** Behind, longitudinal -14.65m, lateral 0.00m, Relative Velocity: longitudinal -1.28 m/s, lateral -0.00 m/s
+    * Trajectory: Consistently behind and laterally aligned.  Longitudinal distance is increasing; moving away from the ego vehicle.
+    * TTC: Not applicable due to separating movement.
+    * MDC: Not applicable due to separating movement.
+    * Risk: No Risk (5)
+
+* **Obstacle 313:** Front-right, longitudinal 12.16m, lateral -10.46m, Relative Velocity: longitudinal -1.63 m/s, lateral -0.22 m/s
+    * Trajectory: Front-right, moving slightly closer longitudinally and laterally.
+    * TTC (longitudinal): 12.16m / 1.63m/s ≈ 7.5s (No Risk)
+    * TTC (lateral): 10.46m / 0.22 m/s ≈ 47.5s (No Risk)
+    * MDC: ~10.46m (No Risk)
+    * Risk: No Risk (5)
+
+* **Obstacle 319:** Front-left, longitudinal 11.97m, lateral 12.53m, Relative Velocity: longitudinal -1.61 m/s, lateral -2.34 m/s
+    * Trajectory: Front-left, approaching both longitudinally and laterally.
+    * TTC (longitudinal): 11.97m / 1.61m/s ≈ 7.4s (No Risk)
+    * TTC (lateral): 12.53m / 2.34m/s ≈ 5.4s (No Risk)
+    * MDC: ~12.53m (No Risk)
+    * Risk: No Risk (5)
+
+* **Obstacle 331:** Front-right, longitudinal 12.10m, lateral -1.18m, Relative Velocity: longitudinal -1.62 m/s, lateral -1.58 m/s
+    * Trajectory: Front-right, with lateral distance decreasing.
+    * TTC (longitudinal): 12.10m / 1.62 m/s ≈ 7.5s (No Risk)
+    * TTC (lateral): 1.18m / 1.58 m/s ≈ 0.7s (Low Risk)
+    * MDC: ~1.18m (Medium Risk)
+    * Risk: Low Risk (4) - Primarily due to low lateral TTC, though MDC suggests only Medium risk. We prioritize the higher risk (lower score).
+
+* **Obstacle 332:** Front-left, longitudinal 11.87m, lateral 22.84m, Relative Velocity: longitudinal -1.63 m/s, lateral 0.00 m/s
+    * Trajectory: Front-left, but far away laterally. Stable lateral distance.
+    * TTC: 11.87m / 1.63m/s ≈ 7.3s (No Risk)
+    * MDC: ~22.84m (No Risk)
+    * Risk: No Risk (5)
+
+* **Obstacle 358:** Front-left, longitudinal 14.67m, lateral 8.87m, Relative Velocity: longitudinal -1.70 m/s, lateral 0.27 m/s
+    * Trajectory: Front-left, with lateral distance slowly decreasing.
+    * TTC (longitudinal): 14.67m / 1.70 m/s ≈ 8.6s (No Risk)
+    * TTC (lateral): 8.87m / 0.27m/s ≈ 32.8s (No Risk)
+    * MDC: ~8.87m (No Risk)
+    * Risk: No Risk (5)
+
+
+Collision Scenario Determination:
+
+Obstacle 32 poses an Extreme Risk (1) due to the combination of near-zero lateral distance and decreasing longitudinal distance, despite a small relative longitudinal velocity. This qualifies the scenario as a collision scenario.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "32",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 32 poses an Extreme Risk due to sustained lateral alignment, decreasing longitudinal distance, and close proximity, despite a small negative longitudinal velocity."
+}
+```

@@ -1,0 +1,78 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 5.6s)
+
+#### **Obstacle 542 (Left of ego car)**
+- **Adjusted Distance**: Longitudinal 0.00m, Lateral 5.48m  
+- **Relative Velocity**: Longitudinal 5.30 m/s (moving away), Lateral -0.59 m/s (approaching)  
+- **Motion**: Exact longitudinal alignment. Obstacle is driving toward ego laterally from the left.  
+- **TTC (Lateral)**: 5.48 / 0.59 = ~9.29s (Negligible Risk)  
+- **MDC (Lateral)**: 5.48m (Low Risk)  
+- **Trend**: Lateral distance is decreasing slowly (~0.59 m/s). Longitudinal distance is stable (exact alignment but moving away).  
+- **Risk Assessment**: Low Risk (4) - No immediate threat.  
+
+---
+
+#### **Obstacle 594 (Front-left of ego car)**
+- **Adjusted Distance**: Longitudinal 11.08m, Lateral 1.62m  
+- **Relative Velocity**: Longitudinal 8.34 m/s (moving away), Lateral -0.30 m/s (approaching)  
+- **Motion**: Moving away longitudinally. Approaching laterally.  
+- **TTC (Lateral)**: 1.62 / 0.30 = ~5.4s (Low Risk)  
+- **MDC (Lateral)**: 1.62m (Medium Risk)  
+- **Trend**: Lateral distance is decreasing very slowly. Longitudinal distance increasing rapidly.  
+- **Risk Assessment**: Medium Risk (3) - Manageable with proper reaction.  
+
+---
+
+#### **Obstacle 625 (Behind of ego car)**
+- **Adjusted Distance**: Longitudinal -1.04m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 7.11 m/s (approaching), Lateral -0.64 m/s (irrelevant, exact alignment)  
+- **Motion**: Driving toward ego from behind. Exact lateral alignment.  
+- **TTC (Longitudinal)**: 1.04 / 7.11 = ~0.146s (Extreme Risk)  
+- **MDC (Longitudinal)**: 1.04m (High Risk)  
+- **Trend**: Rapidly closing longitudinal gap (7.11 m/s). Lateral distance stable (aligned).  
+- **Risk Assessment**: Extreme Risk (1) - Immediate collision likely if not addressed.  
+
+---
+
+#### **Obstacle 634 (Rear-left of ego car)**
+- **Adjusted Distance**: Longitudinal -12.72m, Lateral 2.43m  
+- **Relative Velocity**: Longitudinal 5.57 m/s (approaching), Lateral -0.60 m/s (approaching)  
+- **Motion**: Driving toward ego from behind and laterally.  
+- **TTC (Longitudinal)**: 12.72 / 5.57 = ~2.28s (Medium Risk)  
+- **MDC (Lateral)**: 2.43m (Medium Risk)  
+- **Trend**: Both distances decreasing but at moderate speeds.  
+- **Risk Assessment**: Medium Risk (3) - Manageable with proper reaction.  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 625** is the most critical:  
+  - At 5.5s: Longitudinal distance = -1.80m  
+  - At 5.6s: Longitudinal distance = -1.04m (closing at ~7.11 m/s)  
+  - **Projected collision at ~5.7s** if velocities remain constant.  
+
+- Other obstacles are either diverging or pose minimal risk.  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "625",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "625",
+        "OverallRiskScore": "0"
+    }
+}
+```
+
+### Explanation:
+- **ExtremeRiskObstacle**: Obstacle 625 (TTC = 0.146s, closing rapidly from behind).  
+- **PredictedCollisionObstacle**: Obstacle 625 will collide within the next timestep if no action is taken.  
+- No current collision (score 0) has occurred yet.

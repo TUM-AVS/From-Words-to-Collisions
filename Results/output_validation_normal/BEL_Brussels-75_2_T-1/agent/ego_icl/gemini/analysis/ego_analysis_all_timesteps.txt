@@ -1,0 +1,33 @@
+* **Obstacle 30207 (Front):** This obstacle is directly in front of the ego vehicle, with a decreasing longitudinal distance over multiple timesteps. At the last timestep, the longitudinal distance is 5.24m and the lateral distance is 0.00m. Lateral distance being zero means they are longitudinally aligned. Since longitudinal velocity is -0.67 m/s (approaching), there is a risk. 
+    - TTC (longitudinal) = 5.24m / 0.67m/s ≈ 7.82s
+    - MDC ≈ 5.24m (using longitudinal distance as it represents the primary risk)
+    - Risk: 4 (Low Risk)
+
+* **Obstacle 30208 (Rear-Left):** This obstacle is behind and to the left, with a consistently negative longitudinal distance (increasingly further behind). The lateral distance is small but increasing.  At the last timestep, longitudinal distance is -5.90m and lateral distance is 8.40m. The negative longitudinal velocity and increasing lateral distance suggest the obstacle is moving further away.
+    - TTC is not applicable due to negative distance and velocity.
+    - MDC ≈ 8.40m
+    - Risk: 5 (Negligible Risk)
+
+* **Obstacle 30209 (Rear-Right):** This obstacle is behind and to the right, with a longitudinal distance increasing in magnitude (moving further behind).  The lateral distance is greater than 5m and increasing. At the last timestep, longitudinal distance is -10.61m and lateral distance is -8.82m.
+    - TTC is not applicable due to negative distance and velocity.
+    - MDC ≈ 8.82m
+    - Risk: 5 (Negligible Risk)
+
+* **Obstacle 30211 (Rear-Left):** Similar to Obstacle 30208, this obstacle is also behind and to the left, moving further away longitudinally. The lateral distance is large and increasing. At the last timestep, longitudinal distance is -12.51m and lateral distance is 19.54m.
+    - TTC is not applicable due to negative distance and velocity.
+    - MDC ≈ 19.54m
+    - Risk: 5 (Negligible Risk)
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "HighRiskObstacle": {},
+  "MediumRiskObstacle": {},
+  "LowRiskObstacle": {
+    "ObstacleID": "30207",
+    "OverallRiskScore": "4"
+  },
+
+}
+```

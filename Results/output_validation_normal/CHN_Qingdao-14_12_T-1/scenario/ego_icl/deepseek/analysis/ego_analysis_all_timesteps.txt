@@ -1,0 +1,71 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 30647 (Front-left)**
+- **Adjusted Distance**: Longitudinal 19.24m, Lateral 4.77m  
+- **Relative Velocity**: Longitudinal -32.91 m/s (approaching rapidly), Lateral -1.60 m/s (approaching from left)  
+- **Motion**: Driving toward ego longitudinally and laterally from left  
+- **TTC (Longitudinal)**: 19.24 / 32.91 ≈ 0.58s  
+- **TTC (Lateral)**: 4.77 / 1.60 ≈ 2.98s  
+- **MDC**: Lateral distance (4.77m) is primary since longitudinal closing is extreme.  
+- **Risk**:  
+  - Longitudinal TTC (0.58s) → High Risk (2)  
+  - Lateral TTC (2.98s) → Medium Risk (3)  
+  - MDC (4.77m) → Low Risk (4)  
+- **Overall Risk**: **High Risk (2)** (prioritize longitudinal TTC)  
+
+#### **Obstacle 30670 (Front-left)**
+- **Adjusted Distance**: Longitudinal 20.25m, Lateral 1.36m  
+- **Relative Velocity**: Longitudinal -2.52 m/s (approaching), Lateral 2.00 m/s (moving away left)  
+- **Motion**: Driving toward ego longitudinally but moving away laterally.  
+- **TTC (Longitudinal)**: 20.25 / 2.52 ≈ 8.04s (No Risk)  
+- **TTC (Lateral)**: N/A (moving away)  
+- **MDC**: Lateral distance (1.36m) → Medium Risk (3)  
+- **Risk**:  
+  - Longitudinal: No Risk (5)  
+  - Lateral: Medium Risk (3)  
+- **Overall Risk**: **Medium Risk (3)**  
+
+#### **Obstacle 30672 (Rear-left)**
+- **Adjusted Distance**: Longitudinal -18.21m (behind), Lateral 0.60m  
+- **Relative Velocity**: Longitudinal -3.28 m/s (moving away), Lateral -2.48 m/s (approaching from left)  
+- **Motion**: Moving away longitudinally but approaching laterally.  
+- **TTC (Longitudinal)**: N/A (moving away)  
+- **TTC (Lateral)**: 0.60 / 2.48 ≈ 0.24s  
+- **MDC**: Lateral distance (0.60m) → High Risk (2)  
+- **Risk**:  
+  - Lateral TTC (0.24s) → Extreme Risk (1)  
+  - MDC (0.60m) → High Risk (2)  
+- **Overall Risk**: **Extreme Risk (1)** (prioritize TTC)  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 30647**: Rapid longitudinal closing (-32.91 m/s) but lateral motion is slow. Likely to pass in front of ego.  
+- **Obstacle 30670**: Slowly approaching longitudinally but moving away laterally. Minimal risk.  
+- **Obstacle 30672**: Moving away longitudinally but laterally closing at high speed (TTC 0.24s). Critical risk of side collision.  
+
+---
+
+### Collision Scenario Determination
+- **Obstacle 30672** has **Extreme Risk (1)** due to:  
+  - Lateral TTC = 0.24s (< 0.5s)  
+  - MDC = 0.60m (< 1.0m)  
+  - Converging trajectory (lateral velocity toward ego).  
+
+---
+
+### Final JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30672",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30672 has Extreme Risk (TTC = 0.24s, MDC = 0.60m) with lateral trajectory converging toward ego vehicle."
+}
+```

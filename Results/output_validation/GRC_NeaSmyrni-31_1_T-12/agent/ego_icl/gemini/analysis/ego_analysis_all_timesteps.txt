@@ -1,0 +1,29 @@
+* **Obstacle 20082 (Front):**  This obstacle is moving away from the ego vehicle longitudinally, and the lateral distance remains at 0.00 m throughout the provided timestamps. This indicates a stable situation with no immediate risk. The longitudinal distance is increasing, confirming the divergence.
+    * **MDC:** > 5.0m (using longitudinal distance as it is the relevant dimension)
+    * **TTC:** Not applicable due to diverging longitudinal movement.
+    * **Risk:** 5 (Negligible Risk)
+
+* **Obstacle 20084 (Behind):** This obstacle is rapidly approaching the ego vehicle from behind, with the longitudinal distance decreasing significantly over the timesteps. At the last timestamp (3.4s), the longitudinal distance is only -0.84m, indicating an extremely high risk of a rear-end collision. The lateral distance remains at 0.00 m, suggesting the obstacle is in the same lane.
+    * **MDC:** 0.84m
+    * **TTC:** -0.84m / 5.24 m/s = -0.16s (Note: Negative TTC can indicate a recent or upcoming collision in some cases since in this case, MDC is low. In this specific case, with the closing velocity and small distance, the negative TTC likely results from minor measurement variations but indicates an imminent collision risk given the extremely close proximity)
+    * **Risk:** 1 (Extreme Risk)
+
+* **Obstacle 20086 (Rear-right):** This obstacle is approaching the ego vehicle from behind and the right. However, the distances are relatively large, and the rate of approach, while noticeable, is not immediately alarming at the last timestamp.
+    * **MDC:** The minimum distance is the lateral distance (1.26m) since that's closing and the primary direction of concern in this scenario.
+    * **TTC (Longitudinal):** -18.32m / 7.29 m/s = -2.51s
+    * **TTC (Lateral):** -1.26m / 2.09m/s = -0.60s (While negative, we consider the small MDC and closing velocity. This, combined with longitudinal distance, suggests a possible collision if the ego vehicle were to move laterally to the right)
+    * **Risk:** 2 (High Risk - due to the combination of relatively close proximity and negative TTC values, even though individually, the distances might suggest lower risk)
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "20084",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "20084",
+    "OverallRiskScore": "1"
+  }
+}
+```

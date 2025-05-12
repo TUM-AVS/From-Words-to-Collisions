@@ -1,0 +1,66 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30223 (Front of ego car)
+- **Most Recent Timestep (0.9s):**
+  - **Adjusted Distance:** Longitudinal 9.92 m, Lateral 0.00 m
+  - **Relative Velocity:** Longitudinal 1.68 m/s (moving away), Lateral -0.13 m/s (moving toward)
+  - **Motion Description:** Obstacle is moving away longitudinally. Exact lateral alignment or unknown case.
+  
+- **Trajectory Analysis:**
+  - Longitudinal distance increases from 7.58 m to 9.92 m over 0.9s (moving away).
+  - Lateral distance remains 0.00 m (exact alignment), but lateral velocity is very small (-0.13 m/s) and not significant enough to cause a collision.
+
+- **TTC Calculation:**
+  - Longitudinal: Not applicable (moving away).
+  - Lateral: TTC = 0.00 m / 0.13 m/s = 0.00 s (but lateral distance is stable at 0.00 m with negligible movement).
+  
+- **MDC Calculation:**
+  - Lateral MDC = 0.00 m (exact alignment), but no collision risk due to stable alignment and negligible lateral movement.
+
+- **Risk Assessment:**
+  - **TTC Risk:** 5 (No Risk, moving away longitudinally).
+  - **MDC Risk:** 5 (No Risk, stable alignment).
+  - **Overall Risk:** 5 (No Risk).
+
+#### Obstacle 30224 (Front-left of ego car)
+- **Most Recent Timestep (0.9s):**
+  - **Adjusted Distance:** Longitudinal 12.52 m, Lateral 1.80 m
+  - **Relative Velocity:** Longitudinal 1.62 m/s (moving away), Lateral -0.13 m/s (moving toward)
+  - **Motion Description:** Obstacle is moving away longitudinally. Obstacle is driving toward the ego car laterally from the left.
+
+- **Trajectory Analysis:**
+  - Longitudinal distance increases from 10.22 m to 12.52 m over 0.9s (moving away).
+  - Lateral distance decreases slightly from 1.83 m to 1.80 m over 0.9s (very slow lateral movement toward ego).
+
+- **TTC Calculation:**
+  - Longitudinal: Not applicable (moving away).
+  - Lateral: TTC = 1.80 m / 0.13 m/s ≈ 13.85 s (very high, no imminent collision).
+  
+- **MDC Calculation:**
+  - Lateral MDC = 1.80 m (stable with minimal decrease).
+  
+- **Risk Assessment:**
+  - **TTC Risk:** 5 (No Risk, TTC >> 5.0 s).
+  - **MDC Risk:** 4 (Low Risk, MDC = 1.80 m > 1.0 m).
+  - **Overall Risk:** 4 (Low Risk).
+
+### Collision Scenario Determination
+- Neither obstacle has a risk score of 0 (collision) or 1 (extreme risk).
+- Obstacle 30223 is longitudinally moving away and laterally stable (no risk).
+- Obstacle 30224 is longitudinally moving away and laterally very slowly approaching (low risk).
+
+### Final JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle has a risk score of 0 or 1. Both obstacles are moving away longitudinally, and lateral movements are negligible or very slow."
+}
+```

@@ -1,0 +1,91 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 30660 (Rear-left)**
+- **Adjusted Distances**: Longitudinal -14.42 m, Lateral 4.24 m  
+- **Relative Velocity**: Longitudinal -6.52 m/s (moving away), Lateral -5.53 m/s (approaching laterally)  
+- **Motion Description**: Moving away longitudinally but driving toward ego laterally from the left.  
+
+**TTC Calculation**:  
+- **Lateral TTC**: 4.24 m / 5.53 m/s = 0.767 seconds  
+- **Longitudinal TTC**: Not applicable (moving away)  
+
+**MDC Calculation**:  
+- Primary risk is lateral (approaching from left). MDC = 4.24 m  
+
+**Risk Assessment**:  
+- **TTC Risk**: 0.767s → High Risk (2)  
+- **MDC Risk**: 4.24m → Low Risk (4)  
+- **Overall Risk**: High Risk (2)  
+
+**Trajectory Analysis**:  
+- Lateral distance decreasing rapidly (from 8.20m to 4.24m in 0.9s).  
+- No longitudinal collision risk (moving away).  
+
+---
+
+#### **Obstacle 30661 (Front)**
+- **Adjusted Distances**: Longitudinal 10.38 m, Lateral 0.00 m  
+- **Relative Velocity**: Longitudinal 0.37 m/s (moving away), Lateral 0.05 m/s (negligible)  
+- **Motion Description**: Moving away longitudinally, exact lateral alignment.  
+
+**TTC Calculation**:  
+- **Longitudinal TTC**: Not applicable (moving away).  
+- **Lateral TTC**: Not applicable (no significant lateral motion).  
+
+**MDC Calculation**:  
+- Lateral alignment but no convergence (distance stable). MDC ≈ 10.38 m (longitudinal).  
+
+**Risk Assessment**:  
+- **TTC Risk**: No Risk (5)  
+- **MDC Risk**: No Risk (5)  
+- **Overall Risk**: No Risk (5)  
+
+**Trajectory Analysis**:  
+- No collision risk (moving away, lateral alignment static).  
+
+---
+
+#### **Obstacle 30662 (Rear-left)**
+- **Adjusted Distances**: Longitudinal -14.06 m, Lateral 15.46 m  
+- **Relative Velocity**: Longitudinal -7.01 m/s (moving away), Lateral -3.02 m/s (approaching laterally)  
+- **Motion Description**: Moving away longitudinally but driving toward ego laterally from the left.  
+
+**TTC Calculation**:  
+- **Lateral TTC**: 15.46 m / 3.02 m/s = 5.12 seconds  
+- **Longitudinal TTC**: Not applicable (moving away).  
+
+**MDC Calculation**:  
+- Primary risk is lateral (approaching). MDC = 15.46 m  
+
+**Risk Assessment**:  
+- **TTC Risk**: 5.12s → No Risk (5)  
+- **MDC Risk**: 15.46m → No Risk (5)  
+- **Overall Risk**: No Risk (5)  
+
+**Trajectory Analysis**:  
+- Lateral distance decreasing but still large (>15m).  
+
+---
+
+### Collision Scenario Determination  
+- **Highest Risk Obstacle**: 30660 (High Risk, score 2).  
+- No obstacles have risk scores of 0 (collision) or 1 (extreme risk).  
+- **Justification**:  
+  - Obstacle 30660 is the closest threat (lateral TTC = 0.77s, MDC = 4.24m), but it does not meet the threshold for extreme risk (TTC > 0.5s, MDC > 0.5m).  
+  - No other obstacles pose imminent danger.  
+
+### Final JSON Summary  
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacles have risk scores of 0 or 1. The highest risk is Obstacle 30660 (High Risk, score 2), but it does not meet extreme risk thresholds."
+}
+```

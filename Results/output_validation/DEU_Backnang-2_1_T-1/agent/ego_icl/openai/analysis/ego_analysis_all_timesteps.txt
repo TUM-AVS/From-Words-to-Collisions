@@ -1,0 +1,65 @@
+### Obstacle Analysis
+
+#### Obstacle 33 (Behind)
+- **Adjusted Distance**: longitudinal = -0.53 m, lateral = 0.00 m
+- **Relative Velocity**: longitudinal = 4.95 m/s, lateral = -0.04 m/s
+- **Trajectory**: Accelerating towards the ego vehicle (consistent closing over timesteps)
+- **TTC Calculation**: 
+  1. Longitudinal TTC = 0.53 / 4.95 = 0.107 seconds
+  2. Same-lane alignment suggests a high likelihood of collision
+- **MDC Assessment**: Longitudinal distance very small and decreasing rapidly
+- **Risk Determination**: Extreme Risk based on very low TTC and closing trajectory
+
+#### Obstacle 345 (Behind)
+- **Adjusted Distance**: longitudinal = -15.16 m, lateral = 0.00 m
+- **Relative Velocity**: longitudinal = 2.27 m/s, lateral = 0.01 m/s
+- **Trajectory**: Approaching but at a far distance and slower relative speeds
+- **TTC Calculation**: 
+  1. Longitudinal TTC = 15.16 / 2.27 = 6.68 seconds
+- **MDC Assessment**: Safe distance and closing time
+- **Risk Determination**: No significant risk due to large TTC and safe distance
+
+#### Obstacle 378 (Front-right)
+- **Adjusted Distance**: longitudinal = 7.98 m, lateral = -0.76 m
+- **Relative Velocity**: longitudinal = 1.76 m/s, lateral = -1.77 m/s
+- **Trajectory**: Moving away both longitudinally and laterally
+- **TTC Calculation**: N/A due to moving away
+- **MDC Assessment**: No approach along both axes
+- **Risk Determination**: No risk as both distances are increasing
+
+#### Obstacle 380 (Front-right)
+- **Adjusted Distance**: longitudinal = 13.86 m, lateral = -6.61 m
+- **Relative Velocity**: longitudinal = -1.79 m/s, lateral = -6.70 m/s
+- **Trajectory**: Moving away from the ego car
+- **TTC Calculation**: N/A as no collision course
+- **MDC Assessment**: No collision path currently
+- **Risk Determination**: No risk as both distances are increasing
+
+#### Obstacle 383 (Front-left)
+- **Adjusted Distance**: longitudinal = 17.21 m, lateral = 12.60 m
+- **Relative Velocity**: longitudinal = -1.23 m/s, lateral = -2.62 m/s
+- **Trajectory**: Approaching the ego car laterally
+- **TTC Calculation**: N/A due to diverging paths longitudinally
+- **MDC Assessment**: Both longitudinal and lateral movements do not suggest immediate collision
+- **Risk Determination**: No risk based on trajectory
+
+### Summary
+- **Obstacle 33** poses the most significant risk with an **Extreme Risk** level.
+- The remaining obstacles present no immediate collision threat within the provided context.
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "33",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```

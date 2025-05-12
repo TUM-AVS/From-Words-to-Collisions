@@ -1,0 +1,36 @@
+Obstacle 3391 (Left):
+
+- Trajectory: Consistently to the left of the ego vehicle, maintaining longitudinal alignment (longitudinal distance ≈ 0.00m) and a safe lateral distance (around 14.5m). The lateral distance slightly increases over time.
+- TTC: Not applicable for lateral direction as the relative lateral velocity is 0 m/s. Longitudinal TTC not applicable as the relative longitudinal velocity is consistently negative, so not approaching. 
+- MDC: ≈ 14.76m (lateral).
+- Risk: 5 (Negligible Risk).  Although longitudinally aligned, the consistent lateral separation and slightly increasing lateral distance indicate no collision risk.
+
+Obstacle 3393 (Rear-Right):
+
+- Trajectory: Approaching from behind and the right. The longitudinal distance is decreasing. The lateral distance is also decreasing.
+- TTC: Longitudinal TTC at 3.8s = |-9.14m / 0.84 m/s| ≈ 10.9s. Lateral TTC at 3.8s = |-13.20m / 7.38m/s| ≈ 1.8s.
+- MDC: The minimum distance is difficult to precisely calculate without more information on the trajectories, but given the current distances and that both are closing, the minimum distance to collision is likely dominated by the smaller of the two distances, namely the lateral value of -13.20m. 
+- Risk: 4 (Low risk). Although the obstacle is approaching, the TTC values in both directions suggest sufficient time to react.
+
+Obstacle 3395 (Behind):
+
+- Trajectory: Initially approaching from the rear-right, then directly behind. The longitudinal distance rapidly decreases, while the lateral distance converges to zero indicating that the obstacle moves into the lane behind the ego.
+- TTC: Longitudinal TTC at 3.8s = |-0.99m / 4.68 m/s| ≈ 0.21s.  Lateral TTC not applicable as lateral alignment occurs. 
+- MDC: ≈ 0.99m (longitudinal).
+- Risk: 1 (Extreme Risk) due to the very low TTC and decreasing longitudinal MDC, approaching a collision.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3395",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "3395",
+    "OverallRiskScore": "1"
+  }
+}
+```

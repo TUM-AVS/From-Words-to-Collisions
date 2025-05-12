@@ -1,0 +1,49 @@
+### Obstacle-by-Obstacle Analysis:
+
+#### Obstacle 30716:
+- **Position**: Collision (longitudinal 0.00m, lateral 0.00m)
+- **Relative Velocity**: longitudinal 3.95 m/s (approaching), lateral 0.00 m/s
+- **Motion**: Exact longitudinal and lateral alignment (collision occurring)
+- **Trajectory Analysis**: 
+  - From 12.1s to 13.0s, the longitudinal distance decreases from -3.48m to 0.00m with a consistent closing velocity (~3.8-4.0 m/s).
+  - Lateral distance remains 0.00m throughout, indicating perfect alignment in the same lane.
+  - At 13.0s, the obstacle has reached the ego vehicle (distance = 0.00m in both dimensions).
+- **TTC**: 0.00s (collision is occurring)
+- **MDC**: 0.00m (collision is occurring)
+- **Risk Score**: 0 (Collision)
+
+#### Obstacle 30720:
+- **Position**: Behind (longitudinal -17.47m, lateral 0.00m)
+- **Relative Velocity**: longitudinal 3.40 m/s (approaching), lateral 0.01 m/s
+- **Motion**: Driving toward the ego car from behind, exact lateral alignment
+- **Trajectory Analysis**:
+  - From 12.1s to 13.0s, the longitudinal distance decreases from -20.38m to -17.47m with a closing velocity (~3.1-3.4 m/s).
+  - Lateral distance remains 0.00m, indicating same-lane alignment.
+  - The obstacle is still far behind (17.47m) and not an immediate threat.
+- **TTC**: 17.47 / 3.40 ≈ 5.14s (> 5.0s, No Risk)
+- **MDC**: 17.47m (> 5.0m, No Risk)
+- **Risk Score**: 5 (No Risk)
+
+---
+
+### Final Determination:
+- **Collision Scenario**: Yes, because Obstacle 30716 has a risk score of 0 (collision occurring).
+- **Justification**: Obstacle 30716 has reached the ego vehicle (distance = 0.00m in both dimensions) with a closing velocity, confirming a collision. Obstacle 30720 is far behind and poses no immediate risk.
+
+---
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30716",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30716 has collided with the ego vehicle (distance = 0.00m in both dimensions with closing velocity)."
+}
+```

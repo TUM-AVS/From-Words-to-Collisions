@@ -1,0 +1,66 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 5.3s)
+
+#### **Obstacle 3253 (Front-left)**
+- **Adjusted Distance**: Longitudinal 2.88m, Lateral 5.58m  
+- **Relative Velocity**: Longitudinal -0.03 m/s (approaching), Lateral -0.00 m/s  
+- **Motion**: Slowly approaching longitudinally, no lateral motion.  
+- **TTC**: Longitudinal = 2.88 / 0.03 ≈ 96s (No Risk). Lateral N/A (no motion).  
+- **MDC**: Lateral distance (5.58m) > 5.0m → **No Risk (5)**.  
+
+#### **Obstacle 3255 (Front-left)**
+- **Adjusted Distance**: Longitudinal 4.02m, Lateral 23.78m  
+- **Relative Velocity**: Longitudinal -0.03 m/s (approaching), Lateral -0.00 m/s  
+- **Motion**: Slowly approaching longitudinally, no lateral motion.  
+- **TTC**: Longitudinal = 4.02 / 0.03 ≈ 134s (No Risk).  
+- **MDC**: Lateral distance (23.78m) → **No Risk (5)**.  
+
+#### **Obstacle 3256 (Front-left)**
+- **Adjusted Distance**: Longitudinal 15.23m, Lateral 8.51m  
+- **Relative Velocity**: Longitudinal -0.43 m/s (approaching), Lateral -0.00 m/s  
+- **Motion**: Slowly approaching longitudinally, negligible lateral motion.  
+- **TTC**: Longitudinal = 15.23 / 0.43 ≈ 35.4s (No Risk).  
+- **MDC**: Lateral distance (8.51m) → **No Risk (5)**.  
+
+#### **Obstacle 3261 (Behind → Collision)**
+- **Adjusted Distance**: Longitudinal 0.00m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 4.53 m/s (closing rapidly), Lateral -0.80 m/s  
+- **Motion**: **Exact alignment in both dimensions** (longitudinal and lateral = 0.00m).  
+- **Collision Confirmation**:  
+  - At 5.2s: Longitudinal distance was -0.42m (behind), now 0.00m at 5.3s.  
+  - Lateral distance was 0.00m (aligned) at all timesteps.  
+  - **Collision occurring now (Risk 0)**.  
+
+#### **Obstacle 3263 (Front-right)**
+- **Adjusted Distance**: Longitudinal 3.61m, Lateral -12.57m  
+- **Relative Velocity**: Longitudinal -0.03 m/s (approaching), Lateral 0.00 m/s  
+- **Motion**: Slowly approaching longitudinally, no lateral motion.  
+- **TTC**: Longitudinal = 3.61 / 0.03 ≈ 120s (No Risk).  
+- **MDC**: Lateral distance (12.57m) → **No Risk (5)**.  
+
+#### **Obstacle 3265 (Right)**
+- **Adjusted Distance**: Longitudinal 0.00m, Lateral -20.74m  
+- **Relative Velocity**: Longitudinal -0.21 m/s, Lateral -10.54 m/s (moving away rapidly).  
+- **Motion**: Exact longitudinal alignment but moving away laterally.  
+- **TTC**: N/A (diverging paths).  
+- **MDC**: Lateral distance increasing → **No Risk (5)**.  
+
+---
+
+### **Collision Scenario Determination**
+- **Obstacle 3261** has **0.00m distance in both dimensions** at 5.3s, confirming a collision.  
+- All other obstacles pose no immediate risk (scores 4 or 5).  
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "3261",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": null,
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 3261 has 0.00m longitudinal and lateral distance at 5.3s, confirming a collision. All other obstacles are at safe distances."
+}
+```

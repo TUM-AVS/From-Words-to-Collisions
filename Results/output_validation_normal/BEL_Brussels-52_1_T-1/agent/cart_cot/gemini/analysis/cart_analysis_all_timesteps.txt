@@ -1,0 +1,20 @@
+At t=0.9s, the ego vehicle is at (-463.2956, 254.5633) with a velocity of 4.9633 and acceleration of 0.6636. Let's analyze each obstacle individually:
+
+* **Obstacle 30230:** Position (-450.8974, 247.1569), velocity 7.3884, acceleration -0.0351. This obstacle is in a different lanelet (1321) than the ego vehicle (122), and their y-coordinates differ significantly. While the x-coordinates are approaching, the difference in y and differing lanelet suggest a low risk of collision.  We assign a risk score of 4 (Low Risk).
+
+* **Obstacle 30235:** Position (-476.8846, 262.8074), velocity 7.0127, acceleration -2.6042. This obstacle is in the same lanelet (122) as the ego vehicle. The x-coordinate difference is decreasing, and the y-coordinate indicates a concerning lateral proximity.  The deceleration of this obstacle is also significant but not enough to eliminate the risk. Due to same lanelet, decreasing x distance and lateral proximity, this obstacle presents a risk. We assign a risk score of 2 (High Risk) due to the significant and decreasing distance between the vehicles in a very short prediction horizon.
+
+* **Obstacle 30237:** Position (-488.1837, 269.6551), velocity 6.3161, acceleration -1.9201. This obstacle is also in the same lanelet as the ego vehicle (122).  Although further behind than Obstacle 30235, it's still relatively close laterally and longitudinally. The deceleration is notable. Given the current configuration and predicted short-term movement of both vehicles, this is a lower risk than Obstacle 30235 but still requires attention. We assign a risk score of 3 (Medium Risk) due to the potential for closing distances and lateral proximity, albeit with deceleration considered.
+
+
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": {
+    "ObstacleID": "30235",
+    "OverallRiskScore": 2
+  }
+}
+```

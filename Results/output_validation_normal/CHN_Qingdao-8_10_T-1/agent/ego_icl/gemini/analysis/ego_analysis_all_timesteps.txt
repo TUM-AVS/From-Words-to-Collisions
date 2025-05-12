@@ -1,0 +1,45 @@
+* **Obstacle 30618:** This obstacle is moving away longitudinally from the ego vehicle and there is no risk of collision in the longitudinal direction.  Laterally, it is at 1.90m at the last timestep and moving very slowly towards the ego vehicle (-0.00 m/s). Given the lateral distance and minimal lateral velocity, the risk of collision is low.  
+    * _MDC (Lateral):_ 1.90m 
+    * _TTC (Lateral):_ Not applicable due to near-zero velocity
+    * _Risk Score:_ 4 (Low Risk)
+
+* **Obstacle 30619:**  This obstacle is approaching the ego vehicle both longitudinally and laterally. At the last timestep, it's 2.24m longitudinally and 2.13m laterally, with concerning closing velocities. The small distances and the fast-approaching nature necessitate immediate action.
+    * _MDC:_ ≈ 2.13m (using the smaller lateral distance as a conservative estimate since it's diagonally approaching)
+    * _TTC (Longitudinal):_ 2.24m / 12.95 m/s ≈ 0.17s
+    * _TTC (Lateral):_ 2.13m / 0.84 m/s ≈ 2.54s
+    * _Risk Score:_ 1 (Extreme Risk - due to very low TTC longitudinally)
+
+* **Obstacle 30620:**  This obstacle is approaching diagonally but is relatively far. At the last timestep, it is 10.65m longitudinally and 18.00m laterally.  The closing velocities are moderate.
+    * _MDC:_ ≈ 10.65m
+    * _TTC (Longitudinal):_ 10.65m / 3.83 m/s ≈ 2.78s
+    * _TTC (Lateral):_ 18.00m / 3.66 m/s ≈ 4.92s
+    * _Risk Score:_ 3 (Medium Risk)
+
+* **Obstacle 30623:** This obstacle is in front of the ego vehicle and slightly to the right. It is longitudinally approaching (10.05m) while laterally moving away (-4.17m). The risk is primarily longitudinal.
+    * _MDC:_ ≈ 10.05m
+    * _TTC (Longitudinal):_ 10.05m / 2.45 m/s ≈ 4.1s
+    * _TTC (Lateral):_ Not applicable (moving away laterally)
+    * _Risk Score:_ 4 (Low Risk)
+
+* **Obstacle 30639:** This obstacle is diagonally approaching and moderately far, at 10.59m longitudinally and 6.80m laterally in the most recent timestep.  The closing velocities are moderate.
+    * _MDC:_ ≈ 6.80m
+    * _TTC (Longitudinal):_ 10.59m / 3.83 m/s ≈ 2.77s
+    * _TTC (Lateral):_ 6.80m / 3.86 m/s ≈ 1.76s
+    * _Risk Score:_ 3 (Medium Risk)
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30619",
+    "OverallRiskScore": "1"
+  },
+    "HighRiskObstacle": {},
+  "MediumRiskObstacle": {
+    "ObstacleID": "30620",
+    "OverallRiskScore": "3"
+  }
+
+}
+```

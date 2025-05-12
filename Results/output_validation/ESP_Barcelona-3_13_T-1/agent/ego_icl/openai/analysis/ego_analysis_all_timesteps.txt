@@ -1,0 +1,76 @@
+**Obstacle-by-Obstacle Analysis:**
+
+1. **Obstacle 30750:**
+   - **Position and Trajectory:** Predominantly front-right of ego car; moving slightly toward it longitudinally. The most recent position is longitudinally 17.11 m and laterally -1.90 m.
+   - **Velocity:** Approaching longitudinally at 0.87 m/s with no lateral movement.
+   - **TTC (Longitudinal):** 17.11 m / 0.87 m/s = 19.66 seconds.
+   - **MDC (Longitudinal):** 17.11 m (since lateral movement is negligible).
+   - **Risk Assessment:** Low risk based on very high TTC. No immediate collision threat present due to slow closing rate.
+
+2. **Obstacle 30754:**
+   - **Position and Trajectory:** Directly ahead of the ego car; approaching longitudinally with same-lane alignment.
+   - **Velocity:** Approaching at 0.87 m/s longitudinally with exact lateral alignment.
+   - **TTC (Longitudinal):** 17.13 m / 0.87 m/s = 19.69 seconds.
+   - **MDC (Longitudinal):** 17.13 m (since lateral movement is not applicable).
+   - **Risk Assessment:** Low risk as time until potential collision is notably long, and the velocity is not conducive to a short-term collision.
+
+3. **Obstacle 30755:**
+   - **Position and Trajectory:** Positioned in front-left; moving away longitudinally and laterally.
+   - **Velocity:** Moving away at 0.75 m/s longitudinally.
+   - **TTC & MDC:** Not applicable as the obstacle is moving away.
+   - **Risk Assessment:** Negligible risk given the obstacle's trajectory leading further away from the ego car.
+
+4. **Obstacle 30757:**
+   - **Position and Trajectory:** Situated in the front-left; moving toward the ego car longitudinally.
+   - **Velocity:** Closing mainly at 0.87 m/s.
+   - **TTC (Longitudinal):** 17.18 m / 0.87 m/s = 19.75 seconds.
+   - **MDC:** 17.18 m due to consistent closing action in the long axis.
+   - **Risk Assessment:** Low risk because of long TTC and moderate closing velocity not signifying imminent danger.
+
+5. **Obstacle 30762:**
+   - **Position and Trajectory:** On the left and behind; largely moving laterally toward the ego car.
+   - **Velocity:** 3.89 m/s longitudinally toward ego car.
+   - **TTC (Lateral):** 1.89 m / 3.89 m/s = 0.49 seconds.
+   - **MDC (Lateral)**: Calculated at 1.89 m as it indicates convergence but not imminently zero.
+   - **Risk Assessment:** Medium Risk owing to the tight lateral proximity, though longitudinal distance offsets immediate collision concern.
+
+6. **Obstacle 30763:**
+   - **Position and Trajectory:** Situated front-right but moving laterally toward the ego car.
+   - **Velocity:** Approaching at 2.11 m/s longitudinally and laterally converging.
+   - **TTC (Lateral):** 1.89 m / 2.11 m/s = 0.90 seconds.
+   - **MDC (Lateral):** 1.89 m indicating closing but not immediately critical.
+   - **Risk Assessment:** High risk because of the relatively small window until potential lateral collision.
+
+7. **Obstacle 30764:**
+   - **Position and Trajectory:** Directly behind; moving fast toward the ego car.
+   - **Velocity:** Closing at 5.69 m/s longitudinally.
+   - **MDC (Longitudinal):** -0.98 m, indicates rapidly converging trajectory.
+   - **TTC (Longitudinal):** approximately 0.17 seconds (using absolute distance for TTC calculation).
+   - **Risk Assessment:** Extreme Risk due to high relative velocity and very short TTC.
+
+8. **Obstacle 30766:**
+   - **Position and Trajectory:** Positioned laterally left; motion suggests moving away.
+   - **Velocity and Motion:** Moving away longitudinally, but close laterally (1.93 m).
+   - **MDC & TTC:** Not relevant as motion diverges.
+   - **Risk Assessment:** Negligible Risk as trajectory leads away from potential collision zone.
+
+**Summary:**
+
+Overall, based on adjusted distances and calculated TTC, the immediate collision or extreme risk obstacle concern predominantly lies with Obstacle 30764 due to its trajectory from behind with large closing speed and nearly zero proximity. Its relative speed and short TTC render it the most substantial immediate threat.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "30764",
+    "OverallRiskScore": "1"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30763",
+    "OverallRiskScore": "2"
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": "30762",
+    "OverallRiskScore": "3"
+  }  
+}
+```

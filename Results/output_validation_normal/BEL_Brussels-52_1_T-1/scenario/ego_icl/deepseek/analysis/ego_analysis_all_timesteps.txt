@@ -1,0 +1,68 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9 seconds)
+
+#### **Obstacle 30230 (Front)**
+- **Adjusted Distance**: Longitudinal 9.93m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 2.42 m/s (moving away), Lateral 0.15 m/s (small lateral drift)  
+- **Motion**: Moving away longitudinally with slight lateral drift.  
+- **TTC**:  
+  - Longitudinal: Not applicable (moving away).  
+  - Lateral: 0.00m / 0.15 m/s = 0.00s (but lateral drift is minimal and not converging).  
+- **MDC**:  
+  - Lateral distance is 0.00m (aligned), but longitudinal distance is increasing.  
+  - No collision path.  
+- **Risk**: **5 (No Risk)** – No convergence in either dimension.  
+
+---
+
+#### **Obstacle 30235 (Behind)**
+- **Adjusted Distance**: Longitudinal -11.39m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 2.05 m/s (approaching from behind), Lateral 0.02 m/s (negligible).  
+- **Motion**: Approaching from behind but decelerating (relative acceleration = -2.79 m/s²).  
+- **TTC**:  
+  - Longitudinal: 11.39m / 2.05 m/s = **5.56s** (but decelerating).  
+  - Lateral: Not applicable (stable).  
+- **MDC**:  
+  - Lateral alignment (0.00m), but longitudinal distance is closing slowly.  
+- **Risk**: **4 (Low Risk)** – TTC > 5s, decelerating, no immediate threat.  
+
+---
+
+#### **Obstacle 30237 (Behind)**
+- **Adjusted Distance**: Longitudinal -24.60m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 1.35 m/s (approaching slowly), Lateral 0.02 m/s (negligible).  
+- **Motion**: Approaching from behind but decelerating (relative acceleration = -2.21 m/s²).  
+- **TTC**:  
+  - Longitudinal: 24.60m / 1.35 m/s = **18.22s** (very slow approach).  
+  - Lateral: Not applicable (stable).  
+- **MDC**:  
+  - Lateral alignment (0.00m), but longitudinal distance is large and closing very slowly.  
+- **Risk**: **5 (No Risk)** – TTC extremely high, decelerating.  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 30230**: Moving away longitudinally with slight lateral drift. No collision risk.  
+- **Obstacle 30235**: Approaching from behind but decelerating. Risk is low due to high TTC and deceleration.  
+- **Obstacle 30237**: Very slow approach from far behind. No risk.  
+
+### Final Determination
+- **No obstacles** are at **Collision (0)** or **Extreme Risk (1)**.  
+- The closest risk is **Low Risk (4)** from Obstacle 30235, but it is decelerating and not an immediate threat.  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacles have a risk score of 0 or 1. The highest risk is Low Risk (4) from Obstacle 30235, which is decelerating and has a TTC > 5s."
+}
+```

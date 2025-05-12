@@ -1,0 +1,70 @@
+### Obstacle-by-Obstacle Analysis
+
+**Obstacle 30753:**
+
+- **Trajectory Across Timesteps**: 
+  - Consistent rapid approach from the right side, with a significant lateral distance decreasing over time.
+  - Longitudinally aligned with the ego vehicle by the latest timestep, moving laterally towards it.
+
+- **MOST RECENT TIMESTEP (9.6 seconds):**
+  - Adjusted Longitudinal Distance: 0.00 m (exact lateral alignment)
+  - Adjusted Lateral Distance: -24.41 m
+  - Relative Velocity (Longitudinal): -17.89 m/s (moving apart, thus not closing longitudinally)
+  - Relative Velocity (Lateral): +2.71 m/s (approaching laterally)
+  
+- **Calculations:**
+  - **Time-to-Collision (Lateral)**: 
+    - Distance = 24.41 m, Relative Velocity = 2.71 m/s
+    - TTC = 24.41 / 2.71 = 9.00 seconds
+
+  - **Minimum Distance to Collision (MDC)**:
+    - With velocity and current positions, MDC evaluation shows side-by-side position but not near-collision laterally.
+
+- **Risk Assessment**:
+  - Focus on lateral movement, the obstacle does not pose a near-term collision risk but has prospective impact potential.
+  - Risk Level: 5 (Negligible Risk)
+
+**Obstacle 30762:**
+
+- **Trajectory Across Timesteps**:
+  - Positioned in the rear-right consistently moving further away longitudinally and laterally.
+
+- **MOST RECENT TIMESTEP (9.6 seconds):**
+  - Adjusted Longitudinal Distance: -8.77 m
+  - Adjusted Lateral Distance: -25.14 m
+  - Relative Velocity (Longitudinal): -3.37 m/s (moving further away longitudinally)
+  - Relative Velocity (Lateral): -2.55 m/s (moving further away laterally)
+
+- **Calculations:**
+  - **Time-to-Collision (Longitudinal and Lateral)**:
+    - Both distances increasing, negative velocity indicating separation, no impending collision found.
+
+  - **Minimum Distance to Collision (MDC)**:
+    - With both distances increasing, no Minimum Distance indicates collision.
+
+- **Risk Assessment**:
+  - Moving away in both dimensions with increasing separation.
+  - Risk Level: 5 (No Risk)
+
+### JSON Summary
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "5"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "5"
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "5"
+  }  
+}
+```
+
+Explanation:
+
+Both obstacles analyzed present no significant immediate collision threat given their trajectories and relative movements. Obstacle 30753, while aligned longitudinally, remains laterally distant, and Obstacle 30762 is moving away in both directions. Both assessed risks are negligible or no-risk based on TTC and MDC evaluations.

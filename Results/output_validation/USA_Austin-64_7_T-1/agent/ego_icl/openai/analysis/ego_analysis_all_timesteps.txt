@@ -1,0 +1,101 @@
+**Risk Analysis for Each Obstacle at 4.1 seconds:**
+
+### Obstacle 3332
+- **Position:** Front-right
+- **Adjusted Longitudinal Distance:** 19.69m
+- **Adjusted Lateral Distance:** -8.82m
+- **Relative Velocity:** Longitudinal -3.36 m/s, Lateral 0.00 m/s
+- **Trajectory & Motion:** Driving toward the ego car longitudinally, no lateral motion.
+
+**TTC and MDC Calculations:**
+- Longitudinal TTC = 19.69m / |3.36 m/s| = 5.86s
+- Lateral velocity is zero, MDC based on longitudinal trajectory
+- **Risk Assessment**: Low Risk (TTC indicates no immediate threat, and distance is safe). Score: 4
+
+### Obstacle 3334
+- **Position:** Front-left
+- **Adjusted Longitudinal Distance:** 10.41m
+- **Adjusted Lateral Distance:** 1.90m
+- **Relative Velocity:** Longitudinal -3.36 m/s, Lateral 0.00 m/s
+- **Trajectory & Motion:** Driving toward the ego car longitudinally, no lateral motion.
+
+**TTC and MDC Calculations:**
+- Longitudinal TTC = 10.41m / |3.36 m/s| = 3.10s
+- **Risk Assessment**: Medium Risk (TTC is just above threshold for medium risk). Score: 3
+
+### Obstacle 3335
+- **Position:** Front
+- **Adjusted Longitudinal Distance:** 10.42m
+- **Adjusted Lateral Distance:** 0.00m
+- **Relative Velocity:** Longitudinal -3.36 m/s, Lateral 0.00 m/s
+- **Trajectory & Motion:** Exact lateral alignment, driving toward ego car.
+
+**TTC and MDC Calculations:**
+- Longitudinal TTC = 10.42m / |3.36 m/s| = 3.10s
+- **Risk Assessment**: Medium Risk. Score: 3
+
+### Obstacle 3336
+- **Position:** Front-right
+- **Adjusted Longitudinal Distance:** 23.19m
+- **Adjusted Lateral Distance:** -8.94m
+- **Relative Velocity:** Longitudinal -3.36 m/s, Lateral 0.00 m/s
+- **Trajectory & Motion:** Driving toward the ego car longitudinally, no lateral motion.
+
+**TTC and MDC Calculations:**
+- Longitudinal TTC = 23.19m / |3.36 m/s| = 6.90s
+- **Risk Assessment**: Negligible Risk (Long distance with safe TTC). Score: 5
+
+### Obstacle 3337
+- **Position:** Front-left
+- **Adjusted Longitudinal Distance:** 0.79m
+- **Adjusted Lateral Distance:** 1.89m
+- **Relative Velocity:** Longitudinal -1.50 m/s, Lateral 0.00 m/s
+- **Trajectory & Motion:** Driving toward longitudinally, moving laterally away.
+
+**TTC and MDC Calculations:**
+- Longitudinal TTC = 0.79m / |1.50 m/s| = 0.53s
+- Given close proximity, check trajectory alignment.
+- **Risk Assessment**: High Risk due to low longitudinal proximity and impending intersection. Score: 2
+
+### Obstacle 3338
+- **Position:** Front
+- **Adjusted Longitudinal Distance:** 0.48m
+- **Adjusted Lateral Distance:** 0.00m
+- **Relative Velocity:** Longitudinal -1.24 m/s, Lateral 0.00 m/s
+- **Trajectory & Motion:** Exact alignment, driving toward the ego car.
+
+**TTC and MDC Calculations:**
+- Longitudinal TTC = 0.48m / |1.24 m/s| = 0.39s
+- **Risk Assessment**: Extreme Risk as TTC is extremely low and distance shows potential for immediate collision. Score: 1
+
+### Obstacle 3340
+- **Position:** Rear-left
+- **Adjusted Longitudinal Distance:** -2.02m
+- **Adjusted Lateral Distance:** 1.87m
+- **Relative Velocity:** Longitudinal 0.23 m/s, Lateral 0.01 m/s
+- **Trajectory & Motion:** Moving away longitudinally and laterally.
+
+**TTC and MDC Calculations:**
+- Longitudinal and lateral TTC are not applicable as the obstacle is moving away.
+- **Risk Assessment**: Negligible Risk. Score: 5
+
+### JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "3338",
+    "OverallRiskScore": "1"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3338",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": "3337",
+    "OverallRiskScore": "2"
+  }  
+}
+```
+
+**Explanation:** Obstacle 3338 is extremely close, indicating imminent collision with a low TTC. Obstacle 3337 is potentially high risk given its low proximity and trajectory. All other obstacles pose no immediate threat.

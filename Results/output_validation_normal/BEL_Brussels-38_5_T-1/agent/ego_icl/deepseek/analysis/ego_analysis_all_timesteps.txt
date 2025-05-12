@@ -1,0 +1,45 @@
+### Obstacle Analysis: 30221
+
+#### Trajectory Analysis:
+- **Initial Position (0.1s):** Behind ego, longitudinal distance: -6.98m, lateral distance: 0.00m, moving away longitudinally (relative velocity: -2.50 m/s).
+- **Mid Position (0.5s):** Behind ego, longitudinal distance: -7.67m, lateral distance: 0.00m, moving away longitudinally (relative velocity: -0.02 m/s).
+- **Final Position (0.9s):** Behind ego, longitudinal distance: -7.62m, lateral distance: 0.00m, moving toward ego longitudinally (relative velocity: 0.51 m/s).
+
+#### Key Observations:
+1. **Longitudinal Distance:** Adjusted distance is -7.62m (behind ego). The obstacle is moving toward the ego at 0.51 m/s.
+2. **Lateral Distance:** 0.00m (exact alignment, same lane).
+3. **Relative Velocity:** Longitudinal: 0.51 m/s (approaching), Lateral: 0.15 m/s (minimal lateral movement).
+4. **Acceleration:** Longitudinal: 0.83 m/s² (increasing approach speed), Lateral: 1.81 m/s² (minimal impact).
+
+#### Risk Assessment:
+1. **Time-to-Collision (TTC):**
+   - TTC = Distance / Relative Velocity = 7.62 / 0.51 ≈ 14.94 seconds (very high, no immediate risk).
+   - Since TTC > 5.0s, this indicates **Negligible Risk (5)**.
+
+2. **Minimum Distance to Collision (MDC):**
+   - The obstacle is longitudinally aligned (lateral distance = 0.00m), so MDC is the longitudinal distance: 7.62m.
+   - Since MDC > 5.0m, this indicates **Negligible Risk (5)**.
+
+3. **Motion Description:** The obstacle is moving toward the ego but at a very slow rate (0.51 m/s) and from a significant distance (7.62m). The lateral movement is negligible (0.15 m/s).
+
+#### Overall Risk:
+- Both TTC and MDC indicate **Negligible Risk (5)**.
+- No collision or extreme risk is present.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```

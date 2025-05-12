@@ -1,0 +1,38 @@
+Obstacle 30785:
+
+* Trajectory Analysis: This obstacle starts in front of the ego vehicle with exact lateral alignment and a gradually increasing longitudinal distance. Over the timesteps, it moves further away longitudinally and also begins to move to the right laterally.  The trajectory suggests the obstacle is likely changing lanes or making a turn.
+
+* TTC Calculation: Since the relative longitudinal velocity is positive (moving away), TTC is not applicable for collision risk assessment.
+
+* MDC Calculation: Given the diverging trajectory and increasing distances in both dimensions, the MDC is increasing over time. At the last timestep, the longitudinal distance is 22.39m and the lateral distance is -1.33m. The MDC is therefore greater than 5m.
+
+* Risk Assessment:  Based on the increasing distances and diverging trajectory, the risk is negligible.  Risk Score: 5
+
+
+Obstacle 30786:
+
+* Trajectory Analysis: This obstacle remains directly in front of the ego vehicle (lateral distance 0.00m) throughout all timesteps.  The longitudinal distance consistently decreases, indicating a closing trajectory.
+
+* TTC Calculation: At the last timestep, the longitudinal distance is 0.83m and the relative velocity is -4.41 m/s. TTC = 0.83m / 4.41m/s = 0.19s.
+
+* MDC Calculation: Given the exact lateral alignment and rapidly decreasing longitudinal distance, the MDC at the last timestep is 0.83m.
+
+* Risk Assessment: Both TTC (0.19s) and MDC (0.83m) indicate extreme risk. Risk Score: 1, bordering on 0 (Collision) in the next few timesteps.
+
+
+Overall Assessment: Obstacle 30786 poses an extreme risk of collision in the immediate future.
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30786",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "30786",
+    "OverallRiskScore": "1"
+  }
+}
+```

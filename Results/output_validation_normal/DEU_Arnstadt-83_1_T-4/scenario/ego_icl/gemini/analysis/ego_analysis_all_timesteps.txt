@@ -1,0 +1,36 @@
+Obstacle-by-Obstacle Analysis at t=0.9s:
+
+**Obstacle 20036:**
+
+* **Trajectory Analysis:** This obstacle was initially to the left of the ego vehicle and longitudinally aligned (lateral distance ~1.88m, longitudinal distance 0.00m). Over the timesteps, it moves further behind the ego vehicle longitudinally while slightly increasing its lateral distance. The motion description confirms it is moving away from the ego vehicle both longitudinally and laterally.
+
+* **TTC Calculation:** Since the obstacle is moving away in both directions, TTC is not applicable for collision risk assessment.
+
+* **MDC Calculation:**  At t=0.9s, the longitudinal distance is -14.66m, and the lateral distance is 2.40m. The minimum distance is 2.40m.
+
+* **Risk Assessment:** Based on the MDC of 2.40m and diverging trajectory, the risk level is 4 (Low Risk).
+
+**Obstacle 20055:**
+
+* **Trajectory Analysis:** This obstacle remains directly in front of the ego vehicle (lateral distance 0.00m) throughout all timesteps.  While the longitudinal distance initially appears to be decreasing slightly (from 16.54m to 16.60m between 0.1s and 0.2s), the subsequent timesteps show a clear trend of *increasing* longitudinal distance. The motion description confirms that it is moving away longitudinally.
+
+* **TTC Calculation:** Although the initial relative longitudinal velocity is positive (0.70 m/s), it quickly becomes more positive indicating the increasing separation.  Hence, TTC is not applicable.
+
+* **MDC Calculation:** At t=0.9s, the longitudinal distance is 17.45m and lateral distance is 0.00m.  MDC is 17.45m.
+
+* **Risk Assessment:** Given the increasing distance and the motion description confirming the obstacle is moving away, the risk level is 5 (No Risk).
+
+**Collision Scenario Determination:**
+
+Since neither obstacle has a risk score of 0 or 1, this is NOT a collision scenario.  Both obstacles are moving away from the ego vehicle.
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 or 1. Both obstacles are moving away from the ego vehicle at the most recent timestep (t=0.9s)."
+}
+```

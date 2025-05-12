@@ -1,0 +1,68 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 4.0 seconds)
+
+#### **Obstacle 3391 (Left of ego)**
+- **Adjusted Distance**: Longitudinal 0.00m, Lateral 14.76m  
+- **Relative Velocity**: Longitudinal -0.82 m/s (moving away), Lateral 0.00 m/s (no motion)  
+- **Motion**: Exact longitudinal alignment, no lateral motion.  
+
+**Risk Assessment**:  
+- **MDC**: Lateral distance is 14.76m (No Risk, MDC > 5.0m).  
+- **TTC**: Not applicable (lateral velocity = 0, longitudinal velocity is negative = moving away).  
+- **Overall Risk**: **5 (No Risk)**.  
+
+**Justification**: The obstacle is stationary relative to the ego laterally and moving away longitudinally. No collision risk.
+
+---
+
+#### **Obstacle 3393 (Rear-Right of ego)**
+- **Adjusted Distance**: Longitudinal -8.99m, Lateral -11.73m  
+- **Relative Velocity**: Longitudinal 0.76 m/s (approaching), Lateral 7.44 m/s (approaching).  
+- **Motion**: Approaching from behind and laterally from the right.  
+
+**Risk Assessment**:  
+- **MDC**: Diagonal distance = √(8.99² + 11.73²) ≈ 14.78m (No Risk, MDC > 5.0m).  
+- **TTC Longitudinal**: 8.99 / 0.76 ≈ 11.83s (No Risk, TTC > 5.0s).  
+- **TTC Lateral**: 11.73 / 7.44 ≈ 1.58s (Medium Risk, TTC < 3.0s).  
+- **Overall Risk**: **3 (Medium Risk)**.  
+
+**Justification**: The obstacle is closing in laterally but is still far away longitudinally. Medium risk due to lateral approach.
+
+---
+
+#### **Obstacle 3395 (Behind of ego)**
+- **Adjusted Distance**: Longitudinal -0.01m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 5.20 m/s (approaching rapidly), Lateral 2.23 m/s (approaching but now aligned).  
+- **Motion**: Approaching from behind with exact lateral alignment.  
+
+**Risk Assessment**:  
+- **MDC**: Longitudinal distance ≈ 0.01m (Extreme Risk, MDC < 0.5m).  
+- **TTC Longitudinal**: 0.01 / 5.20 ≈ 0.002s (Collision Risk, TTC ≈ 0s).  
+- **TTC Lateral**: Not applicable (lateral distance = 0m, but no lateral motion).  
+- **Overall Risk**: **0 (Collision Risk)**.  
+
+**Justification**: The obstacle is effectively at 0m longitudinal distance with a high closing velocity, indicating an imminent or occurring collision.
+
+---
+
+### Trajectory Analysis
+- **Obstacle 3395**: Shows a clear trend of rapid longitudinal closure (from -2.47m at 3.5s to -0.01m at 4.0s). The lateral distance stabilizes at 0.00m, indicating exact alignment.  
+- **Obstacle 3393**: Gradually closing but still at a safe distance.  
+- **Obstacle 3391**: No significant motion relative to ego.  
+
+### Final Determination
+This is a **collision scenario** because Obstacle 3395 has an **Overall Risk Score of 0** (Collision Risk) due to near-zero longitudinal distance and high closing velocity.
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "3395",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": null,
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 3395 has effectively 0m longitudinal distance with high closing velocity (5.20 m/s), indicating an occurring or imminent collision."
+}
+```

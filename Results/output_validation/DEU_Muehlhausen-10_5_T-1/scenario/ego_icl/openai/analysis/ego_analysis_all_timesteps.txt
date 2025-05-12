@@ -1,0 +1,103 @@
+## Obstacle-by-Obstacle Analysis
+
+### Obstacle 311 (Front-Right)
+1. **Adjusted Distances (Most Recent Timestep at 1.2s):**
+   - Longitudinal: 16.23 m
+   - Lateral: -3.22 m
+
+2. **Velocities:**
+   - Longitudinal: 2.31 m/s (away)
+   - Lateral: -8.88 m/s (moving away to the right)
+
+3. **Trajectory Analysis:**
+   - Moving laterally away from the ego vehicle.
+   - The longitudinal distance is increasing, with the obstacle moving further right over time.
+
+4. **TTC and MDC:**
+   - TTC for longitudinal is not applicable due to both increased distance and moving away velocity.
+   - MDC calculation shows the obstacle is moving away both longitudinally and laterally.
+
+5. **Risk Assessment:**
+   - Longitudinal and lateral moving away, effectively lowering risk.
+   - Assigned Risk Score: 5 (No Risk)
+
+### Obstacle 315 (Collision)
+1. **Adjusted Distances (Most Recent Timestep at 1.2s):**
+   - Longitudinal: 0.00 m
+   - Lateral: 0.00 m
+
+2. **Velocities:**
+   - Longitudinal: 4.07 m/s (approaching)
+
+3. **Trajectory Analysis:**
+   - Approaching the ego car directly from behind.
+   - Exact alignment in both dimensions (longitudinal and lateral), indicating either a collision or nearly at collision point.
+
+4. **TTC and MDC:**
+   - Immediate collision is occurring.
+   - TTC is effectively zero due to zero distance.
+
+5. **Risk Assessment:**
+   - Both dimensions at zero distance with the vehicle aligning directly indicate collision.
+   - Assigned Risk Score: 0 (Collision)
+
+### Obstacle 324 (Front-Right)
+1. **Adjusted Distances (Most Recent Timestep at 1.2s):**
+   - Longitudinal: 21.44 m
+   - Lateral: -4.37 m
+
+2. **Velocities:**
+   - Longitudinal: -5.74 m/s (approaching)
+   - Lateral: 0.38 m/s (slight movement to left)
+
+3. **Trajectory Analysis:**
+   - The longitudinal distance is closing as the obstacle approaches the ego car.
+   - Slight lateral movement towards the ego car but the distance is quite large.
+
+4. **TTC and MDC:**
+   - TTC calculation shows significant time remains due to the large distance: approximately 3.74s longitudinally.
+   - MDC remains above 5.0 meters, indicating paths will unlikely intersect soon.
+
+5. **Risk Assessment:**
+   - Although approaching, the current distances and relative velocities do not indicate immediate threat.
+   - Assigned Risk Score: 4 (Low Risk)
+
+### Obstacle 331 (Behind)
+1. **Adjusted Distances (Most Recent Timestep at 1.2s):**
+   - Longitudinal: -19.20 m (behind)
+   - Lateral: 0.00 m
+
+2. **Velocities:**
+   - Longitudinal: 2.01 m/s (approaching)
+
+3. **Trajectory Analysis:**
+   - Moving toward the ego vehicle, but from a significant distance.
+   - Consistent alignment with approaching velocity but relatively longer distance suggests lower immediate risk despite closing in.
+
+4. **TTC and MDC:**
+   - TTC for longitudinal component is approximately 9.55s.
+   - MDC remains greater than 5.0 meters due to longer-distance projection needed for close alignment.
+
+5. **Risk Assessment:**
+   - Current closing speed suggests future monitoring but does not indicate imminent collision.
+   - Assigned Risk Score: 5 (No Risk)
+
+## Conclusion: Collision Scenario
+
+- **Identified Collision:** Obstacle 315 is in a collision state by being directly aligned in both dimensions with the ego car, indicating an immediate collision scenario.
+
+- **Overall Scenario Evaluation:** Given that Obstacle 315 is conclusively in contact with the ego car, this scenario is definitively identified as a collision scenario.
+
+### JSON Summary:
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "315",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": null,
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 315 is in direct collision with the ego vehicle; distances in all relevant dimensions are zero or align to indicate immediate physical contact."
+}
+```

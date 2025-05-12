@@ -1,0 +1,85 @@
+Let me analyze each obstacle at the most recent timestep (2.2 seconds) with trajectory context:
+
+1. Obstacle 31 (Front-left):
+   - Adjusted distances: long=12.61m, lat=15.00m
+   - Velocities: long=-2.13m/s (approaching), lat=-1.82m/s (approaching)
+   - TTC_long = 12.61/2.13 = 5.92s
+   - TTC_lat = 15.00/1.82 = 8.24s
+   - MDC: Both distances large (>5m)
+   - Risk: 5 (No Risk) - Diverging laterally over time
+
+2. Obstacle 35 (Front-right):
+   - Adjusted distances: long=14.77m, lat=-13.63m
+   - Velocities: long=-1.73m/s, lat=1.65m/s
+   - TTC_long = 14.77/1.73 = 8.54s
+   - TTC_lat = 13.63/1.65 = 8.26s
+   - MDC: Both distances large (>5m)
+   - Risk: 5 (No Risk)
+
+3. Obstacle 36 (Front-right):
+   - Adjusted distances: long=12.66m, lat=-13.14m
+   - Velocities: long=-1.68m/s, lat=2.70m/s
+   - TTC_long = 12.66/1.68 = 7.54s
+   - TTC_lat = 13.14/2.70 = 4.87s
+   - MDC: Both distances >5m
+   - Risk: 5 (No Risk)
+
+4. Obstacle 310 (Front):
+   - Adjusted distances: long=14.11m, lat=0.00m
+   - Velocities: long=-1.70m/s, lat=1.36m/s
+   - TTC_long = 14.11/1.70 = 8.30s
+   - MDC: Longitudinal distance >5m
+   - Risk: 5 (No Risk) - Lateral alignment but no convergence
+
+5. Obstacle 315 (Front-right):
+   - Adjusted distances: long=15.04m, lat=-9.67m
+   - Velocities: long=-1.71m/s, lat=1.72m/s
+   - TTC_long = 15.04/1.71 = 8.80s
+   - TTC_lat = 9.67/1.72 = 5.62s
+   - MDC: Both distances >5m
+   - Risk: 5 (No Risk)
+
+6. Obstacle 317 (Behind) - CRITICAL:
+   - Adjusted distances: long=-0.27m, lat=0.00m
+   - Velocities: long=5.06m/s (approaching fast), lat=-0.62m/s
+   - TTC_long = 0.27/5.06 = 0.053s (53ms)
+   - MDC: Longitudinal distance <0.5m with high closing speed
+   - Risk: 1 (Extreme Risk) - Imminent rear collision
+
+7. Obstacle 320 (Rear-left):
+   - Adjusted distances: long=-19.74m, lat=0.48m
+   - Velocities: long=2.72m/s, lat=-0.41m/s
+   - TTC_long = 19.74/2.72 = 7.26s
+   - MDC: Longitudinal distance >5m
+   - Risk: 5 (No Risk)
+
+8. Obstacle 355 (Front-left):
+   - Adjusted distances: long=16.86m, lat=17.57m
+   - Velocities: long=0.28m/s (moving away), lat=9.00m/s (moving away)
+   - Risk: 5 (No Risk) - Diverging in both dimensions
+
+Trajectory Analysis:
+- Obstacle 317 shows dangerous rear approach pattern:
+  - At 1.7s: long=-2.60m
+  - At 1.9s: long=-1.72m
+  - At 2.0s: long=-1.25m
+  - At 2.1s: long=-0.77m
+  - At 2.2s: long=-0.27m
+- Constant high approach speed (~5m/s) with acceleration
+- Now within 0.27m longitudinally (effectively touching)
+
+JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "317",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 317 has reached extreme proximity (0.27m) from behind with high closing speed (5.06m/s) and TTC of 0.053s, indicating imminent rear collision"
+}
+```

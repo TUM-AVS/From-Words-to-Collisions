@@ -1,0 +1,28 @@
+* **Obstacle 3511**: This obstacle is to the right of the ego vehicle, with a longitudinal distance of 0.00m and a lateral distance of -21.16m.  The longitudinal velocity suggests the obstacle and ego vehicle were converging longitudinally in previous timesteps, but are now aligned longitudinally. The negative lateral distance and negligible lateral velocity indicate no immediate lateral risk. The obstacle poses no collision risk. Risk level: 5 - No Risk
+
+* **Obstacle 3512**: This obstacle is in the front-right of the ego vehicle, with a longitudinal distance of 7.87m and lateral distance of -1.17m. The positive longitudinal velocity and increasing longitudinal distance indicate the obstacle is moving away from the ego vehicle longitudinally. The negative lateral distance and negative lateral velocity show the obstacle is moving away laterally as well.  This obstacle poses no collision risk. Risk level: 5 - No Risk
+
+* **Obstacle 3513**: This obstacle is in the front-left, with a longitudinal distance of 17.01m and a lateral distance of 12.35m. Both distances are increasing based on the positive longitudinal and lateral velocities, indicating the obstacle is moving further away. This obstacle poses no collision risk. Risk level: 5 - No Risk
+
+* **Obstacle 3515**: Located to the right of the ego vehicle with a longitudinal distance of 0.00m and a lateral distance of -13.77m.  Similar to Obstacle 3511, longitudinal alignment doesn't indicate a collision, especially given the safe lateral distance. The obstacle poses no collision risk. Risk level: 5 - No Risk
+
+* **Obstacle 3517**: Located behind the ego vehicle. The longitudinal distance is -0.25m and the lateral distance is 0.00m. The positive longitudinal velocity indicates this obstacle is approaching the ego vehicle from behind. The lateral alignment suggests it's in the same lane.  Given the small longitudinal distance and the closing velocity, this represents an extreme risk of a rear-end collision. TTC = 0.25m / 1.57 m/s = 0.16s.  MDC is approximately 0.25m.  Risk level: 1 - Extreme Risk.
+
+* **Obstacle 3520**: Located behind the ego vehicle with a longitudinal distance of -15.51m and a lateral distance of 0.00m. While approaching from behind (positive longitudinal velocity), it is far enough away to not pose an immediate threat. TTC = 15.51m / 1.58m/s = 9.8s, MDC > 5.0m. Risk level: 5 - No Risk.
+
+**Collision Scenario Determination:**
+
+Yes, this is a collision scenario. Obstacle 3517 poses an extreme risk (Risk Level 1) with a very low TTC (0.16s) and a small MDC (0.25m) while approaching the ego vehicle from behind within the same lane.
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3517",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 3517 is rapidly approaching the ego vehicle from behind in the same lane with a TTC of 0.16 seconds and MDC of 0.25 meters, indicating an extreme risk of a rear-end collision."
+}
+```

@@ -1,0 +1,41 @@
+* **Obstacle 30758:**
+
+    * **Trajectory:** This obstacle is consistently in the front-left of the ego vehicle, maintaining a lateral distance of ~9.5m and steadily decreasing its longitudinal distance.
+    * **TTC (Longitudinal):** 19.41m / 5.90m/s ≈ 3.3s
+    * **TTC (Lateral):** Not applicable as the lateral velocity has just turned positive (0.14 m/s) indicating a slight divergence, but the overall lateral distance is large.
+    * **MDC:**  Given its position and trajectory, the MDC would be determined by the lateral distance, which is > 5m. 
+    * **Risk:** Medium Risk (3) due to the longitudinal TTC of ~3.3s.
+
+* **Obstacle 30762:**
+
+    * **Trajectory:** This obstacle remains in the front-left, maintaining a lateral distance of ~2.6m and rapidly decreasing its longitudinal distance.
+    * **TTC (Longitudinal):** 13.60m / 6.03m/s ≈ 2.3s
+    * **TTC (Lateral):** Not applicable as there's no lateral relative motion historically and only minimal now.
+    * **MDC:**  The MDC is primarily determined by the lateral distance of ~2.6m.
+    * **Risk:** Medium Risk (3) based on the longitudinal TTC of ~2.3s and lateral distance.
+
+* **Obstacle 30763:**
+
+    * **Trajectory:** This obstacle is directly behind the ego vehicle (lateral distance ≈ 0m) and is closing the longitudinal distance. The velocity history shows a steady increase in closing speed, suggesting continued approach.
+    * **TTC (Longitudinal):** 11.15m / 1.66m/s ≈ 6.7s (Note: the negative sign of the longitudinal distance only indicates position behind the ego vehicle)
+    * **TTC (Lateral):**  Not applicable, given the very minimal lateral velocities. Lateral movement can be ignored for now.
+    * **MDC:** In this case, the MDC is primarily the lateral distance, which is approximately 0.0m, meaning the obstacle is directly behind. However, we must consider longitudinal trajectory and speed for risk. 
+    * **Risk:** Despite the relatively large TTC, the consistent closing velocity and practically zero lateral distance warrant a higher risk assessment. While the distance and current TTC suggest Low Risk, the fact the car is positioned directly behind and approaching means a collision is likely without intervention. Therefore, High Risk (2). This assessment prioritizes the almost certain intersection of the two vehicle paths unless obstacle or ego behavior changes.
+
+
+* **Collision Scenario:** False.  No obstacle has a risk score of 0 or 1.
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a collision risk score of 0 or an extreme risk score of 1. The highest risk identified is Medium (3), indicating a potential but not immediately likely collision."
+}
+```

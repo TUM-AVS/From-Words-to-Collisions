@@ -1,0 +1,58 @@
+## Obstacle-by-Obstacle Analysis:
+
+### Obstacle 346:
+- **Position**: Front-right
+- **Adjusted Positions (5.1s)**: Longitudinal 21.10m, Lateral -0.48m
+- **Velocity**: Longitudinal -2.09 m/s (approaching), Lateral 0.00 m/s
+- **Trajectory**: Moving longitudinally towards ego; moving away laterally.
+- **TTC Calculation**: |21.10m / 2.09 m/s| = 10.10s (Longitudinal)
+- **MDC Calculation**: Based on the trajectory lateral distance remains non-threatening as it increases.
+- **Risk Score**: 5 (Negligible Risk, diverging laterally with high longitudinal distance)
+
+### Obstacle 354:
+- **Position**: Front-right
+- **Adjusted Positions (5.1s)**: Longitudinal 14.35m, Lateral -0.22m
+- **Velocity**: Longitudinal -2.09 m/s (approaching), Lateral 0.00 m/s
+- **Trajectory**: Moving longitudinally towards ego; moving away laterally.
+- **TTC Calculation**: |14.35m / 2.09 m/s| = 6.86s (Longitudinal)
+- **MDC Calculation**: Given trajectory, both longitudinal and lateral distancing increases.
+- **Risk Score**: 5 (Negligible Risk, diverging laterally with decreasing speed impact)
+
+### Obstacle 360:
+- **Position**: Front
+- **Adjusted Positions (5.1s)**: Longitudinal 7.64m, Lateral 0.00m
+- **Velocity**: Longitudinal -2.08 m/s (approaching)
+- **Trajectory**: Entirely longitudinal, maintaining the same lane.
+- **TTC Calculation**: |7.64m / 2.08 m/s| = 3.67s
+- **MDC Calculation**: Aligned laterally, focus on longitudinal distance.
+- **Risk Score**: 3 (Medium Risk, potential collision with prolonged approaching)
+
+### Obstacle 367:
+- **Position**: Front
+- **Adjusted Positions (5.1s)**: Longitudinal 0.53m, Lateral 0.00m
+- **Velocity**: Longitudinal -2.07 m/s (approaching)
+- **Trajectory**: Direct trajectory of approach with truly minimal longitudinal distance left.
+- **TTC Calculation**: |0.53m / 2.07 m/s| = 0.26s
+- **MDC Calculation**: Critical proximity longitudinally with zero lateral offset.
+- **Risk Score**: 0 (Collision, unavoidable due to coupled zero-lateral and minimal longitudinal distance)
+
+## Concluding JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "367",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "367",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "360",
+        "OverallRiskScore": "2"
+    }
+}
+```
+
+### Analysis Conclusion:
+The primary risk focus is on Obstacle 367, which poses an unavoidable collision threat as it is significantly close with zero lateral separation. Obstacle 360 presents a potential risk with its mid-range proximity, and other obstacles (346 and 354) are diverging laterally, making them negligible for collision threats.

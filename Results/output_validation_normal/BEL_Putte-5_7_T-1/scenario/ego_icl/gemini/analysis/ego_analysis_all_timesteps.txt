@@ -1,0 +1,50 @@
+Obstacle-by-Obstacle Analysis at t=0.9s:
+
+**Obstacle 30:**
+
+* **Trajectory:**  Obstacle 30 has been consistently in front of the ego vehicle and approaching rapidly.  Lateral distance has been consistently 0.00, indicating perfect alignment in the most recent timesteps, although it deviates slightly at 0.9s.
+* **TTC:** Longitudinal TTC = 3.29m / 3.48 m/s ≈ 0.95s. Lateral TTC is not relevant since lateral distance is increasing. 
+* **MDC:**  Given the continuous longitudinal approach and near-perfect lateral alignment, MDC ≈ 0.05m (lateral distance).
+* **Risk:** High Risk (2) due to short TTC (<1s) and very low MDC (<0.5m). The slight lateral offset does not alleviate the imminent longitudinal collision risk.
+
+**Obstacle 37:**
+
+* **Trajectory:** This obstacle is approaching the ego vehicle from the front-right. The longitudinal distance is decreasing and the lateral distance is also decreasing.
+* **TTC:** Longitudinal TTC = 6.45m / 2.24 m/s ≈ 2.88s. Lateral TTC = 6.53m / 0.81m/s ≈ 8.06s.
+* **MDC:** Since this obstacle is diagonal from the ego vehicle, the shorter TTC is prioritized. MDC is based on the projected intersection of paths. The trajectories suggest MDC will be small as both distances are decreasing. For a conservative estimate, we can use the current lateral distance as a proxy for MDC ≈ 6.53m
+* **Risk:** Medium Risk (3) primarily due to the closing longitudinal distance and moderate TTC. While the lateral TTC is larger, the overall trajectory suggests caution.
+
+**Obstacle 317:**
+
+* **Trajectory:**  This obstacle is approaching from the rear-left. The longitudinal distance is decreasing but remains at a medium range. The lateral distance is also decreasing, potentially converging towards the ego vehicle's path. 
+* **TTC:** Longitudinal TTC = 8.67m / 0.49m/s ≈ 17.69s (since obstacle is behind, a negative velocity implies increasing distance). Lateral TTC = 2.57m / 2.47 m/s ≈ 1.04s
+* **MDC:**  Although longitudinal movement is away from the ego vehicle, the lateral motion is rapidly converging. We prioritize the short lateral TTC, so MDC ≈ 2.57m
+* **Risk:** Medium Risk (3) mainly due to the rapidly decreasing lateral distance and short lateral TTC (<3s).
+
+**Obstacle 320:**
+
+* **Trajectory:** This obstacle is moving away longitudinally from the rear-left. The lateral distance is decreasing.
+* **TTC:** Longitudinal TTC (not applicable due to separating movement). Lateral TTC = 11.80m / 0.99 m/s ≈ 11.92s.
+* **MDC:** As the longitudinal motion poses no collision risk, we focus on the lateral motion. MDC ≈ 11.80m.
+* **Risk:** Low Risk (4) due to the decreasing lateral distance and substantial lateral TTC.
+
+Collision Scenario Determination:
+
+Obstacle 30 presents a High Risk (2) with a very small MDC (0.05m) and a short TTC (0.95s).  This is extremely close to being classified as Extreme Risk (1). While not a confirmed collision (Risk 0), the scenario warrants immediate intervention due to the high probability of an imminent collision with obstacle 30.
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null 
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "Obstacle 30 poses a High Risk with MDC of 0.05m and TTC of 0.95s, indicating a near-term collision possibility, but not yet an Extreme Risk or confirmed collision."
+}
+```

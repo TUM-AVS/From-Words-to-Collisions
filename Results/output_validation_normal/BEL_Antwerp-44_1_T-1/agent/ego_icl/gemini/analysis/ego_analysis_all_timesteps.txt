@@ -1,0 +1,33 @@
+At t=0.9s:
+
+Obstacle 30615:
+- Position: Front, longitudinal 14.29m, lateral 0.00m
+- Velocity: longitudinal -2.08 m/s, lateral 0.00 m/s (approaching ego longitudinally)
+- Trajectory: Consistently in front and laterally aligned with ego, closing longitudinally across all timesteps.
+
+MDC: Since the obstacle is directly in front and laterally aligned, MDC is primarily based on the longitudinal distance of 14.29m.  This equates to a low risk (4).
+
+TTC: TTC = distance / relative_velocity = 14.29m / 2.08m/s ≈ 6.87s. This equates to negligible risk(5).
+
+Overall Risk: Negligible Risk (5) -  While laterally aligned, the substantial longitudinal distance and TTC indicate no immediate concern.
+
+
+Obstacle 30618:
+- Position: Behind, longitudinal -20.25m, lateral 0.00m
+- Velocity: longitudinal -0.13 m/s, lateral -0.62 m/s (slightly moving away from ego longitudinally)
+- Trajectory: Consistently behind ego, laterally aligned, and generally maintaining distance or slightly moving away across all timesteps.
+
+MDC: Since the obstacle is directly behind and laterally aligned, MDC is based on the longitudinal distance of -20.25m, which is not useful for a collision metric.  Therefore we will use the MDC value of 5 associated with negligible risk.
+
+TTC: With a negative longitudinal velocity (moving away), TTC is not meaningfully applicable in terms of a collision risk.
+
+Overall Risk: Negligible Risk (5) - The obstacle is moving away and poses no collision risk.
+
+JSON Summary:
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": null
+}
+```

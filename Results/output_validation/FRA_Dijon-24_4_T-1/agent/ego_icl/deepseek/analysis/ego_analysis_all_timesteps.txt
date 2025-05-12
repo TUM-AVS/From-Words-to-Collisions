@@ -1,0 +1,69 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30504 (Left of ego car)
+- **Adjusted Distances (most recent timestep):**  
+  - Longitudinal: 0.00 m (exact alignment)  
+  - Lateral: 0.60 m  
+- **Relative Velocity:**  
+  - Longitudinal: -0.71 m/s (moving away from ego)  
+  - Lateral: 0.00 m/s (no lateral motion)  
+- **Motion Description:** Exact longitudinal alignment, no lateral relative motion.  
+- **Trajectory Analysis:**  
+  - Over the timesteps, the longitudinal distance has decreased to 0.00 m, but the lateral distance remains stable at ~0.60 m.  
+  - The longitudinal velocity is negative, indicating the obstacle is moving away from the ego car longitudinally.  
+  - No lateral motion means the lateral distance is not closing.  
+- **TTC Calculation:**  
+  - Longitudinal TTC: Not applicable (moving away)  
+  - Lateral TTC: Not applicable (no relative motion)  
+- **MDC Calculation:**  
+  - The minimum distance is the lateral distance (0.60 m), which is stable.  
+  - Since there is no closing velocity in either dimension, the MDC is effectively the current lateral distance.  
+- **Risk Assessment:**  
+  - MDC = 0.60 m (High Risk, 2)  
+  - TTC = N/A (No Risk, 5)  
+  - **Overall Risk:** High Risk (2)  
+
+#### Obstacle 30509 (Front-right of ego car)
+- **Adjusted Distances (most recent timestep):**  
+  - Longitudinal: 8.54 m  
+  - Lateral: -15.04 m  
+- **Relative Velocity:**  
+  - Longitudinal: -0.71 m/s (moving away from ego)  
+  - Lateral: 0.00 m/s (no lateral motion)  
+- **Motion Description:** Obstacle is driving toward the ego car longitudinally (but velocity is negative, meaning it is actually moving away).  
+- **Trajectory Analysis:**  
+  - The longitudinal distance is large (8.54 m) and increasing (negative relative velocity).  
+  - The lateral distance is very large (-15.04 m) and stable (no lateral motion).  
+- **TTC Calculation:**  
+  - Longitudinal TTC: Not applicable (moving away)  
+  - Lateral TTC: Not applicable (no relative motion)  
+- **MDC Calculation:**  
+  - The minimum distance is the lateral distance (15.04 m), which is very large and stable.  
+- **Risk Assessment:**  
+  - MDC = 15.04 m (No Risk, 5)  
+  - TTC = N/A (No Risk, 5)  
+  - **Overall Risk:** No Risk (5)  
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    }
+}
+```
+
+### Key Observations:
+1. **Obstacle 30504** is longitudinally aligned with the ego car but is moving away longitudinally and has a stable lateral distance of 0.60 m. This poses a High Risk (2) due to the small lateral distance, but no collision or extreme risk is imminent.  
+2. **Obstacle 30509** is far away and moving away from the ego car, posing no risk.  
+3. No collision or extreme risk obstacles are identified in the most recent timestep.  
+4. The trajectory of Obstacle 30504 suggests it will remain at a stable lateral distance, so no collision is predicted.

@@ -1,0 +1,39 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30675
+
+- **Trajectory Analysis:**
+  - Positions over time indicate the obstacle is moving away from the ego vehicle.
+  - Longitudinal distances are increasing steadily from 24.25 m at 0.1 seconds to 25.25 m at 0.4 seconds.
+  - Longitudinal velocity is consistently positive, indicating the obstacle is moving away: starts at 4.33 m/s and reduces slightly to 3.27 m/s, showing decreasing speed.
+  - Lateral components are negligible with slight positive values, indicating minor lateral movement away from the ego vehicle.
+
+- **TTC and MDC Calculations:**
+  - **TTC (Time-to-Collision):**
+    - Since the obstacle is moving away (positive relative longitudinal velocity), no time-to-collision exists in this scenario as the distance increases. Hence, TTC is not applicable.
+  - **MDC (Minimum Distance to Collision):**
+    - The obstacle is perfectly aligned in the same lane (lateral distance = 0.00m), but longitudinal trajectory shows increasing distance.
+    - MDC here is effectively increasing, as the distance at the most recent timestep (25.25 m) is larger than previous values.
+
+- **Motion Description:**
+  - The obstacle's motion consistently indicates moving away from the ego car, confirmed by increasing longitudinal distances and decreasing speeds.
+
+- **Risk Assessment:**
+  - The obstacle's increasing distance and positive longitudinal velocity indicate a negligible risk scenario.
+  - Both TTC and MDC are effectively not applicable under collision risk parameters, suggesting the obstacle poses no risk (score of 5).
+
+```json
+{
+    "CollisionObstacle": null,
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": null,
+    "MediumRiskObstacle": null,
+    "LowRiskObstacle": null,
+    "NegligibleRiskObstacle": {
+        "ObstacleID": "30675",
+        "OverallRiskScore": "5"
+    }
+}
+``` 
+
+**Conclusion:** The provided analysis indicates no significant risk from Obstacle 30675. The longitudinal distance continues to grow, validating a negligible risk level.

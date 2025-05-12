@@ -1,0 +1,65 @@
+Let me analyze the most recent timestep (0.9 seconds) for each obstacle:
+
+1. Obstacle 30618 (Rear-left):
+   - Adjusted distances: longitudinal -13.50m, lateral 1.90m
+   - Relative velocity: longitudinal -16.91m/s (moving away), lateral 0.00m/s
+   - Motion: Moving away longitudinally and laterally
+   - MDC: Lateral distance 1.90m (Medium Risk)
+   - TTC: Not applicable (moving away in both dimensions)
+   - Overall Risk: 5 (No Risk)
+
+2. Obstacle 30619 (Front-left):
+   - Adjusted distances: longitudinal 2.24m, lateral 2.13m
+   - Relative velocity: longitudinal -12.95m/s (approaching), lateral -0.84m/s (approaching)
+   - Motion: Approaching in both dimensions
+   - MDC: Minimum distance is lateral 2.13m (Medium Risk)
+   - TTC (longitudinal): 2.24/12.95 = 0.17s (Extreme Risk)
+   - TTC (lateral): 2.13/0.84 = 2.54s (Medium Risk)
+   - Overall Risk: 1 (Extreme Risk due to longitudinal TTC < 0.5s)
+
+3. Obstacle 30620 (Front-left):
+   - Adjusted distances: longitudinal 10.65m, lateral 18.00m
+   - Relative velocity: longitudinal -3.83m/s, lateral -3.66m/s
+   - Motion: Approaching in both dimensions
+   - MDC: Lateral distance 18.00m (No Risk)
+   - TTC (longitudinal): 10.65/3.83 = 2.78s (Medium Risk)
+   - TTC (lateral): 18.00/3.66 = 4.92s (Low Risk)
+   - Overall Risk: 3 (Medium Risk)
+
+4. Obstacle 30623 (Front-right):
+   - Adjusted distances: longitudinal 10.05m, lateral -4.17m
+   - Relative velocity: longitudinal -2.45m/s, lateral -7.27m/s
+   - Motion: Approaching longitudinally, moving away laterally
+   - MDC: Longitudinal distance 10.05m (No Risk)
+   - TTC: Not applicable (moving away laterally)
+   - Overall Risk: 5 (No Risk)
+
+5. Obstacle 30639 (Front-left):
+   - Adjusted distances: longitudinal 10.59m, lateral 6.80m
+   - Relative velocity: longitudinal -3.83m/s, lateral -3.86m/s
+   - Motion: Approaching in both dimensions
+   - MDC: Lateral distance 6.80m (No Risk)
+   - TTC (longitudinal): 10.59/3.83 = 2.76s (Medium Risk)
+   - TTC (lateral): 6.80/3.86 = 1.76s (Medium Risk)
+   - Overall Risk: 3 (Medium Risk)
+
+Trajectory Analysis:
+- Obstacle 30619 is the most critical, showing rapid longitudinal approach (12.95m/s) with decreasing distance (from 7.49m at 0.5s to 2.24m at 0.9s)
+- All other obstacles either have safe distances or are moving away
+- The longitudinal TTC for 30619 is dangerously low (0.17s) with continuing approach
+
+JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30619",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30619 has extreme risk (TTC = 0.17s) with rapid longitudinal approach and decreasing distance (2.24m) to ego vehicle"
+}
+```

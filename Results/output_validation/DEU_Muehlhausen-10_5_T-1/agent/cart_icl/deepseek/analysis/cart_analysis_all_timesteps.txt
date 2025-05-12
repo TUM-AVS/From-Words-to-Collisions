@@ -1,0 +1,47 @@
+### Analysis:
+
+1. **Obstacle 315**:
+   - **Lanelet**: Same as ego (4507.0), indicating same lane.
+   - **Position**: Starts at (-496.26696, 110.97026) and moves to (-495.2273, 118.49599) over 1.0s.
+   - **Velocity**: Increasing from 7.6082068 m/s to 9.2706567 m/s.
+   - **Relative Motion**: Ego is decelerating (from 6.4941 m/s to 5.837 m/s), while obstacle is accelerating. The lateral distance is minimal (same lane), and the longitudinal distance is closing.
+   - **TTC**: Estimated TTC is decreasing rapidly. At 1.0s, the obstacle is very close to the ego.
+   - **Risk**: **Extreme Risk (1)** - Collision is likely and imminent.
+
+2. **Obstacle 331**:
+   - **Lanelet**: Same as ego (4507.0), indicating same lane.
+   - **Position**: Starts at (-498.5571, 93.836318) and moves to (-497.75705, 99.780481) over 1.0s.
+   - **Velocity**: Increasing from 5.957061 m/s to 7.4070261 m/s.
+   - **Relative Motion**: Ego is decelerating, while obstacle is accelerating. The obstacle is behind the ego but closing the gap.
+   - **TTC**: Higher than Obstacle 315, but still concerning.
+   - **Risk**: **High Risk (2)** - Close to collision, needs urgent action.
+
+3. **Obstacle 311**:
+   - **Lanelet**: Different lane (5852.0 to 5853.0), indicating adjacent lane.
+   - **Position**: Starts at (-492.59233, 134.58854) and moves to (-488.618, 143.18169) over 1.0s.
+   - **Velocity**: Increasing from 9.9145356 m/s to 11.445263 m/s.
+   - **Relative Motion**: Moving away from ego in the adjacent lane.
+   - **Risk**: **Low Risk (4)** - No immediate danger.
+
+4. **Obstacle 324**:
+   - **Lanelet**: Different lane (5791.0), indicating adjacent lane.
+   - **Position**: Starts at (-484.81488, 149.7251) and moves to (-484.91094, 149.69967) over 1.0s.
+   - **Velocity**: Very low (0.29910462 m/s to 0.36331828 m/s).
+   - **Relative Motion**: Almost stationary and far from ego.
+   - **Risk**: **Negligible Risk (5)** - No meaningful risk.
+
+### JSON Output:
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "315",
+        "OverallRiskScore": 1
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "331",
+        "OverallRiskScore": 2
+    }
+}
+```

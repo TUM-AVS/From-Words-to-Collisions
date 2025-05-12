@@ -1,0 +1,61 @@
+### Obstacle-by-Obstacle Analysis:
+
+#### Obstacle 542:
+- **Position & Motion**: Positioned to the Left of the ego car. Exact longitudinal alignment, approaching laterally.
+- **Adjustments & Measurements**: Adjusted longitudinal distance is 0.00 m and lateral is 5.48 m. Relative velocities: longitudinal 5.30 m/s, lateral -0.59 m/s.
+- **Trajectory Analysis**: Historically shown alignment over time, maintaining lateral closure.
+- **TTC & MDC**: 
+  - For lateral approach, TTC = 5.48 / 0.59 = 9.29 s (lateral).
+  - With exact longitudinal alignment, no collision risk along that dimension.
+- **Risk Assessment**: No Risk in lateral closure with a TTC > 5s.
+
+#### Obstacle 594:
+- **Position & Motion**: Front-left of ego vehicle, moving away longitudinally and laterally approaching.
+- **Adjustments & Measurements**: Adjusted longitudinal distance is 11.08 m, lateral is 1.62 m. Relative velocities: longitudinal 8.34 m/s, lateral -0.30 m/s.
+- **Trajectory Analysis**: Lateral approach decreases slightly over time but sporadic.
+- **TTC & MDC**:
+  - TTC lateral = 1.62 / 0.30 = 5.40 s (lateral).
+  - Longitudinal safe as moving away.
+- **Risk Assessment**: Near No Risk with lateral TTC very near 5s threshold, overall considered minimal risk.
+
+#### Obstacle 625:
+- **Position & Motion**: Behind ego, exact lateral alignment.
+- **Adjustments & Measurements**: Adjusted longitudinal distance is -1.04 m, lateral 0.00 m. Relative velocities: longitudinal 7.11 m/s, lateral -0.64 m/s.
+- **Trajectory Analysis**: Closing from the rear and laterally aligned.
+- **TTC & MDC**: 
+  - Longitudinal TTC = 1.04 / 7.11 = 0.15 s. This indicates quick closure.
+- **Risk Assessment**: Extreme Risk with TTC < 0.5s on longitudinal approach.
+
+#### Obstacle 634:
+- **Position & Motion**: Rear-left, moving diagonally towards the ego.
+- **Adjustments & Measurements**: Adjusted longitudinal distance is -12.72 m, lateral 2.43 m. Relative velocities: longitudinal 5.57 m/s, lateral -0.60 m/s.
+- **Trajectory Analysis**: Continues the rear approach, cross-lateral approach.
+- **TTC & MDC**:
+  - TTC longitudinal = 12.72 / 5.57 = 2.28 s.
+  - TTC lateral = 2.43 / 0.60 = 4.05 s.
+- **Risk Assessment**: Medium Risk with TTC longitudinal <3s and lateral just over 3s on this trajectory. Both diminishing, but not imminently critical.
+
+### Summary JSON
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "5"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "625",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "5"
+  }  
+}
+```
+
+### Explanation
+
+The Obstacle 625 represents the highest risk due to an extremely low Time-to-Collision (0.15s) in the longitudinal dimension from behind, indicating potential rapid rear-end approach. The lateral distancing is stable but longitudinal proximity increases risk scoring to extreme.
+
+Obstacle 542 and 594 are assessed as not presenting significant immediate risk based on stable or longer TTC and adequate maintained adjusted distances. Obstacle 634 presents a lower risk due to longer TTCs in both dimensions.

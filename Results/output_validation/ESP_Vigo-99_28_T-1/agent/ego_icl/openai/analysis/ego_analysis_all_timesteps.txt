@@ -1,0 +1,78 @@
+### Obstacle-by-Obstacle Analysis:
+
+#### Obstacle 3511:
+- **Position & Motion**: The obstacle is mainly to the right of the ego vehicle with zero longitudinal distance, indicating side-by-side alignment but not collision unless lateral distance also zero.
+- **Trajectory**: Moving laterally from the right, but primarily aligning along longitudinal axis recently.
+- **Adjusted Distances**: Longitudinal 0.00 m, Lateral -21.15 m, velocity in longitudinal direction.
+- **TTC & MDC**: 
+  - Longitudinal (0.00 m) with velocity indicating longitudinal movement alignment.
+  - Lateral distance is large, so no immediate lateral collision risk.
+- **Risk Assessment**: Medium to high risk based on trajectory alignment and limited proximity, but not colliding currently. 
+
+#### Obstacle 3512:
+- **Position & Motion**: Positioned at the front-right, moving away longitudinally, approaching laterally.
+- **Trajectory**: Consistent behavior in previous timesteps of moving laterally towards the ego.
+- **Adjusted Distances**: Longitudinal 7.17 m, Lateral -0.93 m.
+- **TTC & MDC**:
+  - Longitudinal negligible risk as moving away.
+  - Lateral TTC > 5s due to slow lateral closing velocity.
+- **Risk Assessment**: Low to negligible risk, future alignment suggested stable.
+
+#### Obstacle 3513:
+- **Position & Motion**: Front-left with both dimensions increasing in the past; moving away in both.
+- **Trajectory**: Consistent withdrawal in both dimensions.
+- **Adjusted Distances**: Longitudinal 16.92 m, Lateral 11.63 m.
+- **TTC & MDC**: Much greater than 5 seconds in both dimensions.
+- **Risk Assessment**: Negligible risk, continuing to move away.
+
+#### Obstacle 3515:
+- **Position & Motion**: Restricted to the right, longitudinal zero, supporting side-by-side alignment.
+- **Trajectory**: Repeated alignment along longitudinal axis with zero displacement.
+- **Adjusted Distances**: Longitudinal 0.00 m, Lateral -13.75 m.
+- **TTC & MDC**:
+  - Longitudinal alignment but motion suggests continued side positioning.
+  - No imminent collision across lattices.
+- **Risk Assessment**: Medium risk, alignment highlight no collision imminence, potential future risk if trajectory becomes invasive.
+
+#### Obstacle 3517:
+- **Position & Motion**: Behind with weakly closing alignment longitudinally.
+- **Trajectory**: Approaching linearly over recent steps.
+- **Adjusted Distances**: Longitudinal -0.61 m, Lateral 0.00 m.
+- **TTC & MDC**:
+  - Longitudinal closing place to within 3m; lateral stable.
+  - Approaching conditions, implying Medium to high risk score.
+- **Risk Assessment**: Moderate risk, mitigation via evasive still possible.
+
+#### Obstacle 3520:
+- **Position & Motion**: Primarily at the rear aligning.
+- **Trajectory**: Closing towards lateral alignment and longitudinally.
+- **Adjusted Distances**: Longitudinal -15.88 m, Lateral 0.00 m.
+- **TTC & MDC**:
+  - Longitudinal moderate considering already close speeds.
+  - Lateral stationary indicating no significant convergence.
+- **Risk Assessment**: Medium to negligible risk, mostly aligned but at some distance.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": null
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "3511",
+        "OverallRiskScore": "2"
+    }  
+}
+```
+
+### Conclusion
+
+- Obstacle 3511 presents the highest potential risk due to close alignment and empty relative proximities despite not colliding momentarily.
+- No current collisions in the most recent timestep, however straightening trajectories or close velocities...
+- Continuing vigilance or minor directional alterations advised to prevent high-risk convergence (risk score "2").

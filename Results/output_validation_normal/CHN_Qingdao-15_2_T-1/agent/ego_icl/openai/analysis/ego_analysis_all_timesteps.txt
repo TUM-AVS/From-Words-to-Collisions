@@ -1,0 +1,63 @@
+### Obstacle Analysis - Obstacle 30627
+
+#### Trajectory Analysis
+- **0.1 to 0.3 seconds:** The obstacle is moving away from the ego vehicle, indicated by increasing longitudinal distances (from 20.86m to 20.96m) with a decreasing longitudinal velocity. The lateral alignment is consistent at 0.00m, indicating the same lane alignment.
+- **0.4 to 0.9 seconds:** The obstacle starts driving toward the ego vehicle, evident by the decreasing longitudinal distance (from 20.96m to 19.95m). The longitudinal velocity becomes negative by 0.4 seconds and continues to increase its magnitude in a negative direction, suggesting it is closing in on the ego vehicle.
+
+#### Most Recent Timestep (0.9 seconds) Analysis
+- **Adjusted Longitudinal Distance:** 19.95m
+- **Adjusted Lateral Distance:** 0.00m (indicates that the obstacle is in the same lane)
+- **Relative Longitudinal Velocity:** -3.29 m/s (obstacle moving towards the ego vehicle)
+- **Relative Lateral Velocity:** -0.20 m/s
+
+#### Calculations
+- **Time-to-Collision (TTC):**  
+  - Since the obstacle is in front, we focus on the longitudinal component.
+  - TTC (longitudinal) = 19.95m / 3.29 m/s ≈ 6.06 seconds
+
+- **Minimum Distance to Collision (MDC):**  
+  - Since the obstacle is longitudinally in front with convergence, the lateral distance remains at 0.00m without immediate risk as the longitudinal gap is 19.95m.
+  - MDC depends primarily on longitudinal reduction, thus MDC is initially 19.95m (track distance reduction rates).
+
+#### Risk Assessment
+- **Longitudinal Analysis:**  
+  - The TTC longitudinal is > 5.0 seconds, which typically indicates negligible risk. However, the closing velocity combined with a decreasing longitudinal distance suggests needed attention.
+
+- **Lateral Analysis:**  
+  - The lateral velocity is taking the obstacle slightly away from strict alignment but not enough to be significant given the small value.
+
+Concluding the risk score based on mainly the longitudinal component and the continuous trajectory analysis:
+
+- **Overall Risk Score:** 4 (Low Risk)
+  - Despite a clear convergence, the substantial distance and extended time horizon for potential intersection keep this at low risk. There is sufficient time for evasive action if needed.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "none",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "none",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "none",
+        "OverallRiskScore": "2"
+    },
+    "MediumRiskObstacle": {
+        "ObstacleID": "none",
+        "OverallRiskScore": "3"
+    },
+    "LowRiskObstacle": {
+        "ObstacleID": "30627",
+        "OverallRiskScore": "4"
+    },
+    "NegligibleRiskObstacle": {
+        "ObstacleID": "none",
+        "OverallRiskScore": "5"
+    }
+}
+```
+This indicates a low risk due to the ability to observe and react within the available time-to-collision. The previous trajectory supports a consistent pattern, ensuring an appropriate reaction window.

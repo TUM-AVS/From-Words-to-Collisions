@@ -1,0 +1,30 @@
+### Analysis:
+
+1. **Obstacle 30765 (Stationary Obstacle):**
+   - Position: (-70.8446, -182.1798)
+   - The obstacle is stationary (velocity = 0.0, acceleration = 0.0).
+   - The ego vehicle is moving away from this obstacle (Y-coordinate of ego: -194.7081 vs. obstacle: -182.1798).
+   - The lateral distance is significant (~12.53m in Y-axis, ~1.1154m in X-axis).
+   - **No immediate risk** as the ego is moving away and the distance is increasing.
+
+2. **Obstacle 30782 (Moving Obstacle):**
+   - Position: (-68.5458, -208.144)
+   - The obstacle is moving in the same direction as the ego (orientation ~1.6589, similar to ego's 1.6588).
+   - Relative longitudinal position: Ego is at Y = -194.7081, obstacle at Y = -208.144 (ego is ahead by ~13.44m).
+   - Relative longitudinal velocity: Ego velocity = 4.018 m/s, obstacle velocity = 5.0081 m/s (obstacle is closing in at ~0.99 m/s).
+   - TTC = 13.44 / 0.99 ≈ 13.58s (long time to collision).
+   - Lateral distance: ~1.1834m (X-axis difference).
+   - **Low risk** as the obstacle is closing in slowly and the lateral distance is sufficient.
+
+### Risk Assessment:
+- **Obstacle 30765:** Negligible Risk (5) - Stationary and far away.
+- **Obstacle 30782:** Low Risk (4) - Closing in slowly with sufficient distance.
+
+### JSON Output:
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": null
+}
+```

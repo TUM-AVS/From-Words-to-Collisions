@@ -1,0 +1,59 @@
+### Obstacle Analysis
+
+#### Obstacle 30765 (Front of Ego Vehicle)
+- **Trajectory Analysis**: The obstacle is consistently approaching the ego vehicle from the front with decreasing longitudinal distances over the recorded timesteps.
+- **Most Recent Timestep**:
+  - **Adjusted Longitudinal Distance**: 8.07 m
+  - **Adjusted Lateral Distance**: 0.00 m (exact alignment)
+  - **Relative Velocity**: Longitudinal velocity = -4.02 m/s (approaching)
+- **Time-to-Collision (TTC)**:
+  - \( TTC = \frac{8.07\text{ m}}{4.02\text{ m/s}} \approx 2.01\text{ seconds} \)
+- **Minimum Distance to Collision (MDC)**:
+  - Longitudinal distance is the primary concern due to the frontal position.
+  - As MDC is largely determined by longitudinal proximity in this case, and with continued negative velocity illustrating closure, any possible collision assessment focuses here.
+  - With a current MDC > 1.0 m and expected trajectory based on speed, it remains above 1.0 m.
+  
+**Risk Assessment**:
+- **TTC Consideration**: Medium risk due to TTC < 3 seconds.
+- **MDC Consideration**: Aligns with medium risk, as it does not indicate imminent collision.
+- **Overall Risk Score**: Medium Risk (3)
+
+#### Obstacle 30782 (Behind Ego Vehicle)
+- **Trajectory Analysis**: This obstacle is gradually closing in from behind. However, the relative speed indicates minor closing rate.
+- **Most Recent Timestep**:
+  - **Adjusted Longitudinal Distance**: -8.98 m (indicating behind ego)
+  - **Adjusted Lateral Distance**: 0.00 m (exact alignment)
+  - **Relative Velocity**: Longitudinal velocity = 0.99 m/s (approaching ego from behind)
+- **Time-to-Collision (TTC)**:
+  - \( TTC = \frac{8.98\text{ m}}{0.99\text{ m/s}} \approx 9.07\text{ seconds} \)
+  - Exceeds meaningful collision risk threshold
+- **Minimum Distance to Collision (MDC)**:
+  - Longitudinal consideration primarily as it's following: MDC > 5.0 m, stable trajectory past one-second intervals confirms diversified path for longer-term no-risk.
+
+**Risk Assessment**:
+- **TTC Consideration**: Negligible risk due to TTC > 5 seconds.
+- **MDC Consideration**: Aligns with TTC evaluation - sufficient distance over trajectory's closure indicates no imminent hazard.
+- **Overall Risk Score**: Negligible Risk (5)
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": null,
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": null,
+    "MediumRiskObstacle": {
+        "ObstacleID": "30765",
+        "OverallRiskScore": "3"
+    },
+    "LowRiskObstacle": null,
+    "NegligibleRiskObstacle": {
+        "ObstacleID": "30782",
+        "OverallRiskScore": "5"
+    }
+}
+```
+
+### Analysis Conclusion:
+- **Obstacle 30765 (Front)** is classified as Medium Risk due to its approach trajectory and relative velocities confirming a potential collision risk if unmitigated.
+- **Obstacle 30782 (Behind)** presents a Negligible Risk, with ample TTC ensuring no immediate threat of collision with ego's current state and velocity conditions.

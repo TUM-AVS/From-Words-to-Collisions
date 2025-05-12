@@ -1,0 +1,47 @@
+At t=0.9s, the ego vehicle is in lanelet 115 with a decreasing velocity. Let's analyze the obstacles:
+
+* **Obstacle 30229:** Far behind the ego vehicle and moving slowly. Negligible risk.
+* **Obstacle 30238:** Behind the ego vehicle and in the same lanelet, but slowing down significantly. Low risk.
+* **Obstacle 30239:** In the adjacent lanelet (116) and further away laterally than at t=0.8s. Medium risk.
+* **Obstacle 30241:** Behind the ego in the same lanelet, and decelerating faster than the ego vehicle. Requires monitoring but currently low risk.
+* **Obstacle 30242:** In the adjacent lanelet and moving slower than the ego vehicle. Medium risk due to proximity, but lateral separation is improving.
+* **Obstacle 30245:**  Located in lanelet 116. This obstacle is significantly ahead of the ego vehicle and poses no immediate risk.
+
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacles": [],
+  "HighRiskObstacles": [],
+    "MediumRiskObstacles": [
+        {
+            "ObstacleID": "30239",
+            "OverallRiskScore": 3
+        },
+        {
+            "ObstacleID": "30242",
+            "OverallRiskScore": 3
+        }
+    ],
+    "LowRiskObstacles":[
+        {
+            "ObstacleID": "30238",
+            "OverallRiskScore": 4
+        },
+        {
+            "ObstacleID": "30241",
+            "OverallRiskScore": 4
+        }
+        ],
+    "NegligibleRiskObstacles":[
+        {
+            "ObstacleID": "30229",
+            "OverallRiskScore": 5
+        },
+        {
+            "ObstacleID": "30245",
+            "OverallRiskScore": 5
+        }
+    ]
+}
+```

@@ -1,0 +1,79 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 4.7s)
+
+---
+
+#### **Obstacle 20043 (Front-left)**
+- **Adjusted Position**: Longitudinal 24.99m, Lateral 0.38m  
+- **Relative Velocity**: Longitudinal -1.14 m/s (approaching), Lateral 0.00 m/s (no lateral motion)  
+- **Trajectory**: Moving toward ego longitudinally but no lateral convergence.  
+- **TTC**:  
+  - Longitudinal: 24.99 / 1.14 ≈ 21.92s (No Risk, TTC > 5s)  
+  - Lateral: N/A (no relative motion).  
+- **MDC**: 0.38m (lateral, stable).  
+- **Risk**: **5 (No Risk)**.  
+
+---
+
+#### **Obstacle 20045 (Front)**
+- **Adjusted Position**: Longitudinal 18.09m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -1.14 m/s (approaching), Lateral 0.00 m/s.  
+- **Trajectory**: Slowly closing longitudinal gap, no lateral motion.  
+- **TTC**: 18.09 / 1.14 ≈ 15.87s (No Risk, TTC > 5s).  
+- **MDC**: 0.00m (lateral alignment, but longitudinal distance large).  
+- **Risk**: **5 (No Risk)**.  
+
+---
+
+#### **Obstacle 20048 (Front)**
+- **Adjusted Position**: Longitudinal 11.14m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -1.14 m/s (approaching), Lateral 0.00 m/s.  
+- **Trajectory**: Similar to 20045, slowly closing longitudinally.  
+- **TTC**: 11.14 / 1.14 ≈ 9.77s (No Risk, TTC > 5s).  
+- **MDC**: 0.00m (lateral alignment, but longitudinal distance safe).  
+- **Risk**: **5 (No Risk)**.  
+
+---
+
+#### **Obstacle 20051 (Behind → Collision)**
+- **Adjusted Position**: Longitudinal 0.00m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 3.37 m/s (approaching rapidly), Lateral -0.01 m/s (negligible).  
+- **Trajectory**:  
+  - **Critical**: At 4.6s, distance was -0.06m (just behind ego); at 4.7s, distance is 0.00m (collision).  
+  - Longitudinal velocity remains positive (still pushing into ego).  
+- **TTC**: 0.00s (collision occurring).  
+- **MDC**: 0.00m (collision).  
+- **Risk**: **0 (Collision)**.  
+
+---
+
+#### **Obstacle 20052 (Behind)**
+- **Adjusted Position**: Longitudinal -14.18m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 5.97 m/s (approaching), Lateral 0.35 m/s.  
+- **Trajectory**: Rapidly closing longitudinal gap but still far.  
+- **TTC**: 14.18 / 5.97 ≈ 2.37s (Medium Risk, TTC < 3s).  
+- **MDC**: 0.00m (lateral alignment, but longitudinal distance safe for now).  
+- **Risk**: **3 (Medium Risk)**.  
+
+---
+
+### **Collision Scenario Determination**
+- **Obstacle 20051** has a **risk score of 0** (collision occurring at 4.7s).  
+- No other obstacles are at extreme risk (score ≤ 1).  
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20051",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 20051 has collided with the ego vehicle (longitudinal and lateral distances = 0.00m at 4.7s with ongoing positive relative velocity)."
+}
+```

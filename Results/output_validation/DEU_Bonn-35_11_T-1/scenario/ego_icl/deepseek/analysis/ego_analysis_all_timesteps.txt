@@ -1,0 +1,49 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 3.7s)
+
+#### **Obstacle 30200**
+- **Position**: Collision (longitudinal 0.00m, lateral 0.00m)
+- **Relative Velocity**: Longitudinal 5.45 m/s (approaching), Lateral 0.00 m/s (no lateral movement)
+- **Motion Description**: Exact longitudinal alignment (collision occurring)
+- **Trajectory Analysis**: 
+  - From 2.8s to 3.7s, the longitudinal distance decreases from -4.79m to 0.00m with consistently high closing velocity (~5.2 m/s). 
+  - Lateral distance remains 0.00m throughout (same-lane alignment).
+  - At 3.7s, the obstacle reaches 0.00m in both dimensions, confirming a collision.
+- **TTC**: 0.00s (collision already occurring)
+- **MDC**: 0.00m (collision confirmed)
+- **Risk Score**: **0 (Collision)**
+
+#### **Obstacle 30201**
+- **Position**: Behind (longitudinal -18.69m, lateral 0.00m)
+- **Relative Velocity**: Longitudinal 4.76 m/s (approaching), Lateral -0.66 m/s (minor lateral drift)
+- **Motion Description**: Driving toward ego from behind, same-lane alignment.
+- **Trajectory Analysis**: 
+  - Longitudinal distance decreases from -22.76m to -18.69m over 0.9s, with closing velocity ~4.7 m/s.
+  - Lateral distance remains 0.00m (no significant lateral risk).
+- **TTC**: Longitudinal = 18.69 / 4.76 ≈ 3.93s (Low Risk)
+- **MDC**: Lateral = 0.00m, but no closing lateral velocity → No immediate collision risk.
+- **Risk Score**: **4 (Low Risk)** (Primary risk is longitudinal, but TTC > 3.0s)
+
+---
+
+### **Collision Scenario Determination**
+- **Obstacle 30200** has a risk score of **0 (Collision)** at 3.7s, with confirmed 0.00m distance in both dimensions.
+- **Obstacle 30201** poses no immediate threat (Low Risk).
+- This is a **collision scenario** because at least one obstacle (30200) is colliding with the ego vehicle.
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30200",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30200 has reached 0.00m longitudinal and lateral distance with the ego vehicle at 3.7s, confirming a collision. Obstacle 30201 is not an immediate threat."
+}
+```

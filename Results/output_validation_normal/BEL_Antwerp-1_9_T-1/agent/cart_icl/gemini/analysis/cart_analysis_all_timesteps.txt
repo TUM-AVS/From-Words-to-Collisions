@@ -1,0 +1,27 @@
+At t=0.9s, the ego vehicle is at (-69.7292, -194.7081) with a velocity of 4.018 m/s and decelerating at -0.7034 m/s².  We will analyze the risk posed by each obstacle at this timestep.
+
+**Obstacle 30765:** This obstacle is stationary at (-70.8446, -182.1798).  The lateral distance is approximately 1.115 meters, and the longitudinal distance is approximately 12.528 meters.  Since the obstacle is stationary and relatively far, it poses no immediate risk.  We will assign a risk score of 5.
+
+**Obstacle 30782:** This obstacle is at (-68.5458, -208.144) with a velocity of 5.0081 m/s and decelerating at -1.047 m/s².  The lateral distance is approximately 1.1834 meters, and the longitudinal distance is approximately -13.4359 meters. Since the obstacle is behind the ego vehicle, and they are in the same lanelet, let's look at the relative velocity and TTC.
+- Relative longitudinal velocity: 5.0081 - 4.018 = 0.9901 m/s (obstacle is faster)
+- TTC (longitudinal): -13.4359 / 0.9901 ≈ -13.57 seconds. While the TTC is negative, meaning that they would not collide assuming linear motion, the small lateral distance and closing longitudinal speed implies a risk. As such we will assign a risk score of 3, indicating a medium risk.
+
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": {},
+  "HighRiskObstacle": {},
+  "MediumRiskObstacle": {
+    "ObstacleID": "30782",
+    "OverallRiskScore": 3
+  },
+    "LowRiskObstacles": [],
+    "NegligibleRiskObstacles": [
+         {
+            "ObstacleID": "30765",
+             "OverallRiskScore": 5
+         }
+    ]
+}
+```

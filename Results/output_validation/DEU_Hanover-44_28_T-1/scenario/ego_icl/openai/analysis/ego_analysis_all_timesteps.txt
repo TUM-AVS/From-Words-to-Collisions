@@ -1,0 +1,78 @@
+### Obstacle-By-Obstacle Analysis
+
+#### Current Time: 5.7 seconds
+
+---
+
+### Obstacle 30730 (Front)
+
+1. **Trajectory Analysis:**
+
+   - **Position Changes:**
+     - 4.8s: Longitudinal 3.75m
+     - 5.7s: Longitudinal 0.20m
+   - **Velocity:**
+     - Relative longitudinal velocity consistently ~ -3.78 to -3.96 m/s (approaching the ego vehicle).
+
+2. **Adjusted Distances and Velocities:**
+   - **Adjusted Longitudinal Distance:** 0.20m
+   - **Adjusted Lateral Distance:** 0.00m
+   - **Relative Velocity:** Longitudinal -3.78 m/s, Lateral 0.00 m/s
+
+3. **TTC Calculation:**
+   - **TTC (Longitudinal):** 0.20m / 3.78 m/s ≈ 0.053 s
+
+4. **Risk Assessment:**
+   - **Minimum Distance to Collision (MDC):** 0.20m (lateral alignment but critical longitudinal proximity).
+   - **Risk Score:**
+     - TTC < 0.5s (Extreme Risk)
+     - MDC ≤ 0.5m (Extreme Risk)
+     - Overall Risk Score: 0 (indicating actual collision due to imminent proximity and velocity alignment).
+
+---
+
+### Obstacle 30733 (Front-Right)
+
+1. **Trajectory Analysis:**
+
+   - **Position Changes:**
+     - 4.8s: Longitudinal 3.70m, Lateral -5.40m 
+     - 5.7s: Longitudinal 0.17m, Lateral -5.39m
+   - **Velocity:**
+     - Relative longitudinal velocity ~ -3.78 m/s (approaching).
+
+2. **Adjusted Distances and Velocities:**
+   - **Adjusted Longitudinal Distance:** 0.17m
+   - **Adjusted Lateral Distance:** -5.39m
+
+3. **TTC Calculation:**
+   - **TTC (Longitudinal):** 0.17m / 3.78 m/s ≈ 0.045 s
+
+4. **Risk Assessment:**
+   - **Minimum Distance to Collision (MDC):** 0.17m
+   - **Risk Score:**
+     - TTC < 0.5s (Extreme Risk)
+     - MDC ≤ 0.5m (Extreme Risk)
+     - Overall Risk Score: 2 (High Risk due to extreme closeness in the longitudinal direction but lateral safe margin).
+
+---
+
+### Conclusion
+
+This situation qualifies as a collision scenario due to the critical risk posed by Obstacle 30730 directly in front of the ego vehicle, considering its extremely low adjusted longitudinal distance, extremely low TTC, and direct path overlap with the ego vehicle.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30730",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30730",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30730 presents an immediate collision risk due to virtually zero distance ahead on the lane with negative velocity indicating unavoidable collision."
+}
+```

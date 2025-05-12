@@ -1,0 +1,69 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 3044 (Most Recent Timestep: 8.3 seconds)
+- **Position**: Behind ego car (longitudinal -0.24 m, lateral 0.00 m)
+- **Relative Velocity**: Longitudinal 0.96 m/s (approaching), Lateral -0.00 m/s (stable)
+- **Motion**: Exact lateral alignment, driving toward ego car from behind.
+- **Trajectory Analysis**:
+  - Longitudinal distance decreases from -1.04 m at 7.4s to -0.24 m at 8.3s (0.8 m over 0.9s, consistent with ~0.89 m/s closing speed).
+  - Lateral distance remains 0.00 m (exact alignment).
+  - Relative velocity is stable (~0.9 m/s), indicating consistent approach.
+
+- **TTC Calculation**:
+  - Longitudinal TTC = 0.24 m / 0.96 m/s = **0.25 seconds** (Extreme Risk, TTC ≤ 0.5s).
+  - Lateral TTC = N/A (no lateral movement).
+
+- **MDC Calculation**:
+  - Longitudinal MDC = 0.24 m (Extreme Risk, MDC ≤ 0.5m).
+  - Lateral MDC = 0.00 m (Collision Risk if longitudinal distance also closes).
+
+- **Risk Assessment**:
+  - TTC and MDC both indicate **Extreme Risk (1)** due to very small distance and imminent collision.
+  - Trajectory shows obstacle will reach ego vehicle in ~0.25s if velocities remain constant.
+
+#### Obstacle 3045 (Most Recent Timestep: 8.3 seconds)
+- **Position**: Behind ego car (longitudinal -15.71 m, lateral 0.00 m)
+- **Relative Velocity**: Longitudinal 0.93 m/s (approaching), Lateral -0.04 m/s (negligible)
+- **Motion**: Exact lateral alignment, driving toward ego car from behind.
+- **Trajectory Analysis**:
+  - Longitudinal distance decreases slowly from -16.51 m at 7.4s to -15.71 m at 8.3s (0.8 m over 0.9s, ~0.89 m/s closing speed).
+  - Lateral distance remains 0.00 m (exact alignment).
+  - Relative velocity is stable (~0.9 m/s), indicating slow approach.
+
+- **TTC Calculation**:
+  - Longitudinal TTC = 15.71 m / 0.93 m/s = **16.89 seconds** (No Risk, TTC > 5.0s).
+  - Lateral TTC = N/A (no lateral movement).
+
+- **MDC Calculation**:
+  - Longitudinal MDC = 15.71 m (No Risk, MDC > 5.0m).
+  - Lateral MDC = 0.00 m (Collision Risk only if longitudinal distance closes significantly).
+
+- **Risk Assessment**:
+  - TTC and MDC indicate **No Risk (5)** due to large distance and slow approach.
+  - No immediate threat.
+
+---
+
+### Collision Scenario Determination
+- **Obstacle 3044**: Extreme Risk (1) due to TTC = 0.25s and MDC = 0.24m. Collision is imminent if no intervention occurs.
+- **Obstacle 3045**: No Risk (5). Not a concern.
+
+This is a **collision scenario** because Obstacle 3044 is in Extreme Risk (score 1) with TTC ≤ 0.5s and MDC < 0.5m, indicating an unavoidable collision if trajectories remain unchanged.
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "3044",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3044",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 3044 has TTC = 0.25s and MDC = 0.24m, indicating Extreme Risk (1) and imminent collision. No intervention would result in a collision within 0.25 seconds."
+}
+```

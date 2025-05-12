@@ -1,0 +1,36 @@
+* **Obstacle 30604 (Rear-left):**  This obstacle has been moving away from the ego vehicle both longitudinally and laterally across all timesteps. At the last timestep (3.3s), it is 11.65m behind and 9.01m to the left. This poses no risk.
+
+* **Obstacle 30605 (Front-left):** This obstacle is relatively far from the ego vehicle, and while its longitudinal distance is decreasing, its lateral distance is large and increasing due to the ego vehicle's motion. At the last timestep, it's 12.16m ahead and 17.69 to the left.  There is no immediate risk.
+
+* **Obstacle 30606 (Rear-left):** Similar to 30604, this obstacle is moving away from the ego vehicle longitudinally and laterally. At 3.3s, it's 13.05m behind and 5.51m to the left. No risk.
+
+* **Obstacle 30610 (Front-left):** This obstacle has been approaching the ego vehicle longitudinally, with a small and relatively stable lateral distance.  At 3.3s, the longitudinal distance is only 0.22m with a closing velocity of -5.85 m/s.  TTC = 0.22 / 5.85 ≈ 0.04 seconds. MDC is also very small (< 0.5m). This indicates an *extreme risk* of collision.
+
+* **Obstacle 30613 (Left):**  This obstacle is at 0.00 longitudinal distance at 3.3 seconds.  The lateral distance is 2.03m, therefore MDC is 2.03m and there is no immediate collision.
+
+* **Obstacle 30614 (Rear-left):** This obstacle is moving away longitudinally and laterally from the ego vehicle. At 3.3s, it is 5.78m behind and 2.02m to the left.  No risk.
+
+* **Obstacle 30628 (Rear-left):** This obstacle continues to move away both longitudinally and laterally from the ego vehicle. At 3.3s, it's 14.54m behind and 2.01 to the left. No risk.
+
+* **Obstacle 30629 (Collision):** At the final timestep (3.3s), this obstacle has collided with the ego vehicle. Both longitudinal and lateral distances are 0.00m indicating collision. The risk level is 0.
+
+
+**Conclusion:**
+
+This IS a collision scenario because obstacle 30629 has collided with the ego vehicle (Risk score 0). Obstacle 30610 also presents an extreme risk (Risk Score 1) with a very low TTC (≈ 0.04 seconds).
+
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "30629",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30610",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30629 shows 0.00m distance in both longitudinal and lateral directions at the last timestep (3.3s), indicating a collision. Obstacle 30610 also has extremely low TTC (≈ 0.04 seconds), signifying an extreme risk."
+}
+```

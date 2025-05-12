@@ -1,0 +1,54 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### Obstacle 30259 (Front-right)
+- **Adjusted Distance**: Longitudinal 24.54m, Lateral -4.19m  
+- **Relative Velocity**: Longitudinal -7.98 m/s (approaching), Lateral -6.71 m/s (moving right)  
+- **Motion**: Driving toward ego longitudinally but moving away laterally to the right  
+- **TTC Longitudinal**: 24.54 / 7.98 ≈ 3.07s (Medium Risk)  
+- **TTC Lateral**: Not applicable (moving away)  
+- **MDC**: Lateral distance is increasing (no convergence)  
+- **Overall Risk**: 5 (No Risk) - Diverging paths  
+
+#### Obstacle 30261 (Front)
+- **Adjusted Distance**: Longitudinal 8.20m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -4.52 m/s (approaching), Lateral 0.23 m/s (minimal lateral drift)  
+- **Motion**: Driving toward ego longitudinally with exact lateral alignment  
+- **TTC Longitudinal**: 8.20 / 4.52 ≈ 1.81s (Medium Risk)  
+- **MDC**: Lateral distance is 0.00m, but trajectories show no lateral convergence (lateral velocity is minimal and stable)  
+- **Overall Risk**: 3 (Medium Risk) - Closing longitudinally but no imminent collision  
+
+#### Obstacle 30268 (Behind)
+- **Adjusted Distance**: Longitudinal -13.57m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -1.72 m/s (moving away), Lateral -1.31 m/s (moving left)  
+- **Motion**: Moving away longitudinally and laterally  
+- **TTC**: Not applicable (diverging paths)  
+- **MDC**: Increasing distance  
+- **Overall Risk**: 5 (No Risk)  
+
+#### Obstacle 30271 (Rear-left)
+- **Adjusted Distance**: Longitudinal -25.00m, Lateral 1.04m (from 0.5s data - not in latest timestep but trajectory consistent)  
+- **Relative Velocity**: Longitudinal -2.39 m/s (moving away), Lateral 1.07 m/s (moving left)  
+- **Motion**: Moving away longitudinally and laterally  
+- **TTC**: Not applicable (diverging paths)  
+- **MDC**: Increasing distance  
+- **Overall Risk**: 5 (No Risk)  
+
+### Trajectory Analysis
+- **Obstacle 30261** is the only concerning obstacle, closing longitudinally at 4.52 m/s but with stable lateral alignment. At current speed, collision would occur in ~1.8s if unmitigated, but this is not imminent.  
+- All other obstacles are moving away or on diverging paths.  
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle has a risk score of 0 or 1. Obstacle 30261 is closing longitudinally but with a TTC of 1.81s (Medium Risk) and no lateral convergence."
+}
+```

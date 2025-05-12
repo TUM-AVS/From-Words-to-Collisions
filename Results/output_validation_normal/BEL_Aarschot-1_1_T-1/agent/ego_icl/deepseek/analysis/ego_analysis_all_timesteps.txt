@@ -1,0 +1,73 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 32 (Front-left)**
+- **Adjusted Distance**: Longitudinal 1.95m, Lateral 2.68m  
+- **Relative Velocity**: Longitudinal -10.10 m/s (approaching), Lateral -0.00 m/s (no lateral motion)  
+- **Motion**: Driving toward ego longitudinally, no lateral motion  
+- **TTC Longitudinal**: 1.95 / 10.10 = **0.19s** (Extreme Risk)  
+- **MDC Longitudinal**: 1.95m (Medium Risk)  
+- **Lateral Risk**: Stable lateral distance (Negligible Risk)  
+- **Overall Risk**: **Extreme Risk (1)** due to very low TTC longitudinally.  
+
+#### **Obstacle 310 (Front-left)**
+- **Adjusted Distance**: Longitudinal 9.44m, Lateral 3.07m  
+- **Relative Velocity**: Longitudinal -10.10 m/s (approaching), Lateral -0.00 m/s (no lateral motion)  
+- **Motion**: Driving toward ego longitudinally, slight lateral motion toward ego  
+- **TTC Longitudinal**: 9.44 / 10.10 = **0.93s** (High Risk)  
+- **MDC Longitudinal**: 9.44m (Low Risk)  
+- **Lateral Risk**: Minimal closing (Low Risk)  
+- **Overall Risk**: **High Risk (2)** due to TTC < 1.0s.  
+
+#### **Obstacle 318 (Front-left)**
+- **Adjusted Distance**: Longitudinal 17.18m, Lateral 3.49m  
+- **Relative Velocity**: Longitudinal -10.37 m/s (approaching), Lateral -0.02 m/s (slight lateral motion toward ego)  
+- **Motion**: Driving toward ego longitudinally and laterally  
+- **TTC Longitudinal**: 17.18 / 10.37 = **1.66s** (Medium Risk)  
+- **MDC Longitudinal**: 17.18m (No Risk)  
+- **Lateral Risk**: Very slow closing (Negligible Risk)  
+- **Overall Risk**: **Medium Risk (3)** due to TTC < 3.0s.  
+
+#### **Obstacle 326 (Front)**
+- **Adjusted Distance**: Longitudinal 15.98m, Lateral 0.00m (aligned)  
+- **Relative Velocity**: Longitudinal -1.85 m/s (approaching), Lateral 0.36 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally, moving away laterally  
+- **TTC Longitudinal**: 15.98 / 1.85 = **8.64s** (No Risk)  
+- **MDC Longitudinal**: 15.98m (No Risk)  
+- **Lateral Risk**: Moving away (Negligible Risk)  
+- **Overall Risk**: **Negligible Risk (5)**.  
+
+#### **Obstacle 332 (Left)**
+- **Adjusted Distance**: Longitudinal 0.00m (aligned), Lateral 2.29m  
+- **Relative Velocity**: Longitudinal -10.10 m/s (approaching), Lateral -0.00 m/s (no lateral motion)  
+- **Motion**: Exact longitudinal alignment, no lateral motion  
+- **TTC Longitudinal**: 0.00 / 10.10 = **0.00s** (Collision Risk)  
+- **MDC Lateral**: 2.29m (Low Risk)  
+- **Collision Confirmation**: Longitudinal alignment with closing velocity suggests potential collision.  
+- **Overall Risk**: **Collision (0)**.  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "332",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "32",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "310",
+        "OverallRiskScore": "2"
+    }
+}
+```
+
+### Key Findings:
+1. **Obstacle 332** is at **Collision Risk (0)** due to longitudinal alignment with closing velocity.  
+2. **Obstacle 32** is at **Extreme Risk (1)** with TTC = 0.19s.  
+3. **Obstacle 310** is at **High Risk (2)** with TTC = 0.93s.  
+
+All other obstacles pose lower risks. Immediate action is required for Obstacles 332, 32, and 310.

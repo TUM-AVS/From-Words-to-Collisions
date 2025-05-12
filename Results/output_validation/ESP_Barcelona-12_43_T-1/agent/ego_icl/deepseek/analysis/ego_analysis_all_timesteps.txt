@@ -1,0 +1,51 @@
+### Analysis for Most Recent Timestep (12.8 seconds):
+
+#### Obstacle 30716:
+- **Position**: Behind ego car (longitudinal -0.77 m, lateral 0.00 m)
+- **Relative Velocity**: Longitudinal 3.95 m/s (approaching), lateral 0.00 m/s (no lateral movement)
+- **Motion**: Driving toward ego car from behind with exact lateral alignment.
+- **Trajectory Analysis**:
+  - Longitudinal distance decreases from -4.24 m (11.9s) to -0.77 m (12.8s) in 0.9 seconds.
+  - Consistent closing speed (~3.8 m/s).
+  - **Time-to-Collision (TTC)**:
+    - TTC = 0.77 m / 3.95 m/s ≈ 0.195 seconds (Extreme Risk, TTC ≤ 0.5s).
+  - **Minimum Distance to Collision (MDC)**:
+    - Current longitudinal distance: 0.77 m (High Risk, 0.5 < MDC ≤ 1.0 m).
+    - Lateral distance: 0.00 m (aligned).
+  - **Overall Risk**: Extreme Risk (1) due to TTC < 0.5s.
+
+#### Obstacle 30720:
+- **Position**: Behind ego car (longitudinal -18.14 m, lateral 0.00 m)
+- **Relative Velocity**: Longitudinal 3.30 m/s (approaching), lateral 0.03 m/s (negligible lateral movement)
+- **Motion**: Driving toward ego car from behind with exact lateral alignment.
+- **Trajectory Analysis**:
+  - Longitudinal distance decreases from -20.99 m (11.9s) to -18.14 m (12.8s) in 0.9 seconds.
+  - Closing speed (~3.2 m/s).
+  - **Time-to-Collision (TTC)**:
+    - TTC = 18.14 m / 3.30 m/s ≈ 5.5 seconds (No Risk, TTC > 5.0s).
+  - **Minimum Distance to Collision (MDC)**:
+    - Current longitudinal distance: 18.14 m (No Risk, MDC > 5.0 m).
+    - Lateral distance: 0.00 m (aligned).
+  - **Overall Risk**: No Risk (5).
+
+### Predicted Collision:
+- Obstacle 30716 is approaching rapidly (TTC ≈ 0.195s) and will collide with the ego vehicle if no action is taken.
+- Obstacle 30720 poses no immediate risk.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30716",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30716",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "30716",
+        "OverallRiskScore": "0"
+    }
+}
+```

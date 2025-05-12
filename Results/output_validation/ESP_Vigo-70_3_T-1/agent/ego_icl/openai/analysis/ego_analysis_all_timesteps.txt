@@ -1,0 +1,84 @@
+To assess the risk levels for the three obstacles presented, we'll focus our analysis on the last recorded timestep (3.8 seconds) while using previous data to understand the motion and trajectory trends.
+
+### Obstacle 3391 (Left of Ego Vehicle):
+- **Position Analysis at 3.8 seconds:** 
+  - Adjusted Longitudinal Distance: 0.00 m
+  - Adjusted Lateral Distance: 14.76 m
+  - Relative Longitudinal Velocity: -0.89 m/s
+  - Relative Lateral Velocity: 0.00 m/s
+
+- **Trajectory & Motion:**
+  - Stable longitudinal alignment; obstacle is stationary in lateral terms.
+  - Longitudinally moving away from the ego vehicle.
+  - No relative lateral movement.
+  - Lateral distance is large, indicating no immediate risk of collision from the side.
+
+- **Risk Assessment:**
+  - **MDC (Minimum Distance to Collision):** As there is no lateral convergence and the distance is well over 5 meters, the MDC suggests negligible risk.
+  - **TTC (Time-to-Collision):** As there is no significant change to reach a critical lateral distance, TTC is not applicable for collision risk in this stable scenario.
+
+- **Conclusion:** 
+  - Risk Level: 5 (Negligible Risk)
+
+### Obstacle 3393 (Rear-right of Ego Vehicle):
+- **Position Analysis at 3.8 seconds:**
+  - Adjusted Longitudinal Distance: 9.14 m (positive, indicating behind)
+  - Adjusted Lateral Distance: 13.20 m
+  - Relative Longitudinal Velocity: 0.84 m/s (opposing motion, away from ego backward)
+  - Relative Lateral Velocity: 7.38 m/s (approaching laterally)
+
+- **Trajectory & Motion:**
+  - The obstacle is closing longitudinal distance but is still well behind.
+  - Lateral movement is significant and quickly reducing the lateral gap.
+  - Observed consistent lateral approach over previous timesteps.
+
+- **Risk Assessment:**
+  - **MDC (Minimum Distance to Collision):** While it is relatively closer laterally, the rate of approach is fast, possibly dropping below 5 m sometime soon.
+  - **TTC:** Given the consistent approach, further calculations are needed:
+    - Lateral TTC = 13.20 m / 7.38 m/s = 1.79 seconds.
+  - Despite the relatively quick closure laterally, the time is just above the medium risk threshold, and due to the large initial separation distance, an immediate collision is unlikely.
+
+- **Conclusion:**
+  - Risk Level: 3 (Medium Risk) due to quick lateral closing speed but ample initial separation.
+
+### Obstacle 3395 (Behind the Ego Vehicle):
+- **Position Analysis at 3.8 seconds:**
+  - Adjusted Longitudinal Distance: 0.99 m (only slightly behind)
+  - Adjusted Lateral Distance: 0.00 m (same lane position)
+  - Relative Longitudinal Velocity: 4.68 m/s (rapid closing distance)
+  - Relative Lateral Velocity: 2.40 m/s (aligned with same lane)
+
+- **Trajectory & Motion:**
+  - Rapid longitudinal closure indicates a potentially imminent collision.
+  - Consistent trajectory of the vehicle moving forward and reducing the longitudinal distance quickly.
+  - The earlier longitudinal deceleration may indicate braking, though not sufficient to resolve the closing speed.
+
+- **Risk Assessment:**
+  - **MDC (Minimum Distance to Collision):** Approaching nearly zero based on position.
+  - **TTC:** 
+    - Longitudinal TTC = 0.99 m / 4.68 m/s = 0.21 seconds.
+  - Due to this rapid longitudinal closure and same-lane alignment, immediate action is necessary to avert collision.
+
+- **Conclusion:**
+  - Risk Level: 0 (Collision Risk is very high, imminent, or recent contact)
+
+Based on these analyses, the following JSON summary captures the overall assessment for significant impact risks:
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "3395",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "2"
+    }  
+}
+```
+
+This output reflects the critical need to manage collision risk specifically from Obstacle 3395, which presents a direct and immediate threat due to its proximity and closing trajectory.

@@ -1,0 +1,75 @@
+### Obstacle-By-Obstacle Analysis
+
+**Obstacle 30737:**
+- **Position and Motion**:
+  - Adjusted Longitudinal Distance: 7.09 m
+  - Adjusted Lateral Distance: -1.96 m (right of ego)
+  - Relative Velocity: Longitudinal 2.51 m/s, Lateral -1.98 m/s (moving away laterally)
+- **Trajectory and Risk Calculation**:
+  - **TTC_Longitudinal**: Not applicable since the obstacle is moving away.
+  - **TTC_Lateral**: Distance/|Relative Velocity| = 1.96 m / 1.98 m/s ≈ 0.99 seconds (moving away)
+  - **MDC**: With obstacles moving away in both dimensions, there’s a decline in collision probability.
+  - **Risk Assessment**: 
+    - Longitudinal: No Risk due to increasing distance
+    - Lateral: High Risk (TTC < 1.0 seconds for lateral)
+
+**Obstacle 30739:**
+- **Position and Motion**:
+  - Adjusted Longitudinal Distance: 21.72 m
+  - Adjusted Lateral Distance: -3.14 m (right of ego)
+  - Relative Velocity: Longitudinal 4.17 m/s, Lateral -2.53 m/s (moving away laterally)
+- **Trajectory and Risk Calculation**:
+  - **TTC_Longitudinal**: Not applicable, moving away.
+  - **TTC_Lateral**: Distance/|Relative Velocity| = 3.14 m / 2.53 m/s ≈ 1.24 seconds
+  - **MDC**: No imminent collision path; obstacle is diverging in both directions.
+  - **Risk Assessment**:
+    - Longitudinal: No Risk
+    - Lateral: Medium Risk (TTC < 3.0 seconds for lateral)
+
+**Obstacle 30740:**
+- **Position and Motion**:
+  - Adjusted Longitudinal Distance: 12.14 m
+  - Adjusted Lateral Distance: 20.39 m (left of ego)
+  - Relative Velocity: Longitudinal -22.73 m/s, Lateral 6.24 m/s (approaching longitudinally)
+- **Trajectory and Risk Calculation**:
+  - **TTC_Longitudinal**: Distance / |Relative Velocity| = 12.14 m / 22.73 m/s ≈ 0.53 seconds
+  - **TTC_Lateral**: Not relevant, moving away.
+  - **MDC**: Factors show significant longitudinal closing velocity.
+  - **Risk Assessment**: 
+    - Longitudinal: High Risk (TTC < 1.0 seconds)
+    - Lateral: No Risk, diverging paths
+
+**Obstacle 30743:**
+- **Position and Motion**:
+  - Adjusted Longitudinal Distance: -2.72 m (behind)
+  - Adjusted Lateral Distance: -2.59 m (right)
+  - Relative Velocity: Longitudinal -2.41 m/s, Lateral 2.26 m/s (approaching laterally)
+- **Trajectory and Risk Calculation**:
+  - **TTC_Longitudinal**: Not applicable, moving away.
+  - **TTC_Lateral**: Distance / |Relative Velocity| = 2.59 m / 2.26 m/s ≈ 1.15 seconds
+  - **MDC**: Substantial lateral closing path.
+  - **Risk Assessment**:
+    - Longitudinal: No Risk, moving away
+    - Lateral: High Risk (TTC < 1.0 seconds for lateral)
+
+### Conclusion
+
+The main risk comes from **Obstacle 30740**, which has a significant longitudinal closing velocity, indicating a high risk of collision longitudinally with a TTC of approximately 0.53 seconds. However, note that paths are diverging laterally. Nevertheless, the immediate longitudinal risk is critical.
+
+**JSON Summary:**
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30740 presents a High Risk with a rapid longitudinal closure (TTC ≈ 0.53s), indicating a potential imminent collision scenario due to its high-speed approach, despite lateral divergence."
+}
+```
+
+This analysis considers obstacle trajectories, velocities, and potential collision paths, focusing on the highest risk factor.

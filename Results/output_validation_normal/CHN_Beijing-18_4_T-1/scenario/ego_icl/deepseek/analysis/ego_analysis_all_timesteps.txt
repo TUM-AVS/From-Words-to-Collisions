@@ -1,0 +1,72 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+#### **Obstacle 3046 (Front-left)**
+- **Adjusted Distance**: Longitudinal 6.27m, Lateral 2.91m  
+- **Relative Velocity**: Longitudinal -9.31 m/s (approaching), Lateral -2.93 m/s (approaching from left)  
+- **Motion**: Driving toward ego both longitudinally and laterally  
+- **TTC Longitudinal**: 6.27 / 9.31 ≈ 0.67s  
+- **TTC Lateral**: 2.91 / 2.93 ≈ 0.99s  
+- **MDC**: Minimum distance is lateral (2.91m) since longitudinal distance is larger but closing rapidly.  
+- **Risk Assessment**:  
+  - TTC (longitudinal): 0.67s → High Risk (2)  
+  - TTC (lateral): 0.99s → High Risk (2)  
+  - MDC: 2.91m → Medium Risk (3)  
+  - **Overall Risk**: High Risk (2)  
+
+#### **Obstacle 3047 (Front-right)**
+- **Adjusted Distance**: Longitudinal 9.64m, Lateral -3.40m  
+- **Relative Velocity**: Longitudinal -1.20 m/s (approaching slowly), Lateral -6.35 m/s (moving away to right)  
+- **Motion**: Driving toward ego longitudinally but moving away laterally  
+- **TTC Longitudinal**: 9.64 / 1.20 ≈ 8.03s (No Risk, diverging laterally)  
+- **MDC**: Lateral distance increasing → No Risk (5)  
+- **Risk Assessment**:  
+  - **Overall Risk**: No Risk (5)  
+
+#### **Obstacle 3049 (Behind)**
+- **Adjusted Distance**: Longitudinal -8.55m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 4.35 m/s (approaching from behind), Lateral 0.00 m/s  
+- **Motion**: Driving toward ego from behind with exact lateral alignment  
+- **TTC Longitudinal**: 8.55 / 4.35 ≈ 1.97s  
+- **MDC**: Lateral alignment but longitudinal distance closing → Medium Risk (3)  
+- **Risk Assessment**:  
+  - **Overall Risk**: Medium Risk (3)  
+
+#### **Obstacle 3051 (Front-left)**
+- **Adjusted Distance**: Longitudinal 13.71m, Lateral 10.32m  
+- **Relative Velocity**: Longitudinal -2.96 m/s (approaching), Lateral 40.75 m/s (moving away left rapidly)  
+- **Motion**: Driving toward ego longitudinally but moving away laterally  
+- **TTC Longitudinal**: 13.71 / 2.96 ≈ 4.63s  
+- **MDC**: Lateral distance increasing rapidly → Low Risk (4)  
+- **Risk Assessment**:  
+  - **Overall Risk**: Low Risk (4)  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 3046** is the most critical: Rapidly closing both longitudinally and laterally (TTC < 1s in both dimensions).  
+- **Obstacle 3049** is approaching from behind but at a slower rate (TTC ≈ 2s).  
+- Other obstacles are either diverging or pose minimal risk.  
+
+---
+
+### Collision Scenario Determination
+- No obstacle has a risk score of 0 (collision) or 1 (extreme risk).  
+- Highest risk is Obstacle 3046 (High Risk, score 2).  
+
+---
+
+### Final JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacle has a risk score of 0 (collision) or 1 (extreme risk). The highest risk is Obstacle 3046 with a High Risk (score 2)."
+}
+```

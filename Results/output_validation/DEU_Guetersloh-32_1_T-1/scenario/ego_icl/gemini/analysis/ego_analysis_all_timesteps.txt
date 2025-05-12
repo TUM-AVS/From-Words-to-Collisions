@@ -1,0 +1,66 @@
+* **Obstacle 31 (Front-Left):**  This obstacle has been consistently moving away laterally while approaching longitudinally over the observed timesteps. At the last timestep (1.7s), it is 8.07m longitudinally and 0.39m laterally.  Given the lateral movement away from the ego vehicle and a substantial longitudinal distance, the risk of collision is low.
+
+    * **TTC (Longitudinal):** 8.07m / 11.92 m/s = 0.68s (Risk 2)
+    * **TTC (Lateral):**  Not applicable as moving away laterally.
+    * **MDC:** The minimum distance will be slightly less than the current longitudinal distance due to the slight lateral movement towards the ego vehicle, but still > 5m.  (Risk 5/4)
+    * **Overall Risk:** 2 (High Risk due to longitudinal TTC)
+
+* **Obstacle 33 (Behind):** This obstacle has been consistently approaching the ego vehicle from behind and is now very close. At 1.7s, it is -0.18m longitudinally and laterally aligned.  The closing longitudinal distance and positive relative velocity indicate an extremely high risk of collision.
+
+    * **TTC (Longitudinal):** 0.18m / 1.14 m/s = 0.16s (Risk 1)
+    * **TTC (Lateral):** Not applicable due to lateral alignment.
+    * **MDC:** Approximately 0.18m (Risk 1)
+    * **Overall Risk:** 1 (Extreme Risk due to very low TTC and MDC)
+
+* **Obstacle 35 (Behind):** This obstacle is approaching longitudinally from behind but at a slower rate than Obstacle 33.  At 1.7s, it is -8.22m longitudinally and laterally aligned.  
+
+    * **TTC (Longitudinal):** 8.22m / 0.45 m/s = 18.27s (Risk 5)
+    * **TTC (Lateral):** Not applicable due to lateral alignment.
+    * **MDC:** Approximately 8.22m (Risk 5)
+    * **Overall Risk:** 5 (No Risk)
+
+* **Obstacle 310 (Behind):** This obstacle is moving away longitudinally. It poses no collision risk.
+
+    * **TTC (Longitudinal):** Not applicable as it is moving away.
+    * **TTC (Lateral):** Not applicable due to lateral alignment.
+    * **MDC:** >5m (Risk 5)
+    * **Overall Risk:** 5 (No Risk)
+
+
+* **Obstacle 331 (Rear-Left):** This obstacle has been consistently moving away from the ego vehicle both longitudinally and laterally.  There is no risk of collision.
+
+    * **TTC:** Not applicable in either direction as moving away.
+    * **MDC:** > 5m (Risk 5)
+    * **Overall Risk:** 5 (No Risk)
+
+* **Obstacle 338 (Front-Left):** This obstacle is approaching longitudinally and slightly moving away laterally from the ego vehicle. At 1.7s, it is 8.07m longitudinally and 0.39m laterally. The continued longitudinal approach represents a risk.
+
+    * **TTC (Longitudinal):** 8.07m / 11.92 m/s = 0.68s (Risk 2)
+    * **TTC (Lateral):** Not applicable as it is moving away.
+    * **MDC:** The minimum distance will be slightly less than the current longitudinal distance, but still > 5m. (Risk 5/4).
+    * **Overall Risk:** 2 (High risk due to longitudinal TTC).
+
+* **Obstacle 348 (Front-Left):**  This obstacle is approaching longitudinally. At 1.7s, it is 6.72m longitudinally and 25.87m laterally. The lateral distance is significant, so the primary risk is longitudinal.
+
+    * **TTC (Longitudinal):** 6.72m / 3.44 m/s = 1.95s (Risk 3)
+    * **TTC (Lateral):** Not applicable
+    * **MDC:** Approx 6.72m. (Risk 4)
+    * **Overall Risk:** 3 (Medium risk)
+
+
+**Collision Scenario Determination:** Yes, this is a collision scenario. Obstacle 33 has an overall risk score of 1 (Extreme Risk) with a very low TTC (0.16s) and MDC (0.18m).  This indicates an imminent collision.
+
+
+```json
+{
+  "CollisionObstacle": {
+    
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "33",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 33 poses an Extreme Risk (score 1) with a very low TTC (0.16s) and MDC (0.18m), indicating an imminent rear-end collision."
+}
+```

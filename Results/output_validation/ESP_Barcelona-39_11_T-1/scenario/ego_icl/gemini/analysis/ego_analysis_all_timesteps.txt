@@ -1,0 +1,50 @@
+* **Obstacle 30805:** This obstacle is in front of the ego vehicle and approaching longitudinally.  Across the timesteps, the longitudinal distance has been decreasing. At the last timestep, the longitudinal distance is 7.75m with a relative velocity of -0.36 m/s.  TTC is 7.75 / 0.36 = 21.53 seconds. MDC assessment agrees. This obstacle poses no immediate risk, although its continued approach warrants monitoring. Risk score: 5 (No Risk)
+
+* **Obstacle 30807:** Front-left, consistently around 1.87m lateral distance, longitudinally approaching.  TTC longitudinal is  7.78 / 0.36 = 21.61 seconds. Lateral distance stable. Risk score: 5 (No Risk)
+
+* **Obstacle 30808:** Front-left, maintaining a safe lateral distance (~5.37m). Longitudinally approaching but slowly. TTC longitudinal is 7.81 / 0.36 = 21.69 seconds. No risk currently. Risk score: 5 (No Risk)
+
+* **Obstacle 30812:** Rear-left and moving away. No risk. Risk score: 5 (No Risk)
+
+* **Obstacle 30813:** Directly in front and approaching rapidly. At the last timestep, the longitudinal distance is a mere 0.24m with a closing velocity of -0.36 m/s. TTC is 0.24 / 0.36 = 0.67 seconds. This is extremely dangerous and a collision is highly likely without immediate intervention.  MDC assessment confirms extreme risk (0.24m < 0.5m). Risk score: 1 (Extreme Risk)
+
+* **Obstacle 30814:** Front-left, moving away longitudinally. Lateral distance safe. No risk. Risk score: 5 (No Risk)
+
+* **Obstacle 30815:** Front-left, moving slightly away longitudinally and laterally. No immediate risk. Risk score: 5 (No Risk)
+
+* **Obstacle 30816:** Rear-left and moving away. No risk. Risk score: 5 (No Risk)
+
+* **Obstacle 30818:** Rear-left and moving away. No risk. Risk score: 5 (No Risk)
+
+* **Obstacle 30820:** Rear-left and moving away. No risk. Risk score: 5 (No Risk)
+
+* **Obstacle 30824:** Rear-left and moving away. No risk. Risk score: 5 (No Risk)
+
+* **Obstacle 30825:** Rear-left and moving away. No risk. Risk score: 5 (No Risk)
+
+* **Obstacle 30827:** Front-right and moving away longitudinally.  Lateral distance is decreasing, but given the longitudinal movement, not an immediate risk. Risk score: 5 (No Risk)
+
+* **Obstacle 30828:** Behind and moving away. No risk. Risk score: 5 (No Risk)
+
+* **Obstacle 30832:** Front-right, approaching longitudinally (1.25m) and laterally. While lateral velocity is positive, lateral distance is large (18.98m). TTC longitudinal is 1.25 / 0.33 = 3.79 seconds. MDC assessment indicates medium risk. Risk score: 3 (Medium Risk)
+
+
+**Conclusion:**
+
+This IS a collision scenario because Obstacle 30813 poses an Extreme Risk (risk score 1) with a very low TTC (0.67s < 0.5) and a very close longitudinal distance (0.24m < 0.5m).
+
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30813",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 30813 has an Extreme Risk score (1) with TTC 0.67s and a longitudinal distance of 0.24m, indicating an imminent collision."
+}
+```

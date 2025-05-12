@@ -1,0 +1,99 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 3.7s)
+
+---
+
+#### **Obstacle 30193 (Front-left)**
+- **Adjusted Position**: Longitudinal 3.65m, Lateral 15.42m  
+- **Relative Velocity**: Longitudinal 1.66 m/s (moving away), Lateral 4.13 m/s (moving away)  
+- **Motion**: Moving away both longitudinally and laterally to the left.  
+
+**Risk Assessment**:
+- **MDC (Minimum Distance to Collision)**:  
+  - Longitudinal: Increasing (3.65m → safe)  
+  - Lateral: Increasing (15.42m → safe)  
+  - **MDC > 5.0m** → **Risk 5 (Negligible)**  
+
+- **TTC (Time-to-Collision)**:  
+  - Not applicable (distances increasing, relative velocity negative) → **Risk 5 (Negligible)**  
+
+**Overall Risk**: **5 (Negligible)**  
+- No collision risk. Obstacle is moving away in both dimensions.
+
+---
+
+#### **Obstacle 30196 (Rear-right)**
+- **Adjusted Position**: Longitudinal -0.31m (behind), Lateral -1.23m (right)  
+- **Relative Velocity**: Longitudinal 2.18 m/s (approaching), Lateral 5.11 m/s (approaching)  
+- **Motion**: Driving toward ego from behind and laterally from the right.  
+
+**Risk Assessment**:
+- **MDC (Minimum Distance to Collision)**:  
+  - Longitudinal: 0.31m (very close behind)  
+  - Lateral: 1.23m (approaching rapidly)  
+  - **MDC = 0.31m (smaller of the two)** → **Risk 1 (Extreme)**  
+
+- **TTC (Time-to-Collision)**:  
+  - Longitudinal TTC = 0.31m / 2.18 m/s = **0.14s** (Extreme Risk)  
+  - Lateral TTC = 1.23m / 5.11 m/s = **0.24s** (Extreme Risk)  
+  - **TTC < 0.5s** → **Risk 1 (Extreme)**  
+
+**Overall Risk**: **1 (Extreme)**  
+- Imminent collision risk due to very small TTC and MDC.  
+
+**Trajectory Analysis**:  
+- Over the last 1.0s (10 timesteps), the longitudinal distance decreased from -4.08m to -0.31m, and lateral distance decreased from -2.02m to -1.23m.  
+- Closing velocities are high (2.18 m/s longitudinally, 5.11 m/s laterally).  
+
+**Prediction**:  
+- At current velocities, will collide with ego in **0.14s** (longitudinal) or **0.24s** (lateral).  
+
+---
+
+#### **Obstacle 30197 (Rear-right)**
+- **Adjusted Position**: Longitudinal -9.18m (behind), Lateral -11.56m (right)  
+- **Relative Velocity**: Longitudinal 3.91 m/s (approaching), Lateral 3.61 m/s (approaching)  
+- **Motion**: Driving toward ego from behind and laterally from the right.  
+
+**Risk Assessment**:
+- **MDC (Minimum Distance to Collision)**:  
+  - Longitudinal: 9.18m  
+  - Lateral: 11.56m  
+  - **MDC > 5.0m** → **Risk 5 (Negligible)**  
+
+- **TTC (Time-to-Collision)**:  
+  - Longitudinal TTC = 9.18m / 3.91 m/s = **2.35s** (Medium Risk)  
+  - Lateral TTC = 11.56m / 3.61 m/s = **3.20s** (Medium Risk)  
+  - **TTC > 3.0s** → **Risk 4 (Low)**  
+
+**Overall Risk**: **4 (Low)**  
+- No immediate threat.  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "5"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30196",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "30196",
+        "OverallRiskScore": "1"
+    }
+}
+```
+
+### Key Findings:
+1. **Obstacle 30196 (Rear-right)** is at **Extreme Risk (1)**.  
+   - Will collide with ego in **0.14s longitudinally** or **0.24s laterally** if no evasive action is taken.  
+2. No current collision (Risk 0), but **30196 is predicted to collide imminently**.  
+3. Other obstacles (30193, 30197) pose negligible or low risk.  
+
+### Recommended Action:  
+- **Immediate braking or lateral maneuver** to avoid Obstacle 30196.  
+- Prioritize lateral evasion (higher closing velocity laterally).

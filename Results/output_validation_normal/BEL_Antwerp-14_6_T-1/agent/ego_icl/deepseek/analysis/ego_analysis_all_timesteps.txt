@@ -1,0 +1,47 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30636 (Front of ego car)
+- **Most Recent Timestep (0.9s)**:
+  - **Adjusted Longitudinal Distance**: 16.35 m (positive, obstacle is in front)
+  - **Adjusted Lateral Distance**: 0.00 m (exact lateral alignment)
+  - **Relative Velocity**: Longitudinal -1.43 m/s (obstacle is approaching ego), Lateral -0.01 m/s (negligible lateral movement)
+  - **Motion Description**: "Obstacle is driving toward the ego car longitudinally. Exact lateral alignment or unknown case."
+
+- **Trajectory Analysis**:
+  - From 0.1s to 0.6s, the obstacle was moving away longitudinally (positive relative velocity).
+  - At 0.7s, the relative velocity becomes negative, indicating the obstacle is now approaching the ego car.
+  - The longitudinal distance decreases from 16.53m at 0.7s to 16.35m at 0.9s.
+  - Lateral distance remains 0.00m throughout, indicating exact alignment.
+
+- **Time-to-Collision (TTC)**:
+  - Longitudinal TTC = Distance / |Relative Velocity| = 16.35 / 1.43 ≈ 11.43 seconds (No Risk, TTC > 5.0s).
+  - Lateral TTC is not applicable (lateral velocity is negligible).
+
+- **Minimum Distance to Collision (MDC)**:
+  - Since the obstacle is longitudinally aligned (lateral distance = 0.00m), the MDC is the longitudinal distance: 16.35m (No Risk, MDC > 5.0m).
+
+- **Risk Assessment**:
+  - TTC and MDC both indicate No Risk (Score 5).
+  - Despite the obstacle now approaching, the distance is large, and the risk is negligible.
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```
+
+### Explanation:
+- There is no collision or extreme/high risk obstacle in the scenario. The only obstacle (30636) is at a safe distance (16.35m longitudinally) and is aligned laterally, with a low approaching speed. The risk is negligible (Score 5).

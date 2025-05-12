@@ -1,0 +1,62 @@
+Let's analyze the given scenario by focusing on each obstacle at the most recent timestamp (0.9 seconds) using adjusted distances:
+
+### Obstacle Analysis
+
+#### Obstacle 30615 (Front of Ego Vehicle)
+- **Position and Movement:**
+  - Adjusted Distances: longitudinal 14.29 m, lateral 0.00 m
+  - Relative Velocity: longitudinal -2.08 m/s, lateral 0.00 m/s
+  - Motion: Obstacle is driving toward the ego car longitudinally. Exact lateral alignment or unknown case.
+
+- **Trajectory Analysis:**
+  - The obstacle has been consistently closing in on the ego vehicle, as seen in the decreasing longitudinal distances across previous timesteps. The overall trend is approaching the ego vehicle.
+  
+- **TTC Calculation:**
+  - Using longitudinal velocity (|2.08 m/s|) and distance (14.29 m): 
+    \[
+    TTC = \frac{14.29}{2.08} \approx 6.87 \text{ seconds}
+    \]
+  - Since the obstacle is exactly aligned laterally (0.00 m), lateral movement is not a factor here.
+
+- **MDC Calculation:**
+  - MDC aligns with the longitudinal distance as lateral alignment is 0.00 m. Thus, MDC = 14.29 m.
+
+- **Risk Assessment:**
+  - TTC > 5.0 seconds and MDC > 5.0 meters, this corresponds to No Risk (5).
+
+#### Obstacle 30618 (Behind Ego Vehicle)
+- **Position and Movement:**
+  - Adjusted Distances: longitudinal -20.25 m, lateral 0.00 m
+  - Relative Velocity: longitudinal -0.13 m/s, lateral -0.62 m/s
+  - Motion: Obstacle is moving away longitudinally. Exact lateral alignment or unknown case.
+
+- **Trajectory Analysis:**
+  - The trajectory indicates the obstacle is moving away from the ego vehicle based on increasing longitudinal distances and relative velocities moving away in both components.
+
+- **TTC Calculation:**
+  - The movement is away from the ego vehicle, hence TTC is not applicable in the context of impending collision risk.
+
+- **MDC Calculation:**
+  - Given the obstacle is moving away and at a considerable distance, MDC calculation is not critical for risk as it doesn't approach the collision scenario.
+
+- **Risk Assessment:**
+  - The continued movement away from the ego indicates No Risk (5).
+
+### Conclusion
+Neither obstacle presents an immediate collision risk, and both have been assessed as No Risk due to their respective distances and trajectories, wherein Obstacle 30615 has an adequate TTC and MDC, and Obstacle 30618 is moving away.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacles present immediate collision risk; Obstacle 30615 is approaching but with a safe distance and TTC, while Obstacle 30618 is moving away."
+}
+```

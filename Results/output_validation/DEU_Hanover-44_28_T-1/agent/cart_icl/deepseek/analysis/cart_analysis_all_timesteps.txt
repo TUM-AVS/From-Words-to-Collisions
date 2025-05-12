@@ -1,0 +1,26 @@
+### Analysis:
+
+1. **Obstacle 30730**:
+   - **Position**: (-432.9627, -384.2309) - Stationary (velocity = 0.0, acceleration = 0.0).
+   - **Relative Motion**: Ego is approaching this obstacle in the same lanelet (872.0). The distance between ego and obstacle is decreasing over time.
+   - **TTC**: Ego's velocity is ~3.9 m/s, and the distance is ~6.5m (calculated from positions at 5.5s). TTC ≈ 6.5 / 3.9 ≈ 1.67s. This is a moderate TTC, but the ego is decelerating (-0.1262 m/s²), which may extend the TTC.
+   - **Lateral Distance**: Minimal (same lanelet, similar orientation).
+   - **Risk**: **High Risk (2)** - The ego is closing in on a stationary obstacle in the same lane, but the deceleration suggests the system is responding.
+
+2. **Obstacle 30733**:
+   - **Position**: (-438.8426, -380.4217) - Stationary (velocity = 0.0, acceleration = 0.0).
+   - **Relative Motion**: In a different lanelet (874.0), so no immediate collision risk.
+   - **Lateral Distance**: Significant (different lanelet).
+   - **Risk**: **Negligible Risk (5)** - No meaningful risk due to lane separation.
+
+### JSON Output:
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": {
+        "ObstacleID": "30730",
+        "OverallRiskScore": 2
+    }
+}
+```

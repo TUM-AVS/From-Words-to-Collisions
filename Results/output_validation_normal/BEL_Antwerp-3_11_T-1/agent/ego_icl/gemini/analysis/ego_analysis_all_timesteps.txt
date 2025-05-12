@@ -1,0 +1,40 @@
+At t=0.9s:
+
+* **Obstacle 30759 (Front-Right):**
+    * Trajectory: This obstacle has appeared recently and is moving towards the ego vehicle both longitudinally and laterally.  The longitudinal distance is decreasing rapidly (13.86m at t=0.7s to 7.53m at t=0.9s), while the lateral distance is increasing but remains large.
+    * Longitudinal TTC: 7.53m / 7.51m/s = 1.00s
+    * Lateral TTC: Not applicable as it's moving away laterally.
+    * MDC: Considering the trajectory and the diagonal motion, the MDC will be dominated by the decreasing longitudinal distance, approximating 7.53 meters (not the standard calculation for head-on or side collisions)
+    * Risk: High Risk (2) due to the longitudinal TTC of ~1.0s.
+
+* **Obstacle 30761 (Left):**
+    * Trajectory: This obstacle has maintained a constant longitudinal alignment (0.00m) with the ego vehicle throughout all timesteps, indicating they are in adjacent lanes. It has been consistently moving away laterally.
+    * Longitudinal TTC: Not applicable due to constant alignment.
+    * Lateral TTC: Not applicable as it's moving away from ego.
+    * MDC: Given its lateral trajectory away from the ego vehicle and the large lateral distance of 10.70m, MDC is also large, assumed 10.70.
+    * Risk: Negligible Risk (5) because of the increasing lateral distance.
+
+* **Obstacle 30766 (Right):**
+    * Trajectory: This obstacle was initially diagonally ahead of the ego vehicle but has moved to be directly to its right (longitudinal distance = 0.00m at t=0.8s and t=0.9s).  It maintains a large and increasing lateral distance, moving further away.
+    * Longitudinal TTC: Not applicable due to constant alignment.
+    * Lateral TTC:  Not applicable as it's moving away laterally.
+    * MDC: With the current trajectory, the lateral distance of -24.92m is a safe and increasing separation, therefore, MDC is about 24.92 meters.
+    * Risk: Negligible Risk (5) due to the large and increasing lateral distance.
+
+* **Obstacle 30769 (Rear-Left):**
+    * Trajectory: This obstacle began behind the ego vehicle and has gradually moved towards its rear-left. Both longitudinal and lateral distances are decreasing.
+    * Longitudinal TTC: 14.06m / 0.77m/s = 18.26s
+    * Lateral TTC: 11.45m / 4.03m/s = 2.84s
+    * MDC: Considering the trajectory, the MDC will be dominated by the smaller lateral distance between vehicles as it approaches to 11.45 meters.
+    * Risk: Low Risk (4) due to the decreasing lateral distance though it is sufficient based on medium risk.
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {},
+  "HighRiskObstacle": {
+    "ObstacleID": "30759",
+    "OverallRiskScore": "2"
+  }
+}
+```

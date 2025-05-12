@@ -1,0 +1,74 @@
+**Obstacle Analysis**
+
+**Obstacle 30370**  
+- **Position**: Front-left  
+- **Adjusted Distance**: Longitudinal = 0.82 m, Lateral = 22.83 m   
+- **Relative Velocity**: Longitudinal = -3.24 m/s, Lateral = -1.95 m/s  
+- **Motion**: Driving toward ego car longitudinally and laterally  
+- **Trajectory Summary**: The longitudinal distance rapidly decreases from previous readings indicating a closing trajectory. Lateral distance remains substantial but also decreasing.  
+- **TTC Calculation**: Longitudinal TTC = 0.82 m / 3.24 m/s ≈ 0.25 seconds  
+- **Risk Assessment**: 
+  - Longitudinal dimension indicates TTC < 0.5s, making it an Extreme Risk scenario.  
+  - Lateral distance is not a direct collision factor here due to its larger scope.
+  - MDCLongitudinal = 0.82m (extreme risk and closing)
+
+**Obstacle 30376**  
+- **Position**: Front-right  
+- **Adjusted Distance**: Longitudinal = 20.23 m, Lateral = -7.46 m    
+- **Relative Velocity**: Longitudinal = -4.16 m/s, Lateral = 0.00 m/s  
+- **Motion**: Driving toward ego car longitudinally with no lateral movement  
+- **Trajectory Summary**: Longitudinal distance is decreasing, lateral distance is stable. Mainly a concern for longitudinal collision risk.  
+- **TTC Calculation**: Longitudinal TTC ≈ 20.23 m / 4.16 m/s ≈ 4.86 seconds  
+- **Risk Assessment**: 
+  - TTC long enough (4.86s), indicating Low Risk.  
+  - MDCLateral > 5m, and stable trajectory.
+
+**Obstacle 30377**  
+- **Position**: Front  
+- **Adjusted Distance**: Longitudinal = 24.73 m, Lateral = 0.00 m
+- **Relative Velocity**: Longitudinal = -2.63 m/s, Slight lateral deviation  
+- **Motion**: Driving toward ego car longitudinally  
+- **Trajectory Summary**: Longitudinal distance decreased from previous timestamps. Lateral distance in line, not immediately concerning.  
+- **TTC Calculation**: Longitudinal TTC = 24.73 m / 2.63 m/s ≈ 9.40 seconds  
+- **Risk Assessment**: 
+  - No immediate risk due to long TTC, Low Risk.  
+  - Noteworthy only if sustained acceleration or changes.
+
+**Obstacle 30380**  
+- **Position**: Front-right  
+- **Adjusted Distance**: Longitudinal = 16.40 m, Lateral = -7.75 m    
+- **Relative Velocity**: Longitudinal = -3.24 m/s, Lateral = -1.82 m/s  
+- **Motion**: Driving toward ego car longitudinally, moving away laterally  
+- **Trajectory Summary**: Both longitudinal and lateral distances reducing, primarily should evaluate longitudinal component.  
+- **TTC Calculation**: Longitudinal TTC = 16.40 m / 3.24 m/s ≈ 5.06 seconds  
+- **Risk Assessment**: 
+  - Low Risk indicated by path divergence laterally and sufficient TTC.  
+  - MDCLongitudinal >5m 
+
+**Obstacle 30381**  
+- **Position**: Front  
+- **Adjusted Distance**: Longitudinal = 10.59 m, Lateral = 0.00 m  
+- **Relative Velocity**: Longitudinal = 0.34 m/s, Lateral = 0.08 m/s  
+- **Motion**: Moving away longitudinally  
+- **Trajectory Summary**: No closing behavior, distance slightly increasing longitudinally as opposed to decreasing, not a collision threat.  
+- **TTC Calculation**: N/A due to increasing distance  
+- **Risk Assessment**: 
+  - No risk due to increasing longitudinal distance, Negligible Risk.  
+
+**JSON Summary**: 
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30370",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "",
+        "OverallRiskScore": ""
+    }
+}
+```

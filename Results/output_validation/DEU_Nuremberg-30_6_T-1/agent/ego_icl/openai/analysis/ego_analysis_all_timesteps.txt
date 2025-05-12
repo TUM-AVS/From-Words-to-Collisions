@@ -1,0 +1,63 @@
+### Obstacle Analysis
+
+#### Obstacle 30603 (Rear-Left)
+- **Trajectory Overview:**
+  - This obstacle is consistently moving towards the ego vehicle from the rear-left. Over recent timesteps, it has shown stable longitudinal distance slightly decreasing at a slow rate (-7.95m to -7.74m), and lateral distance reducing and then slightly increasing (0.79m to 0.67m).
+  - Relative velocity is primarily longitudinal at around 0.22 to 0.41 m/s, indicating it is slowly closing on the ego vehicle from behind.
+  
+- **Most Recent Timestep (5.2 seconds):**
+  - **Adjusted Longitudinal Distance:** Not provided explicitly beyond raw, but assuming slight reduction from trend.
+  - **Adjusted Lateral Distance:** 10.83m left.
+  - **Relative Velocities:** Longitudinal - 0.00 m/s; Lateral - 0.21 m/s (closing from left).
+  - **Motion Description:** Longitudinal alignment imminent; closing in laterally very slowly at 0.21 m/s.
+
+- **TTC and MDC Calculation:**
+  - **Longitudinal TTC:** Not applicable (constant distance as per relative velocity).
+  - **Lateral TTC:** 10.83m / 0.21m/s ≈ 51.57s (indicating plenty of time laterally).
+  - **MDC:** Lateral at 10.83m according to adjusted positions and slow closing trend.
+
+- **Risk Assessment:**
+  - With slow closing laterally at this distance and adjusted trajectory, longitudinal movement does not pose an immediate risk.
+  - **Risk Score:** 5 (Negligible Risk)
+
+#### Obstacle 30604 (Front-Right)
+- **Trajectory Overview:**
+  - This obstacle is primarily engaging the ego vehicle from the front-right. Initial movement was away but progressively turned towards the ego laterally.
+  - Longitudinal distance slightly increased then decreased drastically in the timestep (-3.67m to -1.24m).
+  - Lateral approach is significant with continuous decrease from -7.88m to -1.24m at high lateral velocities (approx. ~8.07 m/s).
+
+- **Most Recent Timestep (5.2 seconds):**
+  - **Adjusted Longitudinal Distance:** 0.00 m (Exact longitudinal alignment).
+  - **Adjusted Lateral Distance:** -3.30m (approximate from previous data trends; moving rapidly closer).
+  - **Relative Velocities:** Longitudinal - 7.39m/s (approaching), Lateral - 3.52m/s.
+  - **Motion Description:** Exact longitudinal alignment; nearing collision from right laterally.
+
+- **TTC and MDC Calculation:**
+  - **Longitudinal TTC:** Since it's 0, focus was lateral closing.
+  - **Lateral TTC:** Approx. 3.30m / 3.52m/s = ~0.94 seconds (high closing speed).
+  - **MDC:** Approx. 0.00m longitudinal and within the alignment and rapid lateral drive.
+
+- **Risk Assessment:**
+  - Due to extreme lateral approach coupled with simultaneous longitudinal alignment, possible collision imminent as quickly converging laterally.
+  - **Risk Score:** 0 (Collision Risk Due to Rapid Lateral Convergence)
+
+### Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30604",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30603",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "2"
+    }
+}
+```
+
+In this scenario, Obstacle 30604 poses an immediate collision risk due to its extreme lateral approach and full longitudinal alignment, confirmed by the rapidly closing lateral distance. Obstacle 30603 presents no immediate collision risk with adjusted distances timely managed with sufficient clearance.

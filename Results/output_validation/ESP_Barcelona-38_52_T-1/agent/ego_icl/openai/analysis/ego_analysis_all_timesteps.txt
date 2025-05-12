@@ -1,0 +1,84 @@
+Obstacle-by-Obstacle Analysis:
+
+1. **Obstacle 30721**:
+   - **Motion**: Driving toward the ego car longitudinally with no lateral motion.
+   - **Adjusted Distances**: Longitudinal = 12.44m, Lateral = 11.83m.
+   - **Relative Velocity**: Longitudinal = -1.94 m/s.
+   - **TTC (Longitudinal)**: TTC = 12.44m / 1.94 m/s ≈ 6.41s.
+   - **MDC**: > 5m in both directions.
+   - **Assessment**: Negligible risk (5), due to a safe longitudinal distance and decreasing approach speed.
+
+2. **Obstacle 30723**:
+   - **Motion**: Driving toward the ego car longitudinally with no lateral motion.
+   - **Adjusted Distances**: Longitudinal = 1.96m, Lateral = 11.19m.
+   - **Relative Velocity**: Longitudinal = -1.94 m/s.
+   - **TTC (Longitudinal)**: TTC = 1.96m / 1.94 m/s ≈ 1.01s.
+   - **MDC**: Minimal lateral concern; primarily longitudinal.
+   - **Assessment**: High risk (2) due to the low longitudinal distance and similar speeds.
+
+3. **Obstacle 30724**:
+   - **Motion**: Approaching longitudinally, also moving toward laterally from the left.
+   - **Adjusted Distances**: Longitudinal = 11.90m, Lateral = 20.66m.
+   - **Relative Velocity**: Longitudinal = -1.87 m/s, Lateral = -1.23 m/s.
+   - **TTC (Longitudinal)**: TTC = 11.90m / 1.87 m/s ≈ 6.36s.
+   - **MDC**: Beyond 5m.
+   - **Assessment**: Negligible risk (5), as both longitudinal and lateral TTCs indicate diverging paths with time to react.
+
+4. **Obstacle 30726**:
+   - **Motion**: Longitudinally stagnant, moving away laterally to the right.
+   - **Adjusted Distances**: Longitudinal = 8.89m, Lateral = 23.56m.
+   - **Relative Velocity**: Longitudinal = -0.64 m/s, Lateral = -12.71 m/s.
+   - **TTC (Lateral)**: Diverging laterally due to significant negative lateral velocity.
+   - **MDC**: Well beyond collision risk window.
+   - **Assessment**: Negligible risk (5).
+
+5. **Obstacle 30732**:
+   - **Motion**: Approaching from the left.
+   - **Adjusted Distances**: Longitudinal = 2.23m, Lateral = 19.68m.
+   - **Relative Velocity**: Longitudinal = -1.31 m/s.
+   - **TTC (Longitudinal)**: TTC = 2.23m / 1.31 m/s ≈ 1.70s.
+   - **MDC**: Safe in lateral distance.
+   - **Assessment**: Medium risk (3), as longitudinal closing distance is relatively tight but not immediate.
+
+6. **Obstacle 30733**:
+   - **Motion**: Moving away longitudinally while driving toward ego laterally.
+   - **Adjusted Distances**: Longitudinal = 9.96m, Lateral = 0.00m.
+   - **Relative Velocity**: Longitudinal = +9.95 m/s, Lateral = -2.39 m/s.
+   - **TTC (Lateral)**: Immediate risk from lateral approach? Since the lateral alignment remains at zero.
+   - **Assessment**: Low risk (4) due to diverging longitudinal distance even though aligned laterally.
+
+7. **Obstacle 30734 and 30736**:
+   - **Motion**: Exact longitudinal alignment, moving laterally toward the ego car from the right.
+   - **Adjusted Distances**: Lateral= -5m to -1.9m, where minor collision is possible due to close approach.
+   - **Relative Velocity**: Positive components toward the ego in lateral dimensions.
+   - **TTC (Lateral)**: Near collision due to alignment and minimal closing distance.
+   - **MDC**: Near zero laterally.
+   - **Assessment**: Extreme risk (1) due to potential for lateral collision in precise alignment.
+
+8. **Obstacles 30739 and 30741**:
+   - **Motion**: Approaching from behind.
+   - **Adjusted Distances**: Longitudinal = -0.70m (30739), -16.90m (30741).
+   - **Relative Velocity**: Towards ego at varying but similar velocities.
+   - **TTC (Longitudinal)**: 30739 at extreme proximity with very short time to impact due to velocity alignment.
+   - **Assessment for 30739**: Collision (0) is imminent due to extremely close negative distance indicating overlap.
+
+Overall Findings:
+- Obstacle 30739 is an immediate collision risk due to its negative alignment distance and velocity.
+- Obstacle 30734 and 30736 exhibit extreme risks due to side proximity in lateral alignments.
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30739",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30734",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "30723",
+        "OverallRiskScore": "2"
+    }
+}
+```

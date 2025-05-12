@@ -1,0 +1,54 @@
+At timestamp 2.0s:
+
+* **Obstacle 30800:** Front-right, longitudinal 13.02m, lateral -17.52m. Relative velocity: longitudinal -0.26 m/s, lateral 0.03 m/s.  This obstacle is moving away longitudinally (increasing distance) and slightly towards the ego laterally.  Given the large lateral distance and diverging longitudinal trajectory, the risk is low.
+    * TTC (longitudinal): Not applicable due to diverging trajectory.
+    * TTC (lateral): 17.52 / 0.03 = 584s (Not a realistic collision timeframe given other factors)
+    * MDC: ~17.52m (using lateral distance as the primary metric)
+    * Risk: 5 (Negligible Risk)
+
+* **Obstacle 30801:** Behind, longitudinal -0.79m, lateral 0.00m. Relative velocity: longitudinal 2.93 m/s, lateral 0.38 m/s. This obstacle is very close behind and closing rapidly. Lateral alignment suggests same lane. This is extremely dangerous.
+    * TTC (longitudinal): 0.79 / 2.93 = 0.27s
+    * MDC: ~0.79m
+    * Risk: 1 (Extreme Risk)
+
+* **Obstacle 30802:** Front-right, longitudinal 10.29m, lateral -10.50m. Relative velocity: longitudinal -0.25 m/s, lateral 0.00 m/s. Moving slightly away longitudinally and no lateral movement. Low risk.
+    * TTC (longitudinal): Not applicable due to diverging trajectory.
+    * TTC (lateral): Not applicable due to zero relative velocity
+    * MDC: ~10.5m.
+    * Risk: 5 (Negligible Risk)
+
+* **Obstacle 30804:** Front-right, longitudinal 1.44m, lateral -1.64m. Relative velocity: longitudinal 9.24 m/s, lateral 0.08 m/s. Although moving away longitudinally (positive velocity indicates obstacle moving away from ego vehicle), the small distances and the previous timesteps suggest a very recent near-miss or potential collision. Treat as high risk.
+    * TTC (longitudinal): Not applicable due to diverging trajectory.
+    * TTC (lateral): 1.64 / 0.08 = 20.5s
+    * MDC: ~1.64m.
+    * Risk: 2 (High Risk)
+
+* **Obstacle 30805:** Rear-right, longitudinal -11.96m, lateral -0.38m. Relative velocity: longitudinal 3.17 m/s, lateral 0.43 m/s.  Approaching from behind and slightly to the right. The near-zero lateral distance and substantial longitudinal velocity are a concern.
+    * TTC (longitudinal): 11.96 / 3.17 = 3.77s
+    * TTC (Lateral): 0.38 / 0.43 = 0.88s
+    * MDC: ~0.38m.
+    * Risk: 2 (High Risk)
+
+* **Obstacle 30806:** Rear-right, longitudinal -4.67m, lateral -3.02m. Relative velocity: longitudinal 8.20 m/s, lateral 1.01 m/s. Rapidly approaching diagonally from behind.  High risk.
+    * TTC (longitudinal): 4.67 / 8.20 = 0.57s
+    * TTC (lateral): 3.02/1.01 = 3s
+    * MDC: ~3.02m
+    * Risk: 2 (High Risk)
+
+* **Obstacle 30807:** Rear-right, longitudinal -24.57m, lateral -2.42m. Relative velocity: longitudinal 4.19 m/s, lateral 0.92 m/s. Approaching from behind at a moderate distance.
+    * TTC (longitudinal): 24.57 / 4.19 = 5.86s
+    * TTC (Lateral): 2.42 / 0.92 = 2.63s
+    * MDC: ~2.42m
+    * Risk: 4 (Low Risk)
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30801",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {}
+}
+```

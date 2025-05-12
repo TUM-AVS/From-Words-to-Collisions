@@ -1,0 +1,110 @@
+### Analysis of Obstacle Scenarios at 11.4 Seconds
+
+#### Obstacle 3655 (Front-right)
+- **Adjusted Longitudinal Distance & Lateral Distance**: 12.57m & -3.36m
+- **Relative Velocity**: 5.59 m/s (longitudinal, moving away), -1.20 m/s (lateral, moving away)
+- **TTC and MDC calculation**:
+  - Longitudinal: The ego vehicle is moving away, so the distance increases.
+  - Lateral: The obstacle is also moving away, leading again to an increasing distance.
+  - **Risk Score (Longitudinal & Lateral)**: 5 (No significant risk as obstacle diverges)
+
+#### Obstacle 3656 (Front-left)
+- **Adjusted Longitudinal Distance & Lateral Distance**: 7.22m & 9.04m
+- **Relative Velocity**: -1.63 m/s (longitudinal, approaching), 0 m/s (lateral)
+- **TTC and MDC calculation**:
+  - Longitudinal: TTC = 7.22m / 1.63 m/s ≈ 4.43s
+  - Lateral: Diverging, with no closing velocity.
+  - **Risk Score (Longitudinal)**: 4 (Low Risk, safe TTC)
+
+#### Obstacle 3657 (Right)
+- **Adjusted Longitudinal Distance & Lateral Distance**: 0.00m & -5.48m
+- **Relative Velocity**: -1.63 m/s (longitudinal), 0 m/s (lateral)
+- **TTC and MDC calculation**:
+  - Severe alignment on the longitudinal direction but stable in lateral (moving away)
+  - **Risk Score (Lateral)**: 5 (Negligible Risk; divergence in lateral)
+
+#### Obstacle 3658 (Front)
+- **Adjusted Longitudinal Distance & Lateral Distance**: 13.07m & 0.00m
+- **Relative Velocity**: 5.50 m/s (longitudinal, moving away), -1.19 m/s (lateral, moving away)
+- **TTC and MDC calculation**:
+  - Longitudinal: Moving away implies increasing distance continuously.
+  - **Risk Score (Longitudinal)**: 5 (Negligible Risk, opposite directions)
+
+#### Obstacle 3659 (Front-left)
+- **Adjusted Longitudinal Distance & Lateral Distance**: 10.71m & 0.77m
+- **Relative Velocity**: 4.53 m/s (longitudinal, moving away), -0.98 m/s (lateral, approaching)
+- **TTC and MDC calculation**:
+  - Longitudinal: Increasing distance quickly
+  - Lateral: TTC = 0.77m / 0.98 m/s ≈ 0.79s (approaching)
+  - **Risk Score (Lateral)**: 2 (High Risk, based on lateral convergence)
+
+#### Obstacle 3660 (Front-left)
+- **Adjusted Longitudinal Distance & Lateral Distance**: 10.71m & 8.91m
+- **Relative Velocity**: -1.63 m/s (longitudinal, approach), 0 m/s (lateral)
+- **TTC and MDC calculation**:
+  - Longitudinal: TTC = 10.71m / 1.63 m/s ≈ 6.57s
+  - **Risk Score (Longitudinal)**: 5 (Negligible Risk with opportunity to avoid)
+
+#### Obstacle 3661 (Front-left)
+- **Adjusted Longitudinal Distance & Lateral Distance**: 14.22m & 8.78m
+- **Relative Velocity**: -1.63 m/s (longitudinal, approach), 0 m/s (lateral)
+- **TTC and MDC Calculation**:
+  - Longitudinal: TTC = 14.22m / 1.63 m/s ≈ 8.72s
+  - **Risk Score (Longitudinal)**: 5 (Negligible Risk)
+
+#### Obstacle 3662 (Front-right)
+- **Adjusted Longitudinal Distance & Lateral Distance**: 0.45m & -2.04m
+- **Relative Velocity**: 4.32 m/s (longitudinal), -0.25 m/s (lateral, moving away)
+- **TTC and MDC calculation**:
+  - Longitudinal: Moving onward, stable, as distances initially align, but diverging due to lateral movement.
+  - **Risk Score (Lateral)**: 5 (Negligible risk)
+
+#### Obstacle 3666 (Left)
+- **Adjusted Longitudinal Distance & Lateral Distance**: 0.00m & 1.79m
+- **Relative Velocity**: 3.50 m/s (longitudinal, slight approach), -0.13 m/s (lateral, approach)
+- **TTC and MDC Calculation**:
+  - Longitudinal: Approaching, yet primary change appears along lateral trajectory
+  - Lateral: TTC = 1.79m / 0.13 m/s ≈ 13.77s
+  - **Risk Score (Lateral)**: 5 (Negligible Risk)
+
+#### Obstacle 3667 (Behind)
+- **Adjusted Longitudinal Distance & Lateral Distance**: -0.86m & 0.00m
+- **Relative Velocity**: 2.81 m/s (longitudinal, approach), -0.10 m/s (lateral)
+- **TTC and MDC Calculation**:
+  - Longitudinal approach provides small time-to-impact but depend on closing speed and trajectory convergence
+  - **Risk Score (Longitudinal)**: 3 (Medium Risk)
+
+#### Obstacle 3668 (Rear-right)
+- **Adjusted Longitudinal Distance & Lateral Distance**: -1.52m & -1.76m
+- **Relative Velocity**: 2.98 m/s (longitudinal, approach), -0.10 m/s (lateral)
+- **TTC and MDC Calculation**:
+  - Near approach involving both dimensions where projected path convergence is observed
+  - **Risk Score (Lateral/Longitudinal)**: 3 (Medium Risk, considering trajectory crossing from rear)
+
+#### Obstacle 3669 (Right)
+- **Adjusted Longitudinal Distance & Lateral Distance**: 0.00m & -5.30m
+- **Relative Velocity**: -1.63 m/s (longitudinal), 0 m/s (lateral)
+- **TTC and MDC Calculation**:
+  - Lateral distance implies sufficient side clearance currently steady divergence
+  - **Risk Score (Lateral)**: 5 (Negligible Risk)
+
+### Final Risk Assessment JSON Summary
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "None",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3659",
+    "OverallRiskScore": "1"
+  },
+  "HighRiskObstacle": {
+    "ObstacleID": "3659",
+    "OverallRiskScore": "2"
+  }
+}
+```
+
+Overall, no collision was identified, but obstacle 3659 presents a high-risk concern due to its converging lateral trajectory amid the proximity of its approach.

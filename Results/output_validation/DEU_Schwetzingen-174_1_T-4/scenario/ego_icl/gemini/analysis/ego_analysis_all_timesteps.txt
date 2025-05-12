@@ -1,0 +1,25 @@
+* **Obstacle 20111 Analysis:**
+
+This obstacle is directly behind the ego vehicle and rapidly approaching.  Across the provided timesteps, the longitudinal distance decreases from -5.72m to 0.00m at the final timestep, indicating a collision. Lateral distance remains at 0.00m throughout, confirming same-lane alignment. The relative longitudinal velocity is consistently positive and increasing, further confirming the rapid approach. At the last timestep (3.6 seconds), the longitudinal distance is 0.00m and lateral distance is also 0.00m. The relative velocity is 7.10 m/s longitudinally and 0.63m/s laterally.  This confirms a collision.
+
+* **Obstacle 20112 Analysis:**
+
+This obstacle is behind and to the right of the ego vehicle. The longitudinal distance decreases from -25.28m to -20.90m, and the lateral distance decreases from -1.76m to -1.22m across the timesteps. The relative velocity components are positive, suggesting it's moving towards the ego vehicle both longitudinally and laterally. However, the distances and relative velocities indicate it's not an immediate threat.  Let's approximate MDC and TTC.  Assuming constant velocity, MDC will be over 1 meter and TTC will be over 3 seconds, signifying a medium risk.
+
+**Collision Scenario Determination:**
+
+Yes, this is a collision scenario. Obstacle 20111 collided with the ego vehicle at the last timestep.
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "20111",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {},
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 20111 collided with the ego vehicle at the last timestep (3.6 seconds).  Longitudinal and lateral distances are both 0.00m with positive relative velocity."
+}
+```

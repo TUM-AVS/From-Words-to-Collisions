@@ -1,0 +1,84 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 6.7 seconds)
+
+#### **Obstacle 41 (Rear-left of ego car)**
+- **Adjusted Distance**: Longitudinal -8.21 m, Lateral 2.37 m  
+- **Relative Velocity**: Longitudinal -43.12 m/s (moving away), Lateral -0.06 m/s (very slight approach)  
+- **Motion Description**: Obstacle is moving away longitudinally. Obstacle is driving toward the ego car laterally from the left (but very slowly).  
+
+**Risk Assessment**:  
+- **Longitudinal**: The obstacle is moving away from the ego vehicle at high speed (-43.12 m/s). No collision risk longitudinally.  
+- **Lateral**: The lateral distance is 2.37 m and closing very slowly (-0.06 m/s).  
+  - **TTC (Lateral)**: 2.37 / 0.06 ≈ 39.5 seconds (Negligible Risk, 5)  
+  - **MDC (Lateral)**: 2.37 m (Low Risk, 4)  
+- **Overall Risk**: Low Risk (4)  
+
+---
+
+#### **Obstacle 45 (Front-left of ego car)**
+- **Adjusted Distance**: Longitudinal 18.99 m, Lateral 2.58 m  
+- **Relative Velocity**: Longitudinal -41.69 m/s (approaching rapidly), Lateral -0.32 m/s (approaching slowly)  
+- **Motion Description**: Obstacle is driving toward the ego car longitudinally and laterally from the left.  
+
+**Risk Assessment**:  
+- **Longitudinal**:  
+  - Distance = 18.99 m, Closing velocity = 41.69 m/s  
+  - **TTC (Longitudinal)**: 18.99 / 41.69 ≈ 0.46 seconds (Extreme Risk, 1)  
+  - **MDC (Longitudinal)**: 18.99 m (but closing rapidly, so focus on TTC)  
+- **Lateral**:  
+  - Distance = 2.58 m, Closing velocity = 0.32 m/s  
+  - **TTC (Lateral)**: 2.58 / 0.32 ≈ 8.06 seconds (No Risk, 5)  
+  - **MDC (Lateral)**: 2.58 m (Low Risk, 4)  
+- **Overall Risk**: **Extreme Risk (1)** due to longitudinal TTC < 0.5s.  
+
+---
+
+#### **Obstacle 109 (Behind of ego car)**
+- **Adjusted Distance**: Longitudinal -0.56 m, Lateral 0.00 m  
+- **Relative Velocity**: Longitudinal 2.02 m/s (approaching), Lateral 0.18 m/s (very slight drift)  
+- **Motion Description**: Obstacle is driving toward the ego car from behind. Exact lateral alignment.  
+
+**Risk Assessment**:  
+- **Longitudinal**:  
+  - Distance = 0.56 m (behind), Closing velocity = 2.02 m/s  
+  - **TTC (Longitudinal)**: 0.56 / 2.02 ≈ 0.28 seconds (Extreme Risk, 1)  
+  - **MDC (Longitudinal)**: 0.56 m (Extreme Risk, 1)  
+- **Lateral**:  
+  - Distance = 0.00 m (aligned), Closing velocity = 0.18 m/s (negligible)  
+  - No lateral collision risk unless longitudinal collision occurs.  
+- **Overall Risk**: **Extreme Risk (1)** due to imminent rear collision.  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 45**: Rapidly approaching from the front-left (TTC ≈ 0.46s). If not avoided, a collision is imminent.  
+- **Obstacle 109**: Approaching from behind (TTC ≈ 0.28s). Likely to collide first unless evasive action is taken.  
+- **Obstacle 41**: Moving away, minimal risk.  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "109",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "45",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "109",
+        "OverallRiskScore": "0"
+    }
+}
+```
+
+### Explanation:
+- **Obstacle 109** is assigned **Collision Risk (0)** because it is extremely close (0.56 m behind) and closing rapidly (TTC ≈ 0.28s). A rear collision is imminent.  
+- **Obstacle 45** is **Extreme Risk (1)** due to its high closing speed (TTC ≈ 0.46s). If not avoided, it will collide shortly after Obstacle 109.  
+- **Obstacle 41** is not included in the summary as it poses minimal risk.  
+
+### Immediate Action Required:
+- **Emergency braking or acceleration** to avoid Obstacle 109 (rear collision).  
+- **Lateral evasion** to mitigate risk from Obstacle 45 (front-left collision).

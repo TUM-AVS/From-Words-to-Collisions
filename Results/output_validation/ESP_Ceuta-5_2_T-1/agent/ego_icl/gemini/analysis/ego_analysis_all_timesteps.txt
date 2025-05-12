@@ -1,0 +1,78 @@
+* **Obstacle 31 Analysis:**
+
+This obstacle is approaching the ego vehicle from the front-left.  Over the past second, both its longitudinal and lateral distances have been rapidly decreasing.
+
+At t=1.0s:
+- Longitudinal distance: 1.75m
+- Lateral distance: 3.37m
+- Longitudinal velocity: -12.50 m/s (approaching)
+- Lateral velocity: -4.20 m/s (approaching)
+
+Longitudinal TTC = 1.75m / 12.50m/s = 0.14s
+Lateral TTC = 3.37m / 4.20m/s = 0.80s
+
+MDC is difficult to precisely calculate without path projections, but given the close proximity and high closing velocities in both dimensions, it is likely less than 0.5m.
+
+Risk Assessment:  Both TTC (longitudinal) and MDC suggest **Extreme Risk (1)**.
+
+* **Obstacle 325 Analysis:**
+
+This obstacle is approaching the ego vehicle from directly behind and is in the same lane (lateral distance = 0.00m). This obstacle exhibits concerning behavior: it maintains exact lateral alignment with the ego vehicle while rapidly closing the longitudinal distance.  
+
+At t=1.0s:
+- Longitudinal distance: -0.17m (almost touching bumpers)
+- Longitudinal velocity: 6.71 m/s (approaching rapidly)
+
+Longitudinal TTC = 0.17m / 6.71m/s = 0.025s
+
+MDC ≈ 0m (practically touching)
+
+Risk Assessment: Both TTC and MDC indicate an **imminent Collision (0)**.
+
+* **Obstacle 344 Analysis:**
+
+This obstacle is approaching from behind, similar to Obstacle 325, and also maintains exact lateral alignment. However, it is much further away.
+
+At t=1.0s:
+- Longitudinal distance: -19.54m
+- Longitudinal velocity: 11.65 m/s (approaching)
+
+Longitudinal TTC = 19.54m / 11.65m/s = 1.68s
+
+MDC is not relevant here as the obstacle is directly behind.  
+
+Risk Assessment: Based on TTC, this is a **Medium Risk (3)**.
+
+* **Obstacle 350 Analysis:**
+
+This obstacle is in the front-left quadrant, but while it is closing longitudinally, it is moving away laterally.
+
+At t=1.0s:
+- Longitudinal distance: 14.64m
+- Lateral distance: 19.83m
+- Longitudinal velocity: -2.19 m/s (approaching)
+- Lateral velocity: 5.79 m/s (diverging)
+
+Longitudinal TTC = 14.64m / 2.19m/s = 6.68s
+
+Lateral motion is diverging, so lateral TTC is not relevant for collision risk.
+
+Risk Assessment:  Based on the trajectory and longitudinal TTC, this is **Negligible Risk (5)**.
+
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "325",
+    "OverallRiskScore": "0"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "31",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "325",
+    "OverallRiskScore": "0"
+  }
+}
+```

@@ -1,0 +1,65 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 3.4 seconds)
+
+#### **Obstacle 30805** (Front-right)
+- **Adjusted Distance**: Longitudinal 0.19m, Lateral -8.84m  
+- **Relative Velocity**: Longitudinal -5.92 m/s (approaching), Lateral 0.00 m/s  
+- **Motion**: Driving toward ego longitudinally, no lateral motion  
+- **TTC (Longitudinal)**: 0.19 / 5.92 = **0.032s** (Extreme Risk)  
+- **MDC**: Lateral distance is large (8.84m), but longitudinal is critical (0.19m → **MDC = 0.19m** (Extreme Risk)  
+- **Risk Score**: **1** (Extreme Risk due to imminent longitudinal collision)  
+
+#### **Obstacle 30807** (Right)
+- **Adjusted Distance**: Longitudinal 0.00m (aligned), Lateral -8.90m  
+- **Relative Velocity**: Longitudinal -5.90 m/s (approaching), Lateral 0.00 m/s  
+- **Motion**: Exact longitudinal alignment, moving toward ego laterally (but lateral distance is large)  
+- **TTC (Lateral)**: Not applicable (lateral velocity = 0)  
+- **MDC**: Lateral distance is large (8.90m), but longitudinal alignment is exact. **MDC = 8.90m** (No Risk)  
+- **Risk Score**: **5** (No immediate collision risk)  
+
+#### **Obstacle 30808** (Front-right)
+- **Adjusted Distance**: Longitudinal 0.08m, Lateral -5.34m  
+- **Relative Velocity**: Longitudinal -5.92 m/s (approaching), Lateral 0.00 m/s  
+- **Motion**: Driving toward ego longitudinally, no lateral motion  
+- **TTC (Longitudinal)**: 0.08 / 5.92 = **0.014s** (Extreme Risk)  
+- **MDC**: Lateral distance is large (5.34m), but longitudinal is critical (0.08m → **MDC = 0.08m** (Extreme Risk)  
+- **Risk Score**: **1** (Extreme Risk due to imminent longitudinal collision)  
+
+#### **Obstacle 30810** (Front → Collision)
+- **Adjusted Distance**: Longitudinal 0.00m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -5.92 m/s (approaching), Lateral 0.00 m/s  
+- **Motion**: Exact alignment in both dimensions (collision occurring)  
+- **TTC**: **0s** (Collision)  
+- **MDC**: **0m** (Collision)  
+- **Risk Score**: **0** (Collision)  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 30810**: Collision confirmed at 3.4s (distance = 0m in both dimensions).  
+- **Obstacles 30805/30808**: Rapidly closing longitudinally (TTC < 0.05s), with distances < 0.2m.  
+- **Obstacle 30807**: No lateral motion, but longitudinal alignment is not a collision risk due to large lateral distance.  
+
+---
+
+### Final Determination
+This is a **collision scenario** because:
+1. **Obstacle 30810** has a collision (risk score 0).  
+2. **Obstacles 30805/30808** are in extreme risk (score 1) with TTC < 0.05s and MDC < 0.2m.  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30810",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": ["30805", "30808"],
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30810 has collided (0m distance in both dimensions). Obstacles 30805/30808 are in extreme risk (TTC < 0.05s, MDC < 0.2m)."
+}
+```

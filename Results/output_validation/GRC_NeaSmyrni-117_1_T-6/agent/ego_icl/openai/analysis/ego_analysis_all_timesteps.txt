@@ -1,0 +1,55 @@
+**Obstacle-by-Obstacle Analysis:**
+
+**Obstacle 20036:**
+- **Direction:** In front of the ego car
+- **Adjusted Distances at 3.4s:** Longitudinal 21.82 m, Lateral 0.00 m
+- **Relative Velocity:** Longitudinal -1.64 m/s, Lateral 0.00 m/s (approaching the ego vehicle)
+- **Trajectory Analysis:** 
+   - The longitudinal distance is consistently decreasing across timestamps suggesting an approach toward the ego.
+- **TTC Calculation:** 
+   - \( \text{TTC} = \frac{21.82 \, \text{m}}{| -1.64 \, \text{m/s} |} \approx 13.30\, \text{seconds} \)
+- **MDC Prediction:** The MDC remains equivalent to the adjusted longitudinal distance since the lateral alignment is constant.
+- **Risk Assessment:** With a TTC of 13.30 seconds and an MDC > 5.0 meters, the risk score is 5. 
+
+**Obstacle 20037:**
+- **Direction:** In front of the ego car. 
+- **Adjusted Distances at 3.4s:** Longitudinal 14.50 m, Lateral 0.00 m
+- **Relative Velocity:** Longitudinal -0.97 m/s, Lateral 0.00 m/s (approaching the ego vehicle)
+- **Trajectory Analysis:** 
+  - The longitudinal distance is decreasing, indicating a gradually approaching trajectory toward the ego vehicle.
+- **TTC Calculation:** 
+   - \( \text{TTC} = \frac{14.50 \, \text{m}}{| -0.97 \, \text{m/s} |} \approx 14.95\, \text{seconds} \)
+- **MDC Prediction:** The MDC remains equivalent to the adjusted longitudinal distance owing to the consistent lateral alignment of 0.00 m.
+- **Risk Assessment:** With a TTC of 14.95 seconds and an MDC > 5.0 meters, the risk score is 5.
+
+**Obstacle 20039:**
+- **Direction:** Behind the ego car.
+- **Adjusted Distances at 3.4s:** Longitudinal -0.34 m, Lateral 0.00 m
+- **Relative Velocity:** Longitudinal 4.30 m/s, Lateral 0.00 m/s (approaching the ego car from the rear)
+- **Trajectory Analysis:** 
+  - The negative longitudinal distance decreasing in magnitude indicates the obstacle is closing in from behind.
+- **TTC Calculation:** 
+   - Given the negative distance, the assessment seeks how soon this distance may become 0 or positive from closing speeds.
+   - \( \text{TTC} = \frac{|-0.34 \, \text{m}|}{4.30 \, \text{m/s}} \approx 0.079\, \text{seconds} \)
+- **MDC Prediction:** The MDC is very close to 0, posing that it may lead to a collision.
+- **Risk Assessment:** The TTC and the nearly non-existent MDC suggest an imminent collision. Thus, the risk score is 0.
+
+**Conclusion:** Amongst the analyzed obstacles, Obstacle 20039 presents a collision risk scenario due to its proximal distance, relatively small TTC, and approaching trajectory. The higher-risk level obstacles are primarily exhibiting adequate preventive temporal spacing with adequate trajectories managed below collision probabilities.
+
+**JSON Summary:**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "20039",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    }
+}
+```

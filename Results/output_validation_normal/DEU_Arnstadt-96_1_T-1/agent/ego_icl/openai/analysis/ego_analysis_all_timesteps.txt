@@ -1,0 +1,49 @@
+### Obstacle-by-Obstacle Analysis:
+
+**Obstacle 20042:**
+
+- **Trajectory Analysis:**
+  - At 0.8 seconds: 25.48m longitudinal, 0.00m lateral
+  - At 0.9 seconds: 23.39m longitudinal, 0.00m lateral
+  - The obstacle is directly in front of the ego vehicle with decreasing longitudinal distance, indicating an approach.
+  - Longitudinal velocity of -21.03 m/s indicates the obstacle is rapidly approaching the ego car.
+
+- **Calculations:**
+  - **TTC (Longitudinal):** Using the longitudinal velocity and distance:
+    \[
+    TTC = \frac{23.39 \text{ m}}{21.03 \text{ m/s}} \approx 1.11 \text{ seconds}
+    \]
+  - **MDC (Longitudinal):** Given the rapid approach, MDC is approaching 0.
+  - **Risk Assessment:** As the vehicle is aligned laterally with a converging path, this yields a risk rating closer to high risk; however, TTC is slightly above 1.0 seconds implying a Medium Risk (3). However, due to rapid approach and alignment, this is elevated to High Risk (2).
+
+- **Final Risk Level:** High Risk (2)
+
+**Obstacle 20063:**
+
+- **Trajectory Analysis:**
+  - At 0.8 seconds: 23.12m longitudinal, -1.91m lateral
+  - At 0.9 seconds: 23.55m longitudinal, -1.80m lateral
+  - The obstacle is in the front-right moving away both longitudinally and laterally.
+  - Longitudinal velocity: 3.58 m/s (moving away).
+  - Lateral velocity: -4.63 m/s (diverging path to the right).
+
+- **Calculations:**
+  - **TTC (Longitudinal):** As the obstacle is moving away, TTC is not applicable for collision risk.
+  - **TTC (Lateral):** As lateral distance is increasing, TTC is likewise not applicable.
+  - **MDC:** For both longitudinal and lateral directions, distances are increasing.
+
+- **Final Risk Level:** Negligible Risk (5)
+
+### Summary:
+The critical condition involves obstacle 20042 as it is rapidly approaching head-on, aligned within the ego vehicle's path, hence categorized as High Risk despite a TTC calculation indicating a medium risk window.
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": {
+      "ObstacleID": "20042",
+      "OverallRiskScore": "2"
+  }
+}
+```

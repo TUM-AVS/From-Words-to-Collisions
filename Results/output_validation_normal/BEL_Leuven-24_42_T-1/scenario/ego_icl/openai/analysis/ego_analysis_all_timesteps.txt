@@ -1,0 +1,72 @@
+### Obstacle-by-Obstacle Analysis:
+
+#### Obstacle 30238:
+- **Relative Direction**: Front-left
+- **Adjusted Distance**: Longitudinal: 20.19m, Lateral: 3.38m
+- **Relative Velocity**: Longitudinal: -9.37 m/s, Lateral: 0.03 m/s
+- **Trajectory**: Driving toward the ego vehicle longitudinally and moving away laterally
+- **TTC Calculation**:
+  - Longitudinal TTC = 20.19 / 9.37 ≈ 2.15 seconds
+  - Lateral movement does not affect increasing collision risk
+- **MDC Calculation**: Trajectory and distance suggest paths do not converge imminently.
+- **Risk Assessment**: Medium Risk (3), as TTC longitudinally is below 3 seconds.
+
+#### Obstacle 30241:
+- **Relative Direction**: Left
+- **Adjusted Distance**: Longitudinal: 0.00m, Lateral: 1.92m
+- **Relative Velocity**: Longitudinal: -4.56 m/s, Lateral: 0.02 m/s
+- **Trajectory**: Exact longitudinal alignment and moving away laterally
+- **TTC Calculation**:
+  - Movement laterally is towards the ego, but negligible change is observed (0.02 m/s).
+- **MDC Calculation**: Since lateral position is already established at 1.92m and moving away, this supports no imminent collision.
+- **Risk Assessment**: Medium Risk (3), as lateral movement is minimal and increasing distance.
+
+#### Obstacle 30242:
+- **Relative Direction**: Front
+- **Adjusted Distance**: Longitudinal: 16.75m, Lateral: 0.00m
+- **Relative Velocity**: Longitudinal: -6.88 m/s, Lateral: 0.26 m/s
+- **Trajectory**: Driving toward the ego vehicle longitudinally
+- **TTC Calculation**:
+  - Longitudinal TTC = 16.75 / 6.88 ≈ 2.43 seconds
+- **MDC Calculation**: Exact lateral alignment with decreasing longitudinal distance
+- **Risk Assessment**: Medium Risk (3), as the trajectory suggests continued approach within medium risk parameters.
+
+#### Obstacle 30243:
+- **Relative Direction**: Rear-left
+- **Adjusted Distance**: Longitudinal: -23.68m, Lateral: 2.24m
+- **Relative Velocity**: Longitudinal: -2.30 m/s, Lateral: -1.12 m/s
+- **Trajectory**: Moving away longitudinally, driving toward the ego vehicle laterally
+- **TTC Calculation**:
+  - Lateral TTC = 2.24 / 1.12 = 2.00 seconds
+- **MDC Calculation**: Lateral risk is increasing due to converging trajectory.
+- **Risk Assessment**: Medium Risk (3), lateral approach to the ego vehicle within medium parameters.
+
+#### Obstacle 30249:
+- **Relative Direction**: Front-left
+- **Adjusted Distance**: Longitudinal: 8.55m, Lateral: 2.39m
+- **Relative Velocity**: Longitudinal: -6.33 m/s, Lateral: 0.21 m/s
+- **Trajectory**: Driving toward the ego vehicle longitudinally
+- **TTC Calculation**:
+  - Longitudinal TTC = 8.55 / 6.33 ≈ 1.35 seconds
+- **MDC Calculation**: Potential for early collision avoidance, but still within high-risk proximity.
+- **Risk Assessment**: Medium Risk (3), since it is still approaching but beyond imminent threat parameters.
+
+### Determination:
+- No obstacles score an overall risk score of 0 (collision) or 1 (Extreme Risk) in the most recent timestep.
+- 30238 and 30249 approach medium TTC values but do not pose an immediate collision risk.
+
+### JSON Summary:
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": "N/A",
+    "OverallRiskScore": "N/A"
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "N/A",
+    "OverallRiskScore": "N/A"
+  },
+  "IsCollisionScenario": false,
+  "Justification": "All assessed obstacles have medium risk (3) due to either adequate TTC or movement direction indicating non-threatening alignment with ego vehicle paths."
+}
+```

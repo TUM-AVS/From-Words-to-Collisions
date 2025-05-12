@@ -1,0 +1,27 @@
+### Analysis:
+
+1. **Obstacle 30681.0**:
+   - **Position**: Same lanelet (196.0) as ego, indicating potential for collision.
+   - **Relative Motion**: The obstacle is ahead of the ego vehicle but moving slower (2.9819 m/s vs ego's 4.2359 m/s). The distance between them is decreasing.
+   - **TTC**: At 9.6s, the longitudinal distance is approximately 3.6331m (ego: -232.64, obstacle: -229.0069). Relative velocity is 1.254 m/s (ego is faster). TTC ≈ 3.6331 / 1.254 ≈ 2.9s.
+   - **Lateral Distance**: Minimal, as both are in the same lanelet.
+   - **Risk**: **High Risk (2)** - The ego is closing in on the obstacle, but the TTC is still manageable with urgent action.
+
+2. **Obstacle 30685.0**:
+   - **Position**: Different lanelet (53.0), not in the immediate path of the ego vehicle.
+   - **Relative Motion**: The obstacle is moving away from the ego vehicle (velocity 0.8167 m/s at 9.0s, increasing to 1.0272 m/s by 9.0s).
+   - **Distance**: The obstacle is far enough away (lateral and longitudinal) to pose no immediate threat.
+   - **Risk**: **Negligible Risk (5)** - No meaningful risk.
+
+### JSON Output:
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": {
+        "ObstacleID": "30681.0",
+        "OverallRiskScore": 2
+    }
+}
+```

@@ -1,0 +1,72 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 0.9s)
+
+---
+
+#### **Obstacle 30257 (Front-left)**
+- **Adjusted Distances**: Longitudinal 12.10m, Lateral 17.54m  
+- **Relative Velocity**: Longitudinal -5.52 m/s (approaching), Lateral 9.22 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally but moving away laterally.  
+- **TTC (Longitudinal)**: 12.10 / 5.52 ≈ 2.19s (Medium Risk)  
+- **TTC (Lateral)**: Diverging (No Risk)  
+- **MDC**: Lateral distance is increasing (17.54m > 5.0m → No Risk).  
+- **Overall Risk**: **3 (Medium Risk)** due to longitudinal approach but no imminent collision.
+
+---
+
+#### **Obstacle 30258 (Front-left)**
+- **Adjusted Distances**: Longitudinal 10.80m, Lateral 3.71m  
+- **Relative Velocity**: Longitudinal 0.99 m/s (moving away), Lateral 5.50 m/s (moving away)  
+- **Motion**: Moving away in both directions.  
+- **TTC**: Not applicable (diverging paths).  
+- **MDC**: Minimum distance is lateral (3.71m → Low Risk).  
+- **Overall Risk**: **4 (Low Risk)** due to stable separation.
+
+---
+
+#### **Obstacle 30260 (Front)**
+- **Adjusted Distances**: Longitudinal 10.15m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 3.11 m/s (moving away), Lateral -0.14 m/s (negligible).  
+- **Motion**: Moving away longitudinally, exact lateral alignment.  
+- **TTC**: Diverging longitudinally (No Risk).  
+- **MDC**: Lateral alignment but no convergence (0.00m alignment ≠ collision).  
+- **Overall Risk**: **5 (No Risk)**.
+
+---
+
+#### **Obstacle 30261 (Left)**
+- **Adjusted Distances**: Longitudinal 0.00m, Lateral 1.89m  
+- **Relative Velocity**: Longitudinal -0.63 m/s (slight approach), Lateral 0.00 m/s (stable).  
+- **Motion**: Exact longitudinal alignment, moving away laterally.  
+- **TTC (Longitudinal)**: 0.00m alignment but no collision (velocity is negligible).  
+- **MDC**: Lateral distance (1.89m → Medium Risk).  
+- **Overall Risk**: **3 (Medium Risk)** due to alignment but no imminent threat.
+
+---
+
+### Trajectory Analysis
+- **Obstacle 30257**: Consistently approaching longitudinally but moving away laterally. No collision risk.  
+- **Obstacle 30258**: Moving away in both dimensions.  
+- **Obstacle 30260**: Stable longitudinal separation.  
+- **Obstacle 30261**: Alignment but no dangerous convergence.  
+
+### Final Determination
+- **No obstacles** meet criteria for **Collision (0)** or **Extreme Risk (1)**.  
+- Highest risk is **Medium (3)** for Obstacles 30257 and 30261 due to alignment/motion but no imminent collision.  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "N/A"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacles have risk scores ≤1 (collision/extreme risk). Highest risk is Medium (3) for alignment/motion without imminent collision."
+}
+```

@@ -1,0 +1,74 @@
+### Obstacle-by-Obstacle Analysis:
+
+#### Obstacle 3393 (Most Recent Timestep: 8.6s)
+- **Position**: Behind (longitudinal -1.10m, lateral 0.00m)
+- **Relative Velocity**: longitudinal 4.31 m/s (approaching), lateral 0.04 m/s (nearly stationary)
+- **Motion Description**: Obstacle is driving toward the ego car from behind. Exact lateral alignment or unknown case.
+- **Trajectory Analysis**: 
+  - Longitudinal distance is decreasing rapidly (from -3.91m at 7.7s to -1.10m at 8.6s).
+  - Lateral distance is nearly zero and stable (0.00m alignment).
+  - Relative velocity is increasing (from 1.60 m/s to 4.31 m/s).
+- **TTC Calculation**: 
+  - Longitudinal TTC = 1.10m / 4.31 m/s ≈ 0.255s (Extreme Risk, TTC ≤ 0.5s)
+  - Lateral TTC: Not applicable (lateral velocity ≈ 0 m/s, no lateral convergence).
+- **MDC Calculation**: 
+  - Primary focus on longitudinal distance (lateral distance is stable at 0.00m).
+  - MDC = 1.10m (High Risk, 0.5 < MDC ≤ 1.0m).
+- **Overall Risk**: 
+  - TTC indicates Extreme Risk (0.255s), MDC indicates High Risk (1.10m).
+  - Prioritize the higher risk (Extreme Risk, score 1).
+
+#### Obstacle 3394 (Most Recent Timestep: 8.0s)
+- **Position**: Behind (longitudinal -25.05m, lateral 0.00m)
+- **Relative Velocity**: longitudinal -5.87 m/s (moving away), lateral 10.01 m/s (approaching laterally).
+- **Motion Description**: Obstacle is moving away longitudinally. Exact lateral alignment or unknown case.
+- **Trajectory Analysis**: 
+  - Longitudinal distance is increasing (moving away).
+  - Lateral distance is 0.00m but lateral velocity is high (10.01 m/s).
+- **TTC Calculation**: 
+  - Longitudinal TTC: Not applicable (moving away).
+  - Lateral TTC: 0.00m / 10.01 m/s = 0s (Collision Risk, but lateral alignment is exact and velocity is high).
+- **MDC Calculation**: 
+  - Lateral distance is 0.00m, but longitudinal distance is large (-25.05m).
+  - MDC = 0.00m (Collision Risk, but only if trajectories intersect).
+- **Overall Risk**: 
+  - Lateral TTC and MDC suggest Collision Risk (score 0), but longitudinal distance is large and increasing.
+  - Likely a false positive due to exact lateral alignment. Risk is Low (score 4) because the obstacle is moving away longitudinally.
+
+#### Obstacle 3395 (Most Recent Timestep: 7.9s)
+- **Position**: Rear-left (longitudinal -20.99m, lateral 11.88m)
+- **Relative Velocity**: longitudinal -11.16 m/s (moving away), lateral 9.30 m/s (moving away).
+- **Motion Description**: Obstacle is moving away longitudinally and laterally to the left.
+- **Trajectory Analysis**: 
+  - Both longitudinal and lateral distances are increasing.
+- **TTC Calculation**: 
+  - Not applicable (moving away in both dimensions).
+- **MDC Calculation**: 
+  - Large distances in both dimensions (no collision risk).
+- **Overall Risk**: 
+  - Negligible Risk (score 5).
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3393",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "3393",
+        "OverallRiskScore": "0"
+    }
+}
+```
+
+### Reasoning:
+- **Obstacle 3393**: Extreme Risk (score 1) due to very low TTC (0.255s) and small longitudinal distance (1.10m). If current trajectory continues, it will likely collide with the ego vehicle soon (Predicted Collision Obstacle).
+- **Obstacle 3394**: Low Risk (score 4) despite exact lateral alignment because it is moving away longitudinally.
+- **Obstacle 3395**: Negligible Risk (score 5) as it is moving away in both dimensions.
+
+No current collision is occurring, but Obstacle 3393 is on an extreme risk trajectory.

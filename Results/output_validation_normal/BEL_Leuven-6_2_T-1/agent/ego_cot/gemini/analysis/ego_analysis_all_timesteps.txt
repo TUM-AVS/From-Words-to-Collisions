@@ -1,0 +1,51 @@
+### Safety analysis for timestep 0.9s: Here's the evaluation of each obstacle according to the provided metrics and calculations.
+
+**Assumptions and Clarifications:**
+
+* Since adjusted distances (adjusted_d_long, adjusted_d_lat) are not provided in the scenario context, the provided real distances (DTClong, DTClat) will be used directly.  This is not ideal, but necessary given the available data.  In a real-world application, you *must* use adjusted distances.
+* TTC is calculated as |Distance / Velocity| for both longitudinal and lateral directions. A TTC value close to 0 indicates a high risk.  If velocity is zero, TTC is considered infinite (no immediate risk from that direction if distance is not also close to zero).
+* MDC is the minimum of DTClong and DTClat during the scenario, which is approximated in this case using only available timesteps up to 0.9s. This will be approximated using the values at the last timestep in the data.
+
+### Obstacle Analysis:
+
+**- Obstacle ID: 30259**
+- Distance Risk reason: Located 10.98m in front-right and moving away laterally. Longitudinal distance is decreasing.
+- Distance safety score: 3
+- Time Risk reason:  TTClong is approximately 1.2 seconds.
+- Time safety score: 2
+- Overall Risk score: 2
+
+**- Obstacle ID: 30261**
+- Distance Risk reason: Located 11.10m in front. Longitudinal distance is barely decreasing.
+- Distance safety score: 3
+- Time Risk reason: TTClong is approximately 37 seconds. 
+- Time safety score: 5
+- Overall Risk score: 4
+
+**- Obstacle ID: 30262**
+- Distance Risk reason: Located 21.62m in front-left and moving away laterally.
+- Distance safety score: 4
+- Time Risk reason: TTClong is approximately 2.9 seconds.
+- Time safety score: 4
+- Overall Risk score: 4
+
+
+**- Obstacle ID: 30269**
+- Distance Risk reason: Located 11.07m behind. Longitudinal distance is barely increasing (meaning the car is approaching). 
+- Distance safety score: 3
+- Time Risk reason: TTClong is approximately 110 seconds (but closing).
+- Time safety score: 4
+- Overall Risk score: 3
+
+### Summary in JSON Format:
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": {
+    "ObstacleID": "30259",
+    "OverallRiskScore": "2"
+  }
+}
+```

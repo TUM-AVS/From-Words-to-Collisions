@@ -1,0 +1,43 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 8.4s)
+
+**Obstacle 30716:**
+- **Position:** Right of ego (longitudinal = 0.00m, lateral = -0.24m)
+- **Motion:** Exact longitudinal alignment (side-by-side), moving laterally toward ego from the right (lateral velocity = 5.14 m/s)
+- **Relative Velocity:** Longitudinal = 2.45 m/s (moving ahead of ego), Lateral = 5.14 m/s (closing rapidly)
+- **Trajectory Analysis:**
+  - From 7.5s to 8.4s, the obstacle transitions from behind to side-by-side with increasing lateral velocity.
+  - Lateral distance decreases from 0.00m to -0.24m in the last timestep, with a high closing speed (5.14 m/s).
+  - Longitudinal distance closes from -4.12m to 0.00m, but the obstacle is now aligned longitudinally.
+
+**Key Metrics:**
+1. **Time-to-Collision (TTC):**
+   - Lateral TTC = |Lateral Distance| / |Lateral Velocity| = 0.24 / 5.14 ≈ 0.047s (Extreme Risk, TTC ≤ 0.5s)
+   - Longitudinal TTC = N/A (longitudinal distance is 0.00m but velocities are not closing longitudinally).
+
+2. **Minimum Distance to Collision (MDC):**
+   - Since the obstacle is side-by-side (longitudinal = 0.00m), MDC is the lateral distance = 0.24m (Extreme Risk, MDC ≤ 0.5m).
+
+3. **Risk Assessment:**
+   - TTC (0.047s) indicates Extreme Risk (1).
+   - MDC (0.24m) indicates Extreme Risk (1).
+   - Overall Risk Score: 1 (Extreme Risk).
+
+### Collision Scenario Determination
+- The obstacle is side-by-side with the ego (longitudinal = 0.00m) and closing laterally at a very high speed (5.14 m/s). The lateral distance (0.24m) is critically small, and the TTC (0.047s) is extremely low, indicating an imminent collision if trajectories are maintained.
+- This qualifies as a collision scenario due to the Extreme Risk (score 1) with TTC < 0.5s and MDC < 0.5m.
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": null
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30716",
+        "OverallRiskScore": "1"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30716 is side-by-side with the ego (longitudinal = 0.00m) and closing laterally at 5.14 m/s with only 0.24m lateral distance remaining (TTC = 0.047s). This meets Extreme Risk criteria (TTC ≤ 0.5s and MDC ≤ 0.5m)."
+}
+```

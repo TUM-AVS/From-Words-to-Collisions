@@ -1,0 +1,100 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 4.6s)
+
+#### **Obstacle 30750 (Front-Right)**
+- **Adjusted Distance**: Longitudinal 16.93m, Lateral -1.90m  
+- **Relative Velocity**: Longitudinal -0.87m/s (approaching), Lateral -0.00m/s (stable)  
+- **Motion**: Driving toward ego longitudinally, no lateral motion.  
+- **TTC**: Longitudinal = 16.93 / 0.87 ≈ 19.46s (No Risk).  
+- **MDC**: Lateral distance stable at 1.90m (Low Risk).  
+- **Overall Risk**: **5 (No Risk)**.  
+
+#### **Obstacle 30754 (Front)**
+- **Adjusted Distance**: Longitudinal 16.96m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal -0.87m/s (approaching), Lateral 0.00m/s (stable)  
+- **Motion**: Same-lane alignment, driving toward ego.  
+- **TTC**: Longitudinal = 16.96 / 0.87 ≈ 19.49s (No Risk).  
+- **MDC**: Lateral alignment but no closing velocity (No Risk).  
+- **Overall Risk**: **5 (No Risk)**.  
+
+#### **Obstacle 30755 (Front-Left)**
+- **Adjusted Distance**: Longitudinal 8.02m, Lateral 1.88m  
+- **Relative Velocity**: Longitudinal 0.51m/s (moving away), Lateral -0.00m/s (stable)  
+- **Motion**: Moving away longitudinally, slight lateral drift toward ego.  
+- **TTC**: Not applicable (diverging paths).  
+- **MDC**: Lateral distance stable (Low Risk).  
+- **Overall Risk**: **4 (Low Risk)**.  
+
+#### **Obstacle 30757 (Front-Left)**
+- **Adjusted Distance**: Longitudinal 17.01m, Lateral 5.38m  
+- **Relative Velocity**: Longitudinal -0.87m/s (approaching), Lateral -0.00m/s (stable)  
+- **Motion**: Driving toward ego longitudinally, no lateral motion.  
+- **TTC**: Longitudinal = 17.01 / 0.87 ≈ 19.55s (No Risk).  
+- **MDC**: Lateral distance large (No Risk).  
+- **Overall Risk**: **5 (No Risk)**.  
+
+#### **Obstacle 30758 (Front-Left)**
+- **Adjusted Distance**: Longitudinal 16.98m, Lateral 1.88m  
+- **Relative Velocity**: Longitudinal -0.87m/s (approaching), Lateral -0.00m/s (stable)  
+- **Motion**: Driving toward ego longitudinally, no lateral motion.  
+- **TTC**: Longitudinal = 16.98 / 0.87 ≈ 19.52s (No Risk).  
+- **MDC**: Lateral distance stable (Low Risk).  
+- **Overall Risk**: **5 (No Risk)**.  
+
+#### **Obstacle 30762 (Left)**
+- **Adjusted Distance**: Longitudinal 0.00m, Lateral 1.89m  
+- **Relative Velocity**: Longitudinal 3.58m/s (moving away), Lateral -0.00m/s (stable)  
+- **Motion**: Side-by-side alignment, moving away longitudinally.  
+- **TTC**: Not applicable (diverging paths).  
+- **MDC**: Lateral distance stable (Low Risk).  
+- **Overall Risk**: **4 (Low Risk)**.  
+
+#### **Obstacle 30763 (Front-Right)**
+- **Adjusted Distance**: Longitudinal 6.13m, Lateral -1.89m  
+- **Relative Velocity**: Longitudinal 1.74m/s (moving away), Lateral 0.00m/s (stable)  
+- **Motion**: Moving away longitudinally, no lateral motion.  
+- **TTC**: Not applicable (diverging paths).  
+- **MDC**: Lateral distance stable (Low Risk).  
+- **Overall Risk**: **4 (Low Risk)**.  
+
+#### **Obstacle 30764 (Behind → Collision)**
+- **Adjusted Distance**: Longitudinal 0.00m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 5.25m/s (approaching), Lateral -0.00m/s (stable)  
+- **Motion**: **Exact alignment in both dimensions** (collision occurring).  
+- **TTC**: 0.00m distance → **0 (Collision)**.  
+- **MDC**: 0.00m → **0 (Collision)**.  
+- **Overall Risk**: **0 (Collision)**.  
+
+#### **Obstacle 30766 (Front-Left)**
+- **Adjusted Distance**: Longitudinal 2.74m, Lateral 5.39m  
+- **Relative Velocity**: Longitudinal 3.88m/s (moving away), Lateral -0.00m/s (stable)  
+- **Motion**: Moving away longitudinally, no lateral motion.  
+- **TTC**: Not applicable (diverging paths).  
+- **MDC**: Lateral distance large (No Risk).  
+- **Overall Risk**: **5 (No Risk)**.  
+
+---
+
+### **Trajectory Analysis (Critical Obstacle: 30764)**
+- **Timestep 4.5s**: Longitudinal -0.43m (approaching at 5.46m/s).  
+- **Timestep 4.6s**: **0.00m** (collision occurred).  
+- **Justification**: Obstacle 30764 rear-ended the ego vehicle at 4.6s with exact alignment in both dimensions.  
+
+---
+
+### **Final Determination**
+This is a **collision scenario** due to Obstacle 30764’s collision with the ego vehicle (risk score 0).  
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30764",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": null,
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30764 collided with the ego vehicle at 4.6s (0.00m distance in both dimensions)."
+}
+```

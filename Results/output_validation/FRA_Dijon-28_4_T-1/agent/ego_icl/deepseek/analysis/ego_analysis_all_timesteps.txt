@@ -1,0 +1,110 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 1.9s)
+
+---
+
+#### **Obstacle 30530 (Front-left)**
+- **Adjusted Distance**: Longitudinal 3.42m, Lateral 5.55m  
+- **Relative Velocity**: Longitudinal -3.33 m/s (approaching), Lateral -7.10 m/s (approaching)  
+- **Trajectory Analysis**:  
+  - Rapidly closing laterally (7.10 m/s) and longitudinally (3.33 m/s).  
+  - Lateral distance decreased from 12.14m to 5.55m in 0.9s (~7.4 m/s average).  
+  - Longitudinal distance decreased from 4.46m to 3.42m in 0.9s (~1.16 m/s average).  
+- **TTC**:  
+  - Longitudinal: 3.42 / 3.33 ≈ 1.03s  
+  - Lateral: 5.55 / 7.10 ≈ 0.78s  
+  - **Dominant TTC**: 0.78s (lateral) → **High Risk (2)**  
+- **MDC**:  
+  - Projected paths intersect diagonally. Minimum distance is lateral (5.55m) but closing rapidly.  
+  - **Risk**: High (lateral distance < 6m and closing at >7 m/s).  
+- **Overall Risk**: **High Risk (2)**  
+
+---
+
+#### **Obstacle 30532 (Behind)**
+- **Adjusted Distance**: Longitudinal -0.80m (behind), Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 3.89 m/s (approaching), Lateral 0.04 m/s (negligible)  
+- **Trajectory Analysis**:  
+  - Rapidly closing from behind (longitudinal distance decreased from -3.34m to -0.80m in 0.9s).  
+  - Exact lateral alignment (0.00m) but no lateral movement.  
+- **TTC**:  
+  - Longitudinal: 0.80 / 3.89 ≈ 0.21s → **Extreme Risk (1)**  
+  - Lateral: Not applicable (no closing velocity).  
+- **MDC**:  
+  - Lateral distance is 0.00m, but longitudinal distance is closing rapidly.  
+  - **Risk**: Extreme (longitudinal TTC < 0.5s).  
+- **Overall Risk**: **Extreme Risk (1)**  
+
+---
+
+#### **Obstacle 30537 (Behind)**
+- **Adjusted Distance**: Longitudinal -12.28m (behind), Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 3.74 m/s (approaching), Lateral 0.04 m/s (negligible)  
+- **Trajectory Analysis**:  
+  - Closing from behind but at a slower rate than 30532.  
+  - Longitudinal distance decreased from -15.32m to -12.28m in 0.9s (~3.38 m/s average).  
+- **TTC**:  
+  - Longitudinal: 12.28 / 3.74 ≈ 3.28s → **Medium Risk (3)**  
+  - Lateral: Not applicable.  
+- **MDC**:  
+  - Lateral distance is 0.00m, but longitudinal distance is large.  
+  - **Risk**: Medium (longitudinal TTC > 3.0s).  
+- **Overall Risk**: **Medium Risk (3)**  
+
+---
+
+#### **Obstacle 30538 (Front-right)**
+- **Adjusted Distance**: Longitudinal 8.74m, Lateral -15.85m  
+- **Relative Velocity**: Longitudinal -0.42 m/s (approaching), Lateral 6.09 m/s (approaching)  
+- **Trajectory Analysis**:  
+  - Slowly closing longitudinally, rapidly closing laterally.  
+  - Lateral distance decreased from -21.27m to -15.85m in 0.9s (~6.02 m/s average).  
+- **TTC**:  
+  - Longitudinal: 8.74 / 0.42 ≈ 20.81s (negligible)  
+  - Lateral: 15.85 / 6.09 ≈ 2.60s → **Medium Risk (3)**  
+- **MDC**:  
+  - Large lateral distance (>15m) but closing rapidly.  
+  - **Risk**: Medium (lateral TTC < 3.0s).  
+- **Overall Risk**: **Medium Risk (3)**  
+
+---
+
+#### **Obstacle 30539 (Front-right)**
+- **Adjusted Distance**: Longitudinal 8.18m, Lateral -1.01m  
+- **Relative Velocity**: Longitudinal -0.36 m/s (approaching), Lateral 5.11 m/s (approaching)  
+- **Trajectory Analysis**:  
+  - Rapidly closing laterally (5.11 m/s), slowly closing longitudinally.  
+  - Lateral distance decreased from -4.81m to -1.01m in 0.9s (~4.22 m/s average).  
+- **TTC**:  
+  - Longitudinal: 8.18 / 0.36 ≈ 22.72s (negligible)  
+  - Lateral: 1.01 / 5.11 ≈ 0.20s → **Extreme Risk (1)**  
+- **MDC**:  
+  - Lateral distance is very small (1.01m) and closing at >5 m/s.  
+  - **Risk**: Extreme (lateral TTC < 0.5s).  
+- **Overall Risk**: **Extreme Risk (1)**  
+
+---
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": null,
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30532",
+        "OverallRiskScore": "1"
+    },
+    "PredictedCollisionObstacle": {
+        "ObstacleID": "30539",
+        "OverallRiskScore": "0"
+    }
+}
+```
+
+### Reasoning:
+- **Obstacle 30532**: Extreme risk due to very low longitudinal TTC (0.21s) and exact lateral alignment.  
+- **Obstacle 30539**: Extreme risk due to very low lateral TTC (0.20s) and small lateral distance (1.01m). Predicted to collide if trajectories continue.  
+- No current collision (risk 0) observed, but 30539 is imminent.  
+- Other obstacles are medium/high risk but not extreme.

@@ -1,0 +1,32 @@
+Upon reviewing the data, we will evaluate the two obstacles based on their trajectory relative to the ego vehicle and determine their risk levels:
+
+### Analysis:
+
+#### Obstacle 30716.0
+- **Position and Velocity**: At the last timestep, this obstacle is very close to the ego vehicle, specifically (-478.5608, 328.1307) compared to the ego's (-482.3257, 324.4348).
+- **Lanelet**: Currently sharing the same lanelet as Ego (487.0).
+- **Relative Motion**: The obstacle has a higher velocity (11.8072) compared to the ego (7.8565). This velocity difference is creating a significant closure rate.
+- **Risk Evaluation**: Based on their shared lanelet and proximity, Obstacle 30716.0 has a high risk of collision with the ego vehicle. Near-term adjustments would need to be made by either party to mitigate collision risks, placing it at risk level 1 (Extreme Risk).
+
+#### Obstacle 30720.0
+- **Position and Velocity**: This obstacle is positioned further from the ego vehicle at the last timestep, with coordinates (-466.164, 340.3022). It’s not in the same lanelet as the ego but is closing in.
+- **Lanelet**: Different lanelet (3115.0) compared to the ego.
+- **Relative Motion**: Having a somewhat consistent distance from the ego vehicle, there is no immediate collision threat because it is not in the same lanelet.
+- **Risk Evaluation**: Due to the considerable distance and presence in a different lanelet, the obstacle does not pose an immediate collision threat. Therefore, it is given a risk level of 4 (Low Risk).
+
+### Summary
+Obstacle 30716.0 requires immediate monitoring and likely intervention due to its close trajectory and rate of closure with the ego vehicle. Obstacle 30720.0 is not an immediate threat but must be monitored as it advances. 
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30716.0",
+        "OverallRiskScore": 1
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "30720.0",
+        "OverallRiskScore": 2
+    }
+}
+```

@@ -1,0 +1,23 @@
+At t=3.1s, Ego (3073.0) is in lanelet 393.0 at (-131.9053, -259.353) with velocity 0.1741 m/s.
+
+Obstacle 3074.0 is also in lanelet 393.0 at (-135.0324, -262.5993) with velocity 3.69 m/s.  While the Y positions suggest a longitudinal separation, the difference is only about 3.25 meters. Given 3074.0's significantly higher velocity and the fact both are in the same lanelet, a risk score of 1 (Extreme Risk) is assigned due to the potential for a rear-end collision if 3074.0 decelerates rapidly or if the ego accelerates. Additionally, both are heading in the same direction (orientations ~0.8), increasing the chances of a collision. Previous time steps reinforce this assessment.
+
+
+Obstacle 3071.0 is in lanelet 392.0 at (-143.9063, -266.7717).  This obstacle is in a different lanelet and moving away from the ego.  Risk is negligible.
+
+Obstacle 3075.0 is in lanelet 2060.0 at (-128.1557, -249.1422). This obstacle appears to be in a different, potentially crossing/merging lanelet. The trajectory and positions suggest a medium to high risk (2-3) but not immediately an extreme risk. More information on lanelet geometry is required for precise risk assessment.
+
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3074.0",
+        "OverallRiskScore": 1
+    },
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "Obstacle 3074.0 poses an extreme risk due to close proximity, same lanelet occupancy as Ego, higher velocity, and potential for rear-end collision. While Obstacle 3075.0 might warrant attention, it does not pose an *immediate* extreme risk at t=3.1s"
+    }
+}
+```

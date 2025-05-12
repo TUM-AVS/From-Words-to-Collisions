@@ -1,0 +1,60 @@
+### Safety analysis for the most recent timestep (8.8 seconds):
+
+### Obstacle Analysis:
+1. **Obstacle ID: 3391.0**
+   - **Distance Risk reason**: Static obstacle, far from ego's path (Y-distance ~45.24m).
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: No movement (velocity = 0).
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5 (Negligible Risk)
+
+2. **Obstacle ID: 3393.0**
+   - **Distance Risk reason**: In same lanelet (406.0) as ego, closing distance (current X-distance ~0.43m, Y-distance ~4.69m).
+   - **Distance safety score**: 2 (High Risk)
+   - **Time Risk reason**: High relative velocity (11.58m/s vs ego's 6.97m/s), accelerating (1.52m/s²).
+   - **Time safety score**: 1 (Extreme Risk)
+   - **Overall Risk score**: 1 (Extreme Risk)
+
+3. **Obstacle ID: 3394.0**
+   - **Distance Risk reason**: Moving away from ego (X-distance ~1.30m, Y-distance ~32.97m), different lanelet.
+   - **Distance safety score**: 4 (Low Risk)
+   - **Time Risk reason**: Decelerating (-0.99m/s²), lateral separation increasing.
+   - **Time safety score**: 4 (Low Risk)
+   - **Overall Risk score**: 4 (Low Risk)
+
+4. **Obstacle ID: 3395.0**
+   - **Distance Risk reason**: Lateral separation (~40.69m Y-distance), moving away.
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: High velocity but orthogonal trajectory.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5 (Negligible Risk)
+
+5. **Obstacle ID: 3396.0**
+   - **Distance Risk reason**: Static (near-zero velocity), far Y-distance (~52.06m).
+   - **Distance safety score**: 5 (Negligible Risk)
+   - **Time Risk reason**: Minimal movement.
+   - **Time safety score**: 5 (Negligible Risk)
+   - **Overall Risk score**: 5 (Negligible Risk)
+
+### Chain of Thought Scenario Analysis:
+1. **Obstacle 3393.0** is the only critical threat: 
+   - Same lanelet as ego, closing rapidly (TTC ≈ 0.43m / (11.58 - 6.97) ≈ 0.09s).
+   - Persistent acceleration trend over 10 timesteps.
+   - Current distance < 5m with converging trajectories.
+2. All other obstacles are either static or moving away.
+3. No actual collision observed yet, but imminent without intervention.
+
+### JSON Summary:
+```json
+{
+    "CollisionObstacles": null,
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "3393.0",
+        "OverallRiskScore": 1
+    },
+    "ScenarioAnalysis": {
+        "IsCollisionScenario": false,
+        "Reasoning": "Obstacle 3393.0 poses extreme risk (score 1) due to high closing speed in same lanelet, but no collision has occurred yet."
+    }
+}
+```

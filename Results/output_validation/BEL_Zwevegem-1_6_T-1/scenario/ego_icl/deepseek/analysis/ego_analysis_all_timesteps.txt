@@ -1,0 +1,74 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 2.8 seconds)
+
+#### **Obstacle 315 (Front-left)**
+- **Adjusted Distance**: Longitudinal 20.00m, Lateral 2.85m  
+- **Relative Velocity**: Longitudinal -4.20 m/s (approaching), Lateral 0.10 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally, moving away laterally to the left.  
+- **TTC Longitudinal**: 20.00 / 4.20 ≈ 4.76s  
+- **TTC Lateral**: Not applicable (moving away)  
+- **MDC**: Lateral distance is increasing (2.85m), so MDC ≈ 2.85m  
+- **Risk Assessment**:  
+  - Longitudinal: Low Risk (TTC > 3.0s)  
+  - Lateral: No Risk (diverging)  
+  - **Overall Risk**: 4 (Low Risk)  
+
+#### **Obstacle 317 (Front-left)**
+- **Adjusted Distance**: Longitudinal 23.24m, Lateral 1.08m  
+- **Relative Velocity**: Longitudinal -5.33 m/s (approaching), Lateral 0.19 m/s (moving away)  
+- **Motion**: Driving toward ego longitudinally, moving away laterally to the left.  
+- **TTC Longitudinal**: 23.24 / 5.33 ≈ 4.36s  
+- **TTC Lateral**: Not applicable (moving away)  
+- **MDC**: Lateral distance is increasing (1.08m), so MDC ≈ 1.08m  
+- **Risk Assessment**:  
+  - Longitudinal: Low Risk (TTC > 3.0s)  
+  - Lateral: No Risk (diverging)  
+  - **Overall Risk**: 4 (Low Risk)  
+
+#### **Obstacle 333 (Behind)**
+- **Adjusted Distance**: Longitudinal -0.06m (almost aligned), Lateral 0.00m (exact alignment)  
+- **Relative Velocity**: Longitudinal 10.43 m/s (rapidly approaching), Lateral 0.37 m/s (minor lateral movement)  
+- **Motion**: Driving toward ego from behind with exact lateral alignment.  
+- **TTC Longitudinal**: 0.06 / 10.43 ≈ 0.0057s (≈ 5.7ms)  
+- **TTC Lateral**: Not applicable (no lateral closing velocity)  
+- **MDC**: 0.00m (exact lateral alignment, longitudinal distance ≈ 0m)  
+- **Risk Assessment**:  
+  - **Collision imminent** (MDC ≈ 0m, TTC ≈ 0s)  
+  - **Overall Risk**: 0 (Collision)  
+
+#### **Obstacle 338 (Behind)**
+- **Adjusted Distance**: Longitudinal -21.02m, Lateral 0.00m  
+- **Relative Velocity**: Longitudinal 7.42 m/s (approaching), Lateral 0.14 m/s (minor lateral movement)  
+- **Motion**: Driving toward ego from behind with exact lateral alignment.  
+- **TTC Longitudinal**: 21.02 / 7.42 ≈ 2.83s  
+- **TTC Lateral**: Not applicable (no lateral closing velocity)  
+- **MDC**: 0.00m (exact lateral alignment)  
+- **Risk Assessment**:  
+  - Longitudinal: Medium Risk (TTC < 3.0s)  
+  - Lateral: No Risk (no closing velocity)  
+  - **Overall Risk**: 3 (Medium Risk)  
+
+---
+
+### Trajectory Analysis
+- **Obstacle 333**: Rapidly closing from behind (longitudinal distance decreases from -8.07m to -0.06m in 0.9s). At 2.8s, it is almost colliding with ego (longitudinal distance ≈ 0m, exact lateral alignment).  
+- **Other obstacles**: No immediate collision risk (either moving away or TTC > 3.0s).  
+
+---
+
+### Final Determination
+- **Collision Scenario**: **YES** (Obstacle 333 has an overall risk score of 0, indicating an actual collision).  
+
+---
+
+### JSON Summary
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "333",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": null,
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 333 has effectively collided with the ego vehicle (longitudinal distance ≈ 0m, exact lateral alignment, and extremely low TTC ≈ 0s)."
+}
+```

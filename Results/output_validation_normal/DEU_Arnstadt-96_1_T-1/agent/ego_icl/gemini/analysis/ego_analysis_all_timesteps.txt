@@ -1,0 +1,27 @@
+Obstacle 20042 (Front):
+
+* Trajectory Analysis: This obstacle appears suddenly at t=0.8s. It is directly in front of the ego vehicle (lateral distance 0.00m) and approaching rapidly.  The longitudinal distance decreases significantly from 25.48m at t=0.8s to 23.39m at t=0.9s.
+* TTC Calculation (Longitudinal): TTC = distance / relative_velocity = 23.39m / |-21.03 m/s| = 1.11s
+* MDC: Given the direct front approach and rapid closing velocity, MDC is primarily determined by the longitudinal distance, which is 23.39m. This translates to an MDC risk score of 4 (Low risk if considered alone).
+* Risk Assessment: While the MDC suggests low risk, the rapidly decreasing longitudinal distance and the TTC of 1.11 seconds indicate a more serious situation. We classify this as High Risk (2) due to the imminent closure and potential for collision if the obstacle continues its current trajectory.
+
+Obstacle 20063 (Front-Right):
+
+* Trajectory Analysis: This obstacle starts at a front-right position and consistently moves further away from the ego vehicle both longitudinally and laterally across all timesteps.
+* TTC Calculation:  Since the obstacle is moving away (positive relative longitudinal velocity), TTC isn't applicable for collision risk assessment in this case.
+* MDC:  At t=0.9s, the obstacle is 23.55m longitudinally and -1.80m laterally away from the ego vehicle. The overall distance is increasing, making collision unlikely.  Given the substantial and increasing distances, we can determine an extremely large MDC > 5.0 m
+* Risk Assessment: Given the increasing separation, the risk is negligible (5).
+
+
+JSON Summary:
+
+```json
+{
+  "CollisionObstacle": null,
+  "ExtremeRiskObstacle": null,
+  "HighRiskObstacle": {
+    "ObstacleID": "20042",
+    "OverallRiskScore": "2"
+  }
+}
+```

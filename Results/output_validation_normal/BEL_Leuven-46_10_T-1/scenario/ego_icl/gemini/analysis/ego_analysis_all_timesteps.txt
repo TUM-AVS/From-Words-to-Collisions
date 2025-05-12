@@ -1,0 +1,62 @@
+* **Obstacle 30312 (Front-Left):**
+
+    * **Trajectory Analysis:** This obstacle has been consistently in the front-left of the ego vehicle.  Across the timesteps, the longitudinal distance is decreasing, indicating the obstacle is approaching the ego vehicle. However, the lateral distance is increasing, meaning the obstacle is moving further left and away from the ego vehicle's lane.
+
+    * **Calculations (at t=0.9s):**
+        * Longitudinal distance: 20.22m
+        * Lateral distance: 2.42m
+        * Longitudinal relative velocity: -0.46 m/s (approaching)
+        * Lateral relative velocity: 1.84 m/s (moving away)
+
+        * Longitudinal TTC = 20.22m / 0.46m/s ≈ 44s 
+        * Lateral TTC (not applicable as moving away)
+
+        * MDC ≈ 2.42m (using the lateral distance as it represents the smallest gap given the diverging lateral trajectories)
+
+    * **Risk Assessment:**
+        * Longitudinal Risk: No Risk (5) - large distance and slow relative velocity
+        * Lateral Risk: Low Risk (4) - distance >2m and moving away
+
+        * Overall Risk: Low Risk (4)
+
+* **Obstacle 30321 (Rear-Left):**
+
+    * **Trajectory Analysis:** Initially behind the ego vehicle, this obstacle has been consistently moving further behind and to the left. It poses no immediate threat.
+
+    * **Calculations (at t=0.9s):**
+        * Longitudinal distance: -22.22m (behind)
+        * Lateral distance: 3.12m
+        * Longitudinal relative velocity: -6.98 m/s (moving further behind)
+        * Lateral relative velocity: 6.15 m/s (moving away)
+
+        * Longitudinal TTC (not applicable as moving away)
+        * Lateral TTC (not applicable as moving away)
+
+
+        * MDC ≈ 3.12m (lateral distance is the smallest gap)
+
+    * **Risk Assessment:**
+        * Longitudinal Risk: No Risk (5)
+        * Lateral Risk: Low Risk (4)
+
+        * Overall Risk: No Risk (5) - Obstacle clearly moving away
+
+
+* **Collision Scenario Determination:**  No. Neither obstacle presents an extreme or collision risk.
+
+* **JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle has a risk score of 0 or 1. All obstacles are moving away from the ego vehicle or maintaining safe distances."
+}
+```

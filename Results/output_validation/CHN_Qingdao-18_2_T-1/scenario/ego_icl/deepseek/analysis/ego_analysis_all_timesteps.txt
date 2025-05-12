@@ -1,0 +1,54 @@
+### Obstacle-by-Obstacle Analysis (Most Recent Timestep: 4.1 seconds)
+
+#### **Obstacle 30655 (Front of ego car)**
+- **Adjusted Distance**: Longitudinal = 0.05m, Lateral = 0.00m  
+- **Relative Velocity**: Longitudinal = -3.75 m/s (approaching), Lateral = 0.00 m/s  
+- **Motion**: Driving toward ego longitudinally, exact lateral alignment.  
+- **TTC (Longitudinal)**: 0.05m / 3.75 m/s ≈ **0.013 seconds** (Extreme Risk, TTC ≤ 0.5s)  
+- **MDC**: 0.05m (Extreme Risk, MDC ≤ 0.5m)  
+- **Trajectory**: Over the last 0.9s, longitudinal distance decreased from 4.70m to 0.05m with consistent closing velocity. Lateral alignment remains exact (0.00m).  
+- **Risk**: **0 (Collision)**. The obstacle is effectively in contact with the ego vehicle (distance ≈ 0.05m longitudinally, 0.00m laterally) with closing velocity.
+
+#### **Obstacle 30656 (Front of ego car)**
+- **Adjusted Distance**: Longitudinal = 9.82m, Lateral = 0.00m  
+- **Relative Velocity**: Longitudinal = -11.74 m/s (approaching), Lateral = 5.47 m/s (approaching from right).  
+- **Motion**: Driving toward ego longitudinally and laterally.  
+- **TTC (Longitudinal)**: 9.82m / 11.74 m/s ≈ 0.84s (High Risk, TTC ≤ 1.0s).  
+- **TTC (Lateral)**: 0.00m / 5.47 m/s = 0s (Collision Risk).  
+- **MDC**: 0.00m (Collision Risk, exact lateral alignment with closing velocity).  
+- **Trajectory**: Laterally aligned at 4.1s (0.00m), but longitudinal distance is large. However, lateral closing velocity suggests imminent side collision.  
+- **Risk**: **0 (Collision)**. Exact lateral alignment with closing velocity (lateral TTC = 0s).
+
+#### **Obstacle 30658 (Behind of ego car)**
+- **Adjusted Distance**: Longitudinal = -17.64m, Lateral = 0.00m  
+- **Relative Velocity**: Longitudinal = 1.83 m/s (approaching from behind), Lateral = 1.71 m/s.  
+- **Motion**: Driving toward ego from behind, exact lateral alignment.  
+- **TTC (Longitudinal)**: Not applicable (positive relative velocity but large distance).  
+- **MDC**: 0.00m (same lane, but distance increasing).  
+- **Risk**: **5 (No Risk)**. Despite exact lateral alignment, the obstacle is far behind and not closing rapidly.
+
+---
+
+### **Collision Scenario Determination**
+- **Obstacle 30655**: Collision (Risk 0) due to near-zero longitudinal distance (0.05m) and exact lateral alignment.  
+- **Obstacle 30656**: Collision (Risk 0) due to exact lateral alignment (0.00m) with closing lateral velocity (TTC = 0s).  
+
+This is a **collision scenario** because two obstacles (30655 and 30656) have risk scores of 0. Obstacle 30655 is colliding longitudinally, while 30656 is colliding laterally.
+
+---
+
+### **JSON Summary**
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "30655",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "30656",
+        "OverallRiskScore": "0"
+    },
+    "IsCollisionScenario": true,
+    "Justification": "Obstacle 30655 is in direct longitudinal collision (0.05m distance, exact lateral alignment). Obstacle 30656 is in lateral collision (0.00m lateral distance with closing velocity)."
+}
+```

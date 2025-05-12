@@ -1,0 +1,47 @@
+**Obstacle 3520 Analysis:**
+
+- **Position and Motion:** Obstacle 3520 is consistently ahead of the ego vehicle. At the most recent timestep (13.8 seconds), its longitudinal distance is 19.34 meters and lateral distance is 0.00 meters. It is on the same lane (exact lateral alignment) but moving away from the ego car.
+  
+- **Trajectory Consistency:** Across previous timesteps, the obstacle distance is increasing steadily, indicating a divergence from the ego vehicle. Relative velocity is consistently showing the obstacle moving away longitudinally (velocity is positive but decreasing over time).
+  
+- **TTC and MDC Calculations:**
+  - Given the positive relative velocity away from the ego (6.69 m/s longitudinally), the obstacle's trajectory is diverging from the ego vehicle.
+  - Time-to-Collision (TTC) is non-applicable as the vehicle is moving away.
+  - Minimum Distance to Collision (MDC) is primarily determined by the longitudinal distance since lateral alignment is exact with a positive velocity moving away.
+
+- **Risk Assessment:** Based on trajectory and velocity, there is no immediate risk of collision. The MDC > 5.0m (19.34m longitudinally) and the trajectory indicates divergence. Hence the risk level is 5 (No Risk).
+
+**Obstacle 3523 Analysis:**
+
+- **Position and Motion:** Obstacle 3523 is behind the ego vehicle. At 13.8 seconds, its longitudinal distance is -1.45 meters, indicating it is behind and converging on the ego vehicle. The motion description details it is driving toward the ego vehicle longitudinally.
+  
+- **Trajectory Consistency:** Across previous timesteps, its longitudinal distance is decreasing, showing a consistent approach toward the ego car. This indicates a closing trajectory where the obstacle is getting nearer to the ego vehicle.
+  
+- **TTC and MDC Calculations:**
+  - Longitudinal relative velocity is 6.78 m/s (approaching the ego vehicle).
+  - TTC = distance / relative velocity = (-1.45 m) / 6.78 m/s = -0.214 seconds (TTC is negative indicating past proximity but still closing in).
+  - MDC is close given the convergence (-1.45 meters longitudinally).
+
+- **Risk Assessment:** The negative TTC implies rapid convergence with little time to react, but the absolute value reveals a nearly immediate risk condition. Therefore, a risk level of 2 (High Risk) is credible given the high speed of approach and trajectory alignment.
+
+**JSON Summary:**
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "0"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "1"
+    },
+    "HighRiskObstacle": {
+        "ObstacleID": "3523",
+        "OverallRiskScore": "2"
+    }
+}
+``` 
+
+**Conclusion:**
+Obstacle 3523 poses a high risk due to its high relative velocity towards the ego vehicle and diminishing distance, while Obstacle 3520 is moving away and poses no collision threat. This analysis is based on the most recent trajectory and positional data.

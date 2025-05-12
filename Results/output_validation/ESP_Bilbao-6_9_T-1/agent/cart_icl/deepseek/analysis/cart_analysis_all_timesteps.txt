@@ -1,0 +1,25 @@
+### Analysis:
+
+1. **Obstacle 30693.0**:
+   - **Position**: (112.904, 507.2809) - Same lanelet (134.0) as ego.
+   - **Velocity**: 0.0 (stationary).
+   - **Distance to Ego**: Ego is at (108.4918, 504.8301), obstacle is at (112.904, 507.2809). The Euclidean distance is approximately `sqrt((112.904 - 108.4918)^2 + (507.2809 - 504.8301)^2) ≈ 4.8m`.
+   - **Relative Motion**: Ego is decelerating (current velocity: 2.6206 m/s, acceleration: -0.7705 m/s²). The obstacle is stationary.
+   - **TTC**: If ego continues at current speed, TTC ≈ 4.8m / 2.6206 m/s ≈ 1.83s. With deceleration, TTC will increase.
+   - **Risk**: Medium Risk (3) - Ego is slowing down, and the obstacle is stationary. Manageable with continued deceleration.
+
+2. **Obstacle 30689.0**:
+   - **Position**: (119.6601, 524.6861) - Different lanelet (140.0) from ego (134.0).
+   - **Velocity**: 8.6645 m/s (moving away from ego).
+   - **Distance to Ego**: Ego is at (108.4918, 504.8301), obstacle is at (119.6601, 524.6861). The Euclidean distance is approximately `sqrt((119.6601 - 108.4918)^2 + (524.6861 - 504.8301)^2) ≈ 22.5m`.
+   - **Relative Motion**: Obstacle is moving away (velocity higher than ego's). No immediate collision risk.
+   - **Risk**: Negligible Risk (5) - No meaningful risk due to large distance and diverging paths.
+
+### JSON Output:
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": null
+}
+```

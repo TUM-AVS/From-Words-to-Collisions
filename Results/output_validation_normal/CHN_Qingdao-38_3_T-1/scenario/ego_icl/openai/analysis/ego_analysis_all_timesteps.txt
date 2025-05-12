@@ -1,0 +1,102 @@
+### Obstacle-by-Obstacle Analysis
+
+#### Obstacle 30666:
+- **Position at most recent timestep (0.9 seconds):** 
+  - Adjusted longitudinal distance: 9.45 m
+  - Adjusted lateral distance: -23.17 m
+- **Relative velocity components:** 
+  - Longitudinal: -2.91 m/s (moving away in the longitudinal direction)
+  - Lateral: -11.23 m/s (moving away laterally)
+- **Trajectory Analysis:**
+  - The obstacle is moving away from the ego vehicle in both directions.
+  - The obstacle begins to separate more significantly over time, with the lateral distance increasing.
+- **TTC Calculations:**
+  - Longitudinal TTC: Not applicable (since moving apart)
+  - Lateral TTC: Not applicable (since moving apart)
+- **Minimum Distance to Collision (MDC):**
+  - No immediate collision path due to the increase in lateral distance.
+- **Risk Assessment:** 
+  - Longitudinal: No risk
+  - Lateral: No risk
+- **Overall Risk Score:** 5 (No Risk)
+
+#### Obstacle 30667:
+- **Position at most recent timestep (0.9 seconds):** 
+  - Adjusted longitudinal distance: 10.24 m
+  - Adjusted lateral distance: 3.23 m
+- **Relative velocity components:** 
+  - Longitudinal: 0.27 m/s (moving slightly away longitudinally)
+  - Lateral: 7.38 m/s (moving away laterally)
+- **Trajectory Analysis:**
+  - Obstacle is moving away from the ego vehicle in both directions.
+- **TTC Calculations:**
+  - Longitudinal TTC: Not critical (small velocity away)
+  - Lateral TTC: Not applicable (moving away)
+- **Minimum Distance to Collision (MDC):**
+  - No collision path.
+- **Risk Assessment:** 
+  - Longitudinal: No risk
+  - Lateral: No risk
+- **Overall Risk Score:** 5 (No Risk)
+
+#### Obstacle 30669:
+- **Position at most recent timestep (0.9 seconds):** 
+  - Adjusted longitudinal distance: 8.35 m
+  - Adjusted lateral distance: 9.92 m
+- **Relative velocity components:** 
+  - Longitudinal: -4.33 m/s (heading towards ego)
+  - Lateral: -6.25 m/s (heading towards ego)
+- **Trajectory Analysis:**
+  - This obstacle poses a converging threat in both longitudinal and lateral components.
+- **TTC Calculations:**
+  - Longitudinal TTC: 8.35 / 4.33 ≈ 1.93 seconds
+  - Lateral TTC: 9.92 / 6.25 ≈ 1.59 seconds
+- **Minimum Distance to Collision (MDC):**
+  - Converging trajectory, potentially with <3 meters in future.
+- **Risk Assessment:** 
+  - Longitudinal: Medium Risk (1.93 seconds)
+  - Lateral: Medium Risk (1.59 seconds)
+- **Overall Risk Score:** 3 (Medium Risk)
+
+#### Obstacle 30670:
+- **Position at most recent timestep (0.9 seconds):** 
+  - Adjusted longitudinal distance: 11.23 m
+  - Adjusted lateral distance: -10.13 m
+- **Relative velocity components:** 
+  - Longitudinal: -3.70 m/s (approaching longitudinally)
+  - Lateral: 8.52 m/s (moving away laterally)
+- **Trajectory Analysis:**
+  - Approaching longitudinally but increasing lateral separation.
+- **TTC Calculations:**
+  - Longitudinal TTC: 11.23 / 3.70 ≈ 3.03 seconds
+  - Lateral TTC: Not applicable (moving away laterally)
+- **Minimum Distance to Collision (MDC):**
+  - Increasing lateral spread reduces collision likelihood.
+- **Risk Assessment:** 
+  - Longitudinal: Medium Risk (3.03 seconds)
+  - Lateral: No risk
+- **Overall Risk Score:** 3 (Medium Risk)
+
+### Collision Determination
+
+No obstacles currently meet the criteria for a collision (score 0) or present an extreme risk scenario (score 1).
+
+### JSON Summary
+
+```json
+{
+    "CollisionObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "ExtremeRiskObstacle": {
+        "ObstacleID": "None",
+        "OverallRiskScore": "None"
+    },
+    "IsCollisionScenario": false,
+    "Justification": "No obstacles are within extreme risk or collision range; trajectories indicate either separation or medium risk far from collision."
+}
+```
+
+### Conclusion
+This is not a collision scenario as no obstacles present an immediate or near-immediate collision threat. Most obstacles are either moving away or have trajectories that suggest sufficient separation.

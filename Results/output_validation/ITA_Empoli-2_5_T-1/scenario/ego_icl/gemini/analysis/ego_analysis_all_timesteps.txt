@@ -1,0 +1,49 @@
+* **Obstacle 39 (Front-Left):**  This obstacle has been approaching the ego vehicle longitudinally and moving slightly to the left laterally across all timesteps. At the last timestep (2.6s), it's at 3.42m longitudinal and 1.37m lateral distance. The longitudinal relative velocity is -9.65 m/s (approaching). Since lateral distance increasing, lateral relative velocity (1.53m/s) doesn't pose immediate risk.
+
+    * Longitudinal TTC = 3.42m / 9.65m/s ≈ 0.35s
+    * MDC ≈ 3.42m (primarily longitudinal risk)
+
+    * Risk Assessment:  TTC < 0.5s and MDC < 5m suggests **Extreme Risk (1)**
+
+* **Obstacle 352 (Front-Right):**  This obstacle is consistently moving away from the ego vehicle both longitudinally and laterally. At 2.6s, distances are 11.64m longitudinal and -1.48m lateral.  The positive relative velocities indicate increasing separation.
+
+    * TTC not applicable due to diverging trajectories in both dimensions.
+    * MDC > 5m
+
+    * Risk Assessment: **No Risk (5)**
+
+* **Obstacle 358 (Behind):** This obstacle is approaching the ego from behind, with longitudinal distance rapidly decreasing across timesteps. At 2.6s, longitudinal distance is -1.44m and lateral is 0.00m (directly behind in the same lane).  Relative longitudinal velocity is 4.67m/s (closing).
+
+    * TTC = 1.44m / 4.67m/s ≈ 0.31s
+    * MDC ≈ 1.44m
+
+    * Risk Assessment: TTC < 0.5s and MDC < 1.5m indicates **Extreme Risk (1)**.
+
+* **Obstacle 363 (Behind):** Similar to Obstacle 358, this is approaching from behind, but at a greater distance.  At 2.6s, the distance is -15.10m longitudinal and 0.00m lateral. Relative velocity is 4.32m/s.
+
+    * TTC = 15.10m / 4.32m/s ≈ 3.5s
+    * MDC > 5m (using predominantly longitudinal distance)
+
+    * Risk Assessment: TTC < 5s suggests **Low Risk (4)**.
+
+
+**Collision Scenario Determination:**
+
+Yes, this is a collision scenario. Both Obstacle 39 and Obstacle 358 have an Extreme Risk (1) assessment with TTC values below 0.5s and MDC also at critical levels, indicating an imminent collision if trajectories are maintained.
+
+**JSON Summary:**
+
+```json
+{
+  "CollisionObstacle": {
+        "ObstacleID": null, 
+        "OverallRiskScore": null
+    },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "39",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 39 has a TTC of 0.35s and MDC of ~3.42m while approaching the ego vehicle rapidly from the front.  Obstacle 358 has a TTC of 0.31s and MDC of ~1.44m while approaching rapidly from behind. Both indicate extremely high risk of imminent collision."
+}
+```

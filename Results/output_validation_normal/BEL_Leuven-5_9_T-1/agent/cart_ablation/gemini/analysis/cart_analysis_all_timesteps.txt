@@ -1,0 +1,23 @@
+Both Ego and Obstacle 30297.0 are traveling in the same lanelet (41.0) and have similar orientations, indicating they are moving in roughly the same direction.  The obstacle is behind the Ego vehicle, but the distance between them is decreasing over time.  Both are decelerating.
+
+To roughly estimate the risk, let's look at the longitudinal distance between them (along their direction of travel, approximating the lanelet as straight).  This can be done using the x-coordinates since they are moving in roughly the -y direction:
+
+* **t=0.1s:** Distance = 517.2187 - 506.9122 = 10.3065
+* **t=0.2s:** Distance = 516.2219 - 505.7748 = 10.4471  (slightly increased due to deceleration differences)
+* **t=0.3s:** Distance = 515.2501 - 504.6664 = 10.5837
+* ...
+* **t=0.9s:** Distance = 509.9047 - 498.6205 = 11.2842
+
+While the distance is not drastically decreasing at a constant rate, the trend over the provided timesteps suggests the gap is closing.  The deceleration rates are fluctuating, which makes it harder to definitively predict a collision in the very near future. However, the closing distance combined with the fact they're in the same lane warrants classifying the obstacle as a high risk (2). There isn't enough information to definitively say a collision is imminent or unavoidable.
+
+
+```json
+{
+    "CollisionObstacles": [],
+    "ExtremeRiskObstacle": null,
+    "HighRiskObstacle": {
+        "ObstacleID": "30297.0",
+        "OverallRiskScore": 2
+    }
+}
+```

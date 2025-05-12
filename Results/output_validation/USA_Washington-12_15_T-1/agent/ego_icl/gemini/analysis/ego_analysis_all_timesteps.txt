@@ -1,0 +1,76 @@
+Obstacle 30604 (Front-Left):
+- Trajectory: Moving closer to the ego vehicle longitudinally but further away laterally.
+- Longitudinal distance: 17.41m, Lateral distance: 5.54m
+- Longitudinal relative velocity: -10.73 m/s (approaching)
+- Lateral relative velocity: -0.02 m/s (slightly approaching)
+- Longitudinal TTC: 17.41 / 10.73 = 1.62s
+- Lateral TTC: Not applicable as the overall lateral movement is diverging.
+- MDC: Considering both longitudinal and lateral distances, MDC > 5.54m
+- Risk Assessment: Medium Risk (3) due to the longitudinal TTC.
+
+Obstacle 30606 (Front-Left):
+- Trajectory: Moving closer to the ego vehicle both longitudinally and laterally.
+- Longitudinal distance: 7.93m, Lateral distance: 2.00m
+- Longitudinal relative velocity: -13.95 m/s (approaching)
+- Lateral relative velocity: -0.05 m/s (slightly approaching)
+- Longitudinal TTC: 7.93 / 13.95 = 0.57s
+- Lateral TTC: Not applicable as the overall lateral movement is diverging.
+- MDC: Considering both longitudinal and lateral distances, MDC ≈ 7.93m
+- Risk Assessment: High Risk (2) due to the longitudinal TTC.
+
+Obstacle 30610 (Front):
+- Trajectory: Moving closer to the ego vehicle longitudinally. Lateral distance remains 0.
+- Longitudinal distance: 15.53m, Lateral distance: 0.00m
+- Longitudinal relative velocity: -1.88 m/s (approaching)
+- Lateral relative velocity: 0.00 m/s 
+- Longitudinal TTC: 15.53 / 1.88 = 8.26s
+- Lateral TTC: Not applicable, maintains alignment.
+- MDC: Given the continuous lateral alignment, MDC = 15.53m if the longitudinal distance decreases to zero. However, based on current information, there's no immediate lateral movement towards the ego vehicle.
+- Risk Assessment: Low Risk (4) due to the longitudinal TTC and lateral alignment without converging trajectory.
+
+Obstacle 30613 (Front):
+- Trajectory: Moving closer to the ego vehicle longitudinally. Lateral distance remains 0.
+- Longitudinal distance: 8.01m, Lateral distance: 0.00m
+- Longitudinal relative velocity: -1.87 m/s (approaching)
+- Lateral relative velocity: 0.00 m/s
+- Longitudinal TTC: 8.01 / 1.87 = 4.28s
+- Lateral TTC: Not applicable, maintains alignment.
+- MDC: Similar to Obstacle 30610, MDC = 8.01m if longitudinal distance decreases to zero. However, there is no immediate lateral movement towards the ego vehicle.
+- Risk Assessment: Low Risk (4) due to longitudinal TTC and lateral alignment without converging trajectory.
+
+
+Obstacle 30614 (Front):
+- Trajectory: Moving closer to the ego vehicle longitudinally. Lateral distance remains 0.
+- Longitudinal distance: 0.45m, Lateral distance: 0.00m
+- Longitudinal relative velocity: -1.81 m/s (approaching)
+- Lateral relative velocity: 0.00 m/s
+- Longitudinal TTC: 0.45 / 1.81 = 0.25s
+- Lateral TTC: Not applicable, maintains alignment.
+- MDC: With perfect lateral alignment and decreasing longitudinal distance, MDC = 0.45m
+- Risk Assessment: Extreme Risk (1) due to the low longitudinal TTC and MDC.
+
+Obstacle 30626 (Front-Right):
+- Trajectory: Moving slightly further away longitudinally from the ego vehicle but slightly closer laterally.
+- Longitudinal distance: 14.85m, Lateral distance: -1.75m
+- Longitudinal relative velocity: 0.80 m/s (moving away)
+- Lateral relative velocity: 0.01 m/s (slightly approaching)
+- Longitudinal TTC: Not applicable as they are moving apart.
+- Lateral TTC: 1.75 / 0.01 = 175 seconds. This is misleading since lateral distance is already negative.  The obstacle is to the right of the ego vehicle.
+- MDC: As the obstacle is on the right and moving away longitudinally, MDC > 5.0m.
+- Risk Assessment: Negligible risk (5) due to diverging longitudinal trajectory despite slight lateral approach which would not lead to a collision given longitudinal movement.
+
+
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "30614",
+    "OverallRiskScore": "1"
+  },
+  "PredictedCollisionObstacle": {
+    "ObstacleID": "30614",
+    "OverallRiskScore": "1"
+  }
+}
+```

@@ -1,0 +1,36 @@
+At timestep 3.5s, obstacle 30200 is in the same lane as the ego vehicle and is closing in.  Obstacle 30201 is in a different lanelet and poses less of a risk.
+
+Calculations for obstacle 30200 at 3.5s:
+
+* **Ego Position:** (-445.8396, -363.4614)
+* **Obstacle 30200 Position:** (-449.9986, -359.7496)
+* **Longitudinal Distance:** -449.9986 - (-445.8396) = -4.159m (Obstacle is behind Ego)
+* **Lateral Distance:**  -359.7496 - (-363.4614) = 3.7118m
+* **Ego Velocity:** 7.6595 m/s
+* **Obstacle 30200 Velocity:** 13.0869 m/s
+* **Relative Longitudinal Velocity:** 13.0869 - 7.6595 = 5.4274 m/s (Obstacle is closing in)
+* **TTC:** -4.159 / 5.4274 = -0.766 seconds (Likely to overtake soon)
+
+Given the negative TTC and the relatively small lateral distance, obstacle 30200 presents a high risk. Although it's likely an overtaking maneuver, the lateral distance is not large enough for comfort, suggesting a risky overtake. We will categorize this as a high risk (2) due to the potential for a dangerous cut-in by the obstacle.  Obstacle 30201 is moving away from the ego vehicle laterally and longitudinally and hence poses a low risk.
+
+```json
+{
+  "CollisionObstacles": [],
+  "ExtremeRiskObstacle": null,
+  "PredictedCollisionObstacle": null,
+    "HighRiskObstacles": [
+        {
+            "ObstacleID": "30200",
+            "OverallRiskScore": 2
+        }
+    ],
+        "MediumRiskObstacles": [],
+        "LowRiskObstacles":[
+                {
+            "ObstacleID": "30201",
+            "OverallRiskScore": 4
+        }
+            ],
+        "NegligibleRiskObstacles":[]
+}
+```

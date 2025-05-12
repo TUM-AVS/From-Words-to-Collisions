@@ -1,0 +1,22 @@
+* **Obstacle 3298 (Front):** This obstacle is directly in front of the ego vehicle and approaching longitudinally.  Across the timesteps, the longitudinal distance consistently decreases, indicating a closing trajectory. At the last timestep (4.1s), the longitudinal distance is 10.10m. Assuming a constant relative velocity of -3.14 m/s, the TTC is approximately 3.2 seconds.  The lateral distance remains 0.00m, meaning the obstacle stays in the same lane. However, with a safe longitudinal distance and TTC, the lateral alignment doesn't pose an immediate threat. MDC is primarily determined by the lateral distance (which is minimal) but given the longitudinal separation, the risk isn't immediate.  The risk level is **Low (4)** due to the closing distance but safe TTC.
+
+* **Obstacle 3300 (Front-Right):**  This obstacle is approaching the ego vehicle diagonally from the front-right.  Both longitudinal and lateral distances decrease across the timesteps. At the last timestep (4.1s), the longitudinal distance is 9.96m and the lateral distance is -8.90m.  The relative longitudinal velocity (-3.14 m/s) gives a TTC of about 3.2 seconds longitudinally. The consistent lateral distance suggests a low lateral velocity close to zero, meaning the lateral TTC is large and not a concern. The MDC is primarily influenced by the larger lateral distance. Overall, the risk is **Low (4)** based on distances, TTC and directions of motion.
+
+* **Obstacle 3301 (Front):** This obstacle is directly in front of the ego vehicle and rapidly approaching. The longitudinal distance decreases significantly across the timesteps. At the last timestep (4.1s), the longitudinal distance is a mere 0.14m, and the relative velocity is -0.98 m/s.  This extremely close proximity combined with the closing velocity signifies an imminent collision.  The calculated TTC is about 0.14 seconds. MDC is also extremely low (close to zero). The lateral distance remains 0.00m throughout, indicating the obstacle is centered in the same lane as the ego, adding to the collision likelihood. This represents an **Extreme Risk (1)**.
+
+
+**Collision Scenario Determination:**
+
+Yes, this is a collision scenario. Obstacle 3301 poses an Extreme Risk (1) with an extremely low TTC (0.14s) and MDC (near 0m), indicating a near-certain collision in the next instant.
+
+```json
+{
+  "CollisionObstacle": {},
+  "ExtremeRiskObstacle": {
+    "ObstacleID": "3301",
+    "OverallRiskScore": "1"
+  },
+  "IsCollisionScenario": true,
+  "Justification": "Obstacle 3301 has an extremely low TTC (0.14s) and MDC (near 0m) at the last timestep, indicating an imminent collision."
+}
+```

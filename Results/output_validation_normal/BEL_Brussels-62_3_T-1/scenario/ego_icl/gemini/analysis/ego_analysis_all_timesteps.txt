@@ -1,0 +1,39 @@
+* **Obstacle 30206 (Front):** This obstacle is directly in front of the ego vehicle and approaching longitudinally.  The lateral distance remains at 0.00 m across all timesteps, indicating perfect lateral alignment. The longitudinal distance decreases consistently from 8.69m to 8.20m over 0.9 seconds.  The relative longitudinal velocity is approximately -0.62 m/s.
+
+    * **MDC:**  Given the persistent lateral alignment and the motion description, MDC is effectively the consistently decreasing longitudinal distance of 8.20m at the last timestep. This falls into the Low-Risk category according to MDC distance criteria.
+    * **TTC (Longitudinal):** TTC = 8.20m / 0.62 m/s ≈ 13.23 seconds. This corresponds to No Risk.
+
+    * **Overall Risk:** Low Risk (4) - driven by the MDC
+
+* **Obstacle 30209 (Behind):**  This obstacle is behind the ego vehicle and initially approaching. The lateral distance is consistently 0.00m, indicating continued alignment.  However, the longitudinal distance change is more complex. While decreasing from -9.50m to -9.19m from 0.1 to 0.8 seconds, it remains almost stable around -9.19 at 0.8 and 0.9 seconds, indicating the obstacle has slowed significantly. The relative longitudinal velocity at the last timestep is a mere 0.05 m/s.
+
+    * **MDC:** Due to the lateral alignment and the description, MDC is equivalent to the longitudinal distance at 9.19m. Low Risk (4) according to MDC distance criteria.
+    * **TTC (Longitudinal):** TTC = 9.19m / 0.05 m/s ≈ 183.8 seconds. No risk.
+
+    * **Overall Risk:** Low Risk (4)- driven by the MDC
+
+* **Obstacle 30210 (Behind):** This obstacle is far behind the ego vehicle and moving away. Lateral distance is 0.00m (aligned).  Longitudinal distance increases from -24.66m to -24.76m throughout the scenario.  The relative longitudinal velocity is negative (-0.13 m/s), confirming the diverging trajectory.
+
+    * **MDC:** Longitudinally, the large and increasing distance indicates No Risk (5). MDC = 24.76m
+    * **TTC:** Not applicable given the negative relative velocity – the vehicles are moving apart longitudinally.
+
+    * **Overall Risk:** No Risk (5)
+
+
+**Collision Scenario Determination:**  No obstacle has a risk score of 0 or 1.  Therefore, this is NOT a collision scenario.
+
+
+```json
+{
+  "CollisionObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "ExtremeRiskObstacle": {
+    "ObstacleID": null,
+    "OverallRiskScore": null
+  },
+  "IsCollisionScenario": false,
+  "Justification": "No obstacle poses an extreme or collision risk. All obstacles maintain safe distances and/or diverging trajectories relative to the ego vehicle."
+}
+```

@@ -1,4 +1,12 @@
 # 🚗💥 From Words to Collisions: LLM-Guided Evaluation and Adversarial Generation of Safety-Critical Driving Scenarios
+<div align="center">
+<a href="https://arxiv.org/abs/2502.02145"><img src="https://img.shields.io/badge/Paper-PDF-red.svg" alt="Paper Badge"/></a>
+<a href="https://github.com/TUM-AVS/From-Words-to-Collisions/stargazers"><img src="https://img.shields.io/github/stars/TUM-AVS/From-Words-to-Collisions" alt="Stars Badge"/></a>
+<a href="https://github.com/TUM-AVS/From-Words-to-Collisions/network/members"><img src="https://img.shields.io/github/forks/TUM-AVS/From-Words-to-Collisions" alt="Forks Badge"/></a>
+<a href="https://github.com/TUM-AVS/From-Words-to-Collisions/pulls"><img src="https://img.shields.io/github/issues-pr/TUM-AVS/From-Words-to-Collisions" alt="Pull Requests Badge"/></a>
+<a href="https://github.com/TUM-AVS/From-Words-to-Collisions/issues"><img src="https://img.shields.io/github/issues/TUM-AVS/From-Words-to-Collisions" alt="Issues Badge"/></a>
+<a href="https://github.com/TUM-AVS/From-Words-to-Collisions/blob/main/LICENSE"><img src="https://img.shields.io/github/license/TUM-AVS/From-Words-to-Collisions" alt="License Badge"/></a>
+</div>
 
 ![Framework](https://github.com/user-attachments/assets/a3253a9d-f6a3-4969-a3ad-25406957537f)
 
@@ -26,6 +34,9 @@ We propose a novel framework that leverages Large Language Models (LLMs) for:
   </tr>
 </table>
 
+## :fire: Updates
+- [July 2025] Paper accepted at IEEE ITSC 2025
+- [May 2025] Project repository initialized
 ---
 ## 🗂️ Project Structure
 

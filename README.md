@@ -83,6 +83,13 @@ DEEPSEEK_API_KEY=your_deepseek_key
 ### 📖 Citation
 If you find this work helpful in your research, please consider citing us:
 
+@article{gao2025words,
+  title={From Words to Collisions: LLM-Guided Evaluation and Adversarial Generation of Safety-Critical Driving Scenarios},
+  author={Gao, Yuan and Piccinini, Mattia and Moller, Korbinian and Alanwar, Amr and Betz, Johannes},
+  journal={arXiv preprint arXiv:2502.02145}  [Add to Citavi project by ArXiv ID] ,
+  year={2025}
+}
+
 
 
 
